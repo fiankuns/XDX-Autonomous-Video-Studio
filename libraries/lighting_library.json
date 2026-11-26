@@ -1,0 +1,73 @@
+{
+  "schema_version": "3.3.0",
+  "library_id": "lighting_library",
+  "library_name": "Lighting Library",
+  "category": "lighting_rigs",
+  "version": "3.3.0",
+  "description": "Cross-engine matched Three-Point, Cozy Interior, Daylight Exterior, and Chiaroscuro Horror lighting rigs.",
+  "presets": [
+    {
+      "id": "light_cozy_warm_interior",
+      "name": "Warm Indonesian Interior Diorama Rig",
+      "parameters": {
+        "key_temp_k": 3800,
+        "key_intensity": 2.4,
+        "fill_temp_k": 5200,
+        "fill_intensity": 0.75,
+        "rim_intensity": 1.1,
+        "soft_shadow_radius_m": 0.35
+      },
+      "version": "1.0.0",
+      "source": "XDX Art Direction Bible",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "light_crisp_tropical_daylight",
+      "name": "Crisp Tropical Daylight Street Miniature",
+      "parameters": {
+        "sun_temp_k": 5600,
+        "sun_intensity": 3.2,
+        "sky_hemisphere_intensity": 1.0,
+        "sun_elevation_deg": 52.0,
+        "shadow_softness": 0.22
+      },
+      "version": "1.0.0",
+      "source": "XDX Art Direction Bible",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "light_horror_chiaroscuro",
+      "name": "Low-Key Horror Practical Flicker & Rim",
+      "parameters": {
+        "key_temp_k": 4300,
+        "key_intensity": 1.15,
+        "fill_intensity": 0.12,
+        "rim_hex": "#38BDF8",
+        "rim_intensity": 1.6,
+        "flicker_seed": 13
+      },
+      "version": "1.0.0",
+      "source": "XDX Art Direction Bible",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "horor",
+        "storytelling"
+      ]
+    }
+  ]
+}

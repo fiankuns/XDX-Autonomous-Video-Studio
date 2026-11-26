@@ -1,0 +1,96 @@
+{
+  "schema_version": "3.3.0",
+  "library_id": "camera_library",
+  "library_name": "Camera Library",
+  "category": "cinematography_and_lenses",
+  "version": "3.3.0",
+  "description": "Vertical 9:16 & 16:9 locked-sensor camera rigs, focal lengths, and deterministic motion paths.",
+  "presets": [
+    {
+      "id": "cam_establishing_diorama_28mm",
+      "name": "Establishing Miniature Diorama Wide (28mm)",
+      "parameters": {
+        "shot_size": "establishing",
+        "focal_length_mm": 28.0,
+        "sensor_width_mm": 36.0,
+        "angle": "slight_high_isometric_18deg",
+        "dof_fstop": 5.6,
+        "motion": "slow_push_in"
+      },
+      "version": "1.0.0",
+      "source": "XDX Cinematography Engine",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "cam_medium_storyteller_40mm",
+      "name": "Medium Character & Context (40mm Natural)",
+      "parameters": {
+        "shot_size": "medium",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "angle": "eye_level",
+        "dof_fstop": 4.0,
+        "motion": "locked_subtle_drift"
+      },
+      "version": "1.0.0",
+      "source": "XDX Cinematography Engine",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "cam_insert_evidence_macro_70mm",
+      "name": "Evidence / Prop Detail Insert (70mm)",
+      "parameters": {
+        "shot_size": "insert",
+        "focal_length_mm": 70.0,
+        "sensor_width_mm": 36.0,
+        "angle": "top_down_or_35deg",
+        "dof_fstop": 2.8,
+        "motion": " crisp_pan_settle"
+      },
+      "version": "1.0.0",
+      "source": "XDX Cinematography Engine",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs",
+        "remotion"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "cam_horror_dutch_corridor_32mm",
+      "name": "Horror Dutch-Tilt Slow Dolly (32mm)",
+      "parameters": {
+        "shot_size": "wide",
+        "focal_length_mm": 32.0,
+        "sensor_width_mm": 36.0,
+        "roll_deg": -7.5,
+        "angle": "low_uneasy",
+        "dof_fstop": 2.8,
+        "motion": "creeping_dolly_in"
+      },
+      "version": "1.0.0",
+      "source": "XDX Cinematography Engine",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "horor",
+        "storytelling"
+      ]
+    }
+  ]
+}

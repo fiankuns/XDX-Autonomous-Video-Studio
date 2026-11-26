@@ -1,0 +1,14 @@
+# XDX Autonomous Video Studio v3.3 — Verified Python Dependency Lockfile
+# Generated from audited & runtime-tested packages (Python 3.12 / Linux & ARM64 compatible)
+pydantic==2.14.3
+pydantic_core==2.50.4
+jsonschema==4.26.0
+PyYAML==6.0.4
+numpy==2.5.5
+opencv-python-headless==5.1.0.95
+Pillow==13.0.0
+starlette==1.10.0
+uvicorn==0.54.0
+av==19.0.2
+playwright==1.65.2
+pytest==9.2.0

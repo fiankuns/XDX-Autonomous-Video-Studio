@@ -1,0 +1,43 @@
+# Python bytecode & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node dependencies & build caches (never commit node_modules)
+node_modules/
+.remotion/
+dist/
+build/
+
+# XDX Studio local asset cache, renders, and large media (NEVER commit large assets or caches)
+.xdx_cache/
+cache/
+projects/*/renders/
+projects/*/output/
+projects/*/audio/*.wav
+projects/*/assets/downloaded/
+projects/*/scenes/*.blend
+*.blend
+*.blend1
+*.glb
+*.hdr
+*.exr
+*.wav
+*.mp4
+!tests/fixtures/synthetic.mp4
+
+# Secrets, tokens, pairing configs, and credentials (STRICTLY FORBIDDEN IN GIT)
+.env
+.env.*
+!.env.example
+*secret*
+*credentials*
+*auth_token*
+mcp_config.local.json
+antigravity_mcp_config.local.json

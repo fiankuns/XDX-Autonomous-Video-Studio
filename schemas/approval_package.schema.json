@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio/schemas/approval_package.schema.json",
+  "title": "XDX 13-Item Mandatory Approval Gate Manifest Schema v3.3",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project_id",
+    "package_version",
+    "status",
+    "package_digest",
+    "mandatory_13_items",
+    "required_files_sha256"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "3.3.0" },
+    "project_id": { "type": "string", "minLength": 1 },
+    "package_version": { "type": "string", "pattern": "^v[0-9]+(\\.[0-9]+)*$" },
+    "status": {
+      "type": "string",
+      "enum": ["WAITING_APPROVAL", "RECORD_MATCH_ONLY", "APPROVED", "BLOCKED"]
+    },
+    "package_digest": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "mandatory_13_items": {
+      "type": "object",
+      "required": [
+        "01_topic_and_concept",
+        "02_research_results",
+        "03_full_script",
+        "04_narration_and_dialogue",
+        "05_clip_by_clip_storyboard",
+        "06_shot_timestamps_and_durations",
+        "07_camera_framing_cutaway_transitions",
+        "08_complete_asset_list",
+        "09_character_designs",
+        "10_motion_plan",
+        "11_caption_and_audio_plan",
+        "12_engine_selection_per_shot",
+        "13_hybrid_execution_plan"
+      ],
+      "properties": {
+        "01_topic_and_concept": { "$ref": "#/$defs/itemRef" },
+        "02_research_results": { "$ref": "#/$defs/itemRef" },
+        "03_full_script": { "$ref": "#/$defs/itemRef" },
+        "04_narration_and_dialogue": { "$ref": "#/$defs/itemRef" },
+        "05_clip_by_clip_storyboard": { "$ref": "#/$defs/itemRef" },
+        "06_shot_timestamps_and_durations": { "$ref": "#/$defs/itemRef" },
+        "07_camera_framing_cutaway_transitions": { "$ref": "#/$defs/itemRef" },
+        "08_complete_asset_list": { "$ref": "#/$defs/itemRef" },
+        "09_character_designs": { "$ref": "#/$defs/itemRef" },
+        "10_motion_plan": { "$ref": "#/$defs/itemRef" },
+        "11_caption_and_audio_plan": { "$ref": "#/$defs/itemRef" },
+        "12_engine_selection_per_shot": { "$ref": "#/$defs/itemRef" },
+        "13_hybrid_execution_plan": { "$ref": "#/$defs/itemRef" }
+      },
+      "additionalProperties": false
+    },
+    "required_files_sha256": {
+      "type": "object",
+      "minProperties": 11,
+      "additionalProperties": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+    }
+  },
+  "$defs": {
+    "itemRef": {
+      "type": "object",
+      "required": ["present", "artifact_file", "summary"],
+      "properties": {
+        "present": { "type": "boolean", "const": true },
+        "artifact_file": { "type": "string", "minLength": 3 },
+        "summary": { "type": "string", "minLength": 5 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

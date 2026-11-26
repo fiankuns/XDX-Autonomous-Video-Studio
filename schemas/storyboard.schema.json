@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio/schemas/storyboard.schema.json",
+  "title": "XDX Deterministic Master Storyboard Schema v3.3",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project_id",
+    "fps",
+    "width",
+    "height",
+    "aspect_ratio",
+    "total_frames",
+    "duration_s",
+    "style_bible_id",
+    "shots"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "3.3.0" },
+    "project_id": { "type": "string", "minLength": 1 },
+    "fps": { "type": "integer", "minimum": 1, "maximum": 120 },
+    "width": { "type": "integer", "minimum": 128 },
+    "height": { "type": "integer", "minimum": 128 },
+    "aspect_ratio": { "type": "string", "enum": ["9:16", "16:9", "1:1", "4:5"] },
+    "total_frames": { "type": "integer", "minimum": 1 },
+    "duration_s": { "type": "number", "exclusiveMinimum": 0 },
+    "style_bible_id": { "type": "string", "minLength": 1 },
+    "shots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "shot_id",
+          "scene_id",
+          "beat_id",
+          "start_frame",
+          "end_frame",
+          "duration_frames",
+          "start_time_s",
+          "end_time_s",
+          "duration_s",
+          "primary_engine",
+          "narration_segment",
+          "dialogue_lines",
+          "action_start",
+          "action_mid",
+          "action_end",
+          "camera",
+          "cutaway",
+          "transition_in",
+          "transition_out",
+          "character_ids",
+          "environment_id",
+          "asset_ids",
+          "lighting_preset_id",
+          "material_preset_ids",
+          "sfx_cues",
+          "caption_cue_ids",
+          "qc_criteria"
+        ],
+        "properties": {
+          "shot_id": { "type": "string", "pattern": "^S[0-9]{3,}$" },
+          "scene_id": { "type": "string", "minLength": 1 },
+          "beat_id": { "type": "string", "minLength": 1 },
+          "start_frame": { "type": "integer", "minimum": 0 },
+          "end_frame": { "type": "integer", "minimum": 1 },
+          "duration_frames": { "type": "integer", "minimum": 1, "maximum": 300 },
+          "start_time_s": { "type": "number", "minimum": 0 },
+          "end_time_s": { "type": "number", "exclusiveMinimum": 0 },
+          "duration_s": { "type": "number", "exclusiveMinimum": 0, "maximum": 10.0 },
+          "primary_engine": { "type": "string", "enum": ["blender", "threejs", "remotion"] },
+          "overlay_engine": { "type": ["string", "null"], "enum": ["remotion", null] },
+          "narration_segment": { "type": "string" },
+          "dialogue_lines": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["speaker_id", "line", "delivery"],
+              "properties": {
+                "speaker_id": { "type": "string" },
+                "line": { "type": "string" },
+                "delivery": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "action_start": { "type": "string", "minLength": 1 },
+          "action_mid": { "type": "string", "minLength": 1 },
+          "action_end": { "type": "string", "minLength": 1 },
+          "camera": {
+            "type": "object",
+            "required": [
+              "preset_id",
+              "shot_size",
+              "angle",
+              "focal_length_mm",
+              "sensor_width_mm",
+              "position_start",
+              "position_end",
+              "target",
+              "motion_curve"
+            ],
+            "properties": {
+              "preset_id": { "type": "string" },
+              "shot_size": {
+                "type": "string",
+                "enum": ["establishing", "wide", "medium", "close_up", "insert", "reaction", "cutaway"]
+              },
+              "angle": { "type": "string" },
+              "focal_length_mm": { "type": "number", "minimum": 10, "maximum": 200 },
+              "sensor_width_mm": { "type": "number", "minimum": 10, "maximum": 70 },
+              "position_start": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+              "position_end": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+              "target": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+              "motion_curve": { "type": "string" },
+              "dof_fstop": { "type": "number" }
+            },
+            "additionalProperties": false
+          },
+          "cutaway": {
+            "type": "object",
+            "required": ["is_cutaway", "purpose"],
+            "properties": {
+              "is_cutaway": { "type": "boolean" },
+              "purpose": { "type": "string" }
+            },
+            "additionalProperties": false
+          },
+          "transition_in": { "type": "string" },
+          "transition_out": { "type": "string" },
+          "character_ids": { "type": "array", "items": { "type": "string" } },
+          "environment_id": { "type": "string" },
+          "asset_ids": { "type": "array", "items": { "type": "string" } },
+          "lighting_preset_id": { "type": "string" },
+          "material_preset_ids": { "type": "array", "items": { "type": "string" } },
+          "vfx_preset_ids": { "type": "array", "items": { "type": "string" } },
+          "particle_preset_ids": { "type": "array", "items": { "type": "string" } },
+          "sfx_cues": { "type": "array", "items": { "type": "string" } },
+          "caption_cue_ids": { "type": "array", "items": { "type": "string" } },
+          "qc_criteria": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

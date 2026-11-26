@@ -1,0 +1,80 @@
+{
+  "schema_version": "3.3.0",
+  "library_id": "lip_sync_library",
+  "library_name": "Lip Sync Library",
+  "category": "viseme_and_speech_sync",
+  "version": "3.3.0",
+  "description": "Preston Blair / Rhubarb A-H + X viseme mappings and off-screen VO lock policy.",
+  "presets": [
+    {
+      "id": "lip_offscreen_narrator_lock",
+      "name": "Off-Screen Indonesian Narrator (No Fake Lip-Sync)",
+      "parameters": {
+        "mode": "offscreen_vo",
+        "mouth_closed_expression_only": true,
+        "require_phoneme_alignment": false
+      },
+      "version": "1.0.0",
+      "source": "XDX Master Prompt v3.1/v3.3 Rule",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs",
+        "remotion"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "lip_rhubarb_preston_blair_9",
+      "name": "Rhubarb 9-Viseme Map (A, B, C, D, E, F, G, H, X)",
+      "parameters": {
+        "mode": "viseme_track",
+        "viseme_set": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "X"
+        ],
+        "blend_frames": 2,
+        "jaw_max_deg": 14.0
+      },
+      "version": "1.0.0",
+      "source": "DanielSWolf/rhubarb-lip-sync Viseme Standard",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "lip_indonesian_syllable_cadence",
+      "name": "Indonesian Clear Vowel Articulation Envelope",
+      "parameters": {
+        "mode": "syllable_viseme_assisted",
+        "open_vowels": [
+          "a",
+          "e",
+          "i",
+          "o",
+          "u"
+        ],
+        "smoothing_ms": 45,
+        "require_verified_timestamps": true
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "specification_only"
+    }
+  ]
+}

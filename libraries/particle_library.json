@@ -1,0 +1,92 @@
+{
+  "schema_version": "3.3.0",
+  "library_id": "particle_library",
+  "library_name": "Particle Library",
+  "category": "deterministic_particles",
+  "version": "3.3.0",
+  "description": "Seeded frame-deterministic 3D and 2D particle emitters (zero non-deterministic wall-clock drift).",
+  "presets": [
+    {
+      "id": "part_warm_dust_motes",
+      "name": "Warm Sunbeam Dust Motes",
+      "parameters": {
+        "count": 120,
+        "seed": 101,
+        "bounds_m": [
+          3.0,
+          2.5,
+          3.0
+        ],
+        "speed_mps": 0.06,
+        "size_m": 0.015,
+        "color_hex": "#FFF3D6",
+        "opacity": 0.45
+      },
+      "version": "1.0.0",
+      "source": "XDX Deterministic Particle Spec",
+      "license": "MIT",
+      "engine_compatibility": [
+        "threejs",
+        "blender",
+        "remotion"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "part_absurd_confetti_burst",
+      "name": "Comedic Payoff Confetti Burst",
+      "parameters": {
+        "count": 90,
+        "seed": 777,
+        "gravity_mps2": -6.5,
+        "burst_velocity_mps": 3.8,
+        "palette": [
+          "#FF595E",
+          "#FFCA3A",
+          "#8AC926",
+          "#1982C4"
+        ]
+      },
+      "version": "1.0.0",
+      "source": "XDX Deterministic Particle Spec",
+      "license": "MIT",
+      "engine_compatibility": [
+        "threejs",
+        "remotion"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "komedi_absurd",
+        "explainer"
+      ]
+    },
+    {
+      "id": "part_horror_ash_mist",
+      "name": "Eerie Floating Ash & Low Mist",
+      "parameters": {
+        "count": 160,
+        "seed": 666,
+        "bounds_m": [
+          4.0,
+          2.0,
+          4.0
+        ],
+        "speed_mps": 0.09,
+        "color_hex": "#94A3B8",
+        "opacity": 0.32
+      },
+      "version": "1.0.0",
+      "source": "XDX Deterministic Particle Spec",
+      "license": "MIT",
+      "engine_compatibility": [
+        "threejs",
+        "blender"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "horor",
+        "sejarah"
+      ]
+    }
+  ]
+}

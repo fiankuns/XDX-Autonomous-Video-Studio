@@ -1,0 +1,102 @@
+{
+  "schema_version": "3.3.0",
+  "library_id": "facial_expression_library",
+  "library_name": "Facial Expression Library",
+  "category": "character_facial_rig",
+  "version": "3.3.0",
+  "description": "Stylized 3D character brow, eyelid, pupil, and mouth shape-key presets.",
+  "presets": [
+    {
+      "id": "expr_curious_engaged",
+      "name": "Curious & Engaged Narrator",
+      "parameters": {
+        "brow_inner_up": 0.35,
+        "brow_outer_left": 0.15,
+        "eye_wide": 0.2,
+        "smile_soft": 0.25,
+        "pupil_scale": 1.0
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "explainer",
+        "edukasi",
+        "dokumenter"
+      ]
+    },
+    {
+      "id": "expr_shocked_absurd",
+      "name": "Wide-Eyed Absurd Disbelief",
+      "parameters": {
+        "brow_inner_up": 0.85,
+        "eye_wide": 0.9,
+        "jaw_drop": 0.55,
+        "pupil_scale": 0.78
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "komedi_absurd",
+        "storytelling"
+      ]
+    },
+    {
+      "id": "expr_solemn_historical",
+      "name": "Solemn Biographical / Historical Gravity",
+      "parameters": {
+        "brow_furrow": 0.4,
+        "eyelid_lower_tight": 0.25,
+        "mouth_neutral_press": 0.3,
+        "pupil_scale": 1.0
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "sejarah",
+        "biografi",
+        "dokumenter"
+      ]
+    },
+    {
+      "id": "expr_dread_unease",
+      "name": "Horror Dread & Trembling Gaze",
+      "parameters": {
+        "brow_inner_up": 0.75,
+        "brow_furrow": 0.5,
+        "eye_wide": 0.8,
+        "mouth_corner_down": 0.45,
+        "pupil_scale": 0.72
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "horor",
+        "storytelling"
+      ]
+    }
+  ]
+}

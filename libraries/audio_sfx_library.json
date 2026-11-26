@@ -1,0 +1,73 @@
+{
+  "schema_version": "3.3.0",
+  "library_id": "audio_sfx_library",
+  "library_name": "Audio and SFX Library",
+  "category": "sound_design_and_mastering",
+  "version": "3.3.0",
+  "description": "Loudness mastering targets (-15 LUFS), BGM ducking envelopes, and procedural/CC0 SFX cue specifications.",
+  "presets": [
+    {
+      "id": "aud_master_vo_indonesia_15lufs",
+      "name": "Indonesian Narrator Master Chain (-15 LUFS / -1 dBTP)",
+      "parameters": {
+        "sample_rate_hz": 48000,
+        "target_lufs": -15.0,
+        "true_peak_dbtp": -1.0,
+        "bgm_duck_db": -11.0,
+        "duck_attack_ms": 60,
+        "duck_release_ms": 280
+      },
+      "version": "1.0.0",
+      "source": "XDX Audio Standard v3.1/v3.3",
+      "license": "MIT",
+      "engine_compatibility": [
+        "remotion",
+        "ffmpeg"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "sfx_cutaway_soft_whoosh",
+      "name": "Soft Cutaway Whoosh & Tactile Pop",
+      "parameters": {
+        "duration_ms": 220,
+        "peak_db": -12.0,
+        "freq_sweep_hz": [
+          180,
+          920
+        ],
+        "sync_anchor": "transition_in"
+      },
+      "version": "1.0.0",
+      "source": "Kenney CC0 / XDX Procedural Synth",
+      "license": "CC0-1.0",
+      "engine_compatibility": [
+        "remotion",
+        "ffmpeg"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "sfx_horror_sub_drone",
+      "name": "Low Suspense Sub-Bass Drone & Creak",
+      "parameters": {
+        "duration_ms": 4000,
+        "peak_db": -16.0,
+        "fundamental_hz": 55,
+        "detune_cents": 14
+      },
+      "version": "1.0.0",
+      "source": "XDX Procedural Synth",
+      "license": "CC0-1.0",
+      "engine_compatibility": [
+        "remotion",
+        "ffmpeg"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "horor",
+        "storytelling"
+      ]
+    }
+  ]
+}

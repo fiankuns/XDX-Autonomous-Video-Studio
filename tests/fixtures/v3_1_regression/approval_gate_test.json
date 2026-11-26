@@ -1,0 +1,34 @@
+{
+  "fixture_only": true,
+  "no_approval": [
+    2,
+    {
+      "digest": "15ff1613341e2c76aa24ccc1e82a4dc891887ae9369a09e60506b86c7820ee0e",
+      "status": "BLOCKED",
+      "note": "Agent must verify actual explicit user approval separately; this is not authorization."
+    }
+  ],
+  "matching_fixture": [
+    0,
+    {
+      "digest": "15ff1613341e2c76aa24ccc1e82a4dc891887ae9369a09e60506b86c7820ee0e",
+      "status": "RECORD_MATCH_ONLY",
+      "note": "Agent must verify actual explicit user approval separately; this is not authorization."
+    }
+  ],
+  "changed_file": [
+    2,
+    {
+      "digest": "9a2e4e251ef4e5e63c35daf35aad209e51a62a0745b5d0390e090ea5140ba6c4",
+      "status": "BLOCKED",
+      "note": "Agent must verify actual explicit user approval separately; this is not authorization."
+    }
+  ],
+  "missing_file": [
+    2,
+    {
+      "status": "BLOCKED",
+      "error": "Missing/empty: script.md"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "schema_version": "3.3.0",
+  "library_id": "environment_library",
+  "library_name": "Environment Library",
+  "category": "modular_3d_sets",
+  "version": "3.3.0",
+  "description": "Modular 3D miniature diorama stage presets across domestic, civic, historical, abstract data, and horror genres.",
+  "presets": [
+    {
+      "id": "env_preset_kamar_rumah",
+      "name": "Kamar & Pintu Rumah Indonesia (Diorama Cutaway)",
+      "parameters": {
+        "footprint_m": [
+          4.0,
+          4.0,
+          3.0
+        ],
+        "wall_cutaway": [
+          "front",
+          "right"
+        ],
+        "props": [
+          "bed",
+          "desk",
+          "wooden_door",
+          "window_curtain",
+          "plant"
+        ],
+        "lighting_preset": "light_cozy_warm_interior"
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "env_preset_jalan_layanan_publik",
+      "name": "Jalan Kota & Loket Pelayanan Publik Miniatur",
+      "parameters": {
+        "footprint_m": [
+          8.0,
+          6.0,
+          4.0
+        ],
+        "props": [
+          "asphalt_segment",
+          "signboard",
+          "queue_barrier",
+          "counter_desk",
+          "trees"
+        ],
+        "lighting_preset": "light_crisp_tropical_daylight"
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "explainer",
+        "edukasi",
+        "komedi_absurd",
+        "dokumenter"
+      ]
+    },
+    {
+      "id": "env_preset_ruang_sejarah_arsip",
+      "name": "Ruang Arsip Sejarah & Meja Naskah",
+      "parameters": {
+        "footprint_m": [
+          5.0,
+          5.0,
+          3.5
+        ],
+        "props": [
+          "antique_desk",
+          "bookshelf",
+          "chronicle_map",
+          "desk_lamp"
+        ],
+        "lighting_preset": "light_cozy_warm_interior"
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "sejarah",
+        "biografi",
+        "dokumenter"
+      ]
+    },
+    {
+      "id": "env_preset_lorong_horor",
+      "name": "Lorong Remang & Pintu Tua (Suspense Set)",
+      "parameters": {
+        "footprint_m": [
+          3.0,
+          7.0,
+          3.2
+        ],
+        "props": [
+          "flickering_bulb",
+          "creaking_door",
+          "wall_clock",
+          "long_shadow_frame"
+        ],
+        "lighting_preset": "light_horror_chiaroscuro"
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "horor",
+        "storytelling"
+      ]
+    }
+  ]
+}

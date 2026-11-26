@@ -1,0 +1,72 @@
+{
+  "schema_version": "3.3.0",
+  "library_id": "transition_library",
+  "library_name": "Transition Library",
+  "category": "editorial_transitions",
+  "version": "3.3.0",
+  "description": "Zero-gap deterministic transitions with explicit internal handle frame accounting.",
+  "presets": [
+    {
+      "id": "trans_hard_cut_zero",
+      "name": "Clean Narrative Hard Cut (0 Overlap Frames)",
+      "parameters": {
+        "type": "cut",
+        "overlap_frames": 0,
+        "preserve_master_duration": true
+      },
+      "version": "1.0.0",
+      "source": "XDX Master Timeline Standard",
+      "license": "MIT",
+      "engine_compatibility": [
+        "remotion",
+        "ffmpeg"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "trans_whip_pan_cutaway_6f",
+      "name": "Directional Whip-Pan Cutaway (6 Internal Frames)",
+      "parameters": {
+        "type": "directional_whip",
+        "overlap_frames": 6,
+        "direction": "left",
+        "motion_blur_strength": 0.65
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio / @remotion/transitions",
+      "license": "MIT",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "explainer",
+        "komedi_absurd",
+        "edukasi"
+      ]
+    },
+    {
+      "id": "trans_cross_dissolve_12f",
+      "name": "Epoch / Flashback Cross-Dissolve (12 Internal Frames)",
+      "parameters": {
+        "type": "dissolve",
+        "overlap_frames": 12,
+        "curve": "ease_in_out"
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio / @remotion/transitions",
+      "license": "MIT",
+      "engine_compatibility": [
+        "remotion",
+        "ffmpeg"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "sejarah",
+        "biografi",
+        "dokumenter",
+        "horor"
+      ]
+    }
+  ]
+}

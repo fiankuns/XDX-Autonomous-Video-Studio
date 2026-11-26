@@ -1,0 +1,65 @@
+{
+  "schema_version": "3.3.0",
+  "library_id": "asset_3d_library",
+  "library_name": "3D Asset Library",
+  "category": "reusable_3d_kits",
+  "version": "3.3.0",
+  "description": "Modular 3D prop, furniture, and character kit specifications with meter scale and polycount budgets.",
+  "presets": [
+    {
+      "id": "kit3d_modular_interior_props",
+      "name": "Modular Diorama Room Props (Meja, Kursi, Rak, Lampu)",
+      "parameters": {
+        "unit_scale_m": 1.0,
+        "up_axis": "+Y",
+        "max_tris_per_prop": 2500,
+        "bevel_segments": 2,
+        "material_preset": "mat_warm_teak_wood"
+      },
+      "version": "1.0.0",
+      "source": "XDX Procedural glTF Generator / Quaternius CC0 Spec",
+      "license": "CC0-1.0",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "kit3d_civic_street_props",
+      "name": "Civic & Street Props (Papan Info, Rambu, Konus, Gerobak)",
+      "parameters": {
+        "unit_scale_m": 1.0,
+        "up_axis": "+Y",
+        "max_tris_per_prop": 3200,
+        "material_preset": "mat_painted_diecast_metal"
+      },
+      "version": "1.0.0",
+      "source": "XDX Procedural glTF Generator / Kenney CC0 Spec",
+      "license": "CC0-1.0",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "kit3d_procedural_chart_blocks",
+      "name": "Procedural 3D Pedestals, Pillars & Balance Scale",
+      "parameters": {
+        "unit_scale_m": 1.0,
+        "up_axis": "+Y",
+        "max_tris_per_prop": 1800,
+        "material_preset": "mat_diorama_matte_clay"
+      },
+      "version": "1.0.0",
+      "source": "XDX Procedural glTF Generator",
+      "license": "MIT",
+      "engine_compatibility": [
+        "threejs",
+        "blender"
+      ],
+      "test_status": "tested"
+    }
+  ]
+}

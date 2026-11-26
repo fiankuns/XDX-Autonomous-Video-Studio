@@ -1,0 +1,217 @@
+{
+  "schema_version": "3.3.0",
+  "registry_type": "dependency_registry",
+  "updated_at": "2026-11-26T14:47:00Z",
+  "notes": "Curated dependencies actually selected, installed, and verified for XDX Autonomous Video Studio v3.3. Blind installation of heavy/conflicting ML or AGPL/GPL packages is intentionally avoided.",
+  "entries": [
+    {
+      "id": "python-pydantic",
+      "name": "pydantic",
+      "ecosystem": "pypi",
+      "version_locked": "2.14.3",
+      "license": "MIT",
+      "purpose": "Strict runtime data validation and structured intelligence models",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "python-jsonschema",
+      "name": "jsonschema",
+      "ecosystem": "pypi",
+      "version_locked": "4.26.0",
+      "license": "MIT",
+      "purpose": "Draft 2020-12 JSON Schema validation across all studio contracts, libraries, and registries",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "python-pyyaml",
+      "name": "PyYAML",
+      "ecosystem": "pypi",
+      "version_locked": "6.0.4",
+      "license": "MIT",
+      "purpose": "YAML capability and REA-Video remake intent configuration parsing",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "python-numpy",
+      "name": "numpy",
+      "ecosystem": "pypi",
+      "version_locked": "2.5.5",
+      "license": "BSD-3-Clause",
+      "purpose": "Signal analysis, frame statistics, deterministic matrix math, and adaptive shot detection",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "python-opencv-headless",
+      "name": "opencv-python-headless",
+      "ecosystem": "pypi",
+      "version_locked": "5.1.0",
+      "license": "Apache-2.0",
+      "purpose": "Headless HSV histogram + Laplacian shot boundary detection and Visual QC frame inspection",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "python-pillow",
+      "name": "Pillow",
+      "ecosystem": "pypi",
+      "version_locked": "13.0.0",
+      "license": "MIT",
+      "purpose": "Contact sheet generation, procedural texture synthesis, and style palette harmonization",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "python-starlette",
+      "name": "starlette",
+      "ecosystem": "pypi",
+      "version_locked": "1.10.0",
+      "license": "BSD-3-Clause",
+      "purpose": "ASGI transport compatibility with XDX Blender Studio Streamable HTTP MCP",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "python-uvicorn",
+      "name": "uvicorn",
+      "ecosystem": "pypi",
+      "version_locked": "0.54.0",
+      "license": "BSD-3-Clause",
+      "purpose": "ASGI HTTP server for local MCP discovery testing and relay verification",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "python-pytest",
+      "name": "pytest",
+      "ecosystem": "pypi",
+      "version_locked": "9.2.0",
+      "license": "MIT",
+      "purpose": "Automated Phase 01 audit, schema, state, approval gate, asset, and MCP test runner",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "node-three",
+      "name": "three",
+      "ecosystem": "npm",
+      "version_locked": "0.187.0",
+      "license": "MIT",
+      "purpose": "Deterministic frame-based procedural 3D scenes, simulations, glTF/GLB structure, and camera math",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "node-remotion",
+      "name": "remotion",
+      "ecosystem": "npm",
+      "version_locked": "4.0.x",
+      "license": "Remotion-License",
+      "purpose": "Frame-deterministic master timeline, sequence orchestration, spring/interpolate curves",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "node-remotion-captions",
+      "name": "@remotion/captions",
+      "ecosystem": "npm",
+      "version_locked": "4.0.x",
+      "license": "Remotion-License",
+      "purpose": "TikTok/Reels/Shorts word-level & phrase-level caption pagination and SRT serialization",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "node-remotion-transitions",
+      "name": "@remotion/transitions",
+      "ecosystem": "npm",
+      "version_locked": "4.0.x",
+      "license": "Remotion-License",
+      "purpose": "Deterministic frame-overlap transitions inside Remotion master composition",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "node-animejs",
+      "name": "animejs",
+      "ecosystem": "npm",
+      "version_locked": "4.5.0",
+      "license": "MIT",
+      "purpose": "Permissive MIT timeline & tween engine driven deterministically via seek(frame/fps)",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "node-d3-core",
+      "name": "d3-scale / d3-shape / d3-interpolate",
+      "ecosystem": "npm",
+      "version_locked": "4.0.2 / 3.2.0 / 3.0.1",
+      "license": "ISC",
+      "purpose": "Deterministic SVG/Canvas data visualization and explainer charts",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "node-lottie-web",
+      "name": "lottie-web",
+      "ecosystem": "npm",
+      "version_locked": "5.13.0",
+      "license": "MIT",
+      "purpose": "Deterministic vector motion graphics playback via goToAndStop(frame, true)",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "sys-ffmpeg",
+      "name": "ffmpeg / ffprobe",
+      "ecosystem": "apt",
+      "version_locked": "6.1.1-3ubuntu5",
+      "license": "LGPL-3.0 / GPL-3.0",
+      "purpose": "MP4 H.264/AAC encoding, muxing, scene detection, audio loudness inspection, full decode validation",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "sys-chromium",
+      "name": "google-chrome / playwright",
+      "ecosystem": "system",
+      "version_locked": "playwright-1.65.2",
+      "license": "Apache-2.0",
+      "purpose": "Headless browser runtime for deterministic Three.js WebGL and Remotion frame rendering",
+      "arm64_android_compatible": false,
+      "cloud_linux_compatible": true,
+      "status": "installed_and_tested"
+    },
+    {
+      "id": "mcp-xdx-blender-studio",
+      "name": "xdx-blender-studio",
+      "ecosystem": "workspace-resource",
+      "version_locked": "1.0.0 (addon 1.1.1)",
+      "license": "MIT",
+      "purpose": "Authenticated Outbound Relay & USB ADB MCP Bridge to Blender on Android Vivo X200 Pro",
+      "arm64_android_compatible": true,
+      "cloud_linux_compatible": true,
+      "status": "protocol_tested_live_device_waiting_pairing"
+    }
+  ]
+}

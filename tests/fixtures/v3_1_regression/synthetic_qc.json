@@ -1,0 +1,14 @@
+{
+  "ground_truth_cuts_s": [
+    1,
+    2
+  ],
+  "predicted_candidates_s": [
+    1.0,
+    2.0,
+    3.0
+  ],
+  "matched": 2,
+  "false_positive": 1,
+  "note": "Synthetic moving shapes and changing lower text; does not establish accuracy on reference."
+}

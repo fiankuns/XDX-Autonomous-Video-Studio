@@ -1,0 +1,82 @@
+{
+  "schema_version": "3.3.0",
+  "library_id": "vfx_library",
+  "library_name": "VFX Library",
+  "category": "color_grading_and_postfx",
+  "version": "3.3.0",
+  "description": "Cross-engine color management, vignette, bloom, archival grain, and atmospheric post-processing.",
+  "presets": [
+    {
+      "id": "vfx_aces_diorama_clean",
+      "name": "ACES Filmic Stylized Diorama Grade",
+      "parameters": {
+        "tone_mapping": "ACESFilmic",
+        "exposure_ev": 0.0,
+        "contrast": 1.06,
+        "saturation": 1.08,
+        "vignette": 0.15,
+        "color_space": "sRGB"
+      },
+      "version": "1.0.0",
+      "source": "XDX Cross-Engine Color Standard",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs",
+        "remotion",
+        "ffmpeg"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "vfx_historical_warm_sepia_grain",
+      "name": "Historical Flashback Subtle Warm Grain",
+      "parameters": {
+        "tone_mapping": "ACESFilmic",
+        "tint_hex": "#E8D5B7",
+        "tint_mix": 0.18,
+        "grain_intensity": 0.06,
+        "grain_seed": 1945,
+        "vignette": 0.28
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original",
+      "license": "MIT",
+      "engine_compatibility": [
+        "remotion",
+        "threejs",
+        "ffmpeg"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "sejarah",
+        "biografi",
+        "dokumenter"
+      ]
+    },
+    {
+      "id": "vfx_horror_desat_fog",
+      "name": "Horror Cold Desaturated Fog & Edge Vignette",
+      "parameters": {
+        "tone_mapping": "ACESFilmic",
+        "exposure_ev": -0.35,
+        "saturation": 0.68,
+        "fog_density": 0.045,
+        "fog_hex": "#101826",
+        "vignette": 0.42
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs",
+        "remotion"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "horor"
+      ]
+    }
+  ]
+}

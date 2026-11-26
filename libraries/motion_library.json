@@ -1,0 +1,117 @@
+{
+  "schema_version": "3.3.0",
+  "library_id": "motion_library",
+  "library_name": "Motion Library",
+  "category": "motion_curves_and_kinematics",
+  "version": "3.3.0",
+  "description": "Deterministic frame-based easing curves, spring physics, anticipation-overshoot, and kinetic interpolators.",
+  "presets": [
+    {
+      "id": "mot_snappy_spring_pop",
+      "name": "Snappy Spring Pop (Hook & Cutaway)",
+      "parameters": {
+        "type": "spring",
+        "mass": 0.8,
+        "damping": 12.0,
+        "stiffness": 180.0,
+        "overshoot_clamping": false,
+        "duration_frames_30fps": 18
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Core / Remotion Spring Convention",
+      "license": "MIT",
+      "engine_compatibility": [
+        "remotion",
+        "threejs",
+        "blender"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "explainer",
+        "edukasi",
+        "komedi_absurd"
+      ]
+    },
+    {
+      "id": "mot_cinematic_ease_inout",
+      "name": "Cinematic Smooth Cubic Bezier",
+      "parameters": {
+        "type": "cubic_bezier",
+        "control_points": [
+          0.42,
+          0.0,
+          0.18,
+          1.0
+        ],
+        "anticipation_ratio": 0.12,
+        "settle_frames": 8
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Core / Anime.js v4 Curve",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs",
+        "remotion"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "sejarah",
+        "biografi",
+        "dokumenter",
+        "storytelling"
+      ]
+    },
+    {
+      "id": "mot_horror_creeping_tension",
+      "name": "Creeping Tension Slow-In Snap",
+      "parameters": {
+        "type": "cubic_bezier",
+        "control_points": [
+          0.85,
+          0.0,
+          0.95,
+          0.35
+        ],
+        "micro_jitter_seed": 404,
+        "jitter_amp_m": 0.004
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Core",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs",
+        "remotion"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "horor",
+        "storytelling"
+      ]
+    },
+    {
+      "id": "mot_absurd_elastic_whip",
+      "name": "Absurd Cartoon Elastic Whip",
+      "parameters": {
+        "type": "elastic_out",
+        "amplitude": 1.25,
+        "period_frames": 9,
+        "squash_stretch_factor": 0.14
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Core",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs",
+        "remotion"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "komedi_absurd",
+        "explainer"
+      ]
+    }
+  ]
+}

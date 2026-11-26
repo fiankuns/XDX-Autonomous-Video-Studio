@@ -1,0 +1,148 @@
+{
+  "schema_version": "3.3.0",
+  "registry_type": "license_registry",
+  "updated_at": "2026-11-26T14:47:00Z",
+  "notes": "Governs license validation for code dependencies, external repositories, 3D/PBR/HDRI assets, fonts, and audio/SFX in XDX Autonomous Video Studio v3.3.",
+  "entries": [
+    {
+      "id": "MIT",
+      "name": "MIT License",
+      "status": "approved_permissive",
+      "commercial_allowed": true,
+      "attribution_required": true,
+      "copyleft_isolation_required": false,
+      "allow_direct_bundle": true
+    },
+    {
+      "id": "Apache-2.0",
+      "name": "Apache License 2.0",
+      "status": "approved_permissive",
+      "commercial_allowed": true,
+      "attribution_required": true,
+      "copyleft_isolation_required": false,
+      "allow_direct_bundle": true
+    },
+    {
+      "id": "BSD-2-Clause",
+      "name": "BSD 2-Clause Simplified License",
+      "status": "approved_permissive",
+      "commercial_allowed": true,
+      "attribution_required": true,
+      "copyleft_isolation_required": false,
+      "allow_direct_bundle": true
+    },
+    {
+      "id": "BSD-3-Clause",
+      "name": "BSD 3-Clause License",
+      "status": "approved_permissive",
+      "commercial_allowed": true,
+      "attribution_required": true,
+      "copyleft_isolation_required": false,
+      "allow_direct_bundle": true
+    },
+    {
+      "id": "ISC",
+      "name": "ISC License",
+      "status": "approved_permissive",
+      "commercial_allowed": true,
+      "attribution_required": true,
+      "copyleft_isolation_required": false,
+      "allow_direct_bundle": true
+    },
+    {
+      "id": "Zlib",
+      "name": "zlib License",
+      "status": "approved_permissive",
+      "commercial_allowed": true,
+      "attribution_required": false,
+      "copyleft_isolation_required": false,
+      "allow_direct_bundle": true
+    },
+    {
+      "id": "CC0-1.0",
+      "name": "Creative Commons Zero v1.0 Universal (Public Domain)",
+      "status": "approved_public_domain",
+      "commercial_allowed": true,
+      "attribution_required": false,
+      "copyleft_isolation_required": false,
+      "allow_direct_bundle": true
+    },
+    {
+      "id": "OFL-1.1",
+      "name": "SIL Open Font License 1.1",
+      "status": "approved_font_permissive",
+      "commercial_allowed": true,
+      "attribution_required": true,
+      "copyleft_isolation_required": false,
+      "allow_direct_bundle": true
+    },
+    {
+      "id": "CC-BY-4.0",
+      "name": "Creative Commons Attribution 4.0 International",
+      "status": "approved_with_attribution",
+      "commercial_allowed": true,
+      "attribution_required": true,
+      "copyleft_isolation_required": false,
+      "allow_direct_bundle": true
+    },
+    {
+      "id": "Remotion-License",
+      "name": "Remotion License (Free for individuals & companies <= 3 employees; commercial license required above threshold)",
+      "status": "approved_conditional_entity_size",
+      "commercial_allowed": true,
+      "attribution_required": false,
+      "copyleft_isolation_required": false,
+      "allow_direct_bundle": true,
+      "conditions": "Verify legal entity headcount <= 3 or hold active Remotion Company License."
+    },
+    {
+      "id": "GSAP-Standard-No-Charge",
+      "name": "GreenSock Standard No-Charge License (Webflow)",
+      "status": "optional_custom_license",
+      "commercial_allowed": true,
+      "attribution_required": false,
+      "copyleft_isolation_required": false,
+      "allow_direct_bundle": false,
+      "conditions": "Custom non-OSI license; prefer MIT animejs or Remotion spring/interpolate unless explicitly requested."
+    },
+    {
+      "id": "LGPL-3.0",
+      "name": "GNU Lesser General Public License v3.0",
+      "status": "approved_dynamic_or_subprocess_only",
+      "commercial_allowed": true,
+      "attribution_required": true,
+      "copyleft_isolation_required": true,
+      "allow_direct_bundle": false
+    },
+    {
+      "id": "GPL-3.0",
+      "name": "GNU General Public License v3.0",
+      "status": "isolated_external_process_or_blender_addon_only",
+      "commercial_allowed": true,
+      "attribution_required": true,
+      "copyleft_isolation_required": true,
+      "allow_direct_bundle": false,
+      "conditions": "Allowed only inside isolated Blender add-on/CLI process (e.g. FFmpeg GPL builds or Blender add-ons); never copy GPL code into MIT studio core."
+    },
+    {
+      "id": "AGPL-3.0",
+      "name": "GNU Affero General Public License v3.0",
+      "status": "isolated_network_service_disallow_bundle",
+      "commercial_allowed": true,
+      "attribution_required": true,
+      "copyleft_isolation_required": true,
+      "allow_direct_bundle": false,
+      "conditions": "Never embed AGPL source code; consuming public CC0 REST API (e.g. api.polyhaven.com) over HTTPS is permitted."
+    },
+    {
+      "id": "UNLICENSED",
+      "name": "Unlicensed / All Rights Reserved",
+      "status": "blocked",
+      "commercial_allowed": false,
+      "attribution_required": true,
+      "copyleft_isolation_required": true,
+      "allow_direct_bundle": false,
+      "conditions": "Hard block: cannot download, bundle, or redistribute without explicit written owner permission."
+    }
+  ]
+}

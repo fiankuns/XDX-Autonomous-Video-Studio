@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio/schemas/dependency_registry.schema.json",
+  "title": "XDX Dependency, Engine, License & Repository Registry Schema v3.3",
+  "type": "object",
+  "required": ["schema_version", "registry_type", "updated_at", "entries"],
+  "properties": {
+    "schema_version": { "type": "string", "const": "3.3.0" },
+    "registry_type": {
+      "type": "string",
+      "enum": [
+        "dependency_registry",
+        "engine_registry",
+        "license_registry",
+        "repository_registry"
+      ]
+    },
+    "updated_at": { "type": "string" },
+    "notes": { "type": "string" },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "status"],
+        "properties": {
+          "id": { "type": "string", "minLength": 2 },
+          "name": { "type": "string", "minLength": 2 },
+          "status": { "type": "string", "minLength": 2 }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}

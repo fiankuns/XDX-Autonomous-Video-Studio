@@ -1,0 +1,91 @@
+{
+  "schema_version": "3.3.0",
+  "library_id": "caption_library",
+  "library_name": "Caption Library",
+  "category": "subtitles_and_kinetic_captions",
+  "version": "3.3.0",
+  "description": "Original MIT-licensed 9:16 safe-zone animated caption presets (zero unlicensed external code).",
+  "presets": [
+    {
+      "id": "cap_xdx_bold_stroke_9x16",
+      "name": "XDX Signature Bold White + Dark Outline (Max 2 Lines)",
+      "parameters": {
+        "max_lines": 2,
+        "max_words_per_cue": 6,
+        "font_family": "Plus Jakarta Sans",
+        "font_weight": 800,
+        "font_size_px": 58,
+        "fill": "#FFFFFF",
+        "stroke": "#10131A",
+        "stroke_width_px": 8,
+        "safe_bottom_pct": 0.18,
+        "highlight_color": "#FFD166"
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original (MIT)",
+      "license": "MIT",
+      "engine_compatibility": [
+        "remotion",
+        "ffmpeg"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "cap_documentary_clean_box",
+      "name": "Documentary / Historical Clean Translucent Pill",
+      "parameters": {
+        "max_lines": 2,
+        "max_words_per_cue": 8,
+        "font_family": "Inter",
+        "font_weight": 700,
+        "font_size_px": 48,
+        "fill": "#F8FAFC",
+        "bg_rgba": "rgba(15,23,42,0.78)",
+        "padding_px": [
+          12,
+          22
+        ],
+        "safe_bottom_pct": 0.16
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original (MIT)",
+      "license": "MIT",
+      "engine_compatibility": [
+        "remotion",
+        "ffmpeg"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "sejarah",
+        "biografi",
+        "dokumenter"
+      ]
+    },
+    {
+      "id": "cap_horror_minimal_serif",
+      "name": "Suspense Low-Glow Minimal Subtitle",
+      "parameters": {
+        "max_lines": 2,
+        "max_words_per_cue": 6,
+        "font_family": "Merriweather",
+        "font_weight": 700,
+        "font_size_px": 46,
+        "fill": "#E2E8F0",
+        "shadow_rgba": "rgba(0,0,0,0.92)",
+        "safe_bottom_pct": 0.17
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original (MIT)",
+      "license": "MIT",
+      "engine_compatibility": [
+        "remotion",
+        "ffmpeg"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "horor",
+        "storytelling"
+      ]
+    }
+  ]
+}

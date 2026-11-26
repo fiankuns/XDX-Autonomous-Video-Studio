@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio/schemas/engine_plan.schema.json",
+  "title": "XDX Hybrid Engine Routing Plan Schema v3.3",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project_id",
+    "master_compositor",
+    "encoding_validator",
+    "reference_qc_engine",
+    "fps",
+    "resolution",
+    "color_management",
+    "engines_used",
+    "omitted_engines_rationale",
+    "shot_routing"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "3.3.0" },
+    "project_id": { "type": "string", "minLength": 1 },
+    "master_compositor": { "type": "string", "const": "remotion" },
+    "encoding_validator": { "type": "string", "const": "ffmpeg" },
+    "reference_qc_engine": { "type": "string", "const": "rea_video" },
+    "fps": { "type": "integer", "minimum": 1 },
+    "resolution": {
+      "type": "object",
+      "required": ["width", "height", "pixel_format"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 128 },
+        "height": { "type": "integer", "minimum": 128 },
+        "pixel_format": { "type": "string", "const": "yuv420p" }
+      },
+      "additionalProperties": false
+    },
+    "color_management": {
+      "type": "object",
+      "required": ["working_space", "view_transform", "delivery_space", "alpha_interchange"],
+      "properties": {
+        "working_space": { "type": "string" },
+        "view_transform": { "type": "string" },
+        "delivery_space": { "type": "string" },
+        "alpha_interchange": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "engines_used": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": ["blender", "threejs", "remotion", "rea_video", "ffmpeg"]
+      }
+    },
+    "omitted_engines_rationale": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "shot_routing": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "shot_id",
+          "start_frame",
+          "end_frame",
+          "primary_engine",
+          "overlay_engine",
+          "rationale",
+          "deterministic_seed",
+          "inputs",
+          "output_contract",
+          "style_consistency_notes",
+          "proposed_fallback"
+        ],
+        "properties": {
+          "shot_id": { "type": "string", "pattern": "^S[0-9]{3,}$" },
+          "start_frame": { "type": "integer", "minimum": 0 },
+          "end_frame": { "type": "integer", "minimum": 1 },
+          "primary_engine": { "type": "string", "enum": ["blender", "threejs", "remotion"] },
+          "overlay_engine": { "type": ["string", "null"], "enum": ["remotion", null] },
+          "rationale": { "type": "string", "minLength": 5 },
+          "deterministic_seed": { "type": "integer" },
+          "inputs": { "type": "array", "items": { "type": "string" } },
+          "output_contract": {
+            "type": "object",
+            "required": ["format", "has_alpha", "frame_count"],
+            "properties": {
+              "format": { "type": "string", "enum": ["png_sequence", "mp4_h264", "remotion_sequence"] },
+              "has_alpha": { "type": "boolean" },
+              "frame_count": { "type": "integer", "minimum": 1 }
+            },
+            "additionalProperties": false
+          },
+          "style_consistency_notes": { "type": "string" },
+          "proposed_fallback": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

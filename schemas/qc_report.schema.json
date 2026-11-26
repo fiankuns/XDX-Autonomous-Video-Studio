@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio/schemas/qc_report.schema.json",
+  "title": "XDX Technical, Visual & Self-Correction QC Report Schema v3.3",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "target_file",
+    "overall_status",
+    "technical_qc",
+    "visual_qc",
+    "self_correction_plan"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "3.3.0" },
+    "target_file": { "type": "string" },
+    "overall_status": {
+      "type": "string",
+      "enum": ["PASS", "WARN", "HARD_FAIL", "BLOCKED"]
+    },
+    "technical_qc": {
+      "type": "object",
+      "required": ["exists", "non_empty", "full_decode_ok", "has_video_stream"],
+      "properties": {
+        "exists": { "type": "boolean" },
+        "non_empty": { "type": "boolean" },
+        "size_bytes": { "type": "integer", "minimum": 0 },
+        "full_decode_ok": { "type": "boolean" },
+        "decode_errors": { "type": "array", "items": { "type": "string" } },
+        "has_video_stream": { "type": "boolean" },
+        "has_audio_stream": { "type": "boolean" },
+        "codec_video": { "type": ["string", "null"] },
+        "codec_audio": { "type": ["string", "null"] },
+        "width": { "type": ["integer", "null"] },
+        "height": { "type": ["integer", "null"] },
+        "fps": { "type": ["number", "null"] },
+        "duration_s": { "type": ["number", "null"] },
+        "decoded_frames": { "type": ["integer", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "visual_qc": {
+      "type": "object",
+      "required": ["sampled_frames", "mean_luma", "contrast_std", "blank_or_corrupt_frames", "dimension_scores"],
+      "properties": {
+        "sampled_frames": { "type": "integer", "minimum": 0 },
+        "mean_luma": { "type": "number" },
+        "contrast_std": { "type": "number" },
+        "sharpness_laplacian": { "type": "number" },
+        "blank_or_corrupt_frames": { "type": "integer", "minimum": 0 },
+        "dimension_scores": {
+          "type": "object",
+          "additionalProperties": { "type": "number", "minimum": 0, "maximum": 5 }
+        }
+      },
+      "additionalProperties": false
+    },
+    "defects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["defect_id", "severity", "description", "recommended_fix"],
+        "properties": {
+          "defect_id": { "type": "string" },
+          "severity": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+          "shot_id": { "type": ["string", "null"] },
+          "description": { "type": "string" },
+          "recommended_fix": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "self_correction_plan": {
+      "type": "object",
+      "required": ["max_retries_per_shot", "current_attempt", "requires_re_render", "actions"],
+      "properties": {
+        "max_retries_per_shot": { "type": "integer", "const": 3 },
+        "current_attempt": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "requires_re_render": { "type": "boolean" },
+        "requires_new_approval": { "type": "boolean" },
+        "actions": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

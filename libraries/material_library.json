@@ -1,0 +1,64 @@
+{
+  "schema_version": "3.3.0",
+  "library_id": "material_library",
+  "library_name": "Material Library",
+  "category": "pbr_materials",
+  "version": "3.3.0",
+  "description": "Harmonized stylized PBR materials matching Blender Principled BSDF and Three.js MeshStandardMaterial.",
+  "presets": [
+    {
+      "id": "mat_diorama_matte_clay",
+      "name": "Stylized Matte Clay (Skin & Props)",
+      "parameters": {
+        "roughness": 0.72,
+        "metallic": 0.0,
+        "bevel_m": 0.006,
+        "subsurface_weight": 0.08
+      },
+      "version": "1.0.0",
+      "source": "XDX Style Bible / ambientCG CC0 Baseline",
+      "license": "CC0-1.0",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "mat_warm_teak_wood",
+      "name": "Warm Indonesian Jati/Teak Semi-Matte Wood",
+      "parameters": {
+        "base_color_hex": "#8B5A2B",
+        "roughness": 0.58,
+        "metallic": 0.0,
+        "bevel_m": 0.005
+      },
+      "version": "1.0.0",
+      "source": "XDX Style Bible / Poly Haven CC0 Baseline",
+      "license": "CC0-1.0",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested"
+    },
+    {
+      "id": "mat_painted_diecast_metal",
+      "name": "Painted Miniature Vehicle / Sign Metal",
+      "parameters": {
+        "base_color_hex": "#3B82F6",
+        "roughness": 0.36,
+        "metallic": 0.35,
+        "bevel_m": 0.004
+      },
+      "version": "1.0.0",
+      "source": "XDX Style Bible",
+      "license": "CC0-1.0",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "tested"
+    }
+  ]
+}

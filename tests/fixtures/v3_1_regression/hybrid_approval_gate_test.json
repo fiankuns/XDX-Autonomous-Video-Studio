@@ -1,0 +1,7 @@
+{
+  "scope": "synthetic fingerprint regression only, no user approval or render",
+  "no_approval": "BLOCKED",
+  "matching_fixture": "RECORD_MATCH_ONLY",
+  "changed_engine_plan": "BLOCKED",
+  "missing_engine_plan": "BLOCKED"
+}

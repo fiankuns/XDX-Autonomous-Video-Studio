@@ -1,0 +1,104 @@
+{
+  "schema_version": "3.3.0",
+  "library_id": "character_animation_library",
+  "library_name": "Character Animation Library",
+  "category": "character_body_acting",
+  "version": "3.3.0",
+  "description": "Humanoid diorama body acting presets with IK foot-lock, anticipation, and root-motion rules.",
+  "presets": [
+    {
+      "id": "anim_idle_attentive_breath",
+      "name": "Attentive Diorama Idle & Breathing",
+      "parameters": {
+        "cycle_frames": 90,
+        "chest_pitch_deg": 1.8,
+        "head_micro_sway_deg": 1.2,
+        "ik_foot_lock": true,
+        "blink_interval_frames": 75
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio / Mesh2Motion CC0 Convention",
+      "license": "CC0-1.0",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "specification_only",
+      "genres": [
+        "explainer",
+        "edukasi",
+        "dokumenter",
+        "biografi"
+      ]
+    },
+    {
+      "id": "anim_explainer_gesture_present",
+      "name": "Explainer Open-Palm Point & Weight Shift",
+      "parameters": {
+        "anticipation_frames": 6,
+        "hold_frames": 36,
+        "settle_frames": 10,
+        "active_hand": "right",
+        "ik_foot_lock": true,
+        "hip_shift_m": 0.04
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "test_status": "specification_only",
+      "genres": [
+        "explainer",
+        "edukasi",
+        "sejarah"
+      ]
+    },
+    {
+      "id": "anim_comedic_double_take",
+      "name": "Absurd Comedic Double-Take Reaction",
+      "parameters": {
+        "snap_frames": 4,
+        "freeze_frames": 8,
+        "head_yaw_deg": 32.0,
+        "spine_recoil_deg": -9.5,
+        "ik_foot_lock": true
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "test_status": "specification_only",
+      "genres": [
+        "komedi_absurd",
+        "storytelling"
+      ]
+    },
+    {
+      "id": "anim_horror_cautious_step",
+      "name": "Suspenseful Cautious Step & Look-Back",
+      "parameters": {
+        "stride_length_m": 0.38,
+        "step_frames": 28,
+        "shoulder_tension_deg": 7.0,
+        "neck_lookback_deg": 42.0,
+        "ik_foot_lock": true
+      },
+      "version": "1.0.0",
+      "source": "XDX Studio Original",
+      "license": "MIT",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "test_status": "specification_only",
+      "genres": [
+        "horor",
+        "storytelling"
+      ]
+    }
+  ]
+}

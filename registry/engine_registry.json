@@ -1,0 +1,77 @@
+{
+  "schema_version": "3.3.0",
+  "registry_type": "engine_registry",
+  "updated_at": "2026-11-26T14:47:00Z",
+  "notes": "Hybrid Production Pipeline Engine Registry for XDX Autonomous Video Studio v3.3. Reflects honest runtime availability and live verification status.",
+  "entries": [
+    {
+      "id": "blender_xdx_mcp",
+      "name": "Blender 3D via XDX Blender Studio MCP (Vivo X200 Pro / Cloud Relay)",
+      "role": "Hero/supporting character modeling, rigging/IK, acting animation, stylized diorama environments, PBR lighting, and cinematic shot rendering",
+      "status": "mcp_protocol_verified_device_offline",
+      "runtime_available_in_cloud_vm": false,
+      "bridge_available_in_workspace": true,
+      "android_arm64_supported": true,
+      "deterministic_timeline_mode": "integer_frame_range_bpy_scene_frame_set",
+      "discovered_mcp_tools": [
+        "get_mobile_device_profile",
+        "get_scene_info",
+        "look",
+        "execute_blender_code",
+        "create_primitive",
+        "modify_object",
+        "set_material",
+        "configure_mobile_guard"
+      ],
+      "discovered_mcp_resources": [
+        "ui://mcp-for-blender/viewport-v2",
+        "xdx://device/profile",
+        "xdx://scene/summary"
+      ],
+      "limitations": "Local Blender binary is not installed inside cloud VM; rendering executes on paired Android Vivo X200 Pro (Dimensity 9400 + Immortalis-G925) via Outbound Relay (HTTPS/Tailscale) or USB ADB with mobile_guard (<=4 Cycles threads, <=640px rendered preview)."
+    },
+    {
+      "id": "threejs",
+      "name": "Three.js Deterministic Procedural 3D & VFX Engine (v0.187.0)",
+      "role": "Procedural 3D dioramas, simulations, technical/scientific/historical cutaways, 3D charts, particles, and deterministic camera motion",
+      "status": "available_and_tested",
+      "runtime_available_in_cloud_vm": true,
+      "android_arm64_supported": true,
+      "deterministic_timeline_mode": "explicit_frame_over_fps_with_mulberry32_seed_and_load_barrier",
+      "output_formats": ["png_sequence_rgba", "gltf_2_0"],
+      "limitations": "Never use requestAnimationFrame wall-clock deltas for production export; step strictly by frame / fps."
+    },
+    {
+      "id": "remotion",
+      "name": "Remotion Master Timeline & Compositor Engine (v4.0)",
+      "role": "Master frame-based timeline [start_frame, end_frame), multi-layer compositing, editing, animated captions, audio ducking/mixing, 2D motion graphics, and transitions",
+      "status": "available_and_tested",
+      "runtime_available_in_cloud_vm": true,
+      "android_arm64_supported": false,
+      "cloud_render_supported": true,
+      "deterministic_timeline_mode": "zero_based_integer_frames_30fps_default",
+      "output_formats": ["mp4_h264_yuv420p_aac"],
+      "limitations": "Chromium headless rendering runs in Cloud Linux VM (recommended for Android-only users without a PC); Remotion License applies to entities >3 people."
+    },
+    {
+      "id": "rea_video",
+      "name": "REA-Video Reference Intelligence & Visual QC Engine",
+      "role": "Reference video shot boundary detection, camera/pacing/staging forensics, contact sheet extraction, and post-render visual QC comparison",
+      "status": "baseline_and_adaptive_opencv_tested_upstream_cli_optional",
+      "runtime_available_in_cloud_vm": true,
+      "android_arm64_supported": true,
+      "deterministic_timeline_mode": "ffprobe_pts_and_opencv_hsv_laplacian_mad",
+      "limitations": "Offline baseline + OpenCV adaptive detector are installed and tested; upstream rea-video ONNX stem-separation/OCR/VLM CLI is optional and not pre-downloaded to avoid unapproved external model downloads."
+    },
+    {
+      "id": "ffmpeg",
+      "name": "FFmpeg / FFprobe Media Processing & Validation Engine (v6.1.1)",
+      "role": "H.264 yuv420p + AAC 48kHz encoding, WAV audio inspection, loudness/peak measurement, scene extraction, and full stream decode verification",
+      "status": "available_and_tested",
+      "runtime_available_in_cloud_vm": true,
+      "android_arm64_supported": true,
+      "deterministic_timeline_mode": "exact_frame_rate_and_pts_verification",
+      "limitations": "Used as validator/encoder, never as a silent replacement for 3D engines without explicit user approval."
+    }
+  ]
+}

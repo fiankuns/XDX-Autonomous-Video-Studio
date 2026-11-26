@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xdx-autonomous-video-studio"
+version = "3.3.0"
+description = "XDX Autonomous Video Studio v3.3 — Universal Multi-Genre Hybrid Production Orchestrator (Blender XDX MCP + Three.js + Remotion + REA-Video + FFmpeg)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+    { name = "XDX Autonomous Video Studio" }
+]
+dependencies = [
+    "pydantic>=2.10.0",
+    "jsonschema>=4.20.0",
+    "PyYAML>=6.0.0",
+    "numpy>=1.26.0,<3.0.0",
+    "opencv-python-headless>=4.8.0,<6.0.0",
+    "Pillow>=10.0.0",
+    "starlette>=0.40.0",
+    "uvicorn>=0.30.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+asr = [
+    "faster-whisper>=1.1.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["intelligence*", "engines*", "adapters*", "libraries*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

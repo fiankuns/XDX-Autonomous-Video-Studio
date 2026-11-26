@@ -1,0 +1,77 @@
+{
+  "schema_version": "3.3.0",
+  "library_id": "visual_explainer_library",
+  "library_name": "Visual Explainer Library",
+  "category": "data_and_concept_visualizers",
+  "version": "3.3.0",
+  "description": "Reusable 2D/3D explainer templates for quantitative comparison, historical timelines, and mechanism cutaways.",
+  "presets": [
+    {
+      "id": "exp_3d_ratio_crowd_compare",
+      "name": "3D Ratio / Per-Capita Pedestal Comparison",
+      "parameters": {
+        "layout": "dual_pedestal_3d",
+        "animate_frames": 45,
+        "label_typography": "typo_jakarta_modern_explainer",
+        "require_verified_source_citation": true
+      },
+      "version": "1.0.0",
+      "source": "XDX Visual Explainer Engine (D3 + Three.js)",
+      "license": "MIT",
+      "engine_compatibility": [
+        "threejs",
+        "remotion"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "explainer",
+        "edukasi",
+        "dokumenter"
+      ]
+    },
+    {
+      "id": "exp_epoch_timeline_scrubber",
+      "name": "Historical Epoch Scrubber & Year Card",
+      "parameters": {
+        "layout": "horizontal_ribbon_vertical_card",
+        "year_counter_ease": "mot_cinematic_ease_inout",
+        "typography": "typo_historical_archival_serif"
+      },
+      "version": "1.0.0",
+      "source": "XDX Visual Explainer Engine (Remotion + D3)",
+      "license": "MIT",
+      "engine_compatibility": [
+        "remotion",
+        "threejs"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "sejarah",
+        "biografi",
+        "dokumenter"
+      ]
+    },
+    {
+      "id": "exp_mechanism_xray_cutaway",
+      "name": "3D Technical Mechanism X-Ray Cutaway",
+      "parameters": {
+        "layout": "exploded_view_3d",
+        "clipping_plane_axis": "Z",
+        "callout_pins": true,
+        "animate_frames": 60
+      },
+      "version": "1.0.0",
+      "source": "XDX Visual Explainer Engine (Three.js)",
+      "license": "MIT",
+      "engine_compatibility": [
+        "threejs",
+        "blender"
+      ],
+      "test_status": "tested",
+      "genres": [
+        "explainer",
+        "edukasi"
+      ]
+    }
+  ]
+}
