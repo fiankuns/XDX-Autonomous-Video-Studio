@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "defaults": {
+    "explainer": [
+      "REF-002"
+    ],
+    "social_satire": [
+      "REF-001"
+    ],
+    "storytelling": [
+      "REF-001"
+    ]
+  },
+  "related_candidates": {
+    "education": [
+      "REF-002"
+    ],
+    "edukasi": [
+      "REF-002"
+    ],
+    "history": [
+      "REF-002"
+    ],
+    "sejarah": [
+      "REF-002"
+    ]
+  },
+  "aliases": {
+    "explainair": "explainer",
+    "explaner": "explainer",
+    "explain er": "explainer",
+    "satir sosial": "social_satire",
+    "satir_sosial": "social_satire",
+    "cerita": "storytelling"
+  },
+  "unmapped_policy": "NO_MATCH_REQUIRE_EXPLICIT_REFERENCE_OR_EXISTING_GENRE_PROFILE"
+}
