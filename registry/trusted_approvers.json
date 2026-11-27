@@ -2,5 +2,14 @@
   "schema_version": "4.0.0-phase01.6d",
   "registry_id": "xdx_trusted_human_approvers",
   "policy": "Only Ed25519 PUBLIC keys of human approvers. Private keys never enter this repository or any agent workspace. Every change to this file must be reviewed and committed by the human owner; uncommitted modifications make the trusted channel UNAVAILABLE.",
-  "approvers": []
+  "approvers": [
+    {
+      "key_id": "fian-termux-1",
+      "algorithm": "ed25519",
+      "public_key_b64url": "_EqgkMl6NFhdu0x9orYtz4orU2A9XMRUruam7eqWB_Y",
+      "owner": "fiankuns",
+      "added_at": "2026-11-27T21:24:23.747505+00:00",
+      "revoked": false
+    }
+  ]
 }
