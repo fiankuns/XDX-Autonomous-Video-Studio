@@ -9,6 +9,7 @@ import sys
 from pathlib import Path
 
 import jsonschema
+import pytest
 
 from engines.ffmpeg_engine import FFmpegEngine
 from engines.web_engines import RemotionEngine, ThreeJSEngine
@@ -123,3 +124,50 @@ def test_lockfiles_and_actual_runtime_availability() -> None:
     assert isinstance(chromium_present, bool)
     proc = subprocess.run([sys.executable, "scripts/xdx_studio.py", "validate-all"], cwd=str(ROOT_DIR), capture_output=True, text=True, check=True)
     assert '"status": "VALIDATED"' in proc.stdout
+
+
+def test_no_runtime_checkpoints_or_lock_files_tracked() -> None:
+    """DEF-P016C-022: per-step checkpoints and runtime lock files must never be committed."""
+    import re
+    import shutil
+
+    if shutil.which("git") is None or not (ROOT_DIR / ".git").exists():
+        pytest.skip("not a git checkout (e.g. audit bundle snapshot)")
+    tracked = subprocess.run(
+        ["git", "ls-files"], cwd=ROOT_DIR, capture_output=True, text=True, check=True
+    ).stdout.splitlines()
+    bad = [
+        f
+        for f in tracked
+        if re.search(r"/\.checkpoints/checkpoint_\d+\.json$", f) or f.endswith((".state.lock", ".checkpoint.lock"))
+    ]
+    assert bad == [], f"runtime files tracked in git: {bad[:5]} (+{max(0, len(bad) - 5)} more)"
+
+
+def test_verified_defects_reference_existing_regression_tests() -> None:
+    """DEF-P016C-023: a VERIFIED defect must point at a real, existing test function."""
+    import ast
+
+    reg = json.loads((ROOT_DIR / "registry" / "master_audit_defect_registry.json").read_text(encoding="utf-8"))
+    missing = []
+    for d in reg["defects"]:
+        if d["current_status"] != "VERIFIED":
+            continue
+        node = d.get("regression_test")
+        if not node or "::" not in node:
+            missing.append((d["defect_id"], node))
+            continue
+        path_s, func = node.split("::", 1)
+        func = func.split("::")[-1].split("[")[0]
+        path = ROOT_DIR / path_s
+        if not path.is_file():
+            missing.append((d["defect_id"], node))
+            continue
+        names = {
+            n.name
+            for n in ast.walk(ast.parse(path.read_text(encoding="utf-8")))
+            if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))
+        }
+        if func not in names:
+            missing.append((d["defect_id"], node))
+    assert missing == [], f"VERIFIED defects without an existing regression test: {missing}"

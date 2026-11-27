@@ -96,7 +96,10 @@ def cmd_validate_all() -> int:
 
     ref_bridge = ReferenceDatabaseBridge()
     refs_by_id, _, _ = ref_bridge.load_registries()
-    verified_refs = [ref_bridge.verify_and_load_reference(rid).reference_id for rid in sorted(refs_by_id)]
+    # Knowledge layers are always validated; MP4 bytes are reported honestly (LFS may be unhydrated).
+    ref_records = [ref_bridge.verify_and_load_reference(rid, require_media=False) for rid in sorted(refs_by_id)]
+    verified_refs = [r.reference_id for r in ref_records]
+    reference_media_status = {r.reference_id: r.media_verification_status for r in ref_records}
 
     agent_reg = AgentRegistry()
     agent_cust = agent_reg.validate_workspace_customizations()
@@ -115,6 +118,7 @@ def cmd_validate_all() -> int:
                 "master_audit_defect_registry": defect_summary,
                 "preset_libraries": libs.summary_stats(),
                 "reference_database_verified": verified_refs,
+                "reference_media_status": reference_media_status,
                 "multi_agent_foundation": agent_cust,
             },
             indent=2,

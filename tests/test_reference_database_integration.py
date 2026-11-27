@@ -45,6 +45,7 @@ def _sha256(path: Path) -> str:
     return h.hexdigest()
 
 
+@pytest.mark.requires_lfs
 def test_git_lfs_real_binaries_and_cli_verify() -> None:
     proc = subprocess.run(
         [sys.executable, str(DB_ROOT / "scripts" / "reference_db.py"), "verify"],
@@ -113,8 +114,14 @@ def test_prior_analyses_preserved_and_versioned_rea_v3_4_complete() -> None:
         "10_editing_transitions_and_vfx",
     }
 
-    r1 = bridge.verify_and_load_reference("REF-001")
-    r2 = bridge.verify_and_load_reference("REF-002")
+    # Knowledge layers must load and stay preserved whether or not the LFS bytes are hydrated.
+    from tests.conftest import reference_media_hydrated
+
+    r1 = bridge.verify_and_load_reference("REF-001", require_media=False)
+    r2 = bridge.verify_and_load_reference("REF-002", require_media=False)
+    expected_media = "VERIFIED" if reference_media_hydrated() else "UNVERIFIED_MEDIA_UNAVAILABLE"
+    assert r1.media_verification_status == expected_media
+    assert r2.media_verification_status == expected_media
 
     assert r1.prior_analysis_path.name == "prior_analysis.md"
     assert "1001952045.mp4" in r1.prior_analysis_content
@@ -242,12 +249,17 @@ def test_creative_pipeline_and_approval_gate_with_references(tmp_path: Path) -> 
             actor_role="human_user",
         )
 
-    approved_state = sm.record_explicit_user_approval(
-        package_dir=pkg_sat,
-        user_message=res_sat["approval_command_example"],
-        actor_role="human_user",
-    )
-    assert approved_state["current_state"] == "APPROVED"
+    # Phase 01.6C production freeze: a valid structured approval is validated, then refused.
+    from intelligence.state_and_approval import ProductionApprovalFrozenError
+
+    with pytest.raises(ProductionApprovalFrozenError):
+        sm.record_explicit_user_approval(
+            package_dir=pkg_sat,
+            user_message=res_sat["approval_command_example"],
+            actor_role="human_user",
+        )
+    assert sm.load()["current_state"] == "WAITING_APPROVAL"
+    assert not (pkg_sat / "approval_record.json").exists()
 
     # 3. CLI multi-reference plan (`--ref-ids REF-001 REF-002`) with explicit fixture payload
     pkg_multi = tmp_path / "pkg_cli_multi"

@@ -33,6 +33,25 @@ class ReferenceMediaIntegrityError(RuntimeError):
     """Raised when a registered reference MP4 is missing, corrupt, or still an unhydrated Git LFS pointer."""
 
 
+MEDIA_VERIFIED = "VERIFIED"
+MEDIA_UNAVAILABLE = "UNVERIFIED_MEDIA_UNAVAILABLE"
+_LFS_POINTER_PREFIX = b"version https://git-lfs.github.com/spec/v1"
+
+
+def is_lfs_pointer(path: Path) -> bool:
+    try:
+        with Path(path).open("rb") as fh:
+            return fh.read(len(_LFS_POINTER_PREFIX)).startswith(_LFS_POINTER_PREFIX)
+    except OSError:
+        return False
+
+
+def reference_media_available(db_root: Path, entry: dict[str, Any]) -> bool:
+    """True only when the registered MP4 exists as real bytes (not missing, not an LFS pointer)."""
+    p = (Path(db_root) / entry["path"]).resolve()
+    return p.is_file() and not is_lfs_pointer(p)
+
+
 def _load_reference_db_module(db_root: Path) -> Any:
     script_path = db_root / "scripts" / "reference_db.py"
     if not script_path.is_file():
@@ -89,6 +108,7 @@ class ResolvedReferenceRecord:
     reference_id: str
     genre: str
     video_path: Path
+    media_verification_status: str
     video_sha256: str
     bytes_size: int
     metadata: dict[str, Any]
@@ -125,16 +145,29 @@ class ReferenceDatabaseBridge:
         profiles_by_id = {p["id"]: p for p in pattern_reg.get("profiles", [])}
         return refs_by_id, genre_reg, profiles_by_id
 
-    def verify_and_load_reference(self, ref_id: str, *, hydrate: bool = False) -> ResolvedReferenceRecord:
+    def verify_and_load_reference(
+        self, ref_id: str, *, hydrate: bool = False, require_media: bool = True
+    ) -> ResolvedReferenceRecord:
+        """Load reference knowledge layers.
+
+        ``require_media=True`` (default) is strict fail-closed: missing / LFS-pointer / corrupt MP4 raises.
+        ``require_media=False`` is knowledge-only pre-production mode: a *missing or unhydrated LFS pointer*
+        MP4 is reported honestly as ``UNVERIFIED_MEDIA_UNAVAILABLE`` while analyses/profiles still load.
+        A real file with wrong size/SHA-256 (corruption or tampering) ALWAYS raises, in both modes.
+        """
         refs_by_id, _, profiles_by_id = self.load_registries()
         if ref_id not in refs_by_id:
             raise KeyError(f"Unknown reference ID '{ref_id}'. Available: {sorted(refs_by_id)}")
         entry = refs_by_id[ref_id]
 
+        media_status = MEDIA_VERIFIED
         try:
             video_path = Path(self._db_mod.get_video(self.db_root, entry, hydrate=hydrate))
         except (FileNotFoundError, ValueError) as exc:
-            raise ReferenceMediaIntegrityError(str(exc)) from exc
+            if require_media or reference_media_available(self.db_root, entry):
+                raise ReferenceMediaIntegrityError(str(exc)) from exc
+            video_path = Path(self._db_mod.safe_path(self.db_root, entry["path"]))
+            media_status = MEDIA_UNAVAILABLE
 
         meta_path = Path(self._db_mod.safe_path(self.db_root, entry["metadata"]))
         metadata = json.loads(meta_path.read_text(encoding="utf-8"))
@@ -180,6 +213,7 @@ class ReferenceDatabaseBridge:
             reference_id=ref_id,
             genre=entry["genre"],
             video_path=video_path,
+            media_verification_status=media_status,
             video_sha256=entry["sha256"],
             bytes_size=int(entry["bytes"]),
             metadata=metadata,
@@ -198,8 +232,13 @@ class ReferenceDatabaseBridge:
         explicit_reference_ids: list[str] | None = None,
         include_related: bool = False,
         hydrate: bool = False,
+        require_media: bool = False,
     ) -> dict[str, Any]:
-        """Resolve single, multi, or genre-routed references and fuse all 4 intelligence layers."""
+        """Resolve single, multi, or genre-routed references and fuse all 4 intelligence layers.
+
+        Pre-production only needs the knowledge layers, so media is optional by default; every reference
+        reports its real ``verification_status`` and ``all_media_verified`` is False when any MP4 is absent.
+        """
         refs_by_id, genre_reg, _ = self.load_registries()
         aliases = genre_reg.get("aliases", {})
         defaults_map = genre_reg.get("defaults", {})
@@ -243,7 +282,9 @@ class ReferenceDatabaseBridge:
             elif related_candidates:
                 selection_mode = "existing_genre_profile_with_optional_related_candidates"
 
-        records = [self.verify_and_load_reference(rid, hydrate=hydrate) for rid in selected_ids]
+        records = [
+            self.verify_and_load_reference(rid, hydrate=hydrate, require_media=require_media) for rid in selected_ids
+        ]
         fingerprint = self._db_mod.analyzer_fingerprint(self.studio_root)
 
         fused_profile = self._fuse_profiles(records)
@@ -265,6 +306,7 @@ class ReferenceDatabaseBridge:
             "related_candidate_ids": [r for r in related_candidates if r not in selected_ids],
             "upload_prompt_suppressed": bool(selected_ids),
             "production_authorized": False,
+            "all_media_verified": all(r.media_verification_status == MEDIA_VERIFIED for r in records),
             "analyzer_fingerprint": fingerprint,
             "references": [
                 {
@@ -277,7 +319,7 @@ class ReferenceDatabaseBridge:
                     ),
                     "video_sha256": rec.video_sha256,
                     "bytes": rec.bytes_size,
-                    "verification_status": "VERIFIED",
+                    "verification_status": rec.media_verification_status,
                     "profile_id": rec.profile["id"],
                     "prior_analysis_relpath": str(
                         rec.prior_analysis_path.relative_to(self.studio_root)
@@ -384,7 +426,11 @@ class ReferenceDatabaseBridge:
 
         lines.extend(
             [
-                f"- **Referensi Aktif Terverifikasi (`VERIFIED`)**: `{', '.join(r.reference_id for r in records)}` *(File asli tersedia di repositori lokal via Git LFS; sistem tidak meminta unggah ulang)*",
+                (
+                    f"- **Referensi Aktif Terverifikasi (`VERIFIED`)**: `{', '.join(r.reference_id for r in records)}` *(File asli tersedia di repositori lokal via Git LFS; sistem tidak meminta unggah ulang)*"
+                    if all(r.media_verification_status == MEDIA_VERIFIED for r in records)
+                    else f"- **Referensi Aktif (pengetahuan saja)**: `{', '.join(f'{r.reference_id}={r.media_verification_status}' for r in records)}` *(MP4 Git LFS belum di-hydrate di lingkungan ini; analisis & profil dipakai, verifikasi byte/SHA-256 tertunda — jalankan `git lfs pull`)*"
+                ),
                 "",
                 "## Bukti Sumber & Lapisan Analisis Terpadu",
             ]

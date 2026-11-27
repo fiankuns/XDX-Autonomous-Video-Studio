@@ -72,29 +72,24 @@ def test_13_item_approval_gate_and_state_machine_across_hybrid_genres(tmp_path: 
             user_message="Saya setujui paket v1 dan izinkan render",
         )
 
-    # Structured explicit versioned + digest-bound approval transitions cleanly to APPROVED -> MCP_PREFLIGHT
-    approved_state = state_mgr.record_explicit_user_approval(
-        package_dir=pkg_dir,
-        user_message=result["approval_command_example"],
-    )
-    assert approved_state["current_state"] == "APPROVED"
+    # Phase 01.6C freeze (DEF-P016B-014): even a fully valid structured, digest-bound human approval
+    # is validated and then rejected; nothing is written and the project stays in WAITING_APPROVAL.
+    from intelligence.state_and_approval import ProductionApprovalFrozenError
 
-    cli_ok = subprocess.run(
-        ["python3", "scripts/approval_gate.py", str(pkg_dir), "--check", "--strict-schema"],
-        cwd=str(ROOT_DIR),
-        capture_output=True,
-        text=True,
-    )
-    assert cli_ok.returncode == 0
-    assert json.loads(cli_ok.stdout)["status"] == "RECORD_MATCH_ONLY"
+    with pytest.raises(ProductionApprovalFrozenError):
+        state_mgr.record_explicit_user_approval(
+            package_dir=pkg_dir,
+            user_message=result["approval_command_example"],
+        )
+    assert state_mgr.load()["current_state"] == "WAITING_APPROVAL"
+    assert state_mgr.load()["approval_status"].get("approved") is not True
+    assert not (pkg_dir / "approval_record.json").exists()
 
-    preflight_state = state_mgr.transition("MCP_PREFLIGHT", reason="Start preflight", package_dir=pkg_dir)
-    assert preflight_state["current_state"] == "MCP_PREFLIGHT"
-
-    # Mutating any file after approval MUST invalidate approval and revert to WAITING_APPROVAL
-    (pkg_dir / "script.md").write_text((pkg_dir / "script.md").read_text(encoding="utf-8") + "\nEdit tanpa izin\n", encoding="utf-8")
+    # No path to production states without APPROVED.
     with pytest.raises(PermissionError):
-        state_mgr.transition("STYLE_FRAME", reason="Render tampered package", package_dir=pkg_dir)
+        state_mgr.transition("APPROVED", reason="direct", package_dir=pkg_dir)
+    with pytest.raises(PermissionError):
+        state_mgr.transition("MCP_PREFLIGHT", reason="Start preflight", package_dir=pkg_dir)
     assert state_mgr.load()["current_state"] == "WAITING_APPROVAL"
 
 

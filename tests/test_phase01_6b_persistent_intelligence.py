@@ -573,7 +573,13 @@ def test_11_capability_evidence_live_verified_and_stale_report_detection(tmp_pat
 
     stale = disc.discover(now=t0 + timedelta(seconds=601))
     assert stale["capability_evidence_status"]["is_stale"] is True
-    assert stale["capabilities"]["host_tool:invoke_subagent"]["status"] == "DOCUMENTED_CAPABILITY"
+    # Host-aware (DEF-P016B-017): DOCUMENTED_CAPABILITY only on a detected Antigravity host with docs;
+    # everywhere else a stale receipt must fall back honestly to UNKNOWN.
+    on_documented_host = bool(
+        disc.antigravity_adapter.detect_host_markers()["detected"] and disc._has_antigravity_host_docs()
+    )
+    expected_stale = "DOCUMENTED_CAPABILITY" if on_documented_host else "UNKNOWN"
+    assert stale["capabilities"]["host_tool:invoke_subagent"]["status"] == expected_stale
 
 
 @pytest.mark.mock_test
@@ -985,7 +991,10 @@ def test_24_five_tier_persistence_probe_cross_process_durability_and_honest_vm_l
     assert rep["tiers"]["WORKSPACE_PERSISTENT_STORAGE"]["survives_vm_deletion"] is False
     assert rep["tiers"]["WORKSPACE_PERSISTENT_STORAGE"]["cross_process_proof"]["verified"] is True
     assert rep["tiers"]["GITHUB_PERSISTENT_KNOWLEDGE"]["survives_vm_deletion"] is True
-    assert rep["tiers"]["EXTERNAL_ARTIFACT_STORAGE"]["git_lfs_media_hydrated"] is True
+    # Must report the REAL hydration state, never a hard-coded True.
+    from tests.conftest import reference_media_hydrated
+
+    assert rep["tiers"]["EXTERNAL_ARTIFACT_STORAGE"]["git_lfs_media_hydrated"] is reference_media_hydrated()
 
 
 # ==============================================================================

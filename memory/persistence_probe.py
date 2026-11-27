@@ -67,7 +67,7 @@ def sync_reference_database_into_knowledge_memory(
     cfg_hash = compute_analyzer_config_hash()
 
     for rid in sorted(refs_by_id):
-        rec = bridge.verify_and_load_reference(rid)
+        rec = bridge.verify_and_load_reference(rid, require_media=False)
         prior_sha = compute_file_sha256(rec.prior_analysis_path)
         rea_json_sha = compute_file_sha256(rec.rea_v3_4_json_path)
         rea_md_sha = compute_file_sha256(rec.rea_v3_4_md_path)
@@ -214,7 +214,8 @@ class StoragePersistenceProbe:
         bridge = ReferenceDatabaseBridge(studio_root=self.root_dir)
         refs_by_id, _, _ = bridge.load_registries()
         lfs_hydrated = all(
-            bridge.verify_and_load_reference(rid).video_path.is_file() for rid in sorted(refs_by_id)
+            bridge.verify_and_load_reference(rid, require_media=False).media_verification_status == "VERIFIED"
+            for rid in sorted(refs_by_id)
         )
 
         tiers = {

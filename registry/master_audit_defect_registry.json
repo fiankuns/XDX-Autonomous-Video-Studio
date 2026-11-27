@@ -1,7 +1,7 @@
 {
   "schema_version": "4.0.0-phase01.6c",
   "registry_id": "xdx_master_audit_defect_registry",
-  "updated_at_utc": "2026-11-27T15:50:00+00:00",
+  "updated_at_utc": "2026-11-27T20:40:00+00:00",
   "append_only_policy": "Append-only ledger of all internal and external audit defects from Phase 01 onward. Historical entries must never be deleted, and VERIFIED requires an executed regression test.",
   "defects": [
     {
@@ -229,7 +229,7 @@
       "defect_id": "DEF-P016B-014",
       "source_phase": "Phase 01.6B",
       "severity": "CRITICAL",
-      "affected_module": "orchestration/shared_state.py, orchestration/dependency_scheduler.py",
+      "affected_module": "orchestration/shared_state.py, orchestration/dependency_scheduler.py, intelligence/state_and_approval.py, adapters/xdx_mcp_adapter.py",
       "reproduction_steps": [
         "Call SharedProjectStateMachine.transition('APPROVED', actor='trusted_human_approval_gate', verified_human_approval={'approved_digest': 'invalid', 'trusted_channel_verified': False}) or pass allow_phase02_roles=True."
       ],
@@ -239,7 +239,7 @@
       "correction_plan": "Enforced ProductionApprovalFrozenError in SharedProjectStateMachine and rejected allow_phase02_roles=True / allow_production_approval=True.",
       "target_phase": "Phase 01.6C",
       "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_13_untrusted_approval_and_boolean_production_bypass_rejected",
-      "evidence": "Verified all untrusted approval dicts, actor labels, invalid digests, trusted_channel_verified=False, and boolean flags raise ProductionApprovalFrozenError / PhaseBoundaryExecutionBlockedError.",
+      "evidence": "Verified all untrusted approval dicts, actor labels, invalid digests, trusted_channel_verified=False, and boolean flags raise ProductionApprovalFrozenError / PhaseBoundaryExecutionBlockedError. Post-audit correction: the first 01.6C commit (7ebdb06) froze only the v4 state machine; the legacy v3.4 ProjectStateManager.record_explicit_user_approval still reached APPROVED (tracked as DEF-P016C-019). Status re-verified after the v3.4 freeze landed.",
       "current_status": "VERIFIED"
     },
     {
@@ -308,6 +308,92 @@
       "target_phase": "Phase 01.6C",
       "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_21_native_execution_5_modes_and_static_conversation_id_rejection",
       "evidence": "Verified live Antigravity transcript proof for Phase 01.6C subagents, recorded_workflow_replay mode for offline audit replay, and rejection of bare static conversation_id under require_live_host_proof=True.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016C-019",
+      "source_phase": "Phase 01.6C (independent audit of 7ebdb06)",
+      "severity": "CRITICAL",
+      "affected_module": "intelligence/state_and_approval.py, adapters/xdx_mcp_adapter.py",
+      "reproduction_steps": [
+        "Build a WAITING_APPROVAL package, then call ProjectStateManager.record_explicit_user_approval() with the package's valid XDX-APPROVE command.",
+        "Hand-write APPROVED state + approval_record.json and call ApprovalGate.verify_live_execution_context()."
+      ],
+      "observed_result": "Legacy v3.4 path wrote approval_record.json, set current_state=APPROVED and allowed MCP_PREFLIGHT; tests/test_approval_state_rea_and_qc.py asserted this as expected behaviour.",
+      "expected_result": "Before Phase 01.6D every path (v3.4 and v4) validates the approval input and then refuses with ProductionApprovalFrozenError, writing nothing; forged on-disk approval cannot authorize execution or MCP mutation.",
+      "root_cause": "Freeze was added only to SharedProjectStateMachine; ProjectStateManager and ApprovalGate kept the Phase 01.5 happy path.",
+      "correction_plan": "Single ProductionApprovalFrozenError defined in state_and_approval.py (re-exported by shared_state); raise_if_production_frozen() after full validation in record_explicit_user_approval() and verify_live_execution_context(); MCP adapter maps it to MCPSceneMutationBlockedError; legacy tests now assert the freeze.",
+      "target_phase": "Phase 01.6C",
+      "regression_test": "tests/test_phase01_5_security_and_state.py::test_invalid_state_transitions_ai_self_approval_expiry_and_revocation",
+      "evidence": "Also covered by tests/test_phase01_5_security_and_state.py::test_mcp_tool_allowlist_unknown_tool_rejection_and_live_tamper_blocking, tests/test_approval_state_rea_and_qc.py::test_13_item_approval_gate_and_state_machine_across_hybrid_genres and tests/test_reference_database_integration.py::test_creative_pipeline_and_approval_gate_with_references.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016C-020",
+      "source_phase": "Phase 01.6C (independent audit of 7ebdb06)",
+      "severity": "HIGH",
+      "affected_module": "intelligence/reference_database_bridge.py, intelligence/creative_pipeline.py, intelligence/reference_lifecycle.py, memory/persistence_probe.py, scripts/xdx_studio.py",
+      "reproduction_steps": [
+        "Clone with GIT_LFS_SKIP_SMUDGE=1 (or unpack the audit bundle, which excludes the MP4s) and run pytest."
+      ],
+      "observed_result": "17 tests failed with MEDIA_MISSING / INTEGRITY_FAILED, validate-all exited 1; pre-production could not run at all without 65 MB of LFS media.",
+      "expected_result": "Pre-production uses the reference knowledge layers without the MP4 bytes and reports media honestly as UNVERIFIED_MEDIA_UNAVAILABLE; corrupt/tampered real files still fail closed; tests that need real bytes are skipped via requires_lfs.",
+      "root_cause": "verify_and_load_reference() always required hydrated media, and every caller used it even when only analyses/profiles were needed.",
+      "correction_plan": "require_media flag (strict by default on verify_and_load_reference, knowledge-only on resolve_context); missing/pointer -> UNVERIFIED_MEDIA_UNAVAILABLE, wrong bytes -> ReferenceMediaIntegrityError in both modes; all_media_verified + reference_media_status reported; tests/conftest.py adds requires_lfs auto-skip.",
+      "target_phase": "Phase 01.6C",
+      "regression_test": "tests/test_reference_database_integration.py::test_prior_analyses_preserved_and_versioned_rea_v3_4_complete",
+      "evidence": "Full suite in a pointer-only clone: 0 failed, 1 skipped (requires_lfs). Strict mode still covered by tests/test_reference_database_integration.py::test_fail_closed_on_lfs_pointer_or_missing_media.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016C-021",
+      "source_phase": "Phase 01.6C (independent audit of 7ebdb06)",
+      "severity": "MEDIUM",
+      "affected_module": "tests/test_phase01_6b_persistent_intelligence.py",
+      "reproduction_steps": [
+        "Run test_11 and test_24 outside an Antigravity host / without hydrated LFS media."
+      ],
+      "observed_result": "test_11 expected DOCUMENTED_CAPABILITY off-host (code correctly returned UNKNOWN); test_24 hard-coded git_lfs_media_hydrated is True.",
+      "expected_result": "Tests assert the honest, environment-derived value.",
+      "root_cause": "Tests were written against the Antigravity dev host with hydrated LFS.",
+      "correction_plan": "Host-aware expectation for test_11; test_24 compares against tests.conftest.reference_media_hydrated().",
+      "target_phase": "Phase 01.6C",
+      "regression_test": "tests/test_phase01_6b_persistent_intelligence.py::test_11_capability_evidence_live_verified_and_stale_report_detection",
+      "evidence": "Passes both on and off host; test_24 passes with and without hydrated media.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016C-022",
+      "source_phase": "Phase 01.6C (independent audit of 7ebdb06)",
+      "severity": "MEDIUM",
+      "affected_module": ".gitignore, projects/*/.checkpoints",
+      "reproduction_steps": [
+        "git show --stat 7ebdb06 | tail -1"
+      ],
+      "observed_result": "Commit added ~1.65M lines; 820 per-step checkpoint_*.json files (~68 MB) plus .checkpoint.lock / *.state.lock runtime files were tracked.",
+      "expected_result": "Only compact evidence (latest_checkpoint.json, portable_checkpoint_bundle_v4.json) is committed; runtime checkpoints and locks are ignored.",
+      "root_cause": "Benchmark runner wrote into projects/ and the result was committed with git add -A.",
+      "correction_plan": "git rm --cached on per-step checkpoints and lock files; .gitignore rules added. Note: the blobs remain in branch history until the branch is squashed/rewritten before merge.",
+      "target_phase": "Phase 01.6C",
+      "regression_test": "tests/test_structure_schemas_and_runtimes.py::test_no_runtime_checkpoints_or_lock_files_tracked",
+      "evidence": "git ls-files shows no checkpoint_NNNN.json or *.lock runtime files after the fix.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016C-023",
+      "source_phase": "Phase 01.6C (independent audit of 7ebdb06)",
+      "severity": "HIGH",
+      "affected_module": "registry/master_audit_defect_registry.json",
+      "reproduction_steps": [
+        "Compare registry statuses with an actual pytest run of the 7ebdb06 tree without LFS media."
+      ],
+      "observed_result": "17/18 defects marked VERIFIED while 20 tests failed and DEF-P016B-014 was only partially fixed.",
+      "expected_result": "VERIFIED only when the referenced regression test exists and passes in a clean environment.",
+      "root_cause": "Statuses were set from the author's hydrated dev host, not from a clean reproduction.",
+      "correction_plan": "Statuses re-derived from a clean pointer-only clone run; new test enforces that every VERIFIED entry names an existing test function.",
+      "target_phase": "Phase 01.6C",
+      "regression_test": "tests/test_structure_schemas_and_runtimes.py::test_verified_defects_reference_existing_regression_tests",
+      "evidence": "Test resolves every VERIFIED regression_test node id to a real test function.",
       "current_status": "VERIFIED"
     }
   ]

@@ -44,3 +44,9 @@ projects/*/scenes/*.blend
 *auth_token*
 mcp_config.local.json
 antigravity_mcp_config.local.json
+
+# Runtime checkpoint/lock state (Phase 01.6C cleanup, DEF-P016C-019): never commit per-step checkpoints
+# or lock files. Only the compact evidence (latest_checkpoint.json, portable_checkpoint_bundle_v4.json) is kept.
+projects/*/.checkpoints/checkpoint_*.json
+*.state.lock
+.checkpoint.lock

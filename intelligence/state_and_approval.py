@@ -139,6 +139,24 @@ class ApprovalAuthorizationError(PermissionError):
     """Raised when approval validation or execution authorization fails (fail-closed)."""
 
 
+# Phase 01.6C production freeze (DEF-P016B-014): no code path - v3.4 or v4 - may grant APPROVED
+# or authorize live execution until the Trusted Human Approval guard lands in Phase 01.6D.
+PRODUCTION_APPROVAL_FROZEN = True
+FROZEN_UNTIL_PHASE = "Phase 01.6D"
+
+
+class ProductionApprovalFrozenError(InvalidStateTransitionError):
+    """Raised prior to Phase 01.6D when any caller attempts to enter APPROVED or production states."""
+
+
+def raise_if_production_frozen(action: str) -> None:
+    if PRODUCTION_APPROVAL_FROZEN:
+        raise ProductionApprovalFrozenError(
+            f"{action} is frozen until {FROZEN_UNTIL_PHASE} (Trusted Human Approval & Execution Guard). "
+            "All inputs were validated; no approval record or state change was written."
+        )
+
+
 def atomic_write_json(path: Path, data: Any) -> None:
     """Write JSON atomically via same-directory temp file + os.replace."""
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -498,13 +516,15 @@ class ApprovalGate:
             raise ApprovalAuthorizationError("Missing approval_record.json on disk.")
         rec = json.loads(rec_path.read_text(encoding="utf-8"))
 
-        return self.verify_approval_record_dict(
+        verified = self.verify_approval_record_dict(
             rec,
             live_digest=live_digest,
             expected_project_id=ctx.project_id,
             required_scope=required_scope,
             now=now,
         )
+        raise_if_production_frozen("ApprovalGate.verify_live_execution_context")
+        return verified
 
 
 class ProjectStateManager:
@@ -650,6 +670,7 @@ class ProjectStateManager:
             expected_project_id=state["project_id"],
             expected_digest=digest,
         )
+        raise_if_production_frozen("ProjectStateManager.record_explicit_user_approval")
 
         now_dt = self._now_utc()
         expires_dt = now_dt + timedelta(hours=ttl_hours)

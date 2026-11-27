@@ -1278,7 +1278,7 @@ class PreProductionPackageBuilder:
                 include_related=include_related_references,
             )
             resolved_records = [
-                self.reference_bridge.verify_and_load_reference(rid)
+                self.reference_bridge.verify_and_load_reference(rid, require_media=False)
                 for rid in ref_context["selected_reference_ids"]
             ]
 

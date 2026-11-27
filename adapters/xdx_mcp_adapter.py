@@ -25,6 +25,7 @@ from intelligence.state_and_approval import (
     ApprovalAuthorizationError,
     ApprovalGate,
     ExecutionAuthorizationContext,
+    ProductionApprovalFrozenError,
 )
 
 DEFAULT_SIBLING_BLENDER_STUDIO = Path("/home/antigravity/fiankuns/xdx-blender-studio")
@@ -349,7 +350,7 @@ class XDXBlenderMCPAdapter:
     def _verify_ctx(self, auth_context: ExecutionAuthorizationContext, *, required_scope: str) -> None:
         try:
             self._approval_gate.verify_live_execution_context(auth_context, required_scope=required_scope)
-        except (ApprovalAuthorizationError, ValueError) as exc:
+        except (ApprovalAuthorizationError, ProductionApprovalFrozenError, ValueError) as exc:
             raise MCPSceneMutationBlockedError(f"Live MCP authorization check failed: {exc}") from exc
 
     def call_tool(

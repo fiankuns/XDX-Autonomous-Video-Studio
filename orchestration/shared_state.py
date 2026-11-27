@@ -20,7 +20,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from intelligence.state_and_approval import InvalidStateTransitionError
+from intelligence.state_and_approval import InvalidStateTransitionError, ProductionApprovalFrozenError  # noqa: F401
 
 PRIMARY_STATES_V4: tuple[str, ...] = (
     "IDLE",
@@ -166,8 +166,6 @@ class StateVersionConflictError(RuntimeError):
     """Raised when optimistic concurrency `expected_version` does not match current persisted `state_version`."""
 
 
-class ProductionApprovalFrozenError(InvalidStateTransitionError):
-    """Raised prior to Phase 01.6D when any caller attempts to enter APPROVED or production states."""
 
 
 def _utc_now_iso() -> str:

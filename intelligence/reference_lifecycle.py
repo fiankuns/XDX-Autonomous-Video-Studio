@@ -272,7 +272,7 @@ class REAReferenceLifecycleManager:
         record = (
             self._custom_registered[ref_id]
             if ref_id in self._custom_registered
-            else self.bridge.verify_and_load_reference(ref_id)
+            else self.bridge.verify_and_load_reference(ref_id, require_media=False)
         )
         eff_cfg = {**DEFAULT_ANALYZER_CONFIG, **(analyzer_config or {})}
         key = self.build_cache_key(
@@ -465,6 +465,7 @@ class REAReferenceLifecycleManager:
             reference_id=clean_id,
             genre=genre,
             video_path=vpath,
+            media_verification_status="VERIFIED",  # bytes hashed locally at registration time
             video_sha256=v_sha,
             bytes_size=v_bytes,
             metadata={"id": clean_id, "title": title, "genre": genre},
@@ -518,7 +519,7 @@ class REAReferenceLifecycleManager:
                 if cid in self._custom_registered:
                     rec = self._custom_registered[cid]
                 else:
-                    rec = self.bridge.verify_and_load_reference(cid)
+                    rec = self.bridge.verify_and_load_reference(cid, require_media=False)
                 if cid not in selected_ids:
                     selected_ids.append(cid)
                     records.append(rec)
@@ -530,7 +531,7 @@ class REAReferenceLifecycleManager:
                 include_related=include_related,
             )
             selected_ids = list(base_ctx["selected_reference_ids"])
-            records = [self.bridge.verify_and_load_reference(rid) for rid in selected_ids]
+            records = [self.bridge.verify_and_load_reference(rid, require_media=False) for rid in selected_ids]
             sel_mode = (
                 "genre_without_specific_reference"
                 if not selected_ids
