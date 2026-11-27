@@ -20,7 +20,13 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from intelligence.state_and_approval import InvalidStateTransitionError, ProductionApprovalFrozenError  # noqa: F401
+from governance.trusted_approval import VerifiedApproval, default_guard
+from intelligence.state_and_approval import (  # noqa: F401
+    InvalidStateTransitionError,
+    ProductionApprovalFrozenError,
+    atomic_write_json,
+    compute_package_digest,
+)
 
 PRIMARY_STATES_V4: tuple[str, ...] = (
     "IDLE",
@@ -273,6 +279,94 @@ class SharedProjectStateMachine:
         verified_human_approval: dict[str, Any] | None = None,
         verified_success_auditor_pass: bool = False,
     ) -> dict[str, Any]:
+        """Public transition. ``APPROVED`` is never reachable here: use ``approve_via_trusted_gate``."""
+        return self._transition(
+            next_state,
+            expected_version=expected_version,
+            trigger=trigger,
+            actor=actor,
+            task_id=task_id,
+            evidence=evidence,
+            artifact_manifest=artifact_manifest,
+            verified_human_approval=verified_human_approval,
+            verified_success_auditor_pass=verified_success_auditor_pass,
+            trusted_approval=None,
+        )
+
+    def approve_via_trusted_gate(
+        self,
+        *,
+        signed_token: str,
+        package_dir: Path,
+        package_version: str,
+        expected_version: int,
+        now: datetime | None = None,
+    ) -> dict[str, Any]:
+        """Phase 01.6D: the ONLY v4 path to APPROVED - an Ed25519-signed human token verified centrally."""
+        doc = self.load()
+        if doc["current_state"] not in {"WAITING_APPROVAL", "WAITING_REAPPROVAL"}:
+            raise InvalidStateTransitionError(
+                f"Trusted approval only from WAITING_APPROVAL/WAITING_REAPPROVAL (current={doc['current_state']})"
+            )
+        digest, _ = compute_package_digest(Path(package_dir))
+        guard = default_guard()
+        va = guard.verify_token(
+            signed_token,
+            expected_project_id=doc["project_id"],
+            expected_package_version=package_version,
+            live_manifest_digest=digest,
+            now=now,
+        )
+        used = [t.get("approval_nonce") for t in doc.get("transitions", []) if t.get("approval_nonce")]
+        guard.consume(Path(package_dir), va, state_consumed_nonces=used)
+        now_s = _utc_now_iso()
+        atomic_write_json(
+            Path(package_dir) / "approval_record.json",
+            {
+                "approval_id": va.approval_id,
+                "project_id": va.project_id,
+                "package_version": va.package_version,
+                "digest": digest,
+                "decision": "approved",
+                "actor_role": "human_user",
+                "approved_scopes": list(va.scopes),
+                "project_state_at_approval": "WAITING_APPROVAL",
+                "trusted_channel": "ed25519_offline_signature",
+                "approver_key_id": va.key_id,
+                "nonce": va.nonce,
+                "signed_token": va.token,
+                "recorded_at": now_s,
+                "expires_at": va.expires_at,
+                "revoked": False,
+            },
+        )
+        return self._transition(
+            "APPROVED",
+            expected_version=expected_version,
+            trigger="TRUSTED_HUMAN_APPROVAL",
+            actor="trusted_human_approval_gate",
+            task_id=None,
+            evidence=f"Ed25519 approval {va.approval_id} (key {va.key_id}) over manifest {digest[:16]}",
+            artifact_manifest=None,
+            verified_human_approval=None,
+            verified_success_auditor_pass=False,
+            trusted_approval=va,
+        )
+
+    def _transition(
+        self,
+        next_state: str,
+        *,
+        expected_version: int,
+        trigger: str,
+        actor: str,
+        task_id: str | None,
+        evidence: str,
+        artifact_manifest: dict[str, str] | None,
+        verified_human_approval: dict[str, Any] | None,
+        verified_success_auditor_pass: bool,
+        trusted_approval: VerifiedApproval | None,
+    ) -> dict[str, Any]:
         if next_state in TASK_STATES_V4 and next_state not in ALL_26_PROJECT_STATES_V4:
             raise InvalidStateTransitionError(
                 f"'{next_state}' is a TaskState, not a ProjectState! Keep task and project states separate."
@@ -298,20 +392,33 @@ class SharedProjectStateMachine:
                     f"Illegal v4.0 state transition '{prev}' -> '{next_state}'. Allowed: {sorted(allowed)}"
                 )
 
-            # Phase 01.6C Section 4.F: Production Approval Freeze prior to Phase 01.6D!
-            # Rejects actor labels ('trusted_human_approval_gate'), agent-crafted approval dicts,
-            # invalid digests, trusted_channel_verified=False, and any transition to APPROVED or production!
+            # Phase 01.6D: APPROVED requires a VerifiedApproval produced by the central trusted guard.
+            # Actor labels, agent-crafted dicts (verified_human_approval), and fabricated VerifiedApproval
+            # objects are rejected: the embedded token signature is re-verified here.
             if next_state == "APPROVED":
-                if actor != "trusted_human_approval_gate" or not verified_human_approval:
+                if not isinstance(trusted_approval, VerifiedApproval) or actor != "trusted_human_approval_gate":
                     raise ProductionApprovalFrozenError(
-                        "Agents cannot transition directly to 'APPROVED'; requires trusted_human_approval_gate "
-                        "and production approval is frozen until Phase 01.6D."
+                        "Direct transition to 'APPROVED' is forbidden: actor labels and approval dictionaries are "
+                        "not proof of human identity. Requires the trusted_human_approval_gate: approve_via_trusted_gate() "
+                        "with an Ed25519-signed human token."
                     )
-                raise ProductionApprovalFrozenError(
-                    "Production transition to 'APPROVED' is strictly frozen in Phase 01.6C! "
-                    "Actor labels and agent-supplied approval dictionaries are not accepted as proof of "
-                    "human identity prior to Phase 01.6D Trusted Human Approval & Execution Guard."
+                default_guard().verify_token(
+                    trusted_approval.token,
+                    expected_project_id=str(doc["project_id"]),
+                    expected_package_version=trusted_approval.package_version,
+                    live_manifest_digest=trusted_approval.manifest_digest,
                 )
+                doc["approval_status"] = {
+                    "approved": True,
+                    "approved_digest": trusted_approval.manifest_digest,
+                    "approved_version": trusted_approval.package_version,
+                    "approval_id": trusted_approval.approval_id,
+                    "approver_key_id": trusted_approval.key_id,
+                    "approved_scopes": list(trusted_approval.scopes),
+                    "expires_at": trusted_approval.expires_at,
+                    "trusted_channel_verified": True,
+                    "revoked": False,
+                }
 
             # Block direct COMPLETED without Success Auditor + freeze all post-approval production states
             if next_state == "COMPLETED":
@@ -322,8 +429,8 @@ class SharedProjectStateMachine:
 
             if next_state in POST_APPROVAL_PRODUCTION_STATES:
                 raise ProductionApprovalFrozenError(
-                    f"Production state '{next_state}' is strictly frozen prior to Phase 01.6D "
-                    "(rendering, modeling, animation, and Blender mutations are prohibited in Phase 01.6C)."
+                    f"Production state '{next_state}' is blocked by the Phase 02 execution boundary "
+                    "(rendering, modeling, animation, and Blender mutations are not started in Phase 01.6D)."
                 )
 
             # Invalidate approval automatically if entering WAITING_REAPPROVAL or REVISION_REQUIRED
@@ -348,6 +455,9 @@ class SharedProjectStateMachine:
                 "state_version": new_ver,
                 "artifact_manifest": merged_manifest,
             }
+            if trusted_approval is not None and next_state == "APPROVED":
+                entry["approval_nonce"] = trusted_approval.nonce
+                entry["approval_id"] = trusted_approval.approval_id
             doc["current_state"] = next_state
             doc["state_version"] = new_ver
             doc["artifact_manifest"] = merged_manifest

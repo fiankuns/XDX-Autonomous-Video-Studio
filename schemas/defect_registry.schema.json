@@ -13,7 +13,7 @@
   "properties": {
     "schema_version": {
       "type": "string",
-      "enum": ["4.0.0-phase01.6c"]
+      "enum": ["4.0.0-phase01.6c", "4.0.0-phase01.6d"]
     },
     "registry_id": {
       "type": "string",

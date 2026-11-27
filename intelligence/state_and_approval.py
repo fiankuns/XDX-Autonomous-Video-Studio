@@ -135,26 +135,25 @@ class InvalidStateTransitionError(PermissionError):
     """Raised when attempting a state transition outside ALLOWED_STATE_TRANSITIONS."""
 
 
-class ApprovalAuthorizationError(PermissionError):
-    """Raised when approval validation or execution authorization fails (fail-closed)."""
+from governance.canonical_manifest import compute_canonical_package_digest  # noqa: E402
+from governance.trusted_approval import (  # noqa: E402
+    ApprovalAuthorizationError,
+    PhaseBoundaryBlockedError,
+    TrustedApprovalError,
+    TrustedApprovalGuard,
+    assert_phase_boundary,
+    default_guard,
+)
 
 
-# Phase 01.6C production freeze (DEF-P016B-014): no code path - v3.4 or v4 - may grant APPROVED
-# or authorize live execution until the Trusted Human Approval guard lands in Phase 01.6D.
-PRODUCTION_APPROVAL_FROZEN = True
-FROZEN_UNTIL_PHASE = "Phase 01.6D"
+# Phase 01.6D: the unconditional 01.6C freeze is replaced by the Trusted Human Approval guard
+# (governance/trusted_approval.py). APPROVED is reachable ONLY with an Ed25519-signed token from a
+# registered human key; without a usable trusted channel, approval stays BLOCKED. Production execution
+# scopes remain blocked by the Phase 02 boundary (assert_phase_boundary).
 
 
 class ProductionApprovalFrozenError(InvalidStateTransitionError):
-    """Raised prior to Phase 01.6D when any caller attempts to enter APPROVED or production states."""
-
-
-def raise_if_production_frozen(action: str) -> None:
-    if PRODUCTION_APPROVAL_FROZEN:
-        raise ProductionApprovalFrozenError(
-            f"{action} is frozen until {FROZEN_UNTIL_PHASE} (Trusted Human Approval & Execution Guard). "
-            "All inputs were validated; no approval record or state change was written."
-        )
+    """Raised when a caller tries to enter APPROVED/production outside the trusted approval gate."""
 
 
 def atomic_write_json(path: Path, data: Any) -> None:
@@ -175,19 +174,13 @@ def atomic_write_json(path: Path, data: Any) -> None:
 
 
 def compute_package_digest(package_dir: Path) -> tuple[str, dict[str, str]]:
-    """Compute canonical SHA-256 package digest across all required pre-production files."""
-    file_hashes: dict[str, str] = {}
-    for name in REQUIRED_PACKAGE_FILES:
-        f = package_dir / name
-        if not f.is_file() or not f.read_bytes().strip():
-            raise ValueError(f"Missing/empty: {name}")
-        data = f.read_bytes()
-        if name.endswith(".json"):
-            json.loads(data.decode("utf-8"))
-        file_hashes[name] = hashlib.sha256(data).hexdigest()
+    """Canonical SHA-256 manifest digest over EVERY production-input artifact (Phase 01.6D).
 
-    canonical = json.dumps(file_hashes, sort_keys=True, separators=(",", ":")).encode("utf-8")
-    return hashlib.sha256(canonical).hexdigest(), file_hashes
+    Delegates to governance.canonical_manifest: all regular files are hashed (narration, captions,
+    character/style bibles, camera, semantic storyboard, research, reference adaptation included);
+    only runtime state/lock/ledger files are excluded.
+    """
+    return compute_canonical_package_digest(Path(package_dir))
 
 
 def format_structured_approval_command(
@@ -363,11 +356,17 @@ class ApprovalGate:
         expected_project_id: str | None = None,
         required_scope: str | None = None,
         now: datetime | None = None,
+        package_dir: Path | None = None,
+        expected_package_version: str | None = None,
     ) -> dict[str, Any]:
-        """Fail-closed validation of an approval_record.json dictionary against live package SHA-256."""
+        """Fail-closed validation of approval_record.json via the central Trusted Approval guard.
+
+        A record is valid only if it carries an Ed25519-signed token from a registered human key that binds
+        project, version, full canonical manifest digest, scopes, nonce and expiry, and the hash-chained
+        ledger shows it was consumed exactly once and never revoked.
+        """
         if not isinstance(rec, dict) or not rec:
             raise ApprovalAuthorizationError("Missing or empty approval_record.json")
-
         if rec.get("decision") != "approved":
             raise ApprovalAuthorizationError("Approval decision is not 'approved'")
         if rec.get("revoked") is True:
@@ -380,47 +379,37 @@ class ApprovalGate:
             raise ApprovalAuthorizationError(
                 f"Approval was recorded in invalid state '{rec.get('project_state_at_approval')}' (must be WAITING_APPROVAL)."
             )
-
+        if package_dir is None:
+            raise ApprovalAuthorizationError("package_dir is required to verify the approval ledger.")
         rec_proj = str(rec.get("project_id", "")).strip()
-        rec_ver = str(rec.get("package_version", "")).strip()
-        rec_digest = str(rec.get("digest", "")).strip()
-        user_msg = str(rec.get("user_message", "")).strip()
-        recorded_at_s = str(rec.get("recorded_at", "")).strip()
-        expires_at_s = str(rec.get("expires_at", "")).strip()
-        scopes = rec.get("approved_scopes")
-
-        if not (rec_proj and rec_ver and rec_digest and user_msg and recorded_at_s and expires_at_s):
-            raise ApprovalAuthorizationError("Incomplete required fields in approval_record.json")
         if expected_project_id is not None and rec_proj != expected_project_id:
             raise ApprovalAuthorizationError(f"Project ID mismatch: '{rec_proj}' != '{expected_project_id}'")
-        if rec_digest != live_digest:
+        if str(rec.get("digest", "")) != live_digest:
             raise ApprovalAuthorizationError("Live package SHA-256 digest does not match approved digest (tampered/modified)")
 
-        if not isinstance(scopes, list) or not scopes or any(s not in VALID_APPROVAL_SCOPES for s in scopes):
-            raise ApprovalAuthorizationError("Missing or invalid approved_scopes in approval_record.json")
-
-        current_now = now or datetime.now(timezone.utc)
-        recorded_dt = self._parse_iso_utc(recorded_at_s)
-        expires_dt = self._parse_iso_utc(expires_at_s)
-        if current_now >= expires_dt:
-            raise ApprovalAuthorizationError("Approval record has expired")
-        if recorded_dt > current_now + timedelta(seconds=60):
-            raise ApprovalAuthorizationError("Approval timestamp is in the future")
-
-        parsed = parse_and_validate_approval_message(
-            user_msg,
-            expected_version=rec_ver,
-            expected_project_id=rec_proj,
-            expected_digest=live_digest,
+        va = self._guard().verify_recorded_approval(
+            Path(package_dir),
+            rec,
+            expected_project_id=expected_project_id or rec_proj,
+            expected_package_version=expected_package_version or str(rec.get("package_version", "")),
+            live_manifest_digest=live_digest,
+            required_scope=required_scope or "mcp_preflight",
+            now=now,
         )
+        return {
+            "approval_id": va.approval_id,
+            "key_id": va.key_id,
+            "project_id": va.project_id,
+            "version": va.package_version,
+            "digest": va.manifest_digest,
+            "scopes": list(va.scopes),
+            "expires_at": va.expires_at,
+            "trusted_channel": "ed25519_offline_signature",
+        }
 
-        if required_scope is not None:
-            if required_scope not in scopes and "all_production" not in scopes:
-                raise ApprovalAuthorizationError(
-                    f"Required scope '{required_scope}' is not covered by approved_scopes {scopes}"
-                )
-
-        return parsed
+    @staticmethod
+    def _guard() -> TrustedApprovalGuard:
+        return default_guard()
 
     def inspect_package(self, package_dir: Path, *, check_record: bool = False) -> dict[str, Any]:
         digest, file_hashes = compute_package_digest(package_dir)
@@ -457,16 +446,22 @@ class ApprovalGate:
         rec_path = package_dir / "approval_record.json"
         rec = json.loads(rec_path.read_text(encoding="utf-8")) if rec_path.is_file() else {}
         try:
-            self.verify_approval_record_dict(rec, live_digest=digest, expected_project_id=project_id)
+            self.verify_approval_record_dict(
+                rec,
+                live_digest=digest,
+                expected_project_id=project_id,
+                package_dir=package_dir,
+                expected_package_version=pkg_ver,
+            )
             return {
                 "digest": digest,
                 "project_id": project_id,
                 "package_version": pkg_ver,
                 "status": "RECORD_MATCH_ONLY",
                 "explicit_phrase_verified": True,
-                "note": "Structured approval verified against live SHA-256, project_id, version, actor_role, and TTL.",
+                "note": "Ed25519-signed trusted approval verified against live canonical manifest, project, version, TTL, ledger and revocation.",
             }
-        except ApprovalAuthorizationError as exc:
+        except (ApprovalAuthorizationError, ValueError) as exc:
             return {
                 "digest": digest,
                 "project_id": project_id,
@@ -522,8 +517,11 @@ class ApprovalGate:
             expected_project_id=ctx.project_id,
             required_scope=required_scope,
             now=now,
+            package_dir=ctx.package_dir,
+            expected_package_version=ctx.package_version,
         )
-        raise_if_production_frozen("ApprovalGate.verify_live_execution_context")
+        # Trusted approval proven -> still enforce the Phase 02 execution boundary.
+        assert_phase_boundary(required_scope, action="ApprovalGate.verify_live_execution_context")
         return verified
 
 
@@ -647,7 +645,14 @@ class ProjectStateManager:
         user_message: str,
         actor_role: str = "human_user",
         ttl_hours: float = 24.0,
+        now: datetime | None = None,
     ) -> dict[str, Any]:
+        """Record approval ONLY from an Ed25519-signed trusted token (Phase 01.6D).
+
+        ``user_message`` must be the ``XDX-SIGNED-APPROVAL ...`` token produced on the human's device.
+        Unsigned chat text / ``XDX-APPROVE`` commands are rejected. ``ttl_hours`` can only shorten, never
+        extend, the signed expiry. If the trusted channel is unavailable, approval is BLOCKED.
+        """
         state = self.load()
         if state["current_state"] != "WAITING_APPROVAL":
             raise InvalidStateTransitionError(
@@ -664,28 +669,34 @@ class ProjectStateManager:
         if state["package_digest"] != digest:
             raise ApprovalAuthorizationError("Package digest changed since WAITING_APPROVAL; re-submit updated package first.")
 
-        parsed = parse_and_validate_approval_message(
-            user_message,
-            expected_version=state["package_version"],
+        guard = ApprovalGate._guard()
+        va = guard.verify_token(
+            (user_message or "").strip(),
             expected_project_id=state["project_id"],
-            expected_digest=digest,
+            expected_package_version=state["package_version"],
+            live_manifest_digest=digest,
+            now=now,
         )
-        raise_if_production_frozen("ProjectStateManager.record_explicit_user_approval")
+        consumed_hist = [h.get("approval_nonce") for h in state["history"] if h.get("approval_nonce")]
+        guard.consume(package_dir, va, state_consumed_nonces=consumed_hist)
 
-        now_dt = self._now_utc()
-        expires_dt = now_dt + timedelta(hours=ttl_hours)
-        approval_id = f"app-{uuid.uuid4().hex[:16]}"
-
+        now_dt = now or self._now_utc()
+        expires_dt = min(
+            datetime.fromisoformat(va.expires_at).astimezone(timezone.utc), now_dt + timedelta(hours=ttl_hours)
+        )
         approval_rec = {
-            "approval_id": approval_id,
+            "approval_id": va.approval_id,
             "project_id": state["project_id"],
             "package_version": state["package_version"],
             "digest": digest,
             "decision": "approved",
             "actor_role": "human_user",
-            "approved_scopes": parsed["scopes"],
+            "approved_scopes": list(va.scopes),
             "project_state_at_approval": "WAITING_APPROVAL",
-            "user_message": user_message.strip(),
+            "trusted_channel": "ed25519_offline_signature",
+            "approver_key_id": va.key_id,
+            "nonce": va.nonce,
+            "signed_token": va.token,
             "recorded_at": now_dt.isoformat(),
             "expires_at": expires_dt.isoformat(),
             "revoked": False,
@@ -695,12 +706,12 @@ class ProjectStateManager:
         state["current_state"] = "APPROVED"
         state["approval_status"] = {
             "approved": True,
-            "approval_id": approval_id,
+            "approval_id": va.approval_id,
             "actor_role": "human_user",
             "approved_digest": digest,
             "approved_version": state["package_version"],
-            "approved_scopes": parsed["scopes"],
-            "explicit_user_message": user_message.strip(),
+            "approved_scopes": list(va.scopes),
+            "explicit_user_message": f"<signed approval {va.approval_id} by key {va.key_id}>",
             "recorded_at": now_dt.isoformat(),
             "expires_at": expires_dt.isoformat(),
             "revoked": False,
@@ -710,7 +721,8 @@ class ProjectStateManager:
                 "from_state": "WAITING_APPROVAL",
                 "to_state": "APPROVED",
                 "timestamp": now_dt.isoformat(),
-                "reason": f"Explicit structured human approval verified ({approval_id})",
+                "reason": f"Trusted Ed25519 human approval verified ({va.approval_id}, key={va.key_id})",
+                "approval_nonce": va.nonce,
             }
         )
         state["updated_at"] = now_dt.isoformat()
@@ -726,6 +738,8 @@ class ProjectStateManager:
             rec["revoked"] = True
             rec["revoked_at"] = now_s
             atomic_write_json(rec_path, rec)
+            if rec.get("approval_id"):
+                ApprovalGate._guard().revoke(package_dir, str(rec["approval_id"]), reason=reason)
 
         prev = state["current_state"]
         state["current_state"] = "WAITING_APPROVAL"
@@ -748,7 +762,8 @@ class ProjectStateManager:
             package_version=state["package_version"],
             expected_digest=digest,
         )
-        self._gate.verify_live_execution_context(ctx, required_scope="mcp_preflight" if "mcp_preflight" in state["approval_status"].get("approved_scopes", []) else "render_production")
+        # Build-time check uses the minimal read-only scope; every execution step re-verifies with its own scope.
+        self._gate.verify_live_execution_context(ctx, required_scope="mcp_preflight")
         return ctx
 
     def transition(self, next_state: str, *, reason: str, package_dir: Path | None = None) -> dict[str, Any]:
@@ -781,9 +796,13 @@ class ProjectStateManager:
                     live_digest=live_digest,
                     expected_project_id=state["project_id"],
                     required_scope=req_scope,
+                    package_dir=package_dir,
+                    expected_package_version=state["package_version"],
                 )
                 if state["approval_status"].get("approved_digest") != live_digest or not state["approval_status"].get("approved"):
                     raise ApprovalAuthorizationError("State approval_status mismatch against live package SHA-256.")
+            except PhaseBoundaryBlockedError:
+                raise
             except (ApprovalAuthorizationError, ValueError) as exc:
                 now_s = self._now_utc().isoformat()
                 state["current_state"] = "WAITING_APPROVAL"
@@ -798,7 +817,16 @@ class ProjectStateManager:
                 )
                 state["updated_at"] = now_s
                 self._save(state)
+                if isinstance(exc, ApprovalAuthorizationError):
+                    raise
                 raise ApprovalAuthorizationError(str(exc)) from exc
+
+        if next_state in PRODUCTION_MUTATING_STATES:
+            # Approval verified; production execution scopes remain behind the Phase 02 boundary.
+            assert_phase_boundary(
+                STATE_REQUIRED_SCOPE.get(next_state, "render_production"),
+                action=f"ProjectStateManager.transition({next_state})",
+            )
 
         now_s = self._now_utc().isoformat()
         state["current_state"] = next_state

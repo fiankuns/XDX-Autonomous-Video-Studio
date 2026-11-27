@@ -66,6 +66,7 @@ def _forge_approved_state_on_disk(pkg_dir: Path, *, scopes: list[str], ttl_hours
         "approved_digest": digest,
         "approved_version": state["package_version"],
         "approved_scopes": scopes,
+        "explicit_user_message": "forged",
         "revoked": False,
     }
     state_file.write_text(json.dumps(state, indent=2), encoding="utf-8")
@@ -130,7 +131,7 @@ def test_critical_audit_regression_negative_conditional_quoted_and_ambiguous_app
     assert is_explicit_approval_message(valid_cmd, "v1", project_id="p1", package_digest=sample_digest) is True
 
 
-def test_invalid_state_transitions_ai_self_approval_expiry_and_revocation(tmp_path: Path) -> None:
+def test_invalid_state_transitions_ai_self_approval_expiry_and_revocation(tmp_path: Path, trusted_approver) -> None:
     from intelligence.authored_showcase_150s import build_authored_time_perception_payload
 
     pkg_dir = tmp_path / "pkg_sec"
@@ -166,42 +167,75 @@ def test_invalid_state_transitions_ai_self_approval_expiry_and_revocation(tmp_pa
             actor_role="assistant",
         )
 
-    # 3. Phase 01.6C freeze: valid human approvals (narrow or full scope) are validated, then refused.
-    narrow_cmd = format_structured_approval_command(
-        project_id="sec_proj_01",
-        package_version="v1",
-        package_digest=digest,
-        scopes=["mcp_preflight"],
+    # 3. Unsigned structured commands are not proof of a human (Phase 01.6D trusted channel).
+    from governance.trusted_approval import (
+        ApprovalExpiredError,
+        ApprovalRevokedError,
+        PhaseBoundaryBlockedError,
+        ScopeMismatchError,
+        UnsignedApprovalError,
     )
-    for cmd in (narrow_cmd, valid_cmd):
-        with pytest.raises(ProductionApprovalFrozenError):
-            state_mgr.record_explicit_user_approval(package_dir=pkg_dir, user_message=cmd, ttl_hours=1.0)
-        assert state_mgr.load()["current_state"] == "WAITING_APPROVAL"
-        assert not (pkg_dir / "approval_record.json").exists()
-    with pytest.raises(PermissionError):
-        state_mgr.transition("MCP_PREFLIGHT", reason="No approval exists", package_dir=pkg_dir)
 
-    # 4. Forged on-disk APPROVED state cannot unlock execution: the live gate stays frozen.
-    ctx = _forge_approved_state_on_disk(pkg_dir, scopes=["all_production"], ttl_hours=1.0)
+    with pytest.raises(UnsignedApprovalError):
+        state_mgr.record_explicit_user_approval(package_dir=pkg_dir, user_message=valid_cmd)
+    assert state_mgr.load()["current_state"] == "WAITING_APPROVAL"
+
+    # 4. Signed approval limited to `mcp_preflight` allows MCP_PREFLIGHT only; STYLE_FRAME -> scope mismatch,
+    #    approval invalidated and state reverted to WAITING_APPROVAL.
+    narrow = trusted_approver.sign(package_dir=pkg_dir, project_id="sec_proj_01", scopes=["mcp_preflight"])
+    state_mgr.record_explicit_user_approval(package_dir=pkg_dir, user_message=narrow)
+    assert state_mgr.load()["current_state"] == "APPROVED"
+    state_mgr.transition("MCP_PREFLIGHT", reason="Allowed by narrow scope", package_dir=pkg_dir)
+    with pytest.raises(ScopeMismatchError):
+        state_mgr.transition("STYLE_FRAME", reason="Disallowed by narrow scope", package_dir=pkg_dir)
+    assert state_mgr.load()["current_state"] == "WAITING_APPROVAL"
+
+    # 5. Full scope: approval works, but production execution stays behind the Phase 02 boundary.
+    full = trusted_approver.sign(package_dir=pkg_dir, project_id="sec_proj_01", scopes=["all_production"])
+    state_mgr.record_explicit_user_approval(package_dir=pkg_dir, user_message=full, ttl_hours=1.0)
+    ctx = state_mgr.build_authorization_context(pkg_dir)
     gate = ApprovalGate()
-    with pytest.raises(ProductionApprovalFrozenError):
+    with pytest.raises(PhaseBoundaryBlockedError):
         gate.verify_live_execution_context(ctx, required_scope="render_production")
+    assert state_mgr.load()["current_state"] == "APPROVED"  # boundary is not a tamper: approval kept
 
-    # 5. Dormant validators (re-enabled in 01.6D) still reject expired / revoked records first.
-    rec = json.loads((pkg_dir / "approval_record.json").read_text(encoding="utf-8"))
-    future_after_ttl = datetime.now(timezone.utc) + timedelta(hours=2)
-    with pytest.raises(ApprovalAuthorizationError):
-        gate.verify_live_execution_context(ctx, required_scope="render_production", now=future_after_ttl)
-    with pytest.raises(ApprovalAuthorizationError):
-        gate.verify_approval_record_dict(
-            {**rec, "revoked": True},
-            live_digest=rec["digest"],
-            expected_project_id=rec["project_id"],
-            required_scope="render_production",
+    # Expiry: past the signed 1-hour TTL is rejected before the boundary.
+    with pytest.raises(ApprovalExpiredError):
+        gate.verify_live_execution_context(
+            ctx, required_scope="mcp_preflight", now=datetime.now(timezone.utc) + timedelta(hours=2)
         )
 
+    # Revocation: state drops to WAITING_APPROVAL; even if an agent hand-restores APPROVED state and
+    # un-revokes approval_record.json, the hash-chained ledger still says REVOKED.
+    state_mgr.revoke_approval(package_dir=pkg_dir, reason="User cancelled run")
+    with pytest.raises(ApprovalAuthorizationError):
+        gate.verify_live_execution_context(ctx, required_scope="mcp_preflight")
+    rec_p = pkg_dir / "approval_record.json"
+    rec_doc = json.loads(rec_p.read_text(encoding="utf-8"))
+    rec_doc["revoked"] = False
+    rec_p.write_text(json.dumps(rec_doc), encoding="utf-8")
+    st_doc = json.loads((pkg_dir / "project_state.json").read_text(encoding="utf-8"))
+    st_doc["current_state"] = "APPROVED"
+    st_doc["approval_status"].update({"approved": True, "revoked": False})
+    (pkg_dir / "project_state.json").write_text(json.dumps(st_doc), encoding="utf-8")
+    with pytest.raises(ApprovalRevokedError):
+        gate.verify_live_execution_context(ctx, required_scope="mcp_preflight")
+    st_doc["current_state"] = "WAITING_APPROVAL"
+    (pkg_dir / "project_state.json").write_text(json.dumps(st_doc), encoding="utf-8")
 
-def test_mcp_tool_allowlist_unknown_tool_rejection_and_live_tamper_blocking(tmp_path: Path) -> None:
+    # Replay of an already consumed token is rejected.
+    from governance.trusted_approval import ApprovalReplayError
+
+    with pytest.raises(ApprovalReplayError):
+        state_mgr.record_explicit_user_approval(package_dir=pkg_dir, user_message=full)
+
+    # 6. Forged on-disk APPROVED state + record (no valid signature) cannot unlock execution.
+    ctx_forged = _forge_approved_state_on_disk(pkg_dir, scopes=["all_production"], ttl_hours=1.0)
+    with pytest.raises(UnsignedApprovalError):
+        gate.verify_live_execution_context(ctx_forged, required_scope="mcp_preflight")
+
+
+def test_mcp_tool_allowlist_unknown_tool_rejection_and_live_tamper_blocking(tmp_path: Path, trusted_approver) -> None:
     from intelligence.authored_showcase_150s import build_authored_time_perception_payload
 
     pkg_dir = tmp_path / "pkg_mcp_authz"
@@ -229,18 +263,33 @@ def test_mcp_tool_allowlist_unknown_tool_rejection_and_live_tamper_blocking(tmp_
         with pytest.raises(MCPSceneMutationBlockedError):
             adapter_rw.authorize_tool_call(mut_tool, {}, auth_context=None)
 
-    # Valid human approval is frozen in Phase 01.6C - nothing is written.
-    with pytest.raises(ProductionApprovalFrozenError):
-        state_mgr.record_explicit_user_approval(package_dir=pkg_dir, user_message=res["approval_command_example"])
-    assert state_mgr.load()["current_state"] == "WAITING_APPROVAL"
+    # Unsigned approval is rejected; forged on-disk approval cannot authorize a scene mutation.
+    from governance.trusted_approval import UnsignedApprovalError
 
-    # Even a forged on-disk APPROVED state + record cannot authorize a scene mutation.
-    ctx = _forge_approved_state_on_disk(pkg_dir, scopes=["all_production"])
-    with pytest.raises(MCPSceneMutationBlockedError, match="frozen"):
+    with pytest.raises(UnsignedApprovalError):
+        state_mgr.record_explicit_user_approval(package_dir=pkg_dir, user_message=res["approval_command_example"])
+    forged_ctx = _forge_approved_state_on_disk(pkg_dir, scopes=["all_production"])
+    with pytest.raises(MCPSceneMutationBlockedError, match="UNSIGNED"):
+        adapter_rw.authorize_tool_call("create_primitive", {"primitive": "cube"}, auth_context=forged_ctx)
+    # restore genuine WAITING_APPROVAL state for the trusted path
+    import json as _json
+
+    st = _json.loads((pkg_dir / "project_state.json").read_text(encoding="utf-8"))
+    st["current_state"] = "WAITING_APPROVAL"
+    st["approval_status"]["approved"] = False
+    (pkg_dir / "project_state.json").write_text(_json.dumps(st), encoding="utf-8")
+    (pkg_dir / "approval_record.json").unlink()
+
+    # Genuine signed human approval: read-only preflight OK, scene mutation blocked by the Phase 02 boundary.
+    token = trusted_approver.sign(package_dir=pkg_dir, project_id="mcp_proj_01", scopes=["all_production"])
+    state_mgr.record_explicit_user_approval(package_dir=pkg_dir, user_message=token)
+    state_mgr.transition("MCP_PREFLIGHT", reason="Verified preflight", package_dir=pkg_dir)
+    ctx = state_mgr.build_authorization_context(pkg_dir)
+    with pytest.raises(MCPSceneMutationBlockedError, match="PHASE02_EXECUTION_NOT_STARTED"):
         adapter_rw.authorize_tool_call("create_primitive", {"primitive": "cube"}, auth_context=ctx)
 
-    # Tampering is still detected before the freeze check (fail-closed ordering preserved).
-    ep_path = pkg_dir / "engine_plan.json"
-    ep_path.write_text(ep_path.read_text(encoding="utf-8") + " ", encoding="utf-8")
+    # Modify 1 byte in ANY production input (here narration) AFTER approval -> blocked as tampering.
+    nd_path = pkg_dir / "narration_dialogue.json"
+    nd_path.write_text(nd_path.read_text(encoding="utf-8") + " ", encoding="utf-8")
     with pytest.raises(MCPSceneMutationBlockedError, match="modified on disk"):
         adapter_rw.authorize_tool_call("create_primitive", {"primitive": "cube"}, auth_context=ctx)

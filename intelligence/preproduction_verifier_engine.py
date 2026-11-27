@@ -378,11 +378,20 @@ class PreproductionVerifierEngine:
         # 6. CRIT_06_NARRATION_TIMING
         est_t = (nar_plan or {}).get("estimated_timing") or {}
         wpm = float((nar_plan or {}).get("measured_script_wpm") or 0.0)
+        from intelligence.universal_preproduction import NARRATION_DURATION_TOLERANCE
+
+        try:
+            est_total = float(est_t.get("estimated_total_s"))
+            target_total = float(est_t.get("target_duration_s"))
+        except (TypeError, ValueError):
+            est_total, target_total = float("inf"), 0.0
+        within_target = target_total > 0 and est_total <= target_total * (1.0 + NARRATION_DURATION_TOLERANCE)
         if (
             nar_plan
             and nar_plan.get("timing_status") == "ESTIMATED"
             and est_t.get("playback_speed_multiplier") == 1.0
             and 85.0 <= wpm <= 175.0
+            and within_target
         ):
             _record_pass(
                 "CRIT_06_NARRATION_TIMING",
@@ -395,9 +404,19 @@ class PreproductionVerifierEngine:
                 artifact=f"projects/{project_id}/narration_dialogue.json",
                 clause_or_shot="estimated_timing",
                 severity="HIGH",
-                expected="ESTIMATED timing at natural WPM (85-175) with playback_speed_multiplier==1.0",
-                observed=f"status={(nar_plan or {}).get('timing_status')}, wpm={wpm}",
-                evidence="Narration WPM out of natural delivery bounds or missing ESTIMATED marker.",
+                expected=(
+                    "ESTIMATED timing at natural WPM (85-175), playback_speed_multiplier==1.0, and estimated "
+                    f"duration <= target x {1 + NARRATION_DURATION_TOLERANCE:.2f}"
+                ),
+                observed=(
+                    f"status={(nar_plan or {}).get('timing_status')}, wpm={wpm}, "
+                    f"estimated={est_t.get('estimated_total_s')}s, target={est_t.get('target_duration_s')}s"
+                ),
+                evidence=(
+                    "Estimated narration exceeds the target duration (shorten script or change target; never speed up audio)."
+                    if not within_target
+                    else "Narration WPM out of natural delivery bounds or missing ESTIMATED marker."
+                ),
                 responsible_agent="audio_director",
             )
 

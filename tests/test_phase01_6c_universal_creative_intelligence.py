@@ -1403,11 +1403,25 @@ def test_23_recorded_workflow_replay_verifies_benchmark_receipts_honestly(tmp_pa
             dst.symlink_to(src, target_is_directory=src.is_dir())
 
     wf = PreproductionMultiAgentWorkflow(root_dir=ws, max_parallel_specialists=4)
+    # Phase 01.6D (DEF-P016D-026): benchmark A's narration is estimated at ~64.4s for a 60s target. The
+    # recorded 01.6C review passed CRIT_06 anyway; the fixed verifier must now reject the 60s replay.
+    with pytest.raises(RuntimeError, match="TASK-15-VERIFY"):
+        wf.run_workflow(
+            project_id="replay_bench_a_60s",
+            topic=bench_a_payload["topic_title"],
+            genres=bench_a_payload["genres"],
+            target_duration_s=60,
+            authored_payload=bench_a_payload,
+            explicit_reference_ids=["REF-002"],
+            execution_mode="recorded_workflow_replay",
+            host_subagent_receipts=bench_a_ReceiptMap,
+        )
+    # Replay with the estimator's own recommended duration passes and receipts still verify honestly.
     replay_out = wf.run_workflow(
-        project_id="replay_bench_a_60s",
+        project_id="replay_bench_a_70s",
         topic=bench_a_payload["topic_title"],
         genres=bench_a_payload["genres"],
-        target_duration_s=60,
+        target_duration_s=70,
         authored_payload=bench_a_payload,
         explicit_reference_ids=["REF-002"],
         execution_mode="recorded_workflow_replay",

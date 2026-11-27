@@ -199,6 +199,9 @@ def split_into_semantic_clauses(text: str) -> list[str]:
     return merged or [cleaned]
 
 
+
+NARRATION_DURATION_TOLERANCE = 0.02  # estimated narration may exceed target by at most 2%
+
 class UniversalTopicResearchCompiler:
     """Compiles structured Section 6 Topic Research Intelligence with full epistemic separation."""
 
@@ -375,6 +378,9 @@ class UniversalTopicResearchCompiler:
 class NarrationTimingIntelligence:
     """Adaptive narration duration estimator & non-destructive over-length tightener (Section 11)."""
 
+    # Phase 01.6D (DEF-P016D-026): an estimate above target beyond this tolerance is EXCEEDS_TARGET, never a fit.
+    DURATION_TOLERANCE = NARRATION_DURATION_TOLERANCE
+
     EMOTION_WPM_FACTOR: dict[str, float] = {
         "calm": 0.96,
         "curious": 1.00,
@@ -528,7 +534,9 @@ class NarrationTimingIntelligence:
 
         final_est_s, final_words, beat_reports = _measure_beats(payload["narrative_beats"])
         implied_wpm = round(final_words / max(0.1, target_s / 60.0), 1)
-        needs_longer_duration = final_est_s > target_s * 1.15 or implied_wpm > 168.0
+        duration_limit_s = round(target_s * (1.0 + NARRATION_DURATION_TOLERANCE), 3)
+        exceeds_target = final_est_s > duration_limit_s
+        needs_longer_duration = exceeds_target or implied_wpm > 168.0
         recommended_duration_s = (
             int(math.ceil((final_est_s * 1.06) / 5.0) * 5) if needs_longer_duration else int(target_s)
         )
@@ -544,6 +552,10 @@ class NarrationTimingIntelligence:
             "initial_estimated_duration_s": initial_est_s,
             "final_estimated_duration_s": final_est_s,
             "target_duration_s": target_s,
+            "duration_tolerance_ratio": NARRATION_DURATION_TOLERANCE,
+            "duration_limit_s": duration_limit_s,
+            "duration_fit_status": "EXCEEDS_TARGET" if exceeds_target else "WITHIN_TARGET",
+            "duration_overrun_s": round(max(0.0, final_est_s - target_s), 3),
             "within_comfortable_indonesian_pacing": not needs_longer_duration,
             "non_destructive_tightening_revisions": revisions_applied,
             "duration_recommendation": {
@@ -1314,6 +1326,8 @@ class PurposeDrivenCameraAudioCaptionPlanner:
             "estimated_timing": {
                 "estimated_total_s": timing_report["final_estimated_duration_s"],
                 "target_duration_s": timing_report["target_duration_s"],
+                "duration_fit_status": timing_report["duration_fit_status"],
+                "duration_limit_s": timing_report["duration_limit_s"],
                 "playback_speed_multiplier": 1.0,
                 "duration_recommendation": timing_report["duration_recommendation"],
             },

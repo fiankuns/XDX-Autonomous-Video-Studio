@@ -113,7 +113,8 @@
           "from_state": { "type": ["string", "null"] },
           "to_state": { "type": "string" },
           "timestamp": { "type": "string" },
-          "reason": { "type": "string" }
+          "reason": { "type": "string" },
+          "approval_nonce": { "type": "string", "pattern": "^[0-9a-f]{32,128}$" }
         },
         "additionalProperties": false
       }

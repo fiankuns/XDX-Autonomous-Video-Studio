@@ -249,10 +249,10 @@ def test_creative_pipeline_and_approval_gate_with_references(tmp_path: Path) -> 
             actor_role="human_user",
         )
 
-    # Phase 01.6C production freeze: a valid structured approval is validated, then refused.
-    from intelligence.state_and_approval import ProductionApprovalFrozenError
+    # Phase 01.6D: no trusted approver key registered in the repo -> channel UNAVAILABLE -> BLOCKED.
+    from governance.trusted_approval import TrustedChannelUnavailableError
 
-    with pytest.raises(ProductionApprovalFrozenError):
+    with pytest.raises(TrustedChannelUnavailableError):
         sm.record_explicit_user_approval(
             package_dir=pkg_sat,
             user_message=res_sat["approval_command_example"],

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio/schemas/trusted_approvers.schema.json",
+  "title": "XDX Trusted Human Approvers (Ed25519 public keys) - Phase 01.6D",
+  "type": "object",
+  "required": ["schema_version", "registry_id", "policy", "approvers"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {"type": "string", "enum": ["4.0.0-phase01.6d"]},
+    "registry_id": {"const": "xdx_trusted_human_approvers"},
+    "policy": {"type": "string", "minLength": 20},
+    "approvers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["key_id", "algorithm", "public_key_b64url", "owner", "added_at", "revoked"],
+        "additionalProperties": false,
+        "properties": {
+          "key_id": {"type": "string", "pattern": "^[A-Za-z0-9_.:-]{3,64}$"},
+          "algorithm": {"const": "ed25519"},
+          "public_key_b64url": {"type": "string", "pattern": "^[A-Za-z0-9_-]{43}$"},
+          "owner": {"type": "string", "minLength": 2},
+          "added_at": {"type": "string", "minLength": 10},
+          "revoked": {"type": "boolean"}
+        }
+      }
+    }
+  }
+}

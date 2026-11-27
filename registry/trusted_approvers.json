@@ -1,0 +1,6 @@
+{
+  "schema_version": "4.0.0-phase01.6d",
+  "registry_id": "xdx_trusted_human_approvers",
+  "policy": "Only Ed25519 PUBLIC keys of human approvers. Private keys never enter this repository or any agent workspace. Every change to this file must be reviewed and committed by the human owner; uncommitted modifications make the trusted channel UNAVAILABLE.",
+  "approvers": []
+}

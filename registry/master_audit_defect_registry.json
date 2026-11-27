@@ -1,7 +1,7 @@
 {
-  "schema_version": "4.0.0-phase01.6c",
+  "schema_version": "4.0.0-phase01.6d",
   "registry_id": "xdx_master_audit_defect_registry",
-  "updated_at_utc": "2026-11-27T20:40:00+00:00",
+  "updated_at_utc": "2026-11-27T21:30:00+00:00",
   "append_only_policy": "Append-only ledger of all internal and external audit defects from Phase 01 onward. Historical entries must never be deleted, and VERIFIED requires an executed regression test.",
   "defects": [
     {
@@ -246,18 +246,18 @@
       "defect_id": "DEF-P016B-015",
       "source_phase": "Phase 01.6B",
       "severity": "HIGH",
-      "affected_module": "orchestration/shared_state.py, governance/permission_policy.py, .agents/hooks.json",
+      "affected_module": "governance/trusted_approval.py, intelligence/state_and_approval.py, orchestration/shared_state.py, adapters/xdx_mcp_adapter.py, scripts/trusted_approval.py, scripts/execution_guard_hook.py",
       "reproduction_steps": [
         "Attempt end-to-end human-signed production unlock and lifecycle hook ExecutionGuard enforcement."
       ],
       "observed_result": "Production approval is intentionally frozen in Phase 01.6C pending full Trusted Human Approval channel & lifecycle ExecutionGuard hooks.",
       "expected_result": "Out-of-band human-authenticated approval token/channel bound to 13-item package SHA-256 + .agents/hooks.json runtime ExecutionGuard.",
       "root_cause": "Scheduled architectural milestone boundary (Phase 01.6D).",
-      "correction_plan": "Implement Trusted Human Approval Verifier and .agents/hooks.json ExecutionGuard in Phase 01.6D without weakening Phase 01.6C freeze.",
+      "correction_plan": "Phase 01.6D: central TrustedApprovalGuard (Ed25519 signed token from a human-held private key, public keys in git-pinned registry/trusted_approvers.json) used by v3.4 ProjectStateManager, v4 SharedProjectStateMachine.approve_via_trusted_gate, ApprovalGate (CLI + MCP) and a pre-tool guard hook; hash-chained ledger for single-use nonces and revocation; Phase 02 execution boundary keeps production scopes blocked. Host hook wiring tracked separately as DEF-P016D-029.",
       "target_phase": "Phase 01.6D",
-      "regression_test": null,
-      "evidence": "Documented in docs/PHASE_01_6D_IMPLEMENTATION_PLAN.md; remains strictly frozen in Phase 01.6C.",
-      "current_status": "SCHEDULED"
+      "regression_test": "tests/test_phase01_6d_execution_security.py::test_forged_wrong_key_tampered_payload_and_malformed_tokens_rejected",
+      "evidence": "Documented in docs/PHASE_01_6D_IMPLEMENTATION_PLAN.md; remains strictly frozen in Phase 01.6C. Phase 01.6D: verified by tests/test_phase01_6d_execution_security.py (10 tests) and tests/test_phase01_5_security_and_state.py; repo registry has 0 keys so the channel is UNAVAILABLE and production BLOCKED by default.",
+      "current_status": "VERIFIED"
     },
     {
       "defect_id": "DEF-P016B-016",
@@ -395,6 +395,142 @@
       "regression_test": "tests/test_structure_schemas_and_runtimes.py::test_verified_defects_reference_existing_regression_tests",
       "evidence": "Test resolves every VERIFIED regression_test node id to a real test function.",
       "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016D-024",
+      "source_phase": "Phase 01.6D (internal audit)",
+      "severity": "CRITICAL",
+      "affected_module": "intelligence/state_and_approval.py, governance/canonical_manifest.py",
+      "reproduction_steps": [
+        "Build a package, change narration_dialogue.json (or captions, character/style bible, camera, semantic storyboard, research_report, reference_adaptation) and recompute compute_package_digest()."
+      ],
+      "observed_result": "The approval digest hashed only 11 legacy files; 8 production-input artifacts could change after approval without invalidating it.",
+      "expected_result": "Canonical SHA-256 manifest over every non-runtime file, with 19 required inputs, symlink/special-file rejection and explicit runtime exclusions.",
+      "root_cause": "REQUIRED_PACKAGE_FILES allow-list predated the v4 artifacts.",
+      "correction_plan": "compute_package_digest delegates to governance/canonical_manifest.py (all files hashed; runtime state/lock/ledger and the digest-presenting approval_package_manifest.json excluded).",
+      "target_phase": "Phase 01.6D",
+      "regression_test": "tests/test_phase01_6d_execution_security.py::test_canonical_manifest_covers_every_production_input_without_exception",
+      "evidence": "Each of the 8 previously uncovered files and any new file changes the digest; MCP tamper test now mutates narration_dialogue.json.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016D-025",
+      "source_phase": "Phase 01.6D (internal audit)",
+      "severity": "CRITICAL",
+      "affected_module": "intelligence/state_and_approval.py, orchestration/shared_state.py, scripts/approval_gate.py, adapters/xdx_mcp_adapter.py",
+      "reproduction_steps": [
+        "Hand-write approval_record.json + APPROVED state, replay a consumed token, edit/delete the ledger, un-revoke a record, or call the v4 transition('APPROVED') with an actor label and dict."
+      ],
+      "observed_result": "Before 01.6D, record validation relied on an unsigned XDX-APPROVE string that any agent could produce (frozen only by the 01.6C kill switch).",
+      "expected_result": "Every path rejects forged, replayed, expired, revoked, scope-mismatched and post-approval-tampered approvals; CLI and MCP cannot bypass.",
+      "root_cause": "No authenticated human channel; approval state was trusted from writable files.",
+      "correction_plan": "verify_live_execution_context / transition / inspect_package all re-verify the signed token, ledger (exactly-once consumption, revocation) and live manifest; nonces also kept in state history so deleting the ledger cannot enable replay.",
+      "target_phase": "Phase 01.6D",
+      "regression_test": "tests/test_phase01_6d_execution_security.py::test_ledger_tamper_and_cli_cannot_bypass",
+      "evidence": "Also tests/test_phase01_6d_execution_security.py::test_v4_state_machine_only_accepts_trusted_gate, ::test_mcp_mutation_never_executes_in_phase_01_6d, tests/test_phase01_5_security_and_state.py::test_invalid_state_transitions_ai_self_approval_expiry_and_revocation.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016D-026",
+      "source_phase": "Phase 01.6D (internal audit)",
+      "severity": "HIGH",
+      "affected_module": "intelligence/universal_preproduction.py, intelligence/preproduction_verifier_engine.py",
+      "reproduction_steps": [
+        "Inspect projects/bench_*/narration_dialogue.json estimated_timing and the recorded CRIT_06_NARRATION_TIMING verdict."
+      ],
+      "observed_result": "All four 01.6C benchmarks overrun target (A 64.4/60s, B 67.9/60s, C 189.9/180s, D 50.0/45s) yet CRIT_06 was PASS; estimator called up to +15% 'comfortable'.",
+      "expected_result": "Estimated duration above target x 1.02 is EXCEEDS_TARGET and CRIT_06 FAILS (shorten or change target; never speed up audio).",
+      "root_cause": "CRIT_06 checked only WPM and speed multiplier; estimator tolerance was 15%.",
+      "correction_plan": "NARRATION_DURATION_TOLERANCE=0.02; duration_fit_status/duration_limit_s emitted; CRIT_06 requires within_target. Stored 01.6C benchmark reviews are now known-invalid for CRIT_06 and must be regenerated in a later phase (not re-run here per quota rules).",
+      "target_phase": "Phase 01.6D",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_23_recorded_workflow_replay_verifies_benchmark_receipts_honestly",
+      "evidence": "Replay of benchmark A at 60s now fails TASK-15-VERIFY; at the estimator-recommended 70s it passes. tests/test_phase01_6d_execution_security.py::test_narration_estimate_over_target_is_not_pass.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016D-027",
+      "source_phase": "Phase 01.6D (internal audit)",
+      "severity": "MEDIUM",
+      "affected_module": "tests/conftest.py, pyproject.toml",
+      "reproduction_steps": [
+        "XDX_TEST_PROFILE=full_integration pytest in a clone without hydrated LFS media."
+      ],
+      "observed_result": "requires_lfs tests were skipped in every profile, so a Full Integration run could pass with no reference media.",
+      "expected_result": "Core profile: skip without media. Full Integration profile: missing/unhydrated media is a FAILURE; SHA-256 of both MP4s verified.",
+      "root_cause": "Single skip rule for all environments.",
+      "correction_plan": "XDX_TEST_PROFILE=full_integration turns requires_lfs items into hard failures when media is absent.",
+      "target_phase": "Phase 01.6D",
+      "regression_test": "tests/test_reference_database_integration.py::test_git_lfs_real_binaries_and_cli_verify",
+      "evidence": "Full Integration run with real MP4s (REF-001 12f9e1d9..., REF-002 042ad39d...) and a negative run without media are recorded in docs/evidence/phase01_6d/AUDIT_PHASE_01_6D.md.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016D-028",
+      "source_phase": "Phase 01.6C (external audit, carried forward)",
+      "severity": "HIGH",
+      "affected_module": "intelligence/universal_preproduction.py (semantic visual plan / action targets)",
+      "reproduction_steps": [
+        "Re-measure the reported 109/109 action-target coverage of the 01.6C semantic storyboard with criteria independent of the generator."
+      ],
+      "observed_result": "01.6C reports 109/109 action targets satisfied; the external audit does not accept this self-reported figure as proof of semantic coverage.",
+      "expected_result": "Action-target coverage measured by an independent checker against script clauses, with failures surfaced.",
+      "root_cause": "Coverage metric computed by the same component that produced the plan.",
+      "correction_plan": "Carried forward unchanged (out of 01.6D security scope).",
+      "target_phase": "Next creative-intelligence phase (to be assigned)",
+      "regression_test": null,
+      "evidence": "Preserved from the external 01.6C audit per owner instruction; not re-run in 01.6D.",
+      "current_status": "SCHEDULED"
+    },
+    {
+      "defect_id": "DEF-P016D-029",
+      "source_phase": "Phase 01.6D (internal audit)",
+      "severity": "MEDIUM",
+      "affected_module": ".agents/hooks.json (host), scripts/execution_guard_hook.py",
+      "reproduction_steps": [
+        "Look for host lifecycle hook configuration invoking the execution guard before tool calls."
+      ],
+      "observed_result": "scripts/execution_guard_hook.py exists and is tested, but no host hook config is wired because the Antigravity hook schema is not verified in this environment.",
+      "expected_result": "Host pre-tool hook invokes scripts/execution_guard_hook.py for every MCP / render / scene-write tool.",
+      "root_cause": "Host-specific configuration format unavailable for verification.",
+      "correction_plan": "Wire on the Antigravity host and record a live hook invocation as evidence.",
+      "target_phase": "Phase 02 readiness (host)",
+      "regression_test": null,
+      "evidence": "Guard logic covered by tests/test_phase01_6d_execution_security.py::test_pre_tool_execution_guard_hook_fails_closed.",
+      "current_status": "SCHEDULED"
+    },
+    {
+      "defect_id": "DEF-P016D-030",
+      "source_phase": "Phase 01.6C (external audit, carried forward)",
+      "severity": "MEDIUM",
+      "affected_module": "intelligence/preproduction_verifier_engine.py (semantic storyboard & reviewer accuracy)",
+      "reproduction_steps": [
+        "Seed known semantic-storyboard defects and measure how many the independent reviewer reports (precision/recall)."
+      ],
+      "observed_result": "External audit flagged semantic storyboard quality and reviewer accuracy as unproven; DEF-P016D-026 is one concrete instance of the reviewer passing a real defect.",
+      "expected_result": "Reviewer accuracy measured on a seeded-defect benchmark; semantic storyboard checks independent of the generator.",
+      "root_cause": "Reviewer criteria validated only on happy-path packages.",
+      "correction_plan": "Carried forward unchanged (out of 01.6D security scope).",
+      "target_phase": "Next creative-intelligence phase (to be assigned)",
+      "regression_test": null,
+      "evidence": "Preserved per owner instruction.",
+      "current_status": "SCHEDULED"
+    },
+    {
+      "defect_id": "DEF-P016D-031",
+      "source_phase": "Phase 01.6B/01.6C (carried forward)",
+      "severity": "MEDIUM",
+      "affected_module": "orchestration/checkpoint_manager.py, memory/",
+      "reproduction_steps": [
+        "Export a portable checkpoint bundle on one VM and resume on a different VM."
+      ],
+      "observed_result": "Recovery and persistence verified only on the same host (subprocesses / directories); cross-VM recovery has no runtime evidence.",
+      "expected_result": "Multi-host resume test with recorded evidence before claiming cross-VM persistence.",
+      "root_cause": "Single-host test environment.",
+      "correction_plan": "Carried forward; no cross-VM claim is made.",
+      "target_phase": "Phase 02+ (multi-host runtime)",
+      "regression_test": null,
+      "evidence": "docs/evidence/checkpoint_recovery_report_v4.json recovery_scope_disclaimer.",
+      "current_status": "SCHEDULED"
     }
   ]
 }

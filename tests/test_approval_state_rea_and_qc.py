@@ -72,11 +72,11 @@ def test_13_item_approval_gate_and_state_machine_across_hybrid_genres(tmp_path: 
             user_message="Saya setujui paket v1 dan izinkan render",
         )
 
-    # Phase 01.6C freeze (DEF-P016B-014): even a fully valid structured, digest-bound human approval
-    # is validated and then rejected; nothing is written and the project stays in WAITING_APPROVAL.
-    from intelligence.state_and_approval import ProductionApprovalFrozenError
+    # Phase 01.6D: without a registered trusted approver key the channel is UNAVAILABLE -> BLOCKED,
+    # so even the well-formed (unsigned) XDX-APPROVE command cannot approve. Nothing is written.
+    from governance.trusted_approval import TrustedChannelUnavailableError
 
-    with pytest.raises(ProductionApprovalFrozenError):
+    with pytest.raises(TrustedChannelUnavailableError):
         state_mgr.record_explicit_user_approval(
             package_dir=pkg_dir,
             user_message=result["approval_command_example"],
