@@ -1,0 +1,15 @@
+ reference_database/.gitattributes                  |   1 +
+ reference_database/.gitignore                      |   6 ++
+ reference_database/README.md                       |   7 ++
+ reference_database/genre_registry.json             |  37 +++++++
+ .../integration/AGENT_REFERENCE_RULES.md           |   9 ++
+ .../profiles/reference_pattern_registry.json       | 109 +++++++++++++++++++++
+ reference_database/reference_registry.json         |  39 ++++++++
+ .../explainer/REF-002-Yakhchal/metadata.json       |  40 ++++++++
+ .../explainer/REF-002-Yakhchal/original.mp4        |   3 +
+ .../explainer/REF-002-Yakhchal/prior_analysis.json |  49 +++++++++
+ .../references/social_satire/REF-001/metadata.json |  38 +++++++
+ .../references/social_satire/REF-001/original.mp4  |   3 +
+ .../social_satire/REF-001/prior_analysis.md        |  15 +++
+ reference_database/scripts/reference_db.py         |  89 +++++++++++++++++
+ 14 files changed, 445 insertions(+)

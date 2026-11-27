@@ -1,0 +1,49 @@
+{
+  "id": "ref_1001952305",
+  "filename": "1001952305.mp4",
+  "sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+  "source_storage": "user_supplied_reference_keep_outside_git_unless_authorized",
+  "metadata_verified_current_turn": {
+    "duration_s": 105.543,
+    "width": 720,
+    "height": 1600,
+    "video_codec": "hevc",
+    "frame_count": 3694,
+    "average_fps": "3694000/105543",
+    "audio_codec": "aac"
+  },
+  "research_report_measurements": {
+    "candidate_boundaries": 45,
+    "candidate_segments": 46,
+    "median_s": 2.2,
+    "mean_s": 2.29,
+    "min_s": 0.6,
+    "max_s": 6.03,
+    "note": "FFmpeg threshold 0.18; not ground truth"
+  },
+  "layers": {
+    "capture": "screen_capture",
+    "base_visual": "stylized_cg_3d",
+    "overlay": [
+      "captions",
+      "technical_arrows",
+      "labels"
+    ],
+    "original_engine": "UNKNOWN"
+  },
+  "limitations": [
+    "full REA run timed out in earlier research",
+    "ASR not verified",
+    "source render FPS and exact shot boundaries unknown"
+  ],
+  "narrative_pattern": "need → question → experiment → mechanism → obstacle → solution → reveal → callback",
+  "source_topic": "Yakhchal / historical cooling technology",
+  "profile_id": "hosted_3d_explainer_cutaway_v1",
+  "sources": [
+    "https://github.com/JuneYaooo/rea-video/blob/main/docs/decompose.md",
+    "https://www.archnet.org/sites/6442",
+    "https://www.iranicaonline.org/articles/yakcal/",
+    "https://www.remotion.dev/docs/three",
+    "https://www.remotion.dev/docs/captions/displaying"
+  ]
+}

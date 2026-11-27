@@ -1,0 +1,56 @@
+{
+  "studio_version": "3.4.0",
+  "runtimes": {
+    "python": "3.12.16",
+    "node": "/opt/nvm/current/bin/node",
+    "chromium": "/usr/bin/google-chrome",
+    "ffmpeg": {
+      "available": true,
+      "ffmpeg": "/usr/bin/ffmpeg",
+      "ffprobe": "/usr/bin/ffprobe",
+      "banner": "ffmpeg version 6.1.1-3ubuntu5 Copyright (c) 2000-2023 the FFmpeg developers"
+    },
+    "threejs_ready": true,
+    "remotion_ready": true,
+    "local_blender_binary": null
+  },
+  "reference_database": {
+    "registered_ids": [
+      "REF-001",
+      "REF-002"
+    ],
+    "profiles": [
+      "hosted_3d_explainer_cutaway_v1",
+      "satirical_3d_vignette_storytelling_v1"
+    ]
+  },
+  "xdx_mcp": {
+    "discovery_source": "in_process_protocol_only_not_live_device",
+    "server_reachable_live": false,
+    "relay_device_connected": false,
+    "verification_tiers": {
+      "source_code_discovery": true,
+      "in_process_protocol_test": true,
+      "local_http_integration_test": false,
+      "live_remote_relay_reachable": false,
+      "live_android_blender_connected": false,
+      "actual_visual_feedback_verified": false
+    },
+    "discovered_tools": [
+      "get_mobile_device_profile",
+      "get_scene_info",
+      "look",
+      "execute_blender_code",
+      "create_primitive",
+      "modify_object",
+      "set_material",
+      "configure_mobile_guard"
+    ],
+    "discovered_resources": [
+      "ui://mcp-for-blender/viewport-v2",
+      "xdx://device/profile",
+      "xdx://scene/summary"
+    ],
+    "scene_mutated": false
+  }
+}

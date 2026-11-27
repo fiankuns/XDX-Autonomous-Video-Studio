@@ -1,0 +1,207 @@
+{
+  "schema_version": "3.4.0",
+  "database_integrated": true,
+  "selection_mode": "explicit_multi_reference",
+  "normalized_genres": [
+    "explainer"
+  ],
+  "selected_reference_ids": [
+    "REF-001",
+    "REF-002"
+  ],
+  "related_candidate_ids": [],
+  "upload_prompt_suppressed": true,
+  "production_authorized": false,
+  "analyzer_fingerprint": "e059c777fbf32dbdf6d9471e770cc18bfbc6555edd1cc9834eabb818da0d852f",
+  "references": [
+    {
+      "id": "REF-001",
+      "genre": "social_satire",
+      "video_relpath": "reference_database/references/social_satire/REF-001/original.mp4",
+      "video_sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
+      "bytes": 27026130,
+      "verification_status": "VERIFIED",
+      "profile_id": "satirical_3d_vignette_storytelling_v1",
+      "prior_analysis_relpath": "reference_database/references/social_satire/REF-001/prior_analysis.md",
+      "rea_analysis_v3_4_relpath": "reference_database/references/social_satire/REF-001/rea_analysis_v3_4.json",
+      "measurements": {
+        "container_duration_s": 154.618821,
+        "video_stream_duration_s": 154.5,
+        "width": 720,
+        "height": 1280,
+        "aspect_ratio": "9:16",
+        "video_codec": "h264",
+        "fps": 30.0,
+        "decoded_frames": 4635,
+        "audio": {
+          "codec": "aac",
+          "profile": "HE-AAC",
+          "sample_rate_hz": 44100,
+          "channels": 2,
+          "channel_layout": "stereo",
+          "integrated_loudness_lufs": -14.8,
+          "loudness_range_lu": 4.2,
+          "true_peak_dbfs": -0.2,
+          "silence_intervals_gt_250ms_at_neg35db": 9,
+          "total_silence_s": 3.601
+        },
+        "signal_candidates": {
+          "ffmpeg_gt_0_30_segments": 2,
+          "ffmpeg_gt_0_08_segments": 16,
+          "ffmpeg_gt_0_08_median_s": 12.633,
+          "opencv_adaptive_abrupt_candidates": 78,
+          "opencv_adaptive_sustained_change_candidates": 51,
+          "note": "Frequent 10-15 frame cross-dissolves suppress single-frame FFmpeg scene scores; OpenCV sustained-change + abrupt candidates + visual frame inspection capture real vignette transitions."
+        }
+      },
+      "narrative_pattern": "circular_bedroom_loop_second_person_social_satire"
+    },
+    {
+      "id": "REF-002",
+      "genre": "explainer",
+      "video_relpath": "reference_database/references/explainer/REF-002-Yakhchal/original.mp4",
+      "video_sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+      "bytes": 38669358,
+      "verification_status": "VERIFIED",
+      "profile_id": "hosted_3d_explainer_cutaway_v1",
+      "prior_analysis_relpath": "reference_database/references/explainer/REF-002-Yakhchal/prior_analysis.json",
+      "rea_analysis_v3_4_relpath": "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json",
+      "measurements": {
+        "container_duration_s": 105.543,
+        "video_stream_duration_s": 105.543,
+        "width": 720,
+        "height": 1600,
+        "aspect_ratio": "9:20_screen_capture_crop_to_9:16_production",
+        "video_codec": "hevc",
+        "fps": 34.999953,
+        "decoded_frames": 3694,
+        "audio": {
+          "codec": "aac",
+          "profile": "LC",
+          "sample_rate_hz": 48000,
+          "channels": 2,
+          "channel_layout": "stereo",
+          "integrated_loudness_lufs": -20.0,
+          "loudness_range_lu": 2.9,
+          "true_peak_dbfs": -9.4,
+          "silence_intervals_gt_250ms_at_neg35db": 33,
+          "total_silence_s": 10.71
+        },
+        "signal_candidates": {
+          "ffmpeg_gt_0_18_segments": 46,
+          "ffmpeg_gt_0_18_median_s": 2.257,
+          "ffmpeg_gt_0_18_mean_s": 2.294,
+          "ffmpeg_gt_0_18_min_s": 0.6,
+          "ffmpeg_gt_0_18_max_s": 6.028,
+          "opencv_adaptive_abrupt_candidates": 47,
+          "opencv_adaptive_sustained_change_candidates": 4,
+          "note": "Predominantly crisp hard-cut editing; FFmpeg (46 segments) and OpenCV adaptive abrupt detector (47 hits) closely agree, with every candidate segment <= 6.03s."
+        }
+      },
+      "narrative_pattern": "need -> question -> physical_demo -> mechanism -> obstacle_loop -> historical_reveal -> callback"
+    }
+  ],
+  "fused_production_profile": {
+    "is_multi_reference_blend": true,
+    "source_reference_ids": [
+      "REF-001",
+      "REF-002"
+    ],
+    "profile_ids": [
+      "satirical_3d_vignette_storytelling_v1",
+      "hosted_3d_explainer_cutaway_v1"
+    ],
+    "requires_hero_character": true,
+    "hook_formula": "everyday_domestic_threshold_second_person_hook_0_5s",
+    "pacing_benchmark": {
+      "typical_shot_s": [
+        2.0,
+        4.5
+      ],
+      "preferred_split_s": 4.25,
+      "hard_max_shot_s": 10.0
+    },
+    "story_beats": [
+      "domestic_wake_or_threshold_hook",
+      "everyday_friction_observation",
+      "institutional_or_systemic_escalation",
+      "diegetic_3d_data_contrast",
+      "historical_or_ethical_foil",
+      "decision_dilemma_climax",
+      "circular_domestic_callback",
+      "personal_need",
+      "question",
+      "demonstration",
+      "mechanism",
+      "obstacle",
+      "solution",
+      "reveal",
+      "callback"
+    ],
+    "visual_modes": [
+      "SURROGATE_CITIZEN_ACTING",
+      "INSTITUTIONAL_VIGNETTE",
+      "DIEGETIC_3D_SCOREBOARD_OR_SCALE",
+      "CROWD_RATIO_DIORAMA",
+      "STAGE_SPOTLIGHT_METAPHOR",
+      "CIRCULAR_CALLBACK",
+      "HOST_ACTING",
+      "OBJECT_INSERT",
+      "PHYSICAL_DEMONSTRATION",
+      "TECHNICAL_CUTAWAY",
+      "CONTEXTUAL_CUTAWAY",
+      "HISTORICAL_REENACTMENT",
+      "DATA_VISUALIZATION",
+      "CALLBACK"
+    ],
+    "camera_vocabulary": [
+      "domestic_establishing_wide",
+      "citizen_eye_level_medium",
+      "high_angle_crowd_ratio",
+      "over_shoulder_choice_insert",
+      "reaction_closeup",
+      "host_medium",
+      "topdown_insert",
+      "sectional_cutaway",
+      "architecture_or_object_reveal"
+    ],
+    "motion_vocabulary": [
+      "stretch_wake",
+      "door_open_step",
+      "inspect_prop",
+      "ride_or_commute",
+      "head_clutch_reaction",
+      "present_scoreboard",
+      "hesitate_choice",
+      "idle_breathing",
+      "blink",
+      "look",
+      "point",
+      "present",
+      "pick_up",
+      "carry",
+      "pour",
+      "bend",
+      "walk_short",
+      "reaction"
+    ],
+    "caption_preset": "cap_xdx_bold_stroke_9x16",
+    "quality_gates": [
+      "semantic_clause_to_visual_alignment",
+      "fact_or_satire_epistemic_clarity",
+      "no_placeholder_final_assets",
+      "character_continuity",
+      "frame_determinism",
+      "audio_caption_sync",
+      "actual_render_visual_review",
+      "fact_source_verified"
+    ],
+    "restrictions": [
+      "do not copy source character, script, political names, music, or assets",
+      "no automatic production before approval",
+      "no render claim from schema validation",
+      "do not copy source character, script, music, branding, UI or assets",
+      "no fixed desert palette or historical reveal for unrelated topics"
+    ]
+  }
+}

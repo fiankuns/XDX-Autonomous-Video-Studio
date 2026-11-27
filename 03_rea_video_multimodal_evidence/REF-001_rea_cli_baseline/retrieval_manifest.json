@@ -1,0 +1,10 @@
+{
+  "reference_id": "REF-001",
+  "video_sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
+  "analyzer_fingerprint": "29a91d3001058f578f23c0767f0e6e819def9b8c58cf71461ff3a9ccc722c743",
+  "threshold": 0.08,
+  "report_sha256": "4e0226cc0313b3afc435524a520ec7ef6d29eaf2bba84e6c2735e9c07f77c134",
+  "report_path": "/home/antigravity/fiankuns/XDX-Autonomous-Video-Studio/reference_database/.rea-output/REF-001-thjh3ewn/reference_analysis.json",
+  "status": "BASELINE_ANALYSIS_COMPLETE_REQUIRES_VISUAL_REVIEW",
+  "production_authorized": false
+}

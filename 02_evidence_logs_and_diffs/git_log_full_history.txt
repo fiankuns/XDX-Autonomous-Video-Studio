@@ -1,0 +1,153 @@
+* commit 3ac8b90ba9579d327d454c084a38680c683b6955
+| Author:     fiankuns <351946294+fiankuns@users.noreply.github.com>
+| AuthorDate: Fri Nov 27 04:31:36 2026 +0000
+| Commit:     fiankuns <351946294+fiankuns@users.noreply.github.com>
+| CommitDate: Fri Nov 27 04:31:36 2026 +0000
+| 
+|     Integrate Git LFS reference database, REA-Video v3.4 analyses, and automatic genre/multi-ref routing
+| 
+|  .gitignore                                        |   1 +
+|  AGENTS.md                                         |   5 +-
+|  MASTER_PROMPT.md                                  |  15 +
+|  README.md                                         |  26 +-
+|  SKILL.md                                          |   7 +
+|  intelligence/authored_showcase_150s.py            | 301 ++++++++++++++-
+|  intelligence/creative_pipeline.py                 | 182 +++++++--
+|  intelligence/reference_database_bridge.py         | 406 ++++++++++++++++++++
+|  reference_database/README.md                      |  27 +-
+|  .../integration/AGENT_REFERENCE_RULES.md          |   6 +-
+|  .../profiles/reference_pattern_registry.json      |  97 +++++
+|  reference_database/reference_registry.json        |  30 +-
+|  .../explainer/REF-002-Yakhchal/metadata.json      |   6 +-
+|  .../REF-002-Yakhchal/rea_analysis_v3_4.json       | 119 ++++++
+|  .../REF-002-Yakhchal/rea_analysis_v3_4.md         |  24 ++
+|  .../social_satire/REF-001/metadata.json           |   6 +-
+|  .../social_satire/REF-001/rea_analysis_v3_4.json  | 115 ++++++
+|  .../social_satire/REF-001/rea_analysis_v3_4.md    |  26 ++
+|  schemas/creative_intelligence.schema.json         |   6 +
+|  schemas/project_state.schema.json                 |   2 +
+|  scripts/xdx_studio.py                             |  50 ++-
+|  tests/test_reference_database_integration.py      | 270 +++++++++++++
+|  22 files changed, 1666 insertions(+), 61 deletions(-)
+| 
+* commit f1d7a19b5695c3bfa23ff4316e1c038f156d8699
+| Author:     fiankuns <351946294+fiankuns@users.noreply.github.com>
+| AuthorDate: Fri Nov 27 11:02:31 2026 +0700
+| Commit:     fiankuns <351946294+fiankuns@users.noreply.github.com>
+| CommitDate: Fri Nov 27 11:02:31 2026 +0700
+| 
+|     Add original reference videos REF-001 and REF-002 via Git LFS
+| 
+|  .../references/explainer/REF-002-Yakhchal/original.mp4               | 3 +++
+|  reference_database/references/social_satire/REF-001/original.mp4     | 3 +++
+|  2 files changed, 6 insertions(+)
+| 
+* commit 6b576873692fc9996d7c7f353199c610cdbe027f
+| Author:     fiankuns <fiankuns@gmail.com>
+| AuthorDate: Fri Nov 27 10:45:19 2026 +0700
+| Commit:     fiankuns <fiankuns@gmail.com>
+| CommitDate: Fri Nov 27 10:45:19 2026 +0700
+| 
+|     Add read-only reference retrieval and REA adapter for internal database
+| 
+|  reference_database/scripts/reference_db.py | 89 ++++++++++++++++++++++++++++
+|  1 file changed, 89 insertions(+)
+| 
+* commit 3489832aa16d0d6767ce7d372238d2609fe4c245
+| Author:     fiankuns <fiankuns@gmail.com>
+| AuthorDate: Fri Nov 27 10:45:02 2026 +0700
+| Commit:     fiankuns <fiankuns@gmail.com>
+| CommitDate: Fri Nov 27 10:45:02 2026 +0700
+| 
+|     Add reference evidence and policy: AGENT_REFERENCE_RULES.md
+| 
+|  reference_database/integration/AGENT_REFERENCE_RULES.md | 9 +++++++++
+|  1 file changed, 9 insertions(+)
+| 
+* commit 32087012fee25bbca0375423c4ead77e5aec2422
+| Author:     fiankuns <fiankuns@gmail.com>
+| AuthorDate: Fri Nov 27 10:45:00 2026 +0700
+| Commit:     fiankuns <fiankuns@gmail.com>
+| CommitDate: Fri Nov 27 10:45:00 2026 +0700
+| 
+|     Add reference evidence and policy: prior_analysis.json
+| 
+|  .../REF-002-Yakhchal/prior_analysis.json          | 49 +++++++++++++++++++++
+|  1 file changed, 49 insertions(+)
+| 
+* commit be91367a8f6bb31b64939adbdcf25f83976d26ee
+| Author:     fiankuns <fiankuns@gmail.com>
+| AuthorDate: Fri Nov 27 10:44:58 2026 +0700
+| Commit:     fiankuns <fiankuns@gmail.com>
+| CommitDate: Fri Nov 27 10:44:58 2026 +0700
+| 
+|     Add reference evidence and policy: prior_analysis.md
+| 
+|  .../references/social_satire/REF-001/prior_analysis.md  | 15 +++++++++++++++
+|  1 file changed, 15 insertions(+)
+| 
+* commit 07b81b67a3d5e913b9575aa19db9eb19a00ccd3b
+| Author:     fiankuns <fiankuns@gmail.com>
+| AuthorDate: Fri Nov 27 10:44:56 2026 +0700
+| Commit:     fiankuns <fiankuns@gmail.com>
+| CommitDate: Fri Nov 27 10:44:56 2026 +0700
+| 
+|     Add reference evidence and policy: reference_pattern_registry.json
+| 
+|  .../profiles/reference_pattern_registry.json      | 109 ++++++++++++++++++++
+|  1 file changed, 109 insertions(+)
+| 
+* commit 74171b5140d87aeeaea7150fdcd5fffc72c3a722
+| Author:     fiankuns <fiankuns@gmail.com>
+| AuthorDate: Fri Nov 27 10:44:32 2026 +0700
+| Commit:     fiankuns <fiankuns@gmail.com>
+| CommitDate: Fri Nov 27 10:44:32 2026 +0700
+| 
+|     Add staged internal reference database: metadata.json
+| 
+|  .../explainer/REF-002-Yakhchal/metadata.json      | 40 +++++++++++++++++++++
+|  1 file changed, 40 insertions(+)
+| 
+* commit f04d4be1bc7992106088e06c150266ed774d8829
+| Author:     fiankuns <fiankuns@gmail.com>
+| AuthorDate: Fri Nov 27 10:44:30 2026 +0700
+| Commit:     fiankuns <fiankuns@gmail.com>
+| CommitDate: Fri Nov 27 10:44:30 2026 +0700
+| 
+|     Add staged internal reference database: metadata.json
+| 
+|  .../social_satire/REF-001/metadata.json           | 38 +++++++++++++++++++++
+|  1 file changed, 38 insertions(+)
+| 
+* commit 024705339ecb9f6c1f9bf5ba3d21f72eaf079776
+| Author:     fiankuns <fiankuns@gmail.com>
+| AuthorDate: Fri Nov 27 10:44:27 2026 +0700
+| Commit:     fiankuns <fiankuns@gmail.com>
+| CommitDate: Fri Nov 27 10:44:27 2026 +0700
+| 
+|     Add staged internal reference database: genre_registry.json
+| 
+|  reference_database/genre_registry.json | 37 ++++++++++++++++++++++++++++++++
+|  1 file changed, 37 insertions(+)
+| 
+* commit dc35798c735b5918810c00321b4fe0c12686accb
+| Author:     fiankuns <fiankuns@gmail.com>
+| AuthorDate: Fri Nov 27 10:44:25 2026 +0700
+| Commit:     fiankuns <fiankuns@gmail.com>
+| CommitDate: Fri Nov 27 10:44:25 2026 +0700
+| 
+|     Add staged internal reference database: reference_registry.json
+| 
+|  reference_database/reference_registry.json | 39 ++++++++++++++++++++++++++++
+|  1 file changed, 39 insertions(+)
+| 
+* commit b7e283e7edba2259ff7492065c177df69b0e9a7d
+| Author:     fiankuns <fiankuns@gmail.com>
+| AuthorDate: Fri Nov 27 10:44:23 2026 +0700
+| Commit:     fiankuns <fiankuns@gmail.com>
+| CommitDate: Fri Nov 27 10:44:23 2026 +0700
+| 
+|     Add staged internal reference database: .gitignore
+| 
+|  reference_database/.gitignore | 6 ++++++
+|  1 file changed, 6 insertions(+)
