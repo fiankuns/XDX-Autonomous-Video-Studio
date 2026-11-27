@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.cache/
+.rea-output/
+.env
+.env.*
