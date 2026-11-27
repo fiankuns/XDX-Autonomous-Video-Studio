@@ -71,3 +71,18 @@ Tolak keras secara fail-closed: kalimat penolakan (`tidak setuju`, `jangan rende
 Sebelum `APPROVED`, hanya tool dalam `READ_ONLY_ALLOWLIST` (`get_mobile_device_profile`, `get_scene_info`) dan `look` non-rendered yang diizinkan; tool tak dikenal ditolak (`UnclassifiedMCPToolError`); tool mutasi wajib memverifikasi objek `ExecutionAuthorizationContext` live terhadap disk SHA-256. Laporkan secara terpisah ke-6 tingkat verifikasi MCP:
 1. `source_code_discovery`, 2. `in_process_protocol_test`, 3. `local_http_integration_test`, 4. `live_remote_relay_reachable`, 5. `live_android_blender_connected`, 6. `actual_visual_feedback_verified`.
 Jangan pernah mengklaim *in-process discovery* sebagai koneksi aktif ke perangkat **Vivo X200 Pro**.
+
+---
+
+## BAGIAN VI — AUTOMATIC INTERNAL REFERENCE DATABASE INTELLIGENCE (`reference_database/`)
+
+1. **Penemuan & Verifikasi Otomatis Tanpa Unggah Ulang**:
+   - Selalu periksa `reference_database/` di dalam checkout lokal XDX Studio (`reference_registry.json`, `genre_registry.json`, `profiles/reference_pattern_registry.json`, dan `intelligence/reference_database_bridge.py`).
+   - Verifikasi ukuran byte dan `SHA-256` objek video Git LFS asli sebelum digunakan; hidrasi otomatis via `git lfs pull` bila diperlukan dan laporkan `MEDIA_MISSING` / `INTEGRITY_FAILED` secara fail-closed apabila file belum tersedia. **Jangan pernah meminta pengguna mengunggah ulang video yang sudah terdaftar dan terverifikasi di `reference_database/`.**
+2. **Routing Otomatis Berbasis Genre, ID Spesifik & Penggabungan Multi-Referensi**:
+   - **`Explainer` / `Explainair`** (`explainer`, `explainair`, `explaner`) → otomatis memilih **`REF-002` (`REF-002-Yakhchal`, profil `hosted_3d_explainer_cutaway_v1`)** sebagai benchmark produksi bawaan (`2–4s` *hard cut*, *top-down insert*, *orthographic earth/mechanism cutaway* dengan panah aliran 3D, karakter *host* orisinal).
+   - **`Storytelling` / `Satir Sosial`** (`storytelling`, `social_satire`, `satir_sosial`, `satir sosial`, `cerita`) → otomatis memilih **`REF-001` (profil `satirical_3d_vignette_storytelling_v1`)** sebagai benchmark produksi bawaan (*circular domestic loop*, tokoh warga pengamat, papan data 3D diegetik di dalam ruang diorama, kombinasi *hard cut* & *cross-dissolve* `12f`).
+   - **Pemilihan Eksplisit & Multi-Referensi**: Parameter `--ref-ids` (misal `--ref-ids REF-002` atau `--ref-ids REF-001 REF-002`) menimpa default genre dan menggabungkan keunggulan beberapa profil sekaligus. Genre lain mempertahankan profil bawaan tanpa pemaksaan (`related_candidates` hanya ditawarkan bila relevan).
+3. **Fusi 4 Lapisan Bukti & Larangan Plagiarisme**:
+   - Gunakan secara bersamaan: (1) metadata/sinyal MP4 asli terverifikasi, (2) analisis multimodal REA-Video v3.4 (`rea_analysis_v3_4.json`/`.md`), (3) profil produksi, dan (4) arsip riset/analisis sebelumnya (`prior_analysis.*` wajib dipertahankan utuh secara *append-only*).
+   - **Batas Hak Cipta & Keamanan**: Perlakukan media referensi semata-mata sebagai data tata bahasa sinematografi/pacing; **dilarang keras** menyalin karakter, naskah/dialog, nama kampanye/merek, UI perekam layar ponsel, atau trek musik sumber. Referensi tidak pernah memberikan otorisasi produksi (`production_authorized = False`); sistem tetap wajib berhenti pada `WAITING_APPROVAL`.

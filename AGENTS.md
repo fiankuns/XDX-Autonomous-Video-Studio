@@ -15,6 +15,8 @@ Repository ini dioperasikan oleh agen AI otonom multi-peran dengan pemisahan teg
    - Menjalankan urutan 9 tahap pengadaan aset dengan pemisahan cache Cloud vs Android (`Vivo X200 Pro`), perlindungan SSRF/Zip-Slip/Zip-Bomb, atribusi lisensi (`AttributionLedger`), pembangkitan geometri prosedural multi-komponen (12 kategori), konversi buffer `GLB ↔ glTF 2.0` / normal / sumbu `+Y`↔`+Z`, serta pemblokiran keras terhadap kotak `PLACEHOLDER` pada QC produksi.
 6. **XDX Blender MCP Shot Compiler & Hybrid Pipeline Engineer (`adapters/xdx_mcp_adapter.py`, `engines/blender_xdx_engine.py`, `engines/web/`)**
    - Mengompilasi shot yang disetujui menjadi paket scene, koleksi, armature, keyframe, kamera, lampu, dan material Blender tanpa memodifikasi `fiankuns/xdx-blender-studio`, menolak tool tak terklasifikasi secara fail-closed, dan membedakan 6 tingkat verifikasi MCP secara jujur.
+7. **Reference Database Curator & Pattern Synthesizer (`intelligence/reference_database_bridge.py`, `reference_database/`)**
+   - Memverifikasi byte & SHA-256 objek Git LFS (`REF-001`, `REF-002`), menjalankan routing otomatis (`explainer`/`explainair` → `REF-002`; `storytelling`/`satir_sosial` → `REF-001`) maupun fusi multi-referensi (`--ref-ids`), menggabungkan MP4 asli + analisis REA-Video v3.4 + profil produksi + `prior_analysis.*` secara *append-only*, serta menjaga `production_authorized == False` hingga persetujuan manusia diterima.
 
 ## 2. Larangan Mutlak Bagi Seluruh Agen
 - **Dilarang** memulai modeling, mutasi scene Blender, animasi, atau render video sebelum status `APPROVED` terverifikasi melalui `ExecutionAuthorizationContext` yang sah.
@@ -23,4 +25,5 @@ Repository ini dioperasikan oleh agen AI otonom multi-peran dengan pemisahan teg
 - **Dilarang** menganggap *in-process MCP discovery* sebagai bukti koneksi live ke perangkat **Vivo X200 Pro**.
 - **Dilarang** memodifikasi file apa pun di dalam repository `fiankuns/xdx-blender-studio` tanpa izin eksplisit pemilik proyek.
 - **Dilarang** menulis ke path `/tmp` di dalam skrip `bpy` Blender Android (wajib gunakan `bpy.app.tempdir`).
-- **Dilarang** menyalin kode `UNLICENSED` (`remotion-dev/animated-captions`), mencampur kode `AGPL-3.0`/`GPL-3.0` ke dalam paket inti MIT, meminta token di chat, atau menyimpan aset besar/cache/rahasia ke GitHub.
+- **Dilarang** menyalin kode `UNLICENSED` (`remotion-dev/animated-captions`), mencampur kode `AGPL-3.0`/`GPL-3.0` ke dalam paket inti MIT, meminta token di chat, atau menyimpan aset besar/cache/rahasia ke GitHub (selain objek referensi resmi yang telah diizinkan melalui Git LFS di `reference_database/`).
+- **Dilarang** meminta pengguna mengunggah ulang video referensi yang sudah terverifikasi di `reference_database/`, menghapus `prior_analysis.*`, atau menyalin karakter, dialog, merek/UI perekam layar, maupun musik dari video referensi.

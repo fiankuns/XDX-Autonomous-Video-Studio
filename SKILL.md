@@ -24,3 +24,10 @@ description: Hardened universal multi-genre autonomous video production studio (
    - Berhenti penuh pada `WAITING_APPROVAL`. Eksekusi mutasi scene/produksi hanya diizinkan setelah pengguna memberikan perintah persetujuan terstruktur (`XDX-APPROVE project=... version=... digest=... scopes=...`) yang lolos `ExecutionAuthorizationContext` live.
 5. **Pengadaan Aset Semantik & Kompilasi Hybrid**:
    - Gunakan `IntelligentAssetPipeline` (menolak kotak `PLACEHOLDER` untuk produksi akhir) dan `BlenderXDXEngine` / `ThreeJSEngine` / `RemotionEngine` / `PresetExecutorEngine` sesuai `engine_plan.json`, diakhiri validasi `FFmpegEngine` & `VisualQualityControlEngine`.
+6. **Automatic Reference Database Intelligence (`reference_database/`)**:
+   - Verifikasi objek Git LFS referensi (`REF-001` & `REF-002`) tanpa meminta pengguna mengunggah ulang:
+     ```bash
+     python3 reference_database/scripts/reference_db.py verify
+     python3 scripts/xdx_studio.py references --genres explainair
+     ```
+   - Routing otomatis pada `xdx_studio.py plan`: `explainer`/`explainair` → `REF-002` (`hosted_3d_explainer_cutaway_v1`); `storytelling`/`satir_sosial` → `REF-001` (`satirical_3d_vignette_storytelling_v1`); dukung pemilihan spesifik & multi-referensi melalui `--ref-ids REF-001 REF-002`. Pertahankan seluruh `prior_analysis.*` secara *append-only* dan selalu berhenti pada `WAITING_APPROVAL`.

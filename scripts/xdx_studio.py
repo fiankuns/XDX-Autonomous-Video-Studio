@@ -19,7 +19,8 @@ if str(ROOT_DIR) not in sys.path:
 from adapters.xdx_mcp_adapter import XDXBlenderMCPAdapter
 from engines.ffmpeg_engine import FFmpegEngine
 from engines.web_engines import RemotionEngine, ThreeJSEngine
-from intelligence.creative_pipeline import SUPPORTED_GENRES, PreProductionPackageBuilder
+from intelligence.creative_pipeline import SUPPORTED_GENRE_INPUTS, PreProductionPackageBuilder
+from intelligence.reference_database_bridge import ReferenceDatabaseBridge
 from libraries.loader import PresetLibraryRegistry
 
 
@@ -28,6 +29,8 @@ def cmd_preflight() -> int:
     three = ThreeJSEngine()
     remotion = RemotionEngine()
     mcp_report = asyncio.run(XDXBlenderMCPAdapter(read_only=True).discover_capabilities_readonly())
+    ref_bridge = ReferenceDatabaseBridge()
+    refs_by_id, _, profiles_by_id = ref_bridge.load_registries()
 
     payload = {
         "studio_version": "3.4.0",
@@ -39,6 +42,10 @@ def cmd_preflight() -> int:
             "threejs_ready": three.is_available(),
             "remotion_ready": remotion.is_available(),
             "local_blender_binary": shutil.which("blender"),
+        },
+        "reference_database": {
+            "registered_ids": sorted(refs_by_id),
+            "profiles": sorted(profiles_by_id),
         },
         "xdx_mcp": {
             "discovery_source": mcp_report.discovery_source,
@@ -74,6 +81,10 @@ def cmd_validate_all() -> int:
     libs = PresetLibraryRegistry()
     libs.load_all(validate=True)
 
+    ref_bridge = ReferenceDatabaseBridge()
+    refs_by_id, _, _ = ref_bridge.load_registries()
+    verified_refs = [ref_bridge.verify_and_load_reference(rid).reference_id for rid in sorted(refs_by_id)]
+
     print(
         json.dumps(
             {
@@ -82,10 +93,23 @@ def cmd_validate_all() -> int:
                 "schemas_checked": len(list(schemas_dir.glob("*.schema.json"))),
                 "registries_checked": 5,
                 "preset_libraries": libs.summary_stats(),
+                "reference_database_verified": verified_refs,
             },
             indent=2,
         )
     )
+    return 0
+
+
+def cmd_references(args: argparse.Namespace) -> int:
+    bridge = ReferenceDatabaseBridge()
+    ctx = bridge.resolve_context(
+        genres=args.genres or [],
+        explicit_reference_ids=args.ref_ids,
+        include_related=args.include_related_refs,
+    )
+    summary = {k: v for k, v in ctx.items() if k != "reference_analysis_markdown"}
+    print(json.dumps(summary, indent=2))
     return 0
 
 
@@ -102,6 +126,8 @@ def cmd_plan(args: argparse.Namespace) -> int:
         genres=args.genres,
         target_duration_s=args.duration,
         authored_payload=authored,
+        reference_ids=args.ref_ids,
+        include_related_references=args.include_related_refs,
     )
     print(
         json.dumps(
@@ -109,6 +135,8 @@ def cmd_plan(args: argparse.Namespace) -> int:
                 "status": res["status"],
                 "package_version": res["package_version"],
                 "package_digest": res["package_digest"],
+                "selected_reference_ids": res["reference_intelligence"]["selected_reference_ids"],
+                "reference_selection_mode": res["reference_intelligence"]["selection_mode"],
                 "approval_command_example": res["approval_command_example"],
                 "output_dir": str(args.out),
                 "note": "STOPPED AT WAITING_APPROVAL — Do not start rendering before explicit structured user approval.",
@@ -123,13 +151,25 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
 
-    sub.add_parser("preflight", help="Inspect runtime availability and 6-tier XDX MCP status.")
-    sub.add_parser("validate-all", help="Validate all 11 schemas, 5 registries, and 16 preset libraries.")
+    sub.add_parser("preflight", help="Inspect runtime availability, Reference Database, and 6-tier XDX MCP status.")
+    sub.add_parser("validate-all", help="Validate all 11 schemas, 5 registries, 16 preset libraries, and Reference Database.")
+
+    p_refs = sub.add_parser("references", help="Resolve Reference Database profiles by genre or explicit reference IDs (read-only).")
+    p_refs.add_argument("--genres", nargs="*", choices=SUPPORTED_GENRE_INPUTS, default=["explainer"])
+    p_refs.add_argument("--ref-ids", nargs="+", default=None, help="Explicit Reference IDs (e.g. REF-001 REF-002).")
+    p_refs.add_argument("--include-related-refs", action="store_true")
 
     p_plan = sub.add_parser("plan", help="Validate/compile a 13-item pre-production package and stop at WAITING_APPROVAL.")
     p_plan.add_argument("--project-id", required=True)
     p_plan.add_argument("--topic", default=None)
-    p_plan.add_argument("--genres", nargs="+", choices=SUPPORTED_GENRES, default=["explainer", "edukasi", "sejarah", "biografi", "komedi_absurd"])
+    p_plan.add_argument(
+        "--genres",
+        nargs="+",
+        choices=SUPPORTED_GENRE_INPUTS,
+        default=["explainer", "edukasi", "sejarah", "biografi", "komedi_absurd"],
+    )
+    p_plan.add_argument("--ref-ids", nargs="+", default=None, help="Explicit Reference IDs (e.g. REF-002 or REF-001 REF-002).")
+    p_plan.add_argument("--include-related-refs", action="store_true", help="Include optional related reference candidates.")
     p_plan.add_argument("--duration", type=int, default=150)
     p_plan.add_argument("--payload-json", type=Path, default=None, help="Path to structured AI CreativeProductionPayload JSON.")
     p_plan.add_argument("--out", type=Path, required=True)
@@ -139,6 +179,8 @@ def main() -> int:
         return cmd_preflight()
     if args.command == "validate-all":
         return cmd_validate_all()
+    if args.command == "references":
+        return cmd_references(args)
     if args.command == "plan":
         return cmd_plan(args)
     return 1

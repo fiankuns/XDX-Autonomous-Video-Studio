@@ -31,6 +31,7 @@ projects/*/scenes/*.blend
 *.wav
 *.mp4
 !tests/fixtures/synthetic.mp4
+!reference_database/references/**/*.mp4
 
 # Secrets, tokens, pairing configs, and credentials (STRICTLY FORBIDDEN IN GIT)
 .env

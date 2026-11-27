@@ -21,32 +21,40 @@ Fondasi produksi video otonom hybrid generasi **v3.4 (Phase 01.5 — Hardened & 
    - Konversi nyata `GLB ↔ glTF 2.0`, normalisasi PBR/palet HSV langsung pada buffer, penskalaan vertex, rotasi sumbu `+Y`↔`+Z`, koreksi normal, serta pemisahan cache Cloud vs Android (`Vivo X200 Pro`).
 5. **7-Tier Honest Preset Status, Executable Evaluators & Full Blender Shot Compiler**:
    - 16 pustaka preset (`53` preset) diaudit ke dalam 7 status jujur (`RUNTIME_TESTED`, `UNIT_TESTED`, `SPECIFICATION_ONLY`, dst.) dan didukung `PresetExecutorEngine` (10 domain) serta `BlenderXDXEngine` (scene, koleksi, aset, karakter/armature/IK, keyframe, kamera, lighting, material, render settings, dan skrip `bpy` terverifikasi AST).
+6. **Integrated Git LFS Reference Database (`reference_database/` — `REF-001` & `REF-002`)**:
+   - Verifikasi SHA-256 otomatis atas video referensi Git LFS (`REF-001` Satir Sosial/Storytelling & `REF-002` Yakhchal Explainer), analisis mendalam 10 dimensi REA-Video v3.4 (dengan mempertahankan `prior_analysis.*`), routing otomatis genre/alias (`explainer`/`explainair` → `REF-002`; `storytelling`/`satir_sosial` → `REF-001`), serta penggabungan multi-referensi (`--ref-ids REF-001 REF-002`) tanpa pernah meminta unggah ulang dan tetap berhenti pada `WAITING_APPROVAL`.
 
 ---
 
 ## Perintah Cepat & Pengujian
 
 ```bash
-# 1. Pemeriksaan runtime & 6-tingkat verifikasi MCP XDX secara baca-saja
+# 1. Verifikasi objek Git LFS Reference Database (REF-001 & REF-002 -> VERIFIED)
+git lfs pull
+python3 reference_database/scripts/reference_db.py verify
+
+# 2. Pemeriksaan runtime, Reference Database, & 6-tingkat verifikasi MCP XDX secara baca-saja
 python3 scripts/xdx_studio.py preflight
 
-# 2. Validasi seluruh 11 JSON Schema, 5 Registry, dan 16 Production Preset Libraries
+# 3. Validasi seluruh 11 JSON Schema, 5 Registry, 16 Preset Libraries, & Reference Database
 python3 scripts/xdx_studio.py validate-all
 
-# 3. Kompilasi paket pra-produksi 150 detik (otomatis berhenti pada WAITING_APPROVAL)
+# 4. Kompilasi paket pra-produksi (routing otomatis genre/alias atau multi-referensi -> WAITING_APPROVAL)
 python3 scripts/xdx_studio.py plan \
-  --project-id persepsi_waktu_150s \
-  --duration 150 \
-  --out /tmp/xdx_pkg_150s
+  --project-id demo_explainair_ref002 \
+  --genres explainair \
+  --duration 60 \
+  --out /tmp/xdx_pkg_ref002
 
-# 4. Verifikasi fail-closed Approval Gate
-python3 scripts/approval_gate.py /tmp/xdx_pkg_150s --strict-schema
+# 5. Verifikasi fail-closed Approval Gate
+python3 scripts/approval_gate.py /tmp/xdx_pkg_ref002 --strict-schema
 
-# 5. Jalankan seluruh suite regression test Phase 01 & Phase 01.5
+# 6. Jalankan seluruh suite regression test (Phase 01 + Phase 01.5 + Reference Database)
 pytest -v
 ```
 
 Dokumentasi Teknis:
+- [`reference_database/README.md`](reference_database/README.md)
 - [`docs/EXTERNAL_REPO_AUDIT.md`](docs/EXTERNAL_REPO_AUDIT.md)
 - [`docs/ARCHITECTURE_V3_3.md`](docs/ARCHITECTURE_V3_3.md)
 - [`docs/MCP_INTEGRATION.md`](docs/MCP_INTEGRATION.md)

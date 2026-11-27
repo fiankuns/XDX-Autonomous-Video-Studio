@@ -104,6 +104,103 @@
         "no render claim from schema validation",
         "no fixed desert palette or historical reveal for unrelated topics"
       ]
+    },
+    {
+      "schema_version": "1.0",
+      "status": "PROPOSED_ADDITIVE_PROFILE",
+      "id": "satirical_3d_vignette_storytelling_v1",
+      "genre": "social_satire",
+      "source_cases": [
+        "REF-001"
+      ],
+      "defaults": {
+        "requires_hero_character": true,
+        "hook_formula": "everyday_domestic_threshold_second_person_hook_0_5s",
+        "fps": 30,
+        "aspect_ratio": "9:16",
+        "pacing": {
+          "typical_shot_s": [
+            2.0,
+            4.5
+          ],
+          "median_target_s": [
+            2.2,
+            4.0
+          ],
+          "micro_shot_s": [
+            0.8,
+            1.6
+          ],
+          "max_shot_s": 10,
+          "note": "Vignette montage pacing with hard cuts inside scenes and 12f cross-dissolves across location shifts."
+        },
+        "story_beats": [
+          "domestic_wake_or_threshold_hook",
+          "everyday_friction_observation",
+          "institutional_or_systemic_escalation",
+          "diegetic_3d_data_contrast",
+          "historical_or_ethical_foil",
+          "decision_dilemma_climax",
+          "circular_domestic_callback"
+        ],
+        "visual_modes": [
+          "SURROGATE_CITIZEN_ACTING",
+          "INSTITUTIONAL_VIGNETTE",
+          "DIEGETIC_3D_SCOREBOARD_OR_SCALE",
+          "CROWD_RATIO_DIORAMA",
+          "STAGE_SPOTLIGHT_METAPHOR",
+          "CIRCULAR_CALLBACK"
+        ],
+        "style": {
+          "family": "stylized_3d_civic_and_domestic_diorama",
+          "palette": "warm_interior_contrasted_with_crisp_civic_daylight",
+          "materials": "matte_or_semimatte",
+          "lighting": "cozy_practical_interior_and_clean_daylight",
+          "original_character": true
+        },
+        "camera": [
+          "domestic_establishing_wide",
+          "citizen_eye_level_medium",
+          "high_angle_crowd_ratio",
+          "over_shoulder_choice_insert",
+          "reaction_closeup"
+        ],
+        "motion": [
+          "stretch_wake",
+          "door_open_step",
+          "inspect_prop",
+          "ride_or_commute",
+          "head_clutch_reaction",
+          "present_scoreboard",
+          "hesitate_choice"
+        ],
+        "caption": {
+          "preset": "cap_xdx_bold_stroke_9x16",
+          "timing": "word_or_short_phrase_pop",
+          "max_lines": 1,
+          "safe_area": true
+        },
+        "engine_routing": {
+          "character_vignettes": "blender_xdx_mcp",
+          "diegetic_data_and_crowd_props": "threejs_or_blender_xdx_mcp",
+          "caption_and_dissolve_composition": "remotion",
+          "encoding": "ffmpeg"
+        },
+        "quality_gates": [
+          "semantic_clause_to_visual_alignment",
+          "fact_or_satire_epistemic_clarity",
+          "no_placeholder_final_assets",
+          "character_continuity",
+          "frame_determinism",
+          "audio_caption_sync",
+          "actual_render_visual_review"
+        ]
+      },
+      "restrictions": [
+        "do not copy source character, script, political names, music, or assets",
+        "no automatic production before approval",
+        "no render claim from schema validation"
+      ]
     }
   ]
 }

@@ -1,7 +1,26 @@
-# XDX internal reference database — staged import
+# XDX Internal Reference Database — Verified & Integrated (v3.4)
 
-Status: METADATA_ONLY; original MP4 objects have NOT been uploaded. Do not claim retrieval, REA analysis, integration or production success. The two source files are in the user's seed ZIP. Import the originals only if rights-cleared for private storage. Keep the existing private Studio repository and Blender backend unchanged. Phase 01.5 is not executed by this import.
+## Status Verifikasi Aktual (Berdasarkan Pengujian Langsung)
 
-Additive directory, do not overwrite root files. The registry paths are relative to this directory. Use Git LFS only for reference MP4s, with the existing authorized Git session. Verify the size and SHA-256 from reference_registry.json before staging and after a fresh checkout. Never create dummy LFS pointers or placeholders. Use the existing Studio REA CLI after source verification, and review actual frames and audio; baseline detection is not a complete multimodal analysis. Read integration/AGENT_REFERENCE_RULES.md. No reference grants production approval. Preserve previous analyses and profiles. Until media is available, report MEDIA_MISSING rather than ask the analyzer to invent results.
+- **Status Database**: `VERIFIED_AND_INTEGRATED_READ_ONLY` (`production_authorized = false`)
+- **Pengujian Fresh Git LFS Checkout**: `LULUS` (kloning bersih dari `origin/main` + `git lfs pull` + `python3 reference_database/scripts/reference_db.py verify` mengembalikan `VERIFIED` untuk seluruh referensi).
+- **Integrasi Creative Pipeline & Approval Gate**: `LULUS` (`42/42` pengujian `pytest -v` lulus, termasuk 36 regression test Phase 01/01.5 dan 6 pengujian integrasi database referensi; seluruh perencanaan berhenti pada `WAITING_APPROVAL`).
+- **Mutasi Blender / Produksi Video**: `TIDAK DIJALANKAN` (0 perubahan pada `fiankuns/xdx-blender-studio`, pairing/token tidak disentuh, dan tidak ada render produksi tanpa persetujuan terstruktur pengguna).
 
-Remaining tasks: import original MP4s and remaining seed files; verify LFS fresh checkout; integrate the read-only selector with existing Studio planning and approval interfaces; run regression tests. No Blender mutations, pairing changes, or production renders.
+| ID | Genre Bawaan & Alias | Path Objek Git LFS | Ukuran (Byte) | SHA-256 Terverifikasi | Profil Produksi | Analisis Tersimpan (Append-Only) | Status |
+|---|---|---|---:|---|---|---|---|
+| `REF-001` | `social_satire`, `satir_sosial`, `storytelling` | `references/social_satire/REF-001/original.mp4` | `27.026.130` | `12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d` | `satirical_3d_vignette_storytelling_v1` | [`prior_analysis.md`](references/social_satire/REF-001/prior_analysis.md) + [`rea_analysis_v3_4.json`](references/social_satire/REF-001/rea_analysis_v3_4.json) / [`.md`](references/social_satire/REF-001/rea_analysis_v3_4.md) | `VERIFIED` |
+| `REF-002` | `explainer`, `explainair`, `explaner` | `references/explainer/REF-002-Yakhchal/original.mp4` | `38.669.358` | `042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01` | `hosted_3d_explainer_cutaway_v1` | [`prior_analysis.json`](references/explainer/REF-002-Yakhchal/prior_analysis.json) + [`rea_analysis_v3_4.json`](references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json) / [`.md`](references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.md) | `VERIFIED` |
+
+## Aturan Operasional & Batasan Jujur
+
+1. **Baca Kebijakan Agen**: Selalu patuhi [`integration/AGENT_REFERENCE_RULES.md`](integration/AGENT_REFERENCE_RULES.md), [`../MASTER_PROMPT.md`](../MASTER_PROMPT.md), [`../SKILL.md`](../SKILL.md), dan [`../AGENTS.md`](../AGENTS.md).
+2. **Tanpa Unggah Ulang & Fail-Closed**: Ketika objek MP4 asli terverifikasi sesuai ukuran byte dan `SHA-256` di [`reference_registry.json`](reference_registry.json), sistem langsung menggunakannya tanpa meminta unggah ulang. Bila objek belum dihidrasi Git LFS atau tidak ada, sistem wajib gagal tertutup dengan `MEDIA_MISSING` / `INTEGRITY_FAILED` tanpa mengarang hasil analisis.
+3. **Routing Otomatis & Multi-Referensi**:
+   - `Explainer` / `Explainair` → otomatis memilih `REF-002` (`hosted_3d_explainer_cutaway_v1`).
+   - `Storytelling` / `Satir Sosial` → otomatis memilih `REF-001` (`satirical_3d_vignette_storytelling_v1`).
+   - Pemilihan eksplisit (`--ref-ids REF-001` atau `--ref-ids REF-001 REF-002`) dan kombinasi lintas genre didukung melalui `intelligence/reference_database_bridge.py` dan `scripts/xdx_studio.py`.
+4. **Batasan Epistemik & Hak Cipta**:
+   - Status hak cipta kedua file tetap tercatat jujur sebagai `USER_SUPPLIED_PRIVATE_REFERENCE_RIGHTS_NOT_VERIFIED` hanya untuk analisis internal repositori privat; dilarang mempublikasikan ulang file sumber atau menyalin karakter, naskah, nama kampanye, UI aplikasi perekam layar (`REF-002`), maupun musik latar.
+   - Transkripsi ASR kata-demi-kata penuh, pemisahan stem musik, serta identitas engine/prompt pembuat asli tidak diklaim.
+   - Database ini bersifat baca-saja dan **tidak pernah memberikan otorisasi render/produksi** sebelum perintah persetujuan eksplisit terstruktur dari manusia diterima.

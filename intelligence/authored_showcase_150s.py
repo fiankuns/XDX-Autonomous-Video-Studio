@@ -20,7 +20,10 @@ def build_authored_time_perception_payload(
 ) -> dict[str, Any]:
     """Return a rich, broadcast-ready Indonesian production payload adaptable to 15..180s."""
     active_genres = genres or ["explainer", "edukasi", "sejarah", "biografi", "komedi_absurd"]
-    is_pure_fiction = all(g in {"horor", "storytelling", "komedi_absurd"} for g in active_genres)
+    is_pure_fiction = all(
+        g in {"horor", "storytelling", "komedi_absurd", "social_satire", "satir_sosial"}
+        for g in active_genres
+    )
 
     all_12_beats: list[dict[str, Any]] = [
         {
@@ -809,4 +812,300 @@ def build_authored_time_perception_payload(
             },
         ],
         "narrative_beats": chosen,
+    }
+
+
+def build_authored_social_satire_payload(
+    *,
+    project_id: str = "birokrasi_fotokopi_digital_60s",
+    target_duration_s: int = 60,
+    genres: list[str] | None = None,
+) -> dict[str, Any]:
+    """Return an original Indonesian social-satire diorama payload (zero copied REF-001 assets/dialogue)."""
+    active_genres = genres or ["social_satire", "storytelling"]
+    beats: list[dict[str, Any]] = [
+        {
+            "beat_id": "B01",
+            "act": "ACT_1",
+            "sequence_id": "SEQ_01",
+            "scene_id": "SCN_01",
+            "environment_id": "env_kamar_indonesia_modular_v1",
+            "beat_role": "domestic_wake_or_threshold_hook",
+            "target_duration_s": 12.0,
+            "narration_vo": (
+                "Kamu bangun pagi dengan niat sederhana: mengurus satu surat keterangan yang katanya "
+                "sudah seratus persen berbasis aplikasi digital tanpa kertas."
+            ),
+            "claim_refs": ["CLM_01"],
+            "humor_beat": "Dimas merapikan map plastik tebal padahal spanduk layanan menjanjikan bebas kertas.",
+            "emotion": "curious_engaged",
+            "dialogue_lines": [
+                {
+                    "speaker_id": "char_dimas_citizen",
+                    "line": " Katanya cukup lewat ponsel, tapi jaga-jaga tetap bawa lem dan map biru.",
+                    "delivery": "optimis tipis sambil melirik jam dinding",
+                    "onscreen_speaking": False,
+                }
+            ],
+            "shot_blueprints": [
+                {
+                    "duration_weight": 1.0,
+                    "visual_subject": "Dimas duduk di tepi kasur kamar di samping jam dinding",
+                    "concrete_action": "Dimas bangkit dari kasur berlapis rapi saat cahaya pagi menembus jendela kamar lalu meraih map dokumen di atas meja kayu.",
+                    "props": ["prop_bedroom_bed_v1", "prop_room_window_v1", "prop_study_table_v1", "prop_wall_clock_v1"],
+                    "preferred_engine": "blender",
+                    "shot_size": "establishing",
+                    "is_cutaway": False,
+                    "cutaway_purpose": "Hook pembuka ruang domestik 0-4 detik yang langsung menyapa pengalaman warga",
+                    "transition_in": "trans_hard_cut_zero",
+                },
+                {
+                    "duration_weight": 1.0,
+                    "visual_subject": "Dimas membuka pintu kayu kamar menuju jalan lingkungan",
+                    "concrete_action": "Tangan Dimas memutar gagang pintu kayu dan melangkah keluar menuju halaman berteduh pohon hijau.",
+                    "props": ["prop_wooden_door_v1", "prop_shade_tree_v1"],
+                    "preferred_engine": "blender",
+                    "shot_size": "medium",
+                    "is_cutaway": False,
+                    "cutaway_purpose": "Jembatan transisi ruang kamar ke ruang pelayanan publik",
+                    "transition_in": "trans_hard_cut_zero",
+                },
+            ],
+        },
+        {
+            "beat_id": "B02",
+            "act": "ACT_2",
+            "sequence_id": "SEQ_02",
+            "scene_id": "SCN_02",
+            "environment_id": "env_kamar_indonesia_modular_v1",
+            "beat_role": "everyday_friction_and_diegetic_scoreboard",
+            "target_duration_s": 16.0,
+            "narration_vo": (
+                "Begitu tiba di loket gedung layanan terpadu, petugas ramah menunjuk layar antrean digital, "
+                "lalu tetap meminta fotokopi bukti tangkapan layar aplikasi rangkap tiga berstempel basah."
+            ),
+            "claim_refs": ["CLM_01", "CLM_02"],
+            "humor_beat": "Layar 'LAYANAN TANPA KERTAS' berdiri persis di sebelah tumpukan buku berkas setinggi lampu meja.",
+            "emotion": "shocked_absurd",
+            "dialogue_lines": [
+                {
+                    "speaker_id": "char_sari_clerk",
+                    "line": "Kode digitalnya sudah masuk sistem, Kak, sekarang tinggal difotokopi tiga lembar untuk arsip meja sebelah.",
+                    "delivery": "sopan datar penuh prosedur",
+                    "onscreen_speaking": False,
+                }
+            ],
+            "shot_blueprints": [
+                {
+                    "duration_weight": 1.0,
+                    "visual_subject": "Gedung layanan publik bertingkat dan mobil parkir di tepi jalan",
+                    "concrete_action": "Kamera meluncur melewati kendaraan kota dan pohon peneduh menuju fasad gedung layanan terpadu yang rapi.",
+                    "props": ["prop_modular_tower_building_v1", "prop_city_vehicle_v1", "prop_shade_tree_v1"],
+                    "preferred_engine": "threejs",
+                    "shot_size": "wide",
+                    "is_cutaway": True,
+                    "cutaway_purpose": "Menampilkan skala eksterior fasilitas layanan publik melalui transisi larut",
+                    "transition_in": "trans_cross_dissolve_12f",
+                },
+                {
+                    "duration_weight": 1.1,
+                    "visual_subject": "Petugas loket Sari di balik meja kayu penuh buku arsip",
+                    "concrete_action": "Sari duduk tegak di kursi kerja sambil menunjuk tumpukan buku arsip tebal di samping lampu meja.",
+                    "props": ["prop_study_table_v1", "prop_study_chair_v1", "prop_chronicle_book_v1", "prop_desk_lamp_v1"],
+                    "preferred_engine": "blender",
+                    "shot_size": "medium",
+                    "is_cutaway": False,
+                    "cutaway_purpose": "Kontras satir antara klaim digitalisasi dan tumpukan berkas fisik",
+                    "transition_in": "trans_hard_cut_zero",
+                },
+                {
+                    "duration_weight": 1.0,
+                    "visual_subject": "Papan perbandingan 3D jumlah aplikasi vs jumlah meja verifikasi",
+                    "concrete_action": "Pedestal tiga dimensi di dalam ruang tunggu menumbuhkan kolom jumlah aplikasi baru berdampingan dengan kolom fotokopi berkas yang tak ikut turun.",
+                    "props": ["prop_data_pedestal_compare_v1"],
+                    "preferred_engine": "threejs",
+                    "shot_size": "cutaway",
+                    "is_cutaway": True,
+                    "cutaway_purpose": "Visualisasi data diegetik terkait tumpang-tindih aplikasi layanan publik",
+                    "transition_in": "trans_whip_pan_cutaway_6f",
+                },
+            ],
+        },
+        {
+            "beat_id": "B03",
+            "act": "ACT_2",
+            "sequence_id": "SEQ_03",
+            "scene_id": "SCN_03",
+            "environment_id": "env_historical_archive_hall_v1",
+            "beat_role": "systemic_interoperability_insight",
+            "target_duration_s": 16.0,
+            "narration_vo": (
+                "Masalahnya bukan pada kurangnya aplikasi, melainkan ribuan portal instansi yang berjalan sendiri-sendiri "
+                "tanpa pertukaran data terpadu, sehingga warga kembali menjadi kurir dokumen antar-meja."
+            ),
+            "claim_refs": ["CLM_01", "CLM_02"],
+            "humor_beat": "Dimas memindah buku catatan yang persis sama dari lemari kiri ke meja kanan sejauh satu meter.",
+            "emotion": "curious_engaged",
+            "dialogue_lines": [],
+            "shot_blueprints": [
+                {
+                    "duration_weight": 1.0,
+                    "visual_subject": "Lemari arsip terpisah yang tidak saling terhubung di ruang kerja",
+                    "concrete_action": "Dua lemari kayu berdiri bersebelahan namun terkunci sendiri-sendiri sementara Dimas menenteng buku berkas dari satu meja ke meja lain.",
+                    "props": ["prop_wardrobe_cabinet_v1", "prop_study_table_v1", "prop_chronicle_book_v1"],
+                    "preferred_engine": "blender",
+                    "shot_size": "wide",
+                    "is_cutaway": False,
+                    "cutaway_purpose": "Metafora fisik silo data antar-unit birokrasi",
+                    "transition_in": "trans_cross_dissolve_12f",
+                },
+                {
+                    "duration_weight": 1.0,
+                    "visual_subject": "Skema interoperabilitas satu data vs duplikasi formulir",
+                    "concrete_action": "Diagram alur bersih membandingkan pengisian ulang berulang kali dengan arsitektur pertukaran data tunggal sekali isi.",
+                    "props": ["prop_data_pedestal_compare_v1"],
+                    "preferred_engine": "remotion",
+                    "shot_size": "insert",
+                    "is_cutaway": True,
+                    "cutaway_purpose": "Penjelasan ringkas prinsip interoperabilitas pemerintahan digital",
+                    "transition_in": "trans_hard_cut_zero",
+                },
+            ],
+        },
+        {
+            "beat_id": "B04",
+            "act": "ACT_3",
+            "sequence_id": "SEQ_04",
+            "scene_id": "SCN_04",
+            "environment_id": "env_kamar_indonesia_modular_v1",
+            "beat_role": "circular_domestic_callback",
+            "target_duration_s": 16.0,
+            "narration_vo": (
+                "Sore harinya kamu pulang ke kamar dengan satu tanda terima digital di ponsel dan setumpuk sisa fotokopi di tangan—"
+                "pengingat bahwa transformasi digital sejati bukan soal mengganti kertas menjadi layar, melainkan memangkas kerumitan warga."
+            ),
+            "claim_refs": ["CLM_02"],
+            "humor_beat": "Callback ke adegan pembuka: map plastik biru akhirnya dipakai menjadi alas cangkir di meja belajar.",
+            "emotion": "curious_engaged",
+            "dialogue_lines": [
+                {
+                    "speaker_id": "char_dimas_citizen",
+                    "line": "Setidaknya sisa fotokopinya masih berguna buat ganjal kaki meja.",
+                    "delivery": "hela napas lega bercampur geli",
+                    "onscreen_speaking": False,
+                }
+            ],
+            "shot_blueprints": [
+                {
+                    "duration_weight": 1.0,
+                    "visual_subject": "Dimas meletakkan buku berkas di meja belajar kamar saat sore",
+                    "concrete_action": "Dimas masuk kembali lewat pintu kayu kamar lalu meletakkan map dokumen di samping lampu meja yang menyala hangat.",
+                    "props": ["prop_wooden_door_v1", "prop_study_table_v1", "prop_desk_lamp_v1", "prop_chronicle_book_v1"],
+                    "preferred_engine": "blender",
+                    "shot_size": "medium",
+                    "is_cutaway": False,
+                    "cutaway_purpose": "Resolusi kepulangan warga setelah berurusan dengan prosedur berlapis",
+                    "transition_in": "trans_cross_dissolve_12f",
+                },
+                {
+                    "duration_weight": 1.0,
+                    "visual_subject": "Kamar diorama utuh dengan kasur, jendela, dan jam dinding",
+                    "concrete_action": "Kamera menarik mundur memperlihatkan Dimas rebahan santai di kasur yang sama seperti pembuka video sementara jarum jam dinding menunjuk pukul lima sore.",
+                    "props": ["prop_bedroom_bed_v1", "prop_room_window_v1", "prop_wall_clock_v1", "prop_study_chair_v1"],
+                    "preferred_engine": "blender",
+                    "shot_size": "establishing",
+                    "is_cutaway": False,
+                    "cutaway_purpose": "Circular domestic callback penutup yang simetris dengan adegan awal",
+                    "transition_in": "trans_hard_cut_zero",
+                },
+            ],
+        },
+    ]
+
+    raw_total = sum(float(b["target_duration_s"]) for b in beats)
+    scale = target_duration_s / raw_total
+    for idx, b in enumerate(beats, 1):
+        b["beat_id"] = f"B{idx:02d}"
+        b["target_duration_s"] = round(float(b["target_duration_s"]) * scale, 3)
+
+    return {
+        "schema_version": "3.4.0",
+        "project_id": project_id,
+        "topic_title": "Paradoks Layanan Tanpa Kertas: Mengapa Aplikasi Publik Masih Minta Fotokopi?",
+        "genres": active_genres,
+        "target_duration_s": target_duration_s,
+        "topic_research": {
+            "epistemic_mode": "hybrid_factual_satire",
+            "research_status": "VERIFIED_COMPLETE",
+            "summary": (
+                "Satir sosial orisinal mengenai fragmentasi aplikasi layanan publik dan pentingnya interoperabilitas "
+                "data berdasarkan kajian OECD Digital Government dan UN E-Government Survey."
+            ),
+            "claims": [
+                {
+                    "claim_id": "CLM_01",
+                    "statement": (
+                        "Transformasi pemerintahan digital yang efektif menuntut prinsip once-only dan interoperabilitas "
+                        "lintas instansi agar warga tidak dibebani penyerahan dokumen berulang."
+                    ),
+                    "epistemic_status": "verified_fact",
+                    "source_title": "OECD — Recommendation of the Council on Digital Government Strategies",
+                    "source_url": "https://legalinstruments.oecd.org/en/instruments/OECD-LEGAL-0406",
+                    "publication_year": 2014,
+                },
+                {
+                    "claim_id": "CLM_02",
+                    "statement": (
+                        "Fragmentasi ribuan aplikasi sektoral tanpa integrasi proses bisnis belakang layar menyebabkan "
+                        "duplikasi prosedur administratif bagi pengguna layanan publik."
+                    ),
+                    "epistemic_status": "verified_fact",
+                    "source_title": "United Nations DESA — UN E-Government Survey: Accelerating Digital Transformation",
+                    "source_url": "https://publicadministration.un.org/egovkb/en-us/Reports/UN-E-Government-Survey-2024",
+                    "publication_year": 2024,
+                },
+            ],
+        },
+        "blueprint": {
+            "premise": (
+                "Menyoroti secara satir namun konstruktif mengapa digitalisasi permukaan tanpa interoperabilitas data "
+                "masih menyisakan ritual fotokopi berlapis di loket pelayanan."
+            ),
+            "hook_0_3s_visual": "Dimas bangun dari kasur kamar dan menyiapkan map plastik biru untuk mengurus layanan bertajuk tanpa kertas.",
+            "hook_0_3s_spoken": "Kamu bangun pagi dengan niat sederhana: mengurus surat di layanan yang katanya seratus persen digital.",
+            "story_arc": {
+                "act_1_setup": "Harapan warga di pagi hari saat berangkat dari kamar menuju gedung layanan digital.",
+                "act_2_escalation": "Benturan komedi di loket ketika bukti aplikasi tetap diminta fotokopi akibat silo lemari data antar-unit.",
+                "act_3_resolution": "Intisari interoperabilitas satu data dan kepulangan ke kamar dalam pola circular callback.",
+            },
+            "explainer_mechanism": "Perbandingan visual silo lemari arsip terkunci vs pertukaran data terpadu sekali isi (once-only).",
+            "humor_strategy": "Satir situasional sopan melalui kontras slogan tanpa kertas dengan tumpukan buku berkas fisik.",
+            "historical_biography_notes": "Seluruh karakter dan adegan instansi adalah fiksi satir ilustratif; tidak menyalin tokoh nyata.",
+            "payoff_callback": "Kembali ke kasur dan meja belajar pembuka saat map dokumen beralih fungsi di sore hari.",
+        },
+        "characters": [
+            {
+                "character_id": "char_dimas_citizen",
+                "name": "Dimas",
+                "role": "hero",
+                "silhouette_and_proportions": "Kepala bulat proporsi 0.34 tinggi tubuh, postur warga komuter sehari-hari yang ekspresif.",
+                "wardrobe": "Jaket kasual zaitun di atas kaus krem dan celana panjang abu gelap.",
+                "palette": ["#F3D6B6", "#4D7C0F", "#1E293B"],
+                "rig_spec": "xdx_diorama_humanoid_v1_ik_hands_feet",
+                "facial_controls": ["brow_inner_up", "brow_furrow", "eye_wide", "blink", "smile_soft"],
+                "biography_disclaimer": "Karakter warga fiksi orisinal XDX Studio; tidak menyalin karakter sumber referensi.",
+            },
+            {
+                "character_id": "char_sari_clerk",
+                "name": "Sari",
+                "role": "supporting",
+                "silhouette_and_proportions": "Postur rapi duduk tegak dengan kacamata persegi tipis dan gestur tangan prosedural.",
+                "wardrobe": "Kemeja kerja putih bersih dengan rompi biru tua dan tanda pengenal polos.",
+                "palette": ["#F3D6B6", "#F8FAFC", "#1E3A8A"],
+                "rig_spec": "xdx_diorama_humanoid_v1_ik_hands_feet",
+                "facial_controls": ["brow_inner_up", "blink", "smile_soft"],
+                "biography_disclaimer": "Karakter petugas fiksi orisinal XDX Studio.",
+            },
+        ],
+        "narrative_beats": beats,
     }

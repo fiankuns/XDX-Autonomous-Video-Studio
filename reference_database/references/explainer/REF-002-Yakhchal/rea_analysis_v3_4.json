@@ -1,0 +1,119 @@
+{
+  "schema": "xdx.rea-video.deep-analysis.v3.4",
+  "reference_id": "REF-002",
+  "original_filename": "1001952305.mp4",
+  "video_sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+  "bytes": 38669358,
+  "prior_analysis_preserved": "references/explainer/REF-002-Yakhchal/prior_analysis.json",
+  "analyzer_provenance": {
+    "adapter": "reference_database/scripts/reference_db.py + intelligence/rea_reference_intelligence.py",
+    "analyzer_fingerprint": "29a91d3001058f578f23c0767f0e6e819def9b8c58cf71461ff3a9ccc722c743",
+    "ffmpeg_threshold_tested": [0.18],
+    "multimodal_frame_review": "53 timestamped frames (2.0s stride, 0.0s-104.0s) across 3 contact sheets visually inspected",
+    "production_authorized": false
+  },
+  "measurements": {
+    "container_duration_s": 105.543,
+    "video_stream_duration_s": 105.543,
+    "width": 720,
+    "height": 1600,
+    "aspect_ratio": "9:20_screen_capture_crop_to_9:16_production",
+    "video_codec": "hevc",
+    "fps": 34.999953,
+    "decoded_frames": 3694,
+    "audio": {
+      "codec": "aac",
+      "profile": "LC",
+      "sample_rate_hz": 48000,
+      "channels": 2,
+      "channel_layout": "stereo",
+      "integrated_loudness_lufs": -20.0,
+      "loudness_range_lu": 2.9,
+      "true_peak_dbfs": -9.4,
+      "silence_intervals_gt_250ms_at_neg35db": 33,
+      "total_silence_s": 10.71
+    },
+    "signal_candidates": {
+      "ffmpeg_gt_0_18_segments": 46,
+      "ffmpeg_gt_0_18_median_s": 2.257,
+      "ffmpeg_gt_0_18_mean_s": 2.294,
+      "ffmpeg_gt_0_18_min_s": 0.6,
+      "ffmpeg_gt_0_18_max_s": 6.028,
+      "opencv_adaptive_abrupt_candidates": 47,
+      "opencv_adaptive_sustained_change_candidates": 4,
+      "note": "Predominantly crisp hard-cut editing; FFmpeg (46 segments) and OpenCV adaptive abrupt detector (47 hits) closely agree, with every candidate segment <= 6.03s."
+    }
+  },
+  "ten_dimension_analysis": {
+    "01_narrative_structure_and_hook": {
+      "pattern": "need -> question -> physical_demo -> mechanism -> obstacle_loop -> historical_reveal -> callback",
+      "hook_0_6s": "Concrete sensory need in 0-6s: stepping out of a desert adobe house (00:00s), top-down pouring of sweet iced tea (00:02-00:04s), and sitting under blazing sun craving cold ice without electricity (00:06s).",
+      "sequence_breakdown": [
+        {"seq": "SEQ_01", "time_s": [0.0, 8.0], "beat": "Personal need hook: making sweet iced tea in extreme desert heat"},
+        {"seq": "SEQ_02", "time_s": [8.0, 19.5], "beat": "Physical setup & core question: waterproof clay-lined shallow channel freezes overnight ('kan di gurun?')"},
+        {"seq": "SEQ_03", "time_s": [19.5, 30.0], "beat": "Physics mechanism 1: thermometer drop (40C day to -2C night) & sectional cutaway of heavy cold air sinking into pool"},
+        {"seq": "SEQ_04", "time_s": [30.0, 45.0], "beat": "Obstacle 1 (daytime sun) & solution: mud-brick shade wall casting protective shadow + harvesting ice blocks"},
+        {"seq": "SEQ_05", "time_s": [45.0, 70.0], "beat": "Obstacle 2 (subterranean ground heat) & material engineering: deep pit cutaway, stepped dome, sarooj mortar (sand, ash, goat hair) & 'TOKO MATERIAL BUKA 2000 TAHUN LAGI' gag"},
+        {"seq": "SEQ_06", "time_s": [70.0, 87.5], "beat": "Obstacle 3 (trapped warm air) & airflow cutaway: top dome vent + badgir windcatcher streamlines + summer ice retrieval"},
+        {"seq": "SEQ_07", "time_s": [87.5, 101.0], "beat": "Historical reveal: 'YAKHCHAL - YAZD, IRAN' signpost & ancient Persian community harvesting ice 2,000 years ago"},
+        {"seq": "SEQ_08", "time_s": [101.0, 105.543], "beat": "Callback payoff: host back at the opening wooden table raising a chilled glass in front of the finished Yakhchal"}
+      ]
+    },
+    "02_shots_timestamps_and_pacing": {
+      "candidate_segments": 46,
+      "median_shot_s": 2.257,
+      "mean_shot_s": 2.294,
+      "range_s": [0.6, 6.028],
+      "rhythm_notes": "Tight 2-4s clause-synced hard cuts; micro-inserts (0.6-1.5s) on pouring/thermometer/arrow beats; zero shots exceed 6.1s."
+    },
+    "03_characters_and_acting": {
+      "host_avatar": "Single recurring presenter in desert robe/headscarf who physically performs every step (digging, pouring, mortaring, carrying ice) while reacting to viewer objections.",
+      "historical_cast": "Supporting period-dressed figures introduced only at 01:34-01:40s to ground historical scale."
+    },
+    "04_body_motion_facial_expressions_and_objects": {
+      "task_actions": "Concrete verb-driven body mechanics: pouring pitcher, kneeling by ice trench, scratching head in puzzlement (00:18s), fanning face (00:40s), stirring mortar paddle beside 3D goat (01:00-01:02s), chipping ice blocks (01:24s), toasting glass (01:42s).",
+      "facial_readability": "Clean brow/eye punctuation supporting curiosity, heat exhaustion, and satisfaction."
+    },
+    "05_camera_and_cinematography": {
+      "framing_grammar": [
+        "topdown_90deg_tabletop_and_trench_insert (00:02s, 00:10s, 00:30s, 00:36s, 00:58s)",
+        "orthographic_earth_cross_section_cutaway (00:24s, 00:48s, 01:12s, 01:18s)",
+        "host_eye_level_medium (00:06s, 00:18s, 00:40s, 01:42s)",
+        "low_angle_monumental_architecture_reveal (00:46s, 01:06s, 01:28s)"
+      ],
+      "camera_motion": "Locked orthographic/top-down frames for technical clarity; controlled slow push-ins and vertical tilts on architectural scale."
+    },
+    "06_environment_assets_materials_and_lighting": {
+      "environment_progression": "Scene evolves causally as the host builds the engineering system step by step (bare desert -> trench -> shade wall -> deep pit -> conical dome -> windcatcher).",
+      "materials": "Tactile matte clay, adobe brick, layered soil strata, translucent ice/water shader, wood.",
+      "lighting": "Clear directional sunlight casting functional geometric shadows (used directly at 00:36-00:38s to prove how the shade wall protects ice!) contrasted with cool crisp night lighting (00:22-00:28s)."
+    },
+    "07_technical_cutaways_and_demonstrations": {
+      "signature_mechanics": [
+        "Side-profile subterranean soil cutaway slicing the ground open to show pit depth and dome interior",
+        "Color-coded 3D directional arrows & streamlines (cool blue sinking air at 00:26s, red ground-heat arrows at 00:50s, warm orange rising dome convection at 01:12s, cyan windcatcher circulation at 01:20s)",
+        "Analog dial instrument close-up (thermometer swinging from 40C to -2C)",
+        "Brief comedic modern-shopfront insert ('TOKO MATERIAL: BUKA 2000 TAHUN LAGI', 01:08s) to explain historical material constraints"
+      ]
+    },
+    "08_captions_and_typography": {
+      "capture_artifact_warning": "Source file is a 720x1600 mobile screen recording containing Android status bar, social app icons, and transient toast overlay (00:06-00:10s). XDX Studio productions NEVER reproduce capture UI chrome.",
+      "content_captions": "Clean 2-3 word clause-chunks in lower-center safe zone (white sans-serif with subtle dark stroke/shadow) plus minimal diegetic labels ('YAKHCHAL - YAZD, IRAN')."
+    },
+    "09_narration_audio_and_sfx": {
+      "delivery": "Clear conversational Indonesian step-by-step explanation (-20.0 LUFS in captured stream, 2.9 LU LRA) structured around 33 deliberate micro-pauses (>250ms) that let each visual physics beat land.",
+      "unverified_audio_boundaries": "Original studio master stems and full verbatim ASR transcript are not claimed or copied."
+    },
+    "10_editing_transitions_and_vfx": {
+      "transitions": "Almost 100% clean hard cuts aligned to spoken clause boundaries and action completions.",
+      "vfx": "Animated 3D vector arrows/ribbons for thermal/airflow physics, frost/ice surface state change, and time-of-day sky/shadow shift."
+    }
+  },
+  "reusable_production_profile_id": "hosted_3d_explainer_cutaway_v1",
+  "strict_copyright_and_safety_guardrails": [
+    "Abstract structural explainer grammar, 2-4s hard-cut pacing, top-down + sectional cutaway alternation, and original host demonstration ONLY.",
+    "NEVER copy REF-002 host character, 'How Come?' branding, exact script, audio track, or mobile screen-capture UI.",
+    "Adapt palette, setting, and architecture to the user's actual topic (do not force desert palette onto unrelated topics).",
+    "Does NOT grant production or rendering approval."
+  ]
+}

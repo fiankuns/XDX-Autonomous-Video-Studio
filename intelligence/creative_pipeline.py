@@ -21,7 +21,14 @@ import jsonschema
 
 from adapters.caption_lipsync_adapter import RhubarbLipSyncAdapter, WhisperCaptionAdapter
 from intelligence.asset_management import GLOBAL_STYLE_BIBLE_V3_4, atomic_write_bytes
-from intelligence.authored_showcase_150s import build_authored_time_perception_payload
+from intelligence.authored_showcase_150s import (
+    build_authored_social_satire_payload,
+    build_authored_time_perception_payload,
+)
+from intelligence.reference_database_bridge import (
+    ReferenceDatabaseBridge,
+    normalize_genre_list,
+)
 from intelligence.state_and_approval import (
     ProjectStateManager,
     compute_package_digest,
@@ -39,8 +46,20 @@ SUPPORTED_GENRES: tuple[str, ...] = (
     "biografi",
     "dokumenter",
     "storytelling",
+    "social_satire",
+    "satir_sosial",
     "horor",
     "komedi_absurd",
+)
+
+SUPPORTED_GENRE_INPUTS: tuple[str, ...] = (
+    *SUPPORTED_GENRES,
+    "explainair",
+    "explaner",
+    "satir sosial",
+    "cerita",
+    "education",
+    "history",
 )
 
 FACTUAL_GENRES: frozenset[str] = frozenset(
@@ -151,6 +170,24 @@ GENRE_PROFILES: dict[str, dict[str, Any]] = {
         "requires_hero_character": True,
         "pacing_wpm": 150,
     },
+    "social_satire": {
+        "hook_formula": "everyday_domestic_threshold_second_person_hook_0_5s",
+        "lighting": "light_cozy_warm_interior",
+        "vfx": "vfx_aces_diorama_clean",
+        "caption": "cap_xdx_bold_stroke_9x16",
+        "typography": "typo_jakarta_modern_explainer",
+        "requires_hero_character": True,
+        "pacing_wpm": 144,
+    },
+    "satir_sosial": {
+        "hook_formula": "everyday_domestic_threshold_second_person_hook_0_5s",
+        "lighting": "light_cozy_warm_interior",
+        "vfx": "vfx_aces_diorama_clean",
+        "caption": "cap_xdx_bold_stroke_9x16",
+        "typography": "typo_jakarta_modern_explainer",
+        "requires_hero_character": True,
+        "pacing_wpm": 144,
+    },
 }
 
 
@@ -163,31 +200,52 @@ class PlaceholderScriptError(ValueError):
 
 
 class UniversalMasterPromptEngine:
-    """Synthesizes multi-genre parameters, operational guardrails, and Global Style Bible."""
+    """Synthesizes multi-genre parameters, Reference Database profiles, and Global Style Bible."""
 
-    def blend_genres(self, genres: list[str]) -> dict[str, Any]:
-        if not genres:
+    def blend_genres(
+        self,
+        genres: list[str],
+        *,
+        reference_context: dict[str, Any] | None = None,
+    ) -> dict[str, Any]:
+        normalized = normalize_genre_list(genres)
+        if not normalized:
             raise ValueError("At least one genre must be specified")
-        for g in genres:
+        for g in normalized:
             if g not in GENRE_PROFILES:
                 raise ValueError(f"Unsupported genre '{g}'. Supported: {SUPPORTED_GENRES}")
 
-        lead = GENRE_PROFILES[genres[0]]
-        avg_wpm = round(sum(GENRE_PROFILES[g]["pacing_wpm"] for g in genres) / len(genres))
-        needs_hero = any(GENRE_PROFILES[g]["requires_hero_character"] for g in genres)
+        lead = GENRE_PROFILES[normalized[0]]
+        avg_wpm = round(sum(GENRE_PROFILES[g]["pacing_wpm"] for g in normalized) / len(normalized))
+        needs_hero = any(GENRE_PROFILES[g]["requires_hero_character"] for g in normalized)
+
+        fused_ref = (reference_context or {}).get("fused_production_profile")
+        preferred_split_s = 5.5
+        hook_formula = lead["hook_formula"]
+        caption_preset = lead["caption"]
+        if fused_ref:
+            needs_hero = needs_hero or bool(fused_ref.get("requires_hero_character"))
+            preferred_split_s = float(fused_ref["pacing_benchmark"]["preferred_split_s"])
+            hook_formula = fused_ref.get("hook_formula", hook_formula)
+            caption_preset = fused_ref.get("caption_preset", caption_preset)
+
         return {
-            "genres": genres,
-            "is_hybrid_genre": len(genres) > 1,
-            "requires_factual_verification": any(g in FACTUAL_GENRES for g in genres),
-            "dominant_genre": genres[0],
-            "hook_formula": lead["hook_formula"],
-            "default_lighting_preset": "light_horror_chiaroscuro" if "horor" in genres else lead["lighting"],
-            "default_vfx_preset": "vfx_horror_desat_fog" if "horor" in genres else lead["vfx"],
-            "default_caption_preset": lead["caption"],
+            "genres": normalized,
+            "is_hybrid_genre": len(normalized) > 1,
+            "requires_factual_verification": any(g in FACTUAL_GENRES for g in normalized),
+            "dominant_genre": normalized[0],
+            "hook_formula": hook_formula,
+            "default_lighting_preset": "light_horror_chiaroscuro" if "horor" in normalized else lead["lighting"],
+            "default_vfx_preset": "vfx_horror_desat_fog" if "horor" in normalized else lead["vfx"],
+            "default_caption_preset": caption_preset,
             "default_typography_preset": lead["typography"],
             "requires_hero_character": needs_hero,
+            "preferred_shot_split_s": preferred_split_s,
             "target_wpm": max(128, min(155, avg_wpm)),
             "style_bible": GLOBAL_STYLE_BIBLE_V3_4,
+            "selected_reference_ids": list((reference_context or {}).get("selected_reference_ids", [])),
+            "selected_reference_profiles": list(fused_ref.get("profile_ids", [])) if fused_ref else [],
+            "reference_visual_modes": list(fused_ref.get("visual_modes", [])) if fused_ref else [],
         }
 
 
@@ -352,11 +410,20 @@ class StoryScriptIntelligence:
         bp = payload["blueprint"]
         beats = payload["narrative_beats"]
 
+        ref_ids = genre_blend.get("selected_reference_ids") or []
+        ref_profiles = genre_blend.get("selected_reference_profiles") or []
+        ref_line = (
+            f"`{', '.join(ref_ids)}` (`{', '.join(ref_profiles)}`)"
+            if ref_ids
+            else "`Global Style Bible Default (tanpa override referensi)`"
+        )
+
         blueprint_md = "\n".join(
             [
                 f"# Universal Production Blueprint v3.4 — {payload['topic_title']}",
                 "",
                 f"- **Genre Terpadu**: `{', '.join(payload['genres'])}`",
+                f"- **Profil Referensi Aktif (`reference_database`)**: {ref_line}",
                 f"- **Target Durasi Master**: `{payload['target_duration_s']} detik`",
                 f"- **Premis Utama**: {bp['premise']}",
                 f"- **Hook Visual (0–3s)**: {bp['hook_0_3s_visual']}",
@@ -580,7 +647,8 @@ class StoryboardDirector:
     ) -> dict[str, Any]:
         total_frames = int(round(float(payload["target_duration_s"]) * fps))
         max_shot_frames = int(round(10.0 * fps))
-        preferred_split_frames = int(round(5.5 * fps))  # keeps shots comfortably inside 2-6s range!
+        split_s = float(genre_blend.get("preferred_shot_split_s", 5.5))
+        preferred_split_frames = max(int(round(2.5 * fps)), min(int(round(5.5 * fps)), int(round(split_s * fps))))
         min_shot_frames = max(15, int(round(1.5 * fps)))
 
         beats_in = payload["narrative_beats"]
@@ -1032,7 +1100,7 @@ class HybridEngineOrchestrator:
 class PreProductionPackageBuilder:
     """Validates AI-authored creative payloads, compiles the 13-item package, and stops at WAITING_APPROVAL."""
 
-    def __init__(self) -> None:
+    def __init__(self, *, reference_db_root: Path | None = None) -> None:
         self.master = UniversalMasterPromptEngine()
         self.validator = CreativePayloadValidator()
         self.research = TopicResearchEngine()
@@ -1043,6 +1111,7 @@ class PreProductionPackageBuilder:
         self.motion = MotionIntelligence()
         self.orchestrator = HybridEngineOrchestrator()
         self.presets = PresetLibraryRegistry()
+        self.reference_bridge = ReferenceDatabaseBridge(db_root=reference_db_root)
         self._approval_schema = json.loads((SCHEMAS_DIR / "approval_package.schema.json").read_text(encoding="utf-8"))
 
     def build_waiting_approval_package(
@@ -1055,33 +1124,68 @@ class PreProductionPackageBuilder:
         target_duration_s: int = 150,
         package_version: str = "v1",
         authored_payload: dict[str, Any] | None = None,
+        reference_ids: list[str] | None = None,
+        include_related_references: bool = False,
     ) -> dict[str, Any]:
         package_dir.mkdir(parents=True, exist_ok=True)
         self.presets.load_all(validate=True)
 
+        raw_genres = genres
+        if raw_genres is None and authored_payload is not None:
+            raw_genres = list(authored_payload.get("genres", []))
+        if not raw_genres:
+            raw_genres = ["explainer", "edukasi", "sejarah", "biografi", "komedi_absurd"]
+
+        explicit_refs = reference_ids
+        if explicit_refs is None and authored_payload is not None and authored_payload.get("reference_ids"):
+            explicit_refs = list(authored_payload["reference_ids"])
+
+        ref_context = self.reference_bridge.resolve_context(
+            genres=raw_genres,
+            explicit_reference_ids=explicit_refs,
+            include_related=include_related_references,
+        )
+        normalized_genres = ref_context["normalized_genres"]
+
         if authored_payload is not None:
             payload = copy.deepcopy(authored_payload)
             payload["project_id"] = project_id
-            if genres is not None:
-                payload["genres"] = genres
+            payload["genres"] = normalized_genres
             if topic is not None:
                 payload["topic_title"] = topic
             payload["target_duration_s"] = target_duration_s
         else:
-            payload = build_authored_time_perception_payload(
-                project_id=project_id,
-                target_duration_s=target_duration_s,
-                genres=genres or ["explainer", "edukasi", "sejarah", "biografi", "komedi_absurd"],
+            is_social_satire_lead = normalized_genres[0] in {"social_satire", "satir_sosial", "storytelling"} and all(
+                g in {"social_satire", "satir_sosial", "storytelling", "komedi_absurd"} for g in normalized_genres
             )
-            if topic is not None and topic.strip():
-                # Keep full authored narrative if default topic, or attach custom subtitle cleanly
-                if "waktu" not in topic.lower() and "jam" not in topic.lower():
-                    payload["topic_title"] = f"{topic.strip()} — Studi Persepsi Waktu & Memori"
-                else:
-                    payload["topic_title"] = topic.strip()
+            if is_social_satire_lead:
+                payload = build_authored_social_satire_payload(
+                    project_id=project_id,
+                    target_duration_s=target_duration_s,
+                    genres=normalized_genres,
+                )
+                if topic is not None and topic.strip():
+                    if "kertas" not in topic.lower() and "fotokopi" not in topic.lower():
+                        payload["topic_title"] = f"{topic.strip()} — Satir Layanan Tanpa Kertas & Aplikasi Publik"
+                    else:
+                        payload["topic_title"] = topic.strip()
+            else:
+                payload = build_authored_time_perception_payload(
+                    project_id=project_id,
+                    target_duration_s=target_duration_s,
+                    genres=normalized_genres,
+                )
+                if topic is not None and topic.strip():
+                    if "waktu" not in topic.lower() and "jam" not in topic.lower():
+                        payload["topic_title"] = f"{topic.strip()} — Studi Persepsi Waktu & Memori"
+                    else:
+                        payload["topic_title"] = topic.strip()
+
+        if ref_context["selected_reference_ids"]:
+            payload["reference_ids"] = list(ref_context["selected_reference_ids"])
 
         creative_metrics = self.validator.validate(payload)
-        blend = self.master.blend_genres(payload["genres"])
+        blend = self.master.blend_genres(payload["genres"], reference_context=ref_context)
         topic_obj, research_md = self.research.validate_and_compile_research(payload)
         blueprint_md, script_md = self.story.compile_blueprint_and_script_markdown(payload, genre_blend=blend)
 
@@ -1112,16 +1216,23 @@ class PreProductionPackageBuilder:
             "package_version": package_version,
             "topic": topic_obj,
             "creative_validation_metrics": creative_metrics,
+            "reference_intelligence": {
+                "selection_mode": ref_context["selection_mode"],
+                "selected_reference_ids": ref_context["selected_reference_ids"],
+                "related_candidate_ids": ref_context["related_candidate_ids"],
+                "upload_prompt_suppressed": ref_context["upload_prompt_suppressed"],
+                "production_authorized": False,
+                "analyzer_fingerprint": ref_context["analyzer_fingerprint"],
+                "references": ref_context["references"],
+                "fused_production_profile": ref_context["fused_production_profile"],
+            },
             "fps": storyboard["fps"],
             "width": storyboard["width"],
             "height": storyboard["height"],
             "aspect_ratio": storyboard["aspect_ratio"],
             "total_frames": storyboard["total_frames"],
         }
-        ref_md = (
-            "# Analisis Referensi Pra-Produksi\n\n"
-            "Produksi orisinal menggunakan Global Style Bible `xdx_stylized_diorama_v3_4` tanpa menyalin dialog atau aset pihak ketiga.\n"
-        )
+        ref_md = ref_context["reference_analysis_markdown"]
 
         files_text = {
             "blueprint.md": blueprint_md + "\n",
@@ -1191,6 +1302,7 @@ class PreProductionPackageBuilder:
                 package_version=package_version,
                 package_digest=digest,
             ),
+            "reference_intelligence": prod_config["reference_intelligence"],
             "state": state,
             "approval_manifest": approval_manifest,
         }

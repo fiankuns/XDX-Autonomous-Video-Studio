@@ -13,7 +13,11 @@
   "sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
   "bytes": 38669358,
   "metadata": "references/explainer/REF-002-Yakhchal/metadata.json",
-  "analysis_status": "PRIOR_PARTIAL_ANALYSIS",
+  "prior_analysis": "references/explainer/REF-002-Yakhchal/prior_analysis.json",
+  "rea_analysis_v3_4_json": "references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json",
+  "rea_analysis_v3_4_md": "references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.md",
+  "profile_id": "hosted_3d_explainer_cutaway_v1",
+  "analysis_status": "MULTIMODAL_REA_V3_4_VERIFIED_PRIOR_PRESERVED",
   "rights_status": "USER_SUPPLIED_PRIVATE_REFERENCE_RIGHTS_NOT_VERIFIED",
   "ffprobe": {
     "programs": [],

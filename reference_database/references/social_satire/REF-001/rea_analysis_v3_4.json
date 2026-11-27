@@ -1,0 +1,115 @@
+{
+  "schema": "xdx.rea-video.deep-analysis.v3.4",
+  "reference_id": "REF-001",
+  "original_filename": "1001952045.mp4",
+  "video_sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
+  "bytes": 27026130,
+  "prior_analysis_preserved": "references/social_satire/REF-001/prior_analysis.md",
+  "analyzer_provenance": {
+    "adapter": "reference_database/scripts/reference_db.py + intelligence/rea_reference_intelligence.py",
+    "analyzer_fingerprint": "29a91d3001058f578f23c0767f0e6e819def9b8c58cf71461ff3a9ccc722c743",
+    "ffmpeg_threshold_tested": [0.30, 0.08],
+    "multimodal_frame_review": "52 timestamped frames (3.0s stride, 0.0s-153.0s) across 3 contact sheets visually inspected",
+    "production_authorized": false
+  },
+  "measurements": {
+    "container_duration_s": 154.618821,
+    "video_stream_duration_s": 154.5,
+    "width": 720,
+    "height": 1280,
+    "aspect_ratio": "9:16",
+    "video_codec": "h264",
+    "fps": 30.0,
+    "decoded_frames": 4635,
+    "audio": {
+      "codec": "aac",
+      "profile": "HE-AAC",
+      "sample_rate_hz": 44100,
+      "channels": 2,
+      "channel_layout": "stereo",
+      "integrated_loudness_lufs": -14.8,
+      "loudness_range_lu": 4.2,
+      "true_peak_dbfs": -0.2,
+      "silence_intervals_gt_250ms_at_neg35db": 9,
+      "total_silence_s": 3.601
+    },
+    "signal_candidates": {
+      "ffmpeg_gt_0_30_segments": 2,
+      "ffmpeg_gt_0_08_segments": 16,
+      "ffmpeg_gt_0_08_median_s": 12.633,
+      "opencv_adaptive_abrupt_candidates": 78,
+      "opencv_adaptive_sustained_change_candidates": 51,
+      "note": "Frequent 10-15 frame cross-dissolves suppress single-frame FFmpeg scene scores; OpenCV sustained-change + abrupt candidates + visual frame inspection capture real vignette transitions."
+    }
+  },
+  "ten_dimension_analysis": {
+    "01_narrative_structure_and_hook": {
+      "pattern": "circular_bedroom_loop_second_person_social_satire",
+      "hook_0_5s": "Protagonist wakes up stretching on a purple bed in a cozy striped bedroom (00:00s) and opens the front door (00:03s) as second-person narration ('Kamu...') immediately places the viewer inside everyday public infrastructure.",
+      "sequence_breakdown": [
+        {"seq": "SEQ_01", "time_s": [0.0, 5.5], "beat": "Bedroom wake-up & stepping out front door hook"},
+        {"seq": "SEQ_02", "time_s": [5.5, 20.8], "beat": "Road asphalt thickness audit (RAB), ministry turnover & official inauguration stage"},
+        {"seq": "SEQ_03", "time_s": [20.8, 35.5], "beat": "Traffic light countdown, Bappenas planning headache & 65-trillion congestion loss billboard"},
+        {"seq": "SEQ_04", "time_s": [35.5, 53.5], "beat": "School curriculum churn, Puskesmas queue & 1-doctor-to-crowd ratio visualization"},
+        {"seq": "SEQ_05", "time_s": [53.5, 71.5], "beat": "Agriculture paddy field, chili price shock, official convoy vs citizen motorbike & 10kg social aid scale"},
+        {"seq": "SEQ_06", "time_s": [71.5, 113.3], "beat": "Resignation ethics, courtroom/prison chess satire, World Corruption Perception Report Card (34/100) & historical integrity contrast (Kabinet Djuanda / exemplary police vignette)"},
+        {"seq": "SEQ_07", "time_s": [113.3, 149.0], "beat": "Election campaign contrast (track-record candidate vs 100-day billboard populist), citizen as HRD interviewer & ballot booth dilemma"},
+        {"seq": "SEQ_08", "time_s": [149.0, 154.6], "beat": "Circular callback: waking up on the exact same bed (150.0s) and stepping outside the house (153.0s)"}
+      ]
+    },
+    "02_shots_timestamps_and_pacing": {
+      "estimated_visual_shots": 48,
+      "typical_shot_duration_s": [2.0, 4.5],
+      "sequence_length_s": [12.0, 22.0],
+      "rhythm_notes": "Rapid montage of 2.5-4.0s visual gags inside each topical vignette, bridged by soft cross-dissolves between ministries/locations and punctuated by 9 brief breath pauses."
+    },
+    "03_characters_and_acting": {
+      "protagonist": "Recurring everyday citizen in teal shirt and dark trousers acting as audience surrogate (observer, commuter, voter, HRD interviewer).",
+      "ensemble_archetypes": "Modular stylized cast differentiated immediately by silhouette props: yellow hard-hat inspector, glasses-and-peci ministers, white-coat doctors, caping farmer, black-robed judge, campaign candidates.",
+      "acting_style": "Deadpan institutional staging contrasted with exaggerated cartoon reaction beats (hands on head in traffic, sweat-drop grimace in ballot booth)."
+    },
+    "04_body_motion_facial_expressions_and_objects": {
+      "proportions": "Spherical head (~0.35 body height) with slender cylindrical rubber-hose limbs.",
+      "facial_system": "2D-projected expressive brow/eye/mouth states (wide-eyed shock, squinted frustration, clenched-teeth grimace, glasses specular flash).",
+      "object_interaction": "Clear prop-driven storytelling: measuring ruler on asphalt, motorcycle handlebars, weighing scale reading 10 kg, chess board in cell, ballot paper."
+    },
+    "05_camera_and_cinematography": {
+      "framing_vocabulary": [
+        "warm_interior_establishing_wide",
+        "eye_level_character_medium",
+        "high_angle_crowd_infographic_wide (00:48s doctor-to-citizens)",
+        "over_the_shoulder_podium_and_ballot",
+        "dramatic_top_spotlight_stage (01:36s, 01:48s)"
+      ],
+      "camera_motion": "Gentle linear dolly push-ins/pull-backs and lateral slides; minimal handheld shake."
+    },
+    "06_environment_assets_materials_and_lighting": {
+      "environments": "Modular Indonesian civic & domestic dioramas (bedroom, suburban street, ministry facade, classroom, Puskesmas, rice paddy, market, courtroom, rally stage, polling booth).",
+      "materials": "Clean matte/semi-matte stylized PBR surfaces (roughness ~0.45-0.85) with crisp readability and low texture noise.",
+      "lighting": "Warm practical lamp glow for bedroom/archive scenes; clean bright tropical sun-sky daylight for street/rally exteriors; theatrical volumetric cone spotlight for satirical stage metaphors."
+    },
+    "07_technical_cutaways_and_demonstrations": {
+      "diegetic_data_staging": "Data and statistics are built as physical in-world 3D props rather than flat 2D slides: 'RAPOR DUNIA: INDEKS PERSEPSI KORUPSI 34/100' classroom board, '1 DOKTER' surrounded by hundreds of 3D citizen pegs, 'KERUGIAN MACET 65 TRILIUN' street billboard, and 'DETIK MERAH 30' traffic timer."
+    },
+    "08_captions_and_typography": {
+      "export_cleanliness": "Direct clean 9:16 master export without social-platform UI chrome.",
+      "subtitle_style": "Word-by-word / short-token dynamic captions (1-2 words per cue) centered at ~78% vertical height, bold white geometric sans-serif with thick black outline and soft drop shadow.",
+      "in_scene_signage": "High-contrast uppercase Indonesian institutional signage ('KEMENTERIAN', 'PUSKESMAS', 'RAPOR DUNIA', 'SURAT SUARA') readable on mobile screens."
+    },
+    "09_narration_audio_and_sfx": {
+      "delivery": "Continuous, brisk conversational Indonesian second-person voiceover (-14.8 LUFS integrated, tight 4.2 LU dynamic range) with minimal dead air (only 3.6s silence >250ms across 154.6s).",
+      "mix_observations": "Steady background music bed tucked beneath forward vocal presence, accented by subtle transitional and comedic beats.",
+      "unverified_audio_boundaries": "Full verbatim ASR transcript and separated audio stems are intentionally not claimed or reproduced."
+    },
+    "10_editing_transitions_and_vfx": {
+      "transitions": "Hybrid editing: hard cuts inside a location, 10-15 frame cross-dissolves across topical/scene shifts (visible at 06.0s, 21.0s, 36.0s, 135.0s).",
+      "vfx": "Volumetric stage light cones, glasses lens-gleam highlight (01:18s), 2D comic thought-bubble ('?', 01:00s), and foreground blur rack-focus (01:45s)."
+    }
+  },
+  "reusable_production_profile_id": "satirical_3d_vignette_storytelling_v1",
+  "strict_copyright_and_safety_guardrails": [
+    "Abstract structural grammar, pacing, diegetic 3D data staging, and circular bedroom callback ONLY.",
+    "NEVER copy REF-001 characters, exact dialogue, political campaign names, audio track, or visual assets.",
+    "Does NOT grant production or rendering approval."
+  ]
+}

@@ -11,7 +11,11 @@
   "sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
   "bytes": 27026130,
   "metadata": "references/social_satire/REF-001/metadata.json",
-  "analysis_status": "PRIOR_PARTIAL_ANALYSIS",
+  "prior_analysis": "references/social_satire/REF-001/prior_analysis.md",
+  "rea_analysis_v3_4_json": "references/social_satire/REF-001/rea_analysis_v3_4.json",
+  "rea_analysis_v3_4_md": "references/social_satire/REF-001/rea_analysis_v3_4.md",
+  "profile_id": "satirical_3d_vignette_storytelling_v1",
+  "analysis_status": "MULTIMODAL_REA_V3_4_VERIFIED_PRIOR_PRESERVED",
   "rights_status": "USER_SUPPLIED_PRIVATE_REFERENCE_RIGHTS_NOT_VERIFIED",
   "ffprobe": {
     "programs": [],
