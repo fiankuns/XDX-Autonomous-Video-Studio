@@ -1,0 +1,58 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "generated_at_utc": "2026-11-27T20:13:57.131165+00:00",
+  "host_runtime": "antigravity",
+  "workspace_mode": "inherit",
+  "model_routing": "inherit",
+  "live_subagents_invoked": {
+    "topic_research_agent": {
+      "conversation_id": "79297c7c2b6cfb965b66a31089b67c5e",
+      "subagent_type": "xdx-topic-researcher",
+      "role": "Benchmark A & C Topic Researcher"
+    },
+    "rea_reference_analyst": {
+      "conversation_id": "23c4e93f6cc1588439794068f0d8a8f8",
+      "subagent_type": "xdx-rea-reference-analyst",
+      "role": "REA Reference & Fusion Analyst"
+    },
+    "creative_script_ab": {
+      "conversation_id": "1739e98084d0f229168972fd2b7c6dbe",
+      "subagent_type": "xdx-creative-scriptwriter",
+      "role": "Benchmark A & B Creative Scriptwriter"
+    },
+    "creative_script_cd": {
+      "conversation_id": "08f118337deb2b0e7a0875db151e9392",
+      "subagent_type": "xdx-creative-scriptwriter",
+      "role": "Benchmark C & D Creative Scriptwriter"
+    },
+    "character_art": {
+      "conversation_id": "ab27dc28a6c4308d6990fa13716ca70d",
+      "subagent_type": "xdx-character-art-director",
+      "role": "Character & Style Bible Specialist"
+    },
+    "storyboard_cam_motion": {
+      "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+      "subagent_type": "xdx-storyboard-cinematographer",
+      "role": "Storyboard Motion & Camera Specialist"
+    },
+    "audio_caption": {
+      "conversation_id": "ba0c35964a1313a28b1a39458d00a035",
+      "subagent_type": "xdx-audio-caption-specialist",
+      "role": "Audio & Caption Planning Specialist"
+    },
+    "preproduction_verifier": {
+      "conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+      "subagent_type": "xdx-preproduction-verifier",
+      "role": "Independent Preproduction Verifier (4 Benchmarks)",
+      "read_only_fresh_context": true
+    }
+  },
+  "distinct_producer_vs_verifier_conversations": true,
+  "replay_vs_live_modes_separated": [
+    "native_subagent",
+    "recorded_workflow_replay",
+    "sequential_fallback_honest",
+    "mock_execution",
+    "dispatch_plan_only_not_invoked"
+  ]
+}

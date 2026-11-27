@@ -1,0 +1,188 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_b_birokrasi_satir_60s",
+  "style_bible_id": "xdx_stylized_diorama_v4_0",
+  "style_profile": "diorama",
+  "modeling_executed": false,
+  "characters": [
+    {
+      "character_id": "char_damar_pemohon",
+      "name": "Damar",
+      "role": "hero",
+      "identity": {
+        "name": "Damar",
+        "role": "hero",
+        "biography_disclaimer": "Tokoh fiksi satir sosial orisinal XDX Studio; tidak merepresentasikan warga atau individu nyata tertentu.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Siluet warga muda rapi bergaya boneka diorama pahatan halus setinggi 5.8 kepala, bahu tegak penuh harapan di pagi hari yang perlahan condong menahan menara map di sore hari.",
+      "proportions": "Siluet warga muda rapi bergaya boneka diorama pahatan halus setinggi 5.8 kepala, bahu tegak penuh harapan di pagi hari yang perlahan condong menahan menara map di sore hari.",
+      "facial_design": "Wajah ramah bertekstur clay matte hangat, alis tebal mudah melengkung bingung, kantung mata tipis yang muncul halus di babak akhir, dan senyum sopan menahan pasrah.",
+      "clothing": "Kemeja flanel hijau zaitun berlengan gulung siku, kaus dalam krem, celana panjang katun cokelat tua, sepatu pantofel kasual kulit matte, dan tas selempang kanvas.",
+      "wardrobe": "Kemeja flanel hijau zaitun berlengan gulung siku, kaus dalam krem, celana panjang katun cokelat tua, sepatu pantofel kasual kulit matte, dan tas selempang kanvas.",
+      "materials": [
+        "tactile_matte_polymer_clay_skin",
+        "woven_miniature_cotton_flannel",
+        "brushed_canvas_strap"
+      ],
+      "color_palette": [
+        "#556B45",
+        "#EFE6D5",
+        "#4A3B31",
+        "#2F6FB2"
+      ],
+      "palette": [
+        "#556B45",
+        "#EFE6D5",
+        "#4A3B31",
+        "#2F6FB2"
+      ],
+      "expressions": [
+        "optimistic_morning_smile",
+        "polite_disbelief",
+        "bewildered_squint",
+        "ironic_thousand_yard_smile"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_biped_diorama_v4_ik_arms_spine_load_visemes",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "jaw_viseme_driver",
+          "brow_asymmetry_confused",
+          "eyelid_droop_fatigue",
+          "polite_grimace_blend"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_biped_diorama_v4_ik_arms_spine_load_visemes",
+      "pose_requirements": [
+        "holding_single_thin_blue_folder",
+        "balancing_towering_rainbow_folders",
+        "peering_under_glass_partition"
+      ],
+      "action_requirements": [
+        "menyodorkan satu map biru tipis lewat celah bawah kaca loket",
+        "menyeimbangkan tumpukan map warna-warni dengan dagu saat berjalan antar loket",
+        "menatap lembar surat baru sambil melirik jam dinding sore"
+      ],
+      "biography_disclaimer": "Tokoh fiksi satir sosial orisinal XDX Studio; tidak merepresentasikan warga atau individu nyata tertentu.",
+      "shot_appearances": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S007",
+        "S008",
+        "S009",
+        "S010",
+        "S011",
+        "S012",
+        "S013",
+        "S014",
+        "S015",
+        "S016",
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ],
+      "continuity_lock": {
+        "palette_locked": [
+          "#556B45",
+          "#EFE6D5",
+          "#4A3B31",
+          "#2F6FB2"
+        ],
+        "proportions_locked": "Siluet warga muda rapi bergaya boneka diorama pahatan halus setinggi 5.8 kepala, bahu tegak penuh harapan di pagi hari yang perlahan condong menahan menara map di sore hari.",
+        "wardrobe_locked": "Kemeja flanel hijau zaitun berlengan gulung siku, kaus dalam krem, celana panjang katun cokelat tua, sepatu pantofel kasual kulit matte, dan tas selempang kanvas.",
+        "style_profile_locked": "diorama"
+      }
+    },
+    {
+      "character_id": "char_bu_rantih_loket",
+      "name": "Bu Rantih",
+      "role": "supporting",
+      "identity": {
+        "name": "Bu Rantih",
+        "role": "supporting",
+        "biography_disclaimer": "Tokoh petugas loket fiksi orisinal XDX Studio; tidak merujuk pada aparatur atau instansi nyata tertentu.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Siluet petugas administrasi duduk tegak presisi bergaya diorama miniatur setinggi 5.6 kepala, sanggul rapi simetris dan gerakan tangan ritmis secepat mesin saat meraih stempel.",
+      "proportions": "Siluet petugas administrasi duduk tegak presisi bergaya diorama miniatur setinggi 5.6 kepala, sanggul rapi simetris dan gerakan tangan ritmis secepat mesin saat meraih stempel.",
+      "facial_design": "Wajah tenang deadpan bertekstur clay halus, kacamata baca setengah bingkai dengan rantai manik emas kecil, tatapan fokus tanpa emosi berlebih namun tetap sopan.",
+      "clothing": "Blazer seragam pelayanan warna krem pasir berkerah cokelat marun, blus putih rapi, dan papan nama kuningan mungil bertuliskan 'LOKET 01'.",
+      "wardrobe": "Blazer seragam pelayanan warna krem pasir berkerah cokelat marun, blus putih rapi, dan papan nama kuningan mungil bertuliskan 'LOKET 01'.",
+      "materials": [
+        "tactile_matte_polymer_clay_skin",
+        "miniature_tailored_wool_blend",
+        "brushed_brass_nameplate_and_chain"
+      ],
+      "color_palette": [
+        "#D8C5A8",
+        "#6E2E2A",
+        "#FAF7F2",
+        "#C89D54"
+      ],
+      "palette": [
+        "#D8C5A8",
+        "#6E2E2A",
+        "#FAF7F2",
+        "#C89D54"
+      ],
+      "expressions": [
+        "serene_deadpan_neutral",
+        "glasses_peek_inspection",
+        "rhythmic_stamping_focus",
+        "polite_procedural_smile"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_biped_diorama_v4_precision_hand_stamp_visemes",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "jaw_viseme_driver",
+          "glasses_slip_offset",
+          "subtle_brow_raise",
+          "deadpan_lip_press"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_biped_diorama_v4_precision_hand_stamp_visemes",
+      "pose_requirements": [
+        "seated_counter_posture",
+        "pointing_checklist_with_pen",
+        "double_handed_hierarchical_stamp"
+      ],
+      "action_requirements": [
+        "memeriksa map tipis dari balik kacamata baca",
+        "menunjuk daftar persyaratan berantai dengan ujung pulpen pegas",
+        "menghantamkan stempel kayu bertingkat ke atas bundel surat pengantar dengan presisi"
+      ],
+      "biography_disclaimer": "Tokoh petugas loket fiksi orisinal XDX Studio; tidak merujuk pada aparatur atau instansi nyata tertentu.",
+      "shot_appearances": [],
+      "continuity_lock": {
+        "palette_locked": [
+          "#D8C5A8",
+          "#6E2E2A",
+          "#FAF7F2",
+          "#C89D54"
+        ],
+        "proportions_locked": "Siluet petugas administrasi duduk tegak presisi bergaya diorama miniatur setinggi 5.6 kepala, sanggul rapi simetris dan gerakan tangan ritmis secepat mesin saat meraih stempel.",
+        "wardrobe_locked": "Blazer seragam pelayanan warna krem pasir berkerah cokelat marun, blus putih rapi, dan papan nama kuningan mungil bertuliskan 'LOKET 01'.",
+        "style_profile_locked": "diorama"
+      }
+    }
+  ]
+}

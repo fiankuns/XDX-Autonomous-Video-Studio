@@ -1,0 +1,495 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_b_birokrasi_satir_60s",
+  "topic_title": "Mengurus Satu Surat yang Membutuhkan Banyak Surat Lain",
+  "style_profile": "diorama",
+  "genres": [
+    "satir_sosial",
+    "storytelling"
+  ],
+  "reference_ids": [
+    "REF-001"
+  ],
+  "target_duration_s": 60,
+  "topic_research": {
+    "epistemic_mode": "hybrid_factual_satire",
+    "research_status": "VERIFIED_COMPLETE",
+    "summary": "Kajian pelayanan publik dan regulasi administrasi menunjukkan bahwa beban administrasi berlapis (administrative burden) sering muncul ketika warga yang mengurus satu surat keterangan diminta melampirkan banyak surat pengantar lain serta fotokopi dokumen identitas berulang yang sebenarnya sudah tercatat di sistem pemerintah.",
+    "topic_scope": "Fenomena beban administrasi berulang, persyaratan surat pengantar bertingkat, dan prinsip penyederhanaan layanan publik satu data sebagai pijakan faktual untuk cerita satir sosial bergaya miniatur diorama berdurasi 60 detik.",
+    "research_questions": [
+      "Mengapa prosedur mengurus satu surat administrasi sering berkembang menjadi rantai permintaan banyak surat pengantar lain?",
+      "Apa dampak permintaan fotokopi identitas berulang terhadap biaya waktu warga menurut kajian pelayanan publik?",
+      "Bagaimana prinsip integrasi layanan sekali input data (once-only principle) dirancang untuk memangkas duplikasi berkas antar loket?"
+    ],
+    "misconceptions": [
+      {
+        "misconception": "Semakin banyak map fisik dan fotokopi surat pengantar berlapis berarti verifikasi data otomatis semakin akurat.",
+        "correction": "Duplikasi berkas fisik antar meja justru memperbesar risiko salah ketik ulang dan penundaan layanan dibandingkan verifikasi basis data terintegrasi.",
+        "claim_ref": "CLM_02"
+      },
+      {
+        "misconception": "Kerumitan persyaratan berulang semata-mata kesalahan pribadi petugas garis depan di balik kaca loket.",
+        "correction": "Beban administrasi umumnya berakar pada standar operasional prosedur warisan yang belum diselaraskan antar unit layanan.",
+        "claim_ref": "CLM_01"
+      }
+    ],
+    "uncertainties": [
+      "Kecepatan pengurusan dokumen administrasi nyata di lapangan sangat bervariasi antar daerah bergantung pada kematangan integrasi layanan kependudukan digital setempat.",
+      "Sebagian jenis perizinan berisiko hukum tinggi memang tetap memerlukan verifikasi faktual berlapis di luar surat keterangan dasar warga."
+    ],
+    "fictional_elements_declared": [
+      "Tokoh pemohon Damar, petugas loket Bu Rantih, serta ruang diorama Balai Layanan Suka Berkas adalah karya satir fiksi orisinal yang tidak merujuk pada individu maupun kantor pemerintahan tertentu.",
+      "Adegan menara map pelangi, fotokopi kartu identitas untuk membuktikan kartu identitas asli, serta stempel pengantar khusus bagi surat pengantar merupakan hiperbola komedi situasional."
+    ],
+    "claims": [
+      {
+        "claim_id": "CLM_01",
+        "statement": "Pengawasan pelayanan publik mencatat keluhan berulang warga terkait ketidakjelasan standar persyaratan, permintaan dokumen tambahan bertingkat, dan penundaan berlarut dalam pengurusan surat administrasi dasar.",
+        "epistemic_status": "verified_fact",
+        "source_title": "Ombudsman Republik Indonesia \u2014 Laporan Tahunan Pengawasan Pelayanan Publik",
+        "source_url": "https://www.ombudsman.go.id/publikasi/laporan-tahunan",
+        "publication_year": 2023,
+        "publication_date": "2023-12",
+        "evidence_excerpt": "Substansi laporan masyarakat pada kelompok administrasi pemerintahan dan kependudukan didominasi penundaan berlarut serta penyimpangan prosedur persyaratan layanan.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_02",
+        "statement": "Beban administrasi birokrasi meningkat tajam ketika instansi mewajibkan warga menyerahkan ulang salinan dokumen dan surat keterangan yang datanya telah dimiliki oleh lembaga pemerintah lain.",
+        "epistemic_status": "verified_fact",
+        "source_title": "OECD \u2014 Regulatory Policy and Administrative Simplification",
+        "source_url": "https://www.oecd.org/en/topics/regulatory-policy.html",
+        "publication_year": 2023,
+        "publication_date": "2023-09",
+        "evidence_excerpt": "Redundant document requests and fragmented counter procedures impose disproportionate time and compliance costs on citizens seeking routine certificates.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_03",
+        "statement": "Reformasi pelayanan publik mendorong penerapan standar pelayanan transparan dan prinsip pertukaran data terpadu agar warga tidak lagi menjadi kurir berkas kertas antar meja layanan.",
+        "epistemic_status": "verified_fact",
+        "source_title": "Kementerian Pendayagunaan Aparatur Negara dan Reformasi Birokrasi \u2014 Transformasi Pelayanan Publik",
+        "source_url": "https://www.menpan.go.id/site/berita-terkini",
+        "publication_year": 2024,
+        "publication_date": "2024-04",
+        "evidence_excerpt": "Integrasi layanan publik berfokus memangkas persyaratan berulang sehingga masyarakat cukup menyerahkan data satu kali tanpa fotokopi berlapis.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_04",
+        "statement": "Layanan administrasi manual berbasis rantai persetujuan kertas berlapis menguras jam produktif masyarakat dibandingkan alur layanan berorientasi pengguna yang menyatukan verifikasi di belakang layar.",
+        "epistemic_status": "verified_fact",
+        "source_title": "World Bank \u2014 GovTech: Putting People First in Public Service Delivery",
+        "source_url": "https://www.worldbank.org/en/programs/govtech",
+        "publication_year": 2023,
+        "publication_date": "2023-10",
+        "evidence_excerpt": "Citizen-centric service redesign eliminates multi-stop paper prerequisite chains that force applicants to visit multiple counters for a single certificate.",
+        "is_primary_source": true
+      }
+    ]
+  },
+  "blueprint": {
+    "premise": "Satir sosial hangat bergaya diorama miniatur tentang Damar yang datang pagi-pagi demi mengurus satu surat keterangan tipis, tetapi terjebak labirin persyaratan absurd karena satu surat itu membutuhkan banyak surat pengantar lain beserta menara map warna-warni.",
+    "hook_0_3s_visual": "Di ruang tunggu diorama kayu hangat pukul delapan pagi, Damar memegang satu map biru setipis biskuit di depan kaca loket, lalu kamera bergeser cepat memperlihatkan troli berkas setinggi dada di sampingnya.",
+    "hook_0_3s_spoken": "Kamu cuma niat mengurus satu surat keterangan domisili lima menit, tapi pulang memeluk bundel berkas setebal bantal.",
+    "story_arc": {
+      "act_1_setup": "Damar melangkah penuh optimisme menyerahkan satu map biru tipis ke loket Bu Rantih, namun langsung dihadang syarat surat pengantar RT untuk menebus formulir pengantar RW.",
+      "act_2_escalation": "Tumpukan berkas Damar menjulang menjadi menara map merah, kuning, dan hijau lengkap dengan fotokopi KTP untuk meyakinkan layar komputer yang sudah menampilkan KTP miliknya, ditutup ritual stempel pengantar untuk surat pengantar.",
+      "act_3_resolution": "Selembar surat utama akhirnya selesai dicetak saat matahari condong sore, tepat ketika jam dinding berbunyi menandai masa berlaku surat pengantar pertamanya baru saja kedaluwarsa."
+    },
+    "explainer_mechanism": "Sisipan fakta pelayanan publik yang membumikan komedi: memvisualisasikan istilah beban administrasi berulang sebagai meja loket A dan loket B yang hanya terpisah satu meter namun tetap menuntut warga menjadi kurir fotokopi.",
+    "humor_strategy": "Kontras deadpan antara kesopanan ramah-datar Bu Rantih saat menyebutkan syarat berlapis yang mustahil dengan kepatuhan sabar Damar yang posturnya makin miring tertimbun map warna-warni.",
+    "historical_biography_notes": "Cerita dan seluruh karakter merupakan satir sosial fiksi orisinal; tidak memparodikan tokoh biografi atau pejabat nyata mana pun.",
+    "payoff_callback": "Callback ironis ke map biru tipis pada detik pertama: setelah menara map pelangi selesai distempel sore hari, Bu Rantih menunjuk tanggal surat pengantar paling bawah di map biru awal yang masa berlakunya berakhir pukul dua siang tadi."
+  },
+  "characters": [
+    {
+      "character_id": "char_damar_pemohon",
+      "name": "Damar",
+      "role": "hero",
+      "silhouette_and_proportions": "Siluet warga muda rapi bergaya boneka diorama pahatan halus setinggi 5.8 kepala, bahu tegak penuh harapan di pagi hari yang perlahan condong menahan menara map di sore hari.",
+      "facial_design": "Wajah ramah bertekstur clay matte hangat, alis tebal mudah melengkung bingung, kantung mata tipis yang muncul halus di babak akhir, dan senyum sopan menahan pasrah.",
+      "wardrobe": "Kemeja flanel hijau zaitun berlengan gulung siku, kaus dalam krem, celana panjang katun cokelat tua, sepatu pantofel kasual kulit matte, dan tas selempang kanvas.",
+      "materials": [
+        "tactile_matte_polymer_clay_skin",
+        "woven_miniature_cotton_flannel",
+        "brushed_canvas_strap"
+      ],
+      "palette": [
+        "#556B45",
+        "#EFE6D5",
+        "#4A3B31",
+        "#2F6FB2"
+      ],
+      "expressions": [
+        "optimistic_morning_smile",
+        "polite_disbelief",
+        "bewildered_squint",
+        "ironic_thousand_yard_smile"
+      ],
+      "rig_spec": "rig_biped_diorama_v4_ik_arms_spine_load_visemes",
+      "facial_controls": [
+        "jaw_viseme_driver",
+        "brow_asymmetry_confused",
+        "eyelid_droop_fatigue",
+        "polite_grimace_blend"
+      ],
+      "pose_requirements": [
+        "holding_single_thin_blue_folder",
+        "balancing_towering_rainbow_folders",
+        "peering_under_glass_partition"
+      ],
+      "action_requirements": [
+        "menyodorkan satu map biru tipis lewat celah bawah kaca loket",
+        "menyeimbangkan tumpukan map warna-warni dengan dagu saat berjalan antar loket",
+        "menatap lembar surat baru sambil melirik jam dinding sore"
+      ],
+      "biography_disclaimer": "Tokoh fiksi satir sosial orisinal XDX Studio; tidak merepresentasikan warga atau individu nyata tertentu."
+    },
+    {
+      "character_id": "char_bu_rantih_loket",
+      "name": "Bu Rantih",
+      "role": "supporting",
+      "silhouette_and_proportions": "Siluet petugas administrasi duduk tegak presisi bergaya diorama miniatur setinggi 5.6 kepala, sanggul rapi simetris dan gerakan tangan ritmis secepat mesin saat meraih stempel.",
+      "facial_design": "Wajah tenang deadpan bertekstur clay halus, kacamata baca setengah bingkai dengan rantai manik emas kecil, tatapan fokus tanpa emosi berlebih namun tetap sopan.",
+      "wardrobe": "Blazer seragam pelayanan warna krem pasir berkerah cokelat marun, blus putih rapi, dan papan nama kuningan mungil bertuliskan 'LOKET 01'.",
+      "materials": [
+        "tactile_matte_polymer_clay_skin",
+        "miniature_tailored_wool_blend",
+        "brushed_brass_nameplate_and_chain"
+      ],
+      "palette": [
+        "#D8C5A8",
+        "#6E2E2A",
+        "#FAF7F2",
+        "#C89D54"
+      ],
+      "expressions": [
+        "serene_deadpan_neutral",
+        "glasses_peek_inspection",
+        "rhythmic_stamping_focus",
+        "polite_procedural_smile"
+      ],
+      "rig_spec": "rig_biped_diorama_v4_precision_hand_stamp_visemes",
+      "facial_controls": [
+        "jaw_viseme_driver",
+        "glasses_slip_offset",
+        "subtle_brow_raise",
+        "deadpan_lip_press"
+      ],
+      "pose_requirements": [
+        "seated_counter_posture",
+        "pointing_checklist_with_pen",
+        "double_handed_hierarchical_stamp"
+      ],
+      "action_requirements": [
+        "memeriksa map tipis dari balik kacamata baca",
+        "menunjuk daftar persyaratan berantai dengan ujung pulpen pegas",
+        "menghantamkan stempel kayu bertingkat ke atas bundel surat pengantar dengan presisi"
+      ],
+      "biography_disclaimer": "Tokoh petugas loket fiksi orisinal XDX Studio; tidak merujuk pada aparatur atau instansi nyata tertentu."
+    }
+  ],
+  "narrative_beats": [
+    {
+      "beat_id": "B01",
+      "act": "ACT_1",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_01",
+      "environment_id": "env_diorama_civic_waiting_hall",
+      "beat_role": "hook_everyday_threshold",
+      "target_duration_s": 10.0,
+      "narration_vo": "Kamu cuma niat mengurus satu surat keterangan domisili lima menit, tapi pulang memeluk bundel berkas setebal bantal.",
+      "claim_refs": [
+        "CLM_01"
+      ],
+      "humor_beat": "Kontras visual antara satu map biru setipis kerupuk di tangan Damar dengan bunyi gedebuk tumpukan berkas pemohon sebelah yang tingginya menutup wajah.",
+      "emotion": "ironic_deadpan",
+      "voice_direction": "Akrab menyapa dengan kata 'Kamu', nada santai penuh senyum miring khas pengamatan sehari-hari.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_damar_pemohon",
+          "line": "Pagi Bu, mau mengurus satu surat ini saja.",
+          "delivery": "ceria dan penuh keyakinan pagi hari",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "establishing_shot",
+          "visual_subject": "Ruang pelayanan diorama hangat dengan deretan kursi tunggu dan loket kaca",
+          "concrete_action": "Kamera tilt-shift meluncur mendekati ruang loket diorama pukul delapan pagi saat Damar melangkah ringan memegang satu map biru tipis menuju Loket 01.",
+          "props": [
+            "prop_single_blue_thin_folder",
+            "prop_queue_number_dispenser",
+            "prop_wall_clock_morning"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "establishing",
+          "focal_length_mm": 35,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        },
+        {
+          "duration_weight": 1.1,
+          "visual_purpose": "character_acting",
+          "visual_subject": "Damar menyodorkan map biru tipis ke celah kaca loket Bu Rantih",
+          "concrete_action": "Damar membungkuk sopan menyelipkan map biru tipis lewat celah kaca loket sementara seorang warga lain melintas di belakangnya sambil mendorong troli penuh bundel kertas.",
+          "props": [
+            "prop_single_blue_thin_folder",
+            "prop_glass_counter_partition",
+            "prop_overloaded_paper_trolley"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "medium",
+          "focal_length_mm": 50,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B02",
+      "act": "ACT_1",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_02",
+      "environment_id": "env_diorama_counter_window_closeup",
+      "beat_role": "first_prerequisite_trap",
+      "target_duration_s": 13.0,
+      "narration_vo": "Begitu map tipis disodorkan ke loket, muncul aturan klasik birokrasi: satu surat utama ternyata membutuhkan banyak surat pengantar lain terlebih dahulu.",
+      "claim_refs": [
+        "CLM_01",
+        "CLM_02"
+      ],
+      "humor_beat": "Papan persyaratan kecil di samping loket ditarik memanjang ke bawah seperti gulungan struk belanja tanpa ujung.",
+      "emotion": "ironic_deadpan",
+      "voice_direction": "Tenang dan jernih saat menekankan frasa 'satu surat utama ternyata membutuhkan banyak surat pengantar lain'.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_bu_rantih_loket",
+          "line": "Kurang surat pengantar RT untuk mengambil formulir pengantar RW, Mas.",
+          "delivery": "datar sopan tanpa berkedip sambil menunjuk papan syarat",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.1,
+          "visual_purpose": "character_acting",
+          "visual_subject": "Bu Rantih menurunkan kacamata dan membuka daftar syarat lipat akordeon",
+          "concrete_action": "Bu Rantih melirik map biru tipis selama sedetik, lalu menarik kertas daftar persyaratan lipat akordeon yang terbentang memanjang sampai menyentuh meja loket.",
+          "props": [
+            "prop_accordion_requirement_checklist",
+            "prop_spring_coil_ballpoint",
+            "prop_single_blue_thin_folder"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "medium",
+          "focal_length_mm": 50,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        },
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "reaction_shot",
+          "visual_subject": "Ekspresi senyum membeku Damar di depan kaca loket",
+          "concrete_action": "Senyum optimistis Damar perlahan membeku sementara kedua alisnya naik tak percaya menatap bagan panah surat pengantar yang bercabang tiga di kaca loket.",
+          "props": [
+            "prop_glass_counter_partition",
+            "prop_branching_letter_flowchart_sign"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "reaction",
+          "focal_length_mm": 65,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B03",
+      "act": "ACT_2",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_03",
+      "environment_id": "env_diorama_photocopy_and_color_folders",
+      "beat_role": "absurd_folder_tower_escalation",
+      "target_duration_s": 14.0,
+      "narration_vo": "Damar bolak-balik fotokopi kartu identitas yang datanya sudah tercetak jelas di layar komputer, lengkap dengan map merah, kuning, dan hijau sesuai hari.",
+      "claim_refs": [
+        "CLM_02"
+      ],
+      "humor_beat": "Layar monitor loket sudah menampilkan foto KTP Damar ukuran besar, tetapi Damar tetap diminta menyerahkan lima lembar fotokopi hitam-putih buram dari kartu yang sama.",
+      "emotion": "curious",
+      "voice_direction": "Ritme sedikit meningkat menggambarkan kepanikan sopan bolak-balik mesin fotokopi.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_damar_pemohon",
+          "line": "Ini fotokopi KTP untuk membuktikan KTP asli saya benar KTP?",
+          "delivery": "bingung sopan sambil menahan tumpukan map dengan dagu",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "object_insert",
+          "visual_subject": "Kilatan cahaya mesin fotokopi memuntahkan lembaran KTP ke dalam map warna-warni",
+          "concrete_action": "Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat sambil melontarkan lembaran salinan kartu identitas langsung ke dalam map merah, kuning, dan hijau yang terus bertambah tinggi.",
+          "props": [
+            "prop_miniature_photocopier_machine",
+            "prop_photocopy_stack_ktp",
+            "prop_rainbow_folder_tower"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "insert",
+          "focal_length_mm": 60,
+          "is_cutaway": true,
+          "cutaway_purpose": "Menampilkan eskalasi duplikasi kertas secara ritmis dan komedik.",
+          "transition_in": "trans_whip_pan_cutaway_6f"
+        },
+        {
+          "duration_weight": 1.2,
+          "visual_purpose": "visual_metaphor",
+          "visual_subject": "Damar menahan menara map pelangi di samping monitor komputer yang menampilkan KTP miliknya",
+          "concrete_action": "Damar menahan menara map warna-warni setinggi dagu di depan loket, tepat di sebelah layar komputer petugas yang sudah menampilkan data kartu identitas Damar secara lengkap.",
+          "props": [
+            "prop_rainbow_folder_tower",
+            "prop_counter_desktop_monitor_ktp",
+            "prop_photocopy_stack_ktp"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "wide",
+          "focal_length_mm": 35,
+          "is_cutaway": false,
+          "scientific_labels": [
+            "Duplikasi Data Berulang"
+          ],
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B04",
+      "act": "ACT_2",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_04",
+      "environment_id": "env_diorama_adjacent_counters_hall",
+      "beat_role": "bureaucratic_stamp_reveal",
+      "target_duration_s": 13.0,
+      "narration_vo": "Riset pelayanan publik menyebutnya beban administrasi berulang: waktu warga habis mengantar kertas dari meja kanan ke meja sebelahnya yang berjarak satu meter.",
+      "claim_refs": [
+        "CLM_03",
+        "CLM_04"
+      ],
+      "humor_beat": "Damar bergeser satu langkah menyamping dari Loket 01 ke Loket 02, sedangkan Bu Rantih di balik kaca ikut menggeser kursinya satu meter ke Loket 02 untuk menerima berkas yang barusan ia kembalikan.",
+      "emotion": "ironic_deadpan",
+      "voice_direction": "Nada dokumenter serius yang kontras lucu dengan aksi bergeser satu meter di layar.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_bu_rantih_loket",
+          "line": "Nah, tinggal stempel pengantar untuk melegalisir surat pengantarnya.",
+          "delivery": "tenang meyakinkan sambil mengangkat stempel kayu paling besar",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.1,
+          "visual_purpose": "visual_metaphor",
+          "visual_subject": "Dua loket bersebelahan satu meter yang dihubungkan langkah geser Damar dan kursi roda Bu Rantih",
+          "concrete_action": "Kamera simetris dari depan memperlihatkan Damar melangkah satu meter dari Loket 01 ke Loket 02 membawa menara map, sementara di balik kaca Bu Rantih meluncur di kursi beroda ke loket yang sama.",
+          "props": [
+            "prop_rainbow_folder_tower",
+            "prop_adjacent_counter_signs_01_02",
+            "prop_rolling_office_chair_diorama"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "wide",
+          "focal_length_mm": 32,
+          "is_cutaway": false,
+          "scientific_labels": [
+            "Beban Administrasi (Administrative Burden)"
+          ],
+          "transition_in": "trans_whip_pan_cutaway_6f"
+        },
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "object_insert",
+          "visual_subject": "Rak stempel kayu bertingkat tiga dan bantalan tinta ungu",
+          "concrete_action": "Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SURAT PENGANTAR' dari rak bertingkat tiga, menekannya ke bantalan tinta ungu, lalu mencapkannya mantap ke lembar formulir.",
+          "props": [
+            "prop_triple_tier_wooden_stamp_rack",
+            "prop_stamp_for_intro_letter",
+            "prop_violet_ink_pad"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "close_up",
+          "focal_length_mm": 75,
+          "is_cutaway": true,
+          "cutaway_purpose": "Menonjolkan puncak satir birokrasi lewat objek stempel khusus untuk surat pengantar.",
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B05",
+      "act": "ACT_3",
+      "sequence_id": "SEQ_03",
+      "scene_id": "SCN_05",
+      "environment_id": "env_diorama_civic_waiting_hall",
+      "beat_role": "ironic_payoff_callback",
+      "target_duration_s": 10.0,
+      "narration_vo": "Akhirnya satu surat impian itu terbit sore hari, tepat setelah masa berlaku surat pengantar pertamanya habis tadi siang.",
+      "claim_refs": [
+        "CLM_01",
+        "CLM_04"
+      ],
+      "humor_beat": "Sinar matahari sore menyinari selembar surat utama yang tipis, sementara ujung map biru pertama di dasar menara memperlihatkan cap merah 'BERLAKU HINGGA 14.00' saat jam dinding menunjukkan pukul 16.05.",
+      "emotion": "ironic_deadpan",
+      "voice_direction": "Jeda komedi sepersekian detik sebelum kalimat 'tepat setelah masa berlaku surat pengantar pertamanya habis tadi siang'.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_damar_pemohon",
+          "line": "Berarti besok mulai dari map biru tipis lagi?",
+          "delivery": "senyum pasrah lirih sambil menatap jam dinding",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "object_insert",
+          "visual_subject": "Jam dinding sore pukul empat lewat berdampingan dengan map biru tipis di dasar tumpukan",
+          "concrete_action": "Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan satu lembar surat jadi, namun ujung map biru tipis paling bawah memperlihatkan cap masa berlaku yang berakhir pukul dua siang.",
+          "props": [
+            "prop_single_blue_thin_folder",
+            "prop_rainbow_folder_tower",
+            "prop_expired_queue_ticket_clock"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "insert",
+          "focal_length_mm": 60,
+          "is_cutaway": false,
+          "transition_in": "trans_cross_dissolve_12f"
+        },
+        {
+          "duration_weight": 1.1,
+          "visual_purpose": "character_acting",
+          "visual_subject": "Damar berdiri memeluk menara map pelangi sambil memegang satu lembar surat tipis",
+          "concrete_action": "Damar memeluk menara map warna-warni di lengan kiri dan mengangkat satu lembar surat tipis di tangan kanan sambil menatap kamera dengan senyum pasrah saat lampu loket mulai diredupkan.",
+          "props": [
+            "prop_single_blue_thin_folder",
+            "prop_rainbow_folder_tower",
+            "prop_final_single_certificate_sheet"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "medium",
+          "focal_length_mm": 40,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    }
+  ]
+}

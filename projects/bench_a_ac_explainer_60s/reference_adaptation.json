@@ -1,0 +1,512 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_a_ac_explainer_60s",
+  "selection_mode": "explicit_single_reference",
+  "selected_reference_ids": [
+    "REF-002"
+  ],
+  "multi_reference_fusion": {
+    "fusion_mode": "single_reference_10d_mapped",
+    "source_reference_ids": [
+      "REF-002"
+    ],
+    "unified_visual_style_profile": "stylized_3d",
+    "style_consistency_verified": true,
+    "conflicts_detected_count": 0,
+    "dimensions": {
+      "narrative_structure": {
+        "dimension": "narrative_structure",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "counterintuitive_anomaly_hook_to_causal_mechanism_and_synthesis",
+        "adaptation_rationale": "Single-reference 'REF-002' governs 'narrative_structure' cleanly for ['edukasi', 'explainer']."
+      },
+      "character_acting": {
+        "dimension": "character_acting",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "hosted_presenter_direct_address_pointing_to_3d_cutaway_models",
+        "adaptation_rationale": "Single-reference 'REF-002' governs 'character_acting' cleanly for ['edukasi', 'explainer']."
+      },
+      "visual_style": {
+        "dimension": "visual_style",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "clean_stylized_3d_architectural_cutaway_with_diagrammatic_clarity",
+        "adaptation_rationale": "Locked single unified visual style 'stylized_3d' anchored to primary 'REF-002' so character, prop, and cutaway shaders never clash across shots."
+      },
+      "environment": {
+        "dimension": "environment",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "modular_cross_section_stage_and_scale_comparison_diorama",
+        "adaptation_rationale": "Single-reference 'REF-002' governs 'environment' cleanly for ['edukasi', 'explainer']."
+      },
+      "camera": {
+        "dimension": "camera",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "smooth_orthographic_feel_cutaway_push_and_macro_mechanism_inserts",
+        "adaptation_rationale": "Single-reference 'REF-002' governs 'camera' cleanly for ['edukasi', 'explainer']."
+      },
+      "motion": {
+        "dimension": "motion",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "causal_flow_arrows_fluid_thermal_paths_and_exploded_assembly",
+        "adaptation_rationale": "Single-reference 'REF-002' governs 'motion' cleanly for ['edukasi', 'explainer']."
+      },
+      "technical_visualization": {
+        "dimension": "technical_visualization",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "3d_cross_section_cutaway_exploded_view_and_annotated_scientific_labels",
+        "adaptation_rationale": "Single-reference 'REF-002' governs 'technical_visualization' cleanly for ['edukasi', 'explainer']."
+      },
+      "caption": {
+        "dimension": "caption",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "high_contrast_keyword_highlighted_captions_paired_with_callouts",
+        "adaptation_rationale": "Single-reference 'REF-002' governs 'caption' cleanly for ['edukasi', 'explainer']."
+      },
+      "audio": {
+        "dimension": "audio",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes",
+        "adaptation_rationale": "Single-reference 'REF-002' governs 'audio' cleanly for ['edukasi', 'explainer']."
+      },
+      "editing": {
+        "dimension": "editing",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "clause_locked_visual_evidence_cuts_2_5_to_5_5s_on_causal_transitions",
+        "adaptation_rationale": "Single-reference 'REF-002' governs 'editing' cleanly for ['edukasi', 'explainer']."
+      }
+    }
+  },
+  "adaptation_records": [
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "establishing_shot:B01",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S001 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S001",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Kamera mendorong masuk ke kamar kos yang jendelanya tertutup rapat sementara Bim",
+      "camera_behavior": "establishing 24.0mm (elevated_establishing_16deg) -> mot_snappy_spring_pop",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S001 duration 2.4s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 24.0mm matches 'establishing_shot' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "character_acting:B01",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S002 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S002",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Kamera mendorong masuk ke kamar kos yang jendelanya tertutup rapat sementara Bim",
+      "camera_behavior": "close_up 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S002 duration 2.3667s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:18.4-00:31.0",
+      "observed_technique": "macro_component_insert_paired_with_annotated_callout",
+      "narrative_purpose": "character_acting:B01",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'macro_component_insert_paired_with_annotated_callout' from REF-002 (00:18.4-00:31.0) into original shot S003 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S003",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Bima menoleh ke kusen jendela yang terkunci sambil berujar heran, lalu Nadia men",
+      "camera_behavior": "medium 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S003 duration 2.6333s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "character_acting:B01",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S004 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S004",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Bima menoleh ke kusen jendela yang terkunci sambil berujar heran, lalu Nadia men",
+      "camera_behavior": "close_up 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=4)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S004 duration 2.6s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "technical_cutaway:B02",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S005 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S005",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Pita udara oranye hangat dari kamar tersedot ke kisi aluminium evaporator lalu m",
+      "camera_behavior": "cutaway 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S005 duration 3.1s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:18.4-00:31.0",
+      "observed_technique": "macro_component_insert_paired_with_annotated_callout",
+      "narrative_purpose": "technical_cutaway:B02",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'macro_component_insert_paired_with_annotated_callout' from REF-002 (00:18.4-00:31.0) into original shot S006 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S006",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Pita udara oranye hangat dari kamar tersedot ke kisi aluminium evaporator lalu m",
+      "camera_behavior": "insert 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S006 duration 3.1s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "scientific_mechanism:B02",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S007 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S007",
+      "required_asset": "prop_refrigerant_coil_loop",
+      "required_motion": "prop_refrigerant_coil_loop:Kamera makro menembus dinding pipa evaporator memperlihatkan cairan refrigeran b",
+      "camera_behavior": "close_up 65.0mm (mechanism_flow_tracking) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S007 duration 3.4s <= 10.0s",
+        "Asset 'prop_refrigerant_coil_loop' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 65.0mm matches 'scientific_mechanism' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "technical_cutaway:B02",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S008 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S008",
+      "required_asset": "prop_refrigerant_coil_loop",
+      "required_motion": "prop_refrigerant_coil_loop:Kamera makro menembus dinding pipa evaporator memperlihatkan cairan refrigeran b",
+      "camera_behavior": "insert 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S008 duration 3.4s <= 10.0s",
+        "Asset 'prop_refrigerant_coil_loop' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:18.4-00:31.0",
+      "observed_technique": "macro_component_insert_paired_with_annotated_callout",
+      "narrative_purpose": "exploded_view:B03",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'macro_component_insert_paired_with_annotated_callout' from REF-002 (00:18.4-00:31.0) into original shot S009 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S009",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Casing logam unit outdoor bergeser terbuka secara exploded view; tabung kompreso",
+      "camera_behavior": "wide 55.0mm (isometric_exploded_axis_28deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S009 duration 3.6667s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 55.0mm matches 'exploded_view' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "character_acting:B03",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S010 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S010",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Casing logam unit outdoor bergeser terbuka secara exploded view; tabung kompreso",
+      "camera_behavior": "reaction 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S010 duration 3.6667s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "character_acting:B03",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S011 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S011",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Kipas besar unit outdoor menghembuskan gelombang kalor hangat ke udara terbuka s",
+      "camera_behavior": "medium 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S011 duration 3.3333s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:18.4-00:31.0",
+      "observed_technique": "macro_component_insert_paired_with_annotated_callout",
+      "narrative_purpose": "character_acting:B03",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'macro_component_insert_paired_with_annotated_callout' from REF-002 (00:18.4-00:31.0) into original shot S012 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S012",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Kipas besar unit outdoor menghembuskan gelombang kalor hangat ke udara terbuka s",
+      "camera_behavior": "reaction 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=4)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S012 duration 3.3333s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "scientific_mechanism:B04",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S013 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S013",
+      "required_asset": "prop_expansion_valve_macro",
+      "required_motion": "prop_expansion_valve_macro:Cairan refrigeran hangat melesat melewati leher sempit katup ekspansi; begitu me",
+      "camera_behavior": "insert 65.0mm (mechanism_flow_tracking) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S013 duration 3.4s <= 10.0s",
+        "Asset 'prop_expansion_valve_macro' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 65.0mm matches 'scientific_mechanism' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "technical_cutaway:B04",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S014 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S014",
+      "required_asset": "prop_expansion_valve_macro",
+      "required_motion": "prop_expansion_valve_macro:Cairan refrigeran hangat melesat melewati leher sempit katup ekspansi; begitu me",
+      "camera_behavior": "medium 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S014 duration 3.4s <= 10.0s",
+        "Asset 'prop_expansion_valve_macro' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:18.4-00:31.0",
+      "observed_technique": "macro_component_insert_paired_with_annotated_callout",
+      "narrative_purpose": "object_insert:B04",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'macro_component_insert_paired_with_annotated_callout' from REF-002 (00:18.4-00:31.0) into original shot S015 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S015",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Tetesan uap air dari udara kamar mengembun di permukaan sirip evaporator dingin ",
+      "camera_behavior": "close_up 85.0mm (macro_evidence_tabletop_32deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S015 duration 3.1s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 85.0mm matches 'object_insert' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "technical_cutaway:B04",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S016 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S016",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Tetesan uap air dari udara kamar mengembun di permukaan sirip evaporator dingin ",
+      "camera_behavior": "medium 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S016 duration 3.1s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "object_insert:B05",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S017 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S017",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Ibu jari Bima menekan tombol naik pada remot AC dari 16\u00b0C menuju 24\u00b0C sementara ",
+      "camera_behavior": "insert 85.0mm (macro_evidence_tabletop_32deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S017 duration 2.4s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 85.0mm matches 'object_insert' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:18.4-00:31.0",
+      "observed_technique": "macro_component_insert_paired_with_annotated_callout",
+      "narrative_purpose": "reaction_shot:B05",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'macro_component_insert_paired_with_annotated_callout' from REF-002 (00:18.4-00:31.0) into original shot S018 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S018",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Ibu jari Bima menekan tombol naik pada remot AC dari 16\u00b0C menuju 24\u00b0C sementara ",
+      "camera_behavior": "close_up 75.0mm (intimate_three_quarter_reaction) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S018 duration 2.3667s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 75.0mm matches 'reaction_shot' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "reaction_shot:B05",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S019 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S019",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Penutup unit AC indoor kembali tertutup rapi menghembuskan angin lembut, Nadia m",
+      "camera_behavior": "reaction 75.0mm (intimate_three_quarter_reaction) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S019 duration 2.6333s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 75.0mm matches 'reaction_shot' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "character_acting:B05",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S020 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S020",
+      "required_asset": "char_bima_penghuni",
+      "required_motion": "char_bima_penghuni:Penutup unit AC indoor kembali tertutup rapi menghembuskan angin lembut, Nadia m",
+      "camera_behavior": "close_up 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=4)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S020 duration 2.6s <= 10.0s",
+        "Asset 'char_bima_penghuni' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    }
+  ],
+  "production_authorized": false
+}

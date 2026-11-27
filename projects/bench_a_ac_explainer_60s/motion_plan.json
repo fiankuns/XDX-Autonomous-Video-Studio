@@ -1,0 +1,1652 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_a_ac_explainer_60s",
+  "fps": 30,
+  "total_frames": 1800,
+  "blender_executor_status": "PLANNED_ONLY_SCHEDULED_PHASE_02B_AND_PHASE_03",
+  "generic_idle_actions_used": false,
+  "planned_actions": [
+    {
+      "action_id": "ACT_S001",
+      "shot_id": "S001",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "character_grounded_establishing_shot",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 0,
+      "end_frame": 72,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_0f (Bima kepanasan di kamar tertutup di bawah unit AC split berada pada po)",
+      "key_poses": [
+        {
+          "frame": 18,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 36,
+          "pose": "apex_interaction_Kamera mendorong masuk ke kamar kos yang jendelanya tertutup rapa"
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_72f (Gerak bima kepanasan di kamar tertutup di bawah unit ac split mereda s)",
+      "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+      "ik_target": "hand_ik_contact:char_bima_penghuni",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'establishing_shot' clearly for beat B01: Kamera mendorong masuk ke kamar kos yang jendelanya tertutup rapat sementara Bima mengipasi wajah dan termometer meja menyala di angka 32 derajat Celsius.",
+      "acceptance_criteria": [
+        "Exact frame bounds [0, 72] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S002",
+      "shot_id": "S002",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 72,
+      "end_frame": 143,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_72f (Bima kepanasan di kamar tertutup di bawah unit AC split berada pada po)",
+      "key_poses": [
+        {
+          "frame": 89,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 107,
+          "pose": "apex_interaction_Kamera mendorong masuk ke kamar kos yang jendelanya tertutup rapa"
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_143f (Gerak bima kepanasan di kamar tertutup di bawah unit ac split mereda s)",
+      "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+      "ik_target": "hand_ik_contact:char_bima_penghuni",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B01: Kamera mendorong masuk ke kamar kos yang jendelanya tertutup rapat sementara Bima mengipasi wajah dan termometer meja menyala di angka 32 derajat Celsius. Kamera beralih ke sudut close up menyoroti interaksi detail prop_ac_indoor_evaporator_cutaway, prop_room_thermometer_digital.",
+      "acceptance_criteria": [
+        "Exact frame bounds [72, 143] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S003",
+      "shot_id": "S003",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 143,
+      "end_frame": 222,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_143f (Nadia menggeser penutup depan AC di samping Bima berada pada posisi ko)",
+      "key_poses": [
+        {
+          "frame": 162,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 182,
+          "pose": "apex_interaction_Bima menoleh ke kusen jendela yang terkunci sambil berujar heran,"
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_222f (Gerak nadia menggeser penutup depan ac di samping bima mereda stabil m)",
+      "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+      "ik_target": "hand_ik_contact:char_bima_penghuni",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B01: Bima menoleh ke kusen jendela yang terkunci sambil berujar heran, lalu Nadia mengangkat cangkang depan unit AC indoor hingga tampak deretan pipa tembaga evaporator berkilau dingin.",
+      "acceptance_criteria": [
+        "Exact frame bounds [143, 222] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S004",
+      "shot_id": "S004",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 222,
+      "end_frame": 300,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_222f (Nadia menggeser penutup depan AC di samping Bima berada pada posisi ko)",
+      "key_poses": [
+        {
+          "frame": 241,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 261,
+          "pose": "apex_interaction_Bima menoleh ke kusen jendela yang terkunci sambil berujar heran,"
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_300f (Gerak nadia menggeser penutup depan ac di samping bima mereda stabil m)",
+      "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+      "ik_target": "hand_ik_contact:char_bima_penghuni",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B01: Bima menoleh ke kusen jendela yang terkunci sambil berujar heran, lalu Nadia mengangkat cangkang depan unit AC indoor hingga tampak deretan pipa tembaga evaporator berkilau dingin. Kamera beralih ke sudut close up menyoroti interaksi detail prop_ac_indoor_evaporator_cutaway, prop_ac_remote_control.",
+      "acceptance_criteria": [
+        "Exact frame bounds [222, 300] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S005",
+      "shot_id": "S005",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "mechanism_technical_cutaway",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 300,
+      "end_frame": 393,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_300f (Penampang kipas blower dan kisi evaporator dalam ruang berada pada pos)",
+      "key_poses": [
+        {
+          "frame": 323,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 346,
+          "pose": "apex_interaction_Pita udara oranye hangat dari kamar tersedot ke kisi aluminium ev"
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_393f (Gerak penampang kipas blower dan kisi evaporator dalam ruang mereda st)",
+      "contact_point": "anchor_socket:char_bima_penghuni:cutaway_plane",
+      "ik_target": "rig_ctrl:char_bima_penghuni:flow_path_target",
+      "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+      "facial_expression": "focused_explanation",
+      "motion_intent": "Convey 'technical_cutaway' clearly for beat B02: Pita udara oranye hangat dari kamar tersedot ke kisi aluminium evaporator lalu meluncur keluar kembali ke kamar sebagai aliran udara biru sejuk.",
+      "acceptance_criteria": [
+        "Exact frame bounds [300, 393] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S006",
+      "shot_id": "S006",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "mechanism_technical_cutaway",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 393,
+      "end_frame": 486,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_393f (Penampang kipas blower dan kisi evaporator dalam ruang berada pada pos)",
+      "key_poses": [
+        {
+          "frame": 416,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 439,
+          "pose": "apex_interaction_Pita udara oranye hangat dari kamar tersedot ke kisi aluminium ev"
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_486f (Gerak penampang kipas blower dan kisi evaporator dalam ruang mereda st)",
+      "contact_point": "anchor_socket:char_bima_penghuni:cutaway_plane",
+      "ik_target": "rig_ctrl:char_bima_penghuni:flow_path_target",
+      "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+      "facial_expression": "focused_explanation",
+      "motion_intent": "Convey 'technical_cutaway' clearly for beat B02: Pita udara oranye hangat dari kamar tersedot ke kisi aluminium evaporator lalu meluncur keluar kembali ke kamar sebagai aliran udara biru sejuk. Kamera beralih ke sudut insert menyoroti interaksi detail prop_ac_indoor_evaporator_cutaway, prop_crossflow_blower_fan.",
+      "acceptance_criteria": [
+        "Exact frame bounds [393, 486] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S007",
+      "shot_id": "S007",
+      "actor_id": "prop_refrigerant_coil_loop",
+      "action_type": "mechanism_scientific_mechanism",
+      "object_target": "prop_refrigerant_coil_loop",
+      "start_frame": 486,
+      "end_frame": 588,
+      "start_pose": "prop_refrigerant_coil_loop_anticipation_ready_at_486f (Gelembung refrigeran mendidih di dalam pipa tembaga transparan berada )",
+      "key_poses": [
+        {
+          "frame": 511,
+          "pose": "anticipation_and_reach_toward_prop_refrigerant_coil_loop"
+        },
+        {
+          "frame": 537,
+          "pose": "apex_interaction_Kamera makro menembus dinding pipa evaporator memperlihatkan cair"
+        }
+      ],
+      "end_pose": "prop_refrigerant_coil_loop_settled_hold_at_588f (Gerak gelembung refrigeran mendidih di dalam pipa tembaga transparan m)",
+      "contact_point": "anchor_socket:prop_refrigerant_coil_loop:cutaway_plane",
+      "ik_target": "rig_ctrl:prop_refrigerant_coil_loop:flow_path_target",
+      "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+      "facial_expression": "not_applicable_mechanism_rig",
+      "motion_intent": "Convey 'scientific_mechanism' clearly for beat B02: Kamera makro menembus dinding pipa evaporator memperlihatkan cairan refrigeran biru pirus menyerap partikel kalor keemasan hingga bergejolak mendidih menjadi uap.",
+      "acceptance_criteria": [
+        "Exact frame bounds [486, 588] respected with zero foot sliding",
+        "Contact target 'prop_refrigerant_coil_loop' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S008",
+      "shot_id": "S008",
+      "actor_id": "prop_refrigerant_coil_loop",
+      "action_type": "mechanism_technical_cutaway",
+      "object_target": "prop_refrigerant_coil_loop",
+      "start_frame": 588,
+      "end_frame": 690,
+      "start_pose": "prop_refrigerant_coil_loop_anticipation_ready_at_588f (Gelembung refrigeran mendidih di dalam pipa tembaga transparan berada )",
+      "key_poses": [
+        {
+          "frame": 613,
+          "pose": "anticipation_and_reach_toward_prop_refrigerant_coil_loop"
+        },
+        {
+          "frame": 639,
+          "pose": "apex_interaction_Kamera makro menembus dinding pipa evaporator memperlihatkan cair"
+        }
+      ],
+      "end_pose": "prop_refrigerant_coil_loop_settled_hold_at_690f (Gerak gelembung refrigeran mendidih di dalam pipa tembaga transparan m)",
+      "contact_point": "anchor_socket:prop_refrigerant_coil_loop:cutaway_plane",
+      "ik_target": "rig_ctrl:prop_refrigerant_coil_loop:flow_path_target",
+      "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+      "facial_expression": "not_applicable_mechanism_rig",
+      "motion_intent": "Convey 'technical_cutaway' clearly for beat B02: Kamera makro menembus dinding pipa evaporator memperlihatkan cairan refrigeran biru pirus menyerap partikel kalor keemasan hingga bergejolak mendidih menjadi uap. Kamera beralih ke sudut insert menyoroti interaksi detail prop_refrigerant_coil_loop, prop_ac_indoor_evaporator_cutaway.",
+      "acceptance_criteria": [
+        "Exact frame bounds [588, 690] respected with zero foot sliding",
+        "Contact target 'prop_refrigerant_coil_loop' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S009",
+      "shot_id": "S009",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "mechanism_exploded_view",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 690,
+      "end_frame": 800,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_690f (Unit outdoor terurai memperlihatkan kompresor dan sirip kondensor bera)",
+      "key_poses": [
+        {
+          "frame": 717,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 745,
+          "pose": "apex_interaction_Casing logam unit outdoor bergeser terbuka secara exploded view; "
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_800f (Gerak unit outdoor terurai memperlihatkan kompresor dan sirip kondenso)",
+      "contact_point": "anchor_socket:char_bima_penghuni:cutaway_plane",
+      "ik_target": "rig_ctrl:char_bima_penghuni:flow_path_target",
+      "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+      "facial_expression": "focused_explanation",
+      "motion_intent": "Convey 'exploded_view' clearly for beat B03: Casing logam unit outdoor bergeser terbuka secara exploded view; tabung kompresor memompa uap refrigeran hingga berpijar merah-oranye bertekanan tinggi menuju jaringan pipa kondensor.",
+      "acceptance_criteria": [
+        "Exact frame bounds [690, 800] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S010",
+      "shot_id": "S010",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 800,
+      "end_frame": 910,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_800f (Unit outdoor terurai memperlihatkan kompresor dan sirip kondensor bera)",
+      "key_poses": [
+        {
+          "frame": 827,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 855,
+          "pose": "apex_interaction_Casing logam unit outdoor bergeser terbuka secara exploded view; "
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_910f (Gerak unit outdoor terurai memperlihatkan kompresor dan sirip kondenso)",
+      "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+      "ik_target": "hand_ik_contact:char_bima_penghuni",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B03: Casing logam unit outdoor bergeser terbuka secara exploded view; tabung kompresor memompa uap refrigeran hingga berpijar merah-oranye bertekanan tinggi menuju jaringan pipa kondensor. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_outdoor_condenser_compressor, prop_refrigerant_coil_loop.",
+      "acceptance_criteria": [
+        "Exact frame bounds [800, 910] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S011",
+      "shot_id": "S011",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 910,
+      "end_frame": 1010,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_910f (Nadia berdiri di balkon samping kipas unit outdoor yang membuang kalor)",
+      "key_poses": [
+        {
+          "frame": 935,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 960,
+          "pose": "apex_interaction_Kipas besar unit outdoor menghembuskan gelombang kalor hangat ke "
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_1010f (Gerak nadia berdiri di balkon samping kipas unit outdoor yang membuang)",
+      "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+      "ik_target": "hand_ik_contact:char_bima_penghuni",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B03: Kipas besar unit outdoor menghembuskan gelombang kalor hangat ke udara terbuka sementara Nadia menunjuk aliran panas keluar dari sirip kondensor.",
+      "acceptance_criteria": [
+        "Exact frame bounds [910, 1010] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S012",
+      "shot_id": "S012",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 1010,
+      "end_frame": 1110,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_1010f (Nadia berdiri di balkon samping kipas unit outdoor yang membuang kalor)",
+      "key_poses": [
+        {
+          "frame": 1035,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 1060,
+          "pose": "apex_interaction_Kipas besar unit outdoor menghembuskan gelombang kalor hangat ke "
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_1110f (Gerak nadia berdiri di balkon samping kipas unit outdoor yang membuang)",
+      "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+      "ik_target": "hand_ik_contact:char_bima_penghuni",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B03: Kipas besar unit outdoor menghembuskan gelombang kalor hangat ke udara terbuka sementara Nadia menunjuk aliran panas keluar dari sirip kondensor. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_outdoor_condenser_compressor, prop_balcony_potted_fern.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1010, 1110] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S013",
+      "shot_id": "S013",
+      "actor_id": "prop_expansion_valve_macro",
+      "action_type": "mechanism_scientific_mechanism",
+      "object_target": "prop_expansion_valve_macro",
+      "start_frame": 1110,
+      "end_frame": 1212,
+      "start_pose": "prop_expansion_valve_macro_anticipation_ready_at_1110f (Penyempitan celah katup ekspansi yang mendinginkan cairan refrigeran b)",
+      "key_poses": [
+        {
+          "frame": 1135,
+          "pose": "anticipation_and_reach_toward_prop_expansion_valve_macro"
+        },
+        {
+          "frame": 1161,
+          "pose": "apex_interaction_Cairan refrigeran hangat melesat melewati leher sempit katup eksp"
+        }
+      ],
+      "end_pose": "prop_expansion_valve_macro_settled_hold_at_1212f (Gerak penyempitan celah katup ekspansi yang mendinginkan cairan refrig)",
+      "contact_point": "anchor_socket:prop_expansion_valve_macro:cutaway_plane",
+      "ik_target": "rig_ctrl:prop_expansion_valve_macro:flow_path_target",
+      "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+      "facial_expression": "not_applicable_mechanism_rig",
+      "motion_intent": "Convey 'scientific_mechanism' clearly for beat B04: Cairan refrigeran hangat melesat melewati leher sempit katup ekspansi; begitu melewati celah, warnanya langsung berubah biru es disertai kabut dingin bertekanan rendah.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1110, 1212] respected with zero foot sliding",
+        "Contact target 'prop_expansion_valve_macro' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S014",
+      "shot_id": "S014",
+      "actor_id": "prop_expansion_valve_macro",
+      "action_type": "mechanism_technical_cutaway",
+      "object_target": "prop_expansion_valve_macro",
+      "start_frame": 1212,
+      "end_frame": 1314,
+      "start_pose": "prop_expansion_valve_macro_anticipation_ready_at_1212f (Penyempitan celah katup ekspansi yang mendinginkan cairan refrigeran b)",
+      "key_poses": [
+        {
+          "frame": 1237,
+          "pose": "anticipation_and_reach_toward_prop_expansion_valve_macro"
+        },
+        {
+          "frame": 1263,
+          "pose": "apex_interaction_Cairan refrigeran hangat melesat melewati leher sempit katup eksp"
+        }
+      ],
+      "end_pose": "prop_expansion_valve_macro_settled_hold_at_1314f (Gerak penyempitan celah katup ekspansi yang mendinginkan cairan refrig)",
+      "contact_point": "anchor_socket:prop_expansion_valve_macro:cutaway_plane",
+      "ik_target": "rig_ctrl:prop_expansion_valve_macro:flow_path_target",
+      "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+      "facial_expression": "not_applicable_mechanism_rig",
+      "motion_intent": "Convey 'technical_cutaway' clearly for beat B04: Cairan refrigeran hangat melesat melewati leher sempit katup ekspansi; begitu melewati celah, warnanya langsung berubah biru es disertai kabut dingin bertekanan rendah. Kamera beralih ke sudut medium menyoroti interaksi detail prop_expansion_valve_macro, prop_refrigerant_coil_loop.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1212, 1314] respected with zero foot sliding",
+        "Contact target 'prop_expansion_valve_macro' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S015",
+      "shot_id": "S015",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "character_grounded_object_insert",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 1314,
+      "end_frame": 1407,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_1314f (Butiran embun uap air menetes ke talang pembuangan evaporator berada p)",
+      "key_poses": [
+        {
+          "frame": 1337,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 1360,
+          "pose": "apex_interaction_Tetesan uap air dari udara kamar mengembun di permukaan sirip eva"
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_1407f (Gerak butiran embun uap air menetes ke talang pembuangan evaporator me)",
+      "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+      "ik_target": "hand_ik_contact:char_bima_penghuni",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'object_insert' clearly for beat B04: Tetesan uap air dari udara kamar mengembun di permukaan sirip evaporator dingin lalu mengalir rapi melalui talang dan selang pembuangan air AC.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1314, 1407] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S016",
+      "shot_id": "S016",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "mechanism_technical_cutaway",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 1407,
+      "end_frame": 1500,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_1407f (Butiran embun uap air menetes ke talang pembuangan evaporator berada p)",
+      "key_poses": [
+        {
+          "frame": 1430,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 1453,
+          "pose": "apex_interaction_Tetesan uap air dari udara kamar mengembun di permukaan sirip eva"
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_1500f (Gerak butiran embun uap air menetes ke talang pembuangan evaporator me)",
+      "contact_point": "anchor_socket:char_bima_penghuni:cutaway_plane",
+      "ik_target": "rig_ctrl:char_bima_penghuni:flow_path_target",
+      "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+      "facial_expression": "focused_explanation",
+      "motion_intent": "Convey 'technical_cutaway' clearly for beat B04: Tetesan uap air dari udara kamar mengembun di permukaan sirip evaporator dingin lalu mengalir rapi melalui talang dan selang pembuangan air AC. Kamera beralih ke sudut medium menyoroti interaksi detail prop_condensation_drain_tray, prop_ac_indoor_evaporator_cutaway.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1407, 1500] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S017",
+      "shot_id": "S017",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "character_grounded_object_insert",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 1500,
+      "end_frame": 1572,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_1500f (Layar remot AC naik dari 16\u00b0C ke 24\u00b0C di depan termometer kamar berada)",
+      "key_poses": [
+        {
+          "frame": 1518,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 1536,
+          "pose": "apex_interaction_Ibu jari Bima menekan tombol naik pada remot AC dari 16\u00b0C menuju "
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_1572f (Gerak layar remot ac naik dari 16\u00b0c ke 24\u00b0c di depan termometer kamar )",
+      "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+      "ik_target": "hand_ik_contact:char_bima_penghuni",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'object_insert' clearly for beat B05: Ibu jari Bima menekan tombol naik pada remot AC dari 16\u00b0C menuju 24\u00b0C sementara layar termometer digital meja di latar belakang turun mantap ke 24\u00b0C.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1500, 1572] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S018",
+      "shot_id": "S018",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "character_micro_reaction_and_settle",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 1572,
+      "end_frame": 1643,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_1572f (Layar remot AC naik dari 16\u00b0C ke 24\u00b0C di depan termometer kamar berada)",
+      "key_poses": [
+        {
+          "frame": 1589,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 1607,
+          "pose": "apex_interaction_Ibu jari Bima menekan tombol naik pada remot AC dari 16\u00b0C menuju "
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_1643f (Gerak layar remot ac naik dari 16\u00b0c ke 24\u00b0c di depan termometer kamar )",
+      "contact_point": "floor_and_desk_contact:env_bedroom_tropical_sealed_3d",
+      "ik_target": "eye_look_at:char_bima_penghuni",
+      "weight_transfer": "subtle_upper_torso_lean_back_3cm_planted_feet",
+      "facial_expression": "deadpan_double_take_to_eyebrow_raise",
+      "motion_intent": "Convey 'reaction_shot' clearly for beat B05: Ibu jari Bima menekan tombol naik pada remot AC dari 16\u00b0C menuju 24\u00b0C sementara layar termometer digital meja di latar belakang turun mantap ke 24\u00b0C. Kamera beralih ke sudut close up menyoroti interaksi detail prop_ac_remote_control, prop_room_thermometer_digital.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1572, 1643] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S019",
+      "shot_id": "S019",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "character_micro_reaction_and_settle",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 1643,
+      "end_frame": 1722,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_1643f (Bima bersandar nyaman bersama Nadia di kamar yang sejuk berada pada po)",
+      "key_poses": [
+        {
+          "frame": 1662,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 1682,
+          "pose": "apex_interaction_Penutup unit AC indoor kembali tertutup rapi menghembuskan angin "
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_1722f (Gerak bima bersandar nyaman bersama nadia di kamar yang sejuk mereda s)",
+      "contact_point": "floor_and_desk_contact:env_bedroom_tropical_sealed_3d",
+      "ik_target": "eye_look_at:char_bima_penghuni",
+      "weight_transfer": "subtle_upper_torso_lean_back_3cm_planted_feet",
+      "facial_expression": "deadpan_double_take_to_eyebrow_raise",
+      "motion_intent": "Convey 'reaction_shot' clearly for beat B05: Penutup unit AC indoor kembali tertutup rapi menghembuskan angin lembut, Nadia mengangguk puas, dan Bima bersandar santai meletakkan kipas kertasnya.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1643, 1722] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S020",
+      "shot_id": "S020",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 1722,
+      "end_frame": 1800,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_1722f (Bima bersandar nyaman bersama Nadia di kamar yang sejuk berada pada po)",
+      "key_poses": [
+        {
+          "frame": 1741,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 1761,
+          "pose": "apex_interaction_Penutup unit AC indoor kembali tertutup rapi menghembuskan angin "
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_1800f (Gerak bima bersandar nyaman bersama nadia di kamar yang sejuk mereda s)",
+      "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+      "ik_target": "hand_ik_contact:char_bima_penghuni",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B05: Penutup unit AC indoor kembali tertutup rapi menghembuskan angin lembut, Nadia mengangguk puas, dan Bima bersandar santai meletakkan kipas kertasnya. Kamera beralih ke sudut close up menyoroti interaksi detail prop_ac_indoor_evaporator_cutaway, prop_ac_remote_control.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1722, 1800] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 72,
+      "primary_engine": "blender",
+      "motion_curve": "mot_snappy_spring_pop",
+      "action_events": [
+        {
+          "event_id": "ACT_S001_01",
+          "start_frame": 0,
+          "end_frame": 72,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Kamera mendorong masuk ke kamar kos yang jendelanya tertutup rapat sementara Bima mengipasi wajah dan termometer meja menyala di angka 32 derajat Celsius.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S001",
+          "shot_id": "S001",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "character_grounded_establishing_shot",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 0,
+          "end_frame": 72,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_0f (Bima kepanasan di kamar tertutup di bawah unit AC split berada pada po)",
+          "key_poses": [
+            {
+              "frame": 18,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 36,
+              "pose": "apex_interaction_Kamera mendorong masuk ke kamar kos yang jendelanya tertutup rapa"
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_72f (Gerak bima kepanasan di kamar tertutup di bawah unit ac split mereda s)",
+          "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+          "ik_target": "hand_ik_contact:char_bima_penghuni",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'establishing_shot' clearly for beat B01: Kamera mendorong masuk ke kamar kos yang jendelanya tertutup rapat sementara Bima mengipasi wajah dan termometer meja menyala di angka 32 derajat Celsius.",
+          "acceptance_criteria": [
+            "Exact frame bounds [0, 72] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S002",
+      "start_frame": 72,
+      "end_frame": 143,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S002_01",
+          "start_frame": 72,
+          "end_frame": 143,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Kamera mendorong masuk ke kamar kos yang jendelanya tertutup rapat sementara Bima mengipasi wajah dan termometer meja menyala di angka 32 derajat Celsius. Kamera beralih ke sudut close up menyoroti interaksi detail prop_ac_indoor_evaporator_cutaway, prop_room_thermometer_digital.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S002",
+          "shot_id": "S002",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 72,
+          "end_frame": 143,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_72f (Bima kepanasan di kamar tertutup di bawah unit AC split berada pada po)",
+          "key_poses": [
+            {
+              "frame": 89,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 107,
+              "pose": "apex_interaction_Kamera mendorong masuk ke kamar kos yang jendelanya tertutup rapa"
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_143f (Gerak bima kepanasan di kamar tertutup di bawah unit ac split mereda s)",
+          "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+          "ik_target": "hand_ik_contact:char_bima_penghuni",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B01: Kamera mendorong masuk ke kamar kos yang jendelanya tertutup rapat sementara Bima mengipasi wajah dan termometer meja menyala di angka 32 derajat Celsius. Kamera beralih ke sudut close up menyoroti interaksi detail prop_ac_indoor_evaporator_cutaway, prop_room_thermometer_digital.",
+          "acceptance_criteria": [
+            "Exact frame bounds [72, 143] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S003",
+      "start_frame": 143,
+      "end_frame": 222,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S003_01",
+          "start_frame": 143,
+          "end_frame": 222,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Bima menoleh ke kusen jendela yang terkunci sambil berujar heran, lalu Nadia mengangkat cangkang depan unit AC indoor hingga tampak deretan pipa tembaga evaporator berkilau dingin.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S003",
+          "shot_id": "S003",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 143,
+          "end_frame": 222,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_143f (Nadia menggeser penutup depan AC di samping Bima berada pada posisi ko)",
+          "key_poses": [
+            {
+              "frame": 162,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 182,
+              "pose": "apex_interaction_Bima menoleh ke kusen jendela yang terkunci sambil berujar heran,"
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_222f (Gerak nadia menggeser penutup depan ac di samping bima mereda stabil m)",
+          "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+          "ik_target": "hand_ik_contact:char_bima_penghuni",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B01: Bima menoleh ke kusen jendela yang terkunci sambil berujar heran, lalu Nadia mengangkat cangkang depan unit AC indoor hingga tampak deretan pipa tembaga evaporator berkilau dingin.",
+          "acceptance_criteria": [
+            "Exact frame bounds [143, 222] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S004",
+      "start_frame": 222,
+      "end_frame": 300,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S004_01",
+          "start_frame": 222,
+          "end_frame": 300,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Bima menoleh ke kusen jendela yang terkunci sambil berujar heran, lalu Nadia mengangkat cangkang depan unit AC indoor hingga tampak deretan pipa tembaga evaporator berkilau dingin. Kamera beralih ke sudut close up menyoroti interaksi detail prop_ac_indoor_evaporator_cutaway, prop_ac_remote_control.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S004",
+          "shot_id": "S004",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 222,
+          "end_frame": 300,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_222f (Nadia menggeser penutup depan AC di samping Bima berada pada posisi ko)",
+          "key_poses": [
+            {
+              "frame": 241,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 261,
+              "pose": "apex_interaction_Bima menoleh ke kusen jendela yang terkunci sambil berujar heran,"
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_300f (Gerak nadia menggeser penutup depan ac di samping bima mereda stabil m)",
+          "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+          "ik_target": "hand_ik_contact:char_bima_penghuni",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B01: Bima menoleh ke kusen jendela yang terkunci sambil berujar heran, lalu Nadia mengangkat cangkang depan unit AC indoor hingga tampak deretan pipa tembaga evaporator berkilau dingin. Kamera beralih ke sudut close up menyoroti interaksi detail prop_ac_indoor_evaporator_cutaway, prop_ac_remote_control.",
+          "acceptance_criteria": [
+            "Exact frame bounds [222, 300] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S005",
+      "start_frame": 300,
+      "end_frame": 393,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S005_01",
+          "start_frame": 300,
+          "end_frame": 393,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Pita udara oranye hangat dari kamar tersedot ke kisi aluminium evaporator lalu meluncur keluar kembali ke kamar sebagai aliran udara biru sejuk.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S005",
+          "shot_id": "S005",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "mechanism_technical_cutaway",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 300,
+          "end_frame": 393,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_300f (Penampang kipas blower dan kisi evaporator dalam ruang berada pada pos)",
+          "key_poses": [
+            {
+              "frame": 323,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 346,
+              "pose": "apex_interaction_Pita udara oranye hangat dari kamar tersedot ke kisi aluminium ev"
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_393f (Gerak penampang kipas blower dan kisi evaporator dalam ruang mereda st)",
+          "contact_point": "anchor_socket:char_bima_penghuni:cutaway_plane",
+          "ik_target": "rig_ctrl:char_bima_penghuni:flow_path_target",
+          "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+          "facial_expression": "focused_explanation",
+          "motion_intent": "Convey 'technical_cutaway' clearly for beat B02: Pita udara oranye hangat dari kamar tersedot ke kisi aluminium evaporator lalu meluncur keluar kembali ke kamar sebagai aliran udara biru sejuk.",
+          "acceptance_criteria": [
+            "Exact frame bounds [300, 393] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S006",
+      "start_frame": 393,
+      "end_frame": 486,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S006_01",
+          "start_frame": 393,
+          "end_frame": 486,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Pita udara oranye hangat dari kamar tersedot ke kisi aluminium evaporator lalu meluncur keluar kembali ke kamar sebagai aliran udara biru sejuk. Kamera beralih ke sudut insert menyoroti interaksi detail prop_ac_indoor_evaporator_cutaway, prop_crossflow_blower_fan.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S006",
+          "shot_id": "S006",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "mechanism_technical_cutaway",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 393,
+          "end_frame": 486,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_393f (Penampang kipas blower dan kisi evaporator dalam ruang berada pada pos)",
+          "key_poses": [
+            {
+              "frame": 416,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 439,
+              "pose": "apex_interaction_Pita udara oranye hangat dari kamar tersedot ke kisi aluminium ev"
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_486f (Gerak penampang kipas blower dan kisi evaporator dalam ruang mereda st)",
+          "contact_point": "anchor_socket:char_bima_penghuni:cutaway_plane",
+          "ik_target": "rig_ctrl:char_bima_penghuni:flow_path_target",
+          "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+          "facial_expression": "focused_explanation",
+          "motion_intent": "Convey 'technical_cutaway' clearly for beat B02: Pita udara oranye hangat dari kamar tersedot ke kisi aluminium evaporator lalu meluncur keluar kembali ke kamar sebagai aliran udara biru sejuk. Kamera beralih ke sudut insert menyoroti interaksi detail prop_ac_indoor_evaporator_cutaway, prop_crossflow_blower_fan.",
+          "acceptance_criteria": [
+            "Exact frame bounds [393, 486] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S007",
+      "start_frame": 486,
+      "end_frame": 588,
+      "primary_engine": "threejs",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S007_01",
+          "start_frame": 486,
+          "end_frame": 588,
+          "subject_id": "prop_refrigerant_coil_loop",
+          "concrete_action": "Kamera makro menembus dinding pipa evaporator memperlihatkan cairan refrigeran biru pirus menyerap partikel kalor keemasan hingga bergejolak mendidih menjadi uap.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S007",
+          "shot_id": "S007",
+          "actor_id": "prop_refrigerant_coil_loop",
+          "action_type": "mechanism_scientific_mechanism",
+          "object_target": "prop_refrigerant_coil_loop",
+          "start_frame": 486,
+          "end_frame": 588,
+          "start_pose": "prop_refrigerant_coil_loop_anticipation_ready_at_486f (Gelembung refrigeran mendidih di dalam pipa tembaga transparan berada )",
+          "key_poses": [
+            {
+              "frame": 511,
+              "pose": "anticipation_and_reach_toward_prop_refrigerant_coil_loop"
+            },
+            {
+              "frame": 537,
+              "pose": "apex_interaction_Kamera makro menembus dinding pipa evaporator memperlihatkan cair"
+            }
+          ],
+          "end_pose": "prop_refrigerant_coil_loop_settled_hold_at_588f (Gerak gelembung refrigeran mendidih di dalam pipa tembaga transparan m)",
+          "contact_point": "anchor_socket:prop_refrigerant_coil_loop:cutaway_plane",
+          "ik_target": "rig_ctrl:prop_refrigerant_coil_loop:flow_path_target",
+          "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+          "facial_expression": "not_applicable_mechanism_rig",
+          "motion_intent": "Convey 'scientific_mechanism' clearly for beat B02: Kamera makro menembus dinding pipa evaporator memperlihatkan cairan refrigeran biru pirus menyerap partikel kalor keemasan hingga bergejolak mendidih menjadi uap.",
+          "acceptance_criteria": [
+            "Exact frame bounds [486, 588] respected with zero foot sliding",
+            "Contact target 'prop_refrigerant_coil_loop' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S008",
+      "start_frame": 588,
+      "end_frame": 690,
+      "primary_engine": "threejs",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S008_01",
+          "start_frame": 588,
+          "end_frame": 690,
+          "subject_id": "prop_refrigerant_coil_loop",
+          "concrete_action": "Kamera makro menembus dinding pipa evaporator memperlihatkan cairan refrigeran biru pirus menyerap partikel kalor keemasan hingga bergejolak mendidih menjadi uap. Kamera beralih ke sudut insert menyoroti interaksi detail prop_refrigerant_coil_loop, prop_ac_indoor_evaporator_cutaway.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S008",
+          "shot_id": "S008",
+          "actor_id": "prop_refrigerant_coil_loop",
+          "action_type": "mechanism_technical_cutaway",
+          "object_target": "prop_refrigerant_coil_loop",
+          "start_frame": 588,
+          "end_frame": 690,
+          "start_pose": "prop_refrigerant_coil_loop_anticipation_ready_at_588f (Gelembung refrigeran mendidih di dalam pipa tembaga transparan berada )",
+          "key_poses": [
+            {
+              "frame": 613,
+              "pose": "anticipation_and_reach_toward_prop_refrigerant_coil_loop"
+            },
+            {
+              "frame": 639,
+              "pose": "apex_interaction_Kamera makro menembus dinding pipa evaporator memperlihatkan cair"
+            }
+          ],
+          "end_pose": "prop_refrigerant_coil_loop_settled_hold_at_690f (Gerak gelembung refrigeran mendidih di dalam pipa tembaga transparan m)",
+          "contact_point": "anchor_socket:prop_refrigerant_coil_loop:cutaway_plane",
+          "ik_target": "rig_ctrl:prop_refrigerant_coil_loop:flow_path_target",
+          "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+          "facial_expression": "not_applicable_mechanism_rig",
+          "motion_intent": "Convey 'technical_cutaway' clearly for beat B02: Kamera makro menembus dinding pipa evaporator memperlihatkan cairan refrigeran biru pirus menyerap partikel kalor keemasan hingga bergejolak mendidih menjadi uap. Kamera beralih ke sudut insert menyoroti interaksi detail prop_refrigerant_coil_loop, prop_ac_indoor_evaporator_cutaway.",
+          "acceptance_criteria": [
+            "Exact frame bounds [588, 690] respected with zero foot sliding",
+            "Contact target 'prop_refrigerant_coil_loop' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S009",
+      "start_frame": 690,
+      "end_frame": 800,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S009_01",
+          "start_frame": 690,
+          "end_frame": 800,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Casing logam unit outdoor bergeser terbuka secara exploded view; tabung kompresor memompa uap refrigeran hingga berpijar merah-oranye bertekanan tinggi menuju jaringan pipa kondensor.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S009",
+          "shot_id": "S009",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "mechanism_exploded_view",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 690,
+          "end_frame": 800,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_690f (Unit outdoor terurai memperlihatkan kompresor dan sirip kondensor bera)",
+          "key_poses": [
+            {
+              "frame": 717,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 745,
+              "pose": "apex_interaction_Casing logam unit outdoor bergeser terbuka secara exploded view; "
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_800f (Gerak unit outdoor terurai memperlihatkan kompresor dan sirip kondenso)",
+          "contact_point": "anchor_socket:char_bima_penghuni:cutaway_plane",
+          "ik_target": "rig_ctrl:char_bima_penghuni:flow_path_target",
+          "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+          "facial_expression": "focused_explanation",
+          "motion_intent": "Convey 'exploded_view' clearly for beat B03: Casing logam unit outdoor bergeser terbuka secara exploded view; tabung kompresor memompa uap refrigeran hingga berpijar merah-oranye bertekanan tinggi menuju jaringan pipa kondensor.",
+          "acceptance_criteria": [
+            "Exact frame bounds [690, 800] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S010",
+      "start_frame": 800,
+      "end_frame": 910,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S010_01",
+          "start_frame": 800,
+          "end_frame": 910,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Casing logam unit outdoor bergeser terbuka secara exploded view; tabung kompresor memompa uap refrigeran hingga berpijar merah-oranye bertekanan tinggi menuju jaringan pipa kondensor. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_outdoor_condenser_compressor, prop_refrigerant_coil_loop.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S010",
+          "shot_id": "S010",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 800,
+          "end_frame": 910,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_800f (Unit outdoor terurai memperlihatkan kompresor dan sirip kondensor bera)",
+          "key_poses": [
+            {
+              "frame": 827,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 855,
+              "pose": "apex_interaction_Casing logam unit outdoor bergeser terbuka secara exploded view; "
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_910f (Gerak unit outdoor terurai memperlihatkan kompresor dan sirip kondenso)",
+          "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+          "ik_target": "hand_ik_contact:char_bima_penghuni",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B03: Casing logam unit outdoor bergeser terbuka secara exploded view; tabung kompresor memompa uap refrigeran hingga berpijar merah-oranye bertekanan tinggi menuju jaringan pipa kondensor. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_outdoor_condenser_compressor, prop_refrigerant_coil_loop.",
+          "acceptance_criteria": [
+            "Exact frame bounds [800, 910] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S011",
+      "start_frame": 910,
+      "end_frame": 1010,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S011_01",
+          "start_frame": 910,
+          "end_frame": 1010,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Kipas besar unit outdoor menghembuskan gelombang kalor hangat ke udara terbuka sementara Nadia menunjuk aliran panas keluar dari sirip kondensor.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S011",
+          "shot_id": "S011",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 910,
+          "end_frame": 1010,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_910f (Nadia berdiri di balkon samping kipas unit outdoor yang membuang kalor)",
+          "key_poses": [
+            {
+              "frame": 935,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 960,
+              "pose": "apex_interaction_Kipas besar unit outdoor menghembuskan gelombang kalor hangat ke "
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_1010f (Gerak nadia berdiri di balkon samping kipas unit outdoor yang membuang)",
+          "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+          "ik_target": "hand_ik_contact:char_bima_penghuni",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B03: Kipas besar unit outdoor menghembuskan gelombang kalor hangat ke udara terbuka sementara Nadia menunjuk aliran panas keluar dari sirip kondensor.",
+          "acceptance_criteria": [
+            "Exact frame bounds [910, 1010] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S012",
+      "start_frame": 1010,
+      "end_frame": 1110,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S012_01",
+          "start_frame": 1010,
+          "end_frame": 1110,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Kipas besar unit outdoor menghembuskan gelombang kalor hangat ke udara terbuka sementara Nadia menunjuk aliran panas keluar dari sirip kondensor. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_outdoor_condenser_compressor, prop_balcony_potted_fern.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S012",
+          "shot_id": "S012",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 1010,
+          "end_frame": 1110,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_1010f (Nadia berdiri di balkon samping kipas unit outdoor yang membuang kalor)",
+          "key_poses": [
+            {
+              "frame": 1035,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 1060,
+              "pose": "apex_interaction_Kipas besar unit outdoor menghembuskan gelombang kalor hangat ke "
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_1110f (Gerak nadia berdiri di balkon samping kipas unit outdoor yang membuang)",
+          "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+          "ik_target": "hand_ik_contact:char_bima_penghuni",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B03: Kipas besar unit outdoor menghembuskan gelombang kalor hangat ke udara terbuka sementara Nadia menunjuk aliran panas keluar dari sirip kondensor. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_outdoor_condenser_compressor, prop_balcony_potted_fern.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1010, 1110] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S013",
+      "start_frame": 1110,
+      "end_frame": 1212,
+      "primary_engine": "threejs",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S013_01",
+          "start_frame": 1110,
+          "end_frame": 1212,
+          "subject_id": "prop_expansion_valve_macro",
+          "concrete_action": "Cairan refrigeran hangat melesat melewati leher sempit katup ekspansi; begitu melewati celah, warnanya langsung berubah biru es disertai kabut dingin bertekanan rendah.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S013",
+          "shot_id": "S013",
+          "actor_id": "prop_expansion_valve_macro",
+          "action_type": "mechanism_scientific_mechanism",
+          "object_target": "prop_expansion_valve_macro",
+          "start_frame": 1110,
+          "end_frame": 1212,
+          "start_pose": "prop_expansion_valve_macro_anticipation_ready_at_1110f (Penyempitan celah katup ekspansi yang mendinginkan cairan refrigeran b)",
+          "key_poses": [
+            {
+              "frame": 1135,
+              "pose": "anticipation_and_reach_toward_prop_expansion_valve_macro"
+            },
+            {
+              "frame": 1161,
+              "pose": "apex_interaction_Cairan refrigeran hangat melesat melewati leher sempit katup eksp"
+            }
+          ],
+          "end_pose": "prop_expansion_valve_macro_settled_hold_at_1212f (Gerak penyempitan celah katup ekspansi yang mendinginkan cairan refrig)",
+          "contact_point": "anchor_socket:prop_expansion_valve_macro:cutaway_plane",
+          "ik_target": "rig_ctrl:prop_expansion_valve_macro:flow_path_target",
+          "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+          "facial_expression": "not_applicable_mechanism_rig",
+          "motion_intent": "Convey 'scientific_mechanism' clearly for beat B04: Cairan refrigeran hangat melesat melewati leher sempit katup ekspansi; begitu melewati celah, warnanya langsung berubah biru es disertai kabut dingin bertekanan rendah.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1110, 1212] respected with zero foot sliding",
+            "Contact target 'prop_expansion_valve_macro' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S014",
+      "start_frame": 1212,
+      "end_frame": 1314,
+      "primary_engine": "threejs",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S014_01",
+          "start_frame": 1212,
+          "end_frame": 1314,
+          "subject_id": "prop_expansion_valve_macro",
+          "concrete_action": "Cairan refrigeran hangat melesat melewati leher sempit katup ekspansi; begitu melewati celah, warnanya langsung berubah biru es disertai kabut dingin bertekanan rendah. Kamera beralih ke sudut medium menyoroti interaksi detail prop_expansion_valve_macro, prop_refrigerant_coil_loop.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S014",
+          "shot_id": "S014",
+          "actor_id": "prop_expansion_valve_macro",
+          "action_type": "mechanism_technical_cutaway",
+          "object_target": "prop_expansion_valve_macro",
+          "start_frame": 1212,
+          "end_frame": 1314,
+          "start_pose": "prop_expansion_valve_macro_anticipation_ready_at_1212f (Penyempitan celah katup ekspansi yang mendinginkan cairan refrigeran b)",
+          "key_poses": [
+            {
+              "frame": 1237,
+              "pose": "anticipation_and_reach_toward_prop_expansion_valve_macro"
+            },
+            {
+              "frame": 1263,
+              "pose": "apex_interaction_Cairan refrigeran hangat melesat melewati leher sempit katup eksp"
+            }
+          ],
+          "end_pose": "prop_expansion_valve_macro_settled_hold_at_1314f (Gerak penyempitan celah katup ekspansi yang mendinginkan cairan refrig)",
+          "contact_point": "anchor_socket:prop_expansion_valve_macro:cutaway_plane",
+          "ik_target": "rig_ctrl:prop_expansion_valve_macro:flow_path_target",
+          "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+          "facial_expression": "not_applicable_mechanism_rig",
+          "motion_intent": "Convey 'technical_cutaway' clearly for beat B04: Cairan refrigeran hangat melesat melewati leher sempit katup ekspansi; begitu melewati celah, warnanya langsung berubah biru es disertai kabut dingin bertekanan rendah. Kamera beralih ke sudut medium menyoroti interaksi detail prop_expansion_valve_macro, prop_refrigerant_coil_loop.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1212, 1314] respected with zero foot sliding",
+            "Contact target 'prop_expansion_valve_macro' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S015",
+      "start_frame": 1314,
+      "end_frame": 1407,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S015_01",
+          "start_frame": 1314,
+          "end_frame": 1407,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Tetesan uap air dari udara kamar mengembun di permukaan sirip evaporator dingin lalu mengalir rapi melalui talang dan selang pembuangan air AC.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S015",
+          "shot_id": "S015",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "character_grounded_object_insert",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 1314,
+          "end_frame": 1407,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_1314f (Butiran embun uap air menetes ke talang pembuangan evaporator berada p)",
+          "key_poses": [
+            {
+              "frame": 1337,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 1360,
+              "pose": "apex_interaction_Tetesan uap air dari udara kamar mengembun di permukaan sirip eva"
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_1407f (Gerak butiran embun uap air menetes ke talang pembuangan evaporator me)",
+          "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+          "ik_target": "hand_ik_contact:char_bima_penghuni",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'object_insert' clearly for beat B04: Tetesan uap air dari udara kamar mengembun di permukaan sirip evaporator dingin lalu mengalir rapi melalui talang dan selang pembuangan air AC.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1314, 1407] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S016",
+      "start_frame": 1407,
+      "end_frame": 1500,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S016_01",
+          "start_frame": 1407,
+          "end_frame": 1500,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Tetesan uap air dari udara kamar mengembun di permukaan sirip evaporator dingin lalu mengalir rapi melalui talang dan selang pembuangan air AC. Kamera beralih ke sudut medium menyoroti interaksi detail prop_condensation_drain_tray, prop_ac_indoor_evaporator_cutaway.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S016",
+          "shot_id": "S016",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "mechanism_technical_cutaway",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 1407,
+          "end_frame": 1500,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_1407f (Butiran embun uap air menetes ke talang pembuangan evaporator berada p)",
+          "key_poses": [
+            {
+              "frame": 1430,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 1453,
+              "pose": "apex_interaction_Tetesan uap air dari udara kamar mengembun di permukaan sirip eva"
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_1500f (Gerak butiran embun uap air menetes ke talang pembuangan evaporator me)",
+          "contact_point": "anchor_socket:char_bima_penghuni:cutaway_plane",
+          "ik_target": "rig_ctrl:char_bima_penghuni:flow_path_target",
+          "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+          "facial_expression": "focused_explanation",
+          "motion_intent": "Convey 'technical_cutaway' clearly for beat B04: Tetesan uap air dari udara kamar mengembun di permukaan sirip evaporator dingin lalu mengalir rapi melalui talang dan selang pembuangan air AC. Kamera beralih ke sudut medium menyoroti interaksi detail prop_condensation_drain_tray, prop_ac_indoor_evaporator_cutaway.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1407, 1500] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S017",
+      "start_frame": 1500,
+      "end_frame": 1572,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S017_01",
+          "start_frame": 1500,
+          "end_frame": 1572,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Ibu jari Bima menekan tombol naik pada remot AC dari 16\u00b0C menuju 24\u00b0C sementara layar termometer digital meja di latar belakang turun mantap ke 24\u00b0C.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S017",
+          "shot_id": "S017",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "character_grounded_object_insert",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 1500,
+          "end_frame": 1572,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_1500f (Layar remot AC naik dari 16\u00b0C ke 24\u00b0C di depan termometer kamar berada)",
+          "key_poses": [
+            {
+              "frame": 1518,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 1536,
+              "pose": "apex_interaction_Ibu jari Bima menekan tombol naik pada remot AC dari 16\u00b0C menuju "
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_1572f (Gerak layar remot ac naik dari 16\u00b0c ke 24\u00b0c di depan termometer kamar )",
+          "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+          "ik_target": "hand_ik_contact:char_bima_penghuni",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'object_insert' clearly for beat B05: Ibu jari Bima menekan tombol naik pada remot AC dari 16\u00b0C menuju 24\u00b0C sementara layar termometer digital meja di latar belakang turun mantap ke 24\u00b0C.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1500, 1572] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S018",
+      "start_frame": 1572,
+      "end_frame": 1643,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S018_01",
+          "start_frame": 1572,
+          "end_frame": 1643,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Ibu jari Bima menekan tombol naik pada remot AC dari 16\u00b0C menuju 24\u00b0C sementara layar termometer digital meja di latar belakang turun mantap ke 24\u00b0C. Kamera beralih ke sudut close up menyoroti interaksi detail prop_ac_remote_control, prop_room_thermometer_digital.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S018",
+          "shot_id": "S018",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "character_micro_reaction_and_settle",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 1572,
+          "end_frame": 1643,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_1572f (Layar remot AC naik dari 16\u00b0C ke 24\u00b0C di depan termometer kamar berada)",
+          "key_poses": [
+            {
+              "frame": 1589,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 1607,
+              "pose": "apex_interaction_Ibu jari Bima menekan tombol naik pada remot AC dari 16\u00b0C menuju "
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_1643f (Gerak layar remot ac naik dari 16\u00b0c ke 24\u00b0c di depan termometer kamar )",
+          "contact_point": "floor_and_desk_contact:env_bedroom_tropical_sealed_3d",
+          "ik_target": "eye_look_at:char_bima_penghuni",
+          "weight_transfer": "subtle_upper_torso_lean_back_3cm_planted_feet",
+          "facial_expression": "deadpan_double_take_to_eyebrow_raise",
+          "motion_intent": "Convey 'reaction_shot' clearly for beat B05: Ibu jari Bima menekan tombol naik pada remot AC dari 16\u00b0C menuju 24\u00b0C sementara layar termometer digital meja di latar belakang turun mantap ke 24\u00b0C. Kamera beralih ke sudut close up menyoroti interaksi detail prop_ac_remote_control, prop_room_thermometer_digital.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1572, 1643] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S019",
+      "start_frame": 1643,
+      "end_frame": 1722,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S019_01",
+          "start_frame": 1643,
+          "end_frame": 1722,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Penutup unit AC indoor kembali tertutup rapi menghembuskan angin lembut, Nadia mengangguk puas, dan Bima bersandar santai meletakkan kipas kertasnya.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S019",
+          "shot_id": "S019",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "character_micro_reaction_and_settle",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 1643,
+          "end_frame": 1722,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_1643f (Bima bersandar nyaman bersama Nadia di kamar yang sejuk berada pada po)",
+          "key_poses": [
+            {
+              "frame": 1662,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 1682,
+              "pose": "apex_interaction_Penutup unit AC indoor kembali tertutup rapi menghembuskan angin "
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_1722f (Gerak bima bersandar nyaman bersama nadia di kamar yang sejuk mereda s)",
+          "contact_point": "floor_and_desk_contact:env_bedroom_tropical_sealed_3d",
+          "ik_target": "eye_look_at:char_bima_penghuni",
+          "weight_transfer": "subtle_upper_torso_lean_back_3cm_planted_feet",
+          "facial_expression": "deadpan_double_take_to_eyebrow_raise",
+          "motion_intent": "Convey 'reaction_shot' clearly for beat B05: Penutup unit AC indoor kembali tertutup rapi menghembuskan angin lembut, Nadia mengangguk puas, dan Bima bersandar santai meletakkan kipas kertasnya.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1643, 1722] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S020",
+      "start_frame": 1722,
+      "end_frame": 1800,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S020_01",
+          "start_frame": 1722,
+          "end_frame": 1800,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Penutup unit AC indoor kembali tertutup rapi menghembuskan angin lembut, Nadia mengangguk puas, dan Bima bersandar santai meletakkan kipas kertasnya. Kamera beralih ke sudut close up menyoroti interaksi detail prop_ac_indoor_evaporator_cutaway, prop_ac_remote_control.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S020",
+          "shot_id": "S020",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 1722,
+          "end_frame": 1800,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_1722f (Bima bersandar nyaman bersama Nadia di kamar yang sejuk berada pada po)",
+          "key_poses": [
+            {
+              "frame": 1741,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 1761,
+              "pose": "apex_interaction_Penutup unit AC indoor kembali tertutup rapi menghembuskan angin "
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_1800f (Gerak bima bersandar nyaman bersama nadia di kamar yang sejuk mereda s)",
+          "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+          "ik_target": "hand_ik_contact:char_bima_penghuni",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B05: Penutup unit AC indoor kembali tertutup rapi menghembuskan angin lembut, Nadia mengangguk puas, dan Bima bersandar santai meletakkan kipas kertasnya. Kamera beralih ke sudut close up menyoroti interaksi detail prop_ac_indoor_evaporator_cutaway, prop_ac_remote_control.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1722, 1800] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    }
+  ]
+}

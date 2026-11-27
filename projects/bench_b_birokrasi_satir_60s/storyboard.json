@@ -1,0 +1,3766 @@
+{
+  "schema_version": "3.4.0",
+  "project_id": "bench_b_birokrasi_satir_60s",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "aspect_ratio": "9:16",
+  "total_frames": 1800,
+  "duration_s": 60.0,
+  "style_bible_id": "xdx_stylized_diorama_v4_0",
+  "story_arc": {
+    "act_1_setup": "Damar melangkah penuh optimisme menyerahkan satu map biru tipis ke loket Bu Rantih, namun langsung dihadang syarat surat pengantar RT untuk menebus formulir pengantar RW.",
+    "act_2_escalation": "Tumpukan berkas Damar menjulang menjadi menara map merah, kuning, dan hijau lengkap dengan fotokopi KTP untuk meyakinkan layar komputer yang sudah menampilkan KTP miliknya, ditutup ritual stempel pengantar untuk surat pengantar.",
+    "act_3_resolution": "Selembar surat utama akhirnya selesai dicetak saat matahari condong sore, tepat ketika jam dinding berbunyi menandai masa berlaku surat pengantar pertamanya baru saja kedaluwarsa."
+  },
+  "sequences": [
+    {
+      "sequence_id": "SEQ_01",
+      "act": "ACT_1",
+      "start_frame": 0,
+      "end_frame": 690,
+      "scene_ids": [
+        "SCN_01",
+        "SCN_02"
+      ]
+    },
+    {
+      "sequence_id": "SEQ_02",
+      "act": "ACT_2",
+      "start_frame": 690,
+      "end_frame": 1500,
+      "scene_ids": [
+        "SCN_03",
+        "SCN_04"
+      ]
+    },
+    {
+      "sequence_id": "SEQ_03",
+      "act": "ACT_3",
+      "start_frame": 1500,
+      "end_frame": 1800,
+      "scene_ids": [
+        "SCN_05"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": "SCN_01",
+      "sequence_id": "SEQ_01",
+      "environment_id": "env_diorama_civic_waiting_hall",
+      "start_frame": 0,
+      "end_frame": 300,
+      "beat_ids": [
+        "B01"
+      ]
+    },
+    {
+      "scene_id": "SCN_02",
+      "sequence_id": "SEQ_01",
+      "environment_id": "env_diorama_counter_window_closeup",
+      "start_frame": 300,
+      "end_frame": 690,
+      "beat_ids": [
+        "B02"
+      ]
+    },
+    {
+      "scene_id": "SCN_03",
+      "sequence_id": "SEQ_02",
+      "environment_id": "env_diorama_photocopy_and_color_folders",
+      "start_frame": 690,
+      "end_frame": 1110,
+      "beat_ids": [
+        "B03"
+      ]
+    },
+    {
+      "scene_id": "SCN_04",
+      "sequence_id": "SEQ_02",
+      "environment_id": "env_diorama_adjacent_counters_hall",
+      "start_frame": 1110,
+      "end_frame": 1500,
+      "beat_ids": [
+        "B04"
+      ]
+    },
+    {
+      "scene_id": "SCN_05",
+      "sequence_id": "SEQ_03",
+      "environment_id": "env_diorama_civic_waiting_hall",
+      "start_frame": 1500,
+      "end_frame": 1800,
+      "beat_ids": [
+        "B05"
+      ]
+    }
+  ],
+  "narrative_beats": [
+    {
+      "beat_id": "B01",
+      "scene_id": "SCN_01",
+      "beat_role": "hook_everyday_threshold",
+      "start_frame": 0,
+      "end_frame": 300,
+      "duration_s": 10.0,
+      "shot_ids": [
+        "S001",
+        "S002",
+        "S003",
+        "S004"
+      ]
+    },
+    {
+      "beat_id": "B02",
+      "scene_id": "SCN_02",
+      "beat_role": "first_prerequisite_trap",
+      "start_frame": 300,
+      "end_frame": 690,
+      "duration_s": 13.0,
+      "shot_ids": [
+        "S005",
+        "S006",
+        "S007",
+        "S008"
+      ]
+    },
+    {
+      "beat_id": "B03",
+      "scene_id": "SCN_03",
+      "beat_role": "absurd_folder_tower_escalation",
+      "start_frame": 690,
+      "end_frame": 1110,
+      "duration_s": 14.0,
+      "shot_ids": [
+        "S009",
+        "S010",
+        "S011",
+        "S012"
+      ]
+    },
+    {
+      "beat_id": "B04",
+      "scene_id": "SCN_04",
+      "beat_role": "bureaucratic_stamp_reveal",
+      "start_frame": 1110,
+      "end_frame": 1500,
+      "duration_s": 13.0,
+      "shot_ids": [
+        "S013",
+        "S014",
+        "S015",
+        "S016"
+      ]
+    },
+    {
+      "beat_id": "B05",
+      "scene_id": "SCN_05",
+      "beat_role": "ironic_payoff_callback",
+      "start_frame": 1500,
+      "end_frame": 1800,
+      "duration_s": 10.0,
+      "shot_ids": [
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "shot_id": "S001",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_01",
+      "beat_id": "B01",
+      "start_frame": 0,
+      "end_frame": 72,
+      "duration_frames": 72,
+      "start_time_s": 0.0,
+      "end_time_s": 2.4,
+      "duration_s": 2.4,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "Kamu cuma niat mengurus",
+      "dialogue_lines": [],
+      "action_start": "Ruang pelayanan diorama hangat dengan deretan kursi tunggu dan loket kaca berada pada posisi kontak terukur bersama prop_single_blue_thin_folder.",
+      "action_mid": "Kamera tilt-shift meluncur mendekati ruang loket diorama pukul delapan pagi saat Damar melangkah ringan memegang satu map biru tipis menuju Loket 01.",
+      "action_end": "Gerak ruang pelayanan diorama hangat dengan deretan kursi tunggu dan loket kaca mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S001_01",
+          "start_frame": 0,
+          "end_frame": 72,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Kamera tilt-shift meluncur mendekati ruang loket diorama pukul delapan pagi saat Damar melangkah ringan memegang satu map biru tipis menuju Loket 01.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_establishing_diorama_28mm",
+        "shot_size": "establishing",
+        "angle": "elevated_establishing_16deg",
+        "focal_length_mm": 24.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          2.3,
+          2.1,
+          4.7
+        ],
+        "position_end": [
+          1.9,
+          1.9,
+          4.0
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_snappy_spring_pop",
+        "dof_fstop": 5.6
+      },
+      "camera_event": {
+        "preset_id": "cam_establishing_diorama_28mm",
+        "shot_size": "establishing",
+        "angle": "elevated_establishing_16deg",
+        "focal_length_mm": 24.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          2.3,
+          2.1,
+          4.7
+        ],
+        "position_end": [
+          1.9,
+          1.9,
+          4.0
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_snappy_spring_pop",
+        "dof_fstop": 5.6
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S001_VO",
+          "kind": "vo",
+          "start_frame": 0,
+          "end_frame": 72,
+          "ref_id": "VO_B01_1",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S001_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 0,
+          "end_frame": 72,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S001_SFX",
+          "kind": "sfx",
+          "start_frame": 0,
+          "end_frame": 8,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_001",
+          "start_frame": 0,
+          "end_frame": 72,
+          "text": "Kamu cuma niat mengurus",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S001_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 0,
+          "end_frame": 72
+        },
+        {
+          "event_id": "VFX_S001_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 0,
+          "end_frame": 72
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Kamera tilt-shift meluncur mendekati ruang loket diorama pukul delapan pagi saat Damar melangkah ringan memegang satu map biru tipis menuju Loket 01."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_civic_waiting_hall",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_single_blue_thin_folder",
+        "prop_queue_number_dispenser",
+        "prop_wall_clock_morning",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_001"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "establishing_shot"
+    },
+    {
+      "shot_id": "S002",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_01",
+      "beat_id": "B01",
+      "start_frame": 72,
+      "end_frame": 143,
+      "duration_frames": 71,
+      "start_time_s": 2.4,
+      "end_time_s": 4.7667,
+      "duration_s": 2.3667,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "satu surat keterangan domisili",
+      "dialogue_lines": [],
+      "action_start": "Ruang pelayanan diorama hangat dengan deretan kursi tunggu dan loket kaca berada pada posisi kontak terukur bersama prop_single_blue_thin_folder.",
+      "action_mid": "Kamera tilt-shift meluncur mendekati ruang loket diorama pukul delapan pagi saat Damar melangkah ringan memegang satu map biru tipis menuju Loket 01. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_queue_number_dispenser.",
+      "action_end": "Gerak ruang pelayanan diorama hangat dengan deretan kursi tunggu dan loket kaca mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S002_01",
+          "start_frame": 72,
+          "end_frame": 143,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Kamera tilt-shift meluncur mendekati ruang loket diorama pukul delapan pagi saat Damar melangkah ringan memegang satu map biru tipis menuju Loket 01. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_queue_number_dispenser.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "close_up",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.48,
+          2.25
+        ],
+        "position_end": [
+          0.0,
+          1.48,
+          2.05
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "camera_event": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "close_up",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.48,
+          2.25
+        ],
+        "position_end": [
+          0.0,
+          1.48,
+          2.05
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S002_VO",
+          "kind": "vo",
+          "start_frame": 72,
+          "end_frame": 143,
+          "ref_id": "VO_B01_2",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S002_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 72,
+          "end_frame": 143,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S002_SFX",
+          "kind": "sfx",
+          "start_frame": 72,
+          "end_frame": 80,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_002",
+          "start_frame": 72,
+          "end_frame": 143,
+          "text": "satu surat keterangan domisili",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S002_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 72,
+          "end_frame": 143
+        },
+        {
+          "event_id": "VFX_S002_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 72,
+          "end_frame": 143
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Kamera tilt-shift meluncur mendekati ruang loket diorama pukul delapan pagi saat Damar melangkah ringan memegang satu map biru tipis menuju Loket 01. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_queue_number_dispenser."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_civic_waiting_hall",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_single_blue_thin_folder",
+        "prop_queue_number_dispenser",
+        "prop_wall_clock_morning",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_002"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "character_acting"
+    },
+    {
+      "shot_id": "S003",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_01",
+      "beat_id": "B01",
+      "start_frame": 143,
+      "end_frame": 222,
+      "duration_frames": 79,
+      "start_time_s": 4.7667,
+      "end_time_s": 7.4,
+      "duration_s": 2.6333,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "lima menit, tapi pulang memeluk",
+      "dialogue_lines": [],
+      "action_start": "Damar menyodorkan map biru tipis ke celah kaca loket Bu Rantih berada pada posisi kontak terukur bersama prop_single_blue_thin_folder.",
+      "action_mid": "Damar membungkuk sopan menyelipkan map biru tipis lewat celah kaca loket sementara seorang warga lain melintas di belakangnya sambil mendorong troli penuh bundel kertas.",
+      "action_end": "Gerak damar menyodorkan map biru tipis ke celah kaca loket bu rantih mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S003_01",
+          "start_frame": 143,
+          "end_frame": 222,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Damar membungkuk sopan menyelipkan map biru tipis lewat celah kaca loket sementara seorang warga lain melintas di belakangnya sambil mendorong troli penuh bundel kertas.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "medium",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "camera_event": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "medium",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S003_VO",
+          "kind": "vo",
+          "start_frame": 143,
+          "end_frame": 222,
+          "ref_id": "VO_B01_3",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S003_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 143,
+          "end_frame": 222,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S003_SFX",
+          "kind": "sfx",
+          "start_frame": 143,
+          "end_frame": 151,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_003",
+          "start_frame": 143,
+          "end_frame": 222,
+          "text": "lima menit, tapi pulang memeluk",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S003_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 143,
+          "end_frame": 222
+        },
+        {
+          "event_id": "VFX_S003_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 143,
+          "end_frame": 222
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Damar membungkuk sopan menyelipkan map biru tipis lewat celah kaca loket sementara seorang warga lain melintas di belakangnya sambil mendorong troli penuh bundel kertas."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_civic_waiting_hall",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_single_blue_thin_folder",
+        "prop_glass_counter_partition",
+        "prop_overloaded_paper_trolley",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_003"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "character_acting"
+    },
+    {
+      "shot_id": "S004",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_01",
+      "beat_id": "B01",
+      "start_frame": 222,
+      "end_frame": 300,
+      "duration_frames": 78,
+      "start_time_s": 7.4,
+      "end_time_s": 10.0,
+      "duration_s": 2.6,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "bundel berkas setebal bantal.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_damar_pemohon",
+          "line": "Pagi Bu, mau mengurus satu surat ini saja.",
+          "delivery": "ceria dan penuh keyakinan pagi hari",
+          "onscreen_speaking": true
+        }
+      ],
+      "action_start": "Damar menyodorkan map biru tipis ke celah kaca loket Bu Rantih berada pada posisi kontak terukur bersama prop_single_blue_thin_folder.",
+      "action_mid": "Damar membungkuk sopan menyelipkan map biru tipis lewat celah kaca loket sementara seorang warga lain melintas di belakangnya sambil mendorong troli penuh bundel kertas. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_glass_counter_partition.",
+      "action_end": "Gerak damar menyodorkan map biru tipis ke celah kaca loket bu rantih mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S004_01",
+          "start_frame": 222,
+          "end_frame": 300,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Damar membungkuk sopan menyelipkan map biru tipis lewat celah kaca loket sementara seorang warga lain melintas di belakangnya sambil mendorong troli penuh bundel kertas. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_glass_counter_partition.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "close_up",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.48,
+          2.25
+        ],
+        "position_end": [
+          0.0,
+          1.48,
+          2.05
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "camera_event": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "close_up",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.48,
+          2.25
+        ],
+        "position_end": [
+          0.0,
+          1.48,
+          2.05
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S004_VO",
+          "kind": "vo",
+          "start_frame": 222,
+          "end_frame": 300,
+          "ref_id": "VO_B01_4",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S004_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 222,
+          "end_frame": 300,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S004_SFX",
+          "kind": "sfx",
+          "start_frame": 222,
+          "end_frame": 230,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        },
+        {
+          "event_id": "AUD_S004_DLG_1",
+          "kind": "dialogue",
+          "start_frame": 255,
+          "end_frame": 300,
+          "ref_id": "char_damar_pemohon",
+          "gain_db": 0.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_004",
+          "start_frame": 222,
+          "end_frame": 300,
+          "text": "bundel berkas setebal bantal.",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S004_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 222,
+          "end_frame": 300
+        },
+        {
+          "event_id": "VFX_S004_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 222,
+          "end_frame": 300
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Damar membungkuk sopan menyelipkan map biru tipis lewat celah kaca loket sementara seorang warga lain melintas di belakangnya sambil mendorong troli penuh bundel kertas. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_glass_counter_partition."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_civic_waiting_hall",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_single_blue_thin_folder",
+        "prop_glass_counter_partition",
+        "prop_overloaded_paper_trolley",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_004"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "character_acting"
+    },
+    {
+      "shot_id": "S005",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_02",
+      "beat_id": "B02",
+      "start_frame": 300,
+      "end_frame": 402,
+      "duration_frames": 102,
+      "start_time_s": 10.0,
+      "end_time_s": 13.4,
+      "duration_s": 3.4,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "Begitu map tipis disodorkan ke",
+      "dialogue_lines": [],
+      "action_start": "Bu Rantih menurunkan kacamata dan membuka daftar syarat lipat akordeon berada pada posisi kontak terukur bersama prop_accordion_requirement_checklist.",
+      "action_mid": "Bu Rantih melirik map biru tipis selama sedetik, lalu menarik kertas daftar persyaratan lipat akordeon yang terbentang memanjang sampai menyentuh meja loket.",
+      "action_end": "Gerak bu rantih menurunkan kacamata dan membuka daftar syarat lipat akordeon mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S005_01",
+          "start_frame": 300,
+          "end_frame": 402,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Bu Rantih melirik map biru tipis selama sedetik, lalu menarik kertas daftar persyaratan lipat akordeon yang terbentang memanjang sampai menyentuh meja loket.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "medium",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "camera_event": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "medium",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S005_VO",
+          "kind": "vo",
+          "start_frame": 300,
+          "end_frame": 402,
+          "ref_id": "VO_B02_1",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S005_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 300,
+          "end_frame": 402,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S005_SFX",
+          "kind": "sfx",
+          "start_frame": 300,
+          "end_frame": 308,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_005",
+          "start_frame": 300,
+          "end_frame": 402,
+          "text": "Begitu map tipis disodorkan ke",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S005_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 300,
+          "end_frame": 402
+        },
+        {
+          "event_id": "VFX_S005_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 300,
+          "end_frame": 402
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Bu Rantih melirik map biru tipis selama sedetik, lalu menarik kertas daftar persyaratan lipat akordeon yang terbentang memanjang sampai menyentuh meja loket."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_counter_window_closeup",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_accordion_requirement_checklist",
+        "prop_spring_coil_ballpoint",
+        "prop_single_blue_thin_folder",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_005"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "character_acting"
+    },
+    {
+      "shot_id": "S006",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_02",
+      "beat_id": "B02",
+      "start_frame": 402,
+      "end_frame": 504,
+      "duration_frames": 102,
+      "start_time_s": 13.4,
+      "end_time_s": 16.8,
+      "duration_s": 3.4,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "loket, muncul aturan klasik birokrasi:",
+      "dialogue_lines": [],
+      "action_start": "Bu Rantih menurunkan kacamata dan membuka daftar syarat lipat akordeon berada pada posisi kontak terukur bersama prop_accordion_requirement_checklist.",
+      "action_mid": "Bu Rantih melirik map biru tipis selama sedetik, lalu menarik kertas daftar persyaratan lipat akordeon yang terbentang memanjang sampai menyentuh meja loket. Kamera beralih ke sudut insert menyoroti interaksi detail prop_accordion_requirement_checklist, prop_spring_coil_ballpoint.",
+      "action_end": "Gerak bu rantih menurunkan kacamata dan membuka daftar syarat lipat akordeon mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S006_01",
+          "start_frame": 402,
+          "end_frame": 504,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Bu Rantih melirik map biru tipis selama sedetik, lalu menarik kertas daftar persyaratan lipat akordeon yang terbentang memanjang sampai menyentuh meja loket. Kamera beralih ke sudut insert menyoroti interaksi detail prop_accordion_requirement_checklist, prop_spring_coil_ballpoint.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "insert",
+        "angle": "intimate_three_quarter_reaction",
+        "focal_length_mm": 75.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.22,
+          1.25,
+          1.85
+        ],
+        "position_end": [
+          0.12,
+          1.2,
+          1.68
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 2.8
+      },
+      "camera_event": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "insert",
+        "angle": "intimate_three_quarter_reaction",
+        "focal_length_mm": 75.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.22,
+          1.25,
+          1.85
+        ],
+        "position_end": [
+          0.12,
+          1.2,
+          1.68
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 2.8
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S006_VO",
+          "kind": "vo",
+          "start_frame": 402,
+          "end_frame": 504,
+          "ref_id": "VO_B02_2",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S006_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 402,
+          "end_frame": 504,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S006_SFX",
+          "kind": "sfx",
+          "start_frame": 402,
+          "end_frame": 410,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_006",
+          "start_frame": 402,
+          "end_frame": 504,
+          "text": "loket, muncul aturan klasik birokrasi:",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S006_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 402,
+          "end_frame": 504
+        },
+        {
+          "event_id": "VFX_S006_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 402,
+          "end_frame": 504
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Bu Rantih melirik map biru tipis selama sedetik, lalu menarik kertas daftar persyaratan lipat akordeon yang terbentang memanjang sampai menyentuh meja loket. Kamera beralih ke sudut insert menyoroti interaksi detail prop_accordion_requirement_checklist, prop_spring_coil_ballpoint."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_counter_window_closeup",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_accordion_requirement_checklist",
+        "prop_spring_coil_ballpoint",
+        "prop_single_blue_thin_folder",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_006"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "reaction_shot"
+    },
+    {
+      "shot_id": "S007",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_02",
+      "beat_id": "B02",
+      "start_frame": 504,
+      "end_frame": 597,
+      "duration_frames": 93,
+      "start_time_s": 16.8,
+      "end_time_s": 19.9,
+      "duration_s": 3.1,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "satu surat utama ternyata membutuhkan banyak",
+      "dialogue_lines": [],
+      "action_start": "Ekspresi senyum membeku Damar di depan kaca loket berada pada posisi kontak terukur bersama prop_glass_counter_partition.",
+      "action_mid": "Senyum optimistis Damar perlahan membeku sementara kedua alisnya naik tak percaya menatap bagan panah surat pengantar yang bercabang tiga di kaca loket.",
+      "action_end": "Gerak ekspresi senyum membeku damar di depan kaca loket mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S007_01",
+          "start_frame": 504,
+          "end_frame": 597,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Senyum optimistis Damar perlahan membeku sementara kedua alisnya naik tak percaya menatap bagan panah surat pengantar yang bercabang tiga di kaca loket.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "reaction",
+        "angle": "intimate_three_quarter_reaction",
+        "focal_length_mm": 75.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          -0.35,
+          1.4,
+          3.1
+        ],
+        "position_end": [
+          -0.25,
+          1.4,
+          2.95
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 2.8
+      },
+      "camera_event": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "reaction",
+        "angle": "intimate_three_quarter_reaction",
+        "focal_length_mm": 75.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          -0.35,
+          1.4,
+          3.1
+        ],
+        "position_end": [
+          -0.25,
+          1.4,
+          2.95
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 2.8
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S007_VO",
+          "kind": "vo",
+          "start_frame": 504,
+          "end_frame": 597,
+          "ref_id": "VO_B02_3",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S007_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 504,
+          "end_frame": 597,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S007_SFX",
+          "kind": "sfx",
+          "start_frame": 504,
+          "end_frame": 512,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_007",
+          "start_frame": 504,
+          "end_frame": 597,
+          "text": "satu surat utama ternyata membutuhkan banyak",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S007_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 504,
+          "end_frame": 597
+        },
+        {
+          "event_id": "VFX_S007_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 504,
+          "end_frame": 597
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Senyum optimistis Damar perlahan membeku sementara kedua alisnya naik tak percaya menatap bagan panah surat pengantar yang bercabang tiga di kaca loket."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_counter_window_closeup",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_glass_counter_partition",
+        "prop_branching_letter_flowchart_sign",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_007"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "reaction_shot"
+    },
+    {
+      "shot_id": "S008",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_02",
+      "beat_id": "B02",
+      "start_frame": 597,
+      "end_frame": 690,
+      "duration_frames": 93,
+      "start_time_s": 19.9,
+      "end_time_s": 23.0,
+      "duration_s": 3.1,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "surat pengantar lain terlebih dahulu.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_bu_rantih_loket",
+          "line": "Kurang surat pengantar RT untuk mengambil formulir pengantar RW, Mas.",
+          "delivery": "datar sopan tanpa berkedip sambil menunjuk papan syarat",
+          "onscreen_speaking": true
+        }
+      ],
+      "action_start": "Ekspresi senyum membeku Damar di depan kaca loket berada pada posisi kontak terukur bersama prop_glass_counter_partition.",
+      "action_mid": "Senyum optimistis Damar perlahan membeku sementara kedua alisnya naik tak percaya menatap bagan panah surat pengantar yang bercabang tiga di kaca loket. Kamera beralih ke sudut insert menyoroti interaksi detail prop_glass_counter_partition, prop_branching_letter_flowchart_sign.",
+      "action_end": "Gerak ekspresi senyum membeku damar di depan kaca loket mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S008_01",
+          "start_frame": 597,
+          "end_frame": 690,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Senyum optimistis Damar perlahan membeku sementara kedua alisnya naik tak percaya menatap bagan panah surat pengantar yang bercabang tiga di kaca loket. Kamera beralih ke sudut insert menyoroti interaksi detail prop_glass_counter_partition, prop_branching_letter_flowchart_sign.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "insert",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.22,
+          1.25,
+          1.85
+        ],
+        "position_end": [
+          0.12,
+          1.2,
+          1.68
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "camera_event": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "insert",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.22,
+          1.25,
+          1.85
+        ],
+        "position_end": [
+          0.12,
+          1.2,
+          1.68
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S008_VO",
+          "kind": "vo",
+          "start_frame": 597,
+          "end_frame": 690,
+          "ref_id": "VO_B02_4",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S008_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 597,
+          "end_frame": 690,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S008_SFX",
+          "kind": "sfx",
+          "start_frame": 597,
+          "end_frame": 605,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        },
+        {
+          "event_id": "AUD_S008_DLG_1",
+          "kind": "dialogue",
+          "start_frame": 645,
+          "end_frame": 690,
+          "ref_id": "char_bu_rantih_loket",
+          "gain_db": 0.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_008",
+          "start_frame": 597,
+          "end_frame": 690,
+          "text": "surat pengantar lain terlebih dahulu.",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S008_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 597,
+          "end_frame": 690
+        },
+        {
+          "event_id": "VFX_S008_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 597,
+          "end_frame": 690
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Senyum optimistis Damar perlahan membeku sementara kedua alisnya naik tak percaya menatap bagan panah surat pengantar yang bercabang tiga di kaca loket. Kamera beralih ke sudut insert menyoroti interaksi detail prop_glass_counter_partition, prop_branching_letter_flowchart_sign."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_whip_pan_cutaway_6f",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_whip_pan_cutaway_6f",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 6,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 6
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_counter_window_closeup",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_glass_counter_partition",
+        "prop_branching_letter_flowchart_sign",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_008"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "character_acting"
+    },
+    {
+      "shot_id": "S009",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_03",
+      "beat_id": "B03",
+      "start_frame": 690,
+      "end_frame": 786,
+      "duration_frames": 96,
+      "start_time_s": 23.0,
+      "end_time_s": 26.2,
+      "duration_s": 3.2,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "Damar bolak-balik fotokopi kartu identitas yang",
+      "dialogue_lines": [],
+      "action_start": "Kilatan cahaya mesin fotokopi memuntahkan lembaran KTP ke dalam map warna-warni berada pada posisi kontak terukur bersama prop_miniature_photocopier_machine.",
+      "action_mid": "Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat sambil melontarkan lembaran salinan kartu identitas langsung ke dalam map merah, kuning, dan hijau yang terus bertambah tinggi.",
+      "action_end": "Gerak kilatan cahaya mesin fotokopi memuntahkan lembaran ktp ke dalam map warna-warni mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S009_01",
+          "start_frame": 690,
+          "end_frame": 786,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat sambil melontarkan lembaran salinan kartu identitas langsung ke dalam map merah, kuning, dan hijau yang terus bertambah tinggi.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "insert",
+        "angle": "macro_evidence_tabletop_32deg",
+        "focal_length_mm": 85.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.22,
+          1.25,
+          1.85
+        ],
+        "position_end": [
+          0.12,
+          1.2,
+          1.68
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 2.8
+      },
+      "camera_event": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "insert",
+        "angle": "macro_evidence_tabletop_32deg",
+        "focal_length_mm": 85.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.22,
+          1.25,
+          1.85
+        ],
+        "position_end": [
+          0.12,
+          1.2,
+          1.68
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 2.8
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S009_VO",
+          "kind": "vo",
+          "start_frame": 690,
+          "end_frame": 786,
+          "ref_id": "VO_B03_1",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S009_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 690,
+          "end_frame": 786,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S009_SFX",
+          "kind": "sfx",
+          "start_frame": 690,
+          "end_frame": 698,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_009",
+          "start_frame": 690,
+          "end_frame": 786,
+          "text": "Damar bolak-balik fotokopi kartu identitas yang",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S009_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 690,
+          "end_frame": 786
+        },
+        {
+          "event_id": "VFX_S009_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 690,
+          "end_frame": 786
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": true,
+        "purpose": "Menampilkan eskalasi duplikasi kertas secara ritmis dan komedik."
+      },
+      "transition_in": "trans_whip_pan_cutaway_6f",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_whip_pan_cutaway_6f",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 6,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 6,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_photocopy_and_color_folders",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_miniature_photocopier_machine",
+        "prop_photocopy_stack_ktp",
+        "prop_rainbow_folder_tower",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_009"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "object_insert"
+    },
+    {
+      "shot_id": "S010",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_03",
+      "beat_id": "B03",
+      "start_frame": 786,
+      "end_frame": 881,
+      "duration_frames": 95,
+      "start_time_s": 26.2,
+      "end_time_s": 29.3667,
+      "duration_s": 3.1667,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "datanya sudah tercetak jelas di",
+      "dialogue_lines": [],
+      "action_start": "Kilatan cahaya mesin fotokopi memuntahkan lembaran KTP ke dalam map warna-warni berada pada posisi kontak terukur bersama prop_miniature_photocopier_machine.",
+      "action_mid": "Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat sambil melontarkan lembaran salinan kartu identitas langsung ke dalam map merah, kuning, dan hijau yang terus bertambah tinggi. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_miniature_photocopier_machine, prop_photocopy_stack_ktp.",
+      "action_end": "Gerak kilatan cahaya mesin fotokopi memuntahkan lembaran ktp ke dalam map warna-warni mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S010_01",
+          "start_frame": 786,
+          "end_frame": 881,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat sambil melontarkan lembaran salinan kartu identitas langsung ke dalam map merah, kuning, dan hijau yang terus bertambah tinggi. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_miniature_photocopier_machine, prop_photocopy_stack_ktp.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "reaction",
+        "angle": "orthographic_feel_cross_section_22deg",
+        "focal_length_mm": 50.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          -0.35,
+          1.4,
+          3.1
+        ],
+        "position_end": [
+          -0.25,
+          1.4,
+          2.95
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 5.6
+      },
+      "camera_event": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "reaction",
+        "angle": "orthographic_feel_cross_section_22deg",
+        "focal_length_mm": 50.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          -0.35,
+          1.4,
+          3.1
+        ],
+        "position_end": [
+          -0.25,
+          1.4,
+          2.95
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 5.6
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S010_VO",
+          "kind": "vo",
+          "start_frame": 786,
+          "end_frame": 881,
+          "ref_id": "VO_B03_2",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S010_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 786,
+          "end_frame": 881,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S010_SFX",
+          "kind": "sfx",
+          "start_frame": 786,
+          "end_frame": 794,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_010",
+          "start_frame": 786,
+          "end_frame": 881,
+          "text": "datanya sudah tercetak jelas di",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S010_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 786,
+          "end_frame": 881
+        },
+        {
+          "event_id": "VFX_S010_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 786,
+          "end_frame": 881
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": true,
+        "purpose": "Menampilkan eskalasi duplikasi kertas secara ritmis dan komedik."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_photocopy_and_color_folders",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_miniature_photocopier_machine",
+        "prop_photocopy_stack_ktp",
+        "prop_rainbow_folder_tower",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_010"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "technical_cutaway"
+    },
+    {
+      "shot_id": "S011",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_03",
+      "beat_id": "B03",
+      "start_frame": 881,
+      "end_frame": 996,
+      "duration_frames": 115,
+      "start_time_s": 29.3667,
+      "end_time_s": 33.2,
+      "duration_s": 3.8333,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "layar komputer, lengkap dengan map",
+      "dialogue_lines": [],
+      "action_start": "Damar menahan menara map pelangi di samping monitor komputer yang menampilkan KTP miliknya berada pada posisi kontak terukur bersama prop_rainbow_folder_tower.",
+      "action_mid": "Damar menahan menara map warna-warni setinggi dagu di depan loket, tepat di sebelah layar komputer petugas yang sudah menampilkan data kartu identitas Damar secara lengkap.",
+      "action_end": "Gerak damar menahan menara map pelangi di samping monitor komputer yang menampilkan ktp miliknya mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S011_01",
+          "start_frame": 881,
+          "end_frame": 996,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Damar menahan menara map warna-warni setinggi dagu di depan loket, tepat di sebelah layar komputer petugas yang sudah menampilkan data kartu identitas Damar secara lengkap.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "wide",
+        "angle": "symmetric_deadpan_frame",
+        "focal_length_mm": 35.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          1.6,
+          1.7,
+          4.4
+        ],
+        "position_end": [
+          1.2,
+          1.6,
+          3.9
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 4.0
+      },
+      "camera_event": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "wide",
+        "angle": "symmetric_deadpan_frame",
+        "focal_length_mm": 35.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          1.6,
+          1.7,
+          4.4
+        ],
+        "position_end": [
+          1.2,
+          1.6,
+          3.9
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 4.0
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S011_VO",
+          "kind": "vo",
+          "start_frame": 881,
+          "end_frame": 996,
+          "ref_id": "VO_B03_3",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S011_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 881,
+          "end_frame": 996,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S011_SFX",
+          "kind": "sfx",
+          "start_frame": 881,
+          "end_frame": 889,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_011",
+          "start_frame": 881,
+          "end_frame": 996,
+          "text": "layar komputer, lengkap dengan map",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S011_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 881,
+          "end_frame": 996
+        },
+        {
+          "event_id": "VFX_S011_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 881,
+          "end_frame": 996
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Damar menahan menara map warna-warni setinggi dagu di depan loket, tepat di sebelah layar komputer petugas yang sudah menampilkan data kartu identitas Damar secara lengkap."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_photocopy_and_color_folders",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_rainbow_folder_tower",
+        "prop_counter_desktop_monitor_ktp",
+        "prop_photocopy_stack_ktp",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_011"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "visual_metaphor"
+    },
+    {
+      "shot_id": "S012",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_03",
+      "beat_id": "B03",
+      "start_frame": 996,
+      "end_frame": 1110,
+      "duration_frames": 114,
+      "start_time_s": 33.2,
+      "end_time_s": 37.0,
+      "duration_s": 3.8,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "merah, kuning, dan hijau sesuai hari.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_damar_pemohon",
+          "line": "Ini fotokopi KTP untuk membuktikan KTP asli saya benar KTP?",
+          "delivery": "bingung sopan sambil menahan tumpukan map dengan dagu",
+          "onscreen_speaking": true
+        }
+      ],
+      "action_start": "Damar menahan menara map pelangi di samping monitor komputer yang menampilkan KTP miliknya berada pada posisi kontak terukur bersama prop_rainbow_folder_tower.",
+      "action_mid": "Damar menahan menara map warna-warni setinggi dagu di depan loket, tepat di sebelah layar komputer petugas yang sudah menampilkan data kartu identitas Damar secara lengkap. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_rainbow_folder_tower, prop_counter_desktop_monitor_ktp.",
+      "action_end": "Gerak damar menahan menara map pelangi di samping monitor komputer yang menampilkan ktp miliknya mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S012_01",
+          "start_frame": 996,
+          "end_frame": 1110,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Damar menahan menara map warna-warni setinggi dagu di depan loket, tepat di sebelah layar komputer petugas yang sudah menampilkan data kartu identitas Damar secara lengkap. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_rainbow_folder_tower, prop_counter_desktop_monitor_ktp.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "reaction",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          -0.35,
+          1.4,
+          3.1
+        ],
+        "position_end": [
+          -0.25,
+          1.4,
+          2.95
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "camera_event": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "reaction",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          -0.35,
+          1.4,
+          3.1
+        ],
+        "position_end": [
+          -0.25,
+          1.4,
+          2.95
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S012_VO",
+          "kind": "vo",
+          "start_frame": 996,
+          "end_frame": 1110,
+          "ref_id": "VO_B03_4",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S012_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 996,
+          "end_frame": 1110,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S012_SFX",
+          "kind": "sfx",
+          "start_frame": 996,
+          "end_frame": 1004,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        },
+        {
+          "event_id": "AUD_S012_DLG_1",
+          "kind": "dialogue",
+          "start_frame": 1065,
+          "end_frame": 1110,
+          "ref_id": "char_damar_pemohon",
+          "gain_db": 0.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_012",
+          "start_frame": 996,
+          "end_frame": 1110,
+          "text": "merah, kuning, dan hijau sesuai hari.",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S012_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 996,
+          "end_frame": 1110
+        },
+        {
+          "event_id": "VFX_S012_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 996,
+          "end_frame": 1110
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Damar menahan menara map warna-warni setinggi dagu di depan loket, tepat di sebelah layar komputer petugas yang sudah menampilkan data kartu identitas Damar secara lengkap. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_rainbow_folder_tower, prop_counter_desktop_monitor_ktp."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_whip_pan_cutaway_6f",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_whip_pan_cutaway_6f",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 6,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 6
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_photocopy_and_color_folders",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_rainbow_folder_tower",
+        "prop_counter_desktop_monitor_ktp",
+        "prop_photocopy_stack_ktp",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_012"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "character_acting"
+    },
+    {
+      "shot_id": "S013",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_04",
+      "beat_id": "B04",
+      "start_frame": 1110,
+      "end_frame": 1212,
+      "duration_frames": 102,
+      "start_time_s": 37.0,
+      "end_time_s": 40.4,
+      "duration_s": 3.4,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "Riset pelayanan publik menyebutnya beban administrasi",
+      "dialogue_lines": [],
+      "action_start": "Dua loket bersebelahan satu meter yang dihubungkan langkah geser Damar dan kursi roda Bu Rantih berada pada posisi kontak terukur bersama prop_rainbow_folder_tower.",
+      "action_mid": "Kamera simetris dari depan memperlihatkan Damar melangkah satu meter dari Loket 01 ke Loket 02 membawa menara map, sementara di balik kaca Bu Rantih meluncur di kursi beroda ke loket yang sama.",
+      "action_end": "Gerak dua loket bersebelahan satu meter yang dihubungkan langkah geser damar dan kursi roda bu rantih mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S013_01",
+          "start_frame": 1110,
+          "end_frame": 1212,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Kamera simetris dari depan memperlihatkan Damar melangkah satu meter dari Loket 01 ke Loket 02 membawa menara map, sementara di balik kaca Bu Rantih meluncur di kursi beroda ke loket yang sama.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "wide",
+        "angle": "symmetric_deadpan_frame",
+        "focal_length_mm": 35.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          1.6,
+          1.7,
+          4.4
+        ],
+        "position_end": [
+          1.2,
+          1.6,
+          3.9
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 4.0
+      },
+      "camera_event": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "wide",
+        "angle": "symmetric_deadpan_frame",
+        "focal_length_mm": 35.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          1.6,
+          1.7,
+          4.4
+        ],
+        "position_end": [
+          1.2,
+          1.6,
+          3.9
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 4.0
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S013_VO",
+          "kind": "vo",
+          "start_frame": 1110,
+          "end_frame": 1212,
+          "ref_id": "VO_B04_1",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S013_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 1110,
+          "end_frame": 1212,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S013_SFX",
+          "kind": "sfx",
+          "start_frame": 1110,
+          "end_frame": 1118,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_013",
+          "start_frame": 1110,
+          "end_frame": 1212,
+          "text": "Riset pelayanan publik menyebutnya beban administrasi",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S013_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 1110,
+          "end_frame": 1212
+        },
+        {
+          "event_id": "VFX_S013_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 1110,
+          "end_frame": 1212
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Kamera simetris dari depan memperlihatkan Damar melangkah satu meter dari Loket 01 ke Loket 02 membawa menara map, sementara di balik kaca Bu Rantih meluncur di kursi beroda ke loket yang sama."
+      },
+      "transition_in": "trans_whip_pan_cutaway_6f",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_whip_pan_cutaway_6f",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 6,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 6,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_adjacent_counters_hall",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_rainbow_folder_tower",
+        "prop_adjacent_counter_signs_01_02",
+        "prop_rolling_office_chair_diorama",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_013"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "visual_metaphor"
+    },
+    {
+      "shot_id": "S014",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_04",
+      "beat_id": "B04",
+      "start_frame": 1212,
+      "end_frame": 1314,
+      "duration_frames": 102,
+      "start_time_s": 40.4,
+      "end_time_s": 43.8,
+      "duration_s": 3.4,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "berulang: waktu warga habis mengantar",
+      "dialogue_lines": [],
+      "action_start": "Dua loket bersebelahan satu meter yang dihubungkan langkah geser Damar dan kursi roda Bu Rantih berada pada posisi kontak terukur bersama prop_rainbow_folder_tower.",
+      "action_mid": "Kamera simetris dari depan memperlihatkan Damar melangkah satu meter dari Loket 01 ke Loket 02 membawa menara map, sementara di balik kaca Bu Rantih meluncur di kursi beroda ke loket yang sama. Kamera beralih ke sudut medium menyoroti interaksi detail prop_rainbow_folder_tower, prop_adjacent_counter_signs_01_02.",
+      "action_end": "Gerak dua loket bersebelahan satu meter yang dihubungkan langkah geser damar dan kursi roda bu rantih mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S014_01",
+          "start_frame": 1212,
+          "end_frame": 1314,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Kamera simetris dari depan memperlihatkan Damar melangkah satu meter dari Loket 01 ke Loket 02 membawa menara map, sementara di balik kaca Bu Rantih meluncur di kursi beroda ke loket yang sama. Kamera beralih ke sudut medium menyoroti interaksi detail prop_rainbow_folder_tower, prop_adjacent_counter_signs_01_02.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "medium",
+        "angle": "macro_evidence_tabletop_32deg",
+        "focal_length_mm": 85.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 2.8
+      },
+      "camera_event": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "medium",
+        "angle": "macro_evidence_tabletop_32deg",
+        "focal_length_mm": 85.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 2.8
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S014_VO",
+          "kind": "vo",
+          "start_frame": 1212,
+          "end_frame": 1314,
+          "ref_id": "VO_B04_2",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S014_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 1212,
+          "end_frame": 1314,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S014_SFX",
+          "kind": "sfx",
+          "start_frame": 1212,
+          "end_frame": 1220,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_014",
+          "start_frame": 1212,
+          "end_frame": 1314,
+          "text": "berulang: waktu warga habis mengantar",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S014_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 1212,
+          "end_frame": 1314
+        },
+        {
+          "event_id": "VFX_S014_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 1212,
+          "end_frame": 1314
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Kamera simetris dari depan memperlihatkan Damar melangkah satu meter dari Loket 01 ke Loket 02 membawa menara map, sementara di balik kaca Bu Rantih meluncur di kursi beroda ke loket yang sama. Kamera beralih ke sudut medium menyoroti interaksi detail prop_rainbow_folder_tower, prop_adjacent_counter_signs_01_02."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_adjacent_counters_hall",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_rainbow_folder_tower",
+        "prop_adjacent_counter_signs_01_02",
+        "prop_rolling_office_chair_diorama",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_014"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "object_insert"
+    },
+    {
+      "shot_id": "S015",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_04",
+      "beat_id": "B04",
+      "start_frame": 1314,
+      "end_frame": 1407,
+      "duration_frames": 93,
+      "start_time_s": 43.8,
+      "end_time_s": 46.9,
+      "duration_s": 3.1,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "kertas dari meja kanan ke",
+      "dialogue_lines": [],
+      "action_start": "Rak stempel kayu bertingkat tiga dan bantalan tinta ungu berada pada posisi kontak terukur bersama prop_triple_tier_wooden_stamp_rack.",
+      "action_mid": "Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SURAT PENGANTAR' dari rak bertingkat tiga, menekannya ke bantalan tinta ungu, lalu mencapkannya mantap ke lembar formulir.",
+      "action_end": "Gerak rak stempel kayu bertingkat tiga dan bantalan tinta ungu mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S015_01",
+          "start_frame": 1314,
+          "end_frame": 1407,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SURAT PENGANTAR' dari rak bertingkat tiga, menekannya ke bantalan tinta ungu, lalu mencapkannya mantap ke lembar formulir.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "close_up",
+        "angle": "macro_evidence_tabletop_32deg",
+        "focal_length_mm": 85.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.48,
+          2.25
+        ],
+        "position_end": [
+          0.0,
+          1.48,
+          2.05
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 2.8
+      },
+      "camera_event": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "close_up",
+        "angle": "macro_evidence_tabletop_32deg",
+        "focal_length_mm": 85.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.48,
+          2.25
+        ],
+        "position_end": [
+          0.0,
+          1.48,
+          2.05
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 2.8
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S015_VO",
+          "kind": "vo",
+          "start_frame": 1314,
+          "end_frame": 1407,
+          "ref_id": "VO_B04_3",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S015_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 1314,
+          "end_frame": 1407,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S015_SFX",
+          "kind": "sfx",
+          "start_frame": 1314,
+          "end_frame": 1322,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_015",
+          "start_frame": 1314,
+          "end_frame": 1407,
+          "text": "kertas dari meja kanan ke",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S015_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 1314,
+          "end_frame": 1407
+        },
+        {
+          "event_id": "VFX_S015_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 1314,
+          "end_frame": 1407
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": true,
+        "purpose": "Menonjolkan puncak satir birokrasi lewat objek stempel khusus untuk surat pengantar."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_adjacent_counters_hall",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_triple_tier_wooden_stamp_rack",
+        "prop_stamp_for_intro_letter",
+        "prop_violet_ink_pad",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_015"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "object_insert"
+    },
+    {
+      "shot_id": "S016",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_04",
+      "beat_id": "B04",
+      "start_frame": 1407,
+      "end_frame": 1500,
+      "duration_frames": 93,
+      "start_time_s": 46.9,
+      "end_time_s": 50.0,
+      "duration_s": 3.1,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "meja sebelahnya yang berjarak satu meter.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_bu_rantih_loket",
+          "line": "Nah, tinggal stempel pengantar untuk melegalisir surat pengantarnya.",
+          "delivery": "tenang meyakinkan sambil mengangkat stempel kayu paling besar",
+          "onscreen_speaking": true
+        }
+      ],
+      "action_start": "Rak stempel kayu bertingkat tiga dan bantalan tinta ungu berada pada posisi kontak terukur bersama prop_triple_tier_wooden_stamp_rack.",
+      "action_mid": "Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SURAT PENGANTAR' dari rak bertingkat tiga, menekannya ke bantalan tinta ungu, lalu mencapkannya mantap ke lembar formulir. Kamera beralih ke sudut medium menyoroti interaksi detail prop_triple_tier_wooden_stamp_rack, prop_stamp_for_intro_letter.",
+      "action_end": "Gerak rak stempel kayu bertingkat tiga dan bantalan tinta ungu mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S016_01",
+          "start_frame": 1407,
+          "end_frame": 1500,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SURAT PENGANTAR' dari rak bertingkat tiga, menekannya ke bantalan tinta ungu, lalu mencapkannya mantap ke lembar formulir. Kamera beralih ke sudut medium menyoroti interaksi detail prop_triple_tier_wooden_stamp_rack, prop_stamp_for_intro_letter.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "medium",
+        "angle": "orthographic_feel_cross_section_22deg",
+        "focal_length_mm": 50.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 5.6
+      },
+      "camera_event": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "medium",
+        "angle": "orthographic_feel_cross_section_22deg",
+        "focal_length_mm": 50.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 5.6
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S016_VO",
+          "kind": "vo",
+          "start_frame": 1407,
+          "end_frame": 1500,
+          "ref_id": "VO_B04_4",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S016_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 1407,
+          "end_frame": 1500,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S016_SFX",
+          "kind": "sfx",
+          "start_frame": 1407,
+          "end_frame": 1415,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        },
+        {
+          "event_id": "AUD_S016_DLG_1",
+          "kind": "dialogue",
+          "start_frame": 1455,
+          "end_frame": 1500,
+          "ref_id": "char_bu_rantih_loket",
+          "gain_db": 0.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_016",
+          "start_frame": 1407,
+          "end_frame": 1500,
+          "text": "meja sebelahnya yang berjarak satu meter.",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S016_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 1407,
+          "end_frame": 1500
+        },
+        {
+          "event_id": "VFX_S016_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 1407,
+          "end_frame": 1500
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": true,
+        "purpose": "Menonjolkan puncak satir birokrasi lewat objek stempel khusus untuk surat pengantar."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_cross_dissolve_12f",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_cross_dissolve_12f",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 12,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 12
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_adjacent_counters_hall",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_triple_tier_wooden_stamp_rack",
+        "prop_stamp_for_intro_letter",
+        "prop_violet_ink_pad",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_016"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "technical_cutaway"
+    },
+    {
+      "shot_id": "S017",
+      "sequence_id": "SEQ_03",
+      "scene_id": "SCN_05",
+      "beat_id": "B05",
+      "start_frame": 1500,
+      "end_frame": 1572,
+      "duration_frames": 72,
+      "start_time_s": 50.0,
+      "end_time_s": 52.4,
+      "duration_s": 2.4,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "Akhirnya satu surat impian",
+      "dialogue_lines": [],
+      "action_start": "Jam dinding sore pukul empat lewat berdampingan dengan map biru tipis di dasar tumpukan berada pada posisi kontak terukur bersama prop_single_blue_thin_folder.",
+      "action_mid": "Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan satu lembar surat jadi, namun ujung map biru tipis paling bawah memperlihatkan cap masa berlaku yang berakhir pukul dua siang.",
+      "action_end": "Gerak jam dinding sore pukul empat lewat berdampingan dengan map biru tipis di dasar tumpukan mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S017_01",
+          "start_frame": 1500,
+          "end_frame": 1572,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan satu lembar surat jadi, namun ujung map biru tipis paling bawah memperlihatkan cap masa berlaku yang berakhir pukul dua siang.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "insert",
+        "angle": "macro_evidence_tabletop_32deg",
+        "focal_length_mm": 85.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.22,
+          1.25,
+          1.85
+        ],
+        "position_end": [
+          0.12,
+          1.2,
+          1.68
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 2.8
+      },
+      "camera_event": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "insert",
+        "angle": "macro_evidence_tabletop_32deg",
+        "focal_length_mm": 85.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.22,
+          1.25,
+          1.85
+        ],
+        "position_end": [
+          0.12,
+          1.2,
+          1.68
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 2.8
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S017_VO",
+          "kind": "vo",
+          "start_frame": 1500,
+          "end_frame": 1572,
+          "ref_id": "VO_B05_1",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S017_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 1500,
+          "end_frame": 1572,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S017_SFX",
+          "kind": "sfx",
+          "start_frame": 1500,
+          "end_frame": 1508,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_017",
+          "start_frame": 1500,
+          "end_frame": 1572,
+          "text": "Akhirnya satu surat impian",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S017_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 1500,
+          "end_frame": 1572
+        },
+        {
+          "event_id": "VFX_S017_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 1500,
+          "end_frame": 1572
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan satu lembar surat jadi, namun ujung map biru tipis paling bawah memperlihatkan cap masa berlaku yang berakhir pukul dua siang."
+      },
+      "transition_in": "trans_cross_dissolve_12f",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_cross_dissolve_12f",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 12,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 12,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_civic_waiting_hall",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_single_blue_thin_folder",
+        "prop_rainbow_folder_tower",
+        "prop_expired_queue_ticket_clock",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_017"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "object_insert"
+    },
+    {
+      "shot_id": "S018",
+      "sequence_id": "SEQ_03",
+      "scene_id": "SCN_05",
+      "beat_id": "B05",
+      "start_frame": 1572,
+      "end_frame": 1643,
+      "duration_frames": 71,
+      "start_time_s": 52.4,
+      "end_time_s": 54.7667,
+      "duration_s": 2.3667,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "itu terbit sore hari, tepat",
+      "dialogue_lines": [],
+      "action_start": "Jam dinding sore pukul empat lewat berdampingan dengan map biru tipis di dasar tumpukan berada pada posisi kontak terukur bersama prop_single_blue_thin_folder.",
+      "action_mid": "Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan satu lembar surat jadi, namun ujung map biru tipis paling bawah memperlihatkan cap masa berlaku yang berakhir pukul dua siang. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_rainbow_folder_tower.",
+      "action_end": "Gerak jam dinding sore pukul empat lewat berdampingan dengan map biru tipis di dasar tumpukan mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S018_01",
+          "start_frame": 1572,
+          "end_frame": 1643,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan satu lembar surat jadi, namun ujung map biru tipis paling bawah memperlihatkan cap masa berlaku yang berakhir pukul dua siang. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_rainbow_folder_tower.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "close_up",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.48,
+          2.25
+        ],
+        "position_end": [
+          0.0,
+          1.48,
+          2.05
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "camera_event": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "close_up",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.48,
+          2.25
+        ],
+        "position_end": [
+          0.0,
+          1.48,
+          2.05
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S018_VO",
+          "kind": "vo",
+          "start_frame": 1572,
+          "end_frame": 1643,
+          "ref_id": "VO_B05_2",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S018_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 1572,
+          "end_frame": 1643,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S018_SFX",
+          "kind": "sfx",
+          "start_frame": 1572,
+          "end_frame": 1580,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_018",
+          "start_frame": 1572,
+          "end_frame": 1643,
+          "text": "itu terbit sore hari, tepat",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S018_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 1572,
+          "end_frame": 1643
+        },
+        {
+          "event_id": "VFX_S018_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 1572,
+          "end_frame": 1643
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan satu lembar surat jadi, namun ujung map biru tipis paling bawah memperlihatkan cap masa berlaku yang berakhir pukul dua siang. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_rainbow_folder_tower."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_civic_waiting_hall",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_single_blue_thin_folder",
+        "prop_rainbow_folder_tower",
+        "prop_expired_queue_ticket_clock",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_018"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "character_acting"
+    },
+    {
+      "shot_id": "S019",
+      "sequence_id": "SEQ_03",
+      "scene_id": "SCN_05",
+      "beat_id": "B05",
+      "start_frame": 1643,
+      "end_frame": 1722,
+      "duration_frames": 79,
+      "start_time_s": 54.7667,
+      "end_time_s": 57.4,
+      "duration_s": 2.6333,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "setelah masa berlaku surat pengantar",
+      "dialogue_lines": [],
+      "action_start": "Damar berdiri memeluk menara map pelangi sambil memegang satu lembar surat tipis berada pada posisi kontak terukur bersama prop_single_blue_thin_folder.",
+      "action_mid": "Damar memeluk menara map warna-warni di lengan kiri dan mengangkat satu lembar surat tipis di tangan kanan sambil menatap kamera dengan senyum pasrah saat lampu loket mulai diredupkan.",
+      "action_end": "Gerak damar berdiri memeluk menara map pelangi sambil memegang satu lembar surat tipis mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S019_01",
+          "start_frame": 1643,
+          "end_frame": 1722,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Damar memeluk menara map warna-warni di lengan kiri dan mengangkat satu lembar surat tipis di tangan kanan sambil menatap kamera dengan senyum pasrah saat lampu loket mulai diredupkan.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "medium",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "camera_event": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "medium",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S019_VO",
+          "kind": "vo",
+          "start_frame": 1643,
+          "end_frame": 1722,
+          "ref_id": "VO_B05_3",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S019_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 1643,
+          "end_frame": 1722,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S019_SFX",
+          "kind": "sfx",
+          "start_frame": 1643,
+          "end_frame": 1651,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_019",
+          "start_frame": 1643,
+          "end_frame": 1722,
+          "text": "setelah masa berlaku surat pengantar",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S019_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 1643,
+          "end_frame": 1722
+        },
+        {
+          "event_id": "VFX_S019_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 1643,
+          "end_frame": 1722
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Damar memeluk menara map warna-warni di lengan kiri dan mengangkat satu lembar surat tipis di tangan kanan sambil menatap kamera dengan senyum pasrah saat lampu loket mulai diredupkan."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_civic_waiting_hall",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_single_blue_thin_folder",
+        "prop_rainbow_folder_tower",
+        "prop_final_single_certificate_sheet",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_019"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "character_acting"
+    },
+    {
+      "shot_id": "S020",
+      "sequence_id": "SEQ_03",
+      "scene_id": "SCN_05",
+      "beat_id": "B05",
+      "start_frame": 1722,
+      "end_frame": 1800,
+      "duration_frames": 78,
+      "start_time_s": 57.4,
+      "end_time_s": 60.0,
+      "duration_s": 2.6,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "pertamanya habis tadi siang.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_damar_pemohon",
+          "line": "Berarti besok mulai dari map biru tipis lagi?",
+          "delivery": "senyum pasrah lirih sambil menatap jam dinding",
+          "onscreen_speaking": true
+        }
+      ],
+      "action_start": "Damar berdiri memeluk menara map pelangi sambil memegang satu lembar surat tipis berada pada posisi kontak terukur bersama prop_single_blue_thin_folder.",
+      "action_mid": "Damar memeluk menara map warna-warni di lengan kiri dan mengangkat satu lembar surat tipis di tangan kanan sambil menatap kamera dengan senyum pasrah saat lampu loket mulai diredupkan. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_rainbow_folder_tower.",
+      "action_end": "Gerak damar berdiri memeluk menara map pelangi sambil memegang satu lembar surat tipis mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S020_01",
+          "start_frame": 1722,
+          "end_frame": 1800,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Damar memeluk menara map warna-warni di lengan kiri dan mengangkat satu lembar surat tipis di tangan kanan sambil menatap kamera dengan senyum pasrah saat lampu loket mulai diredupkan. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_rainbow_folder_tower.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "close_up",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.48,
+          2.25
+        ],
+        "position_end": [
+          0.0,
+          1.48,
+          2.05
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "camera_event": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "close_up",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.48,
+          2.25
+        ],
+        "position_end": [
+          0.0,
+          1.48,
+          2.05
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S020_VO",
+          "kind": "vo",
+          "start_frame": 1722,
+          "end_frame": 1800,
+          "ref_id": "VO_B05_4",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S020_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 1722,
+          "end_frame": 1800,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S020_SFX",
+          "kind": "sfx",
+          "start_frame": 1722,
+          "end_frame": 1730,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        },
+        {
+          "event_id": "AUD_S020_DLG_1",
+          "kind": "dialogue",
+          "start_frame": 1755,
+          "end_frame": 1800,
+          "ref_id": "char_damar_pemohon",
+          "gain_db": 0.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_020",
+          "start_frame": 1722,
+          "end_frame": 1800,
+          "text": "pertamanya habis tadi siang.",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S020_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 1722,
+          "end_frame": 1800
+        },
+        {
+          "event_id": "VFX_S020_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 1722,
+          "end_frame": 1800
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Damar memeluk menara map warna-warni di lengan kiri dan mengangkat satu lembar surat tipis di tangan kanan sambil menatap kamera dengan senyum pasrah saat lampu loket mulai diredupkan. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_rainbow_folder_tower."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_damar_pemohon"
+      ],
+      "environment_id": "env_diorama_civic_waiting_hall",
+      "asset_ids": [
+        "char_damar_pemohon",
+        "prop_single_blue_thin_folder",
+        "prop_rainbow_folder_tower",
+        "prop_final_single_certificate_sheet",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_020"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "character_acting"
+    }
+  ]
+}

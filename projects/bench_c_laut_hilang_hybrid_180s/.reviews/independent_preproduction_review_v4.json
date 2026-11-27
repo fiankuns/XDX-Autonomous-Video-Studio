@@ -1,0 +1,392 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "review_id": "REV-bench_c_laut_hilang_hybr-001",
+  "project_id": "bench_c_laut_hilang_hybrid_180s",
+  "verifier_agent": "preproduction_verifier",
+  "reviewed_task_id": "TASK-07-STORYBOARD",
+  "producer_agent": "storyboard_director",
+  "verdict": "PASS",
+  "invocation_receipt": {
+    "receipt_id": "RCPT-b872c5255a59",
+    "request_id": "REQ-0460bd7fe6a0",
+    "idempotency_key": "964735a3504a77c328e2522a54d227bd1edd8f4a1b415d05dc57ddd74e085efd",
+    "task_id": "TASK-15-VERIFY",
+    "project_id": "bench_c_laut_hilang_hybrid_180s",
+    "assigned_agent": "preproduction_verifier",
+    "runtime_name": "antigravity",
+    "execution_mode": "native_subagent",
+    "actually_invoked": true,
+    "conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+    "known_model_routing": "inherit",
+    "started_at": "2026-11-27T20:13:37.015093+00:00",
+    "completed_at": "2026-11-27T20:13:37.015093+00:00",
+    "output_artifact_hashes": {},
+    "task_definition_digest": "296a77a6629792fcf10996641d0f41198322e3016896fbecdc70aed8665399c8",
+    "host_invocation_evidence": {
+      "host_dispatch_verified": true,
+      "host_runtime": "antigravity",
+      "subagent_type": "xdx-preproduction-verifier",
+      "subagent_role": "Independent Preproduction Verifier (4 Benchmarks)",
+      "task_id": "TASK-15-VERIFY",
+      "project_id": "bench_c_laut_hilang_hybrid_180s",
+      "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+    },
+    "receipt_sha256": "901021f0387cfdd5246022558a7072c7e00c3beb7a4e3a0cb5a239aa37d731e0",
+    "invocation_id": "RCPT-b872c5255a59",
+    "agent_id": "preproduction_verifier"
+  },
+  "reviewed_artifact_hashes": {
+    "projects/bench_c_laut_hilang_hybrid_180s/research.md": "50a879e59bc86b53dd61f1ae64a5ba1dd2195b1736d8cc3655644dfc0f977813",
+    "projects/bench_c_laut_hilang_hybrid_180s/research_report.json": "795d2cdc405da44a07b256bf4be84ab33f498388fbcb581c8ef06d246dce1691",
+    "projects/bench_c_laut_hilang_hybrid_180s/reference_analysis.md": "76194ea41920047be2cc362d59b0dc137308b08173e755053fe73d58a20cfe7a",
+    "projects/bench_c_laut_hilang_hybrid_180s/blueprint.md": "cf2f3c5b7cda0999a6da37ac6bc64209b97da35df7bb68455bd1bd2f9c361647",
+    "projects/bench_c_laut_hilang_hybrid_180s/creative_concept.json": "5d4e3019e187bf1de5ac8ee30bb5ff94fa4ebc571b0be3fcefe460a9ce1d13a3",
+    "projects/bench_c_laut_hilang_hybrid_180s/script.md": "2d0bba679111318e77ceeddb174cceb6bc9d0f8a991b53dca6210a4334995476",
+    "projects/bench_c_laut_hilang_hybrid_180s/authored_creative_payload.json": "09c7b1e9ba3ea399904611adf6a804e285ee373cdaa928bd11d11054490f8d5c",
+    "projects/bench_c_laut_hilang_hybrid_180s/character_bible.md": "0d02df089ad865fd2c69f3f31d045124560abaa529af8a5dd8a6c7f407bf3087",
+    "projects/bench_c_laut_hilang_hybrid_180s/character_bible.json": "f8e6e87c1a90e095c1721f4c2e903f4a9968770306866c073fe9b5ea4491865e",
+    "projects/bench_c_laut_hilang_hybrid_180s/style_bible.json": "bc6258b51702a1b4b4d86a2be453900610a8906b236177f28bf1ed425daa263c",
+    "projects/bench_c_laut_hilang_hybrid_180s/storyboard.json": "d6717143262c534c60ebac523c5ba95ec065f2572c0e918b3ee0c0f4e602316a",
+    "projects/bench_c_laut_hilang_hybrid_180s/semantic_visual_plan.json": "7b4bab75b8690bed73bc014a18e64c40481539c5e49a697c585ca07031f6adcf",
+    "projects/bench_c_laut_hilang_hybrid_180s/reference_adaptation.json": "81f6c3dbd69ef7a2c052d94b7e1f9f989f5e1e5ff0d6ea68595947b936353317",
+    "projects/bench_c_laut_hilang_hybrid_180s/motion_plan.json": "08157bba622f6469c0233f8aaa60ae15345348d33c90001df0a0e13d3ee00500",
+    "projects/bench_c_laut_hilang_hybrid_180s/camera_plan.json": "1757e03b7b37d1691ec978eca1a36ae1c93660be80c1c8d44698b9b24d89f4d4",
+    "projects/bench_c_laut_hilang_hybrid_180s/asset_manifest.json": "4d207773f3146bdb7c17d4e5ef33ff09ff2fac153e16add5a8c5ccd23565f90a",
+    "projects/bench_c_laut_hilang_hybrid_180s/narration_dialogue.json": "e143dce901282b4ee0fe711d0897d6eb10b3f73545d378ceeeff6526a1531cdf",
+    "projects/bench_c_laut_hilang_hybrid_180s/caption_audio_plan.json": "12ac3d3eb3f54e7a0b6bda80b5a4d215f40f26d9e64d60c3359f5427db33f00d",
+    "projects/bench_c_laut_hilang_hybrid_180s/engine_plan.json": "1ea9f23787563205d3fbada863763bfd2722c73f217fc22ac6f987b4b3b039a0",
+    "projects/bench_c_laut_hilang_hybrid_180s/execution_plan.md": "561eef0323eaabd2a5757b7946d56b79acb60999465c9e963bf6483ca765dba3"
+  },
+  "required_criteria_ids": [
+    "CRIT_01_TOPIC_RELEVANCE",
+    "CRIT_02_FACTUAL_ACCURACY",
+    "CRIT_03_ORIGINALITY",
+    "CRIT_04_HOOK_STRENGTH",
+    "CRIT_05_NARRATIVE_COHERENCE",
+    "CRIT_06_NARRATION_TIMING",
+    "CRIT_07_SEMANTIC_VISUAL_COVERAGE",
+    "CRIT_08_CHARACTER_CONSISTENCY",
+    "CRIT_09_STYLE_CONSISTENCY",
+    "CRIT_10_ASSET_FEASIBILITY",
+    "CRIT_11_MOTION_FEASIBILITY",
+    "CRIT_12_CAMERA_SUITABILITY",
+    "CRIT_13_REFERENCE_ADAPTATION",
+    "CRIT_14_ENGINE_COMPATIBILITY",
+    "CRIT_15_PACKAGE_COMPLETENESS"
+  ],
+  "checked_criteria": [
+    {
+      "criterion_id": "CRIT_01_TOPIC_RELEVANCE",
+      "status": "PASS",
+      "evidence": "Topic 'Apa yang Terjadi Jika Seluruh Laut Bumi Menghilang?' verified across premise, claims, and narration (title_overlap=6, domain_overlap=64).",
+      "inspected_artifacts": [
+        "projects/bench_c_laut_hilang_hybrid_180s/authored_creative_payload.json",
+        "projects/bench_c_laut_hilang_hybrid_180s/script.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_02_FACTUAL_ACCURACY",
+      "status": "PASS",
+      "evidence": "Verified 5 factual claim(s), 5 https:// source(s), misconceptions, uncertainties, and narration mapping.",
+      "inspected_artifacts": [
+        "projects/bench_c_laut_hilang_hybrid_180s/research_report.json",
+        "projects/bench_c_laut_hilang_hybrid_180s/research.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_03_ORIGINALITY",
+      "status": "PASS",
+      "evidence": "Zero placeholder patterns, zero recorder watermarks, and zero leaked reference subject tokens in 11829B script.",
+      "inspected_artifacts": [
+        "projects/bench_c_laut_hilang_hybrid_180s/script.md",
+        "projects/bench_c_laut_hilang_hybrid_180s/character_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_04_HOOK_STRENGTH",
+      "status": "PASS",
+      "evidence": "Concrete 0-3s visual hook (180 chars) and spoken hook (15 words) verified.",
+      "inspected_artifacts": [
+        "projects/bench_c_laut_hilang_hybrid_180s/blueprint.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_05_NARRATIVE_COHERENCE",
+      "status": "PASS",
+      "evidence": "Verified 3-act dramatic structure (['ACT_1', 'ACT_2', 'ACT_3']) and explicit payoff/callback.",
+      "inspected_artifacts": [
+        "projects/bench_c_laut_hilang_hybrid_180s/blueprint.md",
+        "projects/bench_c_laut_hilang_hybrid_180s/storyboard.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_06_NARRATION_TIMING",
+      "status": "PASS",
+      "evidence": "Narration timing marked ESTIMATED at 137.7 WPM (~189.895s) with speed_multiplier=1.0.",
+      "inspected_artifacts": [
+        "projects/bench_c_laut_hilang_hybrid_180s/narration_dialogue.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_07_SEMANTIC_VISUAL_COVERAGE",
+      "status": "PASS",
+      "evidence": "100% clause coverage (30/30 clauses) across 57 integer-frame shots (max=4.1667s <= 10.0s, purposes=['character_acting', 'data_visualization', 'establishing_shot', 'object_insert', 'reaction_shot', 'scale_comparison', 'scientific_mechanism', 'technical_cutaway', 'timeline']).",
+      "inspected_artifacts": [
+        "projects/bench_c_laut_hilang_hybrid_180s/semantic_visual_plan.json",
+        "projects/bench_c_laut_hilang_hybrid_180s/storyboard.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_08_CHARACTER_CONSISTENCY",
+      "status": "PASS",
+      "evidence": "Verified 2 character(s) with all 11 mandatory attributes and cross-shot continuity locks.",
+      "inspected_artifacts": [
+        "projects/bench_c_laut_hilang_hybrid_180s/character_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_09_STYLE_CONSISTENCY",
+      "status": "PASS",
+      "evidence": "Style profile 'stylized_3d' (xdx_stylized_3d_v4_0) locks uniform detail tier 'medium_sculpted_beveled_forms' with modeling_executed=False.",
+      "inspected_artifacts": [
+        "projects/bench_c_laut_hilang_hybrid_180s/style_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_10_ASSET_FEASIBILITY",
+      "status": "PASS",
+      "evidence": "Verified 75 storyboard-derived 12-field semantic asset specs (zero premature READY claims, zero PLACEHOLDER boxes).",
+      "inspected_artifacts": [
+        "projects/bench_c_laut_hilang_hybrid_180s/asset_manifest.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_11_MOTION_FEASIBILITY",
+      "status": "PASS",
+      "evidence": "Verified 57 shot-bound 14-field character/mechanism actions with IK/contact targets.",
+      "inspected_artifacts": [
+        "projects/bench_c_laut_hilang_hybrid_180s/motion_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_12_CAMERA_SUITABILITY",
+      "status": "PASS",
+      "evidence": "Verified purpose-driven camera lenses [20.0, 24.0, 35.0, 40.0, 45.0, 50.0, 65.0, 75.0, 85.0]mm across 57 shots (not locked to 36mm).",
+      "inspected_artifacts": [
+        "projects/bench_c_laut_hilang_hybrid_180s/camera_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_13_REFERENCE_ADAPTATION",
+      "status": "PASS",
+      "evidence": "Verified 10-dimension fusion (refs=['REF-001', 'REF-002'], conflicts_resolved=10) and 57 shot-bound 14-field adaptation records.",
+      "inspected_artifacts": [
+        "projects/bench_c_laut_hilang_hybrid_180s/reference_adaptation.json",
+        "projects/bench_c_laut_hilang_hybrid_180s/reference_analysis.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_14_ENGINE_COMPATIBILITY",
+      "status": "PASS",
+      "evidence": "Engine routing (['blender', 'threejs', 'remotion', 'rea_video', 'ffmpeg']) and ESTIMATED caption/audio plans validated with zero live render execution.",
+      "inspected_artifacts": [
+        "projects/bench_c_laut_hilang_hybrid_180s/engine_plan.json",
+        "projects/bench_c_laut_hilang_hybrid_180s/caption_audio_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_15_PACKAGE_COMPLETENESS",
+      "status": "PASS",
+      "evidence": "All 13 mandatory items and 11 file SHA-256 digests verified; status=='WAITING_APPROVAL'.",
+      "inspected_artifacts": [
+        "projects/bench_c_laut_hilang_hybrid_180s/approval_package_manifest.json"
+      ]
+    }
+  ],
+  "defects": [],
+  "reviewer_task_id": "TASK-15-VERIFY",
+  "additional_reviewed_task_ids": [
+    "TASK-01-RESEARCH",
+    "TASK-02-REFERENCE",
+    "TASK-03-CREATIVE",
+    "TASK-04-SCRIPT",
+    "TASK-05-CHARACTER",
+    "TASK-06-STYLE",
+    "TASK-08-REF-ADAPT",
+    "TASK-09-MOTION",
+    "TASK-10-CAMERA",
+    "TASK-11-ASSET",
+    "TASK-12-AUDIO",
+    "TASK-13-CAPTION",
+    "TASK-14-ENGINE"
+  ],
+  "producer_conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+  "reviewer_conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+  "criteria_manifest_digest": "f787eb4d9d8e389ebc5952d8ebc0c4a7d3e925a6aceb2270f981de7b1b7d893c",
+  "reviewed_artifact_manifest": {
+    "projects/bench_c_laut_hilang_hybrid_180s/research.md": {
+      "owner_task_id": "TASK-01-RESEARCH",
+      "owner_agent": "topic_research_agent",
+      "sha256": "50a879e59bc86b53dd61f1ae64a5ba1dd2195b1736d8cc3655644dfc0f977813",
+      "size_bytes": 5532
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/research_report.json": {
+      "owner_task_id": "TASK-01-RESEARCH",
+      "owner_agent": "topic_research_agent",
+      "sha256": "795d2cdc405da44a07b256bf4be84ab33f498388fbcb581c8ef06d246dce1691",
+      "size_bytes": 14942
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/reference_analysis.md": {
+      "owner_task_id": "TASK-02-REFERENCE",
+      "owner_agent": "rea_video_reference_analyst",
+      "sha256": "76194ea41920047be2cc362d59b0dc137308b08173e755053fe73d58a20cfe7a",
+      "size_bytes": 3035
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/blueprint.md": {
+      "owner_task_id": "TASK-03-CREATIVE",
+      "owner_agent": "creative_director",
+      "sha256": "cf2f3c5b7cda0999a6da37ac6bc64209b97da35df7bb68455bd1bd2f9c361647",
+      "size_bytes": 2886
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/creative_concept.json": {
+      "owner_task_id": "TASK-03-CREATIVE",
+      "owner_agent": "creative_director",
+      "sha256": "5d4e3019e187bf1de5ac8ee30bb5ff94fa4ebc571b0be3fcefe460a9ce1d13a3",
+      "size_bytes": 2789
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/script.md": {
+      "owner_task_id": "TASK-04-SCRIPT",
+      "owner_agent": "scriptwriter_agent",
+      "sha256": "2d0bba679111318e77ceeddb174cceb6bc9d0f8a991b53dca6210a4334995476",
+      "size_bytes": 11955
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/authored_creative_payload.json": {
+      "owner_task_id": "TASK-04-SCRIPT",
+      "owner_agent": "scriptwriter_agent",
+      "sha256": "09c7b1e9ba3ea399904611adf6a804e285ee373cdaa928bd11d11054490f8d5c",
+      "size_bytes": 47164
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/character_bible.md": {
+      "owner_task_id": "TASK-05-CHARACTER",
+      "owner_agent": "character_design_agent",
+      "sha256": "0d02df089ad865fd2c69f3f31d045124560abaa529af8a5dd8a6c7f407bf3087",
+      "size_bytes": 2443
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/character_bible.json": {
+      "owner_task_id": "TASK-05-CHARACTER",
+      "owner_agent": "character_design_agent",
+      "sha256": "f8e6e87c1a90e095c1721f4c2e903f4a9968770306866c073fe9b5ea4491865e",
+      "size_bytes": 7096
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/style_bible.json": {
+      "owner_task_id": "TASK-06-STYLE",
+      "owner_agent": "art_director",
+      "sha256": "bc6258b51702a1b4b4d86a2be453900610a8906b236177f28bf1ed425daa263c",
+      "size_bytes": 1233
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/storyboard.json": {
+      "owner_task_id": "TASK-07-STORYBOARD",
+      "owner_agent": "storyboard_director",
+      "sha256": "d6717143262c534c60ebac523c5ba95ec065f2572c0e918b3ee0c0f4e602316a",
+      "size_bytes": 322196
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/semantic_visual_plan.json": {
+      "owner_task_id": "TASK-07-STORYBOARD",
+      "owner_agent": "storyboard_director",
+      "sha256": "7b4bab75b8690bed73bc014a18e64c40481539c5e49a697c585ca07031f6adcf",
+      "size_bytes": 45395
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/reference_adaptation.json": {
+      "owner_task_id": "TASK-08-REF-ADAPT",
+      "owner_agent": "rea_video_reference_analyst",
+      "sha256": "81f6c3dbd69ef7a2c052d94b7e1f9f989f5e1e5ff0d6ea68595947b936353317",
+      "size_bytes": 88234
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/motion_plan.json": {
+      "owner_task_id": "TASK-09-MOTION",
+      "owner_agent": "motion_director",
+      "sha256": "08157bba622f6469c0233f8aaa60ae15345348d33c90001df0a0e13d3ee00500",
+      "size_bytes": 237238
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/camera_plan.json": {
+      "owner_task_id": "TASK-10-CAMERA",
+      "owner_agent": "cinematographer",
+      "sha256": "1757e03b7b37d1691ec978eca1a36ae1c93660be80c1c8d44698b9b24d89f4d4",
+      "size_bytes": 43412
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/asset_manifest.json": {
+      "owner_task_id": "TASK-11-ASSET",
+      "owner_agent": "asset_specialist",
+      "sha256": "4d207773f3146bdb7c17d4e5ef33ff09ff2fac153e16add5a8c5ccd23565f90a",
+      "size_bytes": 156008
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/narration_dialogue.json": {
+      "owner_task_id": "TASK-12-AUDIO",
+      "owner_agent": "audio_director",
+      "sha256": "e143dce901282b4ee0fe711d0897d6eb10b3f73545d378ceeeff6526a1531cdf",
+      "size_bytes": 42687
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/caption_audio_plan.json": {
+      "owner_task_id": "TASK-13-CAPTION",
+      "owner_agent": "caption_specialist",
+      "sha256": "12ac3d3eb3f54e7a0b6bda80b5a4d215f40f26d9e64d60c3359f5427db33f00d",
+      "size_bytes": 35923
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/engine_plan.json": {
+      "owner_task_id": "TASK-14-ENGINE",
+      "owner_agent": "remotion_specialist",
+      "sha256": "1ea9f23787563205d3fbada863763bfd2722c73f217fc22ac6f987b4b3b039a0",
+      "size_bytes": 48691
+    },
+    "projects/bench_c_laut_hilang_hybrid_180s/execution_plan.md": {
+      "owner_task_id": "TASK-14-ENGINE",
+      "owner_agent": "remotion_specialist",
+      "sha256": "561eef0323eaabd2a5757b7946d56b79acb60999465c9e963bf6483ca765dba3",
+      "size_bytes": 5273
+    }
+  },
+  "pre_review_hashes": {
+    "projects/bench_c_laut_hilang_hybrid_180s/research.md": "50a879e59bc86b53dd61f1ae64a5ba1dd2195b1736d8cc3655644dfc0f977813",
+    "projects/bench_c_laut_hilang_hybrid_180s/research_report.json": "795d2cdc405da44a07b256bf4be84ab33f498388fbcb581c8ef06d246dce1691",
+    "projects/bench_c_laut_hilang_hybrid_180s/reference_analysis.md": "76194ea41920047be2cc362d59b0dc137308b08173e755053fe73d58a20cfe7a",
+    "projects/bench_c_laut_hilang_hybrid_180s/blueprint.md": "cf2f3c5b7cda0999a6da37ac6bc64209b97da35df7bb68455bd1bd2f9c361647",
+    "projects/bench_c_laut_hilang_hybrid_180s/creative_concept.json": "5d4e3019e187bf1de5ac8ee30bb5ff94fa4ebc571b0be3fcefe460a9ce1d13a3",
+    "projects/bench_c_laut_hilang_hybrid_180s/script.md": "2d0bba679111318e77ceeddb174cceb6bc9d0f8a991b53dca6210a4334995476",
+    "projects/bench_c_laut_hilang_hybrid_180s/authored_creative_payload.json": "09c7b1e9ba3ea399904611adf6a804e285ee373cdaa928bd11d11054490f8d5c",
+    "projects/bench_c_laut_hilang_hybrid_180s/character_bible.md": "0d02df089ad865fd2c69f3f31d045124560abaa529af8a5dd8a6c7f407bf3087",
+    "projects/bench_c_laut_hilang_hybrid_180s/character_bible.json": "f8e6e87c1a90e095c1721f4c2e903f4a9968770306866c073fe9b5ea4491865e",
+    "projects/bench_c_laut_hilang_hybrid_180s/style_bible.json": "bc6258b51702a1b4b4d86a2be453900610a8906b236177f28bf1ed425daa263c",
+    "projects/bench_c_laut_hilang_hybrid_180s/storyboard.json": "d6717143262c534c60ebac523c5ba95ec065f2572c0e918b3ee0c0f4e602316a",
+    "projects/bench_c_laut_hilang_hybrid_180s/semantic_visual_plan.json": "7b4bab75b8690bed73bc014a18e64c40481539c5e49a697c585ca07031f6adcf",
+    "projects/bench_c_laut_hilang_hybrid_180s/reference_adaptation.json": "81f6c3dbd69ef7a2c052d94b7e1f9f989f5e1e5ff0d6ea68595947b936353317",
+    "projects/bench_c_laut_hilang_hybrid_180s/motion_plan.json": "08157bba622f6469c0233f8aaa60ae15345348d33c90001df0a0e13d3ee00500",
+    "projects/bench_c_laut_hilang_hybrid_180s/camera_plan.json": "1757e03b7b37d1691ec978eca1a36ae1c93660be80c1c8d44698b9b24d89f4d4",
+    "projects/bench_c_laut_hilang_hybrid_180s/asset_manifest.json": "4d207773f3146bdb7c17d4e5ef33ff09ff2fac153e16add5a8c5ccd23565f90a",
+    "projects/bench_c_laut_hilang_hybrid_180s/narration_dialogue.json": "e143dce901282b4ee0fe711d0897d6eb10b3f73545d378ceeeff6526a1531cdf",
+    "projects/bench_c_laut_hilang_hybrid_180s/caption_audio_plan.json": "12ac3d3eb3f54e7a0b6bda80b5a4d215f40f26d9e64d60c3359f5427db33f00d",
+    "projects/bench_c_laut_hilang_hybrid_180s/engine_plan.json": "1ea9f23787563205d3fbada863763bfd2722c73f217fc22ac6f987b4b3b039a0",
+    "projects/bench_c_laut_hilang_hybrid_180s/execution_plan.md": "561eef0323eaabd2a5757b7946d56b79acb60999465c9e963bf6483ca765dba3"
+  },
+  "post_review_hashes": {
+    "projects/bench_c_laut_hilang_hybrid_180s/research.md": "50a879e59bc86b53dd61f1ae64a5ba1dd2195b1736d8cc3655644dfc0f977813",
+    "projects/bench_c_laut_hilang_hybrid_180s/research_report.json": "795d2cdc405da44a07b256bf4be84ab33f498388fbcb581c8ef06d246dce1691",
+    "projects/bench_c_laut_hilang_hybrid_180s/reference_analysis.md": "76194ea41920047be2cc362d59b0dc137308b08173e755053fe73d58a20cfe7a",
+    "projects/bench_c_laut_hilang_hybrid_180s/blueprint.md": "cf2f3c5b7cda0999a6da37ac6bc64209b97da35df7bb68455bd1bd2f9c361647",
+    "projects/bench_c_laut_hilang_hybrid_180s/creative_concept.json": "5d4e3019e187bf1de5ac8ee30bb5ff94fa4ebc571b0be3fcefe460a9ce1d13a3",
+    "projects/bench_c_laut_hilang_hybrid_180s/script.md": "2d0bba679111318e77ceeddb174cceb6bc9d0f8a991b53dca6210a4334995476",
+    "projects/bench_c_laut_hilang_hybrid_180s/authored_creative_payload.json": "09c7b1e9ba3ea399904611adf6a804e285ee373cdaa928bd11d11054490f8d5c",
+    "projects/bench_c_laut_hilang_hybrid_180s/character_bible.md": "0d02df089ad865fd2c69f3f31d045124560abaa529af8a5dd8a6c7f407bf3087",
+    "projects/bench_c_laut_hilang_hybrid_180s/character_bible.json": "f8e6e87c1a90e095c1721f4c2e903f4a9968770306866c073fe9b5ea4491865e",
+    "projects/bench_c_laut_hilang_hybrid_180s/style_bible.json": "bc6258b51702a1b4b4d86a2be453900610a8906b236177f28bf1ed425daa263c",
+    "projects/bench_c_laut_hilang_hybrid_180s/storyboard.json": "d6717143262c534c60ebac523c5ba95ec065f2572c0e918b3ee0c0f4e602316a",
+    "projects/bench_c_laut_hilang_hybrid_180s/semantic_visual_plan.json": "7b4bab75b8690bed73bc014a18e64c40481539c5e49a697c585ca07031f6adcf",
+    "projects/bench_c_laut_hilang_hybrid_180s/reference_adaptation.json": "81f6c3dbd69ef7a2c052d94b7e1f9f989f5e1e5ff0d6ea68595947b936353317",
+    "projects/bench_c_laut_hilang_hybrid_180s/motion_plan.json": "08157bba622f6469c0233f8aaa60ae15345348d33c90001df0a0e13d3ee00500",
+    "projects/bench_c_laut_hilang_hybrid_180s/camera_plan.json": "1757e03b7b37d1691ec978eca1a36ae1c93660be80c1c8d44698b9b24d89f4d4",
+    "projects/bench_c_laut_hilang_hybrid_180s/asset_manifest.json": "4d207773f3146bdb7c17d4e5ef33ff09ff2fac153e16add5a8c5ccd23565f90a",
+    "projects/bench_c_laut_hilang_hybrid_180s/narration_dialogue.json": "e143dce901282b4ee0fe711d0897d6eb10b3f73545d378ceeeff6526a1531cdf",
+    "projects/bench_c_laut_hilang_hybrid_180s/caption_audio_plan.json": "12ac3d3eb3f54e7a0b6bda80b5a4d215f40f26d9e64d60c3359f5427db33f00d",
+    "projects/bench_c_laut_hilang_hybrid_180s/engine_plan.json": "1ea9f23787563205d3fbada863763bfd2722c73f217fc22ac6f987b4b3b039a0",
+    "projects/bench_c_laut_hilang_hybrid_180s/execution_plan.md": "561eef0323eaabd2a5757b7946d56b79acb60999465c9e963bf6483ca765dba3"
+  }
+}

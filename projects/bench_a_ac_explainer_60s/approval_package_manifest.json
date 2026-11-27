@@ -1,0 +1,87 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_a_ac_explainer_60s",
+  "package_version": "v1",
+  "status": "WAITING_APPROVAL",
+  "package_digest": "679db03f5f62e02f3d4cdae9a44197342c1b5edd45706d99b3310167c605f398",
+  "mandatory_13_items": {
+    "01_topic_and_concept": {
+      "present": true,
+      "artifact_file": "blueprint.md",
+      "summary": "Bagaimana AC Mendinginkan Ruangan? (explainer, edukasi)"
+    },
+    "02_research_results": {
+      "present": true,
+      "artifact_file": "research.md",
+      "summary": "4 klaim terverifikasi + pemetaan narasi"
+    },
+    "03_full_script": {
+      "present": true,
+      "artifact_file": "script.md",
+      "summary": "5 beat naskah Bahasa Indonesia siap baca"
+    },
+    "04_narration_and_dialogue": {
+      "present": true,
+      "artifact_file": "narration_dialogue.json",
+      "summary": "5 VO & 3 dialog (135.0 WPM, ESTIMATED)"
+    },
+    "05_clip_by_clip_storyboard": {
+      "present": true,
+      "artifact_file": "storyboard.json",
+      "summary": "3 seq / 5 scene / 5 beat / 20 shot"
+    },
+    "06_shot_timestamps_and_durations": {
+      "present": true,
+      "artifact_file": "storyboard.json",
+      "summary": "1800 frame (60.0s @ 30fps, semua shot <= 10s)"
+    },
+    "07_camera_framing_cutaway_transitions": {
+      "present": true,
+      "artifact_file": "camera_plan.json",
+      "summary": "Lensa dinamis [24.0, 40.0, 50.0, 55.0, 65.0, 75.0, 85.0]mm sesuai tujuan naratif"
+    },
+    "08_complete_asset_list": {
+      "present": true,
+      "artifact_file": "asset_manifest.json",
+      "summary": "16 spesifikasi aset semantik 12-atribut"
+    },
+    "09_character_designs": {
+      "present": true,
+      "artifact_file": "character_bible.json",
+      "summary": "2 karakter orisinal 11-atribut (stylized_3d)"
+    },
+    "10_motion_plan": {
+      "present": true,
+      "artifact_file": "motion_plan.json",
+      "summary": "20 rencana aksi 14-atribut dengan kontak IK"
+    },
+    "11_caption_and_audio_plan": {
+      "present": true,
+      "artifact_file": "caption_audio_plan.json",
+      "summary": "25 cue takarir ESTIMATED & label ilmiah"
+    },
+    "12_engine_selection_per_shot": {
+      "present": true,
+      "artifact_file": "engine_plan.json",
+      "summary": "Routing hybrid (blender, threejs, remotion, rea_video, ffmpeg)"
+    },
+    "13_hybrid_execution_plan": {
+      "present": true,
+      "artifact_file": "execution_plan.md",
+      "summary": "Rencana eksekusi pasca-persetujuan Blender MCP, Three.js, Remotion & FFmpeg"
+    }
+  },
+  "required_files_sha256": {
+    "blueprint.md": "3148a1807173c19d152899ba1bfbcc3f89f90b688a63c4c54a05f860dee97549",
+    "script.md": "a4bbe84a5ba09acf43149f91c39d50def22a8c71e142934271b9d5c31d8b8f92",
+    "storyboard.json": "48d0a37f9ca12dbce55fa68e9c3d0fbc86ceb4e7ac4adfbb62db730f91017ce6",
+    "asset_manifest.json": "915849b27aa20d411762af26bbb74b471ced3c030bf5c0139de6ae289226082a",
+    "character_bible.md": "0d3a611d12636f18935f96a848f823d6799d72413996ed3f85fc4b6f027bb795",
+    "motion_plan.json": "9f5e3e8495046924387c18ecbd5e28d415f66fc2cc463deef790203ce777e041",
+    "execution_plan.md": "903704085ff3891b433ca0f7eb95b0e334a2fb9dcfaa82a7da3edb6b0a2bd2f9",
+    "production_config.json": "7486eb5b55e1d32b5d38f9766b6a5de102b36ece9f02feb39139bce4d54c883c",
+    "engine_plan.json": "6ed36927f8c1b667a1b3d7501e89e99f9c23deafcdf25a53cdb07d4d34fea409",
+    "research.md": "69d47c4a001e743a1d744ed92041c7dd1fe753ea6ebd7c74da788317ceedf604",
+    "reference_analysis.md": "e38f83e8f3ff8f4aa0ed87b8e1068ab1bd9d74620a2c63833d1a4e2ad1b6d4d7"
+  }
+}

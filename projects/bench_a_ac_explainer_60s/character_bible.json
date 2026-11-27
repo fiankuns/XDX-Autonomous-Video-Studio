@@ -1,0 +1,184 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_a_ac_explainer_60s",
+  "style_bible_id": "xdx_stylized_3d_v4_0",
+  "style_profile": "stylized_3d",
+  "modeling_executed": false,
+  "characters": [
+    {
+      "character_id": "char_nadia_presenter",
+      "name": "Nadia",
+      "role": "narrator_avatar",
+      "identity": {
+        "name": "Nadia",
+        "role": "narrator_avatar",
+        "biography_disclaimer": "Karakter presenter edukasi fiksi orisinal XDX Studio; bukan representasi individu nyata.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Siluet ramping proporsional bergaya stylized 3D setinggi 6.5 kepala, bahu tegas dari jaket kerja teknik dan gestur tangan ekspresif saat menunjuk diagram pipa.",
+      "proportions": "Siluet ramping proporsional bergaya stylized 3D setinggi 6.5 kepala, bahu tegas dari jaket kerja teknik dan gestur tangan ekspresif saat menunjuk diagram pipa.",
+      "facial_design": "Wajah oval hangat dengan mata cokelat besar yang fokus, alis ekspresif, senyum ramah percaya diri, dan kacamata bingkai tipis perak matte.",
+      "clothing": "Jaket kerja pendek biru kobalt dengan aksen garis pirus di kerah, kaus dalam putih bersih, celana chino abu-abu tua, dan sepatu kets putih minimalis.",
+      "wardrobe": "Jaket kerja pendek biru kobalt dengan aksen garis pirus di kerah, kaus dalam putih bersih, celana chino abu-abu tua, dan sepatu kets putih minimalis.",
+      "materials": [
+        "stylized_cotton_twill_matte",
+        "brushed_silver_eyewear_frame",
+        "soft_subsurface_skin_aces"
+      ],
+      "color_palette": [
+        "#1E4FAF",
+        "#18B7C9",
+        "#F4F6F8",
+        "#333A45"
+      ],
+      "palette": [
+        "#1E4FAF",
+        "#18B7C9",
+        "#F4F6F8",
+        "#333A45"
+      ],
+      "expressions": [
+        "curious_smile",
+        "confident_explaining",
+        "playful_wink",
+        "satisfied_nod"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_biped_stylized_v4_ik_fk_hands_facial_visemes",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "jaw_viseme_driver",
+          "brow_arch_lr",
+          "eye_dart_target",
+          "cheek_smile_blend"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_biped_stylized_v4_ik_fk_hands_facial_visemes",
+      "pose_requirements": [
+        "presenter_open_palm_cutaway",
+        "pointing_at_coil_flow",
+        "holding_thermometer_comparison"
+      ],
+      "action_requirements": [
+        "membuka penutup depan unit AC indoor secara bersih",
+        "menelusuri arah aliran refrigeran dari evaporator ke dinding",
+        "menunjukkan perbandingan angka suhu pada remot AC"
+      ],
+      "biography_disclaimer": "Karakter presenter edukasi fiksi orisinal XDX Studio; bukan representasi individu nyata.",
+      "shot_appearances": [],
+      "continuity_lock": {
+        "palette_locked": [
+          "#1E4FAF",
+          "#18B7C9",
+          "#F4F6F8",
+          "#333A45"
+        ],
+        "proportions_locked": "Siluet ramping proporsional bergaya stylized 3D setinggi 6.5 kepala, bahu tegas dari jaket kerja teknik dan gestur tangan ekspresif saat menunjuk diagram pipa.",
+        "wardrobe_locked": "Jaket kerja pendek biru kobalt dengan aksen garis pirus di kerah, kaus dalam putih bersih, celana chino abu-abu tua, dan sepatu kets putih minimalis.",
+        "style_profile_locked": "stylized_3d"
+      }
+    },
+    {
+      "character_id": "char_bima_penghuni",
+      "name": "Bima",
+      "role": "hero",
+      "identity": {
+        "name": "Bima",
+        "role": "hero",
+        "biography_disclaimer": "Karakter penghuni kamar fiksi orisinal XDX Studio; bukan representasi individu nyata.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Siluet pemuda santai bergaya stylized 3D setinggi 6.3 kepala dengan rambut ikal pendek mengembang dan bahu sedikit membungkuk saat kepanasan lalu tegak segar saat kamar sejuk.",
+      "proportions": "Siluet pemuda santai bergaya stylized 3D setinggi 6.3 kepala dengan rambut ikal pendek mengembang dan bahu sedikit membungkuk saat kepanasan lalu tegak segar saat kamar sejuk.",
+      "facial_design": "Pipi bulat ekspresif, mata lebar mudah terkejut, bulir keringat stylized di pelipis pada babak awal, dan ekspresi lega jenaka di akhir.",
+      "clothing": "Kaus santai kuning mustard berkerah bundar, celana pendek rumah warna krem koral, dan sandal selop dalam ruang abu-abu muda.",
+      "wardrobe": "Kaus santai kuning mustard berkerah bundar, celana pendek rumah warna krem koral, dan sandal selop dalam ruang abu-abu muda.",
+      "materials": [
+        "soft_jersey_knit_fabric",
+        "matte_plastic_remote_shell",
+        "soft_subsurface_skin_aces"
+      ],
+      "color_palette": [
+        "#E0A11B",
+        "#E8DFCA",
+        "#2C3539",
+        "#FF6B4A"
+      ],
+      "palette": [
+        "#E0A11B",
+        "#E8DFCA",
+        "#2C3539",
+        "#FF6B4A"
+      ],
+      "expressions": [
+        "overheated_exhausted",
+        "surprised_aha",
+        "sheepish_grin",
+        "relaxed_chilled"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_biped_stylized_v4_ik_fk_hands_facial_visemes",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "jaw_viseme_driver",
+          "sweat_drop_toggle",
+          "brow_furrow_relief",
+          "wide_eye_surprise"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_biped_stylized_v4_ik_fk_hands_facial_visemes",
+      "pose_requirements": [
+        "slumped_fanning_self",
+        "peering_at_sealed_window",
+        "adjusting_remote_to_24c"
+      ],
+      "action_requirements": [
+        "mengipasi wajah sambil menatap jendela kamar yang tertutup rapat",
+        "mengintip bagian dalam kisi AC indoor dengan takjub",
+        "mengubah suhu remot AC ke 24 derajat Celsius sambil tersenyum lega"
+      ],
+      "biography_disclaimer": "Karakter penghuni kamar fiksi orisinal XDX Studio; bukan representasi individu nyata.",
+      "shot_appearances": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S009",
+        "S010",
+        "S011",
+        "S012",
+        "S015",
+        "S016",
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ],
+      "continuity_lock": {
+        "palette_locked": [
+          "#E0A11B",
+          "#E8DFCA",
+          "#2C3539",
+          "#FF6B4A"
+        ],
+        "proportions_locked": "Siluet pemuda santai bergaya stylized 3D setinggi 6.3 kepala dengan rambut ikal pendek mengembang dan bahu sedikit membungkuk saat kepanasan lalu tegak segar saat kamar sejuk.",
+        "wardrobe_locked": "Kaus santai kuning mustard berkerah bundar, celana pendek rumah warna krem koral, dan sandal selop dalam ruang abu-abu muda.",
+        "style_profile_locked": "stylized_3d"
+      }
+    }
+  ]
+}

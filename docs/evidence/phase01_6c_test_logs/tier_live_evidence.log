@@ -1,0 +1,13 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /opt/pyenv/versions/3.12.16/bin/python3.12
+cachedir: .pytest_cache
+rootdir: /home/antigravity/fiankuns/XDX-Autonomous-Video-Studio
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0
+collecting ... collected 101 items / 99 deselected / 2 selected
+
+tests/test_phase01_6b_persistent_intelligence.py::test_28_reference_knowledge_index_preserves_ref001_ref002_prior_and_v34_and_live_workflow_evidence PASSED [ 50%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_24_live_native_creative_workflow_four_benchmarks_independent_review_and_13_item_packages PASSED [100%]
+
+======================= 2 passed, 99 deselected in 1.75s =======================

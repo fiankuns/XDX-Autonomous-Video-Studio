@@ -1,0 +1,377 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "timing_status": "ESTIMATED",
+  "actual_audio_and_forced_alignment_phase": "SCHEDULED_PHASE_04",
+  "language": "id-ID",
+  "narration_style": "Warm, articulate Indonesian science & story narrator",
+  "target_wpm": 139,
+  "measured_script_wpm": 142.7,
+  "estimated_timing": {
+    "estimated_total_s": 49.963,
+    "target_duration_s": 45.0,
+    "playback_speed_multiplier": 1.0,
+    "duration_recommendation": {
+      "suggest_duration_change": false,
+      "recommended_target_duration_s": 45,
+      "rationale": "Estimated delivery (49.963s, 142.7 WPM) fits comfortably within 45s with natural breath pauses."
+    }
+  },
+  "voice_delivery_mode": "hybrid_vo_and_character_dialogue",
+  "voice_direction": {
+    "narrator_register": "baritone_or_mezzo_clear_indonesian",
+    "pace_policy": "Adaptive clause-breathing pace (~130-160 WPM); never time-stretched.",
+    "dialogue_separation": "Distinct mic/room coloration and turn-taking pause per character."
+  },
+  "music_direction": "Sparse low-register tension drone with wide dynamic headroom; ducked -18 dB under VO.",
+  "ambience": "Quiet room tone with subtle distant night air (-26 LUFS bed).",
+  "foley": [
+    {
+      "event_id": "FOL_S001",
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 150,
+      "foley_description": "Subtle tactile foley for prop_frontload_washer_2d (establishing_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S002",
+      "shot_id": "S002",
+      "start_frame": 150,
+      "end_frame": 300,
+      "foley_description": "Subtle tactile foley for prop_single_yellow_striped_sock (reaction_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S003",
+      "shot_id": "S003",
+      "start_frame": 300,
+      "end_frame": 407,
+      "foley_description": "Subtle tactile foley for prop_rubber_door_gasket_cutaway_2d (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S004",
+      "shot_id": "S004",
+      "start_frame": 407,
+      "end_frame": 513,
+      "foley_description": "Subtle tactile foley for prop_rubber_door_gasket_cutaway_2d (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S005",
+      "shot_id": "S005",
+      "start_frame": 513,
+      "end_frame": 602,
+      "foley_description": "Subtle tactile foley for prop_rubber_door_gasket_cutaway_2d (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S006",
+      "shot_id": "S006",
+      "start_frame": 602,
+      "end_frame": 690,
+      "foley_description": "Subtle tactile foley for prop_rubber_door_gasket_cutaway_2d (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S007",
+      "shot_id": "S007",
+      "start_frame": 690,
+      "end_frame": 776,
+      "foley_description": "Subtle tactile foley for prop_jogger_pants_cutout_2d (visual_metaphor)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S008",
+      "shot_id": "S008",
+      "start_frame": 776,
+      "end_frame": 861,
+      "foley_description": "Subtle tactile foley for prop_jogger_pants_cutout_2d (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S009",
+      "shot_id": "S009",
+      "start_frame": 861,
+      "end_frame": 956,
+      "foley_description": "Subtle tactile foley for prop_jogger_pants_cutout_2d (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S010",
+      "shot_id": "S010",
+      "start_frame": 956,
+      "end_frame": 1050,
+      "foley_description": "Subtle tactile foley for prop_jogger_pants_cutout_2d (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S011",
+      "shot_id": "S011",
+      "start_frame": 1050,
+      "end_frame": 1193,
+      "foley_description": "Subtle tactile foley for prop_wooden_sock_drawer_2d (object_insert)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S012",
+      "shot_id": "S012",
+      "start_frame": 1193,
+      "end_frame": 1350,
+      "foley_description": "Subtle tactile foley for prop_single_yellow_striped_sock (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    }
+  ],
+  "sound_effect_events": [
+    {
+      "event_id": "SFX_S001",
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 18,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "establishing_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S002",
+      "shot_id": "S002",
+      "start_frame": 150,
+      "end_frame": 168,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "reaction_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S003",
+      "shot_id": "S003",
+      "start_frame": 300,
+      "end_frame": 318,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S004",
+      "shot_id": "S004",
+      "start_frame": 407,
+      "end_frame": 425,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S005",
+      "shot_id": "S005",
+      "start_frame": 513,
+      "end_frame": 531,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S006",
+      "shot_id": "S006",
+      "start_frame": 602,
+      "end_frame": 620,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S007",
+      "shot_id": "S007",
+      "start_frame": 690,
+      "end_frame": 708,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "visual_metaphor",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S008",
+      "shot_id": "S008",
+      "start_frame": 776,
+      "end_frame": 794,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S009",
+      "shot_id": "S009",
+      "start_frame": 861,
+      "end_frame": 879,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S010",
+      "shot_id": "S010",
+      "start_frame": 956,
+      "end_frame": 974,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S011",
+      "shot_id": "S011",
+      "start_frame": 1050,
+      "end_frame": 1068,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "object_insert",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S012",
+      "shot_id": "S012",
+      "start_frame": 1193,
+      "end_frame": 1211,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    }
+  ],
+  "vo_segments": [
+    {
+      "segment_id": "VO_001",
+      "beat_id": "B01",
+      "shot_id": "S001",
+      "shot_ids": [
+        "S001",
+        "S002"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Tujuh pasang kaus kaki masuk ke mesin cuci malam ini tetapi saat pintu dibuka, hanya tiga belas helai yang keluar hidup-hidup.",
+      "word_count": 21,
+      "start_time_s": 0.0,
+      "end_time_s": 10.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Berbisik dramatis ala narator kisah misteri malam hari namun dengan ujung kalimat ringan yang mengundang senyum.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_002",
+      "beat_id": "B02",
+      "shot_id": "S003",
+      "shot_ids": [
+        "S003",
+        "S004",
+        "S005",
+        "S006"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Lampu ruang cuci berkedip pelan. Bukan ulah hantu binatu, melainkan lipatan karet pintu mesin cuci yang diam-diam menelan kaus kaki kecil saat tabung berputar kencang.",
+      "word_count": 25,
+      "start_time_s": 10.0,
+      "end_time_s": 23.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Mulai dengan ketegangan misteri pelan, lalu berubah ceria dan terang saat mengungkap mekanisme lipatan karet pintu.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_003",
+      "beat_id": "B03",
+      "shot_id": "S007",
+      "shot_ids": [
+        "S007",
+        "S008",
+        "S009",
+        "S010"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Sisanya bersembunyi di ujung pipa celana panjang karena mata kita lengah oleh perhatian selektif waktu menyortir tumpukan cucian.",
+      "word_count": 18,
+      "start_time_s": 23.0,
+      "end_time_s": 35.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Lincah, cepat, dan penuh senyum saat membongkar trik persembunyian kedua di tumpukan pakaian.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_004",
+      "beat_id": "B04",
+      "shot_id": "S011",
+      "shot_ids": [
+        "S011",
+        "S012"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Misteri terpecahkan tanpa drama mistis, meski laci kos tetap penuh kaus kaki jomblo aneka motif.",
+      "word_count": 15,
+      "start_time_s": 35.0,
+      "end_time_s": 45.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Ceria, hangat, dan santai menutup cerita dengan nada kemenangan komedi.",
+      "breath_pause_ms": 220
+    }
+  ],
+  "dialogue_lines": [
+    {
+      "beat_id": "B01",
+      "shot_id": "S002",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_kino_pencuci",
+      "line": "Pasangan belang kuningku menguap ke mana?",
+      "delivery": "dramatis lebay sambil memegang satu kaus kaki belang kuning",
+      "onscreen_speaking": true
+    },
+    {
+      "beat_id": "B02",
+      "shot_id": "S004",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_detektif_kaus",
+      "line": "Sst, di balik karet ini hangat sekali.",
+      "delivery": "bisikan jenaka menggemaskan dari balik lipatan karet",
+      "onscreen_speaking": true
+    },
+    {
+      "beat_id": "B03",
+      "shot_id": "S008",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_kino_pencuci",
+      "line": "Ketahuan kau bersembunyi di celana olahraga!",
+      "delivery": "girang penuh kemenangan sambil mengguncang pipa celana panjang",
+      "onscreen_speaking": true
+    },
+    {
+      "beat_id": "B04",
+      "shot_id": "S012",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_kino_pencuci",
+      "line": "Mulai besok, belang kuning resmi berjodoh dengan polkadot biru.",
+      "delivery": "percaya diri sambil bertolak pinggang memamerkan kedua pergelangan kaki",
+      "onscreen_speaking": true
+    }
+  ],
+  "lip_sync_plan": {
+    "status": "ESTIMATED_PRE_AUDIO",
+    "onscreen_dialogue_present": true,
+    "phase_04_backend": "rhubarb_or_whisper_forced_viseme_alignment"
+  }
+}

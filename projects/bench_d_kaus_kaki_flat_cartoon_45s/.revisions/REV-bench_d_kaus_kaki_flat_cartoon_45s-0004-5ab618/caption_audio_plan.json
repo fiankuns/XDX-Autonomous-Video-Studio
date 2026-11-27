@@ -1,0 +1,271 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "timestamp_status": "ESTIMATED",
+  "caption_preset_id": "cap_xdx_bold_stroke_9x16",
+  "caption_format": {
+    "container_formats": [
+      "SRT",
+      "WebVTT",
+      "Remotion_Estimated_JSON"
+    ],
+    "max_lines_per_cue": 2,
+    "max_words_per_phrase": 5
+  },
+  "phrase_grouping": {
+    "strategy": "syntactic_indonesian_clause_chunks",
+    "orphan_single_word_avoided": true
+  },
+  "typography": {
+    "typography_preset_id": "typo_jakarta_modern_explainer",
+    "style_profile": "flat_cartoon",
+    "stroke_and_shadow_high_contrast": true
+  },
+  "safe_area": {
+    "aspect_ratio": "9:16",
+    "bottom_margin_px": 340,
+    "top_margin_px": 220,
+    "horizontal_margin_px": 90,
+    "ui_occlusion_free": true
+  },
+  "word_highlight": {
+    "enabled": true,
+    "mode": "semantic_keyword_accent_not_distracting",
+    "timing_source": "ESTIMATED_PRE_PHASE04_ALIGNMENT"
+  },
+  "scientific_labels": [
+    {
+      "shot_id": "S003",
+      "beat_id": "B02",
+      "label": "Lipatan Karet Pintu (Door Boot Seal)",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S003",
+      "beat_id": "B02",
+      "label": "Pusaran Air Sentrifugal",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S007",
+      "beat_id": "B03",
+      "label": "Bias Perhatian Selektif",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S007",
+      "beat_id": "B03",
+      "label": "Terselip di Pipa Celana",
+      "timing_status": "ESTIMATED"
+    }
+  ],
+  "estimated_caption_timing": {
+    "status": "ESTIMATED",
+    "cue_count": 17,
+    "requires_phase04_wav_realignment": true
+  },
+  "audio_master_preset_id": "aud_master_vo_indonesia_15lufs",
+  "sample_rate_hz": 48000,
+  "target_lufs": -15.0,
+  "true_peak_dbtp": -1.0,
+  "music_direction": "Sparse low-register tension drone with wide dynamic headroom; ducked -18 dB under VO.",
+  "ambience": "Quiet room tone with subtle distant night air (-26 LUFS bed).",
+  "foley_count": 12,
+  "sfx_event_count": 12,
+  "asr_backends_detected": {
+    "whisper_cpp_binary": null,
+    "faster_whisper_python": false,
+    "whisperx_binary": null,
+    "any_asr_ready": false
+  },
+  "cues": [
+    {
+      "cue_id": "CAP_001",
+      "shot_id": "S001",
+      "start_s": 0.0,
+      "end_s": 2.381,
+      "text": "Tujuh pasang kaus kaki masuk",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Tujuh"
+    },
+    {
+      "cue_id": "CAP_002",
+      "shot_id": "S001",
+      "start_s": 2.381,
+      "end_s": 4.762,
+      "text": "ke mesin cuci malam ini",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "ke"
+    },
+    {
+      "cue_id": "CAP_003",
+      "shot_id": "S001",
+      "start_s": 4.762,
+      "end_s": 7.143,
+      "text": "tetapi saat pintu dibuka, hanya",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "tetapi"
+    },
+    {
+      "cue_id": "CAP_004",
+      "shot_id": "S001",
+      "start_s": 7.143,
+      "end_s": 9.524,
+      "text": "tiga belas helai yang keluar",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "tiga"
+    },
+    {
+      "cue_id": "CAP_005",
+      "shot_id": "S001",
+      "start_s": 9.524,
+      "end_s": 10.0,
+      "text": "hidup-hidup.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 1,
+      "highlighted_keyword": "hidup-hidup."
+    },
+    {
+      "cue_id": "CAP_006",
+      "shot_id": "S003",
+      "start_s": 10.0,
+      "end_s": 12.6,
+      "text": "Lampu ruang cuci berkedip pelan.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Lampu"
+    },
+    {
+      "cue_id": "CAP_007",
+      "shot_id": "S003",
+      "start_s": 12.6,
+      "end_s": 15.2,
+      "text": "Bukan ulah hantu binatu, melainkan",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Bukan"
+    },
+    {
+      "cue_id": "CAP_008",
+      "shot_id": "S003",
+      "start_s": 15.2,
+      "end_s": 17.8,
+      "text": "lipatan karet pintu mesin cuci",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "lipatan"
+    },
+    {
+      "cue_id": "CAP_009",
+      "shot_id": "S003",
+      "start_s": 17.8,
+      "end_s": 20.4,
+      "text": "yang diam-diam menelan kaus kaki",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "yang"
+    },
+    {
+      "cue_id": "CAP_010",
+      "shot_id": "S003",
+      "start_s": 20.4,
+      "end_s": 23.0,
+      "text": "kecil saat tabung berputar kencang.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "kecil"
+    },
+    {
+      "cue_id": "CAP_011",
+      "shot_id": "S007",
+      "start_s": 23.0,
+      "end_s": 26.333,
+      "text": "Sisanya bersembunyi di ujung pipa",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Sisanya"
+    },
+    {
+      "cue_id": "CAP_012",
+      "shot_id": "S007",
+      "start_s": 26.333,
+      "end_s": 29.667,
+      "text": "celana panjang karena mata kita",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "celana"
+    },
+    {
+      "cue_id": "CAP_013",
+      "shot_id": "S007",
+      "start_s": 29.667,
+      "end_s": 33.0,
+      "text": "lengah oleh perhatian selektif waktu",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "lengah"
+    },
+    {
+      "cue_id": "CAP_014",
+      "shot_id": "S007",
+      "start_s": 33.0,
+      "end_s": 35.0,
+      "text": "menyortir tumpukan cucian.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 3,
+      "highlighted_keyword": "menyortir"
+    },
+    {
+      "cue_id": "CAP_015",
+      "shot_id": "S011",
+      "start_s": 35.0,
+      "end_s": 38.333,
+      "text": "Misteri terpecahkan tanpa drama mistis,",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Misteri"
+    },
+    {
+      "cue_id": "CAP_016",
+      "shot_id": "S011",
+      "start_s": 38.333,
+      "end_s": 41.667,
+      "text": "meski laci kos tetap penuh",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "meski"
+    },
+    {
+      "cue_id": "CAP_017",
+      "shot_id": "S011",
+      "start_s": 41.667,
+      "end_s": 45.0,
+      "text": "kaus kaki jomblo aneka motif.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "kaus"
+    }
+  ],
+  "srt_preview": "1\n00:00:00,000 --> 00:00:02,381\nTujuh pasang kaus kaki masuk\n\n2\n00:00:02,381 --> 00:00:04,762\nke mesin cuci malam ini\n\n3\n00:00:04,762 --> 00:00:07,143\ntetapi saat pintu dibuka, hanya\n\n4\n00:00:07,143 --> 00:00:09,524\ntiga belas helai yang keluar\n\n5\n00:00:09,524 --> 00:00:10,000\nhidup-hidup.\n\n6\n00:00:10,000 --> 00:00:12,600\nLampu ruang cuci berkedip pelan.\n\n7\n00:00:12,600 --> 00:00:15,200\nBukan ulah hantu binatu, melainkan\n\n8\n00:00:15,200 --> 00:00:17,800\nlipatan karet pintu mesin cuci\n\n9\n00:00:17,800 --> 00:00:20,400\nyang diam-diam menelan kaus kaki\n\n10\n00:00:20,400 --> 00:00:23,000\nkecil saat tabung berputar kencang.\n\n11\n00:00:23,000 --> 00:00:26,333\nSisanya bersembunyi di ujung pipa\n\n12\n00:00:26,333 --> 00:00:29,667\ncelana panjang karena mata kita\n\n13\n00:00:29,667 --> 00:00:33,000\nlengah oleh perhatian selektif waktu\n\n14\n00:00:33,000 --> 00:00:35,000\nmenyortir tumpukan cucian.\n\n15\n00:00:35,000 --> 00:00:38,333\nMisteri terpecahkan tanpa drama mistis,\n\n16\n00:00:38,333 --> 00:00:41,667\nmeski laci kos tetap penuh\n\n17\n00:00:41,667 --> 00:00:45,000\nkaus kaki jomblo aneka motif.\n"
+}

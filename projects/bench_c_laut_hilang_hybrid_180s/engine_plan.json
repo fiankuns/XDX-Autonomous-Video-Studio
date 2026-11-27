@@ -1,0 +1,1285 @@
+{
+  "schema_version": "3.4.0",
+  "project_id": "bench_c_laut_hilang_hybrid_180s",
+  "master_compositor": "remotion",
+  "encoding_validator": "ffmpeg",
+  "reference_qc_engine": "rea_video",
+  "fps": 30,
+  "resolution": {
+    "width": 1080,
+    "height": 1920,
+    "pixel_format": "yuv420p"
+  },
+  "color_management": {
+    "working_space": "Linear Rec.709",
+    "view_transform": "ACESFilmic",
+    "delivery_space": "sRGB / Rec.709",
+    "alpha_interchange": "PNG RGBA 16-bit/8-bit"
+  },
+  "engines_used": [
+    "blender",
+    "threejs",
+    "remotion",
+    "rea_video",
+    "ffmpeg"
+  ],
+  "omitted_engines_rationale": {},
+  "shot_routing": [
+    {
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 75,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202601,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_wooden_outrigger_boat",
+        "prop_cracked_salt_mudflat",
+        "prop_stranded_buoy",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 75
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S002",
+      "start_frame": 75,
+      "end_frame": 150,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202602,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_wooden_outrigger_boat",
+        "prop_cracked_salt_mudflat",
+        "prop_stranded_buoy",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 75
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S003",
+      "start_frame": 150,
+      "end_frame": 240,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202603,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_wooden_oar",
+        "prop_wooden_outrigger_boat",
+        "prop_salt_crust_chunk",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 90
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S004",
+      "start_frame": 240,
+      "end_frame": 330,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202604,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_wooden_oar",
+        "prop_wooden_outrigger_boat",
+        "prop_salt_crust_chunk",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 90
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S005",
+      "start_frame": 330,
+      "end_frame": 405,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202605,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_salt_crust_chunk",
+        "prop_field_geology_satchel",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 75
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S006",
+      "start_frame": 405,
+      "end_frame": 480,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202606,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_salt_crust_chunk",
+        "prop_field_geology_satchel",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 81
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S007",
+      "start_frame": 480,
+      "end_frame": 581,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_earth_bathymetry_globe, prop_ocean_volume_sphere_1332m_km3) berbasis frame/fps.",
+      "deterministic_seed": 202607,
+      "inputs": [
+        "prop_earth_bathymetry_globe",
+        "prop_ocean_volume_sphere_1332m_km3",
+        "prop_freshwater_droplet_sphere",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 107
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S008",
+      "start_frame": 581,
+      "end_frame": 682,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_earth_bathymetry_globe, prop_ocean_volume_sphere_1332m_km3) berbasis frame/fps.",
+      "deterministic_seed": 202608,
+      "inputs": [
+        "prop_earth_bathymetry_globe",
+        "prop_ocean_volume_sphere_1332m_km3",
+        "prop_freshwater_droplet_sphere",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 101
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S009",
+      "start_frame": 682,
+      "end_frame": 767,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202609,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_holo_hydrosphere_pedestal",
+        "prop_freshwater_droplet_sphere",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 85
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S010",
+      "start_frame": 767,
+      "end_frame": 851,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202610,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_holo_hydrosphere_pedestal",
+        "prop_freshwater_droplet_sphere",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 84
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S011",
+      "start_frame": 851,
+      "end_frame": 936,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202611,
+      "inputs": [
+        "prop_graduated_hydrosphere_cylinder",
+        "prop_metric_callout_card",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 85
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S012",
+      "start_frame": 936,
+      "end_frame": 1020,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202612,
+      "inputs": [
+        "prop_graduated_hydrosphere_cylinder",
+        "prop_metric_callout_card",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 90
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S013",
+      "start_frame": 1020,
+      "end_frame": 1132,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_skyscraper_reference_300m, prop_continental_slope_cliff_4km) berbasis frame/fps.",
+      "deterministic_seed": 202613,
+      "inputs": [
+        "prop_skyscraper_reference_300m",
+        "prop_continental_slope_cliff_4km",
+        "prop_stranded_cargo_hull",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 118
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S014",
+      "start_frame": 1132,
+      "end_frame": 1243,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_skyscraper_reference_300m, prop_continental_slope_cliff_4km) berbasis frame/fps.",
+      "deterministic_seed": 202614,
+      "inputs": [
+        "prop_skyscraper_reference_300m",
+        "prop_continental_slope_cliff_4km",
+        "prop_stranded_cargo_hull",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 111
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S015",
+      "start_frame": 1243,
+      "end_frame": 1346,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202615,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_iron_boat_anchor",
+        "prop_coiled_hemp_rope",
+        "prop_continental_slope_cliff_4km",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 103
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S016",
+      "start_frame": 1346,
+      "end_frame": 1449,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202616,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_iron_boat_anchor",
+        "prop_coiled_hemp_rope",
+        "prop_continental_slope_cliff_4km",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 103
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S017",
+      "start_frame": 1449,
+      "end_frame": 1535,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_crustal_shelf_cross_section, prop_elevation_marker_pins) berbasis frame/fps.",
+      "deterministic_seed": 202617,
+      "inputs": [
+        "prop_crustal_shelf_cross_section",
+        "prop_elevation_marker_pins",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 86
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S018",
+      "start_frame": 1535,
+      "end_frame": 1620,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_crustal_shelf_cross_section, prop_elevation_marker_pins) berbasis frame/fps.",
+      "deterministic_seed": 202618,
+      "inputs": [
+        "prop_crustal_shelf_cross_section",
+        "prop_elevation_marker_pins",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 91
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S019",
+      "start_frame": 1620,
+      "end_frame": 1716,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202619,
+      "inputs": [
+        "prop_mariana_trench_cutaway_11km",
+        "prop_everest_scale_silhouette_8849m",
+        "prop_depth_ruler_grid",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 102
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S020",
+      "start_frame": 1716,
+      "end_frame": 1811,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202620,
+      "inputs": [
+        "prop_mariana_trench_cutaway_11km",
+        "prop_everest_scale_silhouette_8849m",
+        "prop_depth_ruler_grid",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 107
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S021",
+      "start_frame": 1811,
+      "end_frame": 1906,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202621,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_mid_ocean_ridge_chain",
+        "prop_exposed_hydrothermal_vents",
+        "prop_sulfur_plume_emitter",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 107
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S022",
+      "start_frame": 1906,
+      "end_frame": 2001,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202622,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_mid_ocean_ridge_chain",
+        "prop_exposed_hydrothermal_vents",
+        "prop_sulfur_plume_emitter",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 95
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S023",
+      "start_frame": 2001,
+      "end_frame": 2081,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_ridge_magma_conduit_cutaway, prop_pressure_vector_arrows) berbasis frame/fps.",
+      "deterministic_seed": 202623,
+      "inputs": [
+        "prop_ridge_magma_conduit_cutaway",
+        "prop_pressure_vector_arrows",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 80
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S024",
+      "start_frame": 2081,
+      "end_frame": 2160,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_ridge_magma_conduit_cutaway, prop_pressure_vector_arrows) berbasis frame/fps.",
+      "deterministic_seed": 202624,
+      "inputs": [
+        "prop_ridge_magma_conduit_cutaway",
+        "prop_pressure_vector_arrows",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 85
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S025",
+      "start_frame": 2160,
+      "end_frame": 2275,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_hydrological_cycle_diorama, prop_evaporation_arrow_rig) berbasis frame/fps.",
+      "deterministic_seed": 202625,
+      "inputs": [
+        "prop_hydrological_cycle_diorama",
+        "prop_evaporation_arrow_rig",
+        "prop_dissipating_cloud_cluster",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 121
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S026",
+      "start_frame": 2275,
+      "end_frame": 2389,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_hydrological_cycle_diorama, prop_evaporation_arrow_rig) berbasis frame/fps.",
+      "deterministic_seed": 202626,
+      "inputs": [
+        "prop_hydrological_cycle_diorama",
+        "prop_evaporation_arrow_rig",
+        "prop_dissipating_cloud_cluster",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 114
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S027",
+      "start_frame": 2389,
+      "end_frame": 2486,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202627,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_dry_riverbed_stones",
+        "prop_field_hygrometer_handheld",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 97
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S028",
+      "start_frame": 2486,
+      "end_frame": 2583,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202628,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_dry_riverbed_stones",
+        "prop_field_hygrometer_handheld",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 97
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S029",
+      "start_frame": 2583,
+      "end_frame": 2672,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202629,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_field_hygrometer_handheld",
+        "prop_cracked_river_silt",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 89
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S030",
+      "start_frame": 2672,
+      "end_frame": 2760,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202630,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_field_hygrometer_handheld",
+        "prop_cracked_river_silt",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 94
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S031",
+      "start_frame": 2760,
+      "end_frame": 2875,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_thermohaline_conveyor_globe, prop_solar_heat_flux_arrows) berbasis frame/fps.",
+      "deterministic_seed": 202631,
+      "inputs": [
+        "prop_thermohaline_conveyor_globe",
+        "prop_solar_heat_flux_arrows",
+        "prop_thermal_gradient_shader_ring",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 121
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S032",
+      "start_frame": 2875,
+      "end_frame": 2989,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_thermohaline_conveyor_globe, prop_solar_heat_flux_arrows) berbasis frame/fps.",
+      "deterministic_seed": 202632,
+      "inputs": [
+        "prop_thermohaline_conveyor_globe",
+        "prop_solar_heat_flux_arrows",
+        "prop_thermal_gradient_shader_ring",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 126
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S033",
+      "start_frame": 2989,
+      "end_frame": 3086,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202633,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_split_diurnal_desert_stage",
+        "prop_dual_thermometer_tower",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 109
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S034",
+      "start_frame": 3086,
+      "end_frame": 3183,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202634,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_split_diurnal_desert_stage",
+        "prop_dual_thermometer_tower",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 97
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S035",
+      "start_frame": 3183,
+      "end_frame": 3272,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202635,
+      "inputs": [
+        "prop_diurnal_temperature_chart_card",
+        "prop_heat_capacity_comparison_bars",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 89
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S036",
+      "start_frame": 3272,
+      "end_frame": 3360,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202636,
+      "inputs": [
+        "prop_diurnal_temperature_chart_card",
+        "prop_heat_capacity_comparison_bars",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 94
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S037",
+      "start_frame": 3360,
+      "end_frame": 3458,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_diatom_phytoplankton_cluster, prop_oxygen_carbon_exchange_tokens) berbasis frame/fps.",
+      "deterministic_seed": 202637,
+      "inputs": [
+        "prop_diatom_phytoplankton_cluster",
+        "prop_oxygen_carbon_exchange_tokens",
+        "prop_microscope_ring_frame",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 104
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S038",
+      "start_frame": 3458,
+      "end_frame": 3556,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_diatom_phytoplankton_cluster, prop_oxygen_carbon_exchange_tokens) berbasis frame/fps.",
+      "deterministic_seed": 202638,
+      "inputs": [
+        "prop_diatom_phytoplankton_cluster",
+        "prop_oxygen_carbon_exchange_tokens",
+        "prop_microscope_ring_frame",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 98
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S039",
+      "start_frame": 3556,
+      "end_frame": 3646,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202639,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_woven_caping_hat",
+        "prop_drying_marine_sediment_slab",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 90
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S040",
+      "start_frame": 3646,
+      "end_frame": 3736,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202640,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_woven_caping_hat",
+        "prop_drying_marine_sediment_slab",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 90
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S041",
+      "start_frame": 3736,
+      "end_frame": 3818,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202641,
+      "inputs": [
+        "prop_oxygen_pie_50pct_widget",
+        "prop_co2_surge_gauge",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 82
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S042",
+      "start_frame": 3818,
+      "end_frame": 3900,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202642,
+      "inputs": [
+        "prop_oxygen_pie_50pct_widget",
+        "prop_co2_surge_gauge",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 88
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S043",
+      "start_frame": 3900,
+      "end_frame": 4008,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202643,
+      "inputs": [
+        "prop_chronological_timeline_rail",
+        "prop_salt_dust_plume_card",
+        "prop_arid_continent_miniature",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 114
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S044",
+      "start_frame": 4008,
+      "end_frame": 4116,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202644,
+      "inputs": [
+        "prop_chronological_timeline_rail",
+        "prop_salt_dust_plume_card",
+        "prop_arid_continent_miniature",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 108
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S045",
+      "start_frame": 4116,
+      "end_frame": 4201,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202645,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_transforming_earth_globe",
+        "prop_timeline_pointer_stylus",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 85
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S046",
+      "start_frame": 4201,
+      "end_frame": 4286,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202646,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_transforming_earth_globe",
+        "prop_timeline_pointer_stylus",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 97
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S047",
+      "start_frame": 4286,
+      "end_frame": 4363,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_orbital_arid_earth_mesh, prop_salt_basin_albedo_layer) berbasis frame/fps.",
+      "deterministic_seed": 202647,
+      "inputs": [
+        "prop_orbital_arid_earth_mesh",
+        "prop_salt_basin_albedo_layer",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 89
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S048",
+      "start_frame": 4363,
+      "end_frame": 4440,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_orbital_arid_earth_mesh, prop_salt_basin_albedo_layer) berbasis frame/fps.",
+      "deterministic_seed": 202648,
+      "inputs": [
+        "prop_orbital_arid_earth_mesh",
+        "prop_salt_basin_albedo_layer",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 77
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S049",
+      "start_frame": 4440,
+      "end_frame": 4528,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_isostatic_rebound_slab, prop_tectonic_fault_indicators) berbasis frame/fps.",
+      "deterministic_seed": 202649,
+      "inputs": [
+        "prop_isostatic_rebound_slab",
+        "prop_tectonic_fault_indicators",
+        "prop_mass_unload_arrows",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 88
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S050",
+      "start_frame": 4528,
+      "end_frame": 4615,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_isostatic_rebound_slab, prop_tectonic_fault_indicators) berbasis frame/fps.",
+      "deterministic_seed": 202650,
+      "inputs": [
+        "prop_isostatic_rebound_slab",
+        "prop_tectonic_fault_indicators",
+        "prop_mass_unload_arrows",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 87
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S051",
+      "start_frame": 4615,
+      "end_frame": 4702,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_isostatic_rebound_slab, prop_tectonic_fault_indicators) berbasis frame/fps.",
+      "deterministic_seed": 202651,
+      "inputs": [
+        "prop_isostatic_rebound_slab",
+        "prop_tectonic_fault_indicators",
+        "prop_mass_unload_arrows",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 99
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S052",
+      "start_frame": 4702,
+      "end_frame": 4811,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202652,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_polar_ice_remnant_ridge",
+        "prop_deep_aquifer_wellhead",
+        "prop_windswept_salt_plain",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 121
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S053",
+      "start_frame": 4811,
+      "end_frame": 4920,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202653,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_polar_ice_remnant_ridge",
+        "prop_deep_aquifer_wellhead",
+        "prop_windswept_salt_plain",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 121
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S054",
+      "start_frame": 4920,
+      "end_frame": 5035,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202654,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_wooden_outrigger_boat",
+        "prop_restored_ocean_waves",
+        "prop_cumulus_cloud_horizon",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 127
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S055",
+      "start_frame": 5035,
+      "end_frame": 5150,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202655,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_wooden_outrigger_boat",
+        "prop_restored_ocean_waves",
+        "prop_cumulus_cloud_horizon",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 115
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S056",
+      "start_frame": 5150,
+      "end_frame": 5275,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202656,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_wooden_outrigger_boat",
+        "prop_wooden_oar",
+        "prop_coastal_wooden_pier",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 125
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S057",
+      "start_frame": 5275,
+      "end_frame": 5400,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_alya_presenter) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202657,
+      "inputs": [
+        "char_alya_presenter",
+        "prop_wooden_outrigger_boat",
+        "prop_wooden_oar",
+        "prop_coastal_wooden_pier",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 125
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    }
+  ]
+}

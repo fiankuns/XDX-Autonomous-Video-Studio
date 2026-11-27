@@ -1,0 +1,392 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "review_id": "REV-bench_d_kaus_kaki_flat_c-001",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "verifier_agent": "preproduction_verifier",
+  "reviewed_task_id": "TASK-07-STORYBOARD",
+  "producer_agent": "storyboard_director",
+  "verdict": "PASS",
+  "invocation_receipt": {
+    "receipt_id": "RCPT-803ff0d17c05",
+    "request_id": "REQ-c23caa1c192e",
+    "idempotency_key": "d5526a64c689755e454511892c4dcdc0ea99bb7ae96853c609ed1e7a5c8b1b32",
+    "task_id": "TASK-15-VERIFY",
+    "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+    "assigned_agent": "preproduction_verifier",
+    "runtime_name": "antigravity",
+    "execution_mode": "native_subagent",
+    "actually_invoked": true,
+    "conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+    "known_model_routing": "inherit",
+    "started_at": "2026-11-27T20:13:47.485862+00:00",
+    "completed_at": "2026-11-27T20:13:47.485862+00:00",
+    "output_artifact_hashes": {},
+    "task_definition_digest": "75b86f95f715f25f4b77b24d14402a45a85a721c2af07965026480a22a80e16f",
+    "host_invocation_evidence": {
+      "host_dispatch_verified": true,
+      "host_runtime": "antigravity",
+      "subagent_type": "xdx-preproduction-verifier",
+      "subagent_role": "Independent Preproduction Verifier (4 Benchmarks)",
+      "task_id": "TASK-15-VERIFY",
+      "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+      "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+    },
+    "receipt_sha256": "c14d059ac8efc568cf8317198bd4d654bdda9187f2fe2577a1101aaa65947925",
+    "invocation_id": "RCPT-803ff0d17c05",
+    "agent_id": "preproduction_verifier"
+  },
+  "reviewed_artifact_hashes": {
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/research.md": "5714df3c927e0a301dcf8a8e0062947862f4786404a664977d2656f4583ddf88",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/research_report.json": "a7097d375619862d92661d7140cb10c323efcc79c9e951ae6cba4afc1f7aa761",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/reference_analysis.md": "c219adfbf9d9c053ab55d8b6b8f6f0b4d4c00e7f2d8469b783b6c8087ecf773a",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/blueprint.md": "38be1740d9c71a79d85ee794e84b0195ee457a84384dc3a7e0f6cb1c9f3f3186",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/creative_concept.json": "59648dac5dcd87ec18b952e3dab81fe36693466cb5c3368ed82b08a689d890b3",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/script.md": "3af7d187c0b0e1db87916e81b2ade3ce576e1fe21ecfa633a66f4624e2ba5129",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/authored_creative_payload.json": "72dc6da745dce202e21b259894f056e7fe884452dfd5b24967118ae2f5dc2724",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/character_bible.md": "3a66d36c06cfc0b478a76139339d82804912dee58d875b022bc1bdb54c9d6bfe",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/character_bible.json": "288b1cbe5e3bff8aa9a3e12e97c6f2086ca18be8d75080ffb5acb4e8000bc0cc",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/style_bible.json": "1837bd470c6bb95bebebbd738c9cf53bc831056b51e10c64aa3386445845a276",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/storyboard.json": "0e12b492cd1b18b564471449914ad334bab15a0b2d71c4b49747c3c1805095df",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/semantic_visual_plan.json": "acc049fa36a76d14c29c95aaba2d2d0d8714b74eeb6ff95691543b124ec4f4c1",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/reference_adaptation.json": "74c1193ddd3d4b2689d755acceaf4a591ec953d0875619f076225a486f069cfc",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/motion_plan.json": "816116af1dba9408239d9fa1b4c83ef758cb34368be41983610bac8a5daa36c7",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/camera_plan.json": "627ff33f95f498fb625733098cdf2fbdf094987e782a5f0b2a5abfea8008d98f",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/asset_manifest.json": "ddb3a8353f7298e9257968c7f6422b56be64526073062943164e78d862f5eb69",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/narration_dialogue.json": "6b8443852792de6419dc38c60d327c1d23d5e59f9f33a4b237e1cd87bd612760",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/caption_audio_plan.json": "46f8ce896c23a544c6df2f9840454e35e00de48af536b5b535ffadecf5bfef95",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/engine_plan.json": "e04ff6b2fe5c20c04f48731d083cd0976c4cbc2a3f4d2c86422815f7c4d97b1e",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/execution_plan.md": "2a6d7eabe5f1577af839103805c101af69cb4380c35bd69187976ba4df50451e"
+  },
+  "required_criteria_ids": [
+    "CRIT_01_TOPIC_RELEVANCE",
+    "CRIT_02_FACTUAL_ACCURACY",
+    "CRIT_03_ORIGINALITY",
+    "CRIT_04_HOOK_STRENGTH",
+    "CRIT_05_NARRATIVE_COHERENCE",
+    "CRIT_06_NARRATION_TIMING",
+    "CRIT_07_SEMANTIC_VISUAL_COVERAGE",
+    "CRIT_08_CHARACTER_CONSISTENCY",
+    "CRIT_09_STYLE_CONSISTENCY",
+    "CRIT_10_ASSET_FEASIBILITY",
+    "CRIT_11_MOTION_FEASIBILITY",
+    "CRIT_12_CAMERA_SUITABILITY",
+    "CRIT_13_REFERENCE_ADAPTATION",
+    "CRIT_14_ENGINE_COMPATIBILITY",
+    "CRIT_15_PACKAGE_COMPLETENESS"
+  ],
+  "checked_criteria": [
+    {
+      "criterion_id": "CRIT_01_TOPIC_RELEVANCE",
+      "status": "PASS",
+      "evidence": "Topic 'Misteri Kaus Kaki Sebelah yang Selalu Hilang Saat Dicuci' verified across premise, claims, and narration (title_overlap=3, domain_overlap=23).",
+      "inspected_artifacts": [
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/authored_creative_payload.json",
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/script.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_02_FACTUAL_ACCURACY",
+      "status": "PASS",
+      "evidence": "Verified 2 factual claim(s), 2 https:// source(s), misconceptions, uncertainties, and narration mapping.",
+      "inspected_artifacts": [
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/research_report.json",
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/research.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_03_ORIGINALITY",
+      "status": "PASS",
+      "evidence": "Zero placeholder patterns, zero recorder watermarks, and zero leaked reference subject tokens in 4159B script.",
+      "inspected_artifacts": [
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/script.md",
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/character_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_04_HOOK_STRENGTH",
+      "status": "PASS",
+      "evidence": "Concrete 0-3s visual hook (165 chars) and spoken hook (17 words) verified.",
+      "inspected_artifacts": [
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/blueprint.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_05_NARRATIVE_COHERENCE",
+      "status": "PASS",
+      "evidence": "Verified 3-act dramatic structure (['ACT_1', 'ACT_2', 'ACT_3']) and explicit payoff/callback.",
+      "inspected_artifacts": [
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/blueprint.md",
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/storyboard.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_06_NARRATION_TIMING",
+      "status": "PASS",
+      "evidence": "Narration timing marked ESTIMATED at 142.7 WPM (~49.963s) with speed_multiplier=1.0.",
+      "inspected_artifacts": [
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/narration_dialogue.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_07_SEMANTIC_VISUAL_COVERAGE",
+      "status": "PASS",
+      "evidence": "100% clause coverage (9/9 clauses) across 12 integer-frame shots (max=5.2333s <= 10.0s, purposes=['character_acting', 'establishing_shot', 'object_insert', 'reaction_shot', 'technical_cutaway', 'visual_metaphor']).",
+      "inspected_artifacts": [
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/semantic_visual_plan.json",
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/storyboard.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_08_CHARACTER_CONSISTENCY",
+      "status": "PASS",
+      "evidence": "Verified 2 character(s) with all 11 mandatory attributes and cross-shot continuity locks.",
+      "inspected_artifacts": [
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/character_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_09_STYLE_CONSISTENCY",
+      "status": "PASS",
+      "evidence": "Style profile 'flat_cartoon' (xdx_flat_cartoon_v4_0) locks uniform detail tier 'clean_silhouette_graphic_shapes' with modeling_executed=False.",
+      "inspected_artifacts": [
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/style_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_10_ASSET_FEASIBILITY",
+      "status": "PASS",
+      "evidence": "Verified 19 storyboard-derived 12-field semantic asset specs (zero premature READY claims, zero PLACEHOLDER boxes).",
+      "inspected_artifacts": [
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/asset_manifest.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_11_MOTION_FEASIBILITY",
+      "status": "PASS",
+      "evidence": "Verified 12 shot-bound 14-field character/mechanism actions with IK/contact targets.",
+      "inspected_artifacts": [
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/motion_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_12_CAMERA_SUITABILITY",
+      "status": "PASS",
+      "evidence": "Verified purpose-driven camera lenses [24.0, 35.0, 40.0, 50.0, 75.0, 85.0]mm across 12 shots (not locked to 36mm).",
+      "inspected_artifacts": [
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/camera_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_13_REFERENCE_ADAPTATION",
+      "status": "PASS",
+      "evidence": "Verified 10-dimension fusion (refs=[], conflicts_resolved=0) and 0 shot-bound 14-field adaptation records.",
+      "inspected_artifacts": [
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/reference_adaptation.json",
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/reference_analysis.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_14_ENGINE_COMPATIBILITY",
+      "status": "PASS",
+      "evidence": "Engine routing (['threejs', 'remotion', 'rea_video', 'ffmpeg']) and ESTIMATED caption/audio plans validated with zero live render execution.",
+      "inspected_artifacts": [
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/engine_plan.json",
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/caption_audio_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_15_PACKAGE_COMPLETENESS",
+      "status": "PASS",
+      "evidence": "All 13 mandatory items and 11 file SHA-256 digests verified; status=='WAITING_APPROVAL'.",
+      "inspected_artifacts": [
+        "projects/bench_d_kaus_kaki_flat_cartoon_45s/approval_package_manifest.json"
+      ]
+    }
+  ],
+  "defects": [],
+  "reviewer_task_id": "TASK-15-VERIFY",
+  "additional_reviewed_task_ids": [
+    "TASK-01-RESEARCH",
+    "TASK-02-REFERENCE",
+    "TASK-03-CREATIVE",
+    "TASK-04-SCRIPT",
+    "TASK-05-CHARACTER",
+    "TASK-06-STYLE",
+    "TASK-08-REF-ADAPT",
+    "TASK-09-MOTION",
+    "TASK-10-CAMERA",
+    "TASK-11-ASSET",
+    "TASK-12-AUDIO",
+    "TASK-13-CAPTION",
+    "TASK-14-ENGINE"
+  ],
+  "producer_conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+  "reviewer_conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+  "criteria_manifest_digest": "f186d750b1617d7adb41e5bf01aee540f58758714047cfb6e296737297f3f3c1",
+  "reviewed_artifact_manifest": {
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/research.md": {
+      "owner_task_id": "TASK-01-RESEARCH",
+      "owner_agent": "topic_research_agent",
+      "sha256": "5714df3c927e0a301dcf8a8e0062947862f4786404a664977d2656f4583ddf88",
+      "size_bytes": 2902
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/research_report.json": {
+      "owner_task_id": "TASK-01-RESEARCH",
+      "owner_agent": "topic_research_agent",
+      "sha256": "a7097d375619862d92661d7140cb10c323efcc79c9e951ae6cba4afc1f7aa761",
+      "size_bytes": 6620
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/reference_analysis.md": {
+      "owner_task_id": "TASK-02-REFERENCE",
+      "owner_agent": "rea_video_reference_analyst",
+      "sha256": "c219adfbf9d9c053ab55d8b6b8f6f0b4d4c00e7f2d8469b783b6c8087ecf773a",
+      "size_bytes": 310
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/blueprint.md": {
+      "owner_task_id": "TASK-03-CREATIVE",
+      "owner_agent": "creative_director",
+      "sha256": "38be1740d9c71a79d85ee794e84b0195ee457a84384dc3a7e0f6cb1c9f3f3186",
+      "size_bytes": 2297
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/creative_concept.json": {
+      "owner_task_id": "TASK-03-CREATIVE",
+      "owner_agent": "creative_director",
+      "sha256": "59648dac5dcd87ec18b952e3dab81fe36693466cb5c3368ed82b08a689d890b3",
+      "size_bytes": 2229
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/script.md": {
+      "owner_task_id": "TASK-04-SCRIPT",
+      "owner_agent": "scriptwriter_agent",
+      "sha256": "3af7d187c0b0e1db87916e81b2ade3ce576e1fe21ecfa633a66f4624e2ba5129",
+      "size_bytes": 4201
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/authored_creative_payload.json": {
+      "owner_task_id": "TASK-04-SCRIPT",
+      "owner_agent": "scriptwriter_agent",
+      "sha256": "72dc6da745dce202e21b259894f056e7fe884452dfd5b24967118ae2f5dc2724",
+      "size_bytes": 19939
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/character_bible.md": {
+      "owner_task_id": "TASK-05-CHARACTER",
+      "owner_agent": "character_design_agent",
+      "sha256": "3a66d36c06cfc0b478a76139339d82804912dee58d875b022bc1bdb54c9d6bfe",
+      "size_bytes": 2088
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/character_bible.json": {
+      "owner_task_id": "TASK-05-CHARACTER",
+      "owner_agent": "character_design_agent",
+      "sha256": "288b1cbe5e3bff8aa9a3e12e97c6f2086ca18be8d75080ffb5acb4e8000bc0cc",
+      "size_bytes": 6050
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/style_bible.json": {
+      "owner_task_id": "TASK-06-STYLE",
+      "owner_agent": "art_director",
+      "sha256": "1837bd470c6bb95bebebbd738c9cf53bc831056b51e10c64aa3386445845a276",
+      "size_bytes": 1188
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/storyboard.json": {
+      "owner_task_id": "TASK-07-STORYBOARD",
+      "owner_agent": "storyboard_director",
+      "sha256": "0e12b492cd1b18b564471449914ad334bab15a0b2d71c4b49747c3c1805095df",
+      "size_bytes": 69860
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/semantic_visual_plan.json": {
+      "owner_task_id": "TASK-07-STORYBOARD",
+      "owner_agent": "storyboard_director",
+      "sha256": "acc049fa36a76d14c29c95aaba2d2d0d8714b74eeb6ff95691543b124ec4f4c1",
+      "size_bytes": 13715
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/reference_adaptation.json": {
+      "owner_task_id": "TASK-08-REF-ADAPT",
+      "owner_agent": "rea_video_reference_analyst",
+      "sha256": "74c1193ddd3d4b2689d755acceaf4a591ec953d0875619f076225a486f069cfc",
+      "size_bytes": 4917
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/motion_plan.json": {
+      "owner_task_id": "TASK-09-MOTION",
+      "owner_agent": "motion_director",
+      "sha256": "816116af1dba9408239d9fa1b4c83ef758cb34368be41983610bac8a5daa36c7",
+      "size_bytes": 50286
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/camera_plan.json": {
+      "owner_task_id": "TASK-10-CAMERA",
+      "owner_agent": "cinematographer",
+      "sha256": "627ff33f95f498fb625733098cdf2fbdf094987e782a5f0b2a5abfea8008d98f",
+      "size_bytes": 9278
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/asset_manifest.json": {
+      "owner_task_id": "TASK-11-ASSET",
+      "owner_agent": "asset_specialist",
+      "sha256": "ddb3a8353f7298e9257968c7f6422b56be64526073062943164e78d862f5eb69",
+      "size_bytes": 44469
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/narration_dialogue.json": {
+      "owner_task_id": "TASK-12-AUDIO",
+      "owner_agent": "audio_director",
+      "sha256": "6b8443852792de6419dc38c60d327c1d23d5e59f9f33a4b237e1cd87bd612760",
+      "size_bytes": 11805
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/caption_audio_plan.json": {
+      "owner_task_id": "TASK-13-CAPTION",
+      "owner_agent": "caption_specialist",
+      "sha256": "46f8ce896c23a544c6df2f9840454e35e00de48af536b5b535ffadecf5bfef95",
+      "size_bytes": 8849
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/engine_plan.json": {
+      "owner_task_id": "TASK-14-ENGINE",
+      "owner_agent": "remotion_specialist",
+      "sha256": "e04ff6b2fe5c20c04f48731d083cd0976c4cbc2a3f4d2c86422815f7c4d97b1e",
+      "size_bytes": 10736
+    },
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/execution_plan.md": {
+      "owner_task_id": "TASK-14-ENGINE",
+      "owner_agent": "remotion_specialist",
+      "sha256": "2a6d7eabe5f1577af839103805c101af69cb4380c35bd69187976ba4df50451e",
+      "size_bytes": 1567
+    }
+  },
+  "pre_review_hashes": {
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/research.md": "5714df3c927e0a301dcf8a8e0062947862f4786404a664977d2656f4583ddf88",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/research_report.json": "a7097d375619862d92661d7140cb10c323efcc79c9e951ae6cba4afc1f7aa761",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/reference_analysis.md": "c219adfbf9d9c053ab55d8b6b8f6f0b4d4c00e7f2d8469b783b6c8087ecf773a",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/blueprint.md": "38be1740d9c71a79d85ee794e84b0195ee457a84384dc3a7e0f6cb1c9f3f3186",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/creative_concept.json": "59648dac5dcd87ec18b952e3dab81fe36693466cb5c3368ed82b08a689d890b3",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/script.md": "3af7d187c0b0e1db87916e81b2ade3ce576e1fe21ecfa633a66f4624e2ba5129",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/authored_creative_payload.json": "72dc6da745dce202e21b259894f056e7fe884452dfd5b24967118ae2f5dc2724",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/character_bible.md": "3a66d36c06cfc0b478a76139339d82804912dee58d875b022bc1bdb54c9d6bfe",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/character_bible.json": "288b1cbe5e3bff8aa9a3e12e97c6f2086ca18be8d75080ffb5acb4e8000bc0cc",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/style_bible.json": "1837bd470c6bb95bebebbd738c9cf53bc831056b51e10c64aa3386445845a276",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/storyboard.json": "0e12b492cd1b18b564471449914ad334bab15a0b2d71c4b49747c3c1805095df",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/semantic_visual_plan.json": "acc049fa36a76d14c29c95aaba2d2d0d8714b74eeb6ff95691543b124ec4f4c1",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/reference_adaptation.json": "74c1193ddd3d4b2689d755acceaf4a591ec953d0875619f076225a486f069cfc",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/motion_plan.json": "816116af1dba9408239d9fa1b4c83ef758cb34368be41983610bac8a5daa36c7",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/camera_plan.json": "627ff33f95f498fb625733098cdf2fbdf094987e782a5f0b2a5abfea8008d98f",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/asset_manifest.json": "ddb3a8353f7298e9257968c7f6422b56be64526073062943164e78d862f5eb69",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/narration_dialogue.json": "6b8443852792de6419dc38c60d327c1d23d5e59f9f33a4b237e1cd87bd612760",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/caption_audio_plan.json": "46f8ce896c23a544c6df2f9840454e35e00de48af536b5b535ffadecf5bfef95",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/engine_plan.json": "e04ff6b2fe5c20c04f48731d083cd0976c4cbc2a3f4d2c86422815f7c4d97b1e",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/execution_plan.md": "2a6d7eabe5f1577af839103805c101af69cb4380c35bd69187976ba4df50451e"
+  },
+  "post_review_hashes": {
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/research.md": "5714df3c927e0a301dcf8a8e0062947862f4786404a664977d2656f4583ddf88",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/research_report.json": "a7097d375619862d92661d7140cb10c323efcc79c9e951ae6cba4afc1f7aa761",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/reference_analysis.md": "c219adfbf9d9c053ab55d8b6b8f6f0b4d4c00e7f2d8469b783b6c8087ecf773a",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/blueprint.md": "38be1740d9c71a79d85ee794e84b0195ee457a84384dc3a7e0f6cb1c9f3f3186",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/creative_concept.json": "59648dac5dcd87ec18b952e3dab81fe36693466cb5c3368ed82b08a689d890b3",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/script.md": "3af7d187c0b0e1db87916e81b2ade3ce576e1fe21ecfa633a66f4624e2ba5129",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/authored_creative_payload.json": "72dc6da745dce202e21b259894f056e7fe884452dfd5b24967118ae2f5dc2724",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/character_bible.md": "3a66d36c06cfc0b478a76139339d82804912dee58d875b022bc1bdb54c9d6bfe",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/character_bible.json": "288b1cbe5e3bff8aa9a3e12e97c6f2086ca18be8d75080ffb5acb4e8000bc0cc",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/style_bible.json": "1837bd470c6bb95bebebbd738c9cf53bc831056b51e10c64aa3386445845a276",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/storyboard.json": "0e12b492cd1b18b564471449914ad334bab15a0b2d71c4b49747c3c1805095df",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/semantic_visual_plan.json": "acc049fa36a76d14c29c95aaba2d2d0d8714b74eeb6ff95691543b124ec4f4c1",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/reference_adaptation.json": "74c1193ddd3d4b2689d755acceaf4a591ec953d0875619f076225a486f069cfc",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/motion_plan.json": "816116af1dba9408239d9fa1b4c83ef758cb34368be41983610bac8a5daa36c7",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/camera_plan.json": "627ff33f95f498fb625733098cdf2fbdf094987e782a5f0b2a5abfea8008d98f",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/asset_manifest.json": "ddb3a8353f7298e9257968c7f6422b56be64526073062943164e78d862f5eb69",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/narration_dialogue.json": "6b8443852792de6419dc38c60d327c1d23d5e59f9f33a4b237e1cd87bd612760",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/caption_audio_plan.json": "46f8ce896c23a544c6df2f9840454e35e00de48af536b5b535ffadecf5bfef95",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/engine_plan.json": "e04ff6b2fe5c20c04f48731d083cd0976c4cbc2a3f4d2c86422815f7c4d97b1e",
+    "projects/bench_d_kaus_kaki_flat_cartoon_45s/execution_plan.md": "2a6d7eabe5f1577af839103805c101af69cb4380c35bd69187976ba4df50451e"
+  }
+}

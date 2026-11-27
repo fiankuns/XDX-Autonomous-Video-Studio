@@ -1,0 +1,22 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /opt/pyenv/versions/3.12.16/bin/python3.12
+cachedir: .pytest_cache
+rootdir: /home/antigravity/fiankuns/XDX-Autonomous-Video-Studio
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0
+collecting ... collected 101 items / 90 deselected / 11 selected
+
+tests/test_phase01_6b_persistent_intelligence.py::test_02_symlink_escape_rejection PASSED [  9%]
+tests/test_phase01_6b_persistent_intelligence.py::test_05_cross_process_fcntl_ownership_lock_and_stale_lock_recovery PASSED [ 18%]
+tests/test_phase01_6b_persistent_intelligence.py::test_13_dag_topological_parallel_execution_and_concurrency_cap PASSED [ 27%]
+tests/test_phase01_6b_persistent_intelligence.py::test_21_six_partition_sqlite_wal_crud_project_isolation_and_secret_leak_blocker PASSED [ 36%]
+tests/test_phase01_6b_persistent_intelligence.py::test_23_concurrent_multiprocess_sqlite_wal_writes_zero_corruption PASSED [ 45%]
+tests/test_phase01_6b_persistent_intelligence.py::test_24_five_tier_persistence_probe_cross_process_durability_and_honest_vm_limit PASSED [ 54%]
+tests/test_phase01_6b_persistent_intelligence.py::test_25_checkpoint_12_fields_seal_corruption_rejection_and_zero_duplicate_resume PASSED [ 63%]
+tests/test_phase01_6b_persistent_intelligence.py::test_27_revision_manager_archives_prior_versions_invalidates_downstream_and_revokes_approval PASSED [ 72%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_05_missing_json_schema_target_rejected_and_all_6_acceptance_handlers_verified PASSED [ 81%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_15_reference_analyzer_fingerprint_change_and_8part_cache_invalidation PASSED [ 90%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_22_preproduction_workflow_revision_cycle_and_6_partition_memory_invalidation PASSED [100%]
+
+====================== 11 passed, 90 deselected in 22.27s ======================

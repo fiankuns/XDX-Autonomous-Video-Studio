@@ -1,0 +1,314 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "registry_id": "xdx_master_audit_defect_registry",
+  "updated_at_utc": "2026-11-27T15:50:00+00:00",
+  "append_only_policy": "Append-only ledger of all internal and external audit defects from Phase 01 onward. Historical entries must never be deleted, and VERIFIED requires an executed regression test.",
+  "defects": [
+    {
+      "defect_id": "DEF-P01-001",
+      "source_phase": "Phase 01",
+      "severity": "CRITICAL",
+      "affected_module": "intelligence/state_and_approval.py",
+      "reproduction_steps": [
+        "Submit ambiguous chat text such as 'ok', 'lanjutkan', or negated sentence 'Saya tidak setuju paket v1' to approval parser."
+      ],
+      "observed_result": "Substring-based early prototypes risked treating casual confirmation or negated sentences as production approval.",
+      "expected_result": "Only structured XDX-APPROVE commands bound to project_id, package_version, SHA-256 digest, scopes, TTL, and human_user pass validation.",
+      "root_cause": "Lack of strict lexical negation/conditional/meta-example rejection and SHA-256 digest binding in initial prototype.",
+      "correction_plan": "Implemented structured XDX-APPROVE parser with negation/conditional/meta regex rejection, SHA-256 binding, TTL, and live tamper invalidation.",
+      "target_phase": "Phase 01.5",
+      "regression_test": "tests/test_phase01_5_security_and_state.py::test_critical_audit_regression_negative_conditional_quoted_and_ambiguous_approvals",
+      "evidence": "Verified in Phase 01.5 and Phase 01.6C regression suites (negation, conditional, meta-example, and digest tamper all raise ApprovalAuthorizationError).",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P01-002",
+      "source_phase": "Phase 01",
+      "severity": "HIGH",
+      "affected_module": "intelligence/asset_management.py, intelligence/procedural_geometry.py",
+      "reproduction_steps": [
+        "Generate a 12-triangle untextured PLACEHOLDER box or supply an archive containing ../ Zip-Slip traversal or loopback SSRF URL."
+      ],
+      "observed_result": "Simple placeholder geometry or unvalidated archive/network inputs could contaminate production assets.",
+      "expected_result": "Multi-component procedural geometry (>12 triangles, named sub-parts), SSRF IP/DNS blocking, Zip-Slip/Zip-Bomb blocking, and hard QC failure on PLACEHOLDER boxes.",
+      "root_cause": "Initial asset placeholder stub lacked semantic multi-part geometry validation and archive/network guards.",
+      "correction_plan": "Implemented 12-category multi-component procedural geometry, SSRF/Zip-Slip/Zip-Bomb guards, AttributionLedger, and hard PLACEHOLDER blocker.",
+      "target_phase": "Phase 01.5",
+      "regression_test": "tests/test_asset_management.py::test_9_step_asset_procurement_procedural_and_external_and_retargeting",
+      "evidence": "Verified across 12 procedural categories and security archive tests in test_asset_management.py and test_phase01_5_assets_compiler_and_presets.py.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P01-003",
+      "source_phase": "Phase 01",
+      "severity": "HIGH",
+      "affected_module": "engines/blender_xdx_engine.py, adapters/xdx_mcp_adapter.py",
+      "reproduction_steps": [
+        "Compile bpy script targeting Android Vivo X200 Pro or invoke unclassified/mutating MCP tool without authorization."
+      ],
+      "observed_result": "Hardcoded /tmp paths fail on Android sandboxes and unclassified MCP tools must never pass default-allow.",
+      "expected_result": "Generated bpy scripts use bpy.app.tempdir exclusively and XDXBlenderMCPAdapter rejects unclassified/unapproved mutating calls fail-closed.",
+      "root_cause": "Desktop Linux /tmp assumptions and need for strict 8-tool MCP allowlist classification.",
+      "correction_plan": "Enforced AST + zero-/tmp validation in BlenderXDXEngine and default-deny KNOWN_CLASSIFIED_TOOLS guard in XDXBlenderMCPAdapter.",
+      "target_phase": "Phase 01.5",
+      "regression_test": "tests/test_phase01_5_security_and_state.py::test_mcp_tool_allowlist_unknown_tool_rejection_and_live_tamper_blocking",
+      "evidence": "Verified AST compilation, zero /tmp paths, and fail-closed MCP tool rejection in test_phase01_5_security_and_state.py.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P015-004",
+      "source_phase": "Phase 01.5",
+      "severity": "HIGH",
+      "affected_module": "intelligence/reference_database_bridge.py, reference_database/scripts/reference_db.py",
+      "reproduction_steps": [
+        "Attempt to load unhydrated 133-byte Git LFS pointer as MP4 or overwrite prior_analysis.* during REA v3.4 upgrade."
+      ],
+      "observed_result": "Unhydrated LFS pointers fail media decoding and overwriting prior_analysis.* destroys historical curation context.",
+      "expected_result": "Byte-size and SHA-256 verification detect LFS pointers fail-closed (ReferenceMediaIntegrityError) while preserving prior_analysis.* append-only.",
+      "root_cause": "Git LFS clones without git-lfs pull materialize pointer text files instead of MP4 media.",
+      "correction_plan": "Added LFS pointer header detection, exact byte/SHA-256 checks, and append-only side-by-side rea_analysis_v3_4.* coexistence.",
+      "target_phase": "Phase 01.5 / v3.4",
+      "regression_test": "tests/test_reference_database_integration.py::test_fail_closed_on_lfs_pointer_or_missing_media",
+      "evidence": "Both REF-001 (27,026,130B) and REF-002 (38,669,358B) SHA-256 verified alongside preserved prior_analysis.*.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016A-005",
+      "source_phase": "Phase 01.6A",
+      "severity": "CRITICAL",
+      "affected_module": "orchestration/handoff_manager.py",
+      "reproduction_steps": [
+        "Assign 'projects/p1/script.md' and './projects/p1/../p1/script.md' (or a symlink escaping workspace) to concurrent tasks."
+      ],
+      "observed_result": "Lexical string comparison failed to detect canonical collisions or symlink escapes and lacked OS-level cross-process locks.",
+      "expected_result": "Canonical realpath + prefix-walk symlink boundary enforcement and OS-level fcntl.flock single-writer locking.",
+      "root_cause": "Phase 01.6A compared raw relative path strings in memory without os.path.realpath or fcntl locks.",
+      "correction_plan": "Implemented canonicalize_artifact_path symlink walk, project output boundary check, and ArtifactOwnershipLockManager with fcntl.flock.",
+      "target_phase": "Phase 01.6B",
+      "regression_test": "tests/test_phase01_6b_persistent_intelligence.py::test_01_canonical_path_collision_rejection",
+      "evidence": "Verified in tests 01-05 of test_phase01_6b_persistent_intelligence.py including multi-process flock contention.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016A-006",
+      "source_phase": "Phase 01.6A",
+      "severity": "HIGH",
+      "affected_module": "orchestration/capability_discovery.py",
+      "reproduction_steps": [
+        "Run capability discovery from Python without live host subagent invocation evidence."
+      ],
+      "observed_result": "Host LLM tools (invoke_subagent, etc.) were listed from static Python constants as detected capabilities.",
+      "expected_result": "7-status evidence model where host LLM tools are DOCUMENTED_CAPABILITY (on matching host) or UNKNOWN unless backed by fresh CapabilityEvidence.",
+      "root_cause": "Python processes cannot directly introspect internal host LLM tool registries.",
+      "correction_plan": "Implemented 7-status RuntimeCapabilityDiscovery with TTL-bound CapabilityEvidence validation.",
+      "target_phase": "Phase 01.6B",
+      "regression_test": "tests/test_phase01_6b_persistent_intelligence.py::test_10_capability_discovery_7_statuses_no_hardcoded_detected_host_tools",
+      "evidence": "Verified in test_10 and test_11 of test_phase01_6b_persistent_intelligence.py.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016A-007",
+      "source_phase": "Phase 01.6A",
+      "severity": "HIGH",
+      "affected_module": "orchestration/handoff_manager.py",
+      "reproduction_steps": [
+        "Submit review report with fresh_context_confirmed=True boolean but no runtime invocation_receipt or with same conversation_id as producer."
+      ],
+      "observed_result": "Self-asserted boolean flag was insufficient to prove isolated reviewer execution.",
+      "expected_result": "Mandatory invocation_receipt with distinct conversation_id (for native_subagent) and pre/post SHA-256 artifact equality.",
+      "root_cause": "Reliance on unverified boolean field in early review report contract.",
+      "correction_plan": "Hardened review_report.schema.json and verify_independent_review_pass with receipt and conversation isolation checks.",
+      "target_phase": "Phase 01.6B",
+      "regression_test": "tests/test_phase01_6b_persistent_intelligence.py::test_09_verifier_invocation_receipt_and_same_conversation_context_rejection",
+      "evidence": "Verified in tests 06-09 of test_phase01_6b_persistent_intelligence.py.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016B-008",
+      "source_phase": "Phase 01.6B",
+      "severity": "CRITICAL",
+      "affected_module": "orchestration/dependency_scheduler.py, orchestration/checkpoint_manager.py",
+      "reproduction_steps": [
+        "Pass a task handoff with initial status='COMPLETED' (or an unsealed/cross-project/mismatched-graph resume_state) into TaskDependencyScheduler.execute_dag()."
+      ],
+      "observed_result": "Scheduler seeded completed set directly from handoff['status'] == 'COMPLETED', returning overall_status='SUCCEEDED' with zero worker calls and zero output files.",
+      "expected_result": "Reject non-PENDING/READY initial statuses (InitialCompletedStatusRejectedError) and restore COMPLETED exclusively from a SHA-256-sealed checkpoint bound to project_id, task_graph_digest, task_definition_digest, invocation receipt, and live disk output hashes.",
+      "root_cause": "execute_dag trusted caller-supplied initial task['status'] and did not cryptographically bind resume_state to a sealed source checkpoint and task graph fingerprint.",
+      "correction_plan": "Enforced ALLOWED_INITIAL_TASK_STATUSES={'PENDING','READY'}, added task_identity.py digests, and implemented _validate_and_bind_resume_state() in TaskDependencyScheduler and CheckpointManager.",
+      "target_phase": "Phase 01.6C",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_01_initial_completed_status_rejected_without_worker_execution",
+      "evidence": "Verified in Phase 01.6C tests 01-04 (initial COMPLETED, unverified checkpoint, cross-project checkpoint, and task graph mismatch all rejected fail-closed).",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016B-009",
+      "source_phase": "Phase 01.6B",
+      "severity": "CRITICAL",
+      "affected_module": "orchestration/acceptance_criteria.py, orchestration/dependency_scheduler.py",
+      "reproduction_steps": [
+        "Define done_when with json_schema_valid (without schema target), sha256_verified, pytest_pass, no_unapproved_mutation, or an unsupported check_type, or return unrelated 5-char filler evidence / mismatched receipt output hashes."
+      ],
+      "observed_result": "Phase 01.6B scheduler only checked file_exists_nonempty, silently ignored other check_types, accepted any >=5-char string as evidence, and did not compare receipt.output_artifact_hashes or worker identity against disk/handoff.",
+      "expected_result": "Deterministic handler registry for all 6 check_types, BLOCKED status on unsupported check_type, rejection of missing schema target, rejection of unrelated evidence, and strict worker identity + receipt output SHA-256 verification.",
+      "root_cause": "Incomplete done_when loop in dependency_scheduler.py and count/length-only evidence check.",
+      "correction_plan": "Created AcceptanceCriteriaEngine with 6 handlers, UnsupportedAcceptanceCheckError -> BLOCKED routing, anchor-bound evidence verification, and receipt identity/hash validation.",
+      "target_phase": "Phase 01.6C",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_06_unsupported_acceptance_check_transitions_task_to_blocked",
+      "evidence": "Verified in Phase 01.6C tests 05-09 covering all 6 check_types, missing schema target, unsupported check -> BLOCKED, unrelated evidence, and receipt identity/hash mismatches.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016B-010",
+      "source_phase": "Phase 01.6B",
+      "severity": "HIGH",
+      "affected_module": "orchestration/handoff_manager.py, orchestration/native_execution_adapter.py",
+      "reproduction_steps": [
+        "Invoke independent reviewer without a pre-sealed Master Director criteria manifest and allow reviewer report to omit or rename mandatory criteria or omit failed criteria from defects."
+      ],
+      "observed_result": "TaskDependencyScheduler called verify_independent_review_pass without passing authoritative required_criteria_ids, letting reviewer reports define their own criteria list.",
+      "expected_result": "Master Director seals ImmutableReviewCriteriaManifest (SHA-256) prior to review; reviewer cannot drop/rename criteria, all 11 review bindings are verified, and every failed criterion must report a defect.",
+      "root_cause": "Missing immutable pre-review criteria manifest contract between Master Director and Independent Verifier.",
+      "correction_plan": "Implemented ImmutableReviewCriteriaManifest, ReviewerCriteriaManipulationError, 11-way review report schema & runtime binding, and mandatory defect count check.",
+      "target_phase": "Phase 01.6C",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_10_reviewer_criteria_manipulation_and_missing_defect_rejected",
+      "evidence": "Verified in Phase 01.6C test_10 and across all 4 end-to-end 15-criterion benchmark reviews.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016B-011",
+      "source_phase": "Phase 01.6B",
+      "severity": "HIGH",
+      "affected_module": "orchestration/checkpoint_manager.py",
+      "reproduction_steps": [
+        "Truncate or corrupt latest_checkpoint.json after checkpoint_0001.json..checkpoint_0002.json were saved, then call CheckpointManager.resume()."
+      ],
+      "observed_result": "resume() failed immediately on corrupted latest_checkpoint.json without falling back to checkpoint_0002.json and lacked explicit lineage/provenance.",
+      "expected_result": "Automatic fallback to newest previous SHA-256-verified checkpoint, healing latest_checkpoint.json, recording lineage & artifact provenance, and supporting secret-scanned portable bundles.",
+      "root_cause": "load_verified_checkpoint only read latest_checkpoint.json without walking versioned checkpoint history.",
+      "correction_plan": "Implemented load_latest_or_fallback_checkpoint(), checkpoint_lineage, durable_artifact_provenance, and export/import_portable_bundle().",
+      "target_phase": "Phase 01.6C",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_11_corrupted_latest_checkpoint_automatic_fallback_and_portable_bundle",
+      "evidence": "Verified automatic fallback from corrupted latest_checkpoint.json to previous valid checkpoint and secret-scanned bundle roundtrip.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016B-012",
+      "source_phase": "Phase 01.6B",
+      "severity": "MEDIUM",
+      "affected_module": "orchestration/capability_discovery.py, tests/test_phase01_6a_multi_agent_foundation.py, tests/test_phase01_6b_persistent_intelligence.py",
+      "reproduction_steps": [
+        "Run pytest in a non-Antigravity container (where /opt/antigravity and ~/.gemini/jetski do not exist)."
+      ],
+      "observed_result": "Two capability tests failed because they asserted DOCUMENTED_CAPABILITY unconditionally even when host markers were absent and RuntimeCapabilityDiscovery returned UNKNOWN.",
+      "expected_result": "UNKNOWN is recognized as the valid status on non-Antigravity hosts without live evidence; DOCUMENTED_CAPABILITY is used only when host-relevant documentation applies; runtime, documentation, and live evidence are separated.",
+      "root_cause": "Hardcoded Antigravity-host expectation in two test assertions and combined status representation.",
+      "correction_plan": "Separated runtime_capability_status, documentation_status, and live_invocation_evidence in RuntimeCapabilityDiscovery and updated both tests plus non-Antigravity monkeypatch regression test.",
+      "target_phase": "Phase 01.6C",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_12_runtime_capability_portability_unknown_outside_antigravity",
+      "evidence": "Verified both under Antigravity markers and under monkeypatched non-Antigravity standalone environment.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016B-013",
+      "source_phase": "Phase 01.6B",
+      "severity": "MEDIUM",
+      "affected_module": "tests/test_mcp_discovery_readonly.py, tests/test_structure_schemas_and_runtimes.py, tests/test_approval_state_rea_and_qc.py",
+      "reproduction_steps": [
+        "Run pytest from an audit archive in an external container without /home/antigravity/fiankuns/xdx-blender-studio, node_modules, chromium, or synthetic.mp4."
+      ],
+      "observed_result": "Four tests failed due to hardcoded /home/antigravity path, unconditional Node/Chromium binary assertions, and missing synthetic.mp4 regeneration.",
+      "expected_result": "Portable sibling/env path resolution, conditional optional binary self-tests, and deterministic synthetic.mp4 fixture + generator.",
+      "root_cause": "Devbox-specific paths and archive *.mp4 exclusion stripping tests/fixtures/synthetic.mp4.",
+      "correction_plan": "Added ensure_deterministic_synthetic_mp4(), portable XDX_BLENDER_STUDIO_REPO resolution, conditional Node/Chromium probing, and included synthetic.mp4 in audit bundle.",
+      "target_phase": "Phase 01.6C",
+      "regression_test": "tests/test_approval_state_rea_and_qc.py::test_rea_video_reference_analysis_and_visual_qc_on_synthetic_mp4",
+      "evidence": "Verified synthetic.mp4 regeneration into clean tmp_path and 77/77 baseline pass.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016B-014",
+      "source_phase": "Phase 01.6B",
+      "severity": "CRITICAL",
+      "affected_module": "orchestration/shared_state.py, orchestration/dependency_scheduler.py",
+      "reproduction_steps": [
+        "Call SharedProjectStateMachine.transition('APPROVED', actor='trusted_human_approval_gate', verified_human_approval={'approved_digest': 'invalid', 'trusted_channel_verified': False}) or pass allow_phase02_roles=True."
+      ],
+      "observed_result": "SharedProjectStateMachine accepted arbitrary approved_digest strings, trusted_channel_verified=False, and actor labels; TaskDependencyScheduler accepted allow_phase02_roles=True.",
+      "expected_result": "Prior to Phase 01.6D, block all transitions to APPROVED and POST_APPROVAL_PRODUCTION_STATES, reject actor labels and agent-crafted approval dicts, and reject boolean production configuration flags.",
+      "root_cause": "Placeholder Phase 01.6B approval dictionary check lacked cryptographic channel verification.",
+      "correction_plan": "Enforced ProductionApprovalFrozenError in SharedProjectStateMachine and rejected allow_phase02_roles=True / allow_production_approval=True.",
+      "target_phase": "Phase 01.6C",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_13_untrusted_approval_and_boolean_production_bypass_rejected",
+      "evidence": "Verified all untrusted approval dicts, actor labels, invalid digests, trusted_channel_verified=False, and boolean flags raise ProductionApprovalFrozenError / PhaseBoundaryExecutionBlockedError.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016B-015",
+      "source_phase": "Phase 01.6B",
+      "severity": "HIGH",
+      "affected_module": "orchestration/shared_state.py, governance/permission_policy.py, .agents/hooks.json",
+      "reproduction_steps": [
+        "Attempt end-to-end human-signed production unlock and lifecycle hook ExecutionGuard enforcement."
+      ],
+      "observed_result": "Production approval is intentionally frozen in Phase 01.6C pending full Trusted Human Approval channel & lifecycle ExecutionGuard hooks.",
+      "expected_result": "Out-of-band human-authenticated approval token/channel bound to 13-item package SHA-256 + .agents/hooks.json runtime ExecutionGuard.",
+      "root_cause": "Scheduled architectural milestone boundary (Phase 01.6D).",
+      "correction_plan": "Implement Trusted Human Approval Verifier and .agents/hooks.json ExecutionGuard in Phase 01.6D without weakening Phase 01.6C freeze.",
+      "target_phase": "Phase 01.6D",
+      "regression_test": null,
+      "evidence": "Documented in docs/PHASE_01_6D_IMPLEMENTATION_PLAN.md; remains strictly frozen in Phase 01.6C.",
+      "current_status": "SCHEDULED"
+    },
+    {
+      "defect_id": "DEF-P016B-016",
+      "source_phase": "Phase 01.6B",
+      "severity": "CRITICAL",
+      "affected_module": "intelligence/creative_pipeline.py",
+      "reproduction_steps": [
+        "Request a new topic such as 'Bagaimana AC mendinginkan ruangan?' without authored_payload, or pass the time-perception showcase payload with topic_title overwritten."
+      ],
+      "observed_result": "PreProductionPackageBuilder fell back to authored_showcase_150s and renamed topic_title, while CreativePayloadValidator pooled title|premise|claims so title-swapped scripts passed.",
+      "expected_result": "Transition to CREATIVE_PAYLOAD_REQUIRED when authored_payload is absent, keep authored_showcase_150s strictly for explicit test fixtures, and reject any script whose body/claims lack independent lexical overlap with topic_title.",
+      "root_cause": "Phase 01.5 demo fallback remained wired into PreProductionPackageBuilder and validator used union instead of independent title intersection.",
+      "correction_plan": "Removed showcase fallback from PreProductionPackageBuilder, added CREATIVE_PAYLOAD_REQUIRED state transition, and enforced independent title_terms overlap in CreativePayloadValidator.",
+      "target_phase": "Phase 01.6C",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_14_universal_topic_relevance_and_unrelated_authored_fallback_rejected",
+      "evidence": "Verified CREATIVE_PAYLOAD_REQUIRED on missing payload and TopicRelevanceError when swapping AC/Ocean titles onto Time Perception or Social Satire fixtures.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016B-017",
+      "source_phase": "Phase 01.6B",
+      "severity": "HIGH",
+      "affected_module": "memory/persistence_probe.py, intelligence/reference_lifecycle.py",
+      "reproduction_steps": [
+        "Modify REA analyzer source or scene_threshold parameter and inspect reference analysis cache status."
+      ],
+      "observed_result": "persistence_probe.py used static string 'xdx-rea-video-multimodal-forensics-v3.4' as analyzer_fingerprint and SHA-256 of reference_registry.json as analyzer_config_hash.",
+      "expected_result": "8-part cache key hashing actual analyzer Python source files and actual analyzer execution config parameters, invalidating cache on change while preserving prior versions.",
+      "root_cause": "Placeholder metadata strings used during initial KnowledgeMemory seeding.",
+      "correction_plan": "Implemented compute_actual_analyzer_source_fingerprint(), compute_analyzer_config_hash(), and 8-part ReferenceAnalysisCacheKey with append-only invalidation/re-analysis.",
+      "target_phase": "Phase 01.6C",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_15_reference_analyzer_fingerprint_change_and_8part_cache_invalidation",
+      "evidence": "Verified cache hit on identical 8-part key and deterministic CACHE_MISS_INVALIDATED + version preservation when source fingerprint or config changes.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P016B-018",
+      "source_phase": "Phase 01.6B",
+      "severity": "MEDIUM",
+      "affected_module": "orchestration/native_execution_adapter.py, orchestration/preproduction_workflow.py",
+      "reproduction_steps": [
+        "Call record_host_subagent_completion with a hardcoded conversation_id string in standalone Python without host transcript or dispatcher proof."
+      ],
+      "observed_result": "Replay scripts emitted execution_mode='native_subagent' from hardcoded conversation_id constants without distinguishing recorded replay from live host invocation.",
+      "expected_result": "Explicitly separate 5 modes (native_subagent, recorded_workflow_replay, sequential_fallback_honest, mock_execution, dispatch_plan_only_not_invoked) and require host transcript/dispatch proof for strict native_subagent claims.",
+      "root_cause": "Missing recorded_workflow_replay mode and host transcript verifier.",
+      "correction_plan": "Added 5 execution modes, verify_host_transcript_contains_subagent(), and require_live_host_proof enforcement in NativeAgentExecutionAdapter.",
+      "target_phase": "Phase 01.6C",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_21_native_execution_5_modes_and_static_conversation_id_rejection",
+      "evidence": "Verified live Antigravity transcript proof for Phase 01.6C subagents, recorded_workflow_replay mode for offline audit replay, and rejection of bare static conversation_id under require_live_host_proof=True.",
+      "current_status": "VERIFIED"
+    }
+  ]
+}

@@ -1,0 +1,4469 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_c_laut_hilang_hybrid_180s",
+  "procurement_or_modeling_executed": false,
+  "style_bible": {
+    "schema_version": "4.0.0-phase01.6c",
+    "project_id": "bench_c_laut_hilang_hybrid_180s",
+    "style_profile": "stylized_3d",
+    "style_bible_id": "xdx_stylized_3d_v4_0",
+    "display_name": "Stylized 3D Narrative & Cutaway",
+    "supported_profiles_available": [
+      "2d_animation",
+      "anime_inspired",
+      "diorama",
+      "flat_cartoon",
+      "infographic",
+      "mixed_media",
+      "realistic",
+      "stylized_3d"
+    ],
+    "forced_from_ref001_or_ref002": false,
+    "reference_ids_consulted": [
+      "REF-001",
+      "REF-002"
+    ],
+    "shading_model": "pbr_stylized_soft_subsurface_acescg",
+    "color_space": "ACEScg_rec709_view",
+    "palette_mood": "balanced_warm_cool_cinematic",
+    "cross_asset_consistency_contract": {
+      "detail_tier": "medium_sculpted_beveled_forms",
+      "character_detail_tier": "medium_sculpted_beveled_forms",
+      "environment_detail_tier": "medium_sculpted_beveled_forms",
+      "prop_detail_tier": "medium_sculpted_beveled_forms",
+      "material_cohesion_rule": "Hand-crafted tactile PBR roughness with beveled silhouettes; uniform texel density across cast and props.",
+      "anti_placeholder_rule": "Zero untextured greybox cubes or mismatched shader models permitted."
+    },
+    "modeling_executed_in_phase_01_6c": false
+  },
+  "characters": [
+    {
+      "character_id": "char_alya_presenter",
+      "name": "Alya Pradipta",
+      "role": "hero",
+      "identity": {
+        "name": "Alya Pradipta",
+        "role": "hero",
+        "biography_disclaimer": "Karakter fiksi orisinal peneliti geosains yang dirancang khusus untuk memandu eksperimen pikiran ilmiah.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Proporsi stylized 3D 6,5 kepala dengan siluet jaket lapangan berkerah tegas, tas selempang instrumen geologi, dan gestur tangan ekspresif saat menunjuk diagram ruang.",
+      "proportions": "Proporsi stylized 3D 6,5 kepala dengan siluet jaket lapangan berkerah tegas, tas selempang instrumen geologi, dan gestur tangan ekspresif saat menunjuk diagram ruang.",
+      "facial_design": "Wajah oval hangat dengan mata cokelat besar ekspresif, alis artikulatif, dan kacamata bingkai tipis transparan.",
+      "clothing": "Jaket lapangan biru samudra digulung sesiku, kaus terakota hangat, celana kargo abu-abu tua, dan sepatu bot survei bertali.",
+      "wardrobe": "Jaket lapangan biru samudra digulung sesiku, kaus terakota hangat, celana kargo abu-abu tua, dan sepatu bot survei bertali.",
+      "materials": [
+        "cotton_twill_matte_stylized",
+        "brushed_metal_compass_clip",
+        "soft_subsurface_skin_stylized"
+      ],
+      "color_palette": [
+        "#1D4E89",
+        "#E07A5F",
+        "#3D405B",
+        "#F4F1DE"
+      ],
+      "palette": [
+        "#1D4E89",
+        "#E07A5F",
+        "#3D405B",
+        "#F4F1DE"
+      ],
+      "expressions": [
+        "curious_analytical",
+        "awestruck_scale",
+        "urgent_warning",
+        "warm_relief"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_biped_stylized_ik_fk_v4",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "brow_arch_lr",
+          "eyelid_blink_lr",
+          "jaw_viseme_blend",
+          "cheek_smile_asym"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_biped_stylized_ik_fk_v4",
+      "pose_requirements": [
+        "presenter_open_palm_explain",
+        "crouch_inspect_salt_crust",
+        "point_up_cloud_diagram"
+      ],
+      "action_requirements": [
+        "walk_along_continental_shelf_rim",
+        "activate_holo_globe_scale",
+        "react_to_heatwave_gust"
+      ],
+      "biography_disclaimer": "Karakter fiksi orisinal peneliti geosains yang dirancang khusus untuk memandu eksperimen pikiran ilmiah.",
+      "shot_appearances": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S009",
+        "S010",
+        "S015",
+        "S016",
+        "S021",
+        "S022",
+        "S027",
+        "S028",
+        "S029",
+        "S030",
+        "S033",
+        "S034",
+        "S039",
+        "S040",
+        "S045",
+        "S046",
+        "S052",
+        "S053",
+        "S054",
+        "S055",
+        "S056",
+        "S057"
+      ],
+      "continuity_lock": {
+        "palette_locked": [
+          "#1D4E89",
+          "#E07A5F",
+          "#3D405B",
+          "#F4F1DE"
+        ],
+        "proportions_locked": "Proporsi stylized 3D 6,5 kepala dengan siluet jaket lapangan berkerah tegas, tas selempang instrumen geologi, dan gestur tangan ekspresif saat menunjuk diagram ruang.",
+        "wardrobe_locked": "Jaket lapangan biru samudra digulung sesiku, kaus terakota hangat, celana kargo abu-abu tua, dan sepatu bot survei bertali.",
+        "style_profile_locked": "stylized_3d"
+      }
+    },
+    {
+      "character_id": "char_pak_teguh_nelayan",
+      "name": "Pak Teguh",
+      "role": "supporting",
+      "identity": {
+        "name": "Pak Teguh",
+        "role": "supporting",
+        "biography_disclaimer": "Karakter fiksi komedi situasional orisinal yang mewakili sudut pandang warga pesisir secara hangat dan hormat.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Proporsi stylized 3D 6 kepala dengan bahu lebar kokoh, topi caping nelayan pesisir, dan postur berdiri santai bertolak pinggang yang kontras dengan latar jurang samudra.",
+      "proportions": "Proporsi stylized 3D 6 kepala dengan bahu lebar kokoh, topi caping nelayan pesisir, dan postur berdiri santai bertolak pinggang yang kontras dengan latar jurang samudra.",
+      "facial_design": "Rahang persegi tenang, kumis tipis rapi, kelopak mata setengah sayu khas ekspresi deadpan yang tak mudah panik.",
+      "clothing": "Rompi pelampung jingga pudar di atas kemeja flanel kotak biru-putih, celana pendek kain kanvas, dan sepatu bot karet kuning.",
+      "wardrobe": "Rompi pelampung jingga pudar di atas kemeja flanel kotak biru-putih, celana pendek kain kanvas, dan sepatu bot karet kuning.",
+      "materials": [
+        "weathered_canvas_fabric",
+        "matte_rubber_boots",
+        "woven_bamboo_hat_stylized"
+      ],
+      "color_palette": [
+        "#E76F51",
+        "#264653",
+        "#E9C46A",
+        "#F1FAEE"
+      ],
+      "palette": [
+        "#E76F51",
+        "#264653",
+        "#E9C46A",
+        "#F1FAEE"
+      ],
+      "expressions": [
+        "deadpan_unimpressed",
+        "squint_down_abyss",
+        "pinch_nose_dry_humor",
+        "content_nod"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_biped_stylized_ik_fk_v4",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "deadpan_heavy_lid_lr",
+          "brow_single_raise",
+          "jaw_viseme_blend",
+          "mouth_flat_smirk"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_biped_stylized_ik_fk_v4",
+      "pose_requirements": [
+        "lean_on_wooden_oar",
+        "peer_over_cliff_edge",
+        "sit_relaxed_in_boat"
+      ],
+      "action_requirements": [
+        "tap_dry_seabed_with_oar",
+        "hold_anchor_rope_over_canyon",
+        "wave_hand_against_sulfur_haze"
+      ],
+      "biography_disclaimer": "Karakter fiksi komedi situasional orisinal yang mewakili sudut pandang warga pesisir secara hangat dan hormat.",
+      "shot_appearances": [],
+      "continuity_lock": {
+        "palette_locked": [
+          "#E76F51",
+          "#264653",
+          "#E9C46A",
+          "#F1FAEE"
+        ],
+        "proportions_locked": "Proporsi stylized 3D 6 kepala dengan bahu lebar kokoh, topi caping nelayan pesisir, dan postur berdiri santai bertolak pinggang yang kontras dengan latar jurang samudra.",
+        "wardrobe_locked": "Rompi pelampung jingga pudar di atas kemeja flanel kotak biru-putih, celana pendek kain kanvas, dan sepatu bot karet kuning.",
+        "style_profile_locked": "stylized_3d"
+      }
+    }
+  ],
+  "required_assets": [
+    "env_abyssal_organic_ooze_plain",
+    "env_continental_shelf_drop_4km",
+    "env_drained_coastal_shelf_3d",
+    "env_global_cascade_timeline_stage",
+    "env_hydrological_cycle_cutaway_stage",
+    "env_mariana_trench_and_mid_ocean_ridge",
+    "env_planetary_thermal_buffer_model",
+    "env_planetary_water_comparison_stage",
+    "env_rebounding_oceanic_crust_vista",
+    "env_restored_living_ocean_coast",
+    "font_plus_jakarta_sans_v1",
+    "prop_arid_continent_miniature",
+    "prop_chronological_timeline_rail",
+    "prop_co2_surge_gauge",
+    "prop_coastal_wooden_pier",
+    "prop_coiled_hemp_rope",
+    "prop_continental_slope_cliff_4km",
+    "prop_cracked_river_silt",
+    "prop_cracked_salt_mudflat",
+    "prop_crustal_shelf_cross_section",
+    "prop_cumulus_cloud_horizon",
+    "prop_deep_aquifer_wellhead",
+    "prop_depth_ruler_grid",
+    "prop_diatom_phytoplankton_cluster",
+    "prop_dissipating_cloud_cluster",
+    "prop_diurnal_temperature_chart_card",
+    "prop_dry_riverbed_stones",
+    "prop_drying_marine_sediment_slab",
+    "prop_dual_thermometer_tower",
+    "prop_earth_bathymetry_globe",
+    "prop_elevation_marker_pins",
+    "prop_evaporation_arrow_rig",
+    "prop_everest_scale_silhouette_8849m",
+    "prop_exposed_hydrothermal_vents",
+    "prop_field_geology_satchel",
+    "prop_field_hygrometer_handheld",
+    "prop_freshwater_droplet_sphere",
+    "prop_graduated_hydrosphere_cylinder",
+    "prop_heat_capacity_comparison_bars",
+    "prop_holo_hydrosphere_pedestal",
+    "prop_hydrological_cycle_diorama",
+    "prop_iron_boat_anchor",
+    "prop_isostatic_rebound_slab",
+    "prop_mariana_trench_cutaway_11km",
+    "prop_mass_unload_arrows",
+    "prop_metric_callout_card",
+    "prop_microscope_ring_frame",
+    "prop_mid_ocean_ridge_chain",
+    "prop_ocean_volume_sphere_1332m_km3",
+    "prop_orbital_arid_earth_mesh",
+    "prop_oxygen_carbon_exchange_tokens",
+    "prop_oxygen_pie_50pct_widget",
+    "prop_polar_ice_remnant_ridge",
+    "prop_pressure_vector_arrows",
+    "prop_restored_ocean_waves",
+    "prop_ridge_magma_conduit_cutaway",
+    "prop_salt_basin_albedo_layer",
+    "prop_salt_crust_chunk",
+    "prop_salt_dust_plume_card",
+    "prop_skyscraper_reference_300m",
+    "prop_solar_heat_flux_arrows",
+    "prop_split_diurnal_desert_stage",
+    "prop_stranded_buoy",
+    "prop_stranded_cargo_hull",
+    "prop_sulfur_plume_emitter",
+    "prop_tectonic_fault_indicators",
+    "prop_thermal_gradient_shader_ring",
+    "prop_thermohaline_conveyor_globe",
+    "prop_timeline_pointer_stylus",
+    "prop_transforming_earth_globe",
+    "prop_windswept_salt_plain",
+    "prop_wooden_oar",
+    "prop_wooden_outrigger_boat",
+    "prop_woven_caping_hat"
+  ],
+  "status_breakdown": {
+    "AVAILABLE_IN_LIBRARY_SPEC": 0,
+    "PLANNED_PROCEDURAL_GENERATION": 11,
+    "NEEDS_EXTERNAL_CC0_SEARCH": 50,
+    "NEEDS_CUSTOM_AUTHORING": 14
+  },
+  "semantic_asset_specs": [
+    {
+      "asset_id": "char_alya_presenter",
+      "semantic_category": "hero_character",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S001",
+        "S002",
+        "S002",
+        "S003",
+        "S003",
+        "S004",
+        "S004",
+        "S005",
+        "S005",
+        "S006",
+        "S006",
+        "S009",
+        "S009",
+        "S010",
+        "S010",
+        "S015",
+        "S015",
+        "S016",
+        "S016",
+        "S021",
+        "S021",
+        "S022",
+        "S022",
+        "S027",
+        "S027",
+        "S028",
+        "S028",
+        "S029",
+        "S029",
+        "S030",
+        "S030",
+        "S033",
+        "S033",
+        "S034",
+        "S034",
+        "S039",
+        "S039",
+        "S040",
+        "S040",
+        "S045",
+        "S045",
+        "S046",
+        "S046",
+        "S052",
+        "S052",
+        "S053",
+        "S053",
+        "S054",
+        "S054",
+        "S055",
+        "S055",
+        "S056",
+        "S056",
+        "S057",
+        "S057"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'char_alya_presenter' (hero_character) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.52,
+        "depth_m": 0.34,
+        "height_m": 1.68
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_hero_character",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "humanoid_fk_ik_and_facial_visemes",
+      "animation_requirement": "grounded_locomotion_gesture_and_speech",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_abyssal_organic_ooze_plain",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S037",
+        "S038",
+        "S039",
+        "S040",
+        "S041",
+        "S042"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_abyssal_organic_ooze_plain' (exterior_environment) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender",
+        "remotion",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_continental_shelf_drop_4km",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S013",
+        "S014",
+        "S015",
+        "S016",
+        "S017",
+        "S018"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_continental_shelf_drop_4km' (exterior_environment) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_drained_coastal_shelf_3d",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_drained_coastal_shelf_3d' (exterior_environment) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_global_cascade_timeline_stage",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S043",
+        "S044",
+        "S045",
+        "S046",
+        "S047",
+        "S048"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_global_cascade_timeline_stage' (exterior_environment) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender",
+        "remotion",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_hydrological_cycle_cutaway_stage",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S025",
+        "S026",
+        "S027",
+        "S028",
+        "S029",
+        "S030"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_hydrological_cycle_cutaway_stage' (exterior_environment) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_mariana_trench_and_mid_ocean_ridge",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S019",
+        "S020",
+        "S021",
+        "S022",
+        "S023",
+        "S024"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_mariana_trench_and_mid_ocean_ridge' (exterior_environment) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender",
+        "remotion",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_planetary_thermal_buffer_model",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S031",
+        "S032",
+        "S033",
+        "S034",
+        "S035",
+        "S036"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_planetary_thermal_buffer_model' (exterior_environment) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender",
+        "remotion",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_planetary_water_comparison_stage",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S007",
+        "S008",
+        "S009",
+        "S010",
+        "S011",
+        "S012"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_planetary_water_comparison_stage' (exterior_environment) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender",
+        "remotion",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_rebounding_oceanic_crust_vista",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S049",
+        "S050",
+        "S051",
+        "S052",
+        "S053"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_rebounding_oceanic_crust_vista' (exterior_environment) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_restored_living_ocean_coast",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S054",
+        "S055",
+        "S056",
+        "S057"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_restored_living_ocean_coast' (exterior_environment) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "font_plus_jakarta_sans_v1",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S007",
+        "S008",
+        "S009",
+        "S010",
+        "S011",
+        "S012",
+        "S013",
+        "S014",
+        "S015",
+        "S016",
+        "S017",
+        "S018",
+        "S019",
+        "S020",
+        "S021",
+        "S022",
+        "S023",
+        "S024",
+        "S025",
+        "S026",
+        "S027",
+        "S028",
+        "S029",
+        "S030",
+        "S031",
+        "S032",
+        "S033",
+        "S034",
+        "S035",
+        "S036",
+        "S037",
+        "S038",
+        "S039",
+        "S040",
+        "S041",
+        "S042",
+        "S043",
+        "S044",
+        "S045",
+        "S046",
+        "S047",
+        "S048",
+        "S049",
+        "S050",
+        "S051",
+        "S052",
+        "S053",
+        "S054",
+        "S055",
+        "S056",
+        "S057"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'font_plus_jakarta_sans_v1' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender",
+        "remotion",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_arid_continent_miniature",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S043",
+        "S044"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_arid_continent_miniature' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_chronological_timeline_rail",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S043",
+        "S044"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_chronological_timeline_rail' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_co2_surge_gauge",
+      "semantic_category": "diagram_callout_3d",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S041",
+        "S042"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 2,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_co2_surge_gauge' (diagram_callout_3d) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_diagram_callout_3d",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_coastal_wooden_pier",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S056",
+        "S057"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_coastal_wooden_pier' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_coiled_hemp_rope",
+      "semantic_category": "scientific_cutaway_device",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S015",
+        "S016"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_coiled_hemp_rope' (scientific_cutaway_device) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.95,
+        "depth_m": 0.45,
+        "height_m": 0.65
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_scientific_cutaway_device",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "hinged_cutaway_casing_and_flow_empties",
+      "animation_requirement": "fluid_or_thermal_phase_state_transition",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_continental_slope_cliff_4km",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S013",
+        "S014",
+        "S015",
+        "S016"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_continental_slope_cliff_4km' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_cracked_river_silt",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S029",
+        "S030"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_cracked_river_silt' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_cracked_salt_mudflat",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_cracked_salt_mudflat' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_crustal_shelf_cross_section",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S017",
+        "S018"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_crustal_shelf_cross_section' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_cumulus_cloud_horizon",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S054",
+        "S055"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_cumulus_cloud_horizon' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_deep_aquifer_wellhead",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S052",
+        "S053"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_deep_aquifer_wellhead' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_depth_ruler_grid",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S019",
+        "S020"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_depth_ruler_grid' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_diatom_phytoplankton_cluster",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S037",
+        "S038"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_diatom_phytoplankton_cluster' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_dissipating_cloud_cluster",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S025",
+        "S026"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_dissipating_cloud_cluster' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_diurnal_temperature_chart_card",
+      "semantic_category": "diagram_callout_3d",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S035",
+        "S036"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 2,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_diurnal_temperature_chart_card' (diagram_callout_3d) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_diagram_callout_3d",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_dry_riverbed_stones",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S027",
+        "S028"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_dry_riverbed_stones' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_drying_marine_sediment_slab",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S039",
+        "S040"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_drying_marine_sediment_slab' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_dual_thermometer_tower",
+      "semantic_category": "diagram_callout_3d",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S033",
+        "S034"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 2,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_dual_thermometer_tower' (diagram_callout_3d) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_diagram_callout_3d",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_earth_bathymetry_globe",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S007",
+        "S008"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_earth_bathymetry_globe' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_elevation_marker_pins",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S017",
+        "S018"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_elevation_marker_pins' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_evaporation_arrow_rig",
+      "semantic_category": "diagram_callout_3d",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S025",
+        "S026"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 2,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_evaporation_arrow_rig' (diagram_callout_3d) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_diagram_callout_3d",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_everest_scale_silhouette_8849m",
+      "semantic_category": "diagram_callout_3d",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S019",
+        "S020"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 2,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_everest_scale_silhouette_8849m' (diagram_callout_3d) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_diagram_callout_3d",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_exposed_hydrothermal_vents",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S021",
+        "S022"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_exposed_hydrothermal_vents' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_field_geology_satchel",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S005",
+        "S006"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_field_geology_satchel' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_field_hygrometer_handheld",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S027",
+        "S028",
+        "S029",
+        "S030"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_field_hygrometer_handheld' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_freshwater_droplet_sphere",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S007",
+        "S008",
+        "S009",
+        "S010"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_freshwater_droplet_sphere' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_graduated_hydrosphere_cylinder",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S011",
+        "S012"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_graduated_hydrosphere_cylinder' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_heat_capacity_comparison_bars",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S035",
+        "S036"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_heat_capacity_comparison_bars' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_holo_hydrosphere_pedestal",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S009",
+        "S010"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_holo_hydrosphere_pedestal' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_hydrological_cycle_diorama",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S025",
+        "S026"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_hydrological_cycle_diorama' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_iron_boat_anchor",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S015",
+        "S016"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_iron_boat_anchor' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_isostatic_rebound_slab",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S049",
+        "S050",
+        "S051"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_isostatic_rebound_slab' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_mariana_trench_cutaway_11km",
+      "semantic_category": "scientific_cutaway_device",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S019",
+        "S020"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_mariana_trench_cutaway_11km' (scientific_cutaway_device) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.95,
+        "depth_m": 0.45,
+        "height_m": 0.65
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_scientific_cutaway_device",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "hinged_cutaway_casing_and_flow_empties",
+      "animation_requirement": "fluid_or_thermal_phase_state_transition",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_mass_unload_arrows",
+      "semantic_category": "diagram_callout_3d",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S049",
+        "S050",
+        "S051"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 2,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_mass_unload_arrows' (diagram_callout_3d) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_diagram_callout_3d",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_metric_callout_card",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S011",
+        "S012"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_metric_callout_card' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_microscope_ring_frame",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S037",
+        "S038"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_microscope_ring_frame' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_mid_ocean_ridge_chain",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S021",
+        "S022"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_mid_ocean_ridge_chain' (exterior_environment) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_ocean_volume_sphere_1332m_km3",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S007",
+        "S008"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_ocean_volume_sphere_1332m_km3' (exterior_environment) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_orbital_arid_earth_mesh",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S047",
+        "S048"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_orbital_arid_earth_mesh' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_oxygen_carbon_exchange_tokens",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S037",
+        "S038"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_oxygen_carbon_exchange_tokens' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_oxygen_pie_50pct_widget",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S041",
+        "S042"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_oxygen_pie_50pct_widget' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_polar_ice_remnant_ridge",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S052",
+        "S053"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_polar_ice_remnant_ridge' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_pressure_vector_arrows",
+      "semantic_category": "diagram_callout_3d",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S023",
+        "S024"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 2,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_pressure_vector_arrows' (diagram_callout_3d) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_diagram_callout_3d",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_restored_ocean_waves",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S054",
+        "S055"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_restored_ocean_waves' (exterior_environment) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_ridge_magma_conduit_cutaway",
+      "semantic_category": "scientific_cutaway_device",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S023",
+        "S024"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_ridge_magma_conduit_cutaway' (scientific_cutaway_device) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.95,
+        "depth_m": 0.45,
+        "height_m": 0.65
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_scientific_cutaway_device",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "hinged_cutaway_casing_and_flow_empties",
+      "animation_requirement": "fluid_or_thermal_phase_state_transition",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_salt_basin_albedo_layer",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S047",
+        "S048"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_salt_basin_albedo_layer' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_salt_crust_chunk",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S003",
+        "S004",
+        "S005",
+        "S006"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_salt_crust_chunk' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_salt_dust_plume_card",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S043",
+        "S044"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_salt_dust_plume_card' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_skyscraper_reference_300m",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S013",
+        "S014"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_skyscraper_reference_300m' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_solar_heat_flux_arrows",
+      "semantic_category": "diagram_callout_3d",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S031",
+        "S032"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 2,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_solar_heat_flux_arrows' (diagram_callout_3d) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_diagram_callout_3d",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_split_diurnal_desert_stage",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S033",
+        "S034"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_split_diurnal_desert_stage' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_stranded_buoy",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_stranded_buoy' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_stranded_cargo_hull",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S013",
+        "S014"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_stranded_cargo_hull' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_sulfur_plume_emitter",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S021",
+        "S022"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_sulfur_plume_emitter' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_tectonic_fault_indicators",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S049",
+        "S050",
+        "S051"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_tectonic_fault_indicators' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_thermal_gradient_shader_ring",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S031",
+        "S032"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_thermal_gradient_shader_ring' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_thermohaline_conveyor_globe",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S031",
+        "S032"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_thermohaline_conveyor_globe' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_timeline_pointer_stylus",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S045",
+        "S046"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_timeline_pointer_stylus' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_transforming_earth_globe",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S045",
+        "S046"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_transforming_earth_globe' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_windswept_salt_plain",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S052",
+        "S053"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_windswept_salt_plain' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_wooden_oar",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S003",
+        "S004",
+        "S056",
+        "S057"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_wooden_oar' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_wooden_outrigger_boat",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S054",
+        "S055",
+        "S056",
+        "S057"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_wooden_outrigger_boat' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_woven_caping_hat",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S039",
+        "S040"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_woven_caping_hat' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    }
+  ]
+}

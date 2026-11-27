@@ -1,0 +1,1218 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_c_laut_hilang_hybrid_180s",
+  "pipeline_chain": "CLAUSE -> VISUAL_PURPOSE -> SHOT -> ACTION -> CHARACTER_OBJECT -> ASSET -> CAMERA -> ENGINE -> QC",
+  "total_clauses": 30,
+  "mapped_clauses": 30,
+  "clause_coverage_ratio": 1.0,
+  "visual_purposes_used": [
+    "character_acting",
+    "data_visualization",
+    "establishing_shot",
+    "object_insert",
+    "reaction_shot",
+    "scale_comparison",
+    "scientific_mechanism",
+    "technical_cutaway",
+    "timeline"
+  ],
+  "supported_visual_purposes": [
+    "character_acting",
+    "object_insert",
+    "technical_cutaway",
+    "exploded_view",
+    "scientific_mechanism",
+    "reaction_shot",
+    "historical_reconstruction",
+    "visual_metaphor",
+    "data_visualization",
+    "scale_comparison",
+    "timeline",
+    "establishing_shot"
+  ],
+  "master_timeline_unit": "integer_frames",
+  "fps": 30,
+  "total_frames": 5400,
+  "non_uniform_semantic_frame_allocation": true,
+  "shots_in_2_to_6s_target_ratio": 1.0,
+  "max_shot_duration_s": 4.1667,
+  "narration_timing_summary": {
+    "estimated_duration_s": 189.895,
+    "implied_wpm": 137.7
+  },
+  "clause_to_shot_mappings": [
+    {
+      "clause_id": "CL_001",
+      "beat_id": "B01",
+      "clause_text": "Detik ini juga, cabut sumbat raksasa Bumi dan kuras habis seluruh samudra dalam sekejap mata.",
+      "01_clause": "Detik ini juga, cabut sumbat raksasa Bumi dan kuras habis seluruh samudra dalam sekejap mata.",
+      "02_visual_purpose": "establishing_shot",
+      "03_shot_id": "S001",
+      "03_frame_range": [
+        0,
+        75
+      ],
+      "04_action": "Air laut biru menyusut cepat meninggalkan perahu kayu bercadik di atas lumpur garam retak",
+      "05_character_or_object": {
+        "characters": [
+          "char_alya_presenter"
+        ],
+        "subject": "Perahu kayu bercadik di dasar pesisir yang mendadak kering"
+      },
+      "06_assets": [
+        "env_drained_coastal_shelf_3d",
+        "char_alya_presenter",
+        "prop_wooden_outrigger_boat",
+        "prop_cracked_salt_mudflat",
+        "prop_stranded_buoy",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "establishing",
+        "focal_length_mm": 28.0,
+        "angle": "isometric_high_18deg"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_002",
+      "beat_id": "B01",
+      "clause_text": "Perahu kayu Pak Teguh tidak tenggelam, melainkan mendarat mulus di hamparan lumpur asin tanpa setetes ombak pun.",
+      "01_clause": "Perahu kayu Pak Teguh tidak tenggelam, melainkan mendarat mulus di hamparan lumpur asin tanpa setetes ombak pun.",
+      "02_visual_purpose": "reaction_shot",
+      "03_shot_id": "S003",
+      "03_frame_range": [
+        150,
+        240
+      ],
+      "04_action": "Pak Teguh mengetukkan ujung dayung kayu ke kerak garam lalu menoleh datar ke arah Alya",
+      "05_character_or_object": {
+        "characters": [
+          "char_alya_presenter"
+        ],
+        "subject": "Alya berjongkok memeriksa kristal garam di bibir ngarai pesisir"
+      },
+      "06_assets": [
+        "env_drained_coastal_shelf_3d",
+        "char_alya_presenter",
+        "prop_wooden_oar",
+        "prop_wooden_outrigger_boat",
+        "prop_salt_crust_chunk",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "medium",
+        "focal_length_mm": 40.0,
+        "angle": "eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_003",
+      "beat_id": "B01",
+      "clause_text": "[char_pak_teguh_nelayan] Ikan cakalangnya mendadak jadi pendaki tebing, Mbak.",
+      "01_clause": "[char_pak_teguh_nelayan] Ikan cakalangnya mendadak jadi pendaki tebing, Mbak.",
+      "02_visual_purpose": "reaction_shot",
+      "03_shot_id": "S005",
+      "03_frame_range": [
+        330,
+        405
+      ],
+      "04_action": "Alya mengangkat segenggam kerak garam berkilau sambil menatap hamparan cekungan samudra kosong",
+      "05_character_or_object": {
+        "characters": [
+          "char_alya_presenter"
+        ],
+        "subject": "Alya berjongkok memeriksa kristal garam di bibir ngarai pesisir"
+      },
+      "06_assets": [
+        "env_drained_coastal_shelf_3d",
+        "char_alya_presenter",
+        "prop_salt_crust_chunk",
+        "prop_field_geology_satchel",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "reaction",
+        "focal_length_mm": 45.0,
+        "angle": "three_quarter_eye"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_004",
+      "beat_id": "B02",
+      "clause_text": "Apa yang sebenarnya terjadi jika seluruh laut Bumi menghilang?",
+      "01_clause": "Apa yang sebenarnya terjadi jika seluruh laut Bumi menghilang?",
+      "02_visual_purpose": "data_visualization",
+      "03_shot_id": "S007",
+      "03_frame_range": [
+        480,
+        581
+      ],
+      "04_action": "Bola air biru berdiameter raksasa terangkat dari lekukan kerak Bumi berdampingan dengan butir kecil air tawar",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Bola air samudra raksasa dibanding butiran kecil air tawar di samping globe Bumi"
+      },
+      "06_assets": [
+        "env_planetary_water_comparison_stage",
+        "prop_earth_bathymetry_globe",
+        "prop_ocean_volume_sphere_1332m_km3",
+        "prop_freshwater_droplet_sphere",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "wide",
+        "focal_length_mm": 30.0,
+        "angle": "wide_eye_12deg"
+      },
+      "08_engine": {
+        "primary_engine": "threejs",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_005",
+      "beat_id": "B02",
+      "clause_text": "Kita baru saja melenyapkan satu koma tiga ratus tiga puluh dua miliar kilometer kubik air asin, atau sekitar sembilan puluh tujuh persen cadangan air planet ini.",
+      "01_clause": "Kita baru saja melenyapkan satu koma tiga ratus tiga puluh dua miliar kilometer kubik air asin, atau sekitar sembilan puluh tujuh persen cadangan air planet ini.",
+      "02_visual_purpose": "object_insert",
+      "03_shot_id": "S009",
+      "03_frame_range": [
+        682,
+        767
+      ],
+      "04_action": "Alya merentangkan tangan membandingkan bola samudra utama dengan tetes kecil cadangan air sungai",
+      "05_character_or_object": {
+        "characters": [
+          "char_alya_presenter"
+        ],
+        "subject": "Indikator bar persentase air asin versus air tawar permukaan"
+      },
+      "06_assets": [
+        "env_planetary_water_comparison_stage",
+        "char_alya_presenter",
+        "prop_holo_hydrosphere_pedestal",
+        "prop_freshwater_droplet_sphere",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "medium",
+        "focal_length_mm": 40.0,
+        "angle": "eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_006",
+      "beat_id": "B02",
+      "clause_text": "[char_alya_presenter] Dan sisanya di darat bahkan tak cukup mengisi cangkir raksasa ini.",
+      "01_clause": "[char_alya_presenter] Dan sisanya di darat bahkan tak cukup mengisi cangkir raksasa ini.",
+      "02_visual_purpose": "object_insert",
+      "03_shot_id": "S011",
+      "03_frame_range": [
+        851,
+        936
+      ],
+      "04_action": "Kolom kaca ukur 97 persen air asin terkuras habis menyisakan garis tipis air tawar di dasar tabung",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Indikator bar persentase air asin versus air tawar permukaan"
+      },
+      "06_assets": [
+        "env_planetary_water_comparison_stage",
+        "prop_graduated_hydrosphere_cylinder",
+        "prop_metric_callout_card",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "insert",
+        "focal_length_mm": 72.0,
+        "angle": "tabletop_35deg"
+      },
+      "08_engine": {
+        "primary_engine": "remotion",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_007",
+      "beat_id": "B03",
+      "clause_text": "Begitu air surut, tepi pantai berubah menjadi jurang landas kontinen setinggi gedung pencakar langit.",
+      "01_clause": "Begitu air surut, tepi pantai berubah menjadi jurang landas kontinen setinggi gedung pencakar langit.",
+      "02_visual_purpose": "scale_comparison",
+      "03_shot_id": "S013",
+      "03_frame_range": [
+        1020,
+        1132
+      ],
+      "04_action": "Kamera meluncur mundur menampakkan siluet gedung 300 meter tampak mungil di atas tebing landas kontinen 4 kilometer",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Siluet gedung pencakar langit dibandingkan lereng curam landas kontinen sedalam 4 kilometer"
+      },
+      "06_assets": [
+        "env_continental_shelf_drop_4km",
+        "prop_skyscraper_reference_300m",
+        "prop_continental_slope_cliff_4km",
+        "prop_stranded_cargo_hull",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "establishing",
+        "focal_length_mm": 28.0,
+        "angle": "isometric_high_18deg"
+      },
+      "08_engine": {
+        "primary_engine": "threejs",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_008",
+      "beat_id": "B03",
+      "clause_text": "Kapal kargo yang tadinya mengapung kini bertengger di bibir tebing curam sedalam empat kilometer menuju dataran abisal yang gelap dan berdebu.",
+      "01_clause": "Kapal kargo yang tadinya mengapung kini bertengger di bibir tebing curam sedalam empat kilometer menuju dataran abisal yang gelap dan berdebu.",
+      "02_visual_purpose": "technical_cutaway",
+      "03_shot_id": "S015",
+      "03_frame_range": [
+        1243,
+        1346
+      ],
+      "04_action": "Pak Teguh mengulur tali jangkar pendek yang terayun jauh di atas dasar ngarai berdebu",
+      "05_character_or_object": {
+        "characters": [
+          "char_alya_presenter"
+        ],
+        "subject": "Penampang melintang kerak benua menurun ke dataran abisal"
+      },
+      "06_assets": [
+        "env_continental_shelf_drop_4km",
+        "char_alya_presenter",
+        "prop_iron_boat_anchor",
+        "prop_coiled_hemp_rope",
+        "prop_continental_slope_cliff_4km",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "medium",
+        "focal_length_mm": 40.0,
+        "angle": "eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_009",
+      "beat_id": "B03",
+      "clause_text": "[char_pak_teguh_nelayan] Mau turun ambil jangkar saja harus sewa tali panjat gunung.",
+      "01_clause": "[char_pak_teguh_nelayan] Mau turun ambil jangkar saja harus sewa tali panjat gunung.",
+      "02_visual_purpose": "technical_cutaway",
+      "03_shot_id": "S017",
+      "03_frame_range": [
+        1449,
+        1535
+      ],
+      "04_action": "Potongan melintang kerak pesisir memperlihatkan undakan landas kontinen, ngarai bawah laut, dan endapan sedimen",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Penampang melintang kerak benua menurun ke dataran abisal"
+      },
+      "06_assets": [
+        "env_continental_shelf_drop_4km",
+        "prop_crustal_shelf_cross_section",
+        "prop_elevation_marker_pins",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "cutaway",
+        "focal_length_mm": 50.0,
+        "angle": "orthographic_feel_25deg"
+      },
+      "08_engine": {
+        "primary_engine": "threejs",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_010",
+      "beat_id": "B04",
+      "clause_text": "Di dasar Pasifik, menganga Palung Mariana sedalam hampir sebelas kilometer, lebih tinggi dari Gunung Everest jika dibalik.",
+      "01_clause": "Di dasar Pasifik, menganga Palung Mariana sedalam hampir sebelas kilometer, lebih tinggi dari Gunung Everest jika dibalik.",
+      "02_visual_purpose": "scale_comparison",
+      "03_shot_id": "S019",
+      "03_frame_range": [
+        1620,
+        1716
+      ],
+      "04_action": "Siluet Gunung Everest dimasukkan terbalik ke celah Challenger Deep dan masih menyisakan ruang lebih dari dua kilometer",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Penampang Palung Mariana 11 km dibandingkan siluet Gunung Everest 8,8 km"
+      },
+      "06_assets": [
+        "env_mariana_trench_and_mid_ocean_ridge",
+        "prop_mariana_trench_cutaway_11km",
+        "prop_everest_scale_silhouette_8849m",
+        "prop_depth_ruler_grid",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "cutaway",
+        "focal_length_mm": 50.0,
+        "angle": "orthographic_feel_25deg"
+      },
+      "08_engine": {
+        "primary_engine": "remotion",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_011",
+      "beat_id": "B04",
+      "clause_text": "Sementara di tengah samudra, punggungan gunung api bawah laut sepanjang enam puluh lima ribu kilometer langsung menyemburkan asap belerang ke udara terbuka.",
+      "01_clause": "Sementara di tengah samudra, punggungan gunung api bawah laut sepanjang enam puluh lima ribu kilometer langsung menyemburkan asap belerang ke udara terbuka.",
+      "02_visual_purpose": "technical_cutaway",
+      "03_shot_id": "S022",
+      "03_frame_range": [
+        1906,
+        2001
+      ],
+      "04_action": "Barisan gunung api punggungan tengah samudra mengepulkan asap belerang putih langsung ke atmosfer tanpa tekanan air Kamera beralih ke sudut medium menyoroti interaksi detail prop_mid_ocean_ridge_chain, prop_exposed_hydrothermal_vents.",
+      "05_character_or_object": {
+        "characters": [
+          "char_alya_presenter"
+        ],
+        "subject": "Celah tektonik punggungan samudra yang kehilangan tekanan hidrostatik kolom air"
+      },
+      "06_assets": [
+        "env_mariana_trench_and_mid_ocean_ridge",
+        "char_alya_presenter",
+        "prop_mid_ocean_ridge_chain",
+        "prop_exposed_hydrothermal_vents",
+        "prop_sulfur_plume_emitter",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "medium",
+        "focal_length_mm": 40.0,
+        "angle": "eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_012",
+      "beat_id": "B05",
+      "clause_text": "Bencana sesungguhnya justru dimulai di langit.",
+      "01_clause": "Bencana sesungguhnya justru dimulai di langit.",
+      "02_visual_purpose": "scientific_mechanism",
+      "03_shot_id": "S025",
+      "03_frame_range": [
+        2160,
+        2275
+      ],
+      "04_action": "Panah uap air dari cekungan samudra terputus, gumpalan awan kumulus menyusut tipis, dan aliran sungai berhenti",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Diagram 3D siklus hidrologi ketika panah penguapan laut padam dan awan menghilang"
+      },
+      "06_assets": [
+        "env_hydrological_cycle_cutaway_stage",
+        "prop_hydrological_cycle_diorama",
+        "prop_evaporation_arrow_rig",
+        "prop_dissipating_cloud_cluster",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "cutaway",
+        "focal_length_mm": 50.0,
+        "angle": "orthographic_feel_25deg"
+      },
+      "08_engine": {
+        "primary_engine": "threejs",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_013",
+      "beat_id": "B05",
+      "clause_text": "Lebih dari delapan puluh lima persen uap air pembentuk awan berasal dari penguapan laut.",
+      "01_clause": "Lebih dari delapan puluh lima persen uap air pembentuk awan berasal dari penguapan laut.",
+      "02_visual_purpose": "character_acting",
+      "03_shot_id": "S026",
+      "03_frame_range": [
+        2275,
+        2389
+      ],
+      "04_action": "Panah uap air dari cekungan samudra terputus, gumpalan awan kumulus menyusut tipis, dan aliran sungai berhenti Kamera beralih ke sudut close up menyoroti interaksi detail prop_hydrological_cycle_diorama, prop_evaporation_arrow_rig.",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Alya menengadah di atas jembatan sungai yang dasarnya berubah menjadi batu kerikil kering"
+      },
+      "06_assets": [
+        "env_hydrological_cycle_cutaway_stage",
+        "prop_hydrological_cycle_diorama",
+        "prop_evaporation_arrow_rig",
+        "prop_dissipating_cloud_cluster",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "close_up",
+        "focal_length_mm": 65.0,
+        "angle": "intimate_eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "threejs",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_014",
+      "beat_id": "B05",
+      "clause_text": "Tanpa samudra, pabrik hujan global tutup total, awan memudar dalam hitungan hari, dan sungai besar mengering.",
+      "01_clause": "Tanpa samudra, pabrik hujan global tutup total, awan memudar dalam hitungan hari, dan sungai besar mengering.",
+      "02_visual_purpose": "object_insert",
+      "03_shot_id": "S028",
+      "03_frame_range": [
+        2486,
+        2583
+      ],
+      "04_action": "Alya menunjuk langit cerah menyilaukan tanpa awan sementara aliran sungai di bawah jembatan menyisakan pasir retak Kamera beralih ke sudut close up menyoroti interaksi detail prop_dry_riverbed_stones, prop_field_hygrometer_handheld.",
+      "05_character_or_object": {
+        "characters": [
+          "char_alya_presenter"
+        ],
+        "subject": "Higrometer lapangan yang jarum kelembapan udaranya turun tajam ke zona kering"
+      },
+      "06_assets": [
+        "env_hydrological_cycle_cutaway_stage",
+        "char_alya_presenter",
+        "prop_dry_riverbed_stones",
+        "prop_field_hygrometer_handheld",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "close_up",
+        "focal_length_mm": 65.0,
+        "angle": "intimate_eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_015",
+      "beat_id": "B05",
+      "clause_text": "[char_alya_presenter] Langit biru bersih, tapi itu tanda mesin hidrologi Bumi mogok.",
+      "01_clause": "[char_alya_presenter] Langit biru bersih, tapi itu tanda mesin hidrologi Bumi mogok.",
+      "02_visual_purpose": "object_insert",
+      "03_shot_id": "S029",
+      "03_frame_range": [
+        2583,
+        2672
+      ],
+      "04_action": "Jarum indikator kelembapan relatif pada alat genggam Alya bergerak turun cepat menuju angka ekstrem rendah",
+      "05_character_or_object": {
+        "characters": [
+          "char_alya_presenter"
+        ],
+        "subject": "Higrometer lapangan yang jarum kelembapan udaranya turun tajam ke zona kering"
+      },
+      "06_assets": [
+        "env_hydrological_cycle_cutaway_stage",
+        "char_alya_presenter",
+        "prop_field_hygrometer_handheld",
+        "prop_cracked_river_silt",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "close_up",
+        "focal_length_mm": 65.0,
+        "angle": "intimate_eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_016",
+      "beat_id": "B06",
+      "clause_text": "Samudra juga bekerja sebagai penyangga panas raksasa yang menyerap sembilan puluh persen kelebihan kalor Bumi dan membagikannya lewat arus termal.",
+      "01_clause": "Samudra juga bekerja sebagai penyangga panas raksasa yang menyerap sembilan puluh persen kelebihan kalor Bumi dan membagikannya lewat arus termal.",
+      "02_visual_purpose": "scientific_mechanism",
+      "03_shot_id": "S031",
+      "03_frame_range": [
+        2760,
+        2875
+      ],
+      "04_action": "Pita arus hangat merah dan arus dingin biru di samudra memudar lalu radiasi panas terpantul tajam di daratan",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Simulasi sabuk arus termohalin yang padam pada bola Bumi 3D"
+      },
+      "06_assets": [
+        "env_planetary_thermal_buffer_model",
+        "prop_thermohaline_conveyor_globe",
+        "prop_solar_heat_flux_arrows",
+        "prop_thermal_gradient_shader_ring",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "wide",
+        "focal_length_mm": 30.0,
+        "angle": "wide_eye_12deg"
+      },
+      "08_engine": {
+        "primary_engine": "threejs",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_017",
+      "beat_id": "B06",
+      "clause_text": "Tanpa selimut air ini, siang hari memanggang benua secara ekstrem, sedangkan malam hari anjlok membeku seperti gurun.",
+      "01_clause": "Tanpa selimut air ini, siang hari memanggang benua secara ekstrem, sedangkan malam hari anjlok membeku seperti gurun.",
+      "02_visual_purpose": "data_visualization",
+      "03_shot_id": "S034",
+      "03_frame_range": [
+        3086,
+        3183
+      ],
+      "04_action": "Cahaya matahari terik memanaskan batu garam jingga lalu bayangan malam menyapu cepat membentuk kristal beku Kamera beralih ke sudut insert menyoroti interaksi detail prop_split_diurnal_desert_stage, prop_dual_thermometer_tower.",
+      "05_character_or_object": {
+        "characters": [
+          "char_alya_presenter"
+        ],
+        "subject": "Kurva perbandingan ayunan suhu harian Bumi berair versus Bumi kering"
+      },
+      "06_assets": [
+        "env_planetary_thermal_buffer_model",
+        "char_alya_presenter",
+        "prop_split_diurnal_desert_stage",
+        "prop_dual_thermometer_tower",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "insert",
+        "focal_length_mm": 72.0,
+        "angle": "tabletop_35deg"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_018",
+      "beat_id": "B07",
+      "clause_text": "Di lapisan permukaan yang lenyap tadi, miliaran fitoplankton mikroskopis tadinya memproduksi sekitar separuh oksigen Bumi sekaligus mengunci karbon dioksida.",
+      "01_clause": "Di lapisan permukaan yang lenyap tadi, miliaran fitoplankton mikroskopis tadinya memproduksi sekitar separuh oksigen Bumi sekaligus mengunci karbon dioksida.",
+      "02_visual_purpose": "scientific_mechanism",
+      "03_shot_id": "S037",
+      "03_frame_range": [
+        3360,
+        3458
+      ],
+      "04_action": "Lensa mikroskopik memperlihatkan diatom fitoplankton meredup lalu panah oksigen berhenti dan panah CO2 naik",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Sel-sel fitoplankton bercahaya hijau zamrud yang mengering dan melepaskan gelembung karbon"
+      },
+      "06_assets": [
+        "env_abyssal_organic_ooze_plain",
+        "prop_diatom_phytoplankton_cluster",
+        "prop_oxygen_carbon_exchange_tokens",
+        "prop_microscope_ring_frame",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "insert",
+        "focal_length_mm": 72.0,
+        "angle": "tabletop_35deg"
+      },
+      "08_engine": {
+        "primary_engine": "threejs",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_019",
+      "beat_id": "B07",
+      "clause_text": "Saat hamparan lumpur organik di dasar laut mengering dan membusuk, gas karbon terlepas deras ke atmosfer.",
+      "01_clause": "Saat hamparan lumpur organik di dasar laut mengering dan membusuk, gas karbon terlepas deras ke atmosfer.",
+      "02_visual_purpose": "data_visualization",
+      "03_shot_id": "S039",
+      "03_frame_range": [
+        3556,
+        3646
+      ],
+      "04_action": "Pak Teguh menjepit hidung dengan ekspresi datar sementara kabut tipis gas pembusukan naik dari retakan lumpur",
+      "05_character_or_object": {
+        "characters": [
+          "char_alya_presenter"
+        ],
+        "subject": "Diagram neraca oksigen dan lonjakan karbon dioksida atmosfer"
+      },
+      "06_assets": [
+        "env_abyssal_organic_ooze_plain",
+        "char_alya_presenter",
+        "prop_woven_caping_hat",
+        "prop_drying_marine_sediment_slab",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "reaction",
+        "focal_length_mm": 45.0,
+        "angle": "three_quarter_eye"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_020",
+      "beat_id": "B07",
+      "clause_text": "[char_pak_teguh_nelayan] Bau amis satu kelurahan saja pusing, apalagi satu samudra.",
+      "01_clause": "[char_pak_teguh_nelayan] Bau amis satu kelurahan saja pusing, apalagi satu samudra.",
+      "02_visual_purpose": "data_visualization",
+      "03_shot_id": "S041",
+      "03_frame_range": [
+        3736,
+        3818
+      ],
+      "04_action": "Lingkaran kontribusi oksigen laut separuh penuh meredup sementara grafik konsentrasi karbon dioksida merangkak naik",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Diagram neraca oksigen dan lonjakan karbon dioksida atmosfer"
+      },
+      "06_assets": [
+        "env_abyssal_organic_ooze_plain",
+        "prop_oxygen_pie_50pct_widget",
+        "prop_co2_surge_gauge",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "cutaway",
+        "focal_length_mm": 50.0,
+        "angle": "orthographic_feel_25deg"
+      },
+      "08_engine": {
+        "primary_engine": "remotion",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_021",
+      "beat_id": "B08",
+      "clause_text": "Mari urutkan garis waktunya.",
+      "01_clause": "Mari urutkan garis waktunya.",
+      "02_visual_purpose": "timeline",
+      "03_shot_id": "S043",
+      "03_frame_range": [
+        3900,
+        4008
+      ],
+      "04_action": "Penanda kronologis bergeser dari badai garam pesisir ke ladang menguning lalu hutan mengering terbakar",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Garis waktu progresif Hari 1, Bulan 1, dan Dekade 1 pada penampang benua"
+      },
+      "06_assets": [
+        "env_global_cascade_timeline_stage",
+        "prop_chronological_timeline_rail",
+        "prop_salt_dust_plume_card",
+        "prop_arid_continent_miniature",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "wide",
+        "focal_length_mm": 30.0,
+        "angle": "wide_eye_12deg"
+      },
+      "08_engine": {
+        "primary_engine": "remotion",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_022",
+      "beat_id": "B08",
+      "clause_text": "Hari pertama, pelabuhan lumpuh dan badai debu garam menyapu pesisir.",
+      "01_clause": "Hari pertama, pelabuhan lumpuh dan badai debu garam menyapu pesisir.",
+      "02_visual_purpose": "character_acting",
+      "03_shot_id": "S044",
+      "03_frame_range": [
+        4008,
+        4116
+      ],
+      "04_action": "Penanda kronologis bergeser dari badai garam pesisir ke ladang menguning lalu hutan mengering terbakar Kamera beralih ke sudut medium menyoroti interaksi detail prop_chronological_timeline_rail, prop_salt_dust_plume_card.",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Alya memutar model bola Bumi yang warnanya bergeser dari biru ke oker berdebu"
+      },
+      "06_assets": [
+        "env_global_cascade_timeline_stage",
+        "prop_chronological_timeline_rail",
+        "prop_salt_dust_plume_card",
+        "prop_arid_continent_miniature",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "medium",
+        "focal_length_mm": 40.0,
+        "angle": "eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "remotion",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_023",
+      "beat_id": "B08",
+      "clause_text": "Bulan pertama, gagal panen melanda seluruh benua karena hujan berhenti.",
+      "01_clause": "Bulan pertama, gagal panen melanda seluruh benua karena hujan berhenti.",
+      "02_visual_purpose": "establishing_shot",
+      "03_shot_id": "S045",
+      "03_frame_range": [
+        4116,
+        4201
+      ],
+      "04_action": "Alya menyentuh permukaan model Bumi sementara lapisan vegetasi hijau menyusut menjadi warna cokelat gersang",
+      "05_character_or_object": {
+        "characters": [
+          "char_alya_presenter"
+        ],
+        "subject": "Bola Bumi tampak dari orbit rendah dengan cekungan samudra kelabu berkerak garam"
+      },
+      "06_assets": [
+        "env_global_cascade_timeline_stage",
+        "char_alya_presenter",
+        "prop_transforming_earth_globe",
+        "prop_timeline_pointer_stylus",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "medium",
+        "focal_length_mm": 40.0,
+        "angle": "eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_024",
+      "beat_id": "B08",
+      "clause_text": "Dalam hitungan dekade, hutan hujan mengering dan memicu kebakaran lintas benua.",
+      "01_clause": "Dalam hitungan dekade, hutan hujan mengering dan memicu kebakaran lintas benua.",
+      "02_visual_purpose": "establishing_shot",
+      "03_shot_id": "S046",
+      "03_frame_range": [
+        4201,
+        4286
+      ],
+      "04_action": "Alya menyentuh permukaan model Bumi sementara lapisan vegetasi hijau menyusut menjadi warna cokelat gersang Kamera beralih ke sudut medium menyoroti interaksi detail prop_transforming_earth_globe, prop_timeline_pointer_stylus.",
+      "05_character_or_object": {
+        "characters": [
+          "char_alya_presenter"
+        ],
+        "subject": "Bola Bumi tampak dari orbit rendah dengan cekungan samudra kelabu berkerak garam"
+      },
+      "06_assets": [
+        "env_global_cascade_timeline_stage",
+        "char_alya_presenter",
+        "prop_transforming_earth_globe",
+        "prop_timeline_pointer_stylus",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "medium",
+        "focal_length_mm": 40.0,
+        "angle": "eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_025",
+      "beat_id": "B08",
+      "clause_text": "[char_alya_presenter] Bumi perlahan berubah dari kelereng biru menjadi planet batu kecokelatan.",
+      "01_clause": "[char_alya_presenter] Bumi perlahan berubah dari kelereng biru menjadi planet batu kecokelatan.",
+      "02_visual_purpose": "establishing_shot",
+      "03_shot_id": "S047",
+      "03_frame_range": [
+        4286,
+        4363
+      ],
+      "04_action": "Kamera orbital memperlihatkan cekungan Pasifik dan Atlantik tampak pucat berdebu tanpa selimut awan putih",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Bola Bumi tampak dari orbit rendah dengan cekungan samudra kelabu berkerak garam"
+      },
+      "06_assets": [
+        "env_global_cascade_timeline_stage",
+        "prop_orbital_arid_earth_mesh",
+        "prop_salt_basin_albedo_layer",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "establishing",
+        "focal_length_mm": 28.0,
+        "angle": "isometric_high_18deg"
+      },
+      "08_engine": {
+        "primary_engine": "threejs",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_026",
+      "beat_id": "B09",
+      "clause_text": "Hanya kantong kecil kehidupan di sekitar cadangan air tanah dalam dan kutub es yang sempat bertahan sementara.",
+      "01_clause": "Hanya kantong kecil kehidupan di sekitar cadangan air tanah dalam dan kutub es yang sempat bertahan sementara.",
+      "02_visual_purpose": "technical_cutaway",
+      "03_shot_id": "S049",
+      "03_frame_range": [
+        4440,
+        4528
+      ],
+      "04_action": "Lapisan batuan kerak samudra melengkung naik perlahan disertai getaran patahan di batas lempeng benua",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Penampang lempeng kerak samudra yang terangkat naik akibat hilangnya beban massa air"
+      },
+      "06_assets": [
+        "env_rebounding_oceanic_crust_vista",
+        "prop_isostatic_rebound_slab",
+        "prop_tectonic_fault_indicators",
+        "prop_mass_unload_arrows",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "cutaway",
+        "focal_length_mm": 50.0,
+        "angle": "orthographic_feel_25deg"
+      },
+      "08_engine": {
+        "primary_engine": "threejs",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_027",
+      "beat_id": "B09",
+      "clause_text": "Selebihnya, kerak samudra yang kehilangan beban triliunan ton air mulai memantul naik dan mengguncang lempeng tektonik.",
+      "01_clause": "Selebihnya, kerak samudra yang kehilangan beban triliunan ton air mulai memantul naik dan mengguncang lempeng tektonik.",
+      "02_visual_purpose": "establishing_shot",
+      "03_shot_id": "S051",
+      "03_frame_range": [
+        4615,
+        4702
+      ],
+      "04_action": "Lapisan batuan kerak samudra melengkung naik perlahan disertai getaran patahan di batas lempeng benua Kamera beralih ke sudut insert menyoroti interaksi detail prop_isostatic_rebound_slab, prop_tectonic_fault_indicators.",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Kubah oasis kecil di dekat tudung es kutub yang dikelilingi dataran gersang luas"
+      },
+      "06_assets": [
+        "env_rebounding_oceanic_crust_vista",
+        "prop_isostatic_rebound_slab",
+        "prop_tectonic_fault_indicators",
+        "prop_mass_unload_arrows",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "insert",
+        "focal_length_mm": 72.0,
+        "angle": "tabletop_35deg"
+      },
+      "08_engine": {
+        "primary_engine": "threejs",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_028",
+      "beat_id": "B10",
+      "clause_text": "Ternyata laut bukan sekadar genangan tempat berlayar, melainkan pengatur napas, suhu, dan hujan bagi setiap makhluk darat.",
+      "01_clause": "Ternyata laut bukan sekadar genangan tempat berlayar, melainkan pengatur napas, suhu, dan hujan bagi setiap makhluk darat.",
+      "02_visual_purpose": "establishing_shot",
+      "03_shot_id": "S054",
+      "03_frame_range": [
+        4920,
+        5035
+      ],
+      "04_action": "Air laut biru berkilau mengalir kembali mengangkat perahu kayu bercadik sementara awan putih tumbuh di cakrawala",
+      "05_character_or_object": {
+        "characters": [
+          "char_alya_presenter"
+        ],
+        "subject": "Gelombang air biru jernih dan awan putih kembali memenuhi cekungan samudra"
+      },
+      "06_assets": [
+        "env_restored_living_ocean_coast",
+        "char_alya_presenter",
+        "prop_wooden_outrigger_boat",
+        "prop_restored_ocean_waves",
+        "prop_cumulus_cloud_horizon",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "establishing",
+        "focal_length_mm": 28.0,
+        "angle": "isometric_high_18deg"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_029",
+      "beat_id": "B10",
+      "clause_text": "Untungnya, samudra kita masih utuh menjaga Bumi hari ini.",
+      "01_clause": "Untungnya, samudra kita masih utuh menjaga Bumi hari ini.",
+      "02_visual_purpose": "character_acting",
+      "03_shot_id": "S055",
+      "03_frame_range": [
+        5035,
+        5150
+      ],
+      "04_action": "Air laut biru berkilau mengalir kembali mengangkat perahu kayu bercadik sementara awan putih tumbuh di cakrawala Kamera beralih ke sudut insert menyoroti interaksi detail prop_wooden_outrigger_boat, prop_restored_ocean_waves.",
+      "05_character_or_object": {
+        "characters": [
+          "char_alya_presenter"
+        ],
+        "subject": "Pak Teguh dan Alya di tepi dermaga pesisir yang kembali berombak tenang"
+      },
+      "06_assets": [
+        "env_restored_living_ocean_coast",
+        "char_alya_presenter",
+        "prop_wooden_outrigger_boat",
+        "prop_restored_ocean_waves",
+        "prop_cumulus_cloud_horizon",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "insert",
+        "focal_length_mm": 72.0,
+        "angle": "tabletop_35deg"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_030",
+      "beat_id": "B10",
+      "clause_text": "[char_pak_teguh_nelayan] Syukurlah, Mbak. Saya lebih rela kena ombak daripada nyangkul garam di dasar Pasifik.",
+      "01_clause": "[char_pak_teguh_nelayan] Syukurlah, Mbak. Saya lebih rela kena ombak daripada nyangkul garam di dasar Pasifik.",
+      "02_visual_purpose": "character_acting",
+      "03_shot_id": "S056",
+      "03_frame_range": [
+        5150,
+        5275
+      ],
+      "04_action": "Pak Teguh duduk santai di perahu mengayun dayung di air biru sementara Alya tersenyum melambaikan tangan dari dermaga",
+      "05_character_or_object": {
+        "characters": [
+          "char_alya_presenter"
+        ],
+        "subject": "Pak Teguh dan Alya di tepi dermaga pesisir yang kembali berombak tenang"
+      },
+      "06_assets": [
+        "env_restored_living_ocean_coast",
+        "char_alya_presenter",
+        "prop_wooden_outrigger_boat",
+        "prop_wooden_oar",
+        "prop_coastal_wooden_pier",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "medium",
+        "focal_length_mm": 40.0,
+        "angle": "eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    }
+  ]
+}

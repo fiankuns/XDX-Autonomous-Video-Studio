@@ -42,5 +42,6 @@ markers = [
     "unit: Deterministic unit test with zero live host subagent dependency",
     "integration: Multi-module or multi-process filesystem/SQLite/fcntl integration test",
     "mock_test: Controlled simulated failure, timeout, crash, or stale-report test",
+    "replay_test: Recorded workflow receipt replay test verifying artifact hashes without claiming live LLM invocation",
     "live_evidence: Verification of recorded live native subagent invocations and disk artifacts",
 ]

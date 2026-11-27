@@ -1,0 +1,23 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_b_birokrasi_satir_60s",
+  "topic_title": "Mengurus Satu Surat yang Membutuhkan Banyak Surat Lain",
+  "genres": [
+    "satir_sosial",
+    "storytelling"
+  ],
+  "blueprint": {
+    "premise": "Satir sosial hangat bergaya diorama miniatur tentang Damar yang datang pagi-pagi demi mengurus satu surat keterangan tipis, tetapi terjebak labirin persyaratan absurd karena satu surat itu membutuhkan banyak surat pengantar lain beserta menara map warna-warni.",
+    "hook_0_3s_visual": "Di ruang tunggu diorama kayu hangat pukul delapan pagi, Damar memegang satu map biru setipis biskuit di depan kaca loket, lalu kamera bergeser cepat memperlihatkan troli berkas setinggi dada di sampingnya.",
+    "hook_0_3s_spoken": "Kamu cuma niat mengurus satu surat keterangan domisili lima menit, tapi pulang memeluk bundel berkas setebal bantal.",
+    "story_arc": {
+      "act_1_setup": "Damar melangkah penuh optimisme menyerahkan satu map biru tipis ke loket Bu Rantih, namun langsung dihadang syarat surat pengantar RT untuk menebus formulir pengantar RW.",
+      "act_2_escalation": "Tumpukan berkas Damar menjulang menjadi menara map merah, kuning, dan hijau lengkap dengan fotokopi KTP untuk meyakinkan layar komputer yang sudah menampilkan KTP miliknya, ditutup ritual stempel pengantar untuk surat pengantar.",
+      "act_3_resolution": "Selembar surat utama akhirnya selesai dicetak saat matahari condong sore, tepat ketika jam dinding berbunyi menandai masa berlaku surat pengantar pertamanya baru saja kedaluwarsa."
+    },
+    "explainer_mechanism": "Sisipan fakta pelayanan publik yang membumikan komedi: memvisualisasikan istilah beban administrasi berulang sebagai meja loket A dan loket B yang hanya terpisah satu meter namun tetap menuntut warga menjadi kurir fotokopi.",
+    "humor_strategy": "Kontras deadpan antara kesopanan ramah-datar Bu Rantih saat menyebutkan syarat berlapis yang mustahil dengan kepatuhan sabar Damar yang posturnya makin miring tertimbun map warna-warni.",
+    "historical_biography_notes": "Cerita dan seluruh karakter merupakan satir sosial fiksi orisinal; tidak memparodikan tokoh biografi atau pejabat nyata mana pun.",
+    "payoff_callback": "Callback ironis ke map biru tipis pada detik pertama: setelah menara map pelangi selesai distempel sore hari, Bu Rantih menunjuk tanggal surat pengantar paling bawah di map biru awal yang masa berlakunya berakhir pukul dua siang tadi."
+  }
+}

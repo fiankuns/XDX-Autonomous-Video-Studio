@@ -1,0 +1,392 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "review_id": "REV-bench_b_birokrasi_satir_-001",
+  "project_id": "bench_b_birokrasi_satir_60s",
+  "verifier_agent": "preproduction_verifier",
+  "reviewed_task_id": "TASK-07-STORYBOARD",
+  "producer_agent": "storyboard_director",
+  "verdict": "PASS",
+  "invocation_receipt": {
+    "receipt_id": "RCPT-a8e1f798139f",
+    "request_id": "REQ-eb64de5326e6",
+    "idempotency_key": "1c9f41b71d10d330cfd01e73bec7f28a240ce6e365d905018af91f564704e3e5",
+    "task_id": "TASK-15-VERIFY",
+    "project_id": "bench_b_birokrasi_satir_60s",
+    "assigned_agent": "preproduction_verifier",
+    "runtime_name": "antigravity",
+    "execution_mode": "native_subagent",
+    "actually_invoked": true,
+    "conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+    "known_model_routing": "inherit",
+    "started_at": "2026-11-27T20:13:27.842073+00:00",
+    "completed_at": "2026-11-27T20:13:27.842073+00:00",
+    "output_artifact_hashes": {},
+    "task_definition_digest": "272a1985e774f7056de7a5e318fb1e579bdb476b9fa4eb83eda035d811e57c5b",
+    "host_invocation_evidence": {
+      "host_dispatch_verified": true,
+      "host_runtime": "antigravity",
+      "subagent_type": "xdx-preproduction-verifier",
+      "subagent_role": "Independent Preproduction Verifier (4 Benchmarks)",
+      "task_id": "TASK-15-VERIFY",
+      "project_id": "bench_b_birokrasi_satir_60s",
+      "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+    },
+    "receipt_sha256": "185d3748af311cc2fd4dc0496d55637328ec02dd1bd3fb7b079e98e945a748a5",
+    "invocation_id": "RCPT-a8e1f798139f",
+    "agent_id": "preproduction_verifier"
+  },
+  "reviewed_artifact_hashes": {
+    "projects/bench_b_birokrasi_satir_60s/research.md": "081752f3a97d6c7decbf81d909b26890c5d12fbadda777bd885a9d42f8585368",
+    "projects/bench_b_birokrasi_satir_60s/research_report.json": "02b02706663142b919e5b9846b9159ca20cb6dd041ccbdbddac4674958238e22",
+    "projects/bench_b_birokrasi_satir_60s/reference_analysis.md": "b7fccc24ea2930e9537326424e012e1ed9e0f0bc3ffc1eca105a0001e1c8fc03",
+    "projects/bench_b_birokrasi_satir_60s/blueprint.md": "269867284955239156023a64eb9944f752f8ab1c35e84309a6e8e1b189201f88",
+    "projects/bench_b_birokrasi_satir_60s/creative_concept.json": "88b995dae6fe42a86b25b561d5852aa5e1f1b8f9ff95837e238c367854476a38",
+    "projects/bench_b_birokrasi_satir_60s/script.md": "6c62bfc1fd77ec8cca4ab7e1d08ea759add8059aeee5bb9d77792f548a82937a",
+    "projects/bench_b_birokrasi_satir_60s/authored_creative_payload.json": "7df1df740bda9b9529a95f5a4a1f33b9d3a8e5800fa96d179ca367dae189e5eb",
+    "projects/bench_b_birokrasi_satir_60s/character_bible.md": "9674b8048d9dd42fa6c8dded36861a999a8fdba1cb93f6460776ccb37384a4db",
+    "projects/bench_b_birokrasi_satir_60s/character_bible.json": "1384471e80ef6a6a0df77541dc80eb9b4e3b9fc2120ae98d382a035b1aa4671e",
+    "projects/bench_b_birokrasi_satir_60s/style_bible.json": "e7d9e3aa47cd3c11fd4001327d91ce4b6e3be7ac4f9662da28a6c51f68e52992",
+    "projects/bench_b_birokrasi_satir_60s/storyboard.json": "824e53f78ae6514804a2e5445e6fd2168f2e56bc32c010e20b159ea70f12683f",
+    "projects/bench_b_birokrasi_satir_60s/semantic_visual_plan.json": "7acd936a5210c3a1ff8e6d2ae864abd8c93e4f1a5ed2d91e4b75267f22e3aa3e",
+    "projects/bench_b_birokrasi_satir_60s/reference_adaptation.json": "4a2c6c202194ed549357a15582bf4d3a24a0504f00df286174b6678c41d4fc33",
+    "projects/bench_b_birokrasi_satir_60s/motion_plan.json": "2de0131b5436b287af5ddadf5eac9b3468c783b7b855583921eb370aa6cc0cb5",
+    "projects/bench_b_birokrasi_satir_60s/camera_plan.json": "814b955f9cd14d32d1a9692b9b24519249e4651c43444dc23698267f5551a47d",
+    "projects/bench_b_birokrasi_satir_60s/asset_manifest.json": "a73fb1d865bef65c95c3ada5bb50951c47a3a9fdb0645e7726aa51cbbdb91dfd",
+    "projects/bench_b_birokrasi_satir_60s/narration_dialogue.json": "4ca94c15f3292f335f034c7ad9ace37e764e1525e2e0b3ad47eb498d990c5560",
+    "projects/bench_b_birokrasi_satir_60s/caption_audio_plan.json": "b233061b2d6bef5ec903c6c0183c70b427cff9d52beba16b32376a8ab245f798",
+    "projects/bench_b_birokrasi_satir_60s/engine_plan.json": "84d903db8bc1614251baa63ab9df3b91e26cf6072e5861c60ca23aff24c48f77",
+    "projects/bench_b_birokrasi_satir_60s/execution_plan.md": "deede83e4fc0962ab47a8814f818f0c493ace63a09dd61649f4551b06096f2bc"
+  },
+  "required_criteria_ids": [
+    "CRIT_01_TOPIC_RELEVANCE",
+    "CRIT_02_FACTUAL_ACCURACY",
+    "CRIT_03_ORIGINALITY",
+    "CRIT_04_HOOK_STRENGTH",
+    "CRIT_05_NARRATIVE_COHERENCE",
+    "CRIT_06_NARRATION_TIMING",
+    "CRIT_07_SEMANTIC_VISUAL_COVERAGE",
+    "CRIT_08_CHARACTER_CONSISTENCY",
+    "CRIT_09_STYLE_CONSISTENCY",
+    "CRIT_10_ASSET_FEASIBILITY",
+    "CRIT_11_MOTION_FEASIBILITY",
+    "CRIT_12_CAMERA_SUITABILITY",
+    "CRIT_13_REFERENCE_ADAPTATION",
+    "CRIT_14_ENGINE_COMPATIBILITY",
+    "CRIT_15_PACKAGE_COMPLETENESS"
+  ],
+  "checked_criteria": [
+    {
+      "criterion_id": "CRIT_01_TOPIC_RELEVANCE",
+      "status": "PASS",
+      "evidence": "Topic 'Mengurus Satu Surat yang Membutuhkan Banyak Surat Lain' verified across premise, claims, and narration (title_overlap=5, domain_overlap=28).",
+      "inspected_artifacts": [
+        "projects/bench_b_birokrasi_satir_60s/authored_creative_payload.json",
+        "projects/bench_b_birokrasi_satir_60s/script.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_02_FACTUAL_ACCURACY",
+      "status": "PASS",
+      "evidence": "Verified 4 factual claim(s), 4 https:// source(s), misconceptions, uncertainties, and narration mapping.",
+      "inspected_artifacts": [
+        "projects/bench_b_birokrasi_satir_60s/research_report.json",
+        "projects/bench_b_birokrasi_satir_60s/research.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_03_ORIGINALITY",
+      "status": "PASS",
+      "evidence": "Zero placeholder patterns, zero recorder watermarks, and zero leaked reference subject tokens in 6119B script.",
+      "inspected_artifacts": [
+        "projects/bench_b_birokrasi_satir_60s/script.md",
+        "projects/bench_b_birokrasi_satir_60s/character_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_04_HOOK_STRENGTH",
+      "status": "PASS",
+      "evidence": "Concrete 0-3s visual hook (205 chars) and spoken hook (17 words) verified.",
+      "inspected_artifacts": [
+        "projects/bench_b_birokrasi_satir_60s/blueprint.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_05_NARRATIVE_COHERENCE",
+      "status": "PASS",
+      "evidence": "Verified 3-act dramatic structure (['ACT_1', 'ACT_2', 'ACT_3']) and explicit payoff/callback.",
+      "inspected_artifacts": [
+        "projects/bench_b_birokrasi_satir_60s/blueprint.md",
+        "projects/bench_b_birokrasi_satir_60s/storyboard.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_06_NARRATION_TIMING",
+      "status": "PASS",
+      "evidence": "Narration timing marked ESTIMATED at 144.0 WPM (~67.859s) with speed_multiplier=1.0.",
+      "inspected_artifacts": [
+        "projects/bench_b_birokrasi_satir_60s/narration_dialogue.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_07_SEMANTIC_VISUAL_COVERAGE",
+      "status": "PASS",
+      "evidence": "100% clause coverage (12/12 clauses) across 20 integer-frame shots (max=3.8333s <= 10.0s, purposes=['character_acting', 'establishing_shot', 'object_insert', 'reaction_shot', 'technical_cutaway', 'visual_metaphor']).",
+      "inspected_artifacts": [
+        "projects/bench_b_birokrasi_satir_60s/semantic_visual_plan.json",
+        "projects/bench_b_birokrasi_satir_60s/storyboard.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_08_CHARACTER_CONSISTENCY",
+      "status": "PASS",
+      "evidence": "Verified 2 character(s) with all 11 mandatory attributes and cross-shot continuity locks.",
+      "inspected_artifacts": [
+        "projects/bench_b_birokrasi_satir_60s/character_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_09_STYLE_CONSISTENCY",
+      "status": "PASS",
+      "evidence": "Style profile 'diorama' (xdx_stylized_diorama_v4_0) locks uniform detail tier 'crafted_miniature_architectural_detail' with modeling_executed=False.",
+      "inspected_artifacts": [
+        "projects/bench_b_birokrasi_satir_60s/style_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_10_ASSET_FEASIBILITY",
+      "status": "PASS",
+      "evidence": "Verified 25 storyboard-derived 12-field semantic asset specs (zero premature READY claims, zero PLACEHOLDER boxes).",
+      "inspected_artifacts": [
+        "projects/bench_b_birokrasi_satir_60s/asset_manifest.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_11_MOTION_FEASIBILITY",
+      "status": "PASS",
+      "evidence": "Verified 20 shot-bound 14-field character/mechanism actions with IK/contact targets.",
+      "inspected_artifacts": [
+        "projects/bench_b_birokrasi_satir_60s/motion_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_12_CAMERA_SUITABILITY",
+      "status": "PASS",
+      "evidence": "Verified purpose-driven camera lenses [24.0, 35.0, 40.0, 50.0, 75.0, 85.0]mm across 20 shots (not locked to 36mm).",
+      "inspected_artifacts": [
+        "projects/bench_b_birokrasi_satir_60s/camera_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_13_REFERENCE_ADAPTATION",
+      "status": "PASS",
+      "evidence": "Verified 10-dimension fusion (refs=['REF-001'], conflicts_resolved=0) and 20 shot-bound 14-field adaptation records.",
+      "inspected_artifacts": [
+        "projects/bench_b_birokrasi_satir_60s/reference_adaptation.json",
+        "projects/bench_b_birokrasi_satir_60s/reference_analysis.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_14_ENGINE_COMPATIBILITY",
+      "status": "PASS",
+      "evidence": "Engine routing (['blender', 'remotion', 'rea_video', 'ffmpeg']) and ESTIMATED caption/audio plans validated with zero live render execution.",
+      "inspected_artifacts": [
+        "projects/bench_b_birokrasi_satir_60s/engine_plan.json",
+        "projects/bench_b_birokrasi_satir_60s/caption_audio_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_15_PACKAGE_COMPLETENESS",
+      "status": "PASS",
+      "evidence": "All 13 mandatory items and 11 file SHA-256 digests verified; status=='WAITING_APPROVAL'.",
+      "inspected_artifacts": [
+        "projects/bench_b_birokrasi_satir_60s/approval_package_manifest.json"
+      ]
+    }
+  ],
+  "defects": [],
+  "reviewer_task_id": "TASK-15-VERIFY",
+  "additional_reviewed_task_ids": [
+    "TASK-01-RESEARCH",
+    "TASK-02-REFERENCE",
+    "TASK-03-CREATIVE",
+    "TASK-04-SCRIPT",
+    "TASK-05-CHARACTER",
+    "TASK-06-STYLE",
+    "TASK-08-REF-ADAPT",
+    "TASK-09-MOTION",
+    "TASK-10-CAMERA",
+    "TASK-11-ASSET",
+    "TASK-12-AUDIO",
+    "TASK-13-CAPTION",
+    "TASK-14-ENGINE"
+  ],
+  "producer_conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+  "reviewer_conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+  "criteria_manifest_digest": "640e1dcc14f183dfa7ddb93ae45659411771ca5479c202968f505cd6ea05634b",
+  "reviewed_artifact_manifest": {
+    "projects/bench_b_birokrasi_satir_60s/research.md": {
+      "owner_task_id": "TASK-01-RESEARCH",
+      "owner_agent": "topic_research_agent",
+      "sha256": "081752f3a97d6c7decbf81d909b26890c5d12fbadda777bd885a9d42f8585368",
+      "size_bytes": 4778
+    },
+    "projects/bench_b_birokrasi_satir_60s/research_report.json": {
+      "owner_task_id": "TASK-01-RESEARCH",
+      "owner_agent": "topic_research_agent",
+      "sha256": "02b02706663142b919e5b9846b9159ca20cb6dd041ccbdbddac4674958238e22",
+      "size_bytes": 10735
+    },
+    "projects/bench_b_birokrasi_satir_60s/reference_analysis.md": {
+      "owner_task_id": "TASK-02-REFERENCE",
+      "owner_agent": "rea_video_reference_analyst",
+      "sha256": "b7fccc24ea2930e9537326424e012e1ed9e0f0bc3ffc1eca105a0001e1c8fc03",
+      "size_bytes": 2036
+    },
+    "projects/bench_b_birokrasi_satir_60s/blueprint.md": {
+      "owner_task_id": "TASK-03-CREATIVE",
+      "owner_agent": "creative_director",
+      "sha256": "269867284955239156023a64eb9944f752f8ab1c35e84309a6e8e1b189201f88",
+      "size_bytes": 2551
+    },
+    "projects/bench_b_birokrasi_satir_60s/creative_concept.json": {
+      "owner_task_id": "TASK-03-CREATIVE",
+      "owner_agent": "creative_director",
+      "sha256": "88b995dae6fe42a86b25b561d5852aa5e1f1b8f9ff95837e238c367854476a38",
+      "size_bytes": 2480
+    },
+    "projects/bench_b_birokrasi_satir_60s/script.md": {
+      "owner_task_id": "TASK-04-SCRIPT",
+      "owner_agent": "scriptwriter_agent",
+      "sha256": "6c62bfc1fd77ec8cca4ab7e1d08ea759add8059aeee5bb9d77792f548a82937a",
+      "size_bytes": 6171
+    },
+    "projects/bench_b_birokrasi_satir_60s/authored_creative_payload.json": {
+      "owner_task_id": "TASK-04-SCRIPT",
+      "owner_agent": "scriptwriter_agent",
+      "sha256": "7df1df740bda9b9529a95f5a4a1f33b9d3a8e5800fa96d179ca367dae189e5eb",
+      "size_bytes": 26082
+    },
+    "projects/bench_b_birokrasi_satir_60s/character_bible.md": {
+      "owner_task_id": "TASK-05-CHARACTER",
+      "owner_agent": "character_design_agent",
+      "sha256": "9674b8048d9dd42fa6c8dded36861a999a8fdba1cb93f6460776ccb37384a4db",
+      "size_bytes": 2719
+    },
+    "projects/bench_b_birokrasi_satir_60s/character_bible.json": {
+      "owner_task_id": "TASK-05-CHARACTER",
+      "owner_agent": "character_design_agent",
+      "sha256": "1384471e80ef6a6a0df77541dc80eb9b4e3b9fc2120ae98d382a035b1aa4671e",
+      "size_bytes": 7677
+    },
+    "projects/bench_b_birokrasi_satir_60s/style_bible.json": {
+      "owner_task_id": "TASK-06-STYLE",
+      "owner_agent": "art_director",
+      "sha256": "e7d9e3aa47cd3c11fd4001327d91ce4b6e3be7ac4f9662da28a6c51f68e52992",
+      "size_bytes": 1263
+    },
+    "projects/bench_b_birokrasi_satir_60s/storyboard.json": {
+      "owner_task_id": "TASK-07-STORYBOARD",
+      "owner_agent": "storyboard_director",
+      "sha256": "824e53f78ae6514804a2e5445e6fd2168f2e56bc32c010e20b159ea70f12683f",
+      "size_bytes": 120346
+    },
+    "projects/bench_b_birokrasi_satir_60s/semantic_visual_plan.json": {
+      "owner_task_id": "TASK-07-STORYBOARD",
+      "owner_agent": "storyboard_director",
+      "sha256": "7acd936a5210c3a1ff8e6d2ae864abd8c93e4f1a5ed2d91e4b75267f22e3aa3e",
+      "size_bytes": 19802
+    },
+    "projects/bench_b_birokrasi_satir_60s/reference_adaptation.json": {
+      "owner_task_id": "TASK-08-REF-ADAPT",
+      "owner_agent": "rea_video_reference_analyst",
+      "sha256": "4a2c6c202194ed549357a15582bf4d3a24a0504f00df286174b6678c41d4fc33",
+      "size_bytes": 31803
+    },
+    "projects/bench_b_birokrasi_satir_60s/motion_plan.json": {
+      "owner_task_id": "TASK-09-MOTION",
+      "owner_agent": "motion_director",
+      "sha256": "2de0131b5436b287af5ddadf5eac9b3468c783b7b855583921eb370aa6cc0cb5",
+      "size_bytes": 85091
+    },
+    "projects/bench_b_birokrasi_satir_60s/camera_plan.json": {
+      "owner_task_id": "TASK-10-CAMERA",
+      "owner_agent": "cinematographer",
+      "sha256": "814b955f9cd14d32d1a9692b9b24519249e4651c43444dc23698267f5551a47d",
+      "size_bytes": 15150
+    },
+    "projects/bench_b_birokrasi_satir_60s/asset_manifest.json": {
+      "owner_task_id": "TASK-11-ASSET",
+      "owner_agent": "asset_specialist",
+      "sha256": "a73fb1d865bef65c95c3ada5bb50951c47a3a9fdb0645e7726aa51cbbdb91dfd",
+      "size_bytes": 58643
+    },
+    "projects/bench_b_birokrasi_satir_60s/narration_dialogue.json": {
+      "owner_task_id": "TASK-12-AUDIO",
+      "owner_agent": "audio_director",
+      "sha256": "4ca94c15f3292f335f034c7ad9ace37e764e1525e2e0b3ad47eb498d990c5560",
+      "size_bytes": 17010
+    },
+    "projects/bench_b_birokrasi_satir_60s/caption_audio_plan.json": {
+      "owner_task_id": "TASK-13-CAPTION",
+      "owner_agent": "caption_specialist",
+      "sha256": "b233061b2d6bef5ec903c6c0183c70b427cff9d52beba16b32376a8ab245f798",
+      "size_bytes": 10937
+    },
+    "projects/bench_b_birokrasi_satir_60s/engine_plan.json": {
+      "owner_task_id": "TASK-14-ENGINE",
+      "owner_agent": "remotion_specialist",
+      "sha256": "84d903db8bc1614251baa63ab9df3b91e26cf6072e5861c60ca23aff24c48f77",
+      "size_bytes": 17911
+    },
+    "projects/bench_b_birokrasi_satir_60s/execution_plan.md": {
+      "owner_task_id": "TASK-14-ENGINE",
+      "owner_agent": "remotion_specialist",
+      "sha256": "deede83e4fc0962ab47a8814f818f0c493ace63a09dd61649f4551b06096f2bc",
+      "size_bytes": 2194
+    }
+  },
+  "pre_review_hashes": {
+    "projects/bench_b_birokrasi_satir_60s/research.md": "081752f3a97d6c7decbf81d909b26890c5d12fbadda777bd885a9d42f8585368",
+    "projects/bench_b_birokrasi_satir_60s/research_report.json": "02b02706663142b919e5b9846b9159ca20cb6dd041ccbdbddac4674958238e22",
+    "projects/bench_b_birokrasi_satir_60s/reference_analysis.md": "b7fccc24ea2930e9537326424e012e1ed9e0f0bc3ffc1eca105a0001e1c8fc03",
+    "projects/bench_b_birokrasi_satir_60s/blueprint.md": "269867284955239156023a64eb9944f752f8ab1c35e84309a6e8e1b189201f88",
+    "projects/bench_b_birokrasi_satir_60s/creative_concept.json": "88b995dae6fe42a86b25b561d5852aa5e1f1b8f9ff95837e238c367854476a38",
+    "projects/bench_b_birokrasi_satir_60s/script.md": "6c62bfc1fd77ec8cca4ab7e1d08ea759add8059aeee5bb9d77792f548a82937a",
+    "projects/bench_b_birokrasi_satir_60s/authored_creative_payload.json": "7df1df740bda9b9529a95f5a4a1f33b9d3a8e5800fa96d179ca367dae189e5eb",
+    "projects/bench_b_birokrasi_satir_60s/character_bible.md": "9674b8048d9dd42fa6c8dded36861a999a8fdba1cb93f6460776ccb37384a4db",
+    "projects/bench_b_birokrasi_satir_60s/character_bible.json": "1384471e80ef6a6a0df77541dc80eb9b4e3b9fc2120ae98d382a035b1aa4671e",
+    "projects/bench_b_birokrasi_satir_60s/style_bible.json": "e7d9e3aa47cd3c11fd4001327d91ce4b6e3be7ac4f9662da28a6c51f68e52992",
+    "projects/bench_b_birokrasi_satir_60s/storyboard.json": "824e53f78ae6514804a2e5445e6fd2168f2e56bc32c010e20b159ea70f12683f",
+    "projects/bench_b_birokrasi_satir_60s/semantic_visual_plan.json": "7acd936a5210c3a1ff8e6d2ae864abd8c93e4f1a5ed2d91e4b75267f22e3aa3e",
+    "projects/bench_b_birokrasi_satir_60s/reference_adaptation.json": "4a2c6c202194ed549357a15582bf4d3a24a0504f00df286174b6678c41d4fc33",
+    "projects/bench_b_birokrasi_satir_60s/motion_plan.json": "2de0131b5436b287af5ddadf5eac9b3468c783b7b855583921eb370aa6cc0cb5",
+    "projects/bench_b_birokrasi_satir_60s/camera_plan.json": "814b955f9cd14d32d1a9692b9b24519249e4651c43444dc23698267f5551a47d",
+    "projects/bench_b_birokrasi_satir_60s/asset_manifest.json": "a73fb1d865bef65c95c3ada5bb50951c47a3a9fdb0645e7726aa51cbbdb91dfd",
+    "projects/bench_b_birokrasi_satir_60s/narration_dialogue.json": "4ca94c15f3292f335f034c7ad9ace37e764e1525e2e0b3ad47eb498d990c5560",
+    "projects/bench_b_birokrasi_satir_60s/caption_audio_plan.json": "b233061b2d6bef5ec903c6c0183c70b427cff9d52beba16b32376a8ab245f798",
+    "projects/bench_b_birokrasi_satir_60s/engine_plan.json": "84d903db8bc1614251baa63ab9df3b91e26cf6072e5861c60ca23aff24c48f77",
+    "projects/bench_b_birokrasi_satir_60s/execution_plan.md": "deede83e4fc0962ab47a8814f818f0c493ace63a09dd61649f4551b06096f2bc"
+  },
+  "post_review_hashes": {
+    "projects/bench_b_birokrasi_satir_60s/research.md": "081752f3a97d6c7decbf81d909b26890c5d12fbadda777bd885a9d42f8585368",
+    "projects/bench_b_birokrasi_satir_60s/research_report.json": "02b02706663142b919e5b9846b9159ca20cb6dd041ccbdbddac4674958238e22",
+    "projects/bench_b_birokrasi_satir_60s/reference_analysis.md": "b7fccc24ea2930e9537326424e012e1ed9e0f0bc3ffc1eca105a0001e1c8fc03",
+    "projects/bench_b_birokrasi_satir_60s/blueprint.md": "269867284955239156023a64eb9944f752f8ab1c35e84309a6e8e1b189201f88",
+    "projects/bench_b_birokrasi_satir_60s/creative_concept.json": "88b995dae6fe42a86b25b561d5852aa5e1f1b8f9ff95837e238c367854476a38",
+    "projects/bench_b_birokrasi_satir_60s/script.md": "6c62bfc1fd77ec8cca4ab7e1d08ea759add8059aeee5bb9d77792f548a82937a",
+    "projects/bench_b_birokrasi_satir_60s/authored_creative_payload.json": "7df1df740bda9b9529a95f5a4a1f33b9d3a8e5800fa96d179ca367dae189e5eb",
+    "projects/bench_b_birokrasi_satir_60s/character_bible.md": "9674b8048d9dd42fa6c8dded36861a999a8fdba1cb93f6460776ccb37384a4db",
+    "projects/bench_b_birokrasi_satir_60s/character_bible.json": "1384471e80ef6a6a0df77541dc80eb9b4e3b9fc2120ae98d382a035b1aa4671e",
+    "projects/bench_b_birokrasi_satir_60s/style_bible.json": "e7d9e3aa47cd3c11fd4001327d91ce4b6e3be7ac4f9662da28a6c51f68e52992",
+    "projects/bench_b_birokrasi_satir_60s/storyboard.json": "824e53f78ae6514804a2e5445e6fd2168f2e56bc32c010e20b159ea70f12683f",
+    "projects/bench_b_birokrasi_satir_60s/semantic_visual_plan.json": "7acd936a5210c3a1ff8e6d2ae864abd8c93e4f1a5ed2d91e4b75267f22e3aa3e",
+    "projects/bench_b_birokrasi_satir_60s/reference_adaptation.json": "4a2c6c202194ed549357a15582bf4d3a24a0504f00df286174b6678c41d4fc33",
+    "projects/bench_b_birokrasi_satir_60s/motion_plan.json": "2de0131b5436b287af5ddadf5eac9b3468c783b7b855583921eb370aa6cc0cb5",
+    "projects/bench_b_birokrasi_satir_60s/camera_plan.json": "814b955f9cd14d32d1a9692b9b24519249e4651c43444dc23698267f5551a47d",
+    "projects/bench_b_birokrasi_satir_60s/asset_manifest.json": "a73fb1d865bef65c95c3ada5bb50951c47a3a9fdb0645e7726aa51cbbdb91dfd",
+    "projects/bench_b_birokrasi_satir_60s/narration_dialogue.json": "4ca94c15f3292f335f034c7ad9ace37e764e1525e2e0b3ad47eb498d990c5560",
+    "projects/bench_b_birokrasi_satir_60s/caption_audio_plan.json": "b233061b2d6bef5ec903c6c0183c70b427cff9d52beba16b32376a8ab245f798",
+    "projects/bench_b_birokrasi_satir_60s/engine_plan.json": "84d903db8bc1614251baa63ab9df3b91e26cf6072e5861c60ca23aff24c48f77",
+    "projects/bench_b_birokrasi_satir_60s/execution_plan.md": "deede83e4fc0962ab47a8814f818f0c493ace63a09dd61649f4551b06096f2bc"
+  }
+}

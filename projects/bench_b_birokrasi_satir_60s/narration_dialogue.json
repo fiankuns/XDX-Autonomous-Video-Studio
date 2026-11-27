@@ -1,0 +1,561 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_b_birokrasi_satir_60s",
+  "timing_status": "ESTIMATED",
+  "actual_audio_and_forced_alignment_phase": "SCHEDULED_PHASE_04",
+  "language": "id-ID",
+  "narration_style": "Conversational satirical storyteller with deadpan pauses",
+  "target_wpm": 142,
+  "measured_script_wpm": 144.0,
+  "estimated_timing": {
+    "estimated_total_s": 67.859,
+    "target_duration_s": 60.0,
+    "playback_speed_multiplier": 1.0,
+    "duration_recommendation": {
+      "suggest_duration_change": false,
+      "recommended_target_duration_s": 60,
+      "rationale": "Estimated delivery (67.859s, 144.0 WPM) fits comfortably within 60s with natural breath pauses."
+    }
+  },
+  "voice_delivery_mode": "hybrid_vo_and_character_dialogue",
+  "voice_direction": {
+    "narrator_register": "baritone_or_mezzo_clear_indonesian",
+    "pace_policy": "Adaptive clause-breathing pace (~130-160 WPM); never time-stretched.",
+    "dialogue_separation": "Distinct mic/room coloration and turn-taking pause per character."
+  },
+  "music_direction": "Light acoustic pizzicato & dry percussion stings stopping cleanly before punchlines; ducked -16 dB under VO.",
+  "ambience": "Grounded Indonesian interior / public-counter room tone (-25 LUFS).",
+  "foley": [
+    {
+      "event_id": "FOL_S001",
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 72,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (establishing_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S002",
+      "shot_id": "S002",
+      "start_frame": 72,
+      "end_frame": 143,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S003",
+      "shot_id": "S003",
+      "start_frame": 143,
+      "end_frame": 222,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S004",
+      "shot_id": "S004",
+      "start_frame": 222,
+      "end_frame": 300,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S005",
+      "shot_id": "S005",
+      "start_frame": 300,
+      "end_frame": 402,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S006",
+      "shot_id": "S006",
+      "start_frame": 402,
+      "end_frame": 504,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (reaction_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S007",
+      "shot_id": "S007",
+      "start_frame": 504,
+      "end_frame": 597,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (reaction_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S008",
+      "shot_id": "S008",
+      "start_frame": 597,
+      "end_frame": 690,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S009",
+      "shot_id": "S009",
+      "start_frame": 690,
+      "end_frame": 786,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (object_insert)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S010",
+      "shot_id": "S010",
+      "start_frame": 786,
+      "end_frame": 881,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S011",
+      "shot_id": "S011",
+      "start_frame": 881,
+      "end_frame": 996,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (visual_metaphor)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S012",
+      "shot_id": "S012",
+      "start_frame": 996,
+      "end_frame": 1110,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S013",
+      "shot_id": "S013",
+      "start_frame": 1110,
+      "end_frame": 1212,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (visual_metaphor)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S014",
+      "shot_id": "S014",
+      "start_frame": 1212,
+      "end_frame": 1314,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (object_insert)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S015",
+      "shot_id": "S015",
+      "start_frame": 1314,
+      "end_frame": 1407,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (object_insert)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S016",
+      "shot_id": "S016",
+      "start_frame": 1407,
+      "end_frame": 1500,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S017",
+      "shot_id": "S017",
+      "start_frame": 1500,
+      "end_frame": 1572,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (object_insert)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S018",
+      "shot_id": "S018",
+      "start_frame": 1572,
+      "end_frame": 1643,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S019",
+      "shot_id": "S019",
+      "start_frame": 1643,
+      "end_frame": 1722,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S020",
+      "shot_id": "S020",
+      "start_frame": 1722,
+      "end_frame": 1800,
+      "foley_description": "Subtle tactile foley for char_damar_pemohon (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    }
+  ],
+  "sound_effect_events": [
+    {
+      "event_id": "SFX_S001",
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 18,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "establishing_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S002",
+      "shot_id": "S002",
+      "start_frame": 72,
+      "end_frame": 90,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S003",
+      "shot_id": "S003",
+      "start_frame": 143,
+      "end_frame": 161,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S004",
+      "shot_id": "S004",
+      "start_frame": 222,
+      "end_frame": 240,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S005",
+      "shot_id": "S005",
+      "start_frame": 300,
+      "end_frame": 318,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S006",
+      "shot_id": "S006",
+      "start_frame": 402,
+      "end_frame": 420,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "reaction_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S007",
+      "shot_id": "S007",
+      "start_frame": 504,
+      "end_frame": 522,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "reaction_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S008",
+      "shot_id": "S008",
+      "start_frame": 597,
+      "end_frame": 615,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S009",
+      "shot_id": "S009",
+      "start_frame": 690,
+      "end_frame": 708,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "object_insert",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S010",
+      "shot_id": "S010",
+      "start_frame": 786,
+      "end_frame": 804,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S011",
+      "shot_id": "S011",
+      "start_frame": 881,
+      "end_frame": 899,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "visual_metaphor",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S012",
+      "shot_id": "S012",
+      "start_frame": 996,
+      "end_frame": 1014,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S013",
+      "shot_id": "S013",
+      "start_frame": 1110,
+      "end_frame": 1128,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "visual_metaphor",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S014",
+      "shot_id": "S014",
+      "start_frame": 1212,
+      "end_frame": 1230,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "object_insert",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S015",
+      "shot_id": "S015",
+      "start_frame": 1314,
+      "end_frame": 1332,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "object_insert",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S016",
+      "shot_id": "S016",
+      "start_frame": 1407,
+      "end_frame": 1425,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S017",
+      "shot_id": "S017",
+      "start_frame": 1500,
+      "end_frame": 1518,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "object_insert",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S018",
+      "shot_id": "S018",
+      "start_frame": 1572,
+      "end_frame": 1590,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S019",
+      "shot_id": "S019",
+      "start_frame": 1643,
+      "end_frame": 1661,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S020",
+      "shot_id": "S020",
+      "start_frame": 1722,
+      "end_frame": 1740,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    }
+  ],
+  "vo_segments": [
+    {
+      "segment_id": "VO_001",
+      "beat_id": "B01",
+      "shot_id": "S001",
+      "shot_ids": [
+        "S001",
+        "S002",
+        "S003",
+        "S004"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Kamu cuma niat mengurus satu surat keterangan domisili lima menit, tapi pulang memeluk bundel berkas setebal bantal.",
+      "word_count": 17,
+      "start_time_s": 0.0,
+      "end_time_s": 10.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Akrab menyapa dengan kata 'Kamu', nada santai penuh senyum miring khas pengamatan sehari-hari.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_002",
+      "beat_id": "B02",
+      "shot_id": "S005",
+      "shot_ids": [
+        "S005",
+        "S006",
+        "S007",
+        "S008"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Begitu map tipis disodorkan ke loket, muncul aturan klasik birokrasi: satu surat utama ternyata membutuhkan banyak surat pengantar lain terlebih dahulu.",
+      "word_count": 21,
+      "start_time_s": 10.0,
+      "end_time_s": 23.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Tenang dan jernih saat menekankan frasa 'satu surat utama ternyata membutuhkan banyak surat pengantar lain'.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_003",
+      "beat_id": "B03",
+      "shot_id": "S009",
+      "shot_ids": [
+        "S009",
+        "S010",
+        "S011",
+        "S012"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Damar bolak-balik fotokopi kartu identitas yang datanya sudah tercetak jelas di layar komputer, lengkap dengan map merah, kuning, dan hijau sesuai hari.",
+      "word_count": 22,
+      "start_time_s": 23.0,
+      "end_time_s": 37.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Ritme sedikit meningkat menggambarkan kepanikan sopan bolak-balik mesin fotokopi.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_004",
+      "beat_id": "B04",
+      "shot_id": "S013",
+      "shot_ids": [
+        "S013",
+        "S014",
+        "S015",
+        "S016"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Riset pelayanan publik menyebutnya beban administrasi berulang: waktu warga habis mengantar kertas dari meja kanan ke meja sebelahnya yang berjarak satu meter.",
+      "word_count": 22,
+      "start_time_s": 37.0,
+      "end_time_s": 50.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Nada dokumenter serius yang kontras lucu dengan aksi bergeser satu meter di layar.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_005",
+      "beat_id": "B05",
+      "shot_id": "S017",
+      "shot_ids": [
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Akhirnya satu surat impian itu terbit sore hari, tepat setelah masa berlaku surat pengantar pertamanya habis tadi siang.",
+      "word_count": 18,
+      "start_time_s": 50.0,
+      "end_time_s": 60.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Jeda komedi sepersekian detik sebelum kalimat 'tepat setelah masa berlaku surat pengantar pertamanya habis tadi siang'.",
+      "breath_pause_ms": 220
+    }
+  ],
+  "dialogue_lines": [
+    {
+      "beat_id": "B01",
+      "shot_id": "S002",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_damar_pemohon",
+      "line": "Pagi Bu, mau mengurus satu surat ini saja.",
+      "delivery": "ceria dan penuh keyakinan pagi hari",
+      "onscreen_speaking": true
+    },
+    {
+      "beat_id": "B02",
+      "shot_id": "S006",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_bu_rantih_loket",
+      "line": "Kurang surat pengantar RT untuk mengambil formulir pengantar RW, Mas.",
+      "delivery": "datar sopan tanpa berkedip sambil menunjuk papan syarat",
+      "onscreen_speaking": true
+    },
+    {
+      "beat_id": "B03",
+      "shot_id": "S010",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_damar_pemohon",
+      "line": "Ini fotokopi KTP untuk membuktikan KTP asli saya benar KTP?",
+      "delivery": "bingung sopan sambil menahan tumpukan map dengan dagu",
+      "onscreen_speaking": true
+    },
+    {
+      "beat_id": "B04",
+      "shot_id": "S014",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_bu_rantih_loket",
+      "line": "Nah, tinggal stempel pengantar untuk melegalisir surat pengantarnya.",
+      "delivery": "tenang meyakinkan sambil mengangkat stempel kayu paling besar",
+      "onscreen_speaking": true
+    },
+    {
+      "beat_id": "B05",
+      "shot_id": "S018",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_damar_pemohon",
+      "line": "Berarti besok mulai dari map biru tipis lagi?",
+      "delivery": "senyum pasrah lirih sambil menatap jam dinding",
+      "onscreen_speaking": true
+    }
+  ],
+  "lip_sync_plan": {
+    "status": "ESTIMATED_PRE_AUDIO",
+    "onscreen_dialogue_present": true,
+    "phase_04_backend": "rhubarb_or_whisper_forced_viseme_alignment"
+  }
+}

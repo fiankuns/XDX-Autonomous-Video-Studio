@@ -41,6 +41,11 @@ def test_hierarchical_storyboard_across_durations_and_genres(
         project_id=f"test_{duration_s}s",
         genres=genres,
         target_duration_s=duration_s,
+        authored_payload=build_authored_time_perception_payload(
+            project_id=f"test_{duration_s}s",
+            target_duration_s=duration_s,
+            genres=genres,
+        ),
     )
     assert res["status"] == "WAITING_APPROVAL"
 

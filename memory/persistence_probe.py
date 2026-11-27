@@ -57,11 +57,14 @@ def sync_reference_database_into_knowledge_memory(
     bridge = ReferenceDatabaseBridge(studio_root=root)
     refs_by_id, _, _ = bridge.load_registries()
 
+    from intelligence.reference_lifecycle import (
+        compute_actual_analyzer_source_fingerprint,
+        compute_analyzer_config_hash,
+    )
+
     indexed_entries: list[dict[str, Any]] = []
-    analyzer_fp = "xdx-rea-video-multimodal-forensics-v3.4"
-    cfg_hash = hashlib.sha256(
-        (root / "reference_database" / "reference_registry.json").read_bytes()
-    ).hexdigest()
+    analyzer_fp = compute_actual_analyzer_source_fingerprint(root)
+    cfg_hash = compute_analyzer_config_hash()
 
     for rid in sorted(refs_by_id):
         rec = bridge.verify_and_load_reference(rid)

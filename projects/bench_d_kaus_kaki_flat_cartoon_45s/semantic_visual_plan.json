@@ -1,0 +1,382 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "pipeline_chain": "CLAUSE -> VISUAL_PURPOSE -> SHOT -> ACTION -> CHARACTER_OBJECT -> ASSET -> CAMERA -> ENGINE -> QC",
+  "total_clauses": 9,
+  "mapped_clauses": 9,
+  "clause_coverage_ratio": 1.0,
+  "visual_purposes_used": [
+    "character_acting",
+    "establishing_shot",
+    "object_insert",
+    "reaction_shot",
+    "technical_cutaway",
+    "visual_metaphor"
+  ],
+  "supported_visual_purposes": [
+    "character_acting",
+    "object_insert",
+    "technical_cutaway",
+    "exploded_view",
+    "scientific_mechanism",
+    "reaction_shot",
+    "historical_reconstruction",
+    "visual_metaphor",
+    "data_visualization",
+    "scale_comparison",
+    "timeline",
+    "establishing_shot"
+  ],
+  "master_timeline_unit": "integer_frames",
+  "fps": 30,
+  "total_frames": 1350,
+  "non_uniform_semantic_frame_allocation": true,
+  "shots_in_2_to_6s_target_ratio": 1.0,
+  "max_shot_duration_s": 5.2333,
+  "narration_timing_summary": {
+    "estimated_duration_s": 49.963,
+    "implied_wpm": 142.7
+  },
+  "clause_to_shot_mappings": [
+    {
+      "clause_id": "CL_001",
+      "beat_id": "B01",
+      "clause_text": "Tujuh pasang kaus kaki masuk ke mesin cuci malam ini tetapi saat pintu dibuka, hanya tiga belas helai yang keluar hidup-hidup.",
+      "01_clause": "Tujuh pasang kaus kaki masuk ke mesin cuci malam ini tetapi saat pintu dibuka, hanya tiga belas helai yang keluar hidup-hidup.",
+      "02_visual_purpose": "establishing_shot",
+      "03_shot_id": "S001",
+      "03_frame_range": [
+        0,
+        150
+      ],
+      "04_action": "Pintu kaca mesin cuci terbuka mengeluarkan uap tipis sementara Kino menghitung barisan kaus kaki di keranjang",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Kino berlutut di depan mesin cuci bukaan depan dengan bayangan panjang kartun"
+      },
+      "06_assets": [
+        "env_laundry_nook_chiaroscuro_2d",
+        "prop_frontload_washer_2d",
+        "prop_laundry_basket_plastic",
+        "prop_thirteen_socks_row",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "wide",
+        "focal_length_mm": 32.0,
+        "angle": "low_dutch_tilt"
+      },
+      "08_engine": {
+        "primary_engine": "remotion",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_002",
+      "beat_id": "B01",
+      "clause_text": "[char_kino_pencuci] Pasangan belang kuningku menguap ke mana?",
+      "01_clause": "[char_kino_pencuci] Pasangan belang kuningku menguap ke mana?",
+      "02_visual_purpose": "reaction_shot",
+      "03_shot_id": "S002",
+      "03_frame_range": [
+        150,
+        300
+      ],
+      "04_action": "Kino mengangkat kaus kaki belang kuning setinggi mata dengan sorot senter kecil dari bawah dagu",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Wajah kaget Kino mengangkat satu kaus kaki belang kuning yang sendirian"
+      },
+      "06_assets": [
+        "env_laundry_nook_chiaroscuro_2d",
+        "prop_single_yellow_striped_sock",
+        "prop_mini_pocket_flashlight",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "close_up",
+        "focal_length_mm": 65.0,
+        "angle": "intimate_eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "remotion",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_003",
+      "beat_id": "B02",
+      "clause_text": "Lampu ruang cuci berkedip pelan.",
+      "01_clause": "Lampu ruang cuci berkedip pelan.",
+      "02_visual_purpose": "technical_cutaway",
+      "03_shot_id": "S003",
+      "03_frame_range": [
+        300,
+        407
+      ],
+      "04_action": "Tabung mesin cuci berputar cepat lalu sehelai kaus kaki belang terselip rapi ke celah lipatan karet pintu",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Penampang kartun 2D lipatan karet penyekat pintu mesin cuci bukaan depan"
+      },
+      "06_assets": [
+        "env_washer_gasket_cutaway_2d",
+        "prop_rubber_door_gasket_cutaway_2d",
+        "prop_spinning_washer_drum_2d",
+        "prop_detective_striped_sock_card",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "cutaway",
+        "focal_length_mm": 50.0,
+        "angle": "orthographic_feel_25deg"
+      },
+      "08_engine": {
+        "primary_engine": "remotion",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_004",
+      "beat_id": "B02",
+      "clause_text": "Bukan ulah hantu binatu, melainkan lipatan karet pintu mesin cuci yang diam-diam menelan kaus kaki kecil saat tabung berputar kencang.",
+      "01_clause": "Bukan ulah hantu binatu, melainkan lipatan karet pintu mesin cuci yang diam-diam menelan kaus kaki kecil saat tabung berputar kencang.",
+      "02_visual_purpose": "character_acting",
+      "03_shot_id": "S004",
+      "03_frame_range": [
+        407,
+        513
+      ],
+      "04_action": "Tabung mesin cuci berputar cepat lalu sehelai kaus kaki belang terselip rapi ke celah lipatan karet pintu Kamera beralih ke sudut insert menyoroti interaksi detail prop_rubber_door_gasket_cutaway_2d, prop_spinning_washer_drum_2d.",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Detektif Kaus mengintip dari balik lipatan karet abu-abu saat disorot senter Kino"
+      },
+      "06_assets": [
+        "env_washer_gasket_cutaway_2d",
+        "prop_rubber_door_gasket_cutaway_2d",
+        "prop_spinning_washer_drum_2d",
+        "prop_detective_striped_sock_card",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "insert",
+        "focal_length_mm": 72.0,
+        "angle": "tabletop_35deg"
+      },
+      "08_engine": {
+        "primary_engine": "remotion",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_005",
+      "beat_id": "B02",
+      "clause_text": "[char_detektif_kaus] Sst, di balik karet ini hangat sekali.",
+      "01_clause": "[char_detektif_kaus] Sst, di balik karet ini hangat sekali.",
+      "02_visual_purpose": "character_acting",
+      "03_shot_id": "S005",
+      "03_frame_range": [
+        513,
+        602
+      ],
+      "04_action": "Tangan Kino menyibak lipatan karet mesin cuci dan menampakkan ujung kaus kaki belang berhias mata kancing",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Detektif Kaus mengintip dari balik lipatan karet abu-abu saat disorot senter Kino"
+      },
+      "06_assets": [
+        "env_washer_gasket_cutaway_2d",
+        "prop_rubber_door_gasket_cutaway_2d",
+        "prop_mini_pocket_flashlight",
+        "prop_detective_striped_sock_card",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "insert",
+        "focal_length_mm": 72.0,
+        "angle": "tabletop_35deg"
+      },
+      "08_engine": {
+        "primary_engine": "threejs",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_006",
+      "beat_id": "B03",
+      "clause_text": "Sisanya bersembunyi di ujung pipa celana panjang karena mata kita lengah oleh perhatian selektif waktu menyortir tumpukan cucian.",
+      "01_clause": "Sisanya bersembunyi di ujung pipa celana panjang karena mata kita lengah oleh perhatian selektif waktu menyortir tumpukan cucian.",
+      "02_visual_purpose": "visual_metaphor",
+      "03_shot_id": "S007",
+      "03_frame_range": [
+        690,
+        776
+      ],
+      "04_action": "Garis sorot x-ray kartun menembus tumpukan kain memperlihatkan kaus kaki tersangkut di pergelangan celana panjang",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Siluet tembus pandang kaus kaki yang menempel di bagian dalam pipa celana olahraga"
+      },
+      "06_assets": [
+        "env_dorm_laundry_pile_2d",
+        "prop_jogger_pants_cutout_2d",
+        "prop_hidden_sock_xray_badge",
+        "prop_folded_bedsheet_stack",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "cutaway",
+        "focal_length_mm": 50.0,
+        "angle": "orthographic_feel_25deg"
+      },
+      "08_engine": {
+        "primary_engine": "remotion",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_007",
+      "beat_id": "B03",
+      "clause_text": "[char_kino_pencuci] Ketahuan kau bersembunyi di celana olahraga!",
+      "01_clause": "[char_kino_pencuci] Ketahuan kau bersembunyi di celana olahraga!",
+      "02_visual_purpose": "character_acting",
+      "03_shot_id": "S009",
+      "03_frame_range": [
+        861,
+        956
+      ],
+      "04_action": "Kino mengibaskan celana olahraga ke atas lalu Detektif Kaus meluncur mendarat jenaka di jambul rambut Kino",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Kino mengguncang celana olahraga terbalik hingga kaus kaki meluncur keluar"
+      },
+      "06_assets": [
+        "env_dorm_laundry_pile_2d",
+        "prop_jogger_pants_cutout_2d",
+        "prop_detective_striped_sock_card",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "medium",
+        "focal_length_mm": 40.0,
+        "angle": "eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "remotion",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_008",
+      "beat_id": "B04",
+      "clause_text": "Misteri terpecahkan tanpa drama mistis, meski laci kos tetap penuh kaus kaki jomblo aneka motif.",
+      "01_clause": "Misteri terpecahkan tanpa drama mistis, meski laci kos tetap penuh kaus kaki jomblo aneka motif.",
+      "02_visual_purpose": "object_insert",
+      "03_shot_id": "S011",
+      "03_frame_range": [
+        1050,
+        1193
+      ],
+      "04_action": "Tangan Kino menyandingkan kaus kaki belang kuning dengan kaus kaki polkadot biru di dalam sekat laci",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Laci kayu terbuka berisi deretan kaus kaki tunggal warna-warni yang rapi"
+      },
+      "06_assets": [
+        "env_sunny_dorm_sock_drawer_2d",
+        "prop_wooden_sock_drawer_2d",
+        "prop_single_yellow_striped_sock",
+        "prop_single_blue_polkadot_sock",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "insert",
+        "focal_length_mm": 72.0,
+        "angle": "tabletop_35deg"
+      },
+      "08_engine": {
+        "primary_engine": "threejs",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_009",
+      "beat_id": "B04",
+      "clause_text": "[char_kino_pencuci] Mulai besok, belang kuning resmi berjodoh dengan polkadot biru.",
+      "01_clause": "[char_kino_pencuci] Mulai besok, belang kuning resmi berjodoh dengan polkadot biru.",
+      "02_visual_purpose": "character_acting",
+      "03_shot_id": "S012",
+      "03_frame_range": [
+        1193,
+        1350
+      ],
+      "04_action": "Kino mengetukkan kedua tumitnya bergantian dengan gembira di lantai kamar kos yang cerah",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Sepasang kaki Kino memakai kaus kaki belang kuning dan polkadot biru"
+      },
+      "06_assets": [
+        "env_sunny_dorm_sock_drawer_2d",
+        "prop_single_yellow_striped_sock",
+        "prop_single_blue_polkadot_sock",
+        "prop_dorm_woven_rug_2d",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "medium",
+        "focal_length_mm": 40.0,
+        "angle": "eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "remotion",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    }
+  ]
+}

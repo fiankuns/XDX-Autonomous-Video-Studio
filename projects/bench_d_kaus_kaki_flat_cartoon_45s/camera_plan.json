@@ -1,0 +1,375 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "locked_to_single_36mm_focal_length": false,
+  "distinct_focal_lengths_mm": [
+    24.0,
+    35.0,
+    40.0,
+    50.0,
+    75.0,
+    85.0
+  ],
+  "shots": [
+    {
+      "shot_id": "S001",
+      "beat_id": "B01",
+      "start_frame": 0,
+      "end_frame": 150,
+      "narrative_visual_purpose": "establishing_shot",
+      "shot_size": "wide",
+      "focal_length_mm": 24.0,
+      "sensor_width_mm": 36.0,
+      "angle": "elevated_establishing_16deg",
+      "dof_fstop": 5.6,
+      "motion_curve": "mot_horror_creeping_tension",
+      "position_start": [
+        0.0,
+        1.32,
+        4.6
+      ],
+      "position_end": [
+        0.0,
+        1.28,
+        3.7
+      ],
+      "target": [
+        0.0,
+        1.18,
+        0.0
+      ],
+      "style_profile": "flat_cartoon",
+      "rationale": "Selected 24.0mm (elevated_establishing_16deg, f/5.6) to serve 'establishing_shot' narrative purpose."
+    },
+    {
+      "shot_id": "S002",
+      "beat_id": "B01",
+      "start_frame": 150,
+      "end_frame": 300,
+      "narrative_visual_purpose": "reaction_shot",
+      "shot_size": "close_up",
+      "focal_length_mm": 75.0,
+      "sensor_width_mm": 36.0,
+      "angle": "intimate_three_quarter_reaction",
+      "dof_fstop": 2.8,
+      "motion_curve": "mot_snappy_spring_pop",
+      "position_start": [
+        0.0,
+        1.48,
+        2.25
+      ],
+      "position_end": [
+        0.0,
+        1.48,
+        2.05
+      ],
+      "target": [
+        0.0,
+        1.15,
+        0.0
+      ],
+      "style_profile": "flat_cartoon",
+      "rationale": "Selected 75.0mm (intimate_three_quarter_reaction, f/2.8) to serve 'reaction_shot' narrative purpose."
+    },
+    {
+      "shot_id": "S003",
+      "beat_id": "B02",
+      "start_frame": 300,
+      "end_frame": 407,
+      "narrative_visual_purpose": "technical_cutaway",
+      "shot_size": "cutaway",
+      "focal_length_mm": 50.0,
+      "sensor_width_mm": 36.0,
+      "angle": "orthographic_feel_cross_section_22deg",
+      "dof_fstop": 5.6,
+      "motion_curve": "mot_cinematic_ease_inout",
+      "position_start": [
+        0.0,
+        1.65,
+        3.8
+      ],
+      "position_end": [
+        0.28,
+        1.55,
+        3.4
+      ],
+      "target": [
+        0.0,
+        1.15,
+        0.0
+      ],
+      "style_profile": "flat_cartoon",
+      "rationale": "Selected 50.0mm (orthographic_feel_cross_section_22deg, f/5.6) to serve 'technical_cutaway' narrative purpose."
+    },
+    {
+      "shot_id": "S004",
+      "beat_id": "B02",
+      "start_frame": 407,
+      "end_frame": 513,
+      "narrative_visual_purpose": "character_acting",
+      "shot_size": "insert",
+      "focal_length_mm": 40.0,
+      "sensor_width_mm": 36.0,
+      "angle": "conversational_eye_level",
+      "dof_fstop": 3.5,
+      "motion_curve": "mot_cinematic_ease_inout",
+      "position_start": [
+        0.22,
+        1.25,
+        1.85
+      ],
+      "position_end": [
+        0.12,
+        1.2,
+        1.68
+      ],
+      "target": [
+        0.0,
+        1.15,
+        0.0
+      ],
+      "style_profile": "flat_cartoon",
+      "rationale": "Selected 40.0mm (conversational_eye_level, f/3.5) to serve 'character_acting' narrative purpose."
+    },
+    {
+      "shot_id": "S005",
+      "beat_id": "B02",
+      "start_frame": 513,
+      "end_frame": 602,
+      "narrative_visual_purpose": "character_acting",
+      "shot_size": "insert",
+      "focal_length_mm": 40.0,
+      "sensor_width_mm": 36.0,
+      "angle": "conversational_eye_level",
+      "dof_fstop": 3.5,
+      "motion_curve": "mot_cinematic_ease_inout",
+      "position_start": [
+        0.22,
+        1.25,
+        1.85
+      ],
+      "position_end": [
+        0.12,
+        1.2,
+        1.68
+      ],
+      "target": [
+        0.0,
+        1.15,
+        0.0
+      ],
+      "style_profile": "flat_cartoon",
+      "rationale": "Selected 40.0mm (conversational_eye_level, f/3.5) to serve 'character_acting' narrative purpose."
+    },
+    {
+      "shot_id": "S006",
+      "beat_id": "B02",
+      "start_frame": 602,
+      "end_frame": 690,
+      "narrative_visual_purpose": "character_acting",
+      "shot_size": "insert",
+      "focal_length_mm": 40.0,
+      "sensor_width_mm": 36.0,
+      "angle": "conversational_eye_level",
+      "dof_fstop": 3.5,
+      "motion_curve": "mot_cinematic_ease_inout",
+      "position_start": [
+        0.22,
+        1.25,
+        1.85
+      ],
+      "position_end": [
+        0.12,
+        1.2,
+        1.68
+      ],
+      "target": [
+        0.0,
+        1.15,
+        0.0
+      ],
+      "style_profile": "flat_cartoon",
+      "rationale": "Selected 40.0mm (conversational_eye_level, f/3.5) to serve 'character_acting' narrative purpose."
+    },
+    {
+      "shot_id": "S007",
+      "beat_id": "B03",
+      "start_frame": 690,
+      "end_frame": 776,
+      "narrative_visual_purpose": "visual_metaphor",
+      "shot_size": "cutaway",
+      "focal_length_mm": 35.0,
+      "sensor_width_mm": 36.0,
+      "angle": "symmetric_deadpan_frame",
+      "dof_fstop": 4.0,
+      "motion_curve": "mot_snappy_spring_pop",
+      "position_start": [
+        0.0,
+        1.65,
+        3.8
+      ],
+      "position_end": [
+        0.28,
+        1.55,
+        3.4
+      ],
+      "target": [
+        0.0,
+        1.15,
+        0.0
+      ],
+      "style_profile": "flat_cartoon",
+      "rationale": "Selected 35.0mm (symmetric_deadpan_frame, f/4.0) to serve 'visual_metaphor' narrative purpose."
+    },
+    {
+      "shot_id": "S008",
+      "beat_id": "B03",
+      "start_frame": 776,
+      "end_frame": 861,
+      "narrative_visual_purpose": "technical_cutaway",
+      "shot_size": "reaction",
+      "focal_length_mm": 50.0,
+      "sensor_width_mm": 36.0,
+      "angle": "orthographic_feel_cross_section_22deg",
+      "dof_fstop": 5.6,
+      "motion_curve": "mot_cinematic_ease_inout",
+      "position_start": [
+        -0.35,
+        1.4,
+        3.1
+      ],
+      "position_end": [
+        -0.25,
+        1.4,
+        2.95
+      ],
+      "target": [
+        0.0,
+        1.15,
+        0.0
+      ],
+      "style_profile": "flat_cartoon",
+      "rationale": "Selected 50.0mm (orthographic_feel_cross_section_22deg, f/5.6) to serve 'technical_cutaway' narrative purpose."
+    },
+    {
+      "shot_id": "S009",
+      "beat_id": "B03",
+      "start_frame": 861,
+      "end_frame": 956,
+      "narrative_visual_purpose": "character_acting",
+      "shot_size": "medium",
+      "focal_length_mm": 40.0,
+      "sensor_width_mm": 36.0,
+      "angle": "conversational_eye_level",
+      "dof_fstop": 3.5,
+      "motion_curve": "mot_cinematic_ease_inout",
+      "position_start": [
+        0.0,
+        1.42,
+        3.5
+      ],
+      "position_end": [
+        0.14,
+        1.42,
+        3.25
+      ],
+      "target": [
+        0.0,
+        1.15,
+        0.0
+      ],
+      "style_profile": "flat_cartoon",
+      "rationale": "Selected 40.0mm (conversational_eye_level, f/3.5) to serve 'character_acting' narrative purpose."
+    },
+    {
+      "shot_id": "S010",
+      "beat_id": "B03",
+      "start_frame": 956,
+      "end_frame": 1050,
+      "narrative_visual_purpose": "character_acting",
+      "shot_size": "reaction",
+      "focal_length_mm": 40.0,
+      "sensor_width_mm": 36.0,
+      "angle": "conversational_eye_level",
+      "dof_fstop": 3.5,
+      "motion_curve": "mot_cinematic_ease_inout",
+      "position_start": [
+        -0.35,
+        1.4,
+        3.1
+      ],
+      "position_end": [
+        -0.25,
+        1.4,
+        2.95
+      ],
+      "target": [
+        0.0,
+        1.15,
+        0.0
+      ],
+      "style_profile": "flat_cartoon",
+      "rationale": "Selected 40.0mm (conversational_eye_level, f/3.5) to serve 'character_acting' narrative purpose."
+    },
+    {
+      "shot_id": "S011",
+      "beat_id": "B04",
+      "start_frame": 1050,
+      "end_frame": 1193,
+      "narrative_visual_purpose": "object_insert",
+      "shot_size": "insert",
+      "focal_length_mm": 85.0,
+      "sensor_width_mm": 36.0,
+      "angle": "macro_evidence_tabletop_32deg",
+      "dof_fstop": 2.8,
+      "motion_curve": "mot_cinematic_ease_inout",
+      "position_start": [
+        0.22,
+        1.25,
+        1.85
+      ],
+      "position_end": [
+        0.12,
+        1.2,
+        1.68
+      ],
+      "target": [
+        0.0,
+        1.15,
+        0.0
+      ],
+      "style_profile": "flat_cartoon",
+      "rationale": "Selected 85.0mm (macro_evidence_tabletop_32deg, f/2.8) to serve 'object_insert' narrative purpose."
+    },
+    {
+      "shot_id": "S012",
+      "beat_id": "B04",
+      "start_frame": 1193,
+      "end_frame": 1350,
+      "narrative_visual_purpose": "character_acting",
+      "shot_size": "medium",
+      "focal_length_mm": 40.0,
+      "sensor_width_mm": 36.0,
+      "angle": "conversational_eye_level",
+      "dof_fstop": 3.5,
+      "motion_curve": "mot_cinematic_ease_inout",
+      "position_start": [
+        0.0,
+        1.42,
+        3.5
+      ],
+      "position_end": [
+        0.14,
+        1.42,
+        3.25
+      ],
+      "target": [
+        0.0,
+        1.15,
+        0.0
+      ],
+      "style_profile": "flat_cartoon",
+      "rationale": "Selected 40.0mm (conversational_eye_level, f/3.5) to serve 'character_acting' narrative purpose."
+    }
+  ]
+}

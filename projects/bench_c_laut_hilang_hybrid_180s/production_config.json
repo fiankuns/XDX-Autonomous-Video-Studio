@@ -1,0 +1,602 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_c_laut_hilang_hybrid_180s",
+  "package_version": "v1",
+  "topic": {
+    "topic": "Apa yang Terjadi Jika Seluruh Laut Bumi Menghilang?",
+    "genres": [
+      "explainer",
+      "dokumenter",
+      "storytelling",
+      "komedi_absurd"
+    ],
+    "epistemic_mode": "factual_verified",
+    "research_status": "VERIFIED_COMPLETE",
+    "metrics_measured": {
+      "total_claims": 5,
+      "verified_claims": 5,
+      "unique_verified_sources": 5,
+      "citation_coverage_ratio": 1.0
+    },
+    "claims": [
+      {
+        "claim_id": "CLM_01",
+        "statement": "Samudra menampung sekitar 96,5 hingga 97 persen seluruh air di Bumi dengan volume total sekitar 1,332 miliar kilometer kubik.",
+        "epistemic_status": "verified_fact",
+        "source_title": "How much water is in the ocean? \u2014 NOAA National Ocean Service",
+        "source_url": "https://oceanservice.noaa.gov/facts/oceanwater.html",
+        "publication_year": 2024,
+        "publication_date": "2024-06-16",
+        "evidence_excerpt": "About 97 percent of Earth's water is in the ocean, totaling roughly 1.332 billion cubic kilometers.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_02",
+        "statement": "Siklus air daratan sangat bergantung pada penguapan samudra, sedangkan air tawar permukaan di sungai dan danau hanya mencakup sebagian sangat kecil dari total hidrosfer Bumi.",
+        "epistemic_status": "verified_fact",
+        "source_title": "How Much Water is There on Earth? \u2014 USGS Water Science School",
+        "source_url": "https://www.usgs.gov/special-topics/water-science-school/science/how-much-water-there-earth",
+        "publication_year": 2019,
+        "publication_date": "2019-11-13",
+        "evidence_excerpt": "Oceans hold 96.5 percent of all Earth's water and supply the vast majority of atmospheric evaporation driving precipitation.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_03",
+        "statement": "Titik terdalam samudra di Challenger Deep, Palung Mariana, mencapai kedalaman hampir 11 kilometer di bawah permukaan laut, berdampingan dengan sistem punggungan tengah samudra global.",
+        "epistemic_status": "verified_fact",
+        "source_title": "How deep is the Mariana Trench? \u2014 NOAA National Ocean Service",
+        "source_url": "https://oceanservice.noaa.gov/facts/mariana-trench.html",
+        "publication_year": 2024,
+        "publication_date": "2024-06-16",
+        "evidence_excerpt": "Challenger Deep in the Mariana Trench extends nearly 11,000 meters (about 11 kilometers) below sea level.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_04",
+        "statement": "Samudra bertindak sebagai penyangga termal utama planet yang menyerap sekitar 90 persen kelebihan panas global serta menggerakkan pembentukan awan dan distribusi kalor lewat arus laut.",
+        "epistemic_status": "verified_fact",
+        "source_title": "The Water Cycle and Ocean Heat Budget \u2014 NASA Earth Observatory",
+        "source_url": "https://earthobservatory.nasa.gov",
+        "publication_year": 2023,
+        "publication_date": "2023-09-01",
+        "evidence_excerpt": "Earth's oceans store and redistribute solar heat and supply roughly 86 percent of global evaporation that forms clouds.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_05",
+        "statement": "Fitoplankton dan organisme fotosintetik laut menghasilkan sekitar separuh oksigen di atmosfer Bumi sekaligus menyerap karbon dioksida dalam jumlah masif.",
+        "epistemic_status": "verified_fact",
+        "source_title": "How much oxygen comes from the ocean? \u2014 NOAA National Ocean Service",
+        "source_url": "https://oceanservice.noaa.gov/facts/plankton.html",
+        "publication_year": 2024,
+        "publication_date": "2024-06-16",
+        "evidence_excerpt": "Scientists estimate that roughly half of Earth's oxygen production comes from the ocean, primarily marine phytoplankton.",
+        "is_primary_source": true
+      }
+    ]
+  },
+  "style_profile": "stylized_3d",
+  "style_bible_id": "xdx_stylized_3d_v4_0",
+  "creative_validation_metrics": {
+    "spoken_word_count": 413,
+    "title_keyword_overlap_script": 6,
+    "domain_keyword_overlap_script": 64,
+    "domain_keyword_overlap_actions": 50
+  },
+  "narration_timing_summary": {
+    "timing_status": "ESTIMATED",
+    "estimated_duration_s": 189.895,
+    "implied_wpm": 137.7,
+    "duration_recommendation": {
+      "suggest_duration_change": false,
+      "recommended_target_duration_s": 180,
+      "rationale": "Estimated delivery (189.895s, 137.7 WPM) fits comfortably within 180s with natural breath pauses."
+    }
+  },
+  "reference_intelligence": {
+    "selection_mode": "explicit_multi_reference",
+    "selected_reference_ids": [
+      "REF-001",
+      "REF-002"
+    ],
+    "related_candidate_ids": [],
+    "upload_prompt_suppressed": true,
+    "production_authorized": false,
+    "analyzer_fingerprint": "6cae4e67e0d33fd90776acb0abe0ea5bf360d3966147120955e84439b75d306f",
+    "cache_reports": [
+      {
+        "reference_id": "REF-001",
+        "cache_status": "CACHE_HIT_VALID",
+        "invalidation_reasons": [],
+        "reanalyzed": false,
+        "cache_key": {
+          "reference_id": "REF-001",
+          "video_sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
+          "analyzer_source_fingerprint": "e9f8598cbb6648fcd2ed091fa9477d9b1bc527de5d8d01d7432b0e3b2fa6a3cd",
+          "analyzer_version": "4.0.0-phase01.6c",
+          "analyzer_config_hash": "4841894b8c58a7d4d4dd8c45c69d97ea86f7a8a2f29af736ba06d1435a01bd94",
+          "analysis_schema_version": "rea_reference_analysis.v4.0",
+          "profile_version": "1.0.0+6b3421e2fa35",
+          "analysis_method_or_model": "ffmpeg_scdet_ebur128+opencv_hsv_edge_luma_mad",
+          "cache_key_sha256": "8a3e62ffaea0274e78688506c9d9bd2ad48b900a9f43459c783a8ef854570012"
+        },
+        "preserved_versions_count": 3,
+        "epistemic_analysis": {
+          "measurements": {
+            "container_duration_s": 154.618821,
+            "video_stream_duration_s": 154.5,
+            "width": 720,
+            "height": 1280,
+            "aspect_ratio": "9:16",
+            "video_codec": "h264",
+            "fps": 30.0,
+            "decoded_frames": 4635,
+            "audio": {
+              "codec": "aac",
+              "profile": "HE-AAC",
+              "sample_rate_hz": 44100,
+              "channels": 2,
+              "channel_layout": "stereo",
+              "integrated_loudness_lufs": -14.8,
+              "loudness_range_lu": 4.2,
+              "true_peak_dbfs": -0.2,
+              "silence_intervals_gt_250ms_at_neg35db": 9,
+              "total_silence_s": 3.601
+            },
+            "signal_candidates": {
+              "ffmpeg_gt_0_30_segments": 2,
+              "ffmpeg_gt_0_08_segments": 16,
+              "ffmpeg_gt_0_08_median_s": 12.633,
+              "opencv_adaptive_abrupt_candidates": 78,
+              "opencv_adaptive_sustained_change_candidates": 51,
+              "note": "Frequent 10-15 frame cross-dissolves suppress single-frame FFmpeg scene scores; OpenCV sustained-change + abrupt candidates + visual frame inspection capture real vignette transitions."
+            }
+          },
+          "visual_observations": [
+            "[01_narrative_structure_and_hook] hook_0_5s=Protagonist wakes up stretching on a purple bed in a cozy striped bedroom (00:00s) and opens the front door (00:03s) as second-person narration ('Kamu...') immediately places the viewer inside everyday public infrastructure.",
+            "[02_shots_timestamps_and_pacing] estimated_visual_shots=48; rhythm_notes=Rapid montage of 2.5-4.0s visual gags inside each topical vignette, bridged by soft cross-dissolves between ministries/locations and punctuated by 9 brief breath pauses.",
+            "[03_characters_and_acting] protagonist=Recurring everyday citizen in teal shirt and dark trousers acting as audience surrogate (observer, commuter, voter, HRD interviewer).; ensemble_archetypes=Modular stylized cast differentiated immediately by silhouette props: yellow hard-hat inspector, glasses-and-peci ministers, white-coat doctors, caping farmer, black-robed judge, campaign candidates.",
+            "[04_body_motion_facial_expressions_and_objects] proportions=Spherical head (~0.35 body height) with slender cylindrical rubber-hose limbs.; facial_system=2D-projected expressive brow/eye/mouth states (wide-eyed shock, squinted frustration, clenched-teeth grimace, glasses specular flash).",
+            "[05_camera_and_cinematography] camera_motion=Gentle linear dolly push-ins/pull-backs and lateral slides; minimal handheld shake.",
+            "[06_environment_assets_materials_and_lighting] environments=Modular Indonesian civic & domestic dioramas (bedroom, suburban street, ministry facade, classroom, Puskesmas, rice paddy, market, courtroom, rally stage, polling booth).; materials=Clean matte/semi-matte stylized PBR surfaces (roughness ~0.45-0.85) with crisp readability and low texture noise.",
+            "[07_technical_cutaways_and_demonstrations] diegetic_data_staging=Data and statistics are built as physical in-world 3D props rather than flat 2D slides: 'RAPOR DUNIA: INDEKS PERSEPSI KORUPSI 34/100' classroom board, '1 DOKTER' surrounded by hundreds of 3D citizen pegs, 'KERUGIAN MACET 65 TRILIUN' street billboard, and 'DETIK MERAH 30' traffic timer.",
+            "[08_captions_and_typography] export_cleanliness=Direct clean 9:16 master export without social-platform UI chrome.; subtitle_style=Word-by-word / short-token dynamic captions (1-2 words per cue) centered at ~78% vertical height, bold white geometric sans-serif with thick black outline and soft drop shadow.",
+            "[09_narration_audio_and_sfx] delivery=Continuous, brisk conversational Indonesian second-person voiceover (-14.8 LUFS integrated, tight 4.2 LU dynamic range) with minimal dead air (only 3.6s silence >250ms across 154.6s).; mix_observations=Steady background music bed tucked beneath forward vocal presence, accented by subtle transitional and comedic beats.",
+            "[10_editing_transitions_and_vfx] transitions=Hybrid editing: hard cuts inside a location, 10-15 frame cross-dissolves across topical/scene shifts (visible at 06.0s, 21.0s, 36.0s, 135.0s).; vfx=Volumetric stage light cones, glasses lens-gleam highlight (01:18s), 2D comic thought-bubble ('?', 01:00s), and foreground blur rack-focus (01:45s)."
+          ],
+          "inferences": [
+            "Reusable profile 'satirical_3d_vignette_storytelling_v1' targets shot split [2.0, 4.5]s for social_satire.",
+            "Hook pattern 'everyday_domestic_threshold_second_person_hook_0_5s' inferred to sustain early viewer retention."
+          ],
+          "limitations": [
+            "Original authoring project files, proprietary prompts, and source stems are not recoverable from encoded MP4 bytes.",
+            "Signal-level FFmpeg/OpenCV cut and loudness measurements complement \u2014 and never replace \u2014 semantic human/multimodal review.",
+            "Copyrighted characters, dialogue, recorder UI elements, and music in the reference are strictly excluded from reuse."
+          ]
+        }
+      },
+      {
+        "reference_id": "REF-002",
+        "cache_status": "CACHE_HIT_VALID",
+        "invalidation_reasons": [],
+        "reanalyzed": false,
+        "cache_key": {
+          "reference_id": "REF-002",
+          "video_sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+          "analyzer_source_fingerprint": "e9f8598cbb6648fcd2ed091fa9477d9b1bc527de5d8d01d7432b0e3b2fa6a3cd",
+          "analyzer_version": "4.0.0-phase01.6c",
+          "analyzer_config_hash": "4841894b8c58a7d4d4dd8c45c69d97ea86f7a8a2f29af736ba06d1435a01bd94",
+          "analysis_schema_version": "rea_reference_analysis.v4.0",
+          "profile_version": "1.0.0+0ee9fff3875b",
+          "analysis_method_or_model": "ffmpeg_scdet_ebur128+opencv_hsv_edge_luma_mad",
+          "cache_key_sha256": "edfefb172fc2ae9521b30d75fac2f69357f3f7ad717817cb30f587f733314e09"
+        },
+        "preserved_versions_count": 3,
+        "epistemic_analysis": {
+          "measurements": {
+            "container_duration_s": 105.543,
+            "video_stream_duration_s": 105.543,
+            "width": 720,
+            "height": 1600,
+            "aspect_ratio": "9:20_screen_capture_crop_to_9:16_production",
+            "video_codec": "hevc",
+            "fps": 34.999953,
+            "decoded_frames": 3694,
+            "audio": {
+              "codec": "aac",
+              "profile": "LC",
+              "sample_rate_hz": 48000,
+              "channels": 2,
+              "channel_layout": "stereo",
+              "integrated_loudness_lufs": -20.0,
+              "loudness_range_lu": 2.9,
+              "true_peak_dbfs": -9.4,
+              "silence_intervals_gt_250ms_at_neg35db": 33,
+              "total_silence_s": 10.71
+            },
+            "signal_candidates": {
+              "ffmpeg_gt_0_18_segments": 46,
+              "ffmpeg_gt_0_18_median_s": 2.257,
+              "ffmpeg_gt_0_18_mean_s": 2.294,
+              "ffmpeg_gt_0_18_min_s": 0.6,
+              "ffmpeg_gt_0_18_max_s": 6.028,
+              "opencv_adaptive_abrupt_candidates": 47,
+              "opencv_adaptive_sustained_change_candidates": 4,
+              "note": "Predominantly crisp hard-cut editing; FFmpeg (46 segments) and OpenCV adaptive abrupt detector (47 hits) closely agree, with every candidate segment <= 6.03s."
+            }
+          },
+          "visual_observations": [
+            "[01_narrative_structure_and_hook] hook_0_6s=Concrete sensory need in 0-6s: stepping out of a desert adobe house (00:00s), top-down pouring of sweet iced tea (00:02-00:04s), and sitting under blazing sun craving cold ice without electricity (00:06s).",
+            "[02_shots_timestamps_and_pacing] candidate_segments=46; median_shot_s=2.257",
+            "[03_characters_and_acting] host_avatar=Single recurring presenter in desert robe/headscarf who physically performs every step (digging, pouring, mortaring, carrying ice) while reacting to viewer objections.; historical_cast=Supporting period-dressed figures introduced only at 01:34-01:40s to ground historical scale.",
+            "[04_body_motion_facial_expressions_and_objects] task_actions=Concrete verb-driven body mechanics: pouring pitcher, kneeling by ice trench, scratching head in puzzlement (00:18s), fanning face (00:40s), stirring mortar paddle beside 3D goat (01:00-01:02s), chipping ice blocks (01:24s), toasting glass (01:42s).; facial_readability=Clean brow/eye punctuation supporting curiosity, heat exhaustion, and satisfaction.",
+            "[05_camera_and_cinematography] camera_motion=Locked orthographic/top-down frames for technical clarity; controlled slow push-ins and vertical tilts on architectural scale.",
+            "[06_environment_assets_materials_and_lighting] environment_progression=Scene evolves causally as the host builds the engineering system step by step (bare desert -> trench -> shade wall -> deep pit -> conical dome -> windcatcher).; materials=Tactile matte clay, adobe brick, layered soil strata, translucent ice/water shader, wood.",
+            "[08_captions_and_typography] capture_artifact_warning=Source file is a 720x1600 mobile screen recording containing Android status bar, social app icons, and transient toast overlay (00:06-00:10s). XDX Studio productions NEVER reproduce capture UI chrome.; content_captions=Clean 2-3 word clause-chunks in lower-center safe zone (white sans-serif with subtle dark stroke/shadow) plus minimal diegetic labels ('YAKHCHAL - YAZD, IRAN').",
+            "[09_narration_audio_and_sfx] delivery=Clear conversational Indonesian step-by-step explanation (-20.0 LUFS in captured stream, 2.9 LU LRA) structured around 33 deliberate micro-pauses (>250ms) that let each visual physics beat land.; unverified_audio_boundaries=Original studio master stems and full verbatim ASR transcript are not claimed or copied.",
+            "[10_editing_transitions_and_vfx] transitions=Almost 100% clean hard cuts aligned to spoken clause boundaries and action completions.; vfx=Animated 3D vector arrows/ribbons for thermal/airflow physics, frost/ice surface state change, and time-of-day sky/shadow shift."
+          ],
+          "inferences": [
+            "Reusable profile 'hosted_3d_explainer_cutaway_v1' targets shot split [2, 4]s for explainer.",
+            "Hook pattern 'concrete_need_visual_question_0_3s' inferred to sustain early viewer retention."
+          ],
+          "limitations": [
+            "Original authoring project files, proprietary prompts, and source stems are not recoverable from encoded MP4 bytes.",
+            "Signal-level FFmpeg/OpenCV cut and loudness measurements complement \u2014 and never replace \u2014 semantic human/multimodal review.",
+            "Copyrighted characters, dialogue, recorder UI elements, and music in the reference are strictly excluded from reuse."
+          ]
+        }
+      }
+    ],
+    "references": [
+      {
+        "id": "REF-001",
+        "genre": "social_satire",
+        "video_relpath": "reference_database/references/social_satire/REF-001/original.mp4",
+        "video_sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
+        "bytes": 27026130,
+        "verification_status": "VERIFIED",
+        "profile_id": "satirical_3d_vignette_storytelling_v1",
+        "prior_analysis_relpath": "reference_database/references/social_satire/REF-001/prior_analysis.md",
+        "rea_analysis_v3_4_relpath": "reference_database/references/social_satire/REF-001/rea_analysis_v3_4.json",
+        "measurements": {
+          "container_duration_s": 154.618821,
+          "video_stream_duration_s": 154.5,
+          "width": 720,
+          "height": 1280,
+          "aspect_ratio": "9:16",
+          "video_codec": "h264",
+          "fps": 30.0,
+          "decoded_frames": 4635,
+          "audio": {
+            "codec": "aac",
+            "profile": "HE-AAC",
+            "sample_rate_hz": 44100,
+            "channels": 2,
+            "channel_layout": "stereo",
+            "integrated_loudness_lufs": -14.8,
+            "loudness_range_lu": 4.2,
+            "true_peak_dbfs": -0.2,
+            "silence_intervals_gt_250ms_at_neg35db": 9,
+            "total_silence_s": 3.601
+          },
+          "signal_candidates": {
+            "ffmpeg_gt_0_30_segments": 2,
+            "ffmpeg_gt_0_08_segments": 16,
+            "ffmpeg_gt_0_08_median_s": 12.633,
+            "opencv_adaptive_abrupt_candidates": 78,
+            "opencv_adaptive_sustained_change_candidates": 51,
+            "note": "Frequent 10-15 frame cross-dissolves suppress single-frame FFmpeg scene scores; OpenCV sustained-change + abrupt candidates + visual frame inspection capture real vignette transitions."
+          }
+        },
+        "narrative_pattern": "circular_bedroom_loop_second_person_social_satire"
+      },
+      {
+        "id": "REF-002",
+        "genre": "explainer",
+        "video_relpath": "reference_database/references/explainer/REF-002-Yakhchal/original.mp4",
+        "video_sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+        "bytes": 38669358,
+        "verification_status": "VERIFIED",
+        "profile_id": "hosted_3d_explainer_cutaway_v1",
+        "prior_analysis_relpath": "reference_database/references/explainer/REF-002-Yakhchal/prior_analysis.json",
+        "rea_analysis_v3_4_relpath": "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json",
+        "measurements": {
+          "container_duration_s": 105.543,
+          "video_stream_duration_s": 105.543,
+          "width": 720,
+          "height": 1600,
+          "aspect_ratio": "9:20_screen_capture_crop_to_9:16_production",
+          "video_codec": "hevc",
+          "fps": 34.999953,
+          "decoded_frames": 3694,
+          "audio": {
+            "codec": "aac",
+            "profile": "LC",
+            "sample_rate_hz": 48000,
+            "channels": 2,
+            "channel_layout": "stereo",
+            "integrated_loudness_lufs": -20.0,
+            "loudness_range_lu": 2.9,
+            "true_peak_dbfs": -9.4,
+            "silence_intervals_gt_250ms_at_neg35db": 33,
+            "total_silence_s": 10.71
+          },
+          "signal_candidates": {
+            "ffmpeg_gt_0_18_segments": 46,
+            "ffmpeg_gt_0_18_median_s": 2.257,
+            "ffmpeg_gt_0_18_mean_s": 2.294,
+            "ffmpeg_gt_0_18_min_s": 0.6,
+            "ffmpeg_gt_0_18_max_s": 6.028,
+            "opencv_adaptive_abrupt_candidates": 47,
+            "opencv_adaptive_sustained_change_candidates": 4,
+            "note": "Predominantly crisp hard-cut editing; FFmpeg (46 segments) and OpenCV adaptive abrupt detector (47 hits) closely agree, with every candidate segment <= 6.03s."
+          }
+        },
+        "narrative_pattern": "need -> question -> physical_demo -> mechanism -> obstacle_loop -> historical_reveal -> callback"
+      }
+    ],
+    "fused_production_profile": {
+      "is_multi_reference_blend": true,
+      "source_reference_ids": [
+        "REF-001",
+        "REF-002"
+      ],
+      "profile_ids": [
+        "satirical_3d_vignette_storytelling_v1",
+        "hosted_3d_explainer_cutaway_v1"
+      ],
+      "requires_hero_character": true,
+      "hook_formula": "everyday_domestic_threshold_second_person_hook_0_5s",
+      "pacing_benchmark": {
+        "typical_shot_s": [
+          2.0,
+          4.5
+        ],
+        "preferred_split_s": 4.25,
+        "hard_max_shot_s": 10.0
+      },
+      "story_beats": [
+        "domestic_wake_or_threshold_hook",
+        "everyday_friction_observation",
+        "institutional_or_systemic_escalation",
+        "diegetic_3d_data_contrast",
+        "historical_or_ethical_foil",
+        "decision_dilemma_climax",
+        "circular_domestic_callback",
+        "personal_need",
+        "question",
+        "demonstration",
+        "mechanism",
+        "obstacle",
+        "solution",
+        "reveal",
+        "callback"
+      ],
+      "visual_modes": [
+        "SURROGATE_CITIZEN_ACTING",
+        "INSTITUTIONAL_VIGNETTE",
+        "DIEGETIC_3D_SCOREBOARD_OR_SCALE",
+        "CROWD_RATIO_DIORAMA",
+        "STAGE_SPOTLIGHT_METAPHOR",
+        "CIRCULAR_CALLBACK",
+        "HOST_ACTING",
+        "OBJECT_INSERT",
+        "PHYSICAL_DEMONSTRATION",
+        "TECHNICAL_CUTAWAY",
+        "CONTEXTUAL_CUTAWAY",
+        "HISTORICAL_REENACTMENT",
+        "DATA_VISUALIZATION",
+        "CALLBACK"
+      ],
+      "camera_vocabulary": [
+        "domestic_establishing_wide",
+        "citizen_eye_level_medium",
+        "high_angle_crowd_ratio",
+        "over_shoulder_choice_insert",
+        "reaction_closeup",
+        "host_medium",
+        "topdown_insert",
+        "sectional_cutaway",
+        "architecture_or_object_reveal"
+      ],
+      "motion_vocabulary": [
+        "stretch_wake",
+        "door_open_step",
+        "inspect_prop",
+        "ride_or_commute",
+        "head_clutch_reaction",
+        "present_scoreboard",
+        "hesitate_choice",
+        "idle_breathing",
+        "blink",
+        "look",
+        "point",
+        "present",
+        "pick_up",
+        "carry",
+        "pour",
+        "bend",
+        "walk_short",
+        "reaction"
+      ],
+      "caption_preset": "cap_xdx_bold_stroke_9x16",
+      "quality_gates": [
+        "semantic_clause_to_visual_alignment",
+        "fact_or_satire_epistemic_clarity",
+        "no_placeholder_final_assets",
+        "character_continuity",
+        "frame_determinism",
+        "audio_caption_sync",
+        "actual_render_visual_review",
+        "fact_source_verified"
+      ],
+      "restrictions": [
+        "do not copy source character, script, political names, music, or assets",
+        "no automatic production before approval",
+        "no render claim from schema validation",
+        "do not copy source character, script, music, branding, UI or assets",
+        "no fixed desert palette or historical reveal for unrelated topics"
+      ]
+    },
+    "ten_dimension_fusion": {
+      "fusion_mode": "multi_reference_10d_conflict_resolved",
+      "source_reference_ids": [
+        "REF-001",
+        "REF-002"
+      ],
+      "unified_visual_style_profile": "stylized_3d",
+      "style_consistency_verified": true,
+      "conflicts_detected_count": 10,
+      "dimensions": {
+        "narrative_structure": {
+          "dimension": "narrative_structure",
+          "primary_reference_id": "REF-001",
+          "secondary_reference_ids": [
+            "REF-002"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "three_act_domestic_civic_escalation_with_ironic_callback",
+            "REF-002": "counterintuitive_anomaly_hook_to_causal_mechanism_and_synthesis"
+          },
+          "selected_strategy": "three_act_domestic_civic_escalation_with_ironic_callback",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'three_act_domestic_civic_escalation_with_ironic_callback', 'REF-002': 'counterintuitive_anomaly_hook_to_causal_mechanism_and_synthesis'} by selecting 'REF-001' as primary for 'narrative_structure' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-002'] only as subordinate beat modulation."
+        },
+        "character_acting": {
+          "dimension": "character_acting",
+          "primary_reference_id": "REF-001",
+          "secondary_reference_ids": [
+            "REF-002"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "expressive_ensemble_acting_deadpan_micro_reactions_and_props",
+            "REF-002": "hosted_presenter_direct_address_pointing_to_3d_cutaway_models"
+          },
+          "selected_strategy": "expressive_ensemble_acting_deadpan_micro_reactions_and_props",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'expressive_ensemble_acting_deadpan_micro_reactions_and_props', 'REF-002': 'hosted_presenter_direct_address_pointing_to_3d_cutaway_models'} by selecting 'REF-001' as primary for 'character_acting' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-002'] only as subordinate beat modulation."
+        },
+        "visual_style": {
+          "dimension": "visual_style",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [
+            "REF-001"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "warm_stylized_3d_diorama_grounded_everyday_textures",
+            "REF-002": "clean_stylized_3d_architectural_cutaway_with_diagrammatic_clarity"
+          },
+          "selected_strategy": "clean_stylized_3d_architectural_cutaway_with_diagrammatic_clarity",
+          "adaptation_rationale": "Locked single unified visual style 'stylized_3d' anchored to primary 'REF-002' so character, prop, and cutaway shaders never clash across shots."
+        },
+        "environment": {
+          "dimension": "environment",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [
+            "REF-001"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "lived_in_indonesian_interior_and_public_service_counter_vignettes",
+            "REF-002": "modular_cross_section_stage_and_scale_comparison_diorama"
+          },
+          "selected_strategy": "modular_cross_section_stage_and_scale_comparison_diorama",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'lived_in_indonesian_interior_and_public_service_counter_vignettes', 'REF-002': 'modular_cross_section_stage_and_scale_comparison_diorama'} by selecting 'REF-002' as primary for 'environment' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-001'] only as subordinate beat modulation."
+        },
+        "camera": {
+          "dimension": "camera",
+          "primary_reference_id": "REF-001",
+          "secondary_reference_ids": [
+            "REF-002"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "conversational_medium_two_shot_with_snap_reaction_closeups",
+            "REF-002": "smooth_orthographic_feel_cutaway_push_and_macro_mechanism_inserts"
+          },
+          "selected_strategy": "conversational_medium_two_shot_with_snap_reaction_closeups",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'conversational_medium_two_shot_with_snap_reaction_closeups', 'REF-002': 'smooth_orthographic_feel_cutaway_push_and_macro_mechanism_inserts'} by selecting 'REF-001' as primary for 'camera' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-002'] only as subordinate beat modulation."
+        },
+        "motion": {
+          "dimension": "motion",
+          "primary_reference_id": "REF-001",
+          "secondary_reference_ids": [
+            "REF-002"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "snappy_anticipation_settle_prop_hand_transfer_and_double_takes",
+            "REF-002": "causal_flow_arrows_fluid_thermal_paths_and_exploded_assembly"
+          },
+          "selected_strategy": "snappy_anticipation_settle_prop_hand_transfer_and_double_takes",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'snappy_anticipation_settle_prop_hand_transfer_and_double_takes', 'REF-002': 'causal_flow_arrows_fluid_thermal_paths_and_exploded_assembly'} by selecting 'REF-001' as primary for 'motion' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-002'] only as subordinate beat modulation."
+        },
+        "technical_visualization": {
+          "dimension": "technical_visualization",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [
+            "REF-001"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "diegetic_paperwork_stamps_and_visual_metaphor_props",
+            "REF-002": "3d_cross_section_cutaway_exploded_view_and_annotated_scientific_labels"
+          },
+          "selected_strategy": "3d_cross_section_cutaway_exploded_view_and_annotated_scientific_labels",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'diegetic_paperwork_stamps_and_visual_metaphor_props', 'REF-002': '3d_cross_section_cutaway_exploded_view_and_annotated_scientific_labels'} by selecting 'REF-002' as primary for 'technical_visualization' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-001'] only as subordinate beat modulation."
+        },
+        "caption": {
+          "dimension": "caption",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [
+            "REF-001"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third",
+            "REF-002": "high_contrast_keyword_highlighted_captions_paired_with_callouts"
+          },
+          "selected_strategy": "high_contrast_keyword_highlighted_captions_paired_with_callouts",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'punchy_dialogue_and_vo_phrase_chunks_safe_lower_third', 'REF-002': 'high_contrast_keyword_highlighted_captions_paired_with_callouts'} by selecting 'REF-002' as primary for 'caption' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-001'] only as subordinate beat modulation."
+        },
+        "audio": {
+          "dimension": "audio",
+          "primary_reference_id": "REF-001",
+          "secondary_reference_ids": [
+            "REF-002"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause",
+            "REF-002": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes"
+          },
+          "selected_strategy": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause', 'REF-002': 'authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes'} by selecting 'REF-001' as primary for 'audio' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-002'] only as subordinate beat modulation."
+        },
+        "editing": {
+          "dimension": "editing",
+          "primary_reference_id": "REF-001",
+          "secondary_reference_ids": [
+            "REF-002"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "reaction_driven_hard_cuts_2_to_4_5s_with_ comedic_hold_before_cut",
+            "REF-002": "clause_locked_visual_evidence_cuts_2_5_to_5_5s_on_causal_transitions"
+          },
+          "selected_strategy": "reaction_driven_hard_cuts_2_to_4_5s_with_ comedic_hold_before_cut",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'reaction_driven_hard_cuts_2_to_4_5s_with_ comedic_hold_before_cut', 'REF-002': 'clause_locked_visual_evidence_cuts_2_5_to_5_5s_on_causal_transitions'} by selecting 'REF-001' as primary for 'editing' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-002'] only as subordinate beat modulation."
+        }
+      }
+    },
+    "adaptation_record_count": 57
+  },
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "aspect_ratio": "9:16",
+  "total_frames": 5400
+}

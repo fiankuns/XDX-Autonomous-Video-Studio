@@ -1,0 +1,392 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "review_id": "REV-bench_a_ac_explainer_60s-001",
+  "project_id": "bench_a_ac_explainer_60s",
+  "verifier_agent": "preproduction_verifier",
+  "reviewed_task_id": "TASK-07-STORYBOARD",
+  "producer_agent": "storyboard_director",
+  "verdict": "PASS",
+  "invocation_receipt": {
+    "receipt_id": "RCPT-657b6a323cf1",
+    "request_id": "REQ-f466500b6358",
+    "idempotency_key": "d0120c48da9d2702ab16c4b4cdb59a0f1a0b9bae7a4eba884a32a8fafc0fd6b7",
+    "task_id": "TASK-15-VERIFY",
+    "project_id": "bench_a_ac_explainer_60s",
+    "assigned_agent": "preproduction_verifier",
+    "runtime_name": "antigravity",
+    "execution_mode": "native_subagent",
+    "actually_invoked": true,
+    "conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+    "known_model_routing": "inherit",
+    "started_at": "2026-11-27T20:13:18.238737+00:00",
+    "completed_at": "2026-11-27T20:13:18.238737+00:00",
+    "output_artifact_hashes": {},
+    "task_definition_digest": "f557cff48d0580dcef836afdc20c350efd5118fd166f871cb2345fec475b7daa",
+    "host_invocation_evidence": {
+      "host_dispatch_verified": true,
+      "host_runtime": "antigravity",
+      "subagent_type": "xdx-preproduction-verifier",
+      "subagent_role": "Independent Preproduction Verifier (4 Benchmarks)",
+      "task_id": "TASK-15-VERIFY",
+      "project_id": "bench_a_ac_explainer_60s",
+      "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+    },
+    "receipt_sha256": "8561dd3cc52d250c39cdd94214cae93a7374624625fe6bb78a9cacefdd74483c",
+    "invocation_id": "RCPT-657b6a323cf1",
+    "agent_id": "preproduction_verifier"
+  },
+  "reviewed_artifact_hashes": {
+    "projects/bench_a_ac_explainer_60s/research.md": "69d47c4a001e743a1d744ed92041c7dd1fe753ea6ebd7c74da788317ceedf604",
+    "projects/bench_a_ac_explainer_60s/research_report.json": "7001edaa1b1192704697354aa69b1138d5d4c3983ce7c4b69f3d0617a6729dc1",
+    "projects/bench_a_ac_explainer_60s/reference_analysis.md": "e38f83e8f3ff8f4aa0ed87b8e1068ab1bd9d74620a2c63833d1a4e2ad1b6d4d7",
+    "projects/bench_a_ac_explainer_60s/blueprint.md": "3148a1807173c19d152899ba1bfbcc3f89f90b688a63c4c54a05f860dee97549",
+    "projects/bench_a_ac_explainer_60s/creative_concept.json": "6f9d3bc38bfed4d429fbb869550829ebc3752538bd08df5297e547f9190f2df1",
+    "projects/bench_a_ac_explainer_60s/script.md": "a4bbe84a5ba09acf43149f91c39d50def22a8c71e142934271b9d5c31d8b8f92",
+    "projects/bench_a_ac_explainer_60s/authored_creative_payload.json": "bf85ab1be294a55526574d481188cece287f266ab310253b07e8f0500b8f5623",
+    "projects/bench_a_ac_explainer_60s/character_bible.md": "0d3a611d12636f18935f96a848f823d6799d72413996ed3f85fc4b6f027bb795",
+    "projects/bench_a_ac_explainer_60s/character_bible.json": "5e67be620d21b0ad2b23421e03b61d1d42bcc435f100c72393fcbfe7201d7947",
+    "projects/bench_a_ac_explainer_60s/style_bible.json": "d8d76342dbb31f57a0967f7005f1b385e2ef6342cdabe3ffea7c83a9ba3eac90",
+    "projects/bench_a_ac_explainer_60s/storyboard.json": "48d0a37f9ca12dbce55fa68e9c3d0fbc86ceb4e7ac4adfbb62db730f91017ce6",
+    "projects/bench_a_ac_explainer_60s/semantic_visual_plan.json": "2a9be78fd011c0c857367ac45a675274f0de2035e336899f8fc0f8f231788168",
+    "projects/bench_a_ac_explainer_60s/reference_adaptation.json": "6fe90c482a77e9888c322423ce3e0a458056a9443b8fb36877ecd66838f553ba",
+    "projects/bench_a_ac_explainer_60s/motion_plan.json": "9f5e3e8495046924387c18ecbd5e28d415f66fc2cc463deef790203ce777e041",
+    "projects/bench_a_ac_explainer_60s/camera_plan.json": "5561ace54e906b352b21cf996b384880ab50f45ed5fafcec0f2fab152cd10420",
+    "projects/bench_a_ac_explainer_60s/asset_manifest.json": "915849b27aa20d411762af26bbb74b471ced3c030bf5c0139de6ae289226082a",
+    "projects/bench_a_ac_explainer_60s/narration_dialogue.json": "269d9ad913020824488ea228a53857278a79ef04abc615a581d1023585755ee4",
+    "projects/bench_a_ac_explainer_60s/caption_audio_plan.json": "b0214ce2d276ba3eb02cf4cdfa978a1f7aabc7f0db1f841d2c8a676d596daa06",
+    "projects/bench_a_ac_explainer_60s/engine_plan.json": "6ed36927f8c1b667a1b3d7501e89e99f9c23deafcdf25a53cdb07d4d34fea409",
+    "projects/bench_a_ac_explainer_60s/execution_plan.md": "903704085ff3891b433ca0f7eb95b0e334a2fb9dcfaa82a7da3edb6b0a2bd2f9"
+  },
+  "required_criteria_ids": [
+    "CRIT_01_TOPIC_RELEVANCE",
+    "CRIT_02_FACTUAL_ACCURACY",
+    "CRIT_03_ORIGINALITY",
+    "CRIT_04_HOOK_STRENGTH",
+    "CRIT_05_NARRATIVE_COHERENCE",
+    "CRIT_06_NARRATION_TIMING",
+    "CRIT_07_SEMANTIC_VISUAL_COVERAGE",
+    "CRIT_08_CHARACTER_CONSISTENCY",
+    "CRIT_09_STYLE_CONSISTENCY",
+    "CRIT_10_ASSET_FEASIBILITY",
+    "CRIT_11_MOTION_FEASIBILITY",
+    "CRIT_12_CAMERA_SUITABILITY",
+    "CRIT_13_REFERENCE_ADAPTATION",
+    "CRIT_14_ENGINE_COMPATIBILITY",
+    "CRIT_15_PACKAGE_COMPLETENESS"
+  ],
+  "checked_criteria": [
+    {
+      "criterion_id": "CRIT_01_TOPIC_RELEVANCE",
+      "status": "PASS",
+      "evidence": "Topic 'Bagaimana AC Mendinginkan Ruangan?' verified across premise, claims, and narration (title_overlap=3, domain_overlap=43).",
+      "inspected_artifacts": [
+        "projects/bench_a_ac_explainer_60s/authored_creative_payload.json",
+        "projects/bench_a_ac_explainer_60s/script.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_02_FACTUAL_ACCURACY",
+      "status": "PASS",
+      "evidence": "Verified 4 factual claim(s), 4 https:// source(s), misconceptions, uncertainties, and narration mapping.",
+      "inspected_artifacts": [
+        "projects/bench_a_ac_explainer_60s/research_report.json",
+        "projects/bench_a_ac_explainer_60s/research.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_03_ORIGINALITY",
+      "status": "PASS",
+      "evidence": "Zero placeholder patterns, zero recorder watermarks, and zero leaked reference subject tokens in 5140B script.",
+      "inspected_artifacts": [
+        "projects/bench_a_ac_explainer_60s/script.md",
+        "projects/bench_a_ac_explainer_60s/character_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_04_HOOK_STRENGTH",
+      "status": "PASS",
+      "evidence": "Concrete 0-3s visual hook (208 chars) and spoken hook (12 words) verified.",
+      "inspected_artifacts": [
+        "projects/bench_a_ac_explainer_60s/blueprint.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_05_NARRATIVE_COHERENCE",
+      "status": "PASS",
+      "evidence": "Verified 3-act dramatic structure (['ACT_1', 'ACT_2', 'ACT_3']) and explicit payoff/callback.",
+      "inspected_artifacts": [
+        "projects/bench_a_ac_explainer_60s/blueprint.md",
+        "projects/bench_a_ac_explainer_60s/storyboard.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_06_NARRATION_TIMING",
+      "status": "PASS",
+      "evidence": "Narration timing marked ESTIMATED at 135.0 WPM (~64.38s) with speed_multiplier=1.0.",
+      "inspected_artifacts": [
+        "projects/bench_a_ac_explainer_60s/narration_dialogue.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_07_SEMANTIC_VISUAL_COVERAGE",
+      "status": "PASS",
+      "evidence": "100% clause coverage (13/13 clauses) across 20 integer-frame shots (max=3.6667s <= 10.0s, purposes=['character_acting', 'establishing_shot', 'exploded_view', 'object_insert', 'reaction_shot', 'scientific_mechanism', 'technical_cutaway']).",
+      "inspected_artifacts": [
+        "projects/bench_a_ac_explainer_60s/semantic_visual_plan.json",
+        "projects/bench_a_ac_explainer_60s/storyboard.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_08_CHARACTER_CONSISTENCY",
+      "status": "PASS",
+      "evidence": "Verified 2 character(s) with all 11 mandatory attributes and cross-shot continuity locks.",
+      "inspected_artifacts": [
+        "projects/bench_a_ac_explainer_60s/character_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_09_STYLE_CONSISTENCY",
+      "status": "PASS",
+      "evidence": "Style profile 'stylized_3d' (xdx_stylized_3d_v4_0) locks uniform detail tier 'medium_sculpted_beveled_forms' with modeling_executed=False.",
+      "inspected_artifacts": [
+        "projects/bench_a_ac_explainer_60s/style_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_10_ASSET_FEASIBILITY",
+      "status": "PASS",
+      "evidence": "Verified 16 storyboard-derived 12-field semantic asset specs (zero premature READY claims, zero PLACEHOLDER boxes).",
+      "inspected_artifacts": [
+        "projects/bench_a_ac_explainer_60s/asset_manifest.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_11_MOTION_FEASIBILITY",
+      "status": "PASS",
+      "evidence": "Verified 20 shot-bound 14-field character/mechanism actions with IK/contact targets.",
+      "inspected_artifacts": [
+        "projects/bench_a_ac_explainer_60s/motion_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_12_CAMERA_SUITABILITY",
+      "status": "PASS",
+      "evidence": "Verified purpose-driven camera lenses [24.0, 40.0, 50.0, 55.0, 65.0, 75.0, 85.0]mm across 20 shots (not locked to 36mm).",
+      "inspected_artifacts": [
+        "projects/bench_a_ac_explainer_60s/camera_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_13_REFERENCE_ADAPTATION",
+      "status": "PASS",
+      "evidence": "Verified 10-dimension fusion (refs=['REF-002'], conflicts_resolved=0) and 20 shot-bound 14-field adaptation records.",
+      "inspected_artifacts": [
+        "projects/bench_a_ac_explainer_60s/reference_adaptation.json",
+        "projects/bench_a_ac_explainer_60s/reference_analysis.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_14_ENGINE_COMPATIBILITY",
+      "status": "PASS",
+      "evidence": "Engine routing (['blender', 'threejs', 'remotion', 'rea_video', 'ffmpeg']) and ESTIMATED caption/audio plans validated with zero live render execution.",
+      "inspected_artifacts": [
+        "projects/bench_a_ac_explainer_60s/engine_plan.json",
+        "projects/bench_a_ac_explainer_60s/caption_audio_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_15_PACKAGE_COMPLETENESS",
+      "status": "PASS",
+      "evidence": "All 13 mandatory items and 11 file SHA-256 digests verified; status=='WAITING_APPROVAL'.",
+      "inspected_artifacts": [
+        "projects/bench_a_ac_explainer_60s/approval_package_manifest.json"
+      ]
+    }
+  ],
+  "defects": [],
+  "reviewer_task_id": "TASK-15-VERIFY",
+  "additional_reviewed_task_ids": [
+    "TASK-01-RESEARCH",
+    "TASK-02-REFERENCE",
+    "TASK-03-CREATIVE",
+    "TASK-04-SCRIPT",
+    "TASK-05-CHARACTER",
+    "TASK-06-STYLE",
+    "TASK-08-REF-ADAPT",
+    "TASK-09-MOTION",
+    "TASK-10-CAMERA",
+    "TASK-11-ASSET",
+    "TASK-12-AUDIO",
+    "TASK-13-CAPTION",
+    "TASK-14-ENGINE"
+  ],
+  "producer_conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+  "reviewer_conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+  "criteria_manifest_digest": "780929e8bc40079f28abe50f5d4d20c16a2b00c34d7d3c609970089f64ae08a7",
+  "reviewed_artifact_manifest": {
+    "projects/bench_a_ac_explainer_60s/research.md": {
+      "owner_task_id": "TASK-01-RESEARCH",
+      "owner_agent": "topic_research_agent",
+      "sha256": "69d47c4a001e743a1d744ed92041c7dd1fe753ea6ebd7c74da788317ceedf604",
+      "size_bytes": 4683
+    },
+    "projects/bench_a_ac_explainer_60s/research_report.json": {
+      "owner_task_id": "TASK-01-RESEARCH",
+      "owner_agent": "topic_research_agent",
+      "sha256": "7001edaa1b1192704697354aa69b1138d5d4c3983ce7c4b69f3d0617a6729dc1",
+      "size_bytes": 10310
+    },
+    "projects/bench_a_ac_explainer_60s/reference_analysis.md": {
+      "owner_task_id": "TASK-02-REFERENCE",
+      "owner_agent": "rea_video_reference_analyst",
+      "sha256": "e38f83e8f3ff8f4aa0ed87b8e1068ab1bd9d74620a2c63833d1a4e2ad1b6d4d7",
+      "size_bytes": 2008
+    },
+    "projects/bench_a_ac_explainer_60s/blueprint.md": {
+      "owner_task_id": "TASK-03-CREATIVE",
+      "owner_agent": "creative_director",
+      "sha256": "3148a1807173c19d152899ba1bfbcc3f89f90b688a63c4c54a05f860dee97549",
+      "size_bytes": 2622
+    },
+    "projects/bench_a_ac_explainer_60s/creative_concept.json": {
+      "owner_task_id": "TASK-03-CREATIVE",
+      "owner_agent": "creative_director",
+      "sha256": "6f9d3bc38bfed4d429fbb869550829ebc3752538bd08df5297e547f9190f2df1",
+      "size_bytes": 2555
+    },
+    "projects/bench_a_ac_explainer_60s/script.md": {
+      "owner_task_id": "TASK-04-SCRIPT",
+      "owner_agent": "scriptwriter_agent",
+      "sha256": "a4bbe84a5ba09acf43149f91c39d50def22a8c71e142934271b9d5c31d8b8f92",
+      "size_bytes": 5197
+    },
+    "projects/bench_a_ac_explainer_60s/authored_creative_payload.json": {
+      "owner_task_id": "TASK-04-SCRIPT",
+      "owner_agent": "scriptwriter_agent",
+      "sha256": "bf85ab1be294a55526574d481188cece287f266ab310253b07e8f0500b8f5623",
+      "size_bytes": 25725
+    },
+    "projects/bench_a_ac_explainer_60s/character_bible.md": {
+      "owner_task_id": "TASK-05-CHARACTER",
+      "owner_agent": "character_design_agent",
+      "sha256": "0d3a611d12636f18935f96a848f823d6799d72413996ed3f85fc4b6f027bb795",
+      "size_bytes": 2434
+    },
+    "projects/bench_a_ac_explainer_60s/character_bible.json": {
+      "owner_task_id": "TASK-05-CHARACTER",
+      "owner_agent": "character_design_agent",
+      "sha256": "5e67be620d21b0ad2b23421e03b61d1d42bcc435f100c72393fcbfe7201d7947",
+      "size_bytes": 7203
+    },
+    "projects/bench_a_ac_explainer_60s/style_bible.json": {
+      "owner_task_id": "TASK-06-STYLE",
+      "owner_agent": "art_director",
+      "sha256": "d8d76342dbb31f57a0967f7005f1b385e2ef6342cdabe3ffea7c83a9ba3eac90",
+      "size_bytes": 1211
+    },
+    "projects/bench_a_ac_explainer_60s/storyboard.json": {
+      "owner_task_id": "TASK-07-STORYBOARD",
+      "owner_agent": "storyboard_director",
+      "sha256": "48d0a37f9ca12dbce55fa68e9c3d0fbc86ceb4e7ac4adfbb62db730f91017ce6",
+      "size_bytes": 116929
+    },
+    "projects/bench_a_ac_explainer_60s/semantic_visual_plan.json": {
+      "owner_task_id": "TASK-07-STORYBOARD",
+      "owner_agent": "storyboard_director",
+      "sha256": "2a9be78fd011c0c857367ac45a675274f0de2035e336899f8fc0f8f231788168",
+      "size_bytes": 20372
+    },
+    "projects/bench_a_ac_explainer_60s/reference_adaptation.json": {
+      "owner_task_id": "TASK-08-REF-ADAPT",
+      "owner_agent": "rea_video_reference_analyst",
+      "sha256": "6fe90c482a77e9888c322423ce3e0a458056a9443b8fb36877ecd66838f553ba",
+      "size_bytes": 32153
+    },
+    "projects/bench_a_ac_explainer_60s/motion_plan.json": {
+      "owner_task_id": "TASK-09-MOTION",
+      "owner_agent": "motion_director",
+      "sha256": "9f5e3e8495046924387c18ecbd5e28d415f66fc2cc463deef790203ce777e041",
+      "size_bytes": 84722
+    },
+    "projects/bench_a_ac_explainer_60s/camera_plan.json": {
+      "owner_task_id": "TASK-10-CAMERA",
+      "owner_agent": "cinematographer",
+      "sha256": "5561ace54e906b352b21cf996b384880ab50f45ed5fafcec0f2fab152cd10420",
+      "size_bytes": 15353
+    },
+    "projects/bench_a_ac_explainer_60s/asset_manifest.json": {
+      "owner_task_id": "TASK-11-ASSET",
+      "owner_agent": "asset_specialist",
+      "sha256": "915849b27aa20d411762af26bbb74b471ced3c030bf5c0139de6ae289226082a",
+      "size_bytes": 41014
+    },
+    "projects/bench_a_ac_explainer_60s/narration_dialogue.json": {
+      "owner_task_id": "TASK-12-AUDIO",
+      "owner_agent": "audio_director",
+      "sha256": "269d9ad913020824488ea228a53857278a79ef04abc615a581d1023585755ee4",
+      "size_bytes": 16426
+    },
+    "projects/bench_a_ac_explainer_60s/caption_audio_plan.json": {
+      "owner_task_id": "TASK-13-CAPTION",
+      "owner_agent": "caption_specialist",
+      "sha256": "b0214ce2d276ba3eb02cf4cdfa978a1f7aabc7f0db1f841d2c8a676d596daa06",
+      "size_bytes": 14469
+    },
+    "projects/bench_a_ac_explainer_60s/engine_plan.json": {
+      "owner_task_id": "TASK-14-ENGINE",
+      "owner_agent": "remotion_specialist",
+      "sha256": "6ed36927f8c1b667a1b3d7501e89e99f9c23deafcdf25a53cdb07d4d34fea409",
+      "size_bytes": 17299
+    },
+    "projects/bench_a_ac_explainer_60s/execution_plan.md": {
+      "owner_task_id": "TASK-14-ENGINE",
+      "owner_agent": "remotion_specialist",
+      "sha256": "903704085ff3891b433ca0f7eb95b0e334a2fb9dcfaa82a7da3edb6b0a2bd2f9",
+      "size_bytes": 2194
+    }
+  },
+  "pre_review_hashes": {
+    "projects/bench_a_ac_explainer_60s/research.md": "69d47c4a001e743a1d744ed92041c7dd1fe753ea6ebd7c74da788317ceedf604",
+    "projects/bench_a_ac_explainer_60s/research_report.json": "7001edaa1b1192704697354aa69b1138d5d4c3983ce7c4b69f3d0617a6729dc1",
+    "projects/bench_a_ac_explainer_60s/reference_analysis.md": "e38f83e8f3ff8f4aa0ed87b8e1068ab1bd9d74620a2c63833d1a4e2ad1b6d4d7",
+    "projects/bench_a_ac_explainer_60s/blueprint.md": "3148a1807173c19d152899ba1bfbcc3f89f90b688a63c4c54a05f860dee97549",
+    "projects/bench_a_ac_explainer_60s/creative_concept.json": "6f9d3bc38bfed4d429fbb869550829ebc3752538bd08df5297e547f9190f2df1",
+    "projects/bench_a_ac_explainer_60s/script.md": "a4bbe84a5ba09acf43149f91c39d50def22a8c71e142934271b9d5c31d8b8f92",
+    "projects/bench_a_ac_explainer_60s/authored_creative_payload.json": "bf85ab1be294a55526574d481188cece287f266ab310253b07e8f0500b8f5623",
+    "projects/bench_a_ac_explainer_60s/character_bible.md": "0d3a611d12636f18935f96a848f823d6799d72413996ed3f85fc4b6f027bb795",
+    "projects/bench_a_ac_explainer_60s/character_bible.json": "5e67be620d21b0ad2b23421e03b61d1d42bcc435f100c72393fcbfe7201d7947",
+    "projects/bench_a_ac_explainer_60s/style_bible.json": "d8d76342dbb31f57a0967f7005f1b385e2ef6342cdabe3ffea7c83a9ba3eac90",
+    "projects/bench_a_ac_explainer_60s/storyboard.json": "48d0a37f9ca12dbce55fa68e9c3d0fbc86ceb4e7ac4adfbb62db730f91017ce6",
+    "projects/bench_a_ac_explainer_60s/semantic_visual_plan.json": "2a9be78fd011c0c857367ac45a675274f0de2035e336899f8fc0f8f231788168",
+    "projects/bench_a_ac_explainer_60s/reference_adaptation.json": "6fe90c482a77e9888c322423ce3e0a458056a9443b8fb36877ecd66838f553ba",
+    "projects/bench_a_ac_explainer_60s/motion_plan.json": "9f5e3e8495046924387c18ecbd5e28d415f66fc2cc463deef790203ce777e041",
+    "projects/bench_a_ac_explainer_60s/camera_plan.json": "5561ace54e906b352b21cf996b384880ab50f45ed5fafcec0f2fab152cd10420",
+    "projects/bench_a_ac_explainer_60s/asset_manifest.json": "915849b27aa20d411762af26bbb74b471ced3c030bf5c0139de6ae289226082a",
+    "projects/bench_a_ac_explainer_60s/narration_dialogue.json": "269d9ad913020824488ea228a53857278a79ef04abc615a581d1023585755ee4",
+    "projects/bench_a_ac_explainer_60s/caption_audio_plan.json": "b0214ce2d276ba3eb02cf4cdfa978a1f7aabc7f0db1f841d2c8a676d596daa06",
+    "projects/bench_a_ac_explainer_60s/engine_plan.json": "6ed36927f8c1b667a1b3d7501e89e99f9c23deafcdf25a53cdb07d4d34fea409",
+    "projects/bench_a_ac_explainer_60s/execution_plan.md": "903704085ff3891b433ca0f7eb95b0e334a2fb9dcfaa82a7da3edb6b0a2bd2f9"
+  },
+  "post_review_hashes": {
+    "projects/bench_a_ac_explainer_60s/research.md": "69d47c4a001e743a1d744ed92041c7dd1fe753ea6ebd7c74da788317ceedf604",
+    "projects/bench_a_ac_explainer_60s/research_report.json": "7001edaa1b1192704697354aa69b1138d5d4c3983ce7c4b69f3d0617a6729dc1",
+    "projects/bench_a_ac_explainer_60s/reference_analysis.md": "e38f83e8f3ff8f4aa0ed87b8e1068ab1bd9d74620a2c63833d1a4e2ad1b6d4d7",
+    "projects/bench_a_ac_explainer_60s/blueprint.md": "3148a1807173c19d152899ba1bfbcc3f89f90b688a63c4c54a05f860dee97549",
+    "projects/bench_a_ac_explainer_60s/creative_concept.json": "6f9d3bc38bfed4d429fbb869550829ebc3752538bd08df5297e547f9190f2df1",
+    "projects/bench_a_ac_explainer_60s/script.md": "a4bbe84a5ba09acf43149f91c39d50def22a8c71e142934271b9d5c31d8b8f92",
+    "projects/bench_a_ac_explainer_60s/authored_creative_payload.json": "bf85ab1be294a55526574d481188cece287f266ab310253b07e8f0500b8f5623",
+    "projects/bench_a_ac_explainer_60s/character_bible.md": "0d3a611d12636f18935f96a848f823d6799d72413996ed3f85fc4b6f027bb795",
+    "projects/bench_a_ac_explainer_60s/character_bible.json": "5e67be620d21b0ad2b23421e03b61d1d42bcc435f100c72393fcbfe7201d7947",
+    "projects/bench_a_ac_explainer_60s/style_bible.json": "d8d76342dbb31f57a0967f7005f1b385e2ef6342cdabe3ffea7c83a9ba3eac90",
+    "projects/bench_a_ac_explainer_60s/storyboard.json": "48d0a37f9ca12dbce55fa68e9c3d0fbc86ceb4e7ac4adfbb62db730f91017ce6",
+    "projects/bench_a_ac_explainer_60s/semantic_visual_plan.json": "2a9be78fd011c0c857367ac45a675274f0de2035e336899f8fc0f8f231788168",
+    "projects/bench_a_ac_explainer_60s/reference_adaptation.json": "6fe90c482a77e9888c322423ce3e0a458056a9443b8fb36877ecd66838f553ba",
+    "projects/bench_a_ac_explainer_60s/motion_plan.json": "9f5e3e8495046924387c18ecbd5e28d415f66fc2cc463deef790203ce777e041",
+    "projects/bench_a_ac_explainer_60s/camera_plan.json": "5561ace54e906b352b21cf996b384880ab50f45ed5fafcec0f2fab152cd10420",
+    "projects/bench_a_ac_explainer_60s/asset_manifest.json": "915849b27aa20d411762af26bbb74b471ced3c030bf5c0139de6ae289226082a",
+    "projects/bench_a_ac_explainer_60s/narration_dialogue.json": "269d9ad913020824488ea228a53857278a79ef04abc615a581d1023585755ee4",
+    "projects/bench_a_ac_explainer_60s/caption_audio_plan.json": "b0214ce2d276ba3eb02cf4cdfa978a1f7aabc7f0db1f841d2c8a676d596daa06",
+    "projects/bench_a_ac_explainer_60s/engine_plan.json": "6ed36927f8c1b667a1b3d7501e89e99f9c23deafcdf25a53cdb07d4d34fea409",
+    "projects/bench_a_ac_explainer_60s/execution_plan.md": "903704085ff3891b433ca0f7eb95b0e334a2fb9dcfaa82a7da3edb6b0a2bd2f9"
+  }
+}

@@ -1,0 +1,1939 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "generated_at_utc": "2026-11-27T20:13:56.099406+00:00",
+  "phase": "Phase 01.6C",
+  "all_benchmarks_waiting_approval": true,
+  "zero_renders_or_blender_mutations": true,
+  "synthetic_fixture_mp4": {
+    "path": "tests/fixtures/synthetic.mp4",
+    "size_bytes": 74732,
+    "sha256": "25b6ea746d7d57d22dd9649464e9a13a23e88e9a8352327789cf734baa05027a"
+  },
+  "benchmarks": {
+    "bench_a_ac_explainer_60s": {
+      "project_id": "bench_a_ac_explainer_60s",
+      "topic_title": "Bagaimana AC Mendinginkan Ruangan?",
+      "genres": [
+        "explainer",
+        "edukasi"
+      ],
+      "target_duration_s": 60,
+      "total_frames": 1800,
+      "shot_count": 20,
+      "max_shot_duration_s": 3.6667,
+      "distinct_focal_lengths_mm": [
+        24.0,
+        40.0,
+        50.0,
+        55.0,
+        65.0,
+        75.0,
+        85.0
+      ],
+      "measured_script_wpm": 135.0,
+      "timing_status": "ESTIMATED",
+      "selected_reference_ids": [
+        "REF-002"
+      ],
+      "style_profile": "stylized_3d",
+      "fusion_mode": "single_reference_10d_mapped",
+      "status": "WAITING_APPROVAL",
+      "package_version": "v1",
+      "package_digest": "679db03f5f62e02f3d4cdae9a44197342c1b5edd45706d99b3310167c605f398",
+      "mandatory_13_items_count": 13,
+      "independent_review_verdict": "PASS",
+      "independent_review_criteria_count": 15,
+      "independent_review_defects_count": 0,
+      "producer_conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+      "reviewer_conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+      "execution_mode": "native_subagent",
+      "rendering_or_blender_executed": false,
+      "portable_checkpoint_bundle": "projects/bench_a_ac_explainer_60s/.checkpoints/portable_checkpoint_bundle_v4.json",
+      "agent_invocation_receipts": {
+        "TASK-01-RESEARCH": {
+          "receipt_id": "RCPT-88c5fd1ed840",
+          "request_id": "REQ-d560ee054a42",
+          "idempotency_key": "17215c83298eb5bce1b6f0ba050caede3b450706340ac103779044cfb74d4548",
+          "task_id": "TASK-01-RESEARCH",
+          "project_id": "bench_a_ac_explainer_60s",
+          "assigned_agent": "topic_research_agent",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "79297c7c2b6cfb965b66a31089b67c5e",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:18.238737+00:00",
+          "completed_at": "2026-11-27T20:13:18.238737+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_a_ac_explainer_60s/research.md": "69d47c4a001e743a1d744ed92041c7dd1fe753ea6ebd7c74da788317ceedf604",
+            "projects/bench_a_ac_explainer_60s/research_report.json": "7001edaa1b1192704697354aa69b1138d5d4c3983ce7c4b69f3d0617a6729dc1"
+          },
+          "task_definition_digest": "52847b0a591a272d6124bc0827100f415aed18567b557b311c4248fb6d2722e1",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-topic-researcher",
+            "subagent_role": "Benchmark A & C Topic Researcher",
+            "task_id": "TASK-01-RESEARCH",
+            "project_id": "bench_a_ac_explainer_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "83b04444d5447640ff9890b1da0b63b52d342753a82ad2308f5e4e8a2c4f3918"
+        },
+        "TASK-02-REFERENCE": {
+          "receipt_id": "RCPT-1567126d35cd",
+          "request_id": "REQ-433f4ddabd33",
+          "idempotency_key": "9e5ad35dc9d54976520ae045c1b269012d8d0574a424d978d173890d6f448e59",
+          "task_id": "TASK-02-REFERENCE",
+          "project_id": "bench_a_ac_explainer_60s",
+          "assigned_agent": "rea_video_reference_analyst",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "23c4e93f6cc1588439794068f0d8a8f8",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:18.238737+00:00",
+          "completed_at": "2026-11-27T20:13:18.238737+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_a_ac_explainer_60s/reference_analysis.md": "e38f83e8f3ff8f4aa0ed87b8e1068ab1bd9d74620a2c63833d1a4e2ad1b6d4d7"
+          },
+          "task_definition_digest": "f7af1898328e935d56bac6dd1b1c6ac32faa58d8290c5dd399fad3a0dc9560d2",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-rea-reference-analyst",
+            "subagent_role": "REA Reference & Fusion Analyst",
+            "task_id": "TASK-02-REFERENCE",
+            "project_id": "bench_a_ac_explainer_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "ab58e9af70814ba4f91d4e7bf018e68466795fe328853352282fc5026bf0ce99"
+        },
+        "TASK-03-CREATIVE": {
+          "receipt_id": "RCPT-e05cf86f81d8",
+          "request_id": "REQ-f900a27da49d",
+          "idempotency_key": "412943e58f25236f7a886930e15151fda19ade75f419108f109cd79bf5b795b6",
+          "task_id": "TASK-03-CREATIVE",
+          "project_id": "bench_a_ac_explainer_60s",
+          "assigned_agent": "creative_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "1739e98084d0f229168972fd2b7c6dbe",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:18.238737+00:00",
+          "completed_at": "2026-11-27T20:13:18.238737+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_a_ac_explainer_60s/blueprint.md": "3148a1807173c19d152899ba1bfbcc3f89f90b688a63c4c54a05f860dee97549",
+            "projects/bench_a_ac_explainer_60s/creative_concept.json": "6f9d3bc38bfed4d429fbb869550829ebc3752538bd08df5297e547f9190f2df1"
+          },
+          "task_definition_digest": "34758b92f76a5c1676aa8117974e3fcef722508c42a3a86d341ea468190a73dc",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-creative-scriptwriter",
+            "subagent_role": "Benchmark A & B Creative Scriptwriter",
+            "task_id": "TASK-03-CREATIVE",
+            "project_id": "bench_a_ac_explainer_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "e3973fa68ff69bd000a30e1c51bdeae00141006f4c6ff0a6accdf630580eb1ae"
+        },
+        "TASK-04-SCRIPT": {
+          "receipt_id": "RCPT-01ed5e6b5409",
+          "request_id": "REQ-334806662dfb",
+          "idempotency_key": "db381c436a26d21f73872540470a13a136bd894fc256b685dc9a93205c4162d1",
+          "task_id": "TASK-04-SCRIPT",
+          "project_id": "bench_a_ac_explainer_60s",
+          "assigned_agent": "scriptwriter_agent",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "1739e98084d0f229168972fd2b7c6dbe",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:18.238737+00:00",
+          "completed_at": "2026-11-27T20:13:18.238737+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_a_ac_explainer_60s/authored_creative_payload.json": "bf85ab1be294a55526574d481188cece287f266ab310253b07e8f0500b8f5623",
+            "projects/bench_a_ac_explainer_60s/script.md": "a4bbe84a5ba09acf43149f91c39d50def22a8c71e142934271b9d5c31d8b8f92"
+          },
+          "task_definition_digest": "39d62daf0c6ff33f4d90cd8184e2b04087eba4a90114da5b5ddb583f9d84e31f",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-creative-scriptwriter",
+            "subagent_role": "Benchmark A & B Creative Scriptwriter",
+            "task_id": "TASK-04-SCRIPT",
+            "project_id": "bench_a_ac_explainer_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "451b4f13cc47cc9f3c2b4031853dcb83254d5b92ed844499658fe1a95e87a84f"
+        },
+        "TASK-05-CHARACTER": {
+          "receipt_id": "RCPT-df33f911921b",
+          "request_id": "REQ-7c4441f7ed0e",
+          "idempotency_key": "121658124beb09748ac4d06ff430ee97618214deba6d2ecce025e13274acd1fc",
+          "task_id": "TASK-05-CHARACTER",
+          "project_id": "bench_a_ac_explainer_60s",
+          "assigned_agent": "character_design_agent",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ab27dc28a6c4308d6990fa13716ca70d",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:18.238737+00:00",
+          "completed_at": "2026-11-27T20:13:18.238737+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_a_ac_explainer_60s/character_bible.json": "5e67be620d21b0ad2b23421e03b61d1d42bcc435f100c72393fcbfe7201d7947",
+            "projects/bench_a_ac_explainer_60s/character_bible.md": "0d3a611d12636f18935f96a848f823d6799d72413996ed3f85fc4b6f027bb795"
+          },
+          "task_definition_digest": "b4eecf3165f85cf0c2923ea663a28b6ce5a6362e4b3be4f76b18333a4608d7c1",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-character-art-director",
+            "subagent_role": "Character & Style Bible Specialist",
+            "task_id": "TASK-05-CHARACTER",
+            "project_id": "bench_a_ac_explainer_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "1dd8df285947f6d20379c401c95a50af503f72220e08fddc5f447d82105832b9"
+        },
+        "TASK-06-STYLE": {
+          "receipt_id": "RCPT-9133d9f01542",
+          "request_id": "REQ-6c346c3344c3",
+          "idempotency_key": "dab03b6144f6b75f987b609ead32ac137c3b2c1a43894fce3df86795ff68d061",
+          "task_id": "TASK-06-STYLE",
+          "project_id": "bench_a_ac_explainer_60s",
+          "assigned_agent": "art_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ab27dc28a6c4308d6990fa13716ca70d",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:18.238737+00:00",
+          "completed_at": "2026-11-27T20:13:18.238737+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_a_ac_explainer_60s/style_bible.json": "d8d76342dbb31f57a0967f7005f1b385e2ef6342cdabe3ffea7c83a9ba3eac90"
+          },
+          "task_definition_digest": "2b4a237c4864eb40c4a267dd4a0212fa1fb16c1e493e59e4de8fe1c29e093b8b",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-character-art-director",
+            "subagent_role": "Character & Style Bible Specialist",
+            "task_id": "TASK-06-STYLE",
+            "project_id": "bench_a_ac_explainer_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "dfa5a3c3825a651f4e457a17436b8b7971f1904e28143d32b4f714f32c6a22c0"
+        },
+        "TASK-07-STORYBOARD": {
+          "receipt_id": "RCPT-2894703f35ac",
+          "request_id": "REQ-d225743cb6ac",
+          "idempotency_key": "b618d1ef11fe95de202b9b56aaf6348e679a0e0273da279c0b693f9552e8763a",
+          "task_id": "TASK-07-STORYBOARD",
+          "project_id": "bench_a_ac_explainer_60s",
+          "assigned_agent": "storyboard_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:18.238737+00:00",
+          "completed_at": "2026-11-27T20:13:18.238737+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_a_ac_explainer_60s/semantic_visual_plan.json": "2a9be78fd011c0c857367ac45a675274f0de2035e336899f8fc0f8f231788168",
+            "projects/bench_a_ac_explainer_60s/storyboard.json": "48d0a37f9ca12dbce55fa68e9c3d0fbc86ceb4e7ac4adfbb62db730f91017ce6"
+          },
+          "task_definition_digest": "0f51eca6559460da0f368750af4be7988ac4f5d998a80040ac16ab3440bbab49",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-07-STORYBOARD",
+            "project_id": "bench_a_ac_explainer_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "706c9bbaccffcc5db747c9df91d75656c22ce39f6d762645dec3858ee33248b6"
+        },
+        "TASK-08-REF-ADAPT": {
+          "receipt_id": "RCPT-56daf2158ff5",
+          "request_id": "REQ-b1deabebdd68",
+          "idempotency_key": "5329703e635fe65d1db412fb4060af1a46cd333f4966533bd7be6bbd4b4d5581",
+          "task_id": "TASK-08-REF-ADAPT",
+          "project_id": "bench_a_ac_explainer_60s",
+          "assigned_agent": "rea_video_reference_analyst",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "23c4e93f6cc1588439794068f0d8a8f8",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:18.238737+00:00",
+          "completed_at": "2026-11-27T20:13:18.238737+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_a_ac_explainer_60s/reference_adaptation.json": "6fe90c482a77e9888c322423ce3e0a458056a9443b8fb36877ecd66838f553ba"
+          },
+          "task_definition_digest": "567423e8f4ede04ca8000fd78676ddae3f37d7109307cba29e5a94280a902007",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-rea-reference-analyst",
+            "subagent_role": "REA Reference & Fusion Analyst",
+            "task_id": "TASK-08-REF-ADAPT",
+            "project_id": "bench_a_ac_explainer_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "12c0aab49a29a6a1dba97574453c60e23a6a22c0f63c701b4ac176d5b988f010"
+        },
+        "TASK-09-MOTION": {
+          "receipt_id": "RCPT-35aa3f9ea1dc",
+          "request_id": "REQ-c26774a0a71e",
+          "idempotency_key": "55fcac885effc3aa45f80dbd35b07b8958ac34ea480cc70bb6432424e994ee81",
+          "task_id": "TASK-09-MOTION",
+          "project_id": "bench_a_ac_explainer_60s",
+          "assigned_agent": "motion_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:18.238737+00:00",
+          "completed_at": "2026-11-27T20:13:18.238737+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_a_ac_explainer_60s/motion_plan.json": "9f5e3e8495046924387c18ecbd5e28d415f66fc2cc463deef790203ce777e041"
+          },
+          "task_definition_digest": "5b0fff1bdb28ebb64b32eac464e0c701d1b007985e4c9562e49593e5be70cdb7",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-09-MOTION",
+            "project_id": "bench_a_ac_explainer_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "65f85b01bcaa69229605b43debcecc819daa3d4bd5b62c8da4bd82fc2b2eeb7b"
+        },
+        "TASK-10-CAMERA": {
+          "receipt_id": "RCPT-bb58ac8dc163",
+          "request_id": "REQ-9166f3dba4c8",
+          "idempotency_key": "5173349846f0976a095f144d1eb0c7cc16ab2b26d63b86293c159af661ec8b24",
+          "task_id": "TASK-10-CAMERA",
+          "project_id": "bench_a_ac_explainer_60s",
+          "assigned_agent": "cinematographer",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:18.238737+00:00",
+          "completed_at": "2026-11-27T20:13:18.238737+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_a_ac_explainer_60s/camera_plan.json": "5561ace54e906b352b21cf996b384880ab50f45ed5fafcec0f2fab152cd10420"
+          },
+          "task_definition_digest": "4034ec5e5ee258f1b3508fb59ebab5da70f63f969dc338191f60fe771a42597f",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-10-CAMERA",
+            "project_id": "bench_a_ac_explainer_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "2b6fa784154d1589d5fb9c143ee887f7a3b46df173618a61b371e593ce2ae58e"
+        },
+        "TASK-11-ASSET": {
+          "receipt_id": "RCPT-0014aef5946c",
+          "request_id": "REQ-996e49d31a02",
+          "idempotency_key": "50d38b69f0a7c1eadc7ca1d91460a4c2cfb0c3380fb8dab6d458a50785a74b51",
+          "task_id": "TASK-11-ASSET",
+          "project_id": "bench_a_ac_explainer_60s",
+          "assigned_agent": "asset_specialist",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ab27dc28a6c4308d6990fa13716ca70d",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:18.238737+00:00",
+          "completed_at": "2026-11-27T20:13:18.238737+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_a_ac_explainer_60s/asset_manifest.json": "915849b27aa20d411762af26bbb74b471ced3c030bf5c0139de6ae289226082a"
+          },
+          "task_definition_digest": "145791acf5186110c79ac5ae0f4e0abf2cc2ae4e34b3c1e69a815707e211475b",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-character-art-director",
+            "subagent_role": "Character & Style Bible Specialist",
+            "task_id": "TASK-11-ASSET",
+            "project_id": "bench_a_ac_explainer_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "d628333e882df9b187cb1bb815fef5082280f034ac0deddadef6f08a114435af"
+        },
+        "TASK-12-AUDIO": {
+          "receipt_id": "RCPT-fa6473d5e984",
+          "request_id": "REQ-d92f57db1e94",
+          "idempotency_key": "d7d29cbeca0cf15cf5bbb7effff5deaa63332b2b2a51fc123fee2cb34e2edc99",
+          "task_id": "TASK-12-AUDIO",
+          "project_id": "bench_a_ac_explainer_60s",
+          "assigned_agent": "audio_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ba0c35964a1313a28b1a39458d00a035",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:18.238737+00:00",
+          "completed_at": "2026-11-27T20:13:18.238737+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_a_ac_explainer_60s/narration_dialogue.json": "269d9ad913020824488ea228a53857278a79ef04abc615a581d1023585755ee4"
+          },
+          "task_definition_digest": "810c549d28ad1f1842fea00fbf3fb2d3dd394f57ea7e7ca0781942fb00f1caa8",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-audio-caption-specialist",
+            "subagent_role": "Audio & Caption Planning Specialist",
+            "task_id": "TASK-12-AUDIO",
+            "project_id": "bench_a_ac_explainer_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "0a5acdf20fcfd082e17900c533cf2f74e3401f45f51b2e0a3cbbd4334ea8ca22"
+        },
+        "TASK-13-CAPTION": {
+          "receipt_id": "RCPT-f8102c51335e",
+          "request_id": "REQ-f466b9ef796f",
+          "idempotency_key": "3ce4ee0262e8543b21bf7703fca0a4866aad50c175e47329babf183982b21b80",
+          "task_id": "TASK-13-CAPTION",
+          "project_id": "bench_a_ac_explainer_60s",
+          "assigned_agent": "caption_specialist",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ba0c35964a1313a28b1a39458d00a035",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:18.238737+00:00",
+          "completed_at": "2026-11-27T20:13:18.238737+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_a_ac_explainer_60s/caption_audio_plan.json": "b0214ce2d276ba3eb02cf4cdfa978a1f7aabc7f0db1f841d2c8a676d596daa06"
+          },
+          "task_definition_digest": "147a8707b91dd2fc41ad61b98c04e2752a85ebcdeabacae1dcdd071cedd116e1",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-audio-caption-specialist",
+            "subagent_role": "Audio & Caption Planning Specialist",
+            "task_id": "TASK-13-CAPTION",
+            "project_id": "bench_a_ac_explainer_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "bff1670265f1fba673d04bdb0adc2f512cdaba3564077ad1ec3028554cb3113e"
+        },
+        "TASK-14-ENGINE": {
+          "receipt_id": "RCPT-90440646b9fb",
+          "request_id": "REQ-46cba9698e6f",
+          "idempotency_key": "bf14c477df4dcd2aea69ec146a72703a6962ccd83d7d7f312621565de0718dc8",
+          "task_id": "TASK-14-ENGINE",
+          "project_id": "bench_a_ac_explainer_60s",
+          "assigned_agent": "remotion_specialist",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:18.238737+00:00",
+          "completed_at": "2026-11-27T20:13:18.238737+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_a_ac_explainer_60s/engine_plan.json": "6ed36927f8c1b667a1b3d7501e89e99f9c23deafcdf25a53cdb07d4d34fea409",
+            "projects/bench_a_ac_explainer_60s/execution_plan.md": "903704085ff3891b433ca0f7eb95b0e334a2fb9dcfaa82a7da3edb6b0a2bd2f9"
+          },
+          "task_definition_digest": "9b51d3b2438fcdb68c33e302ced48c4086a301aca0161a4b80bc3ca741631adb",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-14-ENGINE",
+            "project_id": "bench_a_ac_explainer_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "574bdbc7d8222331d496f0501967bcc2c669eebc59198f99e746f2a33589155b"
+        },
+        "TASK-15-VERIFY": {
+          "receipt_id": "RCPT-657b6a323cf1",
+          "request_id": "REQ-f466500b6358",
+          "idempotency_key": "d0120c48da9d2702ab16c4b4cdb59a0f1a0b9bae7a4eba884a32a8fafc0fd6b7",
+          "task_id": "TASK-15-VERIFY",
+          "project_id": "bench_a_ac_explainer_60s",
+          "assigned_agent": "preproduction_verifier",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:18.238737+00:00",
+          "completed_at": "2026-11-27T20:13:18.238737+00:00",
+          "output_artifact_hashes": {},
+          "task_definition_digest": "f557cff48d0580dcef836afdc20c350efd5118fd166f871cb2345fec475b7daa",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-preproduction-verifier",
+            "subagent_role": "Independent Preproduction Verifier (4 Benchmarks)",
+            "task_id": "TASK-15-VERIFY",
+            "project_id": "bench_a_ac_explainer_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "8561dd3cc52d250c39cdd94214cae93a7374624625fe6bb78a9cacefdd74483c"
+        }
+      }
+    },
+    "bench_b_birokrasi_satir_60s": {
+      "project_id": "bench_b_birokrasi_satir_60s",
+      "topic_title": "Mengurus Satu Surat yang Membutuhkan Banyak Surat Lain",
+      "genres": [
+        "satir_sosial",
+        "storytelling"
+      ],
+      "target_duration_s": 60,
+      "total_frames": 1800,
+      "shot_count": 20,
+      "max_shot_duration_s": 3.8333,
+      "distinct_focal_lengths_mm": [
+        24.0,
+        35.0,
+        40.0,
+        50.0,
+        75.0,
+        85.0
+      ],
+      "measured_script_wpm": 144.0,
+      "timing_status": "ESTIMATED",
+      "selected_reference_ids": [
+        "REF-001"
+      ],
+      "style_profile": "diorama",
+      "fusion_mode": "single_reference_10d_mapped",
+      "status": "WAITING_APPROVAL",
+      "package_version": "v1",
+      "package_digest": "93608d61cff41a2abc1a9cb4a8ea6a4415103b720cff0e03a34b4307267cf410",
+      "mandatory_13_items_count": 13,
+      "independent_review_verdict": "PASS",
+      "independent_review_criteria_count": 15,
+      "independent_review_defects_count": 0,
+      "producer_conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+      "reviewer_conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+      "execution_mode": "native_subagent",
+      "rendering_or_blender_executed": false,
+      "portable_checkpoint_bundle": "projects/bench_b_birokrasi_satir_60s/.checkpoints/portable_checkpoint_bundle_v4.json",
+      "agent_invocation_receipts": {
+        "TASK-01-RESEARCH": {
+          "receipt_id": "RCPT-53ea9ac94ae9",
+          "request_id": "REQ-4d84ad02ad54",
+          "idempotency_key": "bab0bbf11fc866f3b6f94e4ef412171a8e2aa0283cb95c221fe7274e1ef08162",
+          "task_id": "TASK-01-RESEARCH",
+          "project_id": "bench_b_birokrasi_satir_60s",
+          "assigned_agent": "topic_research_agent",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "79297c7c2b6cfb965b66a31089b67c5e",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:27.842073+00:00",
+          "completed_at": "2026-11-27T20:13:27.842073+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_b_birokrasi_satir_60s/research.md": "081752f3a97d6c7decbf81d909b26890c5d12fbadda777bd885a9d42f8585368",
+            "projects/bench_b_birokrasi_satir_60s/research_report.json": "02b02706663142b919e5b9846b9159ca20cb6dd041ccbdbddac4674958238e22"
+          },
+          "task_definition_digest": "e14335ef2d051b563b6705eacedfca8c48ecdea85692e54775d5b00416f41667",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-topic-researcher",
+            "subagent_role": "Benchmark A & C Topic Researcher",
+            "task_id": "TASK-01-RESEARCH",
+            "project_id": "bench_b_birokrasi_satir_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "e505a8168d14415d28693d03e478dc75d3c05c37a899461de227b2445518b7b4"
+        },
+        "TASK-02-REFERENCE": {
+          "receipt_id": "RCPT-0cd12acbbca6",
+          "request_id": "REQ-2c77089dc56e",
+          "idempotency_key": "2658068d1189788c27f87d5d5b541ec99a60ca217f1f76a57f3980850bc8eb94",
+          "task_id": "TASK-02-REFERENCE",
+          "project_id": "bench_b_birokrasi_satir_60s",
+          "assigned_agent": "rea_video_reference_analyst",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "23c4e93f6cc1588439794068f0d8a8f8",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:27.842073+00:00",
+          "completed_at": "2026-11-27T20:13:27.842073+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_b_birokrasi_satir_60s/reference_analysis.md": "b7fccc24ea2930e9537326424e012e1ed9e0f0bc3ffc1eca105a0001e1c8fc03"
+          },
+          "task_definition_digest": "4a773b27524ebd395b3b222ddce3d8ba14ddc842df3305a97a5b82a4741e21ae",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-rea-reference-analyst",
+            "subagent_role": "REA Reference & Fusion Analyst",
+            "task_id": "TASK-02-REFERENCE",
+            "project_id": "bench_b_birokrasi_satir_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "b2f5e64b533b19d7041d74546bef99749123a97ba8b4b2417f7611d90d7e63d6"
+        },
+        "TASK-03-CREATIVE": {
+          "receipt_id": "RCPT-c3c811756585",
+          "request_id": "REQ-866e51182e1c",
+          "idempotency_key": "7d1bece4f6b49cc7a2287f3ff9991ac37fc5ebbcc71fa0a8438b5926c5d5096c",
+          "task_id": "TASK-03-CREATIVE",
+          "project_id": "bench_b_birokrasi_satir_60s",
+          "assigned_agent": "creative_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "1739e98084d0f229168972fd2b7c6dbe",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:27.842073+00:00",
+          "completed_at": "2026-11-27T20:13:27.842073+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_b_birokrasi_satir_60s/blueprint.md": "269867284955239156023a64eb9944f752f8ab1c35e84309a6e8e1b189201f88",
+            "projects/bench_b_birokrasi_satir_60s/creative_concept.json": "88b995dae6fe42a86b25b561d5852aa5e1f1b8f9ff95837e238c367854476a38"
+          },
+          "task_definition_digest": "812ee1b419cccb43c799351dd65068ce980de9f6b5fac709ad86d02e9e18209e",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-creative-scriptwriter",
+            "subagent_role": "Benchmark A & B Creative Scriptwriter",
+            "task_id": "TASK-03-CREATIVE",
+            "project_id": "bench_b_birokrasi_satir_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "43177c588e8f09e99ca7fbdd119606c62ac8484064d11a457e7f3394d4b78148"
+        },
+        "TASK-04-SCRIPT": {
+          "receipt_id": "RCPT-c2cebfc5ecbd",
+          "request_id": "REQ-035df193ab2a",
+          "idempotency_key": "bb69278cf3f52c23632a64bebb8b44d6daf582831c52de8b918822892e76d7ca",
+          "task_id": "TASK-04-SCRIPT",
+          "project_id": "bench_b_birokrasi_satir_60s",
+          "assigned_agent": "scriptwriter_agent",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "1739e98084d0f229168972fd2b7c6dbe",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:27.842073+00:00",
+          "completed_at": "2026-11-27T20:13:27.842073+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_b_birokrasi_satir_60s/authored_creative_payload.json": "7df1df740bda9b9529a95f5a4a1f33b9d3a8e5800fa96d179ca367dae189e5eb",
+            "projects/bench_b_birokrasi_satir_60s/script.md": "6c62bfc1fd77ec8cca4ab7e1d08ea759add8059aeee5bb9d77792f548a82937a"
+          },
+          "task_definition_digest": "33ef4dbdf52f67f59881855d2b64886df00b712af35672b51e68a95093c80dbb",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-creative-scriptwriter",
+            "subagent_role": "Benchmark A & B Creative Scriptwriter",
+            "task_id": "TASK-04-SCRIPT",
+            "project_id": "bench_b_birokrasi_satir_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "f270d479023d984ae7fbe72c26281f18be9fc6a4660c56a9af58bd41025f5c87"
+        },
+        "TASK-05-CHARACTER": {
+          "receipt_id": "RCPT-23a6238c65a0",
+          "request_id": "REQ-3e3472c3f2f4",
+          "idempotency_key": "7efc12cc642466cc6c2731fb3a0b1e65444787ea4247604119962f11da62ecf9",
+          "task_id": "TASK-05-CHARACTER",
+          "project_id": "bench_b_birokrasi_satir_60s",
+          "assigned_agent": "character_design_agent",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ab27dc28a6c4308d6990fa13716ca70d",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:27.842073+00:00",
+          "completed_at": "2026-11-27T20:13:27.842073+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_b_birokrasi_satir_60s/character_bible.json": "1384471e80ef6a6a0df77541dc80eb9b4e3b9fc2120ae98d382a035b1aa4671e",
+            "projects/bench_b_birokrasi_satir_60s/character_bible.md": "9674b8048d9dd42fa6c8dded36861a999a8fdba1cb93f6460776ccb37384a4db"
+          },
+          "task_definition_digest": "308ebce82452209560dc33a428e41f86297afd63c50789fbb107cd82790d6a56",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-character-art-director",
+            "subagent_role": "Character & Style Bible Specialist",
+            "task_id": "TASK-05-CHARACTER",
+            "project_id": "bench_b_birokrasi_satir_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "fb5e420a01b36ad167efc549bcedb8f4b52f8d15cc8780c7377a20344822014c"
+        },
+        "TASK-06-STYLE": {
+          "receipt_id": "RCPT-768b3b3d28b6",
+          "request_id": "REQ-0acfbe0faf19",
+          "idempotency_key": "aaf154126d29852824e60e5f70bb17b7e3790a02ab3aa2aac5a275ff4ec3d668",
+          "task_id": "TASK-06-STYLE",
+          "project_id": "bench_b_birokrasi_satir_60s",
+          "assigned_agent": "art_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ab27dc28a6c4308d6990fa13716ca70d",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:27.842073+00:00",
+          "completed_at": "2026-11-27T20:13:27.842073+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_b_birokrasi_satir_60s/style_bible.json": "e7d9e3aa47cd3c11fd4001327d91ce4b6e3be7ac4f9662da28a6c51f68e52992"
+          },
+          "task_definition_digest": "b095267e9c67d2524659faba90f07dc0983f1851e01d1a3ae73b75b55ee3fb7f",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-character-art-director",
+            "subagent_role": "Character & Style Bible Specialist",
+            "task_id": "TASK-06-STYLE",
+            "project_id": "bench_b_birokrasi_satir_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "62ce8977092be4e9bab0d6f05ab39a80aafaa533b977eae2f477b259a1f88abd"
+        },
+        "TASK-07-STORYBOARD": {
+          "receipt_id": "RCPT-05560b29078f",
+          "request_id": "REQ-987ba15d8d46",
+          "idempotency_key": "a068ea767605adea051e8e8ec3fcb9e5dafa9d8fe9092b034fcbb2712dde95f0",
+          "task_id": "TASK-07-STORYBOARD",
+          "project_id": "bench_b_birokrasi_satir_60s",
+          "assigned_agent": "storyboard_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:27.842073+00:00",
+          "completed_at": "2026-11-27T20:13:27.842073+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_b_birokrasi_satir_60s/semantic_visual_plan.json": "7acd936a5210c3a1ff8e6d2ae864abd8c93e4f1a5ed2d91e4b75267f22e3aa3e",
+            "projects/bench_b_birokrasi_satir_60s/storyboard.json": "824e53f78ae6514804a2e5445e6fd2168f2e56bc32c010e20b159ea70f12683f"
+          },
+          "task_definition_digest": "d6d820da315bc0621c48901fa2539c77771ffefe2088a9ccd9663b2698b55a08",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-07-STORYBOARD",
+            "project_id": "bench_b_birokrasi_satir_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "df65907a2751183cfa6cedb8ca7b202418d612d89f2e464e98764ca7a72eeeff"
+        },
+        "TASK-08-REF-ADAPT": {
+          "receipt_id": "RCPT-71a4cb0acc77",
+          "request_id": "REQ-fab6f29990b9",
+          "idempotency_key": "bb4be2a72555895f2cf77389bc647092ca31988de56015fadbc88df239bf6b93",
+          "task_id": "TASK-08-REF-ADAPT",
+          "project_id": "bench_b_birokrasi_satir_60s",
+          "assigned_agent": "rea_video_reference_analyst",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "23c4e93f6cc1588439794068f0d8a8f8",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:27.842073+00:00",
+          "completed_at": "2026-11-27T20:13:27.842073+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_b_birokrasi_satir_60s/reference_adaptation.json": "4a2c6c202194ed549357a15582bf4d3a24a0504f00df286174b6678c41d4fc33"
+          },
+          "task_definition_digest": "ccd74f6d81ac1c00663dade6c39c7650f0ea3cc32b53495c48ff18a3d3bcae8d",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-rea-reference-analyst",
+            "subagent_role": "REA Reference & Fusion Analyst",
+            "task_id": "TASK-08-REF-ADAPT",
+            "project_id": "bench_b_birokrasi_satir_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "d63c550a2228c8e76b580ade699e9184ea7ef5eed2cd96f79fdbd4981abf6fa9"
+        },
+        "TASK-09-MOTION": {
+          "receipt_id": "RCPT-2626116b286b",
+          "request_id": "REQ-863e23da3f35",
+          "idempotency_key": "627e73a075f790a896e8fcb126b6ac44fb54940452fac692d3e5a5b9e75ed257",
+          "task_id": "TASK-09-MOTION",
+          "project_id": "bench_b_birokrasi_satir_60s",
+          "assigned_agent": "motion_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:27.842073+00:00",
+          "completed_at": "2026-11-27T20:13:27.842073+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_b_birokrasi_satir_60s/motion_plan.json": "2de0131b5436b287af5ddadf5eac9b3468c783b7b855583921eb370aa6cc0cb5"
+          },
+          "task_definition_digest": "87d9394c6aa2bc4ac9266094707fac66d049ecb685ac1aa28fbcb66a8b6b293a",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-09-MOTION",
+            "project_id": "bench_b_birokrasi_satir_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "7cdfaba24669d032f747d276b26c408e8860d0c8507683113f88cff56c69658d"
+        },
+        "TASK-10-CAMERA": {
+          "receipt_id": "RCPT-43305999f34b",
+          "request_id": "REQ-a83a290ff021",
+          "idempotency_key": "a3e2a5a87da42ddcdb565265e10fcd783628b608a624e19e1cedc2e4919aae1d",
+          "task_id": "TASK-10-CAMERA",
+          "project_id": "bench_b_birokrasi_satir_60s",
+          "assigned_agent": "cinematographer",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:27.842073+00:00",
+          "completed_at": "2026-11-27T20:13:27.842073+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_b_birokrasi_satir_60s/camera_plan.json": "814b955f9cd14d32d1a9692b9b24519249e4651c43444dc23698267f5551a47d"
+          },
+          "task_definition_digest": "9edd7eb1762f35e9d0e1c0d1a284149caf34b9f24cf752224e9f7cb9433456a9",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-10-CAMERA",
+            "project_id": "bench_b_birokrasi_satir_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "a3a0107c61b6c20b62e3c1724220b0aff4936a8239d7aeedc6d486518047f697"
+        },
+        "TASK-11-ASSET": {
+          "receipt_id": "RCPT-7b9f0dc4f8da",
+          "request_id": "REQ-b9ee64172306",
+          "idempotency_key": "27800b4c5dab78ef02a0d89661faff6dc716a1ae397177aad2adc33d8ebcfcc4",
+          "task_id": "TASK-11-ASSET",
+          "project_id": "bench_b_birokrasi_satir_60s",
+          "assigned_agent": "asset_specialist",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ab27dc28a6c4308d6990fa13716ca70d",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:27.842073+00:00",
+          "completed_at": "2026-11-27T20:13:27.842073+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_b_birokrasi_satir_60s/asset_manifest.json": "a73fb1d865bef65c95c3ada5bb50951c47a3a9fdb0645e7726aa51cbbdb91dfd"
+          },
+          "task_definition_digest": "65fd88cddbdb3204c95c64772231dbaff82ad17eb4c4a88aaf2e506b262a9f42",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-character-art-director",
+            "subagent_role": "Character & Style Bible Specialist",
+            "task_id": "TASK-11-ASSET",
+            "project_id": "bench_b_birokrasi_satir_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "72c36bf63908c43ddaa8e93de04fb9f70a1f9775f14711d3fd2ae893667840cc"
+        },
+        "TASK-12-AUDIO": {
+          "receipt_id": "RCPT-a5dffbfe5bb2",
+          "request_id": "REQ-3dbfe12d0cc8",
+          "idempotency_key": "f84d655ff2949778bf1a6a882a5b8e419047fd8f67b8fcbf31a21f055e14d27d",
+          "task_id": "TASK-12-AUDIO",
+          "project_id": "bench_b_birokrasi_satir_60s",
+          "assigned_agent": "audio_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ba0c35964a1313a28b1a39458d00a035",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:27.842073+00:00",
+          "completed_at": "2026-11-27T20:13:27.842073+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_b_birokrasi_satir_60s/narration_dialogue.json": "4ca94c15f3292f335f034c7ad9ace37e764e1525e2e0b3ad47eb498d990c5560"
+          },
+          "task_definition_digest": "47fea9b8675d2a86fc66fbc373ceb6fa29282a00686899caf970f3f3651439ca",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-audio-caption-specialist",
+            "subagent_role": "Audio & Caption Planning Specialist",
+            "task_id": "TASK-12-AUDIO",
+            "project_id": "bench_b_birokrasi_satir_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "1074ade5b45265efdd6153f83f913c691744f597378f769f8d834a2ff567f8c8"
+        },
+        "TASK-13-CAPTION": {
+          "receipt_id": "RCPT-b83c4df7f4e3",
+          "request_id": "REQ-4770133475c0",
+          "idempotency_key": "cbaae1ce6d31a6ad4e779b7d6bd210f0a793d5d87d2346e9c356069323eeb0be",
+          "task_id": "TASK-13-CAPTION",
+          "project_id": "bench_b_birokrasi_satir_60s",
+          "assigned_agent": "caption_specialist",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ba0c35964a1313a28b1a39458d00a035",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:27.842073+00:00",
+          "completed_at": "2026-11-27T20:13:27.842073+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_b_birokrasi_satir_60s/caption_audio_plan.json": "b233061b2d6bef5ec903c6c0183c70b427cff9d52beba16b32376a8ab245f798"
+          },
+          "task_definition_digest": "af98286c3fec7598f125f7594cfce63131e9dea57aa7149e15d1b372c5c6a1e6",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-audio-caption-specialist",
+            "subagent_role": "Audio & Caption Planning Specialist",
+            "task_id": "TASK-13-CAPTION",
+            "project_id": "bench_b_birokrasi_satir_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "f218b561315a032f824b8b240c20e6d07f53c058e733625245c2f8b409676b43"
+        },
+        "TASK-14-ENGINE": {
+          "receipt_id": "RCPT-88f5ae0dbbd0",
+          "request_id": "REQ-a77d8737ed96",
+          "idempotency_key": "e8b8ed10f23f161bf496cf9aec0842afee7be9977d60fc02f5a224227773be4f",
+          "task_id": "TASK-14-ENGINE",
+          "project_id": "bench_b_birokrasi_satir_60s",
+          "assigned_agent": "remotion_specialist",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:27.842073+00:00",
+          "completed_at": "2026-11-27T20:13:27.842073+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_b_birokrasi_satir_60s/engine_plan.json": "84d903db8bc1614251baa63ab9df3b91e26cf6072e5861c60ca23aff24c48f77",
+            "projects/bench_b_birokrasi_satir_60s/execution_plan.md": "deede83e4fc0962ab47a8814f818f0c493ace63a09dd61649f4551b06096f2bc"
+          },
+          "task_definition_digest": "8c2e6075cee10efffa1dcb7939c2ef37866c57c64be6923af86b769b2c9e2df8",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-14-ENGINE",
+            "project_id": "bench_b_birokrasi_satir_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "6169629658b3b0847489cd046643cb22d743e2e206ea22834ccd82760d642f85"
+        },
+        "TASK-15-VERIFY": {
+          "receipt_id": "RCPT-a8e1f798139f",
+          "request_id": "REQ-eb64de5326e6",
+          "idempotency_key": "1c9f41b71d10d330cfd01e73bec7f28a240ce6e365d905018af91f564704e3e5",
+          "task_id": "TASK-15-VERIFY",
+          "project_id": "bench_b_birokrasi_satir_60s",
+          "assigned_agent": "preproduction_verifier",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:27.842073+00:00",
+          "completed_at": "2026-11-27T20:13:27.842073+00:00",
+          "output_artifact_hashes": {},
+          "task_definition_digest": "272a1985e774f7056de7a5e318fb1e579bdb476b9fa4eb83eda035d811e57c5b",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-preproduction-verifier",
+            "subagent_role": "Independent Preproduction Verifier (4 Benchmarks)",
+            "task_id": "TASK-15-VERIFY",
+            "project_id": "bench_b_birokrasi_satir_60s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "185d3748af311cc2fd4dc0496d55637328ec02dd1bd3fb7b079e98e945a748a5"
+        }
+      }
+    },
+    "bench_c_laut_hilang_hybrid_180s": {
+      "project_id": "bench_c_laut_hilang_hybrid_180s",
+      "topic_title": "Apa yang Terjadi Jika Seluruh Laut Bumi Menghilang?",
+      "genres": [
+        "explainer",
+        "dokumenter",
+        "storytelling",
+        "komedi_absurd"
+      ],
+      "target_duration_s": 180,
+      "total_frames": 5400,
+      "shot_count": 57,
+      "max_shot_duration_s": 4.1667,
+      "distinct_focal_lengths_mm": [
+        20.0,
+        24.0,
+        35.0,
+        40.0,
+        45.0,
+        50.0,
+        65.0,
+        75.0,
+        85.0
+      ],
+      "measured_script_wpm": 137.7,
+      "timing_status": "ESTIMATED",
+      "selected_reference_ids": [
+        "REF-001",
+        "REF-002"
+      ],
+      "style_profile": "stylized_3d",
+      "fusion_mode": "multi_reference_10d_conflict_resolved",
+      "status": "WAITING_APPROVAL",
+      "package_version": "v1",
+      "package_digest": "e11bfc057bed1e05f536950b269a8efd7f2f9851bbc20634a0d2b1c26a294496",
+      "mandatory_13_items_count": 13,
+      "independent_review_verdict": "PASS",
+      "independent_review_criteria_count": 15,
+      "independent_review_defects_count": 0,
+      "producer_conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+      "reviewer_conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+      "execution_mode": "native_subagent",
+      "rendering_or_blender_executed": false,
+      "portable_checkpoint_bundle": "projects/bench_c_laut_hilang_hybrid_180s/.checkpoints/portable_checkpoint_bundle_v4.json",
+      "agent_invocation_receipts": {
+        "TASK-01-RESEARCH": {
+          "receipt_id": "RCPT-5f86ab55a0f4",
+          "request_id": "REQ-cfed882891af",
+          "idempotency_key": "1caf6b06c90a48481315d1c209c77aa658abe06079f866710af3a861d7b5d550",
+          "task_id": "TASK-01-RESEARCH",
+          "project_id": "bench_c_laut_hilang_hybrid_180s",
+          "assigned_agent": "topic_research_agent",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "79297c7c2b6cfb965b66a31089b67c5e",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:37.015093+00:00",
+          "completed_at": "2026-11-27T20:13:37.015093+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_c_laut_hilang_hybrid_180s/research.md": "50a879e59bc86b53dd61f1ae64a5ba1dd2195b1736d8cc3655644dfc0f977813",
+            "projects/bench_c_laut_hilang_hybrid_180s/research_report.json": "795d2cdc405da44a07b256bf4be84ab33f498388fbcb581c8ef06d246dce1691"
+          },
+          "task_definition_digest": "60082de1585e79a31e82cd6d7b63aec548339213994800405439fdda5a5c91e8",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-topic-researcher",
+            "subagent_role": "Benchmark A & C Topic Researcher",
+            "task_id": "TASK-01-RESEARCH",
+            "project_id": "bench_c_laut_hilang_hybrid_180s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "08d637b5d81af42afd0ffaf48614268721924e7395a6dc1385667641f72ce61a"
+        },
+        "TASK-02-REFERENCE": {
+          "receipt_id": "RCPT-850a6f53ab9a",
+          "request_id": "REQ-6c1eddcccb2f",
+          "idempotency_key": "be0c6199a92cda80b66532719e0f58192d9a65f3e0bea8652d3dd29c5c70bb30",
+          "task_id": "TASK-02-REFERENCE",
+          "project_id": "bench_c_laut_hilang_hybrid_180s",
+          "assigned_agent": "rea_video_reference_analyst",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "23c4e93f6cc1588439794068f0d8a8f8",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:37.015093+00:00",
+          "completed_at": "2026-11-27T20:13:37.015093+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_c_laut_hilang_hybrid_180s/reference_analysis.md": "76194ea41920047be2cc362d59b0dc137308b08173e755053fe73d58a20cfe7a"
+          },
+          "task_definition_digest": "f4d0116b6e52b9acf65531f49b668653c072acc4d2f0909e698c610e3d799169",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-rea-reference-analyst",
+            "subagent_role": "REA Reference & Fusion Analyst",
+            "task_id": "TASK-02-REFERENCE",
+            "project_id": "bench_c_laut_hilang_hybrid_180s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "85213c15bbfa851c7e371614793c9b93b6a51f90d655935656e8738591d540b3"
+        },
+        "TASK-03-CREATIVE": {
+          "receipt_id": "RCPT-9a274969ddc6",
+          "request_id": "REQ-23c1e0107109",
+          "idempotency_key": "0ab8e4fdc2d00ac716d3b13b621f16ebcbb76bad070040caf94af7531b25a3f1",
+          "task_id": "TASK-03-CREATIVE",
+          "project_id": "bench_c_laut_hilang_hybrid_180s",
+          "assigned_agent": "creative_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "08f118337deb2b0e7a0875db151e9392",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:37.015093+00:00",
+          "completed_at": "2026-11-27T20:13:37.015093+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_c_laut_hilang_hybrid_180s/blueprint.md": "cf2f3c5b7cda0999a6da37ac6bc64209b97da35df7bb68455bd1bd2f9c361647",
+            "projects/bench_c_laut_hilang_hybrid_180s/creative_concept.json": "5d4e3019e187bf1de5ac8ee30bb5ff94fa4ebc571b0be3fcefe460a9ce1d13a3"
+          },
+          "task_definition_digest": "f4e320a80ae2d00dd8da7d5cf9fa93e6781a2542677b9103fe241f1e53fe21e2",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-creative-scriptwriter",
+            "subagent_role": "Benchmark C & D Creative Scriptwriter",
+            "task_id": "TASK-03-CREATIVE",
+            "project_id": "bench_c_laut_hilang_hybrid_180s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "71bd6446a920eccf05fe71c039d38875ebd5b5541a914817131b5ee9dc8c382e"
+        },
+        "TASK-04-SCRIPT": {
+          "receipt_id": "RCPT-95138d167b86",
+          "request_id": "REQ-f11990ab2b9e",
+          "idempotency_key": "500ba24acfbc21e8584b1769d46c61d25d11b1bb538a1d80a559812a1009f5dd",
+          "task_id": "TASK-04-SCRIPT",
+          "project_id": "bench_c_laut_hilang_hybrid_180s",
+          "assigned_agent": "scriptwriter_agent",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "08f118337deb2b0e7a0875db151e9392",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:37.015093+00:00",
+          "completed_at": "2026-11-27T20:13:37.015093+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_c_laut_hilang_hybrid_180s/authored_creative_payload.json": "09c7b1e9ba3ea399904611adf6a804e285ee373cdaa928bd11d11054490f8d5c",
+            "projects/bench_c_laut_hilang_hybrid_180s/script.md": "2d0bba679111318e77ceeddb174cceb6bc9d0f8a991b53dca6210a4334995476"
+          },
+          "task_definition_digest": "5d9fe935ae5e254a1425774c53b17d5ac72babc399da8ded9ed5d4dd0bc51787",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-creative-scriptwriter",
+            "subagent_role": "Benchmark C & D Creative Scriptwriter",
+            "task_id": "TASK-04-SCRIPT",
+            "project_id": "bench_c_laut_hilang_hybrid_180s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "6765d746000cb7666cb0701252172d9159a6249456e3ca3f50d237cfe435da00"
+        },
+        "TASK-05-CHARACTER": {
+          "receipt_id": "RCPT-a44b47691a54",
+          "request_id": "REQ-3d8255d95e26",
+          "idempotency_key": "1a73bc562b970baecc0bd257dd612f854cf842c27f3452b25e28cf2bc1f877bf",
+          "task_id": "TASK-05-CHARACTER",
+          "project_id": "bench_c_laut_hilang_hybrid_180s",
+          "assigned_agent": "character_design_agent",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ab27dc28a6c4308d6990fa13716ca70d",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:37.015093+00:00",
+          "completed_at": "2026-11-27T20:13:37.015093+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_c_laut_hilang_hybrid_180s/character_bible.json": "f8e6e87c1a90e095c1721f4c2e903f4a9968770306866c073fe9b5ea4491865e",
+            "projects/bench_c_laut_hilang_hybrid_180s/character_bible.md": "0d02df089ad865fd2c69f3f31d045124560abaa529af8a5dd8a6c7f407bf3087"
+          },
+          "task_definition_digest": "2487f79593f8a724f4286eac4361a0496705cddc003440b9a392cc89ccc9b094",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-character-art-director",
+            "subagent_role": "Character & Style Bible Specialist",
+            "task_id": "TASK-05-CHARACTER",
+            "project_id": "bench_c_laut_hilang_hybrid_180s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "5d6eb4062d6f71e3430f4640dfa43737de067c9360c6c9d001ea5d0b7571c8fb"
+        },
+        "TASK-06-STYLE": {
+          "receipt_id": "RCPT-6c929710a017",
+          "request_id": "REQ-84b7be039121",
+          "idempotency_key": "986eced87b6099146031759f8a0af21dec5a23a96e9269cdbf20c3f7079d00df",
+          "task_id": "TASK-06-STYLE",
+          "project_id": "bench_c_laut_hilang_hybrid_180s",
+          "assigned_agent": "art_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ab27dc28a6c4308d6990fa13716ca70d",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:37.015093+00:00",
+          "completed_at": "2026-11-27T20:13:37.015093+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_c_laut_hilang_hybrid_180s/style_bible.json": "bc6258b51702a1b4b4d86a2be453900610a8906b236177f28bf1ed425daa263c"
+          },
+          "task_definition_digest": "71ed4f03765709639887921b5f6ab00525e565ca9d0a49154e75d87c01d9f4ba",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-character-art-director",
+            "subagent_role": "Character & Style Bible Specialist",
+            "task_id": "TASK-06-STYLE",
+            "project_id": "bench_c_laut_hilang_hybrid_180s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "7b459cc79aed3090103b8813143db725fe47f63d46ba5f9ef39ad3c66cd02ca3"
+        },
+        "TASK-07-STORYBOARD": {
+          "receipt_id": "RCPT-98335539c170",
+          "request_id": "REQ-43379369b2e0",
+          "idempotency_key": "422d9eb117c755116654251298449e21b3d0d70500b04caccdd204bacb041fb7",
+          "task_id": "TASK-07-STORYBOARD",
+          "project_id": "bench_c_laut_hilang_hybrid_180s",
+          "assigned_agent": "storyboard_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:37.015093+00:00",
+          "completed_at": "2026-11-27T20:13:37.015093+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_c_laut_hilang_hybrid_180s/semantic_visual_plan.json": "7b4bab75b8690bed73bc014a18e64c40481539c5e49a697c585ca07031f6adcf",
+            "projects/bench_c_laut_hilang_hybrid_180s/storyboard.json": "d6717143262c534c60ebac523c5ba95ec065f2572c0e918b3ee0c0f4e602316a"
+          },
+          "task_definition_digest": "be3a6716bd8c19cc5ab8e089784ccf9e47e0345f1b2c42e4cd8e64328a2d54f1",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-07-STORYBOARD",
+            "project_id": "bench_c_laut_hilang_hybrid_180s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "90b2cd54b5f9c61436390a11db8e26f1085d37a4eb76ac9eb9c3d5425bf5c0fe"
+        },
+        "TASK-08-REF-ADAPT": {
+          "receipt_id": "RCPT-e34d2fd200df",
+          "request_id": "REQ-96ee48348b1d",
+          "idempotency_key": "31ebc959b58e83138a7441637f6fcbb65d457e192ef8b64b3027f10da9f4e55d",
+          "task_id": "TASK-08-REF-ADAPT",
+          "project_id": "bench_c_laut_hilang_hybrid_180s",
+          "assigned_agent": "rea_video_reference_analyst",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "23c4e93f6cc1588439794068f0d8a8f8",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:37.015093+00:00",
+          "completed_at": "2026-11-27T20:13:37.015093+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_c_laut_hilang_hybrid_180s/reference_adaptation.json": "81f6c3dbd69ef7a2c052d94b7e1f9f989f5e1e5ff0d6ea68595947b936353317"
+          },
+          "task_definition_digest": "04dc016e630dcc41a2251286838fa1b84bdf546deb672457dfe67d11322604b7",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-rea-reference-analyst",
+            "subagent_role": "REA Reference & Fusion Analyst",
+            "task_id": "TASK-08-REF-ADAPT",
+            "project_id": "bench_c_laut_hilang_hybrid_180s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "e8ce0421f4421d2161f2a626aefeccb4a13ada68a77e3ea5012ab85be8a53fcf"
+        },
+        "TASK-09-MOTION": {
+          "receipt_id": "RCPT-5b061c349c15",
+          "request_id": "REQ-8644a77ae26d",
+          "idempotency_key": "b2bc26981f6201e07b15091da601780ca340430fcb280788635d1ec4b662b9bb",
+          "task_id": "TASK-09-MOTION",
+          "project_id": "bench_c_laut_hilang_hybrid_180s",
+          "assigned_agent": "motion_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:37.015093+00:00",
+          "completed_at": "2026-11-27T20:13:37.015093+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_c_laut_hilang_hybrid_180s/motion_plan.json": "08157bba622f6469c0233f8aaa60ae15345348d33c90001df0a0e13d3ee00500"
+          },
+          "task_definition_digest": "2eae91e01fb6b410e4ce219020c237c614225d880c8ed8d077b9eff39cf3868c",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-09-MOTION",
+            "project_id": "bench_c_laut_hilang_hybrid_180s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "e64f0350ada295b1f106e8777324b7f74e7d84c48d3cb17214ef24900fe78b13"
+        },
+        "TASK-10-CAMERA": {
+          "receipt_id": "RCPT-9b7c605aebf9",
+          "request_id": "REQ-290f7d3ca691",
+          "idempotency_key": "b13ba2b48ab90d917ff863cd3ad770243fce001f15c86d3f70480beed8586528",
+          "task_id": "TASK-10-CAMERA",
+          "project_id": "bench_c_laut_hilang_hybrid_180s",
+          "assigned_agent": "cinematographer",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:37.015093+00:00",
+          "completed_at": "2026-11-27T20:13:37.015093+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_c_laut_hilang_hybrid_180s/camera_plan.json": "1757e03b7b37d1691ec978eca1a36ae1c93660be80c1c8d44698b9b24d89f4d4"
+          },
+          "task_definition_digest": "8b01d3c1f7ed5485bc9f00d9be53b007d430ba63a979b06d076746e69cd1e1a9",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-10-CAMERA",
+            "project_id": "bench_c_laut_hilang_hybrid_180s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "a7eba8524ce90fdd698cc3943a54052212062d87de3b12085149a863a87da2fa"
+        },
+        "TASK-11-ASSET": {
+          "receipt_id": "RCPT-868e028a7155",
+          "request_id": "REQ-125217d68a6f",
+          "idempotency_key": "56a42a8b5ca28f7c1fb4214ef4e5cb11cd77e4c35f28f7927eb92cff273b1d3e",
+          "task_id": "TASK-11-ASSET",
+          "project_id": "bench_c_laut_hilang_hybrid_180s",
+          "assigned_agent": "asset_specialist",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ab27dc28a6c4308d6990fa13716ca70d",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:37.015093+00:00",
+          "completed_at": "2026-11-27T20:13:37.015093+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_c_laut_hilang_hybrid_180s/asset_manifest.json": "4d207773f3146bdb7c17d4e5ef33ff09ff2fac153e16add5a8c5ccd23565f90a"
+          },
+          "task_definition_digest": "2599f45920b420c6e563456156015789504df0e8c8eec83717ec9200f5e6a963",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-character-art-director",
+            "subagent_role": "Character & Style Bible Specialist",
+            "task_id": "TASK-11-ASSET",
+            "project_id": "bench_c_laut_hilang_hybrid_180s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "94f58c6c274df8cb097b1290f6031c4032bb5d20d49bcd88e385107e191e73c9"
+        },
+        "TASK-12-AUDIO": {
+          "receipt_id": "RCPT-48a99f3dd447",
+          "request_id": "REQ-c4dfca9658f7",
+          "idempotency_key": "8ef83ca815a9a569130dfaf070ec82fc25f39cacbd4025c54fb570ffc4018c66",
+          "task_id": "TASK-12-AUDIO",
+          "project_id": "bench_c_laut_hilang_hybrid_180s",
+          "assigned_agent": "audio_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ba0c35964a1313a28b1a39458d00a035",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:37.015093+00:00",
+          "completed_at": "2026-11-27T20:13:37.015093+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_c_laut_hilang_hybrid_180s/narration_dialogue.json": "e143dce901282b4ee0fe711d0897d6eb10b3f73545d378ceeeff6526a1531cdf"
+          },
+          "task_definition_digest": "c86af008b11d0a07c0b92bcdcc442cc64e232b860f517997a260723ae3399af2",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-audio-caption-specialist",
+            "subagent_role": "Audio & Caption Planning Specialist",
+            "task_id": "TASK-12-AUDIO",
+            "project_id": "bench_c_laut_hilang_hybrid_180s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "99e5958a6ed0b12e00fb8921731909096ef05dacab32cbee513c094622b0155d"
+        },
+        "TASK-13-CAPTION": {
+          "receipt_id": "RCPT-6caf0967527b",
+          "request_id": "REQ-013f16f27386",
+          "idempotency_key": "42316d024a3635ce71ad92ec281ec05a7ec8852852423d7f08c7b86375d9b518",
+          "task_id": "TASK-13-CAPTION",
+          "project_id": "bench_c_laut_hilang_hybrid_180s",
+          "assigned_agent": "caption_specialist",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ba0c35964a1313a28b1a39458d00a035",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:37.015093+00:00",
+          "completed_at": "2026-11-27T20:13:37.015093+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_c_laut_hilang_hybrid_180s/caption_audio_plan.json": "12ac3d3eb3f54e7a0b6bda80b5a4d215f40f26d9e64d60c3359f5427db33f00d"
+          },
+          "task_definition_digest": "d3670289350db7c5e539a69f706282a2618e7f3909ef8de0d313a9f9c2334584",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-audio-caption-specialist",
+            "subagent_role": "Audio & Caption Planning Specialist",
+            "task_id": "TASK-13-CAPTION",
+            "project_id": "bench_c_laut_hilang_hybrid_180s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "4f08f2f777d4d46f5eb62de5106e6c189d76357c0de673b2d25772f4af364305"
+        },
+        "TASK-14-ENGINE": {
+          "receipt_id": "RCPT-13e6b7ef23ab",
+          "request_id": "REQ-af78aee1be1b",
+          "idempotency_key": "a3dcfafa93fa450092d9fcacde3a24af195f49adbc7ee00d8195977724069c61",
+          "task_id": "TASK-14-ENGINE",
+          "project_id": "bench_c_laut_hilang_hybrid_180s",
+          "assigned_agent": "remotion_specialist",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:37.015093+00:00",
+          "completed_at": "2026-11-27T20:13:37.015093+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_c_laut_hilang_hybrid_180s/engine_plan.json": "1ea9f23787563205d3fbada863763bfd2722c73f217fc22ac6f987b4b3b039a0",
+            "projects/bench_c_laut_hilang_hybrid_180s/execution_plan.md": "561eef0323eaabd2a5757b7946d56b79acb60999465c9e963bf6483ca765dba3"
+          },
+          "task_definition_digest": "f690620412b04449abd689d02a04a7c0f04571f785fa494d36d81ed771eceb51",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-14-ENGINE",
+            "project_id": "bench_c_laut_hilang_hybrid_180s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "6b33c8f38a3464e6c469adbc9aff041c0b1b0b42600217091e518de4895f72d8"
+        },
+        "TASK-15-VERIFY": {
+          "receipt_id": "RCPT-b872c5255a59",
+          "request_id": "REQ-0460bd7fe6a0",
+          "idempotency_key": "964735a3504a77c328e2522a54d227bd1edd8f4a1b415d05dc57ddd74e085efd",
+          "task_id": "TASK-15-VERIFY",
+          "project_id": "bench_c_laut_hilang_hybrid_180s",
+          "assigned_agent": "preproduction_verifier",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:37.015093+00:00",
+          "completed_at": "2026-11-27T20:13:37.015093+00:00",
+          "output_artifact_hashes": {},
+          "task_definition_digest": "296a77a6629792fcf10996641d0f41198322e3016896fbecdc70aed8665399c8",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-preproduction-verifier",
+            "subagent_role": "Independent Preproduction Verifier (4 Benchmarks)",
+            "task_id": "TASK-15-VERIFY",
+            "project_id": "bench_c_laut_hilang_hybrid_180s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "901021f0387cfdd5246022558a7072c7e00c3beb7a4e3a0cb5a239aa37d731e0"
+        }
+      }
+    },
+    "bench_d_kaus_kaki_flat_cartoon_45s": {
+      "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+      "topic_title": "Misteri Kaus Kaki Sebelah yang Selalu Hilang Saat Dicuci",
+      "genres": [
+        "komedi_absurd",
+        "horor"
+      ],
+      "target_duration_s": 45,
+      "total_frames": 1350,
+      "shot_count": 12,
+      "max_shot_duration_s": 5.2333,
+      "distinct_focal_lengths_mm": [
+        24.0,
+        35.0,
+        40.0,
+        50.0,
+        75.0,
+        85.0
+      ],
+      "measured_script_wpm": 142.7,
+      "timing_status": "ESTIMATED",
+      "selected_reference_ids": [],
+      "style_profile": "flat_cartoon",
+      "fusion_mode": "no_reference_global_style_bible_autonomous",
+      "status": "WAITING_APPROVAL",
+      "package_version": "v1",
+      "package_digest": "d0776ccbaa9396ad963ab04e783b887e792271cf40e466af6baed2753ea5e120",
+      "mandatory_13_items_count": 13,
+      "independent_review_verdict": "PASS",
+      "independent_review_criteria_count": 15,
+      "independent_review_defects_count": 0,
+      "producer_conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+      "reviewer_conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+      "execution_mode": "native_subagent",
+      "rendering_or_blender_executed": false,
+      "portable_checkpoint_bundle": "projects/bench_d_kaus_kaki_flat_cartoon_45s/.checkpoints/portable_checkpoint_bundle_v4.json",
+      "agent_invocation_receipts": {
+        "TASK-01-RESEARCH": {
+          "receipt_id": "RCPT-4db155057bb3",
+          "request_id": "REQ-f5870d6de874",
+          "idempotency_key": "c6b25934a797ecd31c614084c7b7b079954aa7e94cc0c6a75293ab2bc9f078a8",
+          "task_id": "TASK-01-RESEARCH",
+          "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+          "assigned_agent": "topic_research_agent",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "79297c7c2b6cfb965b66a31089b67c5e",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:47.485862+00:00",
+          "completed_at": "2026-11-27T20:13:47.485862+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/research.md": "5714df3c927e0a301dcf8a8e0062947862f4786404a664977d2656f4583ddf88",
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/research_report.json": "a7097d375619862d92661d7140cb10c323efcc79c9e951ae6cba4afc1f7aa761"
+          },
+          "task_definition_digest": "65510abbf9a10473776d13f8a22a69066011148bd249c6537cc591c710bade2d",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-topic-researcher",
+            "subagent_role": "Benchmark A & C Topic Researcher",
+            "task_id": "TASK-01-RESEARCH",
+            "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "6ea2b8c0cd01c542fd6e3df9611e2e6ea131b41b2b46e0db4e7df1ea24eba37f"
+        },
+        "TASK-02-REFERENCE": {
+          "receipt_id": "RCPT-d4c12baaeb3a",
+          "request_id": "REQ-ae2190207c6e",
+          "idempotency_key": "362e03688a68305d437a8a3d06f360ff369738af9ea0184b80eafd87d7ccbd27",
+          "task_id": "TASK-02-REFERENCE",
+          "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+          "assigned_agent": "rea_video_reference_analyst",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "23c4e93f6cc1588439794068f0d8a8f8",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:47.485862+00:00",
+          "completed_at": "2026-11-27T20:13:47.485862+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/reference_analysis.md": "c219adfbf9d9c053ab55d8b6b8f6f0b4d4c00e7f2d8469b783b6c8087ecf773a"
+          },
+          "task_definition_digest": "bdd7c1d0d07753b341937552b43fbb3442efcb051fd3b64d9350d92a71a7a5c8",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-rea-reference-analyst",
+            "subagent_role": "REA Reference & Fusion Analyst",
+            "task_id": "TASK-02-REFERENCE",
+            "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "ffde2e4403171621400881433bf375aca0462596d26ba107cd9a1b440fc9abb0"
+        },
+        "TASK-03-CREATIVE": {
+          "receipt_id": "RCPT-abdbaad42810",
+          "request_id": "REQ-4c9b8801c479",
+          "idempotency_key": "671b12bf32e8cc2545e6cbf59475a64ff9b04ae1814ca755be3188305cef35ca",
+          "task_id": "TASK-03-CREATIVE",
+          "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+          "assigned_agent": "creative_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "08f118337deb2b0e7a0875db151e9392",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:47.485862+00:00",
+          "completed_at": "2026-11-27T20:13:47.485862+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/blueprint.md": "38be1740d9c71a79d85ee794e84b0195ee457a84384dc3a7e0f6cb1c9f3f3186",
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/creative_concept.json": "59648dac5dcd87ec18b952e3dab81fe36693466cb5c3368ed82b08a689d890b3"
+          },
+          "task_definition_digest": "a2afc17d6ca19d68878a67fc35dde0ceab88de653cc9d4557623da57d03fdbbd",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-creative-scriptwriter",
+            "subagent_role": "Benchmark C & D Creative Scriptwriter",
+            "task_id": "TASK-03-CREATIVE",
+            "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "c01a3a9e852ad2e1ffdbb679638b14343cad2a2c1252349df7a91bdefe993d7f"
+        },
+        "TASK-04-SCRIPT": {
+          "receipt_id": "RCPT-c674c8b3cd96",
+          "request_id": "REQ-e264ae37eb46",
+          "idempotency_key": "64bdb2a5be7a0fad595e185bbe8e63732ba0da857fe6c12fb257f537890506cd",
+          "task_id": "TASK-04-SCRIPT",
+          "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+          "assigned_agent": "scriptwriter_agent",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "08f118337deb2b0e7a0875db151e9392",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:47.485862+00:00",
+          "completed_at": "2026-11-27T20:13:47.485862+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/authored_creative_payload.json": "72dc6da745dce202e21b259894f056e7fe884452dfd5b24967118ae2f5dc2724",
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/script.md": "3af7d187c0b0e1db87916e81b2ade3ce576e1fe21ecfa633a66f4624e2ba5129"
+          },
+          "task_definition_digest": "832708229578c032c193434e6d19b86a1d3a541a9eff4dbff70c1470c355ff88",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-creative-scriptwriter",
+            "subagent_role": "Benchmark C & D Creative Scriptwriter",
+            "task_id": "TASK-04-SCRIPT",
+            "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "cd08c3a74d57734f3819cfb829b0240061a86f01000329c1a3901700ba8bb4ff"
+        },
+        "TASK-05-CHARACTER": {
+          "receipt_id": "RCPT-1eb77f0933de",
+          "request_id": "REQ-e428139d5ce5",
+          "idempotency_key": "7f669452458946c6b43d3a6537c9e6d8f5246f97a5adaf92b2b7965416121bf7",
+          "task_id": "TASK-05-CHARACTER",
+          "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+          "assigned_agent": "character_design_agent",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ab27dc28a6c4308d6990fa13716ca70d",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:47.485862+00:00",
+          "completed_at": "2026-11-27T20:13:47.485862+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/character_bible.json": "288b1cbe5e3bff8aa9a3e12e97c6f2086ca18be8d75080ffb5acb4e8000bc0cc",
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/character_bible.md": "3a66d36c06cfc0b478a76139339d82804912dee58d875b022bc1bdb54c9d6bfe"
+          },
+          "task_definition_digest": "05f649d3eafbb383a829e813bb76a24515349176a7bdc98a29336b305f347590",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-character-art-director",
+            "subagent_role": "Character & Style Bible Specialist",
+            "task_id": "TASK-05-CHARACTER",
+            "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "ba92fd013bf8108cab10af2065d953d37bee114497f433cb1857ee805998eb48"
+        },
+        "TASK-06-STYLE": {
+          "receipt_id": "RCPT-72bce92111d5",
+          "request_id": "REQ-06b8a14675f2",
+          "idempotency_key": "73eba4d6c87655b4862b0bfcfe3c205858ba07c37ea37d95bfcbde00281659d5",
+          "task_id": "TASK-06-STYLE",
+          "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+          "assigned_agent": "art_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ab27dc28a6c4308d6990fa13716ca70d",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:47.485862+00:00",
+          "completed_at": "2026-11-27T20:13:47.485862+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/style_bible.json": "1837bd470c6bb95bebebbd738c9cf53bc831056b51e10c64aa3386445845a276"
+          },
+          "task_definition_digest": "85b77b404184e9272068357196a0adda7aadb53194c4d593e23f533103c83035",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-character-art-director",
+            "subagent_role": "Character & Style Bible Specialist",
+            "task_id": "TASK-06-STYLE",
+            "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "30d365c2a2152a84728dfc772cee7f3f18c9d7cbb73902bbad425e101f78d4a2"
+        },
+        "TASK-07-STORYBOARD": {
+          "receipt_id": "RCPT-3aad95bfbd61",
+          "request_id": "REQ-78bfba5dc242",
+          "idempotency_key": "2f372291721e2e531c23cb1f67c20b0e1c506077127b83bc11b6469e7dd1d092",
+          "task_id": "TASK-07-STORYBOARD",
+          "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+          "assigned_agent": "storyboard_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:47.485862+00:00",
+          "completed_at": "2026-11-27T20:13:47.485862+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/semantic_visual_plan.json": "acc049fa36a76d14c29c95aaba2d2d0d8714b74eeb6ff95691543b124ec4f4c1",
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/storyboard.json": "0e12b492cd1b18b564471449914ad334bab15a0b2d71c4b49747c3c1805095df"
+          },
+          "task_definition_digest": "c82358fc97974ef0fe0cb1e48172c53945996474740c81055eb9cd3d35dd69c0",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-07-STORYBOARD",
+            "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "84dfb1ebd2c092ff6956510c5d28638e0091e1b8f2b5048662d3c942ea2ff007"
+        },
+        "TASK-08-REF-ADAPT": {
+          "receipt_id": "RCPT-527aec2e06b7",
+          "request_id": "REQ-a25fba17ca8c",
+          "idempotency_key": "4d84da5a7c627cdda5cb4f53ad7a03006995e508c2270c250113262e4a805dcd",
+          "task_id": "TASK-08-REF-ADAPT",
+          "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+          "assigned_agent": "rea_video_reference_analyst",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "23c4e93f6cc1588439794068f0d8a8f8",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:47.485862+00:00",
+          "completed_at": "2026-11-27T20:13:47.485862+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/reference_adaptation.json": "74c1193ddd3d4b2689d755acceaf4a591ec953d0875619f076225a486f069cfc"
+          },
+          "task_definition_digest": "6b90c9859a73a5fe52a5eb5795349b279b5c1c95dec433557d763fe15f7501aa",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-rea-reference-analyst",
+            "subagent_role": "REA Reference & Fusion Analyst",
+            "task_id": "TASK-08-REF-ADAPT",
+            "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "c535eac93109d1a04219f5f8dc015fac7c1de17f3e6fa91c40909bebac082959"
+        },
+        "TASK-09-MOTION": {
+          "receipt_id": "RCPT-1a620d130302",
+          "request_id": "REQ-e22929a123c2",
+          "idempotency_key": "bdacab8621a1e5a7ebda0bbc1da0ea2da4f47a7a70f71333c2329d346f1c2bdd",
+          "task_id": "TASK-09-MOTION",
+          "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+          "assigned_agent": "motion_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:47.485862+00:00",
+          "completed_at": "2026-11-27T20:13:47.485862+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/motion_plan.json": "816116af1dba9408239d9fa1b4c83ef758cb34368be41983610bac8a5daa36c7"
+          },
+          "task_definition_digest": "7ddfa06fd0feea9f43cfe87bcf142827a1eb1a5e35caa9adf9139d4dc490b5ff",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-09-MOTION",
+            "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "59c18dafb1b3ad5cb61a0d297c6f6837e015f4afd145e328e37f9963d663bb0e"
+        },
+        "TASK-10-CAMERA": {
+          "receipt_id": "RCPT-37514384211b",
+          "request_id": "REQ-d513152bec1a",
+          "idempotency_key": "753fe3253b6a152e55584cddc6947244784e4b7e548e882bc322f1e85a4fe65a",
+          "task_id": "TASK-10-CAMERA",
+          "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+          "assigned_agent": "cinematographer",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:47.485862+00:00",
+          "completed_at": "2026-11-27T20:13:47.485862+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/camera_plan.json": "627ff33f95f498fb625733098cdf2fbdf094987e782a5f0b2a5abfea8008d98f"
+          },
+          "task_definition_digest": "a4b33f3fbf1b3d3c7840445d7f0463d7cc96e3d8729492045d554b02fa375d18",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-10-CAMERA",
+            "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "cfedaa186cc462447aef2ce0f5548f14fe321b7819637e9959f5a3bdd5e27793"
+        },
+        "TASK-11-ASSET": {
+          "receipt_id": "RCPT-5d3452380162",
+          "request_id": "REQ-74d7bb3c991d",
+          "idempotency_key": "215c691d0771e77cf167b5eaf87bac8c28dd92b20d7cad89a64e638a3ae52e02",
+          "task_id": "TASK-11-ASSET",
+          "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+          "assigned_agent": "asset_specialist",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ab27dc28a6c4308d6990fa13716ca70d",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:47.485862+00:00",
+          "completed_at": "2026-11-27T20:13:47.485862+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/asset_manifest.json": "ddb3a8353f7298e9257968c7f6422b56be64526073062943164e78d862f5eb69"
+          },
+          "task_definition_digest": "1aacbc79a5226485bdb71b963712f70d9e1a47845386c006a02bcdda61f36248",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-character-art-director",
+            "subagent_role": "Character & Style Bible Specialist",
+            "task_id": "TASK-11-ASSET",
+            "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "65b3f4270c21d7f003c5e945da6e199a760ee03db6a5c65ba1674a91dceefd4e"
+        },
+        "TASK-12-AUDIO": {
+          "receipt_id": "RCPT-531e97ca0564",
+          "request_id": "REQ-f1a1c9045d92",
+          "idempotency_key": "af4719d9f7ac5ce8fa1fe3b73cf7635c6819f812a3fafe1ad0a8fef955980e68",
+          "task_id": "TASK-12-AUDIO",
+          "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+          "assigned_agent": "audio_director",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ba0c35964a1313a28b1a39458d00a035",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:47.485862+00:00",
+          "completed_at": "2026-11-27T20:13:47.485862+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/narration_dialogue.json": "6b8443852792de6419dc38c60d327c1d23d5e59f9f33a4b237e1cd87bd612760"
+          },
+          "task_definition_digest": "ce67b783dc18824fac1b2ed89811b2a74e393fbb0e6cd1c58f9089888b6d5638",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-audio-caption-specialist",
+            "subagent_role": "Audio & Caption Planning Specialist",
+            "task_id": "TASK-12-AUDIO",
+            "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "8f0fc4fffe061c9a7504465dd786a11ca89e916113c0fc7f5f3025a2cfdaa70b"
+        },
+        "TASK-13-CAPTION": {
+          "receipt_id": "RCPT-a8fc1bb2c3b5",
+          "request_id": "REQ-a9ddef4af76e",
+          "idempotency_key": "2c439fb21e5989bfe8425316f7922bc29cadfbb728c4fcb902bae2b5485ef0e1",
+          "task_id": "TASK-13-CAPTION",
+          "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+          "assigned_agent": "caption_specialist",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "ba0c35964a1313a28b1a39458d00a035",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:47.485862+00:00",
+          "completed_at": "2026-11-27T20:13:47.485862+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/caption_audio_plan.json": "46f8ce896c23a544c6df2f9840454e35e00de48af536b5b535ffadecf5bfef95"
+          },
+          "task_definition_digest": "82acbb0b7b4f3f36c8b7345bbcf3d9dbddd7bec9dbdf87ba224173866b66eae3",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-audio-caption-specialist",
+            "subagent_role": "Audio & Caption Planning Specialist",
+            "task_id": "TASK-13-CAPTION",
+            "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "b4ed3111f4a6ac8a67353fae4b517301cac0fba8fcffb0d92d4396fb8f1e9f70"
+        },
+        "TASK-14-ENGINE": {
+          "receipt_id": "RCPT-520b3329b223",
+          "request_id": "REQ-297d791bcbbc",
+          "idempotency_key": "1dcec37df02c5d53182c73029390a653c241230d85cebb729666085bf83ec61b",
+          "task_id": "TASK-14-ENGINE",
+          "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+          "assigned_agent": "remotion_specialist",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "488f68b3fbd413b265e988cf8d9948e4",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:47.485862+00:00",
+          "completed_at": "2026-11-27T20:13:47.485862+00:00",
+          "output_artifact_hashes": {
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/engine_plan.json": "e04ff6b2fe5c20c04f48731d083cd0976c4cbc2a3f4d2c86422815f7c4d97b1e",
+            "projects/bench_d_kaus_kaki_flat_cartoon_45s/execution_plan.md": "2a6d7eabe5f1577af839103805c101af69cb4380c35bd69187976ba4df50451e"
+          },
+          "task_definition_digest": "47300c0330bf3e450bb0c5bdcb4659046b70874d1e02c903a8427062d2b0fe59",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-storyboard-cinematographer",
+            "subagent_role": "Storyboard Motion & Camera Specialist",
+            "task_id": "TASK-14-ENGINE",
+            "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "70f1340478723762945e264b7403f00c45c2114cbfa67de9adcc7983768d1806"
+        },
+        "TASK-15-VERIFY": {
+          "receipt_id": "RCPT-803ff0d17c05",
+          "request_id": "REQ-c23caa1c192e",
+          "idempotency_key": "d5526a64c689755e454511892c4dcdc0ea99bb7ae96853c609ed1e7a5c8b1b32",
+          "task_id": "TASK-15-VERIFY",
+          "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+          "assigned_agent": "preproduction_verifier",
+          "runtime_name": "antigravity",
+          "execution_mode": "native_subagent",
+          "actually_invoked": true,
+          "conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+          "known_model_routing": "inherit",
+          "started_at": "2026-11-27T20:13:47.485862+00:00",
+          "completed_at": "2026-11-27T20:13:47.485862+00:00",
+          "output_artifact_hashes": {},
+          "task_definition_digest": "75b86f95f715f25f4b77b24d14402a45a85a721c2af07965026480a22a80e16f",
+          "host_invocation_evidence": {
+            "host_dispatch_verified": true,
+            "host_runtime": "antigravity",
+            "subagent_type": "xdx-preproduction-verifier",
+            "subagent_role": "Independent Preproduction Verifier (4 Benchmarks)",
+            "task_id": "TASK-15-VERIFY",
+            "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+            "verification_source": "antigravity_invoke_subagent_and_manage_subagents_ledger"
+          },
+          "receipt_sha256": "c14d059ac8efc568cf8317198bd4d654bdda9187f2fe2577a1101aaa65947925"
+        }
+      }
+    }
+  }
+}

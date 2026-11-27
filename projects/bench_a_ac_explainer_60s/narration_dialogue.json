@@ -1,0 +1,543 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_a_ac_explainer_60s",
+  "timing_status": "ESTIMATED",
+  "actual_audio_and_forced_alignment_phase": "SCHEDULED_PHASE_04",
+  "language": "id-ID",
+  "narration_style": "Warm, articulate Indonesian science & story narrator",
+  "target_wpm": 144,
+  "measured_script_wpm": 135.0,
+  "estimated_timing": {
+    "estimated_total_s": 64.38,
+    "target_duration_s": 60.0,
+    "playback_speed_multiplier": 1.0,
+    "duration_recommendation": {
+      "suggest_duration_change": false,
+      "recommended_target_duration_s": 60,
+      "rationale": "Estimated delivery (64.38s, 135.0 WPM) fits comfortably within 60s with natural breath pauses."
+    }
+  },
+  "voice_delivery_mode": "hybrid_vo_and_character_dialogue",
+  "voice_direction": {
+    "narrator_register": "baritone_or_mezzo_clear_indonesian",
+    "pace_policy": "Adaptive clause-breathing pace (~130-160 WPM); never time-stretched.",
+    "dialogue_separation": "Distinct mic/room coloration and turn-taking pause per character."
+  },
+  "music_direction": "Warm curious marimba/synth pulse supporting causal momentum; ducked -16 dB under VO.",
+  "ambience": "Clean studio room tone with gentle mechanical/environmental air bed (-26 LUFS).",
+  "foley": [
+    {
+      "event_id": "FOL_S001",
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 72,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (establishing_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S002",
+      "shot_id": "S002",
+      "start_frame": 72,
+      "end_frame": 143,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S003",
+      "shot_id": "S003",
+      "start_frame": 143,
+      "end_frame": 222,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S004",
+      "shot_id": "S004",
+      "start_frame": 222,
+      "end_frame": 300,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S005",
+      "shot_id": "S005",
+      "start_frame": 300,
+      "end_frame": 393,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S006",
+      "shot_id": "S006",
+      "start_frame": 393,
+      "end_frame": 486,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S007",
+      "shot_id": "S007",
+      "start_frame": 486,
+      "end_frame": 588,
+      "foley_description": "Subtle tactile foley for prop_refrigerant_coil_loop (scientific_mechanism)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S008",
+      "shot_id": "S008",
+      "start_frame": 588,
+      "end_frame": 690,
+      "foley_description": "Subtle tactile foley for prop_refrigerant_coil_loop (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S009",
+      "shot_id": "S009",
+      "start_frame": 690,
+      "end_frame": 800,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (exploded_view)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S010",
+      "shot_id": "S010",
+      "start_frame": 800,
+      "end_frame": 910,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S011",
+      "shot_id": "S011",
+      "start_frame": 910,
+      "end_frame": 1010,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S012",
+      "shot_id": "S012",
+      "start_frame": 1010,
+      "end_frame": 1110,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S013",
+      "shot_id": "S013",
+      "start_frame": 1110,
+      "end_frame": 1212,
+      "foley_description": "Subtle tactile foley for prop_expansion_valve_macro (scientific_mechanism)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S014",
+      "shot_id": "S014",
+      "start_frame": 1212,
+      "end_frame": 1314,
+      "foley_description": "Subtle tactile foley for prop_expansion_valve_macro (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S015",
+      "shot_id": "S015",
+      "start_frame": 1314,
+      "end_frame": 1407,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (object_insert)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S016",
+      "shot_id": "S016",
+      "start_frame": 1407,
+      "end_frame": 1500,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S017",
+      "shot_id": "S017",
+      "start_frame": 1500,
+      "end_frame": 1572,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (object_insert)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S018",
+      "shot_id": "S018",
+      "start_frame": 1572,
+      "end_frame": 1643,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (reaction_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S019",
+      "shot_id": "S019",
+      "start_frame": 1643,
+      "end_frame": 1722,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (reaction_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S020",
+      "shot_id": "S020",
+      "start_frame": 1722,
+      "end_frame": 1800,
+      "foley_description": "Subtle tactile foley for char_bima_penghuni (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    }
+  ],
+  "sound_effect_events": [
+    {
+      "event_id": "SFX_S001",
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 18,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "establishing_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S002",
+      "shot_id": "S002",
+      "start_frame": 72,
+      "end_frame": 90,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S003",
+      "shot_id": "S003",
+      "start_frame": 143,
+      "end_frame": 161,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S004",
+      "shot_id": "S004",
+      "start_frame": 222,
+      "end_frame": 240,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S005",
+      "shot_id": "S005",
+      "start_frame": 300,
+      "end_frame": 318,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S006",
+      "shot_id": "S006",
+      "start_frame": 393,
+      "end_frame": 411,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S007",
+      "shot_id": "S007",
+      "start_frame": 486,
+      "end_frame": 504,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "scientific_mechanism",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S008",
+      "shot_id": "S008",
+      "start_frame": 588,
+      "end_frame": 606,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S009",
+      "shot_id": "S009",
+      "start_frame": 690,
+      "end_frame": 708,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "exploded_view",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S010",
+      "shot_id": "S010",
+      "start_frame": 800,
+      "end_frame": 818,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S011",
+      "shot_id": "S011",
+      "start_frame": 910,
+      "end_frame": 928,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S012",
+      "shot_id": "S012",
+      "start_frame": 1010,
+      "end_frame": 1028,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S013",
+      "shot_id": "S013",
+      "start_frame": 1110,
+      "end_frame": 1128,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "scientific_mechanism",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S014",
+      "shot_id": "S014",
+      "start_frame": 1212,
+      "end_frame": 1230,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S015",
+      "shot_id": "S015",
+      "start_frame": 1314,
+      "end_frame": 1332,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "object_insert",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S016",
+      "shot_id": "S016",
+      "start_frame": 1407,
+      "end_frame": 1425,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S017",
+      "shot_id": "S017",
+      "start_frame": 1500,
+      "end_frame": 1518,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "object_insert",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S018",
+      "shot_id": "S018",
+      "start_frame": 1572,
+      "end_frame": 1590,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "reaction_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S019",
+      "shot_id": "S019",
+      "start_frame": 1643,
+      "end_frame": 1661,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "reaction_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S020",
+      "shot_id": "S020",
+      "start_frame": 1722,
+      "end_frame": 1740,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    }
+  ],
+  "vo_segments": [
+    {
+      "segment_id": "VO_001",
+      "beat_id": "B01",
+      "shot_id": "S001",
+      "shot_ids": [
+        "S001",
+        "S002",
+        "S003",
+        "S004"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Pernah heran bagaimana AC mendinginkan ruangan pengap tanpa memasukkan udara dari luar? Rahasianya: AC bukan pembuat dingin, melainkan pemindah panas kamar.",
+      "word_count": 21,
+      "start_time_s": 0.0,
+      "end_time_s": 10.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Hangat, penasaran, ritme pembuka tegas dengan jeda pendek setelah kata 'Rahasianya'.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_002",
+      "beat_id": "B02",
+      "shot_id": "S005",
+      "shot_ids": [
+        "S005",
+        "S006",
+        "S007",
+        "S008"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Udara hangat ruangan ditarik kipas melewati kisi evaporator yang sangat dingin. Di dalam pipanya, cairan refrigeran menyerap kalor udara lalu mendidih menjadi uap bertekanan rendah.",
+      "word_count": 25,
+      "start_time_s": 10.0,
+      "end_time_s": 23.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Jernih dan artikulatif saat menyebutkan istilah 'evaporator' dan 'refrigeran'.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_003",
+      "beat_id": "B03",
+      "shot_id": "S009",
+      "shot_ids": [
+        "S009",
+        "S010",
+        "S011",
+        "S012"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Uap pembawa panas itu mengalir ke unit luar menuju kompresor. Kompresor memampatkannya hingga bersuhu tinggi, supaya sirip kondensor mudah membuang panasnya ke udara luar.",
+      "word_count": 24,
+      "start_time_s": 23.0,
+      "end_time_s": 37.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Dinamis mengikuti lonjakan tekanan di kompresor lalu mengalir mantap saat pelepasan panas kondensor.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_004",
+      "beat_id": "B04",
+      "shot_id": "S013",
+      "shot_ids": [
+        "S013",
+        "S014",
+        "S015",
+        "S016"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Setelah mengembun kembali jadi cairan, refrigeran dipaksa melewati celah sempit katup ekspansi. Tekanannya anjlok, suhunya langsung membeku lagi, sambil mengembunkan uap air lembap ruangan.",
+      "word_count": 24,
+      "start_time_s": 37.0,
+      "end_time_s": 50.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Berikan aksen kontras tajam pada kalimat 'Tekanannya anjlok, suhunya langsung membeku lagi'.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_005",
+      "beat_id": "B05",
+      "shot_id": "S017",
+      "shot_ids": [
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Jadi tak perlu menekan remot ke enam belas derajat agar cepat sejuk. Setel dua puluh empat derajat saja, biarkan siklus pemindah panas bekerja hemat!",
+      "word_count": 24,
+      "start_time_s": 50.0,
+      "end_time_s": 60.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Bersahabat, meyakinkan, dan menutup dengan nada segar penuh solusi praktis.",
+      "breath_pause_ms": 220
+    }
+  ],
+  "dialogue_lines": [
+    {
+      "beat_id": "B01",
+      "shot_id": "S002",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_bima_penghuni",
+      "line": "Pantas lubang anginnya rapat semua!",
+      "delivery": "terkejut polos sambil menunjuk kusen jendela",
+      "onscreen_speaking": true
+    },
+    {
+      "beat_id": "B03",
+      "shot_id": "S010",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_nadia_presenter",
+      "line": "Makanya angin unit luar selalu terasa gerah.",
+      "delivery": "tersenyum sambil menunjuk kipas kondensor luar",
+      "onscreen_speaking": true
+    },
+    {
+      "beat_id": "B05",
+      "shot_id": "S018",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_bima_penghuni",
+      "line": "Dompet aman, kamar tetap adem!",
+      "delivery": "lega jenaka sambil mengacungkan jempol",
+      "onscreen_speaking": true
+    }
+  ],
+  "lip_sync_plan": {
+    "status": "ESTIMATED_PRE_AUDIO",
+    "onscreen_dialogue_present": true,
+    "phase_04_backend": "rhubarb_or_whisper_forced_viseme_alignment"
+  }
+}

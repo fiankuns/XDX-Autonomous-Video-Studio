@@ -1,0 +1,133 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "topic_title": "Misteri Kaus Kaki Sebelah yang Selalu Hilang Saat Dicuci",
+  "genres": [
+    "komedi_absurd",
+    "horor"
+  ],
+  "epistemic_mode": "fictional_dramatization",
+  "research_status": "FICTION_DECLARED",
+  "topic_scope": "Fenomena sehari-hari hilangnya sebelah kaus kaki saat mencuci pakaian ditinjau dari mekanika celah karet tabung mesin cuci bukaan depan dan psikologi perhatian selektif saat menyortir cucian, dikemas dalam atmosfer misteri ringan yang hangat.",
+  "research_questions": [
+    "Di celah mekanis mana kaus kaki kecil paling sering terjebak pada mesin cuci bukaan depan?",
+    "Mengapa mata manusia sering melewatkan sebelah kaus kaki yang terselip di pakaian lain saat menyortir cucian?",
+    "Bagaimana memadukan ketegangan misteri ringan dengan komedi absurd yang ramah untuk seluruh usia?"
+  ],
+  "verified_factual_claims": [
+    {
+      "claim_id": "CLM_01",
+      "statement": "Pada mesin cuci bukaan depan, lipatan karet penyekat pintu dan celah sempit di tepi tabung putar dapat menjebak tekstil kecil seperti kaus kaki saat putaran sentrifugal.",
+      "epistemic_status": "verified_fact",
+      "source_title": "Where Do Missing Socks Go in the Washer and Dryer? \u2014 Whirlpool Laundry Care Guide",
+      "source_url": "https://www.whirlpool.com/blog/washers-and-dryers/where-do-missing-socks-go.html",
+      "publication_date": "2023-05-18",
+      "evidence_excerpt": "Small items like socks can slip under or into the folds of the rubber door boot seal during high-speed wash and spin cycles."
+    },
+    {
+      "claim_id": "CLM_02",
+      "statement": "Perhatian selektif dan kelelahan pengelompokan visual saat menyortir tumpukan cucian membuat seseorang mudah melewatkan satu kaus kaki yang menempel di bagian dalam pakaian lain.",
+      "epistemic_status": "verified_fact",
+      "source_title": "Attention and Visual Search Overview \u2014 American Psychological Association",
+      "source_url": "https://www.apa.org/topics/cognitive-science",
+      "publication_date": "2023-08-10",
+      "evidence_excerpt": "Selective attention limits visual detection when scanning cluttered, overlapping everyday objects."
+    }
+  ],
+  "primary_sources": [
+    {
+      "claim_id": "CLM_01",
+      "source_title": "Where Do Missing Socks Go in the Washer and Dryer? \u2014 Whirlpool Laundry Care Guide",
+      "source_url": "https://www.whirlpool.com/blog/washers-and-dryers/where-do-missing-socks-go.html",
+      "publication_date": "2023-05-18",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "Small items like socks can slip under or into the folds of the rubber door boot seal during high-speed wash and spin cycles."
+    },
+    {
+      "claim_id": "CLM_02",
+      "source_title": "Attention and Visual Search Overview \u2014 American Psychological Association",
+      "source_url": "https://www.apa.org/topics/cognitive-science",
+      "publication_date": "2023-08-10",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "Selective attention limits visual detection when scanning cluttered, overlapping everyday objects."
+    }
+  ],
+  "source_urls": [
+    "https://www.whirlpool.com/blog/washers-and-dryers/where-do-missing-socks-go.html",
+    "https://www.apa.org/topics/cognitive-science"
+  ],
+  "evidence_excerpts": [
+    {
+      "claim_id": "CLM_01",
+      "excerpt": "Small items like socks can slip under or into the folds of the rubber door boot seal during high-speed wash and spin cycles."
+    },
+    {
+      "claim_id": "CLM_02",
+      "excerpt": "Selective attention limits visual detection when scanning cluttered, overlapping everyday objects."
+    }
+  ],
+  "misconceptions": [
+    {
+      "misconception": "Kaus kaki benar-benar hancur larut menjadi air sabun di dalam tabung cuci.",
+      "correction": "Kaus kaki utuh biasanya tersangkut di lipatan karet penyekat pintu mesin cuci atau bersembunyi di dalam pipa celana dan sudut seprai.",
+      "claim_ref": "CLM_01"
+    }
+  ],
+  "uncertainties": [
+    "Proporsi pasti kaus kaki yang hilang di lipatan karet mesin cuci dibanding yang terselip di keranjang jemuran berbeda-beda pada tiap rumah tangga."
+  ],
+  "fictional_vs_real_world_separation": {
+    "contains_fictional_dramatization": true,
+    "real_world_claim_ids": [
+      "CLM_01",
+      "CLM_02"
+    ],
+    "declared_fictional_elements": [
+      "Personifikasi kartun pipih Detektif Kaus, sehelai kaus kaki belang kuning yang digambarkan seolah punya ekspresi jahil dan mengintip dari balik karet tabung mesin cuci.",
+      "Pencahayaan ruang cuci kos malam hari bergaya misteri detektif ringan yang aman dan menghibur bagi semua umur."
+    ]
+  },
+  "fact_to_narration_mapping": {
+    "CLM_01": [
+      {
+        "beat_id": "B02",
+        "beat_role": "midnight_washer_suspense_and_gasket_cutaway",
+        "narration_excerpt": "Lampu ruang cuci berkedip pelan. Bukan ulah hantu binatu, melainkan lipatan karet pintu mesin cuci yang diam-diam menelan kaus kaki kecil sa"
+      },
+      {
+        "beat_id": "B04",
+        "beat_role": "payoff_callback_mismatch_parade",
+        "narration_excerpt": "Misteri terpecahkan tanpa drama mistis, meski laci kos tetap penuh kaus kaki jomblo aneka motif."
+      }
+    ],
+    "CLM_02": [
+      {
+        "beat_id": "B03",
+        "beat_role": "sorting_blindspot_and_absurd_chase",
+        "narration_excerpt": "Sisanya bersembunyi di ujung pipa celana panjang karena mata kita lengah oleh perhatian selektif waktu menyortir tumpukan cucian."
+      },
+      {
+        "beat_id": "B04",
+        "beat_role": "payoff_callback_mismatch_parade",
+        "narration_excerpt": "Misteri terpecahkan tanpa drama mistis, meski laci kos tetap penuh kaus kaki jomblo aneka motif."
+      }
+    ],
+    "CLM_03": [
+      {
+        "beat_id": "B01",
+        "beat_role": "hook_uncanny_laundry_count",
+        "narration_excerpt": "Tujuh pasang kaus kaki masuk ke mesin cuci malam ini tetapi saat pintu dibuka, hanya tiga belas helai yang keluar hidup-hidup."
+      },
+      {
+        "beat_id": "B02",
+        "beat_role": "midnight_washer_suspense_and_gasket_cutaway",
+        "narration_excerpt": "Lampu ruang cuci berkedip pelan. Bukan ulah hantu binatu, melainkan lipatan karet pintu mesin cuci yang diam-diam menelan kaus kaki kecil sa"
+      },
+      {
+        "beat_id": "B04",
+        "beat_role": "payoff_callback_mismatch_parade",
+        "narration_excerpt": "Misteri terpecahkan tanpa drama mistis, meski laci kos tetap penuh kaus kaki jomblo aneka motif."
+      }
+    ]
+  }
+}

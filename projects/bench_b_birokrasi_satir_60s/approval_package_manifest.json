@@ -1,0 +1,87 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_b_birokrasi_satir_60s",
+  "package_version": "v1",
+  "status": "WAITING_APPROVAL",
+  "package_digest": "93608d61cff41a2abc1a9cb4a8ea6a4415103b720cff0e03a34b4307267cf410",
+  "mandatory_13_items": {
+    "01_topic_and_concept": {
+      "present": true,
+      "artifact_file": "blueprint.md",
+      "summary": "Mengurus Satu Surat yang Membutuhkan Banyak Surat Lain (satir_sosial, storytelling)"
+    },
+    "02_research_results": {
+      "present": true,
+      "artifact_file": "research.md",
+      "summary": "4 klaim terverifikasi + pemetaan narasi"
+    },
+    "03_full_script": {
+      "present": true,
+      "artifact_file": "script.md",
+      "summary": "5 beat naskah Bahasa Indonesia siap baca"
+    },
+    "04_narration_and_dialogue": {
+      "present": true,
+      "artifact_file": "narration_dialogue.json",
+      "summary": "5 VO & 5 dialog (144.0 WPM, ESTIMATED)"
+    },
+    "05_clip_by_clip_storyboard": {
+      "present": true,
+      "artifact_file": "storyboard.json",
+      "summary": "3 seq / 5 scene / 5 beat / 20 shot"
+    },
+    "06_shot_timestamps_and_durations": {
+      "present": true,
+      "artifact_file": "storyboard.json",
+      "summary": "1800 frame (60.0s @ 30fps, semua shot <= 10s)"
+    },
+    "07_camera_framing_cutaway_transitions": {
+      "present": true,
+      "artifact_file": "camera_plan.json",
+      "summary": "Lensa dinamis [24.0, 35.0, 40.0, 50.0, 75.0, 85.0]mm sesuai tujuan naratif"
+    },
+    "08_complete_asset_list": {
+      "present": true,
+      "artifact_file": "asset_manifest.json",
+      "summary": "25 spesifikasi aset semantik 12-atribut"
+    },
+    "09_character_designs": {
+      "present": true,
+      "artifact_file": "character_bible.json",
+      "summary": "2 karakter orisinal 11-atribut (diorama)"
+    },
+    "10_motion_plan": {
+      "present": true,
+      "artifact_file": "motion_plan.json",
+      "summary": "20 rencana aksi 14-atribut dengan kontak IK"
+    },
+    "11_caption_and_audio_plan": {
+      "present": true,
+      "artifact_file": "caption_audio_plan.json",
+      "summary": "23 cue takarir ESTIMATED & label ilmiah"
+    },
+    "12_engine_selection_per_shot": {
+      "present": true,
+      "artifact_file": "engine_plan.json",
+      "summary": "Routing hybrid (blender, remotion, rea_video, ffmpeg)"
+    },
+    "13_hybrid_execution_plan": {
+      "present": true,
+      "artifact_file": "execution_plan.md",
+      "summary": "Rencana eksekusi pasca-persetujuan Blender MCP, Three.js, Remotion & FFmpeg"
+    }
+  },
+  "required_files_sha256": {
+    "blueprint.md": "269867284955239156023a64eb9944f752f8ab1c35e84309a6e8e1b189201f88",
+    "script.md": "6c62bfc1fd77ec8cca4ab7e1d08ea759add8059aeee5bb9d77792f548a82937a",
+    "storyboard.json": "824e53f78ae6514804a2e5445e6fd2168f2e56bc32c010e20b159ea70f12683f",
+    "asset_manifest.json": "a73fb1d865bef65c95c3ada5bb50951c47a3a9fdb0645e7726aa51cbbdb91dfd",
+    "character_bible.md": "9674b8048d9dd42fa6c8dded36861a999a8fdba1cb93f6460776ccb37384a4db",
+    "motion_plan.json": "2de0131b5436b287af5ddadf5eac9b3468c783b7b855583921eb370aa6cc0cb5",
+    "execution_plan.md": "deede83e4fc0962ab47a8814f818f0c493ace63a09dd61649f4551b06096f2bc",
+    "production_config.json": "41c0f1e02f6d58e8f825b39ce088a16ee9b82119ee000a6e5c92df8c9dce93e1",
+    "engine_plan.json": "84d903db8bc1614251baa63ab9df3b91e26cf6072e5861c60ca23aff24c48f77",
+    "research.md": "081752f3a97d6c7decbf81d909b26890c5d12fbadda777bd885a9d42f8585368",
+    "reference_analysis.md": "b7fccc24ea2930e9537326424e012e1ed9e0f0bc3ffc1eca105a0001e1c8fc03"
+  }
+}

@@ -1,0 +1,996 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "fps": 30,
+  "total_frames": 1350,
+  "blender_executor_status": "PLANNED_ONLY_SCHEDULED_PHASE_02B_AND_PHASE_03",
+  "generic_idle_actions_used": false,
+  "planned_actions": [
+    {
+      "action_id": "ACT_S001",
+      "shot_id": "S001",
+      "actor_id": "prop_frontload_washer_2d",
+      "action_type": "character_grounded_establishing_shot",
+      "object_target": "prop_frontload_washer_2d",
+      "start_frame": 0,
+      "end_frame": 150,
+      "start_pose": "prop_frontload_washer_2d_anticipation_ready_at_0f (Kino berlutut di depan mesin cuci bukaan depan dengan bayangan panjang)",
+      "key_poses": [
+        {
+          "frame": 37,
+          "pose": "anticipation_and_reach_toward_prop_frontload_washer_2d"
+        },
+        {
+          "frame": 75,
+          "pose": "apex_interaction_Pintu kaca mesin cuci terbuka mengeluarkan uap tipis sementara Ki"
+        }
+      ],
+      "end_pose": "prop_frontload_washer_2d_settled_hold_at_150f (Gerak kino berlutut di depan mesin cuci bukaan depan dengan bayangan p)",
+      "contact_point": "planted_feet_and_hand_prop:prop_frontload_washer_2d",
+      "ik_target": "hand_ik_contact:prop_frontload_washer_2d",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'establishing_shot' clearly for beat B01: Pintu kaca mesin cuci terbuka mengeluarkan uap tipis sementara Kino menghitung barisan kaus kaki di keranjang",
+      "acceptance_criteria": [
+        "Exact frame bounds [0, 150] respected with zero foot sliding",
+        "Contact target 'prop_frontload_washer_2d' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S002",
+      "shot_id": "S002",
+      "actor_id": "prop_single_yellow_striped_sock",
+      "action_type": "character_micro_reaction_and_settle",
+      "object_target": "prop_single_yellow_striped_sock",
+      "start_frame": 150,
+      "end_frame": 300,
+      "start_pose": "prop_single_yellow_striped_sock_anticipation_ready_at_150f (Wajah kaget Kino mengangkat satu kaus kaki belang kuning yang sendiria)",
+      "key_poses": [
+        {
+          "frame": 187,
+          "pose": "anticipation_and_reach_toward_prop_single_yellow_striped_sock"
+        },
+        {
+          "frame": 225,
+          "pose": "apex_interaction_Kino mengangkat kaus kaki belang kuning setinggi mata dengan soro"
+        }
+      ],
+      "end_pose": "prop_single_yellow_striped_sock_settled_hold_at_300f (Gerak wajah kaget kino mengangkat satu kaus kaki belang kuning yang se)",
+      "contact_point": "floor_and_desk_contact:env_laundry_nook_chiaroscuro_2d",
+      "ik_target": "eye_look_at:prop_single_yellow_striped_sock",
+      "weight_transfer": "subtle_upper_torso_lean_back_3cm_planted_feet",
+      "facial_expression": "deadpan_double_take_to_eyebrow_raise",
+      "motion_intent": "Convey 'reaction_shot' clearly for beat B01: Kino mengangkat kaus kaki belang kuning setinggi mata dengan sorot senter kecil dari bawah dagu",
+      "acceptance_criteria": [
+        "Exact frame bounds [150, 300] respected with zero foot sliding",
+        "Contact target 'prop_single_yellow_striped_sock' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S003",
+      "shot_id": "S003",
+      "actor_id": "prop_rubber_door_gasket_cutaway_2d",
+      "action_type": "mechanism_technical_cutaway",
+      "object_target": "prop_rubber_door_gasket_cutaway_2d",
+      "start_frame": 300,
+      "end_frame": 407,
+      "start_pose": "prop_rubber_door_gasket_cutaway_2d_anticipation_ready_at_300f (Penampang kartun 2D lipatan karet penyekat pintu mesin cuci bukaan dep)",
+      "key_poses": [
+        {
+          "frame": 326,
+          "pose": "anticipation_and_reach_toward_prop_rubber_door_gasket_cutaway_2d"
+        },
+        {
+          "frame": 353,
+          "pose": "apex_interaction_Tabung mesin cuci berputar cepat lalu sehelai kaus kaki belang te"
+        }
+      ],
+      "end_pose": "prop_rubber_door_gasket_cutaway_2d_settled_hold_at_407f (Gerak penampang kartun 2d lipatan karet penyekat pintu mesin cuci buka)",
+      "contact_point": "anchor_socket:prop_rubber_door_gasket_cutaway_2d:cutaway_plane",
+      "ik_target": "rig_ctrl:prop_rubber_door_gasket_cutaway_2d:flow_path_target",
+      "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+      "facial_expression": "not_applicable_mechanism_rig",
+      "motion_intent": "Convey 'technical_cutaway' clearly for beat B02: Tabung mesin cuci berputar cepat lalu sehelai kaus kaki belang terselip rapi ke celah lipatan karet pintu",
+      "acceptance_criteria": [
+        "Exact frame bounds [300, 407] respected with zero foot sliding",
+        "Contact target 'prop_rubber_door_gasket_cutaway_2d' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S004",
+      "shot_id": "S004",
+      "actor_id": "prop_rubber_door_gasket_cutaway_2d",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "prop_rubber_door_gasket_cutaway_2d",
+      "start_frame": 407,
+      "end_frame": 513,
+      "start_pose": "prop_rubber_door_gasket_cutaway_2d_anticipation_ready_at_407f (Penampang kartun 2D lipatan karet penyekat pintu mesin cuci bukaan dep)",
+      "key_poses": [
+        {
+          "frame": 433,
+          "pose": "anticipation_and_reach_toward_prop_rubber_door_gasket_cutaway_2d"
+        },
+        {
+          "frame": 460,
+          "pose": "apex_interaction_Tabung mesin cuci berputar cepat lalu sehelai kaus kaki belang te"
+        }
+      ],
+      "end_pose": "prop_rubber_door_gasket_cutaway_2d_settled_hold_at_513f (Gerak penampang kartun 2d lipatan karet penyekat pintu mesin cuci buka)",
+      "contact_point": "planted_feet_and_hand_prop:prop_rubber_door_gasket_cutaway_2d",
+      "ik_target": "hand_ik_contact:prop_rubber_door_gasket_cutaway_2d",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B02: Tabung mesin cuci berputar cepat lalu sehelai kaus kaki belang terselip rapi ke celah lipatan karet pintu Kamera beralih ke sudut insert menyoroti interaksi detail prop_rubber_door_gasket_cutaway_2d, prop_spinning_washer_drum_2d.",
+      "acceptance_criteria": [
+        "Exact frame bounds [407, 513] respected with zero foot sliding",
+        "Contact target 'prop_rubber_door_gasket_cutaway_2d' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S005",
+      "shot_id": "S005",
+      "actor_id": "prop_rubber_door_gasket_cutaway_2d",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "prop_rubber_door_gasket_cutaway_2d",
+      "start_frame": 513,
+      "end_frame": 602,
+      "start_pose": "prop_rubber_door_gasket_cutaway_2d_anticipation_ready_at_513f (Detektif Kaus mengintip dari balik lipatan karet abu-abu saat disorot )",
+      "key_poses": [
+        {
+          "frame": 535,
+          "pose": "anticipation_and_reach_toward_prop_rubber_door_gasket_cutaway_2d"
+        },
+        {
+          "frame": 557,
+          "pose": "apex_interaction_Tangan Kino menyibak lipatan karet mesin cuci dan menampakkan uju"
+        }
+      ],
+      "end_pose": "prop_rubber_door_gasket_cutaway_2d_settled_hold_at_602f (Gerak detektif kaus mengintip dari balik lipatan karet abu-abu saat di)",
+      "contact_point": "planted_feet_and_hand_prop:prop_rubber_door_gasket_cutaway_2d",
+      "ik_target": "hand_ik_contact:prop_rubber_door_gasket_cutaway_2d",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B02: Tangan Kino menyibak lipatan karet mesin cuci dan menampakkan ujung kaus kaki belang berhias mata kancing",
+      "acceptance_criteria": [
+        "Exact frame bounds [513, 602] respected with zero foot sliding",
+        "Contact target 'prop_rubber_door_gasket_cutaway_2d' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S006",
+      "shot_id": "S006",
+      "actor_id": "prop_rubber_door_gasket_cutaway_2d",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "prop_rubber_door_gasket_cutaway_2d",
+      "start_frame": 602,
+      "end_frame": 690,
+      "start_pose": "prop_rubber_door_gasket_cutaway_2d_anticipation_ready_at_602f (Detektif Kaus mengintip dari balik lipatan karet abu-abu saat disorot )",
+      "key_poses": [
+        {
+          "frame": 624,
+          "pose": "anticipation_and_reach_toward_prop_rubber_door_gasket_cutaway_2d"
+        },
+        {
+          "frame": 646,
+          "pose": "apex_interaction_Tangan Kino menyibak lipatan karet mesin cuci dan menampakkan uju"
+        }
+      ],
+      "end_pose": "prop_rubber_door_gasket_cutaway_2d_settled_hold_at_690f (Gerak detektif kaus mengintip dari balik lipatan karet abu-abu saat di)",
+      "contact_point": "planted_feet_and_hand_prop:prop_rubber_door_gasket_cutaway_2d",
+      "ik_target": "hand_ik_contact:prop_rubber_door_gasket_cutaway_2d",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B02: Tangan Kino menyibak lipatan karet mesin cuci dan menampakkan ujung kaus kaki belang berhias mata kancing Kamera beralih ke sudut insert menyoroti interaksi detail prop_rubber_door_gasket_cutaway_2d, prop_mini_pocket_flashlight.",
+      "acceptance_criteria": [
+        "Exact frame bounds [602, 690] respected with zero foot sliding",
+        "Contact target 'prop_rubber_door_gasket_cutaway_2d' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S007",
+      "shot_id": "S007",
+      "actor_id": "prop_jogger_pants_cutout_2d",
+      "action_type": "character_grounded_visual_metaphor",
+      "object_target": "prop_jogger_pants_cutout_2d",
+      "start_frame": 690,
+      "end_frame": 776,
+      "start_pose": "prop_jogger_pants_cutout_2d_anticipation_ready_at_690f (Siluet tembus pandang kaus kaki yang menempel di bagian dalam pipa cel)",
+      "key_poses": [
+        {
+          "frame": 711,
+          "pose": "anticipation_and_reach_toward_prop_jogger_pants_cutout_2d"
+        },
+        {
+          "frame": 733,
+          "pose": "apex_interaction_Garis sorot x-ray kartun menembus tumpukan kain memperlihatkan ka"
+        }
+      ],
+      "end_pose": "prop_jogger_pants_cutout_2d_settled_hold_at_776f (Gerak siluet tembus pandang kaus kaki yang menempel di bagian dalam pi)",
+      "contact_point": "planted_feet_and_hand_prop:prop_jogger_pants_cutout_2d",
+      "ik_target": "hand_ik_contact:prop_jogger_pants_cutout_2d",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'visual_metaphor' clearly for beat B03: Garis sorot x-ray kartun menembus tumpukan kain memperlihatkan kaus kaki tersangkut di pergelangan celana panjang",
+      "acceptance_criteria": [
+        "Exact frame bounds [690, 776] respected with zero foot sliding",
+        "Contact target 'prop_jogger_pants_cutout_2d' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S008",
+      "shot_id": "S008",
+      "actor_id": "prop_jogger_pants_cutout_2d",
+      "action_type": "mechanism_technical_cutaway",
+      "object_target": "prop_jogger_pants_cutout_2d",
+      "start_frame": 776,
+      "end_frame": 861,
+      "start_pose": "prop_jogger_pants_cutout_2d_anticipation_ready_at_776f (Siluet tembus pandang kaus kaki yang menempel di bagian dalam pipa cel)",
+      "key_poses": [
+        {
+          "frame": 797,
+          "pose": "anticipation_and_reach_toward_prop_jogger_pants_cutout_2d"
+        },
+        {
+          "frame": 818,
+          "pose": "apex_interaction_Garis sorot x-ray kartun menembus tumpukan kain memperlihatkan ka"
+        }
+      ],
+      "end_pose": "prop_jogger_pants_cutout_2d_settled_hold_at_861f (Gerak siluet tembus pandang kaus kaki yang menempel di bagian dalam pi)",
+      "contact_point": "anchor_socket:prop_jogger_pants_cutout_2d:cutaway_plane",
+      "ik_target": "rig_ctrl:prop_jogger_pants_cutout_2d:flow_path_target",
+      "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+      "facial_expression": "not_applicable_mechanism_rig",
+      "motion_intent": "Convey 'technical_cutaway' clearly for beat B03: Garis sorot x-ray kartun menembus tumpukan kain memperlihatkan kaus kaki tersangkut di pergelangan celana panjang Kamera beralih ke sudut reaction menyoroti interaksi detail prop_jogger_pants_cutout_2d, prop_hidden_sock_xray_badge.",
+      "acceptance_criteria": [
+        "Exact frame bounds [776, 861] respected with zero foot sliding",
+        "Contact target 'prop_jogger_pants_cutout_2d' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S009",
+      "shot_id": "S009",
+      "actor_id": "prop_jogger_pants_cutout_2d",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "prop_jogger_pants_cutout_2d",
+      "start_frame": 861,
+      "end_frame": 956,
+      "start_pose": "prop_jogger_pants_cutout_2d_anticipation_ready_at_861f (Kino mengguncang celana olahraga terbalik hingga kaus kaki meluncur ke)",
+      "key_poses": [
+        {
+          "frame": 884,
+          "pose": "anticipation_and_reach_toward_prop_jogger_pants_cutout_2d"
+        },
+        {
+          "frame": 908,
+          "pose": "apex_interaction_Kino mengibaskan celana olahraga ke atas lalu Detektif Kaus melun"
+        }
+      ],
+      "end_pose": "prop_jogger_pants_cutout_2d_settled_hold_at_956f (Gerak kino mengguncang celana olahraga terbalik hingga kaus kaki melun)",
+      "contact_point": "planted_feet_and_hand_prop:prop_jogger_pants_cutout_2d",
+      "ik_target": "hand_ik_contact:prop_jogger_pants_cutout_2d",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B03: Kino mengibaskan celana olahraga ke atas lalu Detektif Kaus meluncur mendarat jenaka di jambul rambut Kino",
+      "acceptance_criteria": [
+        "Exact frame bounds [861, 956] respected with zero foot sliding",
+        "Contact target 'prop_jogger_pants_cutout_2d' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S010",
+      "shot_id": "S010",
+      "actor_id": "prop_jogger_pants_cutout_2d",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "prop_jogger_pants_cutout_2d",
+      "start_frame": 956,
+      "end_frame": 1050,
+      "start_pose": "prop_jogger_pants_cutout_2d_anticipation_ready_at_956f (Kino mengguncang celana olahraga terbalik hingga kaus kaki meluncur ke)",
+      "key_poses": [
+        {
+          "frame": 979,
+          "pose": "anticipation_and_reach_toward_prop_jogger_pants_cutout_2d"
+        },
+        {
+          "frame": 1003,
+          "pose": "apex_interaction_Kino mengibaskan celana olahraga ke atas lalu Detektif Kaus melun"
+        }
+      ],
+      "end_pose": "prop_jogger_pants_cutout_2d_settled_hold_at_1050f (Gerak kino mengguncang celana olahraga terbalik hingga kaus kaki melun)",
+      "contact_point": "planted_feet_and_hand_prop:prop_jogger_pants_cutout_2d",
+      "ik_target": "hand_ik_contact:prop_jogger_pants_cutout_2d",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B03: Kino mengibaskan celana olahraga ke atas lalu Detektif Kaus meluncur mendarat jenaka di jambul rambut Kino Kamera beralih ke sudut reaction menyoroti interaksi detail prop_jogger_pants_cutout_2d, prop_detective_striped_sock_card.",
+      "acceptance_criteria": [
+        "Exact frame bounds [956, 1050] respected with zero foot sliding",
+        "Contact target 'prop_jogger_pants_cutout_2d' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S011",
+      "shot_id": "S011",
+      "actor_id": "prop_wooden_sock_drawer_2d",
+      "action_type": "character_grounded_object_insert",
+      "object_target": "prop_wooden_sock_drawer_2d",
+      "start_frame": 1050,
+      "end_frame": 1193,
+      "start_pose": "prop_wooden_sock_drawer_2d_anticipation_ready_at_1050f (Laci kayu terbuka berisi deretan kaus kaki tunggal warna-warni yang ra)",
+      "key_poses": [
+        {
+          "frame": 1085,
+          "pose": "anticipation_and_reach_toward_prop_wooden_sock_drawer_2d"
+        },
+        {
+          "frame": 1121,
+          "pose": "apex_interaction_Tangan Kino menyandingkan kaus kaki belang kuning dengan kaus kak"
+        }
+      ],
+      "end_pose": "prop_wooden_sock_drawer_2d_settled_hold_at_1193f (Gerak laci kayu terbuka berisi deretan kaus kaki tunggal warna-warni y)",
+      "contact_point": "planted_feet_and_hand_prop:prop_wooden_sock_drawer_2d",
+      "ik_target": "hand_ik_contact:prop_wooden_sock_drawer_2d",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'object_insert' clearly for beat B04: Tangan Kino menyandingkan kaus kaki belang kuning dengan kaus kaki polkadot biru di dalam sekat laci",
+      "acceptance_criteria": [
+        "Exact frame bounds [1050, 1193] respected with zero foot sliding",
+        "Contact target 'prop_wooden_sock_drawer_2d' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S012",
+      "shot_id": "S012",
+      "actor_id": "prop_single_yellow_striped_sock",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "prop_single_yellow_striped_sock",
+      "start_frame": 1193,
+      "end_frame": 1350,
+      "start_pose": "prop_single_yellow_striped_sock_anticipation_ready_at_1193f (Sepasang kaki Kino memakai kaus kaki belang kuning dan polkadot biru b)",
+      "key_poses": [
+        {
+          "frame": 1232,
+          "pose": "anticipation_and_reach_toward_prop_single_yellow_striped_sock"
+        },
+        {
+          "frame": 1271,
+          "pose": "apex_interaction_Kino mengetukkan kedua tumitnya bergantian dengan gembira di lant"
+        }
+      ],
+      "end_pose": "prop_single_yellow_striped_sock_settled_hold_at_1350f (Gerak sepasang kaki kino memakai kaus kaki belang kuning dan polkadot )",
+      "contact_point": "planted_feet_and_hand_prop:prop_single_yellow_striped_sock",
+      "ik_target": "hand_ik_contact:prop_single_yellow_striped_sock",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B04: Kino mengetukkan kedua tumitnya bergantian dengan gembira di lantai kamar kos yang cerah",
+      "acceptance_criteria": [
+        "Exact frame bounds [1193, 1350] respected with zero foot sliding",
+        "Contact target 'prop_single_yellow_striped_sock' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 150,
+      "primary_engine": "remotion",
+      "motion_curve": "mot_horror_creeping_tension",
+      "action_events": [
+        {
+          "event_id": "ACT_S001_01",
+          "start_frame": 0,
+          "end_frame": 150,
+          "subject_id": "prop_frontload_washer_2d",
+          "concrete_action": "Pintu kaca mesin cuci terbuka mengeluarkan uap tipis sementara Kino menghitung barisan kaus kaki di keranjang",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S001",
+          "shot_id": "S001",
+          "actor_id": "prop_frontload_washer_2d",
+          "action_type": "character_grounded_establishing_shot",
+          "object_target": "prop_frontload_washer_2d",
+          "start_frame": 0,
+          "end_frame": 150,
+          "start_pose": "prop_frontload_washer_2d_anticipation_ready_at_0f (Kino berlutut di depan mesin cuci bukaan depan dengan bayangan panjang)",
+          "key_poses": [
+            {
+              "frame": 37,
+              "pose": "anticipation_and_reach_toward_prop_frontload_washer_2d"
+            },
+            {
+              "frame": 75,
+              "pose": "apex_interaction_Pintu kaca mesin cuci terbuka mengeluarkan uap tipis sementara Ki"
+            }
+          ],
+          "end_pose": "prop_frontload_washer_2d_settled_hold_at_150f (Gerak kino berlutut di depan mesin cuci bukaan depan dengan bayangan p)",
+          "contact_point": "planted_feet_and_hand_prop:prop_frontload_washer_2d",
+          "ik_target": "hand_ik_contact:prop_frontload_washer_2d",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'establishing_shot' clearly for beat B01: Pintu kaca mesin cuci terbuka mengeluarkan uap tipis sementara Kino menghitung barisan kaus kaki di keranjang",
+          "acceptance_criteria": [
+            "Exact frame bounds [0, 150] respected with zero foot sliding",
+            "Contact target 'prop_frontload_washer_2d' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S002",
+      "start_frame": 150,
+      "end_frame": 300,
+      "primary_engine": "remotion",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S002_01",
+          "start_frame": 150,
+          "end_frame": 300,
+          "subject_id": "prop_single_yellow_striped_sock",
+          "concrete_action": "Kino mengangkat kaus kaki belang kuning setinggi mata dengan sorot senter kecil dari bawah dagu",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S002",
+          "shot_id": "S002",
+          "actor_id": "prop_single_yellow_striped_sock",
+          "action_type": "character_micro_reaction_and_settle",
+          "object_target": "prop_single_yellow_striped_sock",
+          "start_frame": 150,
+          "end_frame": 300,
+          "start_pose": "prop_single_yellow_striped_sock_anticipation_ready_at_150f (Wajah kaget Kino mengangkat satu kaus kaki belang kuning yang sendiria)",
+          "key_poses": [
+            {
+              "frame": 187,
+              "pose": "anticipation_and_reach_toward_prop_single_yellow_striped_sock"
+            },
+            {
+              "frame": 225,
+              "pose": "apex_interaction_Kino mengangkat kaus kaki belang kuning setinggi mata dengan soro"
+            }
+          ],
+          "end_pose": "prop_single_yellow_striped_sock_settled_hold_at_300f (Gerak wajah kaget kino mengangkat satu kaus kaki belang kuning yang se)",
+          "contact_point": "floor_and_desk_contact:env_laundry_nook_chiaroscuro_2d",
+          "ik_target": "eye_look_at:prop_single_yellow_striped_sock",
+          "weight_transfer": "subtle_upper_torso_lean_back_3cm_planted_feet",
+          "facial_expression": "deadpan_double_take_to_eyebrow_raise",
+          "motion_intent": "Convey 'reaction_shot' clearly for beat B01: Kino mengangkat kaus kaki belang kuning setinggi mata dengan sorot senter kecil dari bawah dagu",
+          "acceptance_criteria": [
+            "Exact frame bounds [150, 300] respected with zero foot sliding",
+            "Contact target 'prop_single_yellow_striped_sock' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S003",
+      "start_frame": 300,
+      "end_frame": 407,
+      "primary_engine": "remotion",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S003_01",
+          "start_frame": 300,
+          "end_frame": 407,
+          "subject_id": "prop_rubber_door_gasket_cutaway_2d",
+          "concrete_action": "Tabung mesin cuci berputar cepat lalu sehelai kaus kaki belang terselip rapi ke celah lipatan karet pintu",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S003",
+          "shot_id": "S003",
+          "actor_id": "prop_rubber_door_gasket_cutaway_2d",
+          "action_type": "mechanism_technical_cutaway",
+          "object_target": "prop_rubber_door_gasket_cutaway_2d",
+          "start_frame": 300,
+          "end_frame": 407,
+          "start_pose": "prop_rubber_door_gasket_cutaway_2d_anticipation_ready_at_300f (Penampang kartun 2D lipatan karet penyekat pintu mesin cuci bukaan dep)",
+          "key_poses": [
+            {
+              "frame": 326,
+              "pose": "anticipation_and_reach_toward_prop_rubber_door_gasket_cutaway_2d"
+            },
+            {
+              "frame": 353,
+              "pose": "apex_interaction_Tabung mesin cuci berputar cepat lalu sehelai kaus kaki belang te"
+            }
+          ],
+          "end_pose": "prop_rubber_door_gasket_cutaway_2d_settled_hold_at_407f (Gerak penampang kartun 2d lipatan karet penyekat pintu mesin cuci buka)",
+          "contact_point": "anchor_socket:prop_rubber_door_gasket_cutaway_2d:cutaway_plane",
+          "ik_target": "rig_ctrl:prop_rubber_door_gasket_cutaway_2d:flow_path_target",
+          "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+          "facial_expression": "not_applicable_mechanism_rig",
+          "motion_intent": "Convey 'technical_cutaway' clearly for beat B02: Tabung mesin cuci berputar cepat lalu sehelai kaus kaki belang terselip rapi ke celah lipatan karet pintu",
+          "acceptance_criteria": [
+            "Exact frame bounds [300, 407] respected with zero foot sliding",
+            "Contact target 'prop_rubber_door_gasket_cutaway_2d' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S004",
+      "start_frame": 407,
+      "end_frame": 513,
+      "primary_engine": "remotion",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S004_01",
+          "start_frame": 407,
+          "end_frame": 513,
+          "subject_id": "prop_rubber_door_gasket_cutaway_2d",
+          "concrete_action": "Tabung mesin cuci berputar cepat lalu sehelai kaus kaki belang terselip rapi ke celah lipatan karet pintu Kamera beralih ke sudut insert menyoroti interaksi detail prop_rubber_door_gasket_cutaway_2d, prop_spinning_washer_drum_2d.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S004",
+          "shot_id": "S004",
+          "actor_id": "prop_rubber_door_gasket_cutaway_2d",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "prop_rubber_door_gasket_cutaway_2d",
+          "start_frame": 407,
+          "end_frame": 513,
+          "start_pose": "prop_rubber_door_gasket_cutaway_2d_anticipation_ready_at_407f (Penampang kartun 2D lipatan karet penyekat pintu mesin cuci bukaan dep)",
+          "key_poses": [
+            {
+              "frame": 433,
+              "pose": "anticipation_and_reach_toward_prop_rubber_door_gasket_cutaway_2d"
+            },
+            {
+              "frame": 460,
+              "pose": "apex_interaction_Tabung mesin cuci berputar cepat lalu sehelai kaus kaki belang te"
+            }
+          ],
+          "end_pose": "prop_rubber_door_gasket_cutaway_2d_settled_hold_at_513f (Gerak penampang kartun 2d lipatan karet penyekat pintu mesin cuci buka)",
+          "contact_point": "planted_feet_and_hand_prop:prop_rubber_door_gasket_cutaway_2d",
+          "ik_target": "hand_ik_contact:prop_rubber_door_gasket_cutaway_2d",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B02: Tabung mesin cuci berputar cepat lalu sehelai kaus kaki belang terselip rapi ke celah lipatan karet pintu Kamera beralih ke sudut insert menyoroti interaksi detail prop_rubber_door_gasket_cutaway_2d, prop_spinning_washer_drum_2d.",
+          "acceptance_criteria": [
+            "Exact frame bounds [407, 513] respected with zero foot sliding",
+            "Contact target 'prop_rubber_door_gasket_cutaway_2d' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S005",
+      "start_frame": 513,
+      "end_frame": 602,
+      "primary_engine": "threejs",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S005_01",
+          "start_frame": 513,
+          "end_frame": 602,
+          "subject_id": "prop_rubber_door_gasket_cutaway_2d",
+          "concrete_action": "Tangan Kino menyibak lipatan karet mesin cuci dan menampakkan ujung kaus kaki belang berhias mata kancing",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S005",
+          "shot_id": "S005",
+          "actor_id": "prop_rubber_door_gasket_cutaway_2d",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "prop_rubber_door_gasket_cutaway_2d",
+          "start_frame": 513,
+          "end_frame": 602,
+          "start_pose": "prop_rubber_door_gasket_cutaway_2d_anticipation_ready_at_513f (Detektif Kaus mengintip dari balik lipatan karet abu-abu saat disorot )",
+          "key_poses": [
+            {
+              "frame": 535,
+              "pose": "anticipation_and_reach_toward_prop_rubber_door_gasket_cutaway_2d"
+            },
+            {
+              "frame": 557,
+              "pose": "apex_interaction_Tangan Kino menyibak lipatan karet mesin cuci dan menampakkan uju"
+            }
+          ],
+          "end_pose": "prop_rubber_door_gasket_cutaway_2d_settled_hold_at_602f (Gerak detektif kaus mengintip dari balik lipatan karet abu-abu saat di)",
+          "contact_point": "planted_feet_and_hand_prop:prop_rubber_door_gasket_cutaway_2d",
+          "ik_target": "hand_ik_contact:prop_rubber_door_gasket_cutaway_2d",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B02: Tangan Kino menyibak lipatan karet mesin cuci dan menampakkan ujung kaus kaki belang berhias mata kancing",
+          "acceptance_criteria": [
+            "Exact frame bounds [513, 602] respected with zero foot sliding",
+            "Contact target 'prop_rubber_door_gasket_cutaway_2d' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S006",
+      "start_frame": 602,
+      "end_frame": 690,
+      "primary_engine": "threejs",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S006_01",
+          "start_frame": 602,
+          "end_frame": 690,
+          "subject_id": "prop_rubber_door_gasket_cutaway_2d",
+          "concrete_action": "Tangan Kino menyibak lipatan karet mesin cuci dan menampakkan ujung kaus kaki belang berhias mata kancing Kamera beralih ke sudut insert menyoroti interaksi detail prop_rubber_door_gasket_cutaway_2d, prop_mini_pocket_flashlight.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S006",
+          "shot_id": "S006",
+          "actor_id": "prop_rubber_door_gasket_cutaway_2d",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "prop_rubber_door_gasket_cutaway_2d",
+          "start_frame": 602,
+          "end_frame": 690,
+          "start_pose": "prop_rubber_door_gasket_cutaway_2d_anticipation_ready_at_602f (Detektif Kaus mengintip dari balik lipatan karet abu-abu saat disorot )",
+          "key_poses": [
+            {
+              "frame": 624,
+              "pose": "anticipation_and_reach_toward_prop_rubber_door_gasket_cutaway_2d"
+            },
+            {
+              "frame": 646,
+              "pose": "apex_interaction_Tangan Kino menyibak lipatan karet mesin cuci dan menampakkan uju"
+            }
+          ],
+          "end_pose": "prop_rubber_door_gasket_cutaway_2d_settled_hold_at_690f (Gerak detektif kaus mengintip dari balik lipatan karet abu-abu saat di)",
+          "contact_point": "planted_feet_and_hand_prop:prop_rubber_door_gasket_cutaway_2d",
+          "ik_target": "hand_ik_contact:prop_rubber_door_gasket_cutaway_2d",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B02: Tangan Kino menyibak lipatan karet mesin cuci dan menampakkan ujung kaus kaki belang berhias mata kancing Kamera beralih ke sudut insert menyoroti interaksi detail prop_rubber_door_gasket_cutaway_2d, prop_mini_pocket_flashlight.",
+          "acceptance_criteria": [
+            "Exact frame bounds [602, 690] respected with zero foot sliding",
+            "Contact target 'prop_rubber_door_gasket_cutaway_2d' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S007",
+      "start_frame": 690,
+      "end_frame": 776,
+      "primary_engine": "remotion",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S007_01",
+          "start_frame": 690,
+          "end_frame": 776,
+          "subject_id": "prop_jogger_pants_cutout_2d",
+          "concrete_action": "Garis sorot x-ray kartun menembus tumpukan kain memperlihatkan kaus kaki tersangkut di pergelangan celana panjang",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S007",
+          "shot_id": "S007",
+          "actor_id": "prop_jogger_pants_cutout_2d",
+          "action_type": "character_grounded_visual_metaphor",
+          "object_target": "prop_jogger_pants_cutout_2d",
+          "start_frame": 690,
+          "end_frame": 776,
+          "start_pose": "prop_jogger_pants_cutout_2d_anticipation_ready_at_690f (Siluet tembus pandang kaus kaki yang menempel di bagian dalam pipa cel)",
+          "key_poses": [
+            {
+              "frame": 711,
+              "pose": "anticipation_and_reach_toward_prop_jogger_pants_cutout_2d"
+            },
+            {
+              "frame": 733,
+              "pose": "apex_interaction_Garis sorot x-ray kartun menembus tumpukan kain memperlihatkan ka"
+            }
+          ],
+          "end_pose": "prop_jogger_pants_cutout_2d_settled_hold_at_776f (Gerak siluet tembus pandang kaus kaki yang menempel di bagian dalam pi)",
+          "contact_point": "planted_feet_and_hand_prop:prop_jogger_pants_cutout_2d",
+          "ik_target": "hand_ik_contact:prop_jogger_pants_cutout_2d",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'visual_metaphor' clearly for beat B03: Garis sorot x-ray kartun menembus tumpukan kain memperlihatkan kaus kaki tersangkut di pergelangan celana panjang",
+          "acceptance_criteria": [
+            "Exact frame bounds [690, 776] respected with zero foot sliding",
+            "Contact target 'prop_jogger_pants_cutout_2d' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S008",
+      "start_frame": 776,
+      "end_frame": 861,
+      "primary_engine": "remotion",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S008_01",
+          "start_frame": 776,
+          "end_frame": 861,
+          "subject_id": "prop_jogger_pants_cutout_2d",
+          "concrete_action": "Garis sorot x-ray kartun menembus tumpukan kain memperlihatkan kaus kaki tersangkut di pergelangan celana panjang Kamera beralih ke sudut reaction menyoroti interaksi detail prop_jogger_pants_cutout_2d, prop_hidden_sock_xray_badge.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S008",
+          "shot_id": "S008",
+          "actor_id": "prop_jogger_pants_cutout_2d",
+          "action_type": "mechanism_technical_cutaway",
+          "object_target": "prop_jogger_pants_cutout_2d",
+          "start_frame": 776,
+          "end_frame": 861,
+          "start_pose": "prop_jogger_pants_cutout_2d_anticipation_ready_at_776f (Siluet tembus pandang kaus kaki yang menempel di bagian dalam pipa cel)",
+          "key_poses": [
+            {
+              "frame": 797,
+              "pose": "anticipation_and_reach_toward_prop_jogger_pants_cutout_2d"
+            },
+            {
+              "frame": 818,
+              "pose": "apex_interaction_Garis sorot x-ray kartun menembus tumpukan kain memperlihatkan ka"
+            }
+          ],
+          "end_pose": "prop_jogger_pants_cutout_2d_settled_hold_at_861f (Gerak siluet tembus pandang kaus kaki yang menempel di bagian dalam pi)",
+          "contact_point": "anchor_socket:prop_jogger_pants_cutout_2d:cutaway_plane",
+          "ik_target": "rig_ctrl:prop_jogger_pants_cutout_2d:flow_path_target",
+          "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+          "facial_expression": "not_applicable_mechanism_rig",
+          "motion_intent": "Convey 'technical_cutaway' clearly for beat B03: Garis sorot x-ray kartun menembus tumpukan kain memperlihatkan kaus kaki tersangkut di pergelangan celana panjang Kamera beralih ke sudut reaction menyoroti interaksi detail prop_jogger_pants_cutout_2d, prop_hidden_sock_xray_badge.",
+          "acceptance_criteria": [
+            "Exact frame bounds [776, 861] respected with zero foot sliding",
+            "Contact target 'prop_jogger_pants_cutout_2d' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S009",
+      "start_frame": 861,
+      "end_frame": 956,
+      "primary_engine": "remotion",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S009_01",
+          "start_frame": 861,
+          "end_frame": 956,
+          "subject_id": "prop_jogger_pants_cutout_2d",
+          "concrete_action": "Kino mengibaskan celana olahraga ke atas lalu Detektif Kaus meluncur mendarat jenaka di jambul rambut Kino",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S009",
+          "shot_id": "S009",
+          "actor_id": "prop_jogger_pants_cutout_2d",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "prop_jogger_pants_cutout_2d",
+          "start_frame": 861,
+          "end_frame": 956,
+          "start_pose": "prop_jogger_pants_cutout_2d_anticipation_ready_at_861f (Kino mengguncang celana olahraga terbalik hingga kaus kaki meluncur ke)",
+          "key_poses": [
+            {
+              "frame": 884,
+              "pose": "anticipation_and_reach_toward_prop_jogger_pants_cutout_2d"
+            },
+            {
+              "frame": 908,
+              "pose": "apex_interaction_Kino mengibaskan celana olahraga ke atas lalu Detektif Kaus melun"
+            }
+          ],
+          "end_pose": "prop_jogger_pants_cutout_2d_settled_hold_at_956f (Gerak kino mengguncang celana olahraga terbalik hingga kaus kaki melun)",
+          "contact_point": "planted_feet_and_hand_prop:prop_jogger_pants_cutout_2d",
+          "ik_target": "hand_ik_contact:prop_jogger_pants_cutout_2d",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B03: Kino mengibaskan celana olahraga ke atas lalu Detektif Kaus meluncur mendarat jenaka di jambul rambut Kino",
+          "acceptance_criteria": [
+            "Exact frame bounds [861, 956] respected with zero foot sliding",
+            "Contact target 'prop_jogger_pants_cutout_2d' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S010",
+      "start_frame": 956,
+      "end_frame": 1050,
+      "primary_engine": "remotion",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S010_01",
+          "start_frame": 956,
+          "end_frame": 1050,
+          "subject_id": "prop_jogger_pants_cutout_2d",
+          "concrete_action": "Kino mengibaskan celana olahraga ke atas lalu Detektif Kaus meluncur mendarat jenaka di jambul rambut Kino Kamera beralih ke sudut reaction menyoroti interaksi detail prop_jogger_pants_cutout_2d, prop_detective_striped_sock_card.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S010",
+          "shot_id": "S010",
+          "actor_id": "prop_jogger_pants_cutout_2d",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "prop_jogger_pants_cutout_2d",
+          "start_frame": 956,
+          "end_frame": 1050,
+          "start_pose": "prop_jogger_pants_cutout_2d_anticipation_ready_at_956f (Kino mengguncang celana olahraga terbalik hingga kaus kaki meluncur ke)",
+          "key_poses": [
+            {
+              "frame": 979,
+              "pose": "anticipation_and_reach_toward_prop_jogger_pants_cutout_2d"
+            },
+            {
+              "frame": 1003,
+              "pose": "apex_interaction_Kino mengibaskan celana olahraga ke atas lalu Detektif Kaus melun"
+            }
+          ],
+          "end_pose": "prop_jogger_pants_cutout_2d_settled_hold_at_1050f (Gerak kino mengguncang celana olahraga terbalik hingga kaus kaki melun)",
+          "contact_point": "planted_feet_and_hand_prop:prop_jogger_pants_cutout_2d",
+          "ik_target": "hand_ik_contact:prop_jogger_pants_cutout_2d",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B03: Kino mengibaskan celana olahraga ke atas lalu Detektif Kaus meluncur mendarat jenaka di jambul rambut Kino Kamera beralih ke sudut reaction menyoroti interaksi detail prop_jogger_pants_cutout_2d, prop_detective_striped_sock_card.",
+          "acceptance_criteria": [
+            "Exact frame bounds [956, 1050] respected with zero foot sliding",
+            "Contact target 'prop_jogger_pants_cutout_2d' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S011",
+      "start_frame": 1050,
+      "end_frame": 1193,
+      "primary_engine": "threejs",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S011_01",
+          "start_frame": 1050,
+          "end_frame": 1193,
+          "subject_id": "prop_wooden_sock_drawer_2d",
+          "concrete_action": "Tangan Kino menyandingkan kaus kaki belang kuning dengan kaus kaki polkadot biru di dalam sekat laci",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S011",
+          "shot_id": "S011",
+          "actor_id": "prop_wooden_sock_drawer_2d",
+          "action_type": "character_grounded_object_insert",
+          "object_target": "prop_wooden_sock_drawer_2d",
+          "start_frame": 1050,
+          "end_frame": 1193,
+          "start_pose": "prop_wooden_sock_drawer_2d_anticipation_ready_at_1050f (Laci kayu terbuka berisi deretan kaus kaki tunggal warna-warni yang ra)",
+          "key_poses": [
+            {
+              "frame": 1085,
+              "pose": "anticipation_and_reach_toward_prop_wooden_sock_drawer_2d"
+            },
+            {
+              "frame": 1121,
+              "pose": "apex_interaction_Tangan Kino menyandingkan kaus kaki belang kuning dengan kaus kak"
+            }
+          ],
+          "end_pose": "prop_wooden_sock_drawer_2d_settled_hold_at_1193f (Gerak laci kayu terbuka berisi deretan kaus kaki tunggal warna-warni y)",
+          "contact_point": "planted_feet_and_hand_prop:prop_wooden_sock_drawer_2d",
+          "ik_target": "hand_ik_contact:prop_wooden_sock_drawer_2d",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'object_insert' clearly for beat B04: Tangan Kino menyandingkan kaus kaki belang kuning dengan kaus kaki polkadot biru di dalam sekat laci",
+          "acceptance_criteria": [
+            "Exact frame bounds [1050, 1193] respected with zero foot sliding",
+            "Contact target 'prop_wooden_sock_drawer_2d' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S012",
+      "start_frame": 1193,
+      "end_frame": 1350,
+      "primary_engine": "remotion",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S012_01",
+          "start_frame": 1193,
+          "end_frame": 1350,
+          "subject_id": "prop_single_yellow_striped_sock",
+          "concrete_action": "Kino mengetukkan kedua tumitnya bergantian dengan gembira di lantai kamar kos yang cerah",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S012",
+          "shot_id": "S012",
+          "actor_id": "prop_single_yellow_striped_sock",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "prop_single_yellow_striped_sock",
+          "start_frame": 1193,
+          "end_frame": 1350,
+          "start_pose": "prop_single_yellow_striped_sock_anticipation_ready_at_1193f (Sepasang kaki Kino memakai kaus kaki belang kuning dan polkadot biru b)",
+          "key_poses": [
+            {
+              "frame": 1232,
+              "pose": "anticipation_and_reach_toward_prop_single_yellow_striped_sock"
+            },
+            {
+              "frame": 1271,
+              "pose": "apex_interaction_Kino mengetukkan kedua tumitnya bergantian dengan gembira di lant"
+            }
+          ],
+          "end_pose": "prop_single_yellow_striped_sock_settled_hold_at_1350f (Gerak sepasang kaki kino memakai kaus kaki belang kuning dan polkadot )",
+          "contact_point": "planted_feet_and_hand_prop:prop_single_yellow_striped_sock",
+          "ik_target": "hand_ik_contact:prop_single_yellow_striped_sock",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B04: Kino mengetukkan kedua tumitnya bergantian dengan gembira di lantai kamar kos yang cerah",
+          "acceptance_criteria": [
+            "Exact frame bounds [1193, 1350] respected with zero foot sliding",
+            "Contact target 'prop_single_yellow_striped_sock' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    }
+  ]
+}

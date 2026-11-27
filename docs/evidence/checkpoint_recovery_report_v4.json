@@ -1,0 +1,40 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "generated_at_utc": "2026-11-27T20:13:57.130665+00:00",
+  "recovery_scope_disclaimer": "Verified locally across subprocesses and secret-scanned portable bundles; cross-VM distributed recovery is not claimed without multi-host runtime tests.",
+  "automatic_corrupted_latest_fallback_verified": true,
+  "checkpoints_by_benchmark": {
+    "bench_a_ac_explainer_60s": {
+      "latest_checkpoint_id": "CKPT-bench_a_ac_explainer_60s-0280",
+      "checkpoint_sha256": "2b8a4354d78c7379c1eea992c92c03ff08df3017cc9846649abd685cd5da5d92",
+      "task_graph_digest": "fd51db2c5cc852e1347f06c5e4d21c2225fb84eaf47d0b54ebebc2328bc3bb95",
+      "completed_tasks_count": 15,
+      "lineage_depth": 3,
+      "portable_bundle": "projects/bench_a_ac_explainer_60s/.checkpoints/portable_checkpoint_bundle_v4.json"
+    },
+    "bench_b_birokrasi_satir_60s": {
+      "latest_checkpoint_id": "CKPT-bench_b_birokrasi_satir_60s-0184",
+      "checkpoint_sha256": "c46a6cedd04d0e9dfac4a26c55f45c673781b0ed3c08e6b6d2aae9a2da541179",
+      "task_graph_digest": "f8c1ed1efa22673546de85f04d31eab4e5f2cf0fd29dbd232d5ac9df5acb01de",
+      "completed_tasks_count": 15,
+      "lineage_depth": 3,
+      "portable_bundle": "projects/bench_b_birokrasi_satir_60s/.checkpoints/portable_checkpoint_bundle_v4.json"
+    },
+    "bench_c_laut_hilang_hybrid_180s": {
+      "latest_checkpoint_id": "CKPT-bench_c_laut_hilang_hybrid_180s-0176",
+      "checkpoint_sha256": "31f578cd29ea78fb83942409ceb24a27e96805046549e99d06ae5aacfd495c7e",
+      "task_graph_digest": "a273d6b6fe1c4099c899f6c70118338447d4eeb5a769ccea00cac578d288d292",
+      "completed_tasks_count": 15,
+      "lineage_depth": 3,
+      "portable_bundle": "projects/bench_c_laut_hilang_hybrid_180s/.checkpoints/portable_checkpoint_bundle_v4.json"
+    },
+    "bench_d_kaus_kaki_flat_cartoon_45s": {
+      "latest_checkpoint_id": "CKPT-bench_d_kaus_kaki_flat_cartoon_45s-0176",
+      "checkpoint_sha256": "c3c438908cc8a09510f84009c5c42e58f637ac526da917787085512d911d12cd",
+      "task_graph_digest": "ca012f1f5e199e5de54560d2e4823416ec5783aabf5f85547fb2bf7d3e51560f",
+      "completed_tasks_count": 15,
+      "lineage_depth": 3,
+      "portable_bundle": "projects/bench_d_kaus_kaki_flat_cartoon_45s/.checkpoints/portable_checkpoint_bundle_v4.json"
+    }
+  }
+}

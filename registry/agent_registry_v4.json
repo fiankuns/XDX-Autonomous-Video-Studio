@@ -43,7 +43,8 @@
     "owned_artifact_patterns": [
       "projects/*/project_state.json",
       "projects/*/production_config.json",
-      "projects/*/approval_package_manifest.json"
+      "projects/*/approval_package_manifest.json",
+      "projects/*/.reviews/*.json"
     ],
     "linked_skills": [
       ".agents/skills/xdx-master-orchestration",
@@ -85,7 +86,8 @@
         "Mark pending_external_verification as completed factual research"
       ],
       "owned_artifact_patterns": [
-        "projects/*/research.md"
+        "projects/*/research.md",
+        "projects/*/research_report.json"
       ],
       "linked_skills": [
         ".agents/skills/xdx-preproduction-planning"
@@ -94,7 +96,7 @@
         "intelligence/creative_pipeline.py"
       ],
       "custom_subagent_file": ".agents/agents/xdx-topic-researcher.md",
-      "implementation_status": "UNIT_TESTED"
+      "implementation_status": "RUNTIME_TESTED"
     },
     {
       "agent_id": "rea_video_reference_analyst",
@@ -123,7 +125,8 @@
         "Claim FFmpeg/OpenCV heuristics alone constitute complete multimodal analysis"
       ],
       "owned_artifact_patterns": [
-        "projects/*/reference_analysis.md"
+        "projects/*/reference_analysis.md",
+        "projects/*/reference_adaptation.json"
       ],
       "linked_skills": [
         "rea-video",
@@ -163,7 +166,8 @@
         "Copy copyrighted plots, political names, or character identities from references"
       ],
       "owned_artifact_patterns": [
-        "projects/*/blueprint.md"
+        "projects/*/blueprint.md",
+        "projects/*/creative_concept.json"
       ],
       "linked_skills": [
         ".agents/skills/xdx-preproduction-planning"
@@ -172,7 +176,7 @@
         "intelligence/creative_pipeline.py"
       ],
       "custom_subagent_file": ".agents/agents/xdx-creative-scriptwriter.md",
-      "implementation_status": "UNIT_TESTED"
+      "implementation_status": "RUNTIME_TESTED"
     },
     {
       "agent_id": "scriptwriter_agent",
@@ -210,7 +214,7 @@
         "intelligence/creative_pipeline.py"
       ],
       "custom_subagent_file": ".agents/agents/xdx-creative-scriptwriter.md",
-      "implementation_status": "UNIT_TESTED"
+      "implementation_status": "RUNTIME_TESTED"
     },
     {
       "agent_id": "storyboard_director",
@@ -238,7 +242,8 @@
         "Leave unrecorded timeline gaps or unplanned frame overlaps"
       ],
       "owned_artifact_patterns": [
-        "projects/*/storyboard.json"
+        "projects/*/storyboard.json",
+        "projects/*/semantic_visual_plan.json"
       ],
       "linked_skills": [
         ".agents/skills/xdx-preproduction-planning"
@@ -247,7 +252,7 @@
         "intelligence/creative_pipeline.py"
       ],
       "custom_subagent_file": ".agents/agents/xdx-storyboard-cinematographer.md",
-      "implementation_status": "UNIT_TESTED"
+      "implementation_status": "RUNTIME_TESTED"
     },
     {
       "agent_id": "character_design_agent",
@@ -275,7 +280,8 @@
         "Clone copyrighted character designs from REF-001 or REF-002"
       ],
       "owned_artifact_patterns": [
-        "projects/*/character_bible.md"
+        "projects/*/character_bible.md",
+        "projects/*/character_bible.json"
       ],
       "linked_skills": [
         ".agents/skills/xdx-preproduction-planning"

@@ -1,0 +1,161 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "style_bible_id": "xdx_flat_cartoon_v4_0",
+  "style_profile": "flat_cartoon",
+  "modeling_executed": false,
+  "characters": [
+    {
+      "character_id": "char_kino_pencuci",
+      "name": "Kino",
+      "role": "hero",
+      "identity": {
+        "name": "Kino",
+        "role": "hero",
+        "biography_disclaimer": "Karakter kartun fiksi orisinal penghuni kos yang ramah segala usia.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Kartun pipih 2D bergaris tinta hitam 2px dengan kepala bulat ekspresif, jambul rambut mencuat, dan piyama kebesaran yang membentuk siluet segitiga jenaka.",
+      "proportions": "Kartun pipih 2D bergaris tinta hitam 2px dengan kepala bulat ekspresif, jambul rambut mencuat, dan piyama kebesaran yang membentuk siluet segitiga jenaka.",
+      "facial_design": "Mata bundar besar ala kartun grafis dengan pupil kontras, alis tebal melayang, dan mulut ekspresif untuk reaksi kaget komikal.",
+      "clothing": "Jaket piyama katun ungu muda bergaris, celana rumah longgar biru tua, dan sandal jepit kos hijau limau.",
+      "wardrobe": "Jaket piyama katun ungu muda bergaris, celana rumah longgar biru tua, dan sandal jepit kos hijau limau.",
+      "materials": [
+        "flat_cel_vector_fill",
+        "crisp_ink_outline_2px"
+      ],
+      "color_palette": [
+        "#6C5CE7",
+        "#2D3436",
+        "#A8E6CF",
+        "#FFEAA7"
+      ],
+      "palette": [
+        "#6C5CE7",
+        "#2D3436",
+        "#A8E6CF",
+        "#FFEAA7"
+      ],
+      "expressions": [
+        "dramatic_gasp",
+        "suspicious_squint",
+        "aha_discovery",
+        "proud_mismatched_grin"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_2d_cutout_deform_v4",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "eye_pop_scale",
+          "brow_tilt_dramatic",
+          "mouth_viseme_swap_2d"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_2d_cutout_deform_v4",
+      "pose_requirements": [
+        "hold_single_sock_aloft",
+        "shine_flashlight_into_drum",
+        "show_off_mismatched_ankles"
+      ],
+      "action_requirements": [
+        "count_laundry_pile_frantically",
+        "peel_back_rubber_door_gasket",
+        "shake_jogger_pants_upside_down"
+      ],
+      "biography_disclaimer": "Karakter kartun fiksi orisinal penghuni kos yang ramah segala usia.",
+      "shot_appearances": [],
+      "continuity_lock": {
+        "palette_locked": [
+          "#6C5CE7",
+          "#2D3436",
+          "#A8E6CF",
+          "#FFEAA7"
+        ],
+        "proportions_locked": "Kartun pipih 2D bergaris tinta hitam 2px dengan kepala bulat ekspresif, jambul rambut mencuat, dan piyama kebesaran yang membentuk siluet segitiga jenaka.",
+        "wardrobe_locked": "Jaket piyama katun ungu muda bergaris, celana rumah longgar biru tua, dan sandal jepit kos hijau limau.",
+        "style_profile_locked": "flat_cartoon"
+      }
+    },
+    {
+      "character_id": "char_detektif_kaus",
+      "name": "Detektif Kaus Belang",
+      "role": "supporting",
+      "identity": {
+        "name": "Detektif Kaus Belang",
+        "role": "supporting",
+        "biography_disclaimer": "Ilustrasi objek kaus kaki yang dipersonifikasikan secara jenaka untuk kebutuhan komedi visual.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Ilustrasi kaus kaki rajut melengkung pipih 2D bergaris kuning-hitam dengan lipatan tumit menyerupai kerah jas detektif mungil.",
+      "proportions": "Ilustrasi kaus kaki rajut melengkung pipih 2D bergaris kuning-hitam dengan lipatan tumit menyerupai kerah jas detektif mungil.",
+      "facial_design": "Sepasang kancing jahit putih-hitam di bagian pergelangan kain yang membentuk ilusi mata mengintip jahil tanpa unsur menyeramkan.",
+      "clothing": "Motif rajut garis kuning kenari dan biru dongker dengan ujung jari kaus berwarna merah tomat.",
+      "wardrobe": "Motif rajut garis kuning kenari dan biru dongker dengan ujung jari kaus berwarna merah tomat.",
+      "materials": [
+        "flat_cel_knit_pattern_2d",
+        "crisp_ink_outline_2px"
+      ],
+      "color_palette": [
+        "#FDCB6E",
+        "#1B263B",
+        "#FF6B6B",
+        "#FFFFFF"
+      ],
+      "palette": [
+        "#FDCB6E",
+        "#1B263B",
+        "#FF6B6B",
+        "#FFFFFF"
+      ],
+      "expressions": [
+        "sneaky_peek",
+        "cozy_tucked_in",
+        "caught_busted_flop"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_2d_bendy_ribbon_v4",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "button_eye_shift_lr",
+          "cuff_fold_brow"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_2d_bendy_ribbon_v4",
+      "pose_requirements": [
+        "peek_from_rubber_gasket_fold",
+        "dangle_from_pant_cuff",
+        "paired_next_to_polkadot_sock"
+      ],
+      "action_requirements": [
+        "slip_into_washer_seal_gap",
+        "slide_out_of_pant_leg",
+        "wiggle_happy_on_foot"
+      ],
+      "biography_disclaimer": "Ilustrasi objek kaus kaki yang dipersonifikasikan secara jenaka untuk kebutuhan komedi visual.",
+      "shot_appearances": [],
+      "continuity_lock": {
+        "palette_locked": [
+          "#FDCB6E",
+          "#1B263B",
+          "#FF6B6B",
+          "#FFFFFF"
+        ],
+        "proportions_locked": "Ilustrasi kaus kaki rajut melengkung pipih 2D bergaris kuning-hitam dengan lipatan tumit menyerupai kerah jas detektif mungil.",
+        "wardrobe_locked": "Motif rajut garis kuning kenari dan biru dongker dengan ujung jari kaus berwarna merah tomat.",
+        "style_profile_locked": "flat_cartoon"
+      }
+    }
+  ]
+}

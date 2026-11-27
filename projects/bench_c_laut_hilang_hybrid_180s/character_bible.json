@@ -1,0 +1,196 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_c_laut_hilang_hybrid_180s",
+  "style_bible_id": "xdx_stylized_3d_v4_0",
+  "style_profile": "stylized_3d",
+  "modeling_executed": false,
+  "characters": [
+    {
+      "character_id": "char_alya_presenter",
+      "name": "Alya Pradipta",
+      "role": "hero",
+      "identity": {
+        "name": "Alya Pradipta",
+        "role": "hero",
+        "biography_disclaimer": "Karakter fiksi orisinal peneliti geosains yang dirancang khusus untuk memandu eksperimen pikiran ilmiah.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Proporsi stylized 3D 6,5 kepala dengan siluet jaket lapangan berkerah tegas, tas selempang instrumen geologi, dan gestur tangan ekspresif saat menunjuk diagram ruang.",
+      "proportions": "Proporsi stylized 3D 6,5 kepala dengan siluet jaket lapangan berkerah tegas, tas selempang instrumen geologi, dan gestur tangan ekspresif saat menunjuk diagram ruang.",
+      "facial_design": "Wajah oval hangat dengan mata cokelat besar ekspresif, alis artikulatif, dan kacamata bingkai tipis transparan.",
+      "clothing": "Jaket lapangan biru samudra digulung sesiku, kaus terakota hangat, celana kargo abu-abu tua, dan sepatu bot survei bertali.",
+      "wardrobe": "Jaket lapangan biru samudra digulung sesiku, kaus terakota hangat, celana kargo abu-abu tua, dan sepatu bot survei bertali.",
+      "materials": [
+        "cotton_twill_matte_stylized",
+        "brushed_metal_compass_clip",
+        "soft_subsurface_skin_stylized"
+      ],
+      "color_palette": [
+        "#1D4E89",
+        "#E07A5F",
+        "#3D405B",
+        "#F4F1DE"
+      ],
+      "palette": [
+        "#1D4E89",
+        "#E07A5F",
+        "#3D405B",
+        "#F4F1DE"
+      ],
+      "expressions": [
+        "curious_analytical",
+        "awestruck_scale",
+        "urgent_warning",
+        "warm_relief"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_biped_stylized_ik_fk_v4",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "brow_arch_lr",
+          "eyelid_blink_lr",
+          "jaw_viseme_blend",
+          "cheek_smile_asym"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_biped_stylized_ik_fk_v4",
+      "pose_requirements": [
+        "presenter_open_palm_explain",
+        "crouch_inspect_salt_crust",
+        "point_up_cloud_diagram"
+      ],
+      "action_requirements": [
+        "walk_along_continental_shelf_rim",
+        "activate_holo_globe_scale",
+        "react_to_heatwave_gust"
+      ],
+      "biography_disclaimer": "Karakter fiksi orisinal peneliti geosains yang dirancang khusus untuk memandu eksperimen pikiran ilmiah.",
+      "shot_appearances": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S009",
+        "S010",
+        "S015",
+        "S016",
+        "S021",
+        "S022",
+        "S027",
+        "S028",
+        "S029",
+        "S030",
+        "S033",
+        "S034",
+        "S039",
+        "S040",
+        "S045",
+        "S046",
+        "S052",
+        "S053",
+        "S054",
+        "S055",
+        "S056",
+        "S057"
+      ],
+      "continuity_lock": {
+        "palette_locked": [
+          "#1D4E89",
+          "#E07A5F",
+          "#3D405B",
+          "#F4F1DE"
+        ],
+        "proportions_locked": "Proporsi stylized 3D 6,5 kepala dengan siluet jaket lapangan berkerah tegas, tas selempang instrumen geologi, dan gestur tangan ekspresif saat menunjuk diagram ruang.",
+        "wardrobe_locked": "Jaket lapangan biru samudra digulung sesiku, kaus terakota hangat, celana kargo abu-abu tua, dan sepatu bot survei bertali.",
+        "style_profile_locked": "stylized_3d"
+      }
+    },
+    {
+      "character_id": "char_pak_teguh_nelayan",
+      "name": "Pak Teguh",
+      "role": "supporting",
+      "identity": {
+        "name": "Pak Teguh",
+        "role": "supporting",
+        "biography_disclaimer": "Karakter fiksi komedi situasional orisinal yang mewakili sudut pandang warga pesisir secara hangat dan hormat.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Proporsi stylized 3D 6 kepala dengan bahu lebar kokoh, topi caping nelayan pesisir, dan postur berdiri santai bertolak pinggang yang kontras dengan latar jurang samudra.",
+      "proportions": "Proporsi stylized 3D 6 kepala dengan bahu lebar kokoh, topi caping nelayan pesisir, dan postur berdiri santai bertolak pinggang yang kontras dengan latar jurang samudra.",
+      "facial_design": "Rahang persegi tenang, kumis tipis rapi, kelopak mata setengah sayu khas ekspresi deadpan yang tak mudah panik.",
+      "clothing": "Rompi pelampung jingga pudar di atas kemeja flanel kotak biru-putih, celana pendek kain kanvas, dan sepatu bot karet kuning.",
+      "wardrobe": "Rompi pelampung jingga pudar di atas kemeja flanel kotak biru-putih, celana pendek kain kanvas, dan sepatu bot karet kuning.",
+      "materials": [
+        "weathered_canvas_fabric",
+        "matte_rubber_boots",
+        "woven_bamboo_hat_stylized"
+      ],
+      "color_palette": [
+        "#E76F51",
+        "#264653",
+        "#E9C46A",
+        "#F1FAEE"
+      ],
+      "palette": [
+        "#E76F51",
+        "#264653",
+        "#E9C46A",
+        "#F1FAEE"
+      ],
+      "expressions": [
+        "deadpan_unimpressed",
+        "squint_down_abyss",
+        "pinch_nose_dry_humor",
+        "content_nod"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_biped_stylized_ik_fk_v4",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "deadpan_heavy_lid_lr",
+          "brow_single_raise",
+          "jaw_viseme_blend",
+          "mouth_flat_smirk"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_biped_stylized_ik_fk_v4",
+      "pose_requirements": [
+        "lean_on_wooden_oar",
+        "peer_over_cliff_edge",
+        "sit_relaxed_in_boat"
+      ],
+      "action_requirements": [
+        "tap_dry_seabed_with_oar",
+        "hold_anchor_rope_over_canyon",
+        "wave_hand_against_sulfur_haze"
+      ],
+      "biography_disclaimer": "Karakter fiksi komedi situasional orisinal yang mewakili sudut pandang warga pesisir secara hangat dan hormat.",
+      "shot_appearances": [],
+      "continuity_lock": {
+        "palette_locked": [
+          "#E76F51",
+          "#264653",
+          "#E9C46A",
+          "#F1FAEE"
+        ],
+        "proportions_locked": "Proporsi stylized 3D 6 kepala dengan bahu lebar kokoh, topi caping nelayan pesisir, dan postur berdiri santai bertolak pinggang yang kontras dengan latar jurang samudra.",
+        "wardrobe_locked": "Rompi pelampung jingga pudar di atas kemeja flanel kotak biru-putih, celana pendek kain kanvas, dan sepatu bot karet kuning.",
+        "style_profile_locked": "stylized_3d"
+      }
+    }
+  ]
+}

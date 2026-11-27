@@ -1,0 +1,33 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_b_birokrasi_satir_60s",
+  "style_profile": "diorama",
+  "style_bible_id": "xdx_stylized_diorama_v4_0",
+  "display_name": "Tactile Miniature Architectural Diorama",
+  "supported_profiles_available": [
+    "2d_animation",
+    "anime_inspired",
+    "diorama",
+    "flat_cartoon",
+    "infographic",
+    "mixed_media",
+    "realistic",
+    "stylized_3d"
+  ],
+  "forced_from_ref001_or_ref002": false,
+  "reference_ids_consulted": [
+    "REF-001"
+  ],
+  "shading_model": "pbr_miniature_tiltshift_acescg",
+  "color_space": "ACEScg_rec709_view",
+  "palette_mood": "warm_tungsten_and_daylight_contrast",
+  "cross_asset_consistency_contract": {
+    "detail_tier": "crafted_miniature_architectural_detail",
+    "character_detail_tier": "crafted_miniature_architectural_detail",
+    "environment_detail_tier": "crafted_miniature_architectural_detail",
+    "prop_detail_tier": "crafted_miniature_architectural_detail",
+    "material_cohesion_rule": "Matte clay/wood/brushed-metal miniature finish; consistent bevel scale across rooms, characters, and props.",
+    "anti_placeholder_rule": "Zero untextured greybox cubes or mismatched shader models permitted."
+  },
+  "modeling_executed_in_phase_01_6c": false
+}

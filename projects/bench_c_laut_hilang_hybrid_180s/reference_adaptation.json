@@ -1,0 +1,1304 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_c_laut_hilang_hybrid_180s",
+  "selection_mode": "explicit_multi_reference",
+  "selected_reference_ids": [
+    "REF-001",
+    "REF-002"
+  ],
+  "multi_reference_fusion": {
+    "fusion_mode": "multi_reference_10d_conflict_resolved",
+    "source_reference_ids": [
+      "REF-001",
+      "REF-002"
+    ],
+    "unified_visual_style_profile": "stylized_3d",
+    "style_consistency_verified": true,
+    "conflicts_detected_count": 10,
+    "dimensions": {
+      "narrative_structure": {
+        "dimension": "narrative_structure",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [
+          "REF-002"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "three_act_domestic_civic_escalation_with_ironic_callback",
+          "REF-002": "counterintuitive_anomaly_hook_to_causal_mechanism_and_synthesis"
+        },
+        "selected_strategy": "three_act_domestic_civic_escalation_with_ironic_callback",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'three_act_domestic_civic_escalation_with_ironic_callback', 'REF-002': 'counterintuitive_anomaly_hook_to_causal_mechanism_and_synthesis'} by selecting 'REF-001' as primary for 'narrative_structure' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-002'] only as subordinate beat modulation."
+      },
+      "character_acting": {
+        "dimension": "character_acting",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [
+          "REF-002"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "expressive_ensemble_acting_deadpan_micro_reactions_and_props",
+          "REF-002": "hosted_presenter_direct_address_pointing_to_3d_cutaway_models"
+        },
+        "selected_strategy": "expressive_ensemble_acting_deadpan_micro_reactions_and_props",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'expressive_ensemble_acting_deadpan_micro_reactions_and_props', 'REF-002': 'hosted_presenter_direct_address_pointing_to_3d_cutaway_models'} by selecting 'REF-001' as primary for 'character_acting' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-002'] only as subordinate beat modulation."
+      },
+      "visual_style": {
+        "dimension": "visual_style",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [
+          "REF-001"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "warm_stylized_3d_diorama_grounded_everyday_textures",
+          "REF-002": "clean_stylized_3d_architectural_cutaway_with_diagrammatic_clarity"
+        },
+        "selected_strategy": "clean_stylized_3d_architectural_cutaway_with_diagrammatic_clarity",
+        "adaptation_rationale": "Locked single unified visual style 'stylized_3d' anchored to primary 'REF-002' so character, prop, and cutaway shaders never clash across shots."
+      },
+      "environment": {
+        "dimension": "environment",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [
+          "REF-001"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "lived_in_indonesian_interior_and_public_service_counter_vignettes",
+          "REF-002": "modular_cross_section_stage_and_scale_comparison_diorama"
+        },
+        "selected_strategy": "modular_cross_section_stage_and_scale_comparison_diorama",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'lived_in_indonesian_interior_and_public_service_counter_vignettes', 'REF-002': 'modular_cross_section_stage_and_scale_comparison_diorama'} by selecting 'REF-002' as primary for 'environment' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-001'] only as subordinate beat modulation."
+      },
+      "camera": {
+        "dimension": "camera",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [
+          "REF-002"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "conversational_medium_two_shot_with_snap_reaction_closeups",
+          "REF-002": "smooth_orthographic_feel_cutaway_push_and_macro_mechanism_inserts"
+        },
+        "selected_strategy": "conversational_medium_two_shot_with_snap_reaction_closeups",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'conversational_medium_two_shot_with_snap_reaction_closeups', 'REF-002': 'smooth_orthographic_feel_cutaway_push_and_macro_mechanism_inserts'} by selecting 'REF-001' as primary for 'camera' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-002'] only as subordinate beat modulation."
+      },
+      "motion": {
+        "dimension": "motion",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [
+          "REF-002"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "snappy_anticipation_settle_prop_hand_transfer_and_double_takes",
+          "REF-002": "causal_flow_arrows_fluid_thermal_paths_and_exploded_assembly"
+        },
+        "selected_strategy": "snappy_anticipation_settle_prop_hand_transfer_and_double_takes",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'snappy_anticipation_settle_prop_hand_transfer_and_double_takes', 'REF-002': 'causal_flow_arrows_fluid_thermal_paths_and_exploded_assembly'} by selecting 'REF-001' as primary for 'motion' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-002'] only as subordinate beat modulation."
+      },
+      "technical_visualization": {
+        "dimension": "technical_visualization",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [
+          "REF-001"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "diegetic_paperwork_stamps_and_visual_metaphor_props",
+          "REF-002": "3d_cross_section_cutaway_exploded_view_and_annotated_scientific_labels"
+        },
+        "selected_strategy": "3d_cross_section_cutaway_exploded_view_and_annotated_scientific_labels",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'diegetic_paperwork_stamps_and_visual_metaphor_props', 'REF-002': '3d_cross_section_cutaway_exploded_view_and_annotated_scientific_labels'} by selecting 'REF-002' as primary for 'technical_visualization' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-001'] only as subordinate beat modulation."
+      },
+      "caption": {
+        "dimension": "caption",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [
+          "REF-001"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third",
+          "REF-002": "high_contrast_keyword_highlighted_captions_paired_with_callouts"
+        },
+        "selected_strategy": "high_contrast_keyword_highlighted_captions_paired_with_callouts",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'punchy_dialogue_and_vo_phrase_chunks_safe_lower_third', 'REF-002': 'high_contrast_keyword_highlighted_captions_paired_with_callouts'} by selecting 'REF-002' as primary for 'caption' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-001'] only as subordinate beat modulation."
+      },
+      "audio": {
+        "dimension": "audio",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [
+          "REF-002"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause",
+          "REF-002": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes"
+        },
+        "selected_strategy": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause', 'REF-002': 'authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes'} by selecting 'REF-001' as primary for 'audio' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-002'] only as subordinate beat modulation."
+      },
+      "editing": {
+        "dimension": "editing",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [
+          "REF-002"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "reaction_driven_hard_cuts_2_to_4_5s_with_ comedic_hold_before_cut",
+          "REF-002": "clause_locked_visual_evidence_cuts_2_5_to_5_5s_on_causal_transitions"
+        },
+        "selected_strategy": "reaction_driven_hard_cuts_2_to_4_5s_with_ comedic_hold_before_cut",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'reaction_driven_hard_cuts_2_to_4_5s_with_ comedic_hold_before_cut', 'REF-002': 'clause_locked_visual_evidence_cuts_2_5_to_5_5s_on_causal_transitions'} by selecting 'REF-001' as primary for 'editing' matching active genres ['dokumenter', 'explainer', 'komedi_absurd', 'storytelling'], while borrowing ['REF-002'] only as subordinate beat modulation."
+      }
+    }
+  },
+  "adaptation_records": [
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "establishing_shot:B01",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S001 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S001",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Air laut biru menyusut cepat meninggalkan perahu kayu bercadik di atas lumpur ga",
+      "camera_behavior": "establishing 24.0mm (elevated_establishing_16deg) -> mot_snappy_spring_pop",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S001 duration 2.5s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 24.0mm matches 'establishing_shot' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "character_acting:B01",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S002 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S002",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Air laut biru menyusut cepat meninggalkan perahu kayu bercadik di atas lumpur ga",
+      "camera_behavior": "close_up 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S002 duration 2.5s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "reaction_shot:B01",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S003 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S003",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Pak Teguh mengetukkan ujung dayung kayu ke kerak garam lalu menoleh datar ke ara",
+      "camera_behavior": "medium 75.0mm (intimate_three_quarter_reaction) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S003 duration 3.0s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 75.0mm matches 'reaction_shot' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "character_acting:B01",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S004 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S004",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Pak Teguh mengetukkan ujung dayung kayu ke kerak garam lalu menoleh datar ke ara",
+      "camera_behavior": "close_up 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S004 duration 3.0s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "reaction_shot:B01",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S005 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S005",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Alya mengangkat segenggam kerak garam berkilau sambil menatap hamparan cekungan ",
+      "camera_behavior": "reaction 75.0mm (intimate_three_quarter_reaction) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S005 duration 2.5s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 75.0mm matches 'reaction_shot' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "character_acting:B01",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S006 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S006",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Alya mengangkat segenggam kerak garam berkilau sambil menatap hamparan cekungan ",
+      "camera_behavior": "close_up 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=4)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S006 duration 2.5s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "data_visualization:B02",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S007 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S007",
+      "required_asset": "prop_earth_bathymetry_globe",
+      "required_motion": "prop_earth_bathymetry_globe:Bola air biru berdiameter raksasa terangkat dari lekukan kerak Bumi berdampingan",
+      "camera_behavior": "wide 45.0mm (clean_planar_chart_stage) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S007 duration 3.3667s <= 10.0s",
+        "Asset 'prop_earth_bathymetry_globe' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 45.0mm matches 'data_visualization' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "technical_cutaway:B02",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S008 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S008",
+      "required_asset": "prop_earth_bathymetry_globe",
+      "required_motion": "prop_earth_bathymetry_globe:Bola air biru berdiameter raksasa terangkat dari lekukan kerak Bumi berdampingan",
+      "camera_behavior": "insert 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S008 duration 3.3667s <= 10.0s",
+        "Asset 'prop_earth_bathymetry_globe' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "object_insert:B02",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S009 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S009",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Alya merentangkan tangan membandingkan bola samudra utama dengan tetes kecil cad",
+      "camera_behavior": "medium 85.0mm (macro_evidence_tabletop_32deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S009 duration 2.8333s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 85.0mm matches 'object_insert' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "character_acting:B02",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S010 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S010",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Alya merentangkan tangan membandingkan bola samudra utama dengan tetes kecil cad",
+      "camera_behavior": "insert 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S010 duration 2.8s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "object_insert:B02",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S011 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S011",
+      "required_asset": "prop_graduated_hydrosphere_cylinder",
+      "required_motion": "prop_graduated_hydrosphere_cylinder:Kolom kaca ukur 97 persen air asin terkuras habis menyisakan garis tipis air taw",
+      "camera_behavior": "insert 85.0mm (macro_evidence_tabletop_32deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "remotion+remotion",
+      "acceptance_criteria": [
+        "Shot S011 duration 2.8333s <= 10.0s",
+        "Asset 'prop_graduated_hydrosphere_cylinder' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 85.0mm matches 'object_insert' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:18.4-00:31.0",
+      "observed_technique": "macro_component_insert_paired_with_annotated_callout",
+      "narrative_purpose": "technical_cutaway:B02",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'macro_component_insert_paired_with_annotated_callout' from REF-002 (00:18.4-00:31.0) into original shot S012 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S012",
+      "required_asset": "prop_graduated_hydrosphere_cylinder",
+      "required_motion": "prop_graduated_hydrosphere_cylinder:Kolom kaca ukur 97 persen air asin terkuras habis menyisakan garis tipis air taw",
+      "camera_behavior": "insert 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=4)",
+      "engine_recommendation": "remotion+remotion",
+      "acceptance_criteria": [
+        "Shot S012 duration 2.8s <= 10.0s",
+        "Asset 'prop_graduated_hydrosphere_cylinder' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "scale_comparison:B03",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S013 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S013",
+      "required_asset": "prop_skyscraper_reference_300m",
+      "required_motion": "prop_skyscraper_reference_300m:Kamera meluncur mundur menampakkan siluet gedung 300 meter tampak mungil di atas",
+      "camera_behavior": "establishing 20.0mm (ultra_wide_scale_perspective) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S013 duration 3.7333s <= 10.0s",
+        "Asset 'prop_skyscraper_reference_300m' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 20.0mm matches 'scale_comparison' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "technical_cutaway:B03",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S014 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S014",
+      "required_asset": "prop_skyscraper_reference_300m",
+      "required_motion": "prop_skyscraper_reference_300m:Kamera meluncur mundur menampakkan siluet gedung 300 meter tampak mungil di atas",
+      "camera_behavior": "reaction 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S014 duration 3.7s <= 10.0s",
+        "Asset 'prop_skyscraper_reference_300m' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:18.4-00:31.0",
+      "observed_technique": "macro_component_insert_paired_with_annotated_callout",
+      "narrative_purpose": "technical_cutaway:B03",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'macro_component_insert_paired_with_annotated_callout' from REF-002 (00:18.4-00:31.0) into original shot S015 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S015",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Pak Teguh mengulur tali jangkar pendek yang terayun jauh di atas dasar ngarai be",
+      "camera_behavior": "medium 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S015 duration 3.4333s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "character_acting:B03",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S016 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S016",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Pak Teguh mengulur tali jangkar pendek yang terayun jauh di atas dasar ngarai be",
+      "camera_behavior": "reaction 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S016 duration 3.4333s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "technical_cutaway:B03",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S017 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S017",
+      "required_asset": "prop_crustal_shelf_cross_section",
+      "required_motion": "prop_crustal_shelf_cross_section:Potongan melintang kerak pesisir memperlihatkan undakan landas kontinen, ngarai ",
+      "camera_behavior": "cutaway 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S017 duration 2.8667s <= 10.0s",
+        "Asset 'prop_crustal_shelf_cross_section' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:18.4-00:31.0",
+      "observed_technique": "macro_component_insert_paired_with_annotated_callout",
+      "narrative_purpose": "technical_cutaway:B03",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'macro_component_insert_paired_with_annotated_callout' from REF-002 (00:18.4-00:31.0) into original shot S018 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S018",
+      "required_asset": "prop_crustal_shelf_cross_section",
+      "required_motion": "prop_crustal_shelf_cross_section:Potongan melintang kerak pesisir memperlihatkan undakan landas kontinen, ngarai ",
+      "camera_behavior": "reaction 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=4)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S018 duration 2.8333s <= 10.0s",
+        "Asset 'prop_crustal_shelf_cross_section' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "scale_comparison:B04",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S019 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S019",
+      "required_asset": "prop_mariana_trench_cutaway_11km",
+      "required_motion": "prop_mariana_trench_cutaway_11km:Siluet Gunung Everest dimasukkan terbalik ke celah Challenger Deep dan masih men",
+      "camera_behavior": "cutaway 20.0mm (ultra_wide_scale_perspective) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "remotion+remotion",
+      "acceptance_criteria": [
+        "Shot S019 duration 3.2s <= 10.0s",
+        "Asset 'prop_mariana_trench_cutaway_11km' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 20.0mm matches 'scale_comparison' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "technical_cutaway:B04",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S020 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S020",
+      "required_asset": "prop_mariana_trench_cutaway_11km",
+      "required_motion": "prop_mariana_trench_cutaway_11km:Siluet Gunung Everest dimasukkan terbalik ke celah Challenger Deep dan masih men",
+      "camera_behavior": "medium 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "remotion+remotion",
+      "acceptance_criteria": [
+        "Shot S020 duration 3.1667s <= 10.0s",
+        "Asset 'prop_mariana_trench_cutaway_11km' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "character_acting:B04",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S021 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S021",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Barisan gunung api punggungan tengah samudra mengepulkan asap belerang putih lan",
+      "camera_behavior": "wide 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S021 duration 3.1667s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "technical_cutaway:B04",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S022 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S022",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Barisan gunung api punggungan tengah samudra mengepulkan asap belerang putih lan",
+      "camera_behavior": "medium 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S022 duration 3.1667s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "technical_cutaway:B04",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S023 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S023",
+      "required_asset": "prop_ridge_magma_conduit_cutaway",
+      "required_motion": "prop_ridge_magma_conduit_cutaway:Panah tekanan air menghilang dari atas celah magma sehingga gas vulkanik menyemb",
+      "camera_behavior": "insert 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S023 duration 2.6667s <= 10.0s",
+        "Asset 'prop_ridge_magma_conduit_cutaway' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:18.4-00:31.0",
+      "observed_technique": "macro_component_insert_paired_with_annotated_callout",
+      "narrative_purpose": "technical_cutaway:B04",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'macro_component_insert_paired_with_annotated_callout' from REF-002 (00:18.4-00:31.0) into original shot S024 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S024",
+      "required_asset": "prop_ridge_magma_conduit_cutaway",
+      "required_motion": "prop_ridge_magma_conduit_cutaway:Panah tekanan air menghilang dari atas celah magma sehingga gas vulkanik menyemb",
+      "camera_behavior": "medium 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S024 duration 2.6333s <= 10.0s",
+        "Asset 'prop_ridge_magma_conduit_cutaway' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "scientific_mechanism:B05",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S025 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S025",
+      "required_asset": "prop_hydrological_cycle_diorama",
+      "required_motion": "prop_hydrological_cycle_diorama:Panah uap air dari cekungan samudra terputus, gumpalan awan kumulus menyusut tip",
+      "camera_behavior": "cutaway 65.0mm (mechanism_flow_tracking) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S025 duration 3.8333s <= 10.0s",
+        "Asset 'prop_hydrological_cycle_diorama' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 65.0mm matches 'scientific_mechanism' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "character_acting:B05",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S026 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S026",
+      "required_asset": "prop_hydrological_cycle_diorama",
+      "required_motion": "prop_hydrological_cycle_diorama:Panah uap air dari cekungan samudra terputus, gumpalan awan kumulus menyusut tip",
+      "camera_behavior": "close_up 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S026 duration 3.8s <= 10.0s",
+        "Asset 'prop_hydrological_cycle_diorama' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "character_acting:B05",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S027 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S027",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Alya menunjuk langit cerah menyilaukan tanpa awan sementara aliran sungai di baw",
+      "camera_behavior": "medium 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S027 duration 3.2333s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "object_insert:B05",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S028 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S028",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Alya menunjuk langit cerah menyilaukan tanpa awan sementara aliran sungai di baw",
+      "camera_behavior": "close_up 85.0mm (macro_evidence_tabletop_32deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S028 duration 3.2333s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 85.0mm matches 'object_insert' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "object_insert:B05",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S029 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S029",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Jarum indikator kelembapan relatif pada alat genggam Alya bergerak turun cepat m",
+      "camera_behavior": "close_up 85.0mm (macro_evidence_tabletop_32deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S029 duration 2.9667s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 85.0mm matches 'object_insert' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "character_acting:B05",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S030 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S030",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Jarum indikator kelembapan relatif pada alat genggam Alya bergerak turun cepat m",
+      "camera_behavior": "close_up 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=4)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S030 duration 2.9333s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "scientific_mechanism:B06",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S031 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S031",
+      "required_asset": "prop_thermohaline_conveyor_globe",
+      "required_motion": "prop_thermohaline_conveyor_globe:Pita arus hangat merah dan arus dingin biru di samudra memudar lalu radiasi pana",
+      "camera_behavior": "wide 65.0mm (mechanism_flow_tracking) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S031 duration 3.8333s <= 10.0s",
+        "Asset 'prop_thermohaline_conveyor_globe' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 65.0mm matches 'scientific_mechanism' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "technical_cutaway:B06",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S032 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S032",
+      "required_asset": "prop_thermohaline_conveyor_globe",
+      "required_motion": "prop_thermohaline_conveyor_globe:Pita arus hangat merah dan arus dingin biru di samudra memudar lalu radiasi pana",
+      "camera_behavior": "insert 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S032 duration 3.8s <= 10.0s",
+        "Asset 'prop_thermohaline_conveyor_globe' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "character_acting:B06",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S033 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S033",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Cahaya matahari terik memanaskan batu garam jingga lalu bayangan malam menyapu c",
+      "camera_behavior": "wide 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S033 duration 3.2333s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "data_visualization:B06",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S034 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S034",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Cahaya matahari terik memanaskan batu garam jingga lalu bayangan malam menyapu c",
+      "camera_behavior": "insert 45.0mm (clean_planar_chart_stage) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S034 duration 3.2333s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 45.0mm matches 'data_visualization' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "technical_cutaway:B06",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S035 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S035",
+      "required_asset": "prop_diurnal_temperature_chart_card",
+      "required_motion": "prop_diurnal_temperature_chart_card:Garis grafik suhu harian melonjak tinggi saat siang dan menukik tajam di bawah t",
+      "camera_behavior": "insert 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "remotion+remotion",
+      "acceptance_criteria": [
+        "Shot S035 duration 2.9667s <= 10.0s",
+        "Asset 'prop_diurnal_temperature_chart_card' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:18.4-00:31.0",
+      "observed_technique": "macro_component_insert_paired_with_annotated_callout",
+      "narrative_purpose": "technical_cutaway:B06",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'macro_component_insert_paired_with_annotated_callout' from REF-002 (00:18.4-00:31.0) into original shot S036 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S036",
+      "required_asset": "prop_diurnal_temperature_chart_card",
+      "required_motion": "prop_diurnal_temperature_chart_card:Garis grafik suhu harian melonjak tinggi saat siang dan menukik tajam di bawah t",
+      "camera_behavior": "insert 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "remotion+remotion",
+      "acceptance_criteria": [
+        "Shot S036 duration 2.9333s <= 10.0s",
+        "Asset 'prop_diurnal_temperature_chart_card' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "scientific_mechanism:B07",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S037 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S037",
+      "required_asset": "prop_diatom_phytoplankton_cluster",
+      "required_motion": "prop_diatom_phytoplankton_cluster:Lensa mikroskopik memperlihatkan diatom fitoplankton meredup lalu panah oksigen ",
+      "camera_behavior": "insert 65.0mm (mechanism_flow_tracking) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S037 duration 3.2667s <= 10.0s",
+        "Asset 'prop_diatom_phytoplankton_cluster' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 65.0mm matches 'scientific_mechanism' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "technical_cutaway:B07",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S038 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S038",
+      "required_asset": "prop_diatom_phytoplankton_cluster",
+      "required_motion": "prop_diatom_phytoplankton_cluster:Lensa mikroskopik memperlihatkan diatom fitoplankton meredup lalu panah oksigen ",
+      "camera_behavior": "reaction 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S038 duration 3.2667s <= 10.0s",
+        "Asset 'prop_diatom_phytoplankton_cluster' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:18.4-00:31.0",
+      "observed_technique": "macro_component_insert_paired_with_annotated_callout",
+      "narrative_purpose": "data_visualization:B07",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'macro_component_insert_paired_with_annotated_callout' from REF-002 (00:18.4-00:31.0) into original shot S039 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S039",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Pak Teguh menjepit hidung dengan ekspresi datar sementara kabut tipis gas pembus",
+      "camera_behavior": "reaction 45.0mm (clean_planar_chart_stage) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S039 duration 3.0s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 45.0mm matches 'data_visualization' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "character_acting:B07",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S040 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S040",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Pak Teguh menjepit hidung dengan ekspresi datar sementara kabut tipis gas pembus",
+      "camera_behavior": "reaction 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S040 duration 3.0s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "data_visualization:B07",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S041 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S041",
+      "required_asset": "prop_oxygen_pie_50pct_widget",
+      "required_motion": "prop_oxygen_pie_50pct_widget:Lingkaran kontribusi oksigen laut separuh penuh meredup sementara grafik konsent",
+      "camera_behavior": "cutaway 45.0mm (clean_planar_chart_stage) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "remotion+remotion",
+      "acceptance_criteria": [
+        "Shot S041 duration 2.7333s <= 10.0s",
+        "Asset 'prop_oxygen_pie_50pct_widget' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 45.0mm matches 'data_visualization' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:18.4-00:31.0",
+      "observed_technique": "macro_component_insert_paired_with_annotated_callout",
+      "narrative_purpose": "technical_cutaway:B07",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'macro_component_insert_paired_with_annotated_callout' from REF-002 (00:18.4-00:31.0) into original shot S042 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S042",
+      "required_asset": "prop_oxygen_pie_50pct_widget",
+      "required_motion": "prop_oxygen_pie_50pct_widget:Lingkaran kontribusi oksigen laut separuh penuh meredup sementara grafik konsent",
+      "camera_behavior": "reaction 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=4)",
+      "engine_recommendation": "remotion+remotion",
+      "acceptance_criteria": [
+        "Shot S042 duration 2.7333s <= 10.0s",
+        "Asset 'prop_oxygen_pie_50pct_widget' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "timeline:B08",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S043 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S043",
+      "required_asset": "prop_chronological_timeline_rail",
+      "required_motion": "prop_chronological_timeline_rail:Penanda kronologis bergeser dari badai garam pesisir ke ladang menguning lalu hu",
+      "camera_behavior": "wide 35.0mm (lateral_chronology_glide) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "remotion+remotion",
+      "acceptance_criteria": [
+        "Shot S043 duration 3.6s <= 10.0s",
+        "Asset 'prop_chronological_timeline_rail' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 35.0mm matches 'timeline' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "character_acting:B08",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S044 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S044",
+      "required_asset": "prop_chronological_timeline_rail",
+      "required_motion": "prop_chronological_timeline_rail:Penanda kronologis bergeser dari badai garam pesisir ke ladang menguning lalu hu",
+      "camera_behavior": "medium 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "remotion+remotion",
+      "acceptance_criteria": [
+        "Shot S044 duration 3.6s <= 10.0s",
+        "Asset 'prop_chronological_timeline_rail' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "establishing_shot:B08",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S045 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S045",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Alya menyentuh permukaan model Bumi sementara lapisan vegetasi hijau menyusut me",
+      "camera_behavior": "medium 24.0mm (elevated_establishing_16deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S045 duration 2.8333s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 24.0mm matches 'establishing_shot' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "establishing_shot:B08",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S046 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S046",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Alya menyentuh permukaan model Bumi sementara lapisan vegetasi hijau menyusut me",
+      "camera_behavior": "medium 24.0mm (elevated_establishing_16deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S046 duration 2.8333s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 24.0mm matches 'establishing_shot' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "establishing_shot:B08",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S047 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S047",
+      "required_asset": "prop_orbital_arid_earth_mesh",
+      "required_motion": "prop_orbital_arid_earth_mesh:Kamera orbital memperlihatkan cekungan Pasifik dan Atlantik tampak pucat berdebu",
+      "camera_behavior": "establishing 24.0mm (elevated_establishing_16deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S047 duration 2.5667s <= 10.0s",
+        "Asset 'prop_orbital_arid_earth_mesh' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 24.0mm matches 'establishing_shot' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:18.4-00:31.0",
+      "observed_technique": "macro_component_insert_paired_with_annotated_callout",
+      "narrative_purpose": "technical_cutaway:B08",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'macro_component_insert_paired_with_annotated_callout' from REF-002 (00:18.4-00:31.0) into original shot S048 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S048",
+      "required_asset": "prop_orbital_arid_earth_mesh",
+      "required_motion": "prop_orbital_arid_earth_mesh:Kamera orbital memperlihatkan cekungan Pasifik dan Atlantik tampak pucat berdebu",
+      "camera_behavior": "medium 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=4)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S048 duration 2.5667s <= 10.0s",
+        "Asset 'prop_orbital_arid_earth_mesh' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:00.0-00:05.2",
+      "observed_technique": "counterintuitive_physical_anomaly_establishing_cut",
+      "narrative_purpose": "technical_cutaway:B09",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'counterintuitive_physical_anomaly_establishing_cut' from REF-002 (00:00.0-00:05.2) into original shot S049 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S049",
+      "required_asset": "prop_isostatic_rebound_slab",
+      "required_motion": "prop_isostatic_rebound_slab:Lapisan batuan kerak samudra melengkung naik perlahan disertai getaran patahan d",
+      "camera_behavior": "cutaway 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S049 duration 2.9333s <= 10.0s",
+        "Asset 'prop_isostatic_rebound_slab' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-002",
+      "evidence_timestamp": "00:05.2-00:18.4",
+      "observed_technique": "3d_architectural_cross_section_cutaway_with_flow_paths",
+      "narrative_purpose": "technical_cutaway:B09",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar '3d_architectural_cross_section_cutaway_with_flow_paths' from REF-002 (00:05.2-00:18.4) into original shot S050 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S050",
+      "required_asset": "prop_isostatic_rebound_slab",
+      "required_motion": "prop_isostatic_rebound_slab:Lapisan batuan kerak samudra melengkung naik perlahan disertai getaran patahan d",
+      "camera_behavior": "close_up 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S050 duration 2.9s <= 10.0s",
+        "Asset 'prop_isostatic_rebound_slab' planned without PLACEHOLDER cube or copied REF-002 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "establishing_shot:B09",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S051 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S051",
+      "required_asset": "prop_isostatic_rebound_slab",
+      "required_motion": "prop_isostatic_rebound_slab:Lapisan batuan kerak samudra melengkung naik perlahan disertai getaran patahan d",
+      "camera_behavior": "insert 24.0mm (elevated_establishing_16deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "threejs+remotion",
+      "acceptance_criteria": [
+        "Shot S051 duration 2.9s <= 10.0s",
+        "Asset 'prop_isostatic_rebound_slab' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 24.0mm matches 'establishing_shot' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "character_acting:B09",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S052 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S052",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Cahaya senja menyapu sisa lapisan es kutub dan sumur akuifer dalam di tengah lan",
+      "camera_behavior": "establishing 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S052 duration 3.6333s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "character_acting:B09",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S053 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S053",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Cahaya senja menyapu sisa lapisan es kutub dan sumur akuifer dalam di tengah lan",
+      "camera_behavior": "close_up 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S053 duration 3.6333s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "establishing_shot:B10",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S054 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S054",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Air laut biru berkilau mengalir kembali mengangkat perahu kayu bercadik sementar",
+      "camera_behavior": "establishing 24.0mm (elevated_establishing_16deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S054 duration 3.8333s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 24.0mm matches 'establishing_shot' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "character_acting:B10",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S055 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S055",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Air laut biru berkilau mengalir kembali mengangkat perahu kayu bercadik sementar",
+      "camera_behavior": "insert 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S055 duration 3.8333s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "character_acting:B10",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S056 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S056",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Pak Teguh duduk santai di perahu mengayun dayung di air biru sementara Alya ters",
+      "camera_behavior": "medium 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S056 duration 4.1667s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "character_acting:B10",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S057 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S057",
+      "required_asset": "char_alya_presenter",
+      "required_motion": "char_alya_presenter:Pak Teguh duduk santai di perahu mengayun dayung di air biru sementara Alya ters",
+      "camera_behavior": "insert 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=4)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S057 duration 4.1667s <= 10.0s",
+        "Asset 'char_alya_presenter' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    }
+  ],
+  "production_authorized": false
+}

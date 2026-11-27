@@ -1142,15 +1142,16 @@ def test_27_revision_manager_archives_prior_versions_invalidates_downstream_and_
     sm.transition("STORYBOARDING", expected_version=4, trigger="4", actor="master_director", evidence="ok")
     sm.transition("PREPRODUCTION_QC", expected_version=5, trigger="5", actor="preproduction_verifier", evidence="ok")
     sm.transition("WAITING_APPROVAL", expected_version=6, trigger="6", actor="master_director", evidence="ok")
-    sm.transition(
-        "APPROVED",
-        expected_version=7,
-        trigger="human_approve",
-        actor="trusted_human_approval_gate",
-        evidence="Human signed package",
-        verified_human_approval={"approved_digest": "a" * 64, "approved_version": "v1", "trusted_channel_verified": True},
-    )
-    assert sm.load()["approval_status"]["approved"] is True
+    with pytest.raises(InvalidStateTransitionError):
+        sm.transition(
+            "APPROVED",
+            expected_version=7,
+            trigger="human_approve",
+            actor="trusted_human_approval_gate",
+            evidence="Human signed package",
+            verified_human_approval={"approved_digest": "a" * 64, "approved_version": "v1", "trusted_channel_verified": True},
+        )
+    assert sm.load()["approval_status"]["approved"] is False
 
     nar_rel = "projects/proj_p016b/narration_dialogue.json"
     nar_file = ws / nar_rel
@@ -1196,7 +1197,7 @@ def test_27_revision_manager_archives_prior_versions_invalidates_downstream_and_
     assert rev_entry["approval_invalidated"] is True
 
     st_after = sm.load()
-    assert st_after["current_state"] == "WAITING_REAPPROVAL"
+    assert st_after["current_state"] == "REVISION_REQUIRED"
     assert st_after["approval_status"]["approved"] is False
     assert st_after["approval_status"]["revoked"] is True
 

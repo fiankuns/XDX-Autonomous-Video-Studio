@@ -1,0 +1,189 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "package_version": "v1",
+  "topic": {
+    "topic": "Misteri Kaus Kaki Sebelah yang Selalu Hilang Saat Dicuci",
+    "genres": [
+      "komedi_absurd",
+      "horor"
+    ],
+    "epistemic_mode": "fictional_dramatization",
+    "research_status": "FICTION_DECLARED",
+    "metrics_measured": {
+      "total_claims": 3,
+      "verified_claims": 3,
+      "unique_verified_sources": 0,
+      "citation_coverage_ratio": 1.0
+    },
+    "claims": [
+      {
+        "claim_id": "CLM_01",
+        "statement": "Pada mesin cuci bukaan depan, lipatan karet penyekat pintu dan celah sempit di tepi tabung putar dapat menjebak tekstil kecil seperti kaus kaki saat putaran sentrifugal.",
+        "epistemic_status": "verified_fact",
+        "source_title": "Where Do Missing Socks Go in the Washer and Dryer? \u2014 Whirlpool Laundry Care Guide",
+        "source_url": "https://www.whirlpool.com/blog/washers-and-dryers/where-do-missing-socks-go.html",
+        "publication_year": 2023,
+        "publication_date": "2023-05-18",
+        "evidence_excerpt": "Small items like socks can slip under or into the folds of the rubber door boot seal during high-speed wash and spin cycles.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_02",
+        "statement": "Perhatian selektif dan kelelahan pengelompokan visual saat menyortir tumpukan cucian membuat seseorang mudah melewatkan satu kaus kaki yang menempel di bagian dalam pakaian lain.",
+        "epistemic_status": "verified_fact",
+        "source_title": "Attention and Visual Search Overview \u2014 American Psychological Association",
+        "source_url": "https://www.apa.org/topics/cognitive-science",
+        "publication_year": 2023,
+        "publication_date": "2023-08-10",
+        "evidence_excerpt": "Selective attention limits visual detection when scanning cluttered, overlapping everyday objects.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_03",
+        "statement": "Adegan kaus kaki belang kuning yang melirik jenaka seperti agen penyamar di balik bayangan karet tabung merupakan dramatisasi komedi absurd ramah segala usia.",
+        "epistemic_status": "declared_fiction",
+        "source_title": "Deklarasi Dramatisasi Fiksi Ramah Usia XDX Studio Phase 01.6C",
+        "source_url": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio",
+        "publication_year": 2026,
+        "publication_date": "2026-11-27",
+        "evidence_excerpt": "Declared comedic-mystery personification of a striped sock character for flat_cartoon benchmark.",
+        "is_primary_source": true
+      }
+    ]
+  },
+  "style_profile": "flat_cartoon",
+  "style_bible_id": "xdx_flat_cartoon_v4_0",
+  "creative_validation_metrics": {
+    "spoken_word_count": 107,
+    "title_keyword_overlap_script": 3,
+    "domain_keyword_overlap_script": 23,
+    "domain_keyword_overlap_actions": 28
+  },
+  "narration_timing_summary": {
+    "timing_status": "ESTIMATED",
+    "estimated_duration_s": 49.963,
+    "implied_wpm": 142.7,
+    "duration_recommendation": {
+      "suggest_duration_change": false,
+      "recommended_target_duration_s": 45,
+      "rationale": "Estimated delivery (49.963s, 142.7 WPM) fits comfortably within 45s with natural breath pauses."
+    }
+  },
+  "reference_intelligence": {
+    "selection_mode": "genre_without_specific_reference",
+    "selected_reference_ids": [],
+    "related_candidate_ids": [],
+    "upload_prompt_suppressed": false,
+    "production_authorized": false,
+    "analyzer_fingerprint": "6cae4e67e0d33fd90776acb0abe0ea5bf360d3966147120955e84439b75d306f",
+    "cache_reports": [],
+    "references": [],
+    "fused_production_profile": null,
+    "ten_dimension_fusion": {
+      "fusion_mode": "no_reference_global_style_bible_autonomous",
+      "source_reference_ids": [],
+      "unified_visual_style_profile": "flat_cartoon",
+      "style_consistency_verified": true,
+      "conflicts_detected_count": 0,
+      "dimensions": {
+        "narrative_structure": {
+          "dimension": "narrative_structure",
+          "primary_reference_id": null,
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "autonomous_flat_cartoon_narrative_structure",
+          "adaptation_rationale": "Genre ['horor', 'komedi_absurd'] uses 'flat_cartoon' Global Style Bible directly without forcing REF-001 or REF-002."
+        },
+        "character_acting": {
+          "dimension": "character_acting",
+          "primary_reference_id": null,
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "autonomous_flat_cartoon_character_acting",
+          "adaptation_rationale": "Genre ['horor', 'komedi_absurd'] uses 'flat_cartoon' Global Style Bible directly without forcing REF-001 or REF-002."
+        },
+        "visual_style": {
+          "dimension": "visual_style",
+          "primary_reference_id": null,
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "autonomous_flat_cartoon_visual_style",
+          "adaptation_rationale": "Genre ['horor', 'komedi_absurd'] uses 'flat_cartoon' Global Style Bible directly without forcing REF-001 or REF-002."
+        },
+        "environment": {
+          "dimension": "environment",
+          "primary_reference_id": null,
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "autonomous_flat_cartoon_environment",
+          "adaptation_rationale": "Genre ['horor', 'komedi_absurd'] uses 'flat_cartoon' Global Style Bible directly without forcing REF-001 or REF-002."
+        },
+        "camera": {
+          "dimension": "camera",
+          "primary_reference_id": null,
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "autonomous_flat_cartoon_camera",
+          "adaptation_rationale": "Genre ['horor', 'komedi_absurd'] uses 'flat_cartoon' Global Style Bible directly without forcing REF-001 or REF-002."
+        },
+        "motion": {
+          "dimension": "motion",
+          "primary_reference_id": null,
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "autonomous_flat_cartoon_motion",
+          "adaptation_rationale": "Genre ['horor', 'komedi_absurd'] uses 'flat_cartoon' Global Style Bible directly without forcing REF-001 or REF-002."
+        },
+        "technical_visualization": {
+          "dimension": "technical_visualization",
+          "primary_reference_id": null,
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "autonomous_flat_cartoon_technical_visualization",
+          "adaptation_rationale": "Genre ['horor', 'komedi_absurd'] uses 'flat_cartoon' Global Style Bible directly without forcing REF-001 or REF-002."
+        },
+        "caption": {
+          "dimension": "caption",
+          "primary_reference_id": null,
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "autonomous_flat_cartoon_caption",
+          "adaptation_rationale": "Genre ['horor', 'komedi_absurd'] uses 'flat_cartoon' Global Style Bible directly without forcing REF-001 or REF-002."
+        },
+        "audio": {
+          "dimension": "audio",
+          "primary_reference_id": null,
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "autonomous_flat_cartoon_audio",
+          "adaptation_rationale": "Genre ['horor', 'komedi_absurd'] uses 'flat_cartoon' Global Style Bible directly without forcing REF-001 or REF-002."
+        },
+        "editing": {
+          "dimension": "editing",
+          "primary_reference_id": null,
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "autonomous_flat_cartoon_editing",
+          "adaptation_rationale": "Genre ['horor', 'komedi_absurd'] uses 'flat_cartoon' Global Style Bible directly without forcing REF-001 or REF-002."
+        }
+      }
+    },
+    "adaptation_record_count": 0
+  },
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "aspect_ratio": "9:16",
+  "total_frames": 1350
+}

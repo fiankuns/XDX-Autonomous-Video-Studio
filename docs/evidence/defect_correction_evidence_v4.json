@@ -1,0 +1,156 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "generated_at_utc": "2026-11-27T20:13:57.153761+00:00",
+  "registry_path": "registry/master_audit_defect_registry.json",
+  "total_defects": 18,
+  "status_counts": {
+    "VERIFIED": 17,
+    "SCHEDULED": 1
+  },
+  "defects_summary": [
+    {
+      "defect_id": "DEF-P01-001",
+      "source_phase": "Phase 01",
+      "severity": "CRITICAL",
+      "target_phase": "Phase 01.5",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_phase01_5_security_and_state.py::test_critical_audit_regression_negative_conditional_quoted_and_ambiguous_approvals"
+    },
+    {
+      "defect_id": "DEF-P01-002",
+      "source_phase": "Phase 01",
+      "severity": "HIGH",
+      "target_phase": "Phase 01.5",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_asset_management.py::test_9_step_asset_procurement_procedural_and_external_and_retargeting"
+    },
+    {
+      "defect_id": "DEF-P01-003",
+      "source_phase": "Phase 01",
+      "severity": "HIGH",
+      "target_phase": "Phase 01.5",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_phase01_5_security_and_state.py::test_mcp_tool_allowlist_unknown_tool_rejection_and_live_tamper_blocking"
+    },
+    {
+      "defect_id": "DEF-P015-004",
+      "source_phase": "Phase 01.5",
+      "severity": "HIGH",
+      "target_phase": "Phase 01.5 / v3.4",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_reference_database_integration.py::test_fail_closed_on_lfs_pointer_or_missing_media"
+    },
+    {
+      "defect_id": "DEF-P016A-005",
+      "source_phase": "Phase 01.6A",
+      "severity": "CRITICAL",
+      "target_phase": "Phase 01.6B",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_phase01_6b_persistent_intelligence.py::test_01_canonical_path_collision_rejection"
+    },
+    {
+      "defect_id": "DEF-P016A-006",
+      "source_phase": "Phase 01.6A",
+      "severity": "HIGH",
+      "target_phase": "Phase 01.6B",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_phase01_6b_persistent_intelligence.py::test_10_capability_discovery_7_statuses_no_hardcoded_detected_host_tools"
+    },
+    {
+      "defect_id": "DEF-P016A-007",
+      "source_phase": "Phase 01.6A",
+      "severity": "HIGH",
+      "target_phase": "Phase 01.6B",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_phase01_6b_persistent_intelligence.py::test_09_verifier_invocation_receipt_and_same_conversation_context_rejection"
+    },
+    {
+      "defect_id": "DEF-P016B-008",
+      "source_phase": "Phase 01.6B",
+      "severity": "CRITICAL",
+      "target_phase": "Phase 01.6C",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_01_initial_completed_status_rejected_without_worker_execution"
+    },
+    {
+      "defect_id": "DEF-P016B-009",
+      "source_phase": "Phase 01.6B",
+      "severity": "CRITICAL",
+      "target_phase": "Phase 01.6C",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_06_unsupported_acceptance_check_transitions_task_to_blocked"
+    },
+    {
+      "defect_id": "DEF-P016B-010",
+      "source_phase": "Phase 01.6B",
+      "severity": "HIGH",
+      "target_phase": "Phase 01.6C",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_10_reviewer_criteria_manipulation_and_missing_defect_rejected"
+    },
+    {
+      "defect_id": "DEF-P016B-011",
+      "source_phase": "Phase 01.6B",
+      "severity": "HIGH",
+      "target_phase": "Phase 01.6C",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_11_corrupted_latest_checkpoint_automatic_fallback_and_portable_bundle"
+    },
+    {
+      "defect_id": "DEF-P016B-012",
+      "source_phase": "Phase 01.6B",
+      "severity": "MEDIUM",
+      "target_phase": "Phase 01.6C",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_12_runtime_capability_portability_unknown_outside_antigravity"
+    },
+    {
+      "defect_id": "DEF-P016B-013",
+      "source_phase": "Phase 01.6B",
+      "severity": "MEDIUM",
+      "target_phase": "Phase 01.6C",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_approval_state_rea_and_qc.py::test_rea_video_reference_analysis_and_visual_qc_on_synthetic_mp4"
+    },
+    {
+      "defect_id": "DEF-P016B-014",
+      "source_phase": "Phase 01.6B",
+      "severity": "CRITICAL",
+      "target_phase": "Phase 01.6C",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_13_untrusted_approval_and_boolean_production_bypass_rejected"
+    },
+    {
+      "defect_id": "DEF-P016B-015",
+      "source_phase": "Phase 01.6B",
+      "severity": "HIGH",
+      "target_phase": "Phase 01.6D",
+      "current_status": "SCHEDULED",
+      "regression_test": null
+    },
+    {
+      "defect_id": "DEF-P016B-016",
+      "source_phase": "Phase 01.6B",
+      "severity": "CRITICAL",
+      "target_phase": "Phase 01.6C",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_14_universal_topic_relevance_and_unrelated_authored_fallback_rejected"
+    },
+    {
+      "defect_id": "DEF-P016B-017",
+      "source_phase": "Phase 01.6B",
+      "severity": "HIGH",
+      "target_phase": "Phase 01.6C",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_15_reference_analyzer_fingerprint_change_and_8part_cache_invalidation"
+    },
+    {
+      "defect_id": "DEF-P016B-018",
+      "source_phase": "Phase 01.6B",
+      "severity": "MEDIUM",
+      "target_phase": "Phase 01.6C",
+      "current_status": "VERIFIED",
+      "regression_test": "tests/test_phase01_6c_universal_creative_intelligence.py::test_21_native_execution_5_modes_and_static_conversation_id_rejection"
+    }
+  ]
+}

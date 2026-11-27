@@ -1,0 +1,169 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "entity_kind": "project_state",
+  "project_id": "bench_b_birokrasi_satir_60s",
+  "project_title": "Mengurus Satu Surat yang Membutuhkan Banyak Surat Lain",
+  "genres": [
+    "satir_sosial",
+    "storytelling"
+  ],
+  "current_state": "WAITING_APPROVAL",
+  "state_version": 11,
+  "approval_status": {
+    "approved": false,
+    "approved_digest": null,
+    "approved_version": null,
+    "trusted_channel_verified": false,
+    "production_approval_frozen_until": "Phase 01.6D",
+    "revoked": true
+  },
+  "artifact_manifest": {
+    "asset_manifest.json": "a73fb1d865bef65c95c3ada5bb50951c47a3a9fdb0645e7726aa51cbbdb91dfd",
+    "blueprint.md": "269867284955239156023a64eb9944f752f8ab1c35e84309a6e8e1b189201f88",
+    "character_bible.md": "9674b8048d9dd42fa6c8dded36861a999a8fdba1cb93f6460776ccb37384a4db",
+    "engine_plan.json": "84d903db8bc1614251baa63ab9df3b91e26cf6072e5861c60ca23aff24c48f77",
+    "execution_plan.md": "deede83e4fc0962ab47a8814f818f0c493ace63a09dd61649f4551b06096f2bc",
+    "motion_plan.json": "2de0131b5436b287af5ddadf5eac9b3468c783b7b855583921eb370aa6cc0cb5",
+    "production_config.json": "41c0f1e02f6d58e8f825b39ce088a16ee9b82119ee000a6e5c92df8c9dce93e1",
+    "reference_analysis.md": "b7fccc24ea2930e9537326424e012e1ed9e0f0bc3ffc1eca105a0001e1c8fc03",
+    "research.md": "081752f3a97d6c7decbf81d909b26890c5d12fbadda777bd885a9d42f8585368",
+    "script.md": "6c62bfc1fd77ec8cca4ab7e1d08ea759add8059aeee5bb9d77792f548a82937a",
+    "storyboard.json": "824e53f78ae6514804a2e5445e6fd2168f2e56bc32c010e20b159ea70f12683f"
+  },
+  "transitions": [
+    {
+      "previous_state": null,
+      "next_state": "IDLE",
+      "trigger": "project_initialized",
+      "actor": "master_director",
+      "task_id": null,
+      "evidence": "Initial project state created",
+      "timestamp": "2026-11-27T20:13:28.080557+00:00",
+      "state_version": 1,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "IDLE",
+      "next_state": "REQUEST_RECEIVED",
+      "trigger": "BUAT_VIDEO",
+      "actor": "master_director",
+      "task_id": null,
+      "evidence": "Accepted preproduction request topic='Mengurus Satu Surat yang Membutuhkan Banyak Surat Lain' (60s, ['satir_sosial', 'storytelling'])",
+      "timestamp": "2026-11-27T20:13:28.088237+00:00",
+      "state_version": 2,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "REQUEST_RECEIVED",
+      "next_state": "RESEARCHING",
+      "trigger": "dispatch_wave_1",
+      "actor": "master_director",
+      "task_id": "TASK-01-RESEARCH",
+      "evidence": "Dispatched Topic Research & REA Reference specialists",
+      "timestamp": "2026-11-27T20:13:28.389881+00:00",
+      "state_version": 3,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "RESEARCHING",
+      "next_state": "REFERENCE_ANALYSIS",
+      "trigger": "wave_1_reference",
+      "actor": "master_director",
+      "task_id": "TASK-02-REFERENCE",
+      "evidence": "Reference selection and cache validation active",
+      "timestamp": "2026-11-27T20:13:28.434108+00:00",
+      "state_version": 4,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "REFERENCE_ANALYSIS",
+      "next_state": "CREATIVE_DEVELOPMENT",
+      "trigger": "wave_2_creative",
+      "actor": "master_director",
+      "task_id": "TASK-03-CREATIVE",
+      "evidence": "Blueprint, Indonesian script, Character Bible, and Global Style Bible development",
+      "timestamp": "2026-11-27T20:13:28.440752+00:00",
+      "state_version": 5,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "CREATIVE_DEVELOPMENT",
+      "next_state": "STORYBOARDING",
+      "trigger": "wave_5_storyboard",
+      "actor": "master_director",
+      "task_id": "TASK-07-STORYBOARD",
+      "evidence": "Integer-frame storyboard, motion, camera, asset, audio, caption, and engine compilation",
+      "timestamp": "2026-11-27T20:13:28.447794+00:00",
+      "state_version": 6,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "STORYBOARDING",
+      "next_state": "PREPRODUCTION_QC",
+      "trigger": "enter_independent_preproduction_qc",
+      "actor": "master_director",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "Invoking read-only preproduction_verifier against manifest 640e1dcc14f1",
+      "timestamp": "2026-11-27T20:13:33.572393+00:00",
+      "state_version": 7,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "PREPRODUCTION_QC",
+      "next_state": "REVISION_REQUIRED",
+      "trigger": "verifier_revision_required",
+      "actor": "preproduction_verifier",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "Independent verifier reported preproduction defect(s); triggering RevisionManager",
+      "timestamp": "2026-11-27T20:13:34.564401+00:00",
+      "state_version": 8,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "REVISION_REQUIRED",
+      "next_state": "STORYBOARDING",
+      "trigger": "revision_reexecution:REV-bench_b_birokrasi_satir_60s-0004-b0b9e3",
+      "actor": "master_director",
+      "task_id": "TASK-13-CAPTION",
+      "evidence": "Re-validating revised artifact and re-running independent verifier",
+      "timestamp": "2026-11-27T20:13:34.617013+00:00",
+      "state_version": 9,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "STORYBOARDING",
+      "next_state": "PREPRODUCTION_QC",
+      "trigger": "enter_independent_preproduction_qc",
+      "actor": "master_director",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "Invoking read-only preproduction_verifier against manifest 640e1dcc14f1",
+      "timestamp": "2026-11-27T20:13:35.451365+00:00",
+      "state_version": 10,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "PREPRODUCTION_QC",
+      "next_state": "WAITING_APPROVAL",
+      "trigger": "preproduction_verifier_pass",
+      "actor": "master_director",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "All 15 independent review criteria PASSED; sealed 13-item package digest=93608d61cff41a2a",
+      "timestamp": "2026-11-27T20:13:36.704983+00:00",
+      "state_version": 11,
+      "artifact_manifest": {
+        "asset_manifest.json": "a73fb1d865bef65c95c3ada5bb50951c47a3a9fdb0645e7726aa51cbbdb91dfd",
+        "blueprint.md": "269867284955239156023a64eb9944f752f8ab1c35e84309a6e8e1b189201f88",
+        "character_bible.md": "9674b8048d9dd42fa6c8dded36861a999a8fdba1cb93f6460776ccb37384a4db",
+        "engine_plan.json": "84d903db8bc1614251baa63ab9df3b91e26cf6072e5861c60ca23aff24c48f77",
+        "execution_plan.md": "deede83e4fc0962ab47a8814f818f0c493ace63a09dd61649f4551b06096f2bc",
+        "motion_plan.json": "2de0131b5436b287af5ddadf5eac9b3468c783b7b855583921eb370aa6cc0cb5",
+        "production_config.json": "41c0f1e02f6d58e8f825b39ce088a16ee9b82119ee000a6e5c92df8c9dce93e1",
+        "reference_analysis.md": "b7fccc24ea2930e9537326424e012e1ed9e0f0bc3ffc1eca105a0001e1c8fc03",
+        "research.md": "081752f3a97d6c7decbf81d909b26890c5d12fbadda777bd885a9d42f8585368",
+        "script.md": "6c62bfc1fd77ec8cca4ab7e1d08ea759add8059aeee5bb9d77792f548a82937a",
+        "storyboard.json": "824e53f78ae6514804a2e5445e6fd2168f2e56bc32c010e20b159ea70f12683f"
+      }
+    }
+  ],
+  "updated_at": "2026-11-27T20:13:36.704983+00:00"
+}

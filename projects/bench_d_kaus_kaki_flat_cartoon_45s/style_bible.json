@@ -1,0 +1,31 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "style_profile": "flat_cartoon",
+  "style_bible_id": "xdx_flat_cartoon_v4_0",
+  "display_name": "2D Flat Graphic Cartoon",
+  "supported_profiles_available": [
+    "2d_animation",
+    "anime_inspired",
+    "diorama",
+    "flat_cartoon",
+    "infographic",
+    "mixed_media",
+    "realistic",
+    "stylized_3d"
+  ],
+  "forced_from_ref001_or_ref002": false,
+  "reference_ids_consulted": [],
+  "shading_model": "flat_cel_ink_outline_2px",
+  "color_space": "sRGB_broadcast_rec709",
+  "palette_mood": "saturated_playful_high_contrast",
+  "cross_asset_consistency_contract": {
+    "detail_tier": "clean_silhouette_graphic_shapes",
+    "character_detail_tier": "clean_silhouette_graphic_shapes",
+    "environment_detail_tier": "clean_silhouette_graphic_shapes",
+    "prop_detail_tier": "clean_silhouette_graphic_shapes",
+    "material_cohesion_rule": "Zero photoreal roughness noise; crisp stepped fills across characters, props, and backdrops.",
+    "anti_placeholder_rule": "Zero untextured greybox cubes or mismatched shader models permitted."
+  },
+  "modeling_executed_in_phase_01_6c": false
+}

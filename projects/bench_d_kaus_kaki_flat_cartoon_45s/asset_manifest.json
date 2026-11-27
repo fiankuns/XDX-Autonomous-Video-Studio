@@ -1,0 +1,1253 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "procurement_or_modeling_executed": false,
+  "style_bible": {
+    "schema_version": "4.0.0-phase01.6c",
+    "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+    "style_profile": "flat_cartoon",
+    "style_bible_id": "xdx_flat_cartoon_v4_0",
+    "display_name": "2D Flat Graphic Cartoon",
+    "supported_profiles_available": [
+      "2d_animation",
+      "anime_inspired",
+      "diorama",
+      "flat_cartoon",
+      "infographic",
+      "mixed_media",
+      "realistic",
+      "stylized_3d"
+    ],
+    "forced_from_ref001_or_ref002": false,
+    "reference_ids_consulted": [],
+    "shading_model": "flat_cel_ink_outline_2px",
+    "color_space": "sRGB_broadcast_rec709",
+    "palette_mood": "saturated_playful_high_contrast",
+    "cross_asset_consistency_contract": {
+      "detail_tier": "clean_silhouette_graphic_shapes",
+      "character_detail_tier": "clean_silhouette_graphic_shapes",
+      "environment_detail_tier": "clean_silhouette_graphic_shapes",
+      "prop_detail_tier": "clean_silhouette_graphic_shapes",
+      "material_cohesion_rule": "Zero photoreal roughness noise; crisp stepped fills across characters, props, and backdrops.",
+      "anti_placeholder_rule": "Zero untextured greybox cubes or mismatched shader models permitted."
+    },
+    "modeling_executed_in_phase_01_6c": false
+  },
+  "characters": [
+    {
+      "character_id": "char_kino_pencuci",
+      "name": "Kino",
+      "role": "hero",
+      "identity": {
+        "name": "Kino",
+        "role": "hero",
+        "biography_disclaimer": "Karakter kartun fiksi orisinal penghuni kos yang ramah segala usia.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Kartun pipih 2D bergaris tinta hitam 2px dengan kepala bulat ekspresif, jambul rambut mencuat, dan piyama kebesaran yang membentuk siluet segitiga jenaka.",
+      "proportions": "Kartun pipih 2D bergaris tinta hitam 2px dengan kepala bulat ekspresif, jambul rambut mencuat, dan piyama kebesaran yang membentuk siluet segitiga jenaka.",
+      "facial_design": "Mata bundar besar ala kartun grafis dengan pupil kontras, alis tebal melayang, dan mulut ekspresif untuk reaksi kaget komikal.",
+      "clothing": "Jaket piyama katun ungu muda bergaris, celana rumah longgar biru tua, dan sandal jepit kos hijau limau.",
+      "wardrobe": "Jaket piyama katun ungu muda bergaris, celana rumah longgar biru tua, dan sandal jepit kos hijau limau.",
+      "materials": [
+        "flat_cel_vector_fill",
+        "crisp_ink_outline_2px"
+      ],
+      "color_palette": [
+        "#6C5CE7",
+        "#2D3436",
+        "#A8E6CF",
+        "#FFEAA7"
+      ],
+      "palette": [
+        "#6C5CE7",
+        "#2D3436",
+        "#A8E6CF",
+        "#FFEAA7"
+      ],
+      "expressions": [
+        "dramatic_gasp",
+        "suspicious_squint",
+        "aha_discovery",
+        "proud_mismatched_grin"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_2d_cutout_deform_v4",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "eye_pop_scale",
+          "brow_tilt_dramatic",
+          "mouth_viseme_swap_2d"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_2d_cutout_deform_v4",
+      "pose_requirements": [
+        "hold_single_sock_aloft",
+        "shine_flashlight_into_drum",
+        "show_off_mismatched_ankles"
+      ],
+      "action_requirements": [
+        "count_laundry_pile_frantically",
+        "peel_back_rubber_door_gasket",
+        "shake_jogger_pants_upside_down"
+      ],
+      "biography_disclaimer": "Karakter kartun fiksi orisinal penghuni kos yang ramah segala usia.",
+      "shot_appearances": [],
+      "continuity_lock": {
+        "palette_locked": [
+          "#6C5CE7",
+          "#2D3436",
+          "#A8E6CF",
+          "#FFEAA7"
+        ],
+        "proportions_locked": "Kartun pipih 2D bergaris tinta hitam 2px dengan kepala bulat ekspresif, jambul rambut mencuat, dan piyama kebesaran yang membentuk siluet segitiga jenaka.",
+        "wardrobe_locked": "Jaket piyama katun ungu muda bergaris, celana rumah longgar biru tua, dan sandal jepit kos hijau limau.",
+        "style_profile_locked": "flat_cartoon"
+      }
+    },
+    {
+      "character_id": "char_detektif_kaus",
+      "name": "Detektif Kaus Belang",
+      "role": "supporting",
+      "identity": {
+        "name": "Detektif Kaus Belang",
+        "role": "supporting",
+        "biography_disclaimer": "Ilustrasi objek kaus kaki yang dipersonifikasikan secara jenaka untuk kebutuhan komedi visual.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Ilustrasi kaus kaki rajut melengkung pipih 2D bergaris kuning-hitam dengan lipatan tumit menyerupai kerah jas detektif mungil.",
+      "proportions": "Ilustrasi kaus kaki rajut melengkung pipih 2D bergaris kuning-hitam dengan lipatan tumit menyerupai kerah jas detektif mungil.",
+      "facial_design": "Sepasang kancing jahit putih-hitam di bagian pergelangan kain yang membentuk ilusi mata mengintip jahil tanpa unsur menyeramkan.",
+      "clothing": "Motif rajut garis kuning kenari dan biru dongker dengan ujung jari kaus berwarna merah tomat.",
+      "wardrobe": "Motif rajut garis kuning kenari dan biru dongker dengan ujung jari kaus berwarna merah tomat.",
+      "materials": [
+        "flat_cel_knit_pattern_2d",
+        "crisp_ink_outline_2px"
+      ],
+      "color_palette": [
+        "#FDCB6E",
+        "#1B263B",
+        "#FF6B6B",
+        "#FFFFFF"
+      ],
+      "palette": [
+        "#FDCB6E",
+        "#1B263B",
+        "#FF6B6B",
+        "#FFFFFF"
+      ],
+      "expressions": [
+        "sneaky_peek",
+        "cozy_tucked_in",
+        "caught_busted_flop"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_2d_bendy_ribbon_v4",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "button_eye_shift_lr",
+          "cuff_fold_brow"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_2d_bendy_ribbon_v4",
+      "pose_requirements": [
+        "peek_from_rubber_gasket_fold",
+        "dangle_from_pant_cuff",
+        "paired_next_to_polkadot_sock"
+      ],
+      "action_requirements": [
+        "slip_into_washer_seal_gap",
+        "slide_out_of_pant_leg",
+        "wiggle_happy_on_foot"
+      ],
+      "biography_disclaimer": "Ilustrasi objek kaus kaki yang dipersonifikasikan secara jenaka untuk kebutuhan komedi visual.",
+      "shot_appearances": [],
+      "continuity_lock": {
+        "palette_locked": [
+          "#FDCB6E",
+          "#1B263B",
+          "#FF6B6B",
+          "#FFFFFF"
+        ],
+        "proportions_locked": "Ilustrasi kaus kaki rajut melengkung pipih 2D bergaris kuning-hitam dengan lipatan tumit menyerupai kerah jas detektif mungil.",
+        "wardrobe_locked": "Motif rajut garis kuning kenari dan biru dongker dengan ujung jari kaus berwarna merah tomat.",
+        "style_profile_locked": "flat_cartoon"
+      }
+    }
+  ],
+  "required_assets": [
+    "env_dorm_laundry_pile_2d",
+    "env_laundry_nook_chiaroscuro_2d",
+    "env_sunny_dorm_sock_drawer_2d",
+    "env_washer_gasket_cutaway_2d",
+    "font_plus_jakarta_sans_v1",
+    "prop_detective_striped_sock_card",
+    "prop_dorm_woven_rug_2d",
+    "prop_folded_bedsheet_stack",
+    "prop_frontload_washer_2d",
+    "prop_hidden_sock_xray_badge",
+    "prop_jogger_pants_cutout_2d",
+    "prop_laundry_basket_plastic",
+    "prop_mini_pocket_flashlight",
+    "prop_rubber_door_gasket_cutaway_2d",
+    "prop_single_blue_polkadot_sock",
+    "prop_single_yellow_striped_sock",
+    "prop_spinning_washer_drum_2d",
+    "prop_thirteen_socks_row",
+    "prop_wooden_sock_drawer_2d"
+  ],
+  "status_breakdown": {
+    "AVAILABLE_IN_LIBRARY_SPEC": 0,
+    "PLANNED_PROCEDURAL_GENERATION": 1,
+    "NEEDS_EXTERNAL_CC0_SEARCH": 14,
+    "NEEDS_CUSTOM_AUTHORING": 4
+  },
+  "semantic_asset_specs": [
+    {
+      "asset_id": "env_dorm_laundry_pile_2d",
+      "semantic_category": "architectural_interior",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S007",
+        "S008",
+        "S009",
+        "S010"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_dorm_laundry_pile_2d' (architectural_interior) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_architectural_interior",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_laundry_nook_chiaroscuro_2d",
+      "semantic_category": "architectural_interior",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_laundry_nook_chiaroscuro_2d' (architectural_interior) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_architectural_interior",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_sunny_dorm_sock_drawer_2d",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S011",
+        "S012"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_sunny_dorm_sock_drawer_2d' (exterior_environment) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "remotion",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_washer_gasket_cutaway_2d",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S003",
+        "S004",
+        "S005",
+        "S006"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_washer_gasket_cutaway_2d' (exterior_environment) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "remotion",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "font_plus_jakarta_sans_v1",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S007",
+        "S008",
+        "S009",
+        "S010",
+        "S011",
+        "S012"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'font_plus_jakarta_sans_v1' (household_prop) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_detective_striped_sock_card",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S009",
+        "S010"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_detective_striped_sock_card' (household_prop) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_dorm_woven_rug_2d",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S012"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_dorm_woven_rug_2d' (household_prop) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_folded_bedsheet_stack",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S007",
+        "S008"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_folded_bedsheet_stack' (household_prop) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_frontload_washer_2d",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_frontload_washer_2d' (household_prop) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_hidden_sock_xray_badge",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S007",
+        "S008"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_hidden_sock_xray_badge' (household_prop) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_jogger_pants_cutout_2d",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S007",
+        "S008",
+        "S009",
+        "S010"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_jogger_pants_cutout_2d' (household_prop) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_laundry_basket_plastic",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_laundry_basket_plastic' (household_prop) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_mini_pocket_flashlight",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S002",
+        "S005",
+        "S006"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_mini_pocket_flashlight' (household_prop) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_rubber_door_gasket_cutaway_2d",
+      "semantic_category": "scientific_cutaway_device",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S003",
+        "S004",
+        "S005",
+        "S006"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_rubber_door_gasket_cutaway_2d' (scientific_cutaway_device) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 0.95,
+        "depth_m": 0.45,
+        "height_m": 0.65
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_scientific_cutaway_device",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "hinged_cutaway_casing_and_flow_empties",
+      "animation_requirement": "fluid_or_thermal_phase_state_transition",
+      "engine_compatibility": [
+        "remotion",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_single_blue_polkadot_sock",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S011",
+        "S012"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_single_blue_polkadot_sock' (household_prop) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_single_yellow_striped_sock",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S002",
+        "S011",
+        "S012"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_single_yellow_striped_sock' (household_prop) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_spinning_washer_drum_2d",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S003",
+        "S004"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_spinning_washer_drum_2d' (household_prop) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_thirteen_socks_row",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_thirteen_socks_row' (household_prop) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "remotion"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_wooden_sock_drawer_2d",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S011"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_wooden_sock_drawer_2d' (household_prop) matching 'flat_cartoon'."
+      },
+      "visual_style": {
+        "style_profile": "flat_cartoon",
+        "style_bible_id": "xdx_flat_cartoon_v4_0",
+        "detail_tier": "clean_silhouette_graphic_shapes"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "flat_cel_ink_outline_2px",
+        "primary_material_preset": "mat_flat_cartoon_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'flat_cartoon' Global Style Bible"
+      ]
+    }
+  ]
+}

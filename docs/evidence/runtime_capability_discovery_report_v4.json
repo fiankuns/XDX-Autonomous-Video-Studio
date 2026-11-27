@@ -1,0 +1,393 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "runtime_identity": {
+    "adapter_type": "antigravity",
+    "hostname": "devbox",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "python_version": "3.12.16",
+    "workspace_root": "/home/antigravity/fiankuns/XDX-Autonomous-Video-Studio"
+  },
+  "adapters_probed": {
+    "antigravity": {
+      "detected": true,
+      "is_remote_devbox": true,
+      "jetski_appdata_present": true,
+      "agy_cli_binary": null,
+      "python_can_introspect_host_llm_tools_directly": false
+    },
+    "codex": {
+      "detected": false,
+      "env_markers_present": [],
+      "codex_cli_binary": null,
+      "python_can_introspect_host_llm_tools_directly": false
+    }
+  },
+  "capability_evidence_status": {
+    "evidence_file": "docs/evidence/runtime_capability_evidence_v4.json",
+    "present": true,
+    "is_stale": false,
+    "stale_reason": null,
+    "live_verified_count": 2
+  },
+  "capabilities": {
+    "host_tool:invoke_subagent": {
+      "status": "LIVE_INVOCATION_VERIFIED",
+      "runtime_capability_status": "UNKNOWN_DIRECT_PYTHON_INTROSPECTION",
+      "documentation_status": "HOST_DOCUMENTED",
+      "live_invocation_evidence": {
+        "verified": true,
+        "invocation_id": "RCPT-657b6a323cf1",
+        "conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+        "timestamp_utc": "2026-11-27T20:13:56.103481+00:00",
+        "is_stale": false
+      },
+      "verification_method": "phase01_6c_live_native_subagents_8_specialists_and_verifier",
+      "invocation_id": "RCPT-657b6a323cf1",
+      "conversation_id": "c79ed6ebdcece7b37688875f35f93796",
+      "timestamp_utc": "2026-11-27T20:13:56.103481+00:00"
+    },
+    "host_tool:define_subagent": {
+      "status": "DOCUMENTED_CAPABILITY",
+      "runtime_capability_status": "UNKNOWN",
+      "documentation_status": "HOST_DOCUMENTED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null,
+        "conversation_id": null,
+        "timestamp_utc": null,
+        "is_stale": false
+      },
+      "verification_method": "antigravity_host_docs_present_no_fresh_live_receipt",
+      "invocation_id": null,
+      "conversation_id": null,
+      "note": "Host markers match Antigravity docs, but live receipt is absent or stale."
+    },
+    "host_tool:send_message": {
+      "status": "DOCUMENTED_CAPABILITY",
+      "runtime_capability_status": "UNKNOWN",
+      "documentation_status": "HOST_DOCUMENTED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null,
+        "conversation_id": null,
+        "timestamp_utc": null,
+        "is_stale": false
+      },
+      "verification_method": "antigravity_host_docs_present_no_fresh_live_receipt",
+      "invocation_id": null,
+      "conversation_id": null,
+      "note": "Host markers match Antigravity docs, but live receipt is absent or stale."
+    },
+    "host_tool:manage_subagents": {
+      "status": "DOCUMENTED_CAPABILITY",
+      "runtime_capability_status": "UNKNOWN",
+      "documentation_status": "HOST_DOCUMENTED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null,
+        "conversation_id": null,
+        "timestamp_utc": null,
+        "is_stale": false
+      },
+      "verification_method": "antigravity_host_docs_present_no_fresh_live_receipt",
+      "invocation_id": null,
+      "conversation_id": null,
+      "note": "Host markers match Antigravity docs, but live receipt is absent or stale."
+    },
+    "workspace_config:custom_subagents_md": {
+      "status": "CONFIGURED_CAPABILITY",
+      "runtime_capability_status": "CONFIGURED_CAPABILITY",
+      "documentation_status": "WORKSPACE_CONFIGURED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null
+      },
+      "verification_method": "disk_yaml_frontmatter_schema_validated",
+      "count": 10
+    },
+    "workspace_config:skills_md": {
+      "status": "CONFIGURED_CAPABILITY",
+      "runtime_capability_status": "CONFIGURED_CAPABILITY",
+      "documentation_status": "WORKSPACE_CONFIGURED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null
+      },
+      "verification_method": "disk_yaml_frontmatter_schema_validated",
+      "count": 4
+    },
+    "workspace_config:rules_md": {
+      "status": "CONFIGURED_CAPABILITY",
+      "runtime_capability_status": "CONFIGURED_CAPABILITY",
+      "documentation_status": "WORKSPACE_CONFIGURED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null
+      },
+      "verification_method": "disk_yaml_frontmatter_schema_validated",
+      "count": 3
+    },
+    "workspace_config:lifecycle_hooks_json": {
+      "status": "UNAVAILABLE",
+      "runtime_capability_status": "UNAVAILABLE",
+      "documentation_status": "SCHEDULED_PHASE_01_6D",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null
+      },
+      "verification_method": "filesystem_probe"
+    },
+    "workspace_mode:inherit": {
+      "status": "LIVE_INVOCATION_VERIFIED",
+      "runtime_capability_status": "UNKNOWN_DIRECT_PYTHON_INTROSPECTION",
+      "documentation_status": "HOST_DOCUMENTED",
+      "live_invocation_evidence": {
+        "verified": true,
+        "invocation_id": "RCPT-88c5fd1ed840",
+        "conversation_id": "79297c7c2b6cfb965b66a31089b67c5e",
+        "timestamp_utc": "2026-11-27T20:13:56.103481+00:00",
+        "is_stale": false
+      },
+      "verification_method": "phase01_6c_concurrent_inherit_workspace_execution",
+      "invocation_id": "RCPT-88c5fd1ed840"
+    },
+    "workspace_mode:branch_git_worktree": {
+      "status": "BLOCKED",
+      "runtime_capability_status": "BLOCKED",
+      "documentation_status": "HOST_POLICY_BLOCKED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null
+      },
+      "verification_method": "remote_devbox_sandbox_policy"
+    },
+    "workspace_mode:share": {
+      "status": "BLOCKED",
+      "runtime_capability_status": "BLOCKED",
+      "documentation_status": "HOST_POLICY_BLOCKED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null
+      },
+      "verification_method": "remote_devbox_sandbox_policy"
+    },
+    "runtime:sqlite3_wal": {
+      "status": "DETECTED_CAPABILITY",
+      "runtime_capability_status": "DETECTED_CAPABILITY",
+      "documentation_status": "RUNTIME_PROBED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null
+      },
+      "verification_method": "python_stdlib_sqlite3_probe"
+    },
+    "runtime:git_lfs": {
+      "status": "DETECTED_CAPABILITY",
+      "runtime_capability_status": "DETECTED_CAPABILITY",
+      "documentation_status": "RUNTIME_PROBED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null
+      },
+      "verification_method": "shutil_which_and_lfs_verify",
+      "binary": "/usr/bin/git-lfs"
+    },
+    "runtime:ffmpeg": {
+      "status": "DETECTED_CAPABILITY",
+      "runtime_capability_status": "DETECTED_CAPABILITY",
+      "documentation_status": "RUNTIME_PROBED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null
+      },
+      "verification_method": "subprocess_ffmpeg_version_probe"
+    },
+    "runtime:threejs_v0_187": {
+      "status": "DETECTED_CAPABILITY",
+      "runtime_capability_status": "DETECTED_CAPABILITY",
+      "documentation_status": "RUNTIME_PROBED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null
+      },
+      "verification_method": "node_package_probe"
+    },
+    "runtime:remotion_v4": {
+      "status": "DETECTED_CAPABILITY",
+      "runtime_capability_status": "DETECTED_CAPABILITY",
+      "documentation_status": "RUNTIME_PROBED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null
+      },
+      "verification_method": "node_package_probe"
+    },
+    "runtime:chromium_headless": {
+      "status": "DETECTED_CAPABILITY",
+      "runtime_capability_status": "DETECTED_CAPABILITY",
+      "documentation_status": "RUNTIME_PROBED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null
+      },
+      "verification_method": "shutil_which",
+      "binary": "/usr/bin/google-chrome"
+    },
+    "runtime:local_desktop_blender": {
+      "status": "UNAVAILABLE",
+      "runtime_capability_status": "UNAVAILABLE",
+      "documentation_status": "RUNTIME_PROBED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null
+      },
+      "verification_method": "shutil_which",
+      "binary": null
+    },
+    "runtime:live_vivo_x200_pro_blender_mcp": {
+      "status": "UNAVAILABLE",
+      "runtime_capability_status": "UNAVAILABLE",
+      "documentation_status": "RUNTIME_PROBED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null
+      },
+      "verification_method": "xdx_mcp_readonly_health_probe"
+    },
+    "runtime:agy_cli_in_vm": {
+      "status": "UNAVAILABLE",
+      "runtime_capability_status": "UNAVAILABLE",
+      "documentation_status": "RUNTIME_PROBED",
+      "live_invocation_evidence": {
+        "verified": false,
+        "invocation_id": null
+      },
+      "verification_method": "shutil_which",
+      "binary": null
+    }
+  },
+  "capabilities_by_status": {
+    "DOCUMENTED_CAPABILITY": [
+      "host_tool:define_subagent",
+      "host_tool:manage_subagents",
+      "host_tool:send_message"
+    ],
+    "CONFIGURED_CAPABILITY": [
+      "workspace_config:custom_subagents_md",
+      "workspace_config:rules_md",
+      "workspace_config:skills_md"
+    ],
+    "DETECTED_CAPABILITY": [
+      "runtime:chromium_headless",
+      "runtime:ffmpeg",
+      "runtime:git_lfs",
+      "runtime:remotion_v4",
+      "runtime:sqlite3_wal",
+      "runtime:threejs_v0_187"
+    ],
+    "LIVE_INVOCATION_VERIFIED": [
+      "host_tool:invoke_subagent",
+      "workspace_mode:inherit"
+    ],
+    "UNAVAILABLE": [
+      "runtime:agy_cli_in_vm",
+      "runtime:live_vivo_x200_pro_blender_mcp",
+      "runtime:local_desktop_blender",
+      "workspace_config:lifecycle_hooks_json"
+    ],
+    "UNKNOWN": [],
+    "BLOCKED": [
+      "workspace_mode:branch_git_worktree",
+      "workspace_mode:share"
+    ]
+  },
+  "antigravity_native_multi_agent": {
+    "python_direct_tool_introspection": false,
+    "host_documentation_applicable": true,
+    "workspace_modes": {
+      "inherit": "SUPPORTED_AND_VERIFIED",
+      "branch_git_worktree": "BLOCKED",
+      "share": "BLOCKED"
+    },
+    "custom_workspace_customizations": {
+      "roles_validated": 21,
+      "custom_agent_files_validated": [
+        "xdx-audio-caption-specialist",
+        "xdx-character-art-director",
+        "xdx-creative-scriptwriter",
+        "xdx-hybrid-production-engineer",
+        "xdx-master-director",
+        "xdx-preproduction-verifier",
+        "xdx-rea-reference-analyst",
+        "xdx-storyboard-cinematographer",
+        "xdx-topic-researcher",
+        "xdx-visual-technical-success-auditor"
+      ],
+      "workspace_skills_validated": [
+        "xdx-independent-audit",
+        "xdx-master-orchestration",
+        "xdx-preproduction-planning",
+        "xdx-reference-intelligence"
+      ],
+      "workspace_rules_validated": [
+        "xdx-blender-mcp-safety.md",
+        "xdx-core-governance.md",
+        "xdx-independent-verification.md"
+      ]
+    },
+    "lifecycle_hooks_json_configured": false,
+    "workspace_mcp_config_present": false
+  },
+  "model_routing": {
+    "session_orchestrator_documented": {
+      "status": "DOCUMENTED_CAPABILITY",
+      "documentation_status": "HOST_DOCUMENTED",
+      "planner": "Gemini 4 Neon (Google AI Pro/Ultra) or Gemini 4 Carbon (Enterprise)",
+      "executor": "Gemini 4 Hydrogen"
+    },
+    "subagent_tool_model_enum_documented": [
+      "inherit",
+      "flash_lite",
+      "flash",
+      "pro"
+    ],
+    "active_subagent_default": "inherit"
+  },
+  "xdx_mcp_status": {
+    "discovery_source": "in_process_protocol_only_not_live_device",
+    "server_reachable_live": false,
+    "relay_device_connected": false,
+    "verification_tiers": {
+      "source_code_discovery": true,
+      "in_process_protocol_test": true,
+      "local_http_integration_test": false,
+      "live_remote_relay_reachable": false,
+      "live_android_blender_connected": false,
+      "actual_visual_feedback_verified": false
+    },
+    "scene_mutated": false
+  },
+  "reference_database": {
+    "verified_references": [
+      {
+        "id": "REF-001",
+        "sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
+        "bytes": 27026130,
+        "profile_id": "satirical_3d_vignette_storytelling_v1",
+        "status": "VERIFIED"
+      },
+      {
+        "id": "REF-002",
+        "sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+        "bytes": 38669358,
+        "profile_id": "hosted_3d_explainer_cutaway_v1",
+        "status": "VERIFIED"
+      }
+    ],
+    "registered_profiles": [
+      "hosted_3d_explainer_cutaway_v1",
+      "satirical_3d_vignette_storytelling_v1"
+    ],
+    "production_authorized": false
+  }
+}

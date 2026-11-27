@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import os
 import subprocess
 import sys
 import unittest
@@ -16,7 +17,10 @@ from adapters.xdx_mcp_adapter import (
     XDXBlenderMCPAdapter,
 )
 
-BLENDER_STUDIO_REPO = Path("/home/antigravity/fiankuns/xdx-blender-studio")
+ROOT_DIR = Path(__file__).resolve().parent.parent
+BLENDER_STUDIO_REPO = Path(
+    os.environ.get("XDX_BLENDER_STUDIO_REPO", str(ROOT_DIR.parent / "xdx-blender-studio"))
+)
 EXPECTED_8_TOOLS = {
     "get_mobile_device_profile",
     "get_scene_info",
@@ -40,8 +44,11 @@ class CrossProjectMCPDiscoveryTests(unittest.IsolatedAsyncioTestCase):
         report = await adapter.discover_capabilities_readonly()
 
         self.assertFalse(report.scene_mutated)
-        self.assertEqual({t["name"] for t in report.tools}, EXPECTED_8_TOOLS)
-        self.assertEqual({r["uri"] for r in report.resources}, EXPECTED_3_RESOURCES)
+        if (BLENDER_STUDIO_REPO / "src" / "xdx_blender_studio" / "mcp_protocol.py").is_file():
+            self.assertEqual({t["name"] for t in report.tools}, EXPECTED_8_TOOLS)
+            self.assertEqual({r["uri"] for r in report.resources}, EXPECTED_3_RESOURCES)
+        else:
+            self.assertEqual(report.discovery_source, "unavailable")
 
         for tool_name in SCENE_OR_CONFIG_MUTATING_TOOLS:
             with self.assertRaises(MCPSceneMutationBlockedError):
@@ -52,6 +59,12 @@ class CrossProjectMCPDiscoveryTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_live_streamable_http_cross_project_discovery_without_touching_repo(self) -> None:
         src_dir = BLENDER_STUDIO_REPO / "src"
+        if not (src_dir / "xdx_blender_studio" / "server.py").is_file():
+            adapter = XDXBlenderMCPAdapter(blender_studio_repo=BLENDER_STUDIO_REPO, read_only=True)
+            report = await adapter.discover_capabilities_readonly()
+            self.assertFalse(report.server_reachable_live)
+            self.assertFalse(report.scene_mutated)
+            return
         added = False
         if str(src_dir) not in sys.path:
             sys.path.insert(0, str(src_dir))

@@ -1,0 +1,1666 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_b_birokrasi_satir_60s",
+  "procurement_or_modeling_executed": false,
+  "style_bible": {
+    "schema_version": "4.0.0-phase01.6c",
+    "project_id": "bench_b_birokrasi_satir_60s",
+    "style_profile": "diorama",
+    "style_bible_id": "xdx_stylized_diorama_v4_0",
+    "display_name": "Tactile Miniature Architectural Diorama",
+    "supported_profiles_available": [
+      "2d_animation",
+      "anime_inspired",
+      "diorama",
+      "flat_cartoon",
+      "infographic",
+      "mixed_media",
+      "realistic",
+      "stylized_3d"
+    ],
+    "forced_from_ref001_or_ref002": false,
+    "reference_ids_consulted": [
+      "REF-001"
+    ],
+    "shading_model": "pbr_miniature_tiltshift_acescg",
+    "color_space": "ACEScg_rec709_view",
+    "palette_mood": "warm_tungsten_and_daylight_contrast",
+    "cross_asset_consistency_contract": {
+      "detail_tier": "crafted_miniature_architectural_detail",
+      "character_detail_tier": "crafted_miniature_architectural_detail",
+      "environment_detail_tier": "crafted_miniature_architectural_detail",
+      "prop_detail_tier": "crafted_miniature_architectural_detail",
+      "material_cohesion_rule": "Matte clay/wood/brushed-metal miniature finish; consistent bevel scale across rooms, characters, and props.",
+      "anti_placeholder_rule": "Zero untextured greybox cubes or mismatched shader models permitted."
+    },
+    "modeling_executed_in_phase_01_6c": false
+  },
+  "characters": [
+    {
+      "character_id": "char_damar_pemohon",
+      "name": "Damar",
+      "role": "hero",
+      "identity": {
+        "name": "Damar",
+        "role": "hero",
+        "biography_disclaimer": "Tokoh fiksi satir sosial orisinal XDX Studio; tidak merepresentasikan warga atau individu nyata tertentu.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Siluet warga muda rapi bergaya boneka diorama pahatan halus setinggi 5.8 kepala, bahu tegak penuh harapan di pagi hari yang perlahan condong menahan menara map di sore hari.",
+      "proportions": "Siluet warga muda rapi bergaya boneka diorama pahatan halus setinggi 5.8 kepala, bahu tegak penuh harapan di pagi hari yang perlahan condong menahan menara map di sore hari.",
+      "facial_design": "Wajah ramah bertekstur clay matte hangat, alis tebal mudah melengkung bingung, kantung mata tipis yang muncul halus di babak akhir, dan senyum sopan menahan pasrah.",
+      "clothing": "Kemeja flanel hijau zaitun berlengan gulung siku, kaus dalam krem, celana panjang katun cokelat tua, sepatu pantofel kasual kulit matte, dan tas selempang kanvas.",
+      "wardrobe": "Kemeja flanel hijau zaitun berlengan gulung siku, kaus dalam krem, celana panjang katun cokelat tua, sepatu pantofel kasual kulit matte, dan tas selempang kanvas.",
+      "materials": [
+        "tactile_matte_polymer_clay_skin",
+        "woven_miniature_cotton_flannel",
+        "brushed_canvas_strap"
+      ],
+      "color_palette": [
+        "#556B45",
+        "#EFE6D5",
+        "#4A3B31",
+        "#2F6FB2"
+      ],
+      "palette": [
+        "#556B45",
+        "#EFE6D5",
+        "#4A3B31",
+        "#2F6FB2"
+      ],
+      "expressions": [
+        "optimistic_morning_smile",
+        "polite_disbelief",
+        "bewildered_squint",
+        "ironic_thousand_yard_smile"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_biped_diorama_v4_ik_arms_spine_load_visemes",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "jaw_viseme_driver",
+          "brow_asymmetry_confused",
+          "eyelid_droop_fatigue",
+          "polite_grimace_blend"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_biped_diorama_v4_ik_arms_spine_load_visemes",
+      "pose_requirements": [
+        "holding_single_thin_blue_folder",
+        "balancing_towering_rainbow_folders",
+        "peering_under_glass_partition"
+      ],
+      "action_requirements": [
+        "menyodorkan satu map biru tipis lewat celah bawah kaca loket",
+        "menyeimbangkan tumpukan map warna-warni dengan dagu saat berjalan antar loket",
+        "menatap lembar surat baru sambil melirik jam dinding sore"
+      ],
+      "biography_disclaimer": "Tokoh fiksi satir sosial orisinal XDX Studio; tidak merepresentasikan warga atau individu nyata tertentu.",
+      "shot_appearances": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S007",
+        "S008",
+        "S009",
+        "S010",
+        "S011",
+        "S012",
+        "S013",
+        "S014",
+        "S015",
+        "S016",
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ],
+      "continuity_lock": {
+        "palette_locked": [
+          "#556B45",
+          "#EFE6D5",
+          "#4A3B31",
+          "#2F6FB2"
+        ],
+        "proportions_locked": "Siluet warga muda rapi bergaya boneka diorama pahatan halus setinggi 5.8 kepala, bahu tegak penuh harapan di pagi hari yang perlahan condong menahan menara map di sore hari.",
+        "wardrobe_locked": "Kemeja flanel hijau zaitun berlengan gulung siku, kaus dalam krem, celana panjang katun cokelat tua, sepatu pantofel kasual kulit matte, dan tas selempang kanvas.",
+        "style_profile_locked": "diorama"
+      }
+    },
+    {
+      "character_id": "char_bu_rantih_loket",
+      "name": "Bu Rantih",
+      "role": "supporting",
+      "identity": {
+        "name": "Bu Rantih",
+        "role": "supporting",
+        "biography_disclaimer": "Tokoh petugas loket fiksi orisinal XDX Studio; tidak merujuk pada aparatur atau instansi nyata tertentu.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Siluet petugas administrasi duduk tegak presisi bergaya diorama miniatur setinggi 5.6 kepala, sanggul rapi simetris dan gerakan tangan ritmis secepat mesin saat meraih stempel.",
+      "proportions": "Siluet petugas administrasi duduk tegak presisi bergaya diorama miniatur setinggi 5.6 kepala, sanggul rapi simetris dan gerakan tangan ritmis secepat mesin saat meraih stempel.",
+      "facial_design": "Wajah tenang deadpan bertekstur clay halus, kacamata baca setengah bingkai dengan rantai manik emas kecil, tatapan fokus tanpa emosi berlebih namun tetap sopan.",
+      "clothing": "Blazer seragam pelayanan warna krem pasir berkerah cokelat marun, blus putih rapi, dan papan nama kuningan mungil bertuliskan 'LOKET 01'.",
+      "wardrobe": "Blazer seragam pelayanan warna krem pasir berkerah cokelat marun, blus putih rapi, dan papan nama kuningan mungil bertuliskan 'LOKET 01'.",
+      "materials": [
+        "tactile_matte_polymer_clay_skin",
+        "miniature_tailored_wool_blend",
+        "brushed_brass_nameplate_and_chain"
+      ],
+      "color_palette": [
+        "#D8C5A8",
+        "#6E2E2A",
+        "#FAF7F2",
+        "#C89D54"
+      ],
+      "palette": [
+        "#D8C5A8",
+        "#6E2E2A",
+        "#FAF7F2",
+        "#C89D54"
+      ],
+      "expressions": [
+        "serene_deadpan_neutral",
+        "glasses_peek_inspection",
+        "rhythmic_stamping_focus",
+        "polite_procedural_smile"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_biped_diorama_v4_precision_hand_stamp_visemes",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "jaw_viseme_driver",
+          "glasses_slip_offset",
+          "subtle_brow_raise",
+          "deadpan_lip_press"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_biped_diorama_v4_precision_hand_stamp_visemes",
+      "pose_requirements": [
+        "seated_counter_posture",
+        "pointing_checklist_with_pen",
+        "double_handed_hierarchical_stamp"
+      ],
+      "action_requirements": [
+        "memeriksa map tipis dari balik kacamata baca",
+        "menunjuk daftar persyaratan berantai dengan ujung pulpen pegas",
+        "menghantamkan stempel kayu bertingkat ke atas bundel surat pengantar dengan presisi"
+      ],
+      "biography_disclaimer": "Tokoh petugas loket fiksi orisinal XDX Studio; tidak merujuk pada aparatur atau instansi nyata tertentu.",
+      "shot_appearances": [],
+      "continuity_lock": {
+        "palette_locked": [
+          "#D8C5A8",
+          "#6E2E2A",
+          "#FAF7F2",
+          "#C89D54"
+        ],
+        "proportions_locked": "Siluet petugas administrasi duduk tegak presisi bergaya diorama miniatur setinggi 5.6 kepala, sanggul rapi simetris dan gerakan tangan ritmis secepat mesin saat meraih stempel.",
+        "wardrobe_locked": "Blazer seragam pelayanan warna krem pasir berkerah cokelat marun, blus putih rapi, dan papan nama kuningan mungil bertuliskan 'LOKET 01'.",
+        "style_profile_locked": "diorama"
+      }
+    }
+  ],
+  "required_assets": [
+    "env_diorama_adjacent_counters_hall",
+    "env_diorama_civic_waiting_hall",
+    "env_diorama_counter_window_closeup",
+    "env_diorama_photocopy_and_color_folders",
+    "font_plus_jakarta_sans_v1",
+    "prop_accordion_requirement_checklist",
+    "prop_adjacent_counter_signs_01_02",
+    "prop_branching_letter_flowchart_sign",
+    "prop_counter_desktop_monitor_ktp",
+    "prop_expired_queue_ticket_clock",
+    "prop_final_single_certificate_sheet",
+    "prop_glass_counter_partition",
+    "prop_miniature_photocopier_machine",
+    "prop_overloaded_paper_trolley",
+    "prop_photocopy_stack_ktp",
+    "prop_queue_number_dispenser",
+    "prop_rainbow_folder_tower",
+    "prop_rolling_office_chair_diorama",
+    "prop_single_blue_thin_folder",
+    "prop_spring_coil_ballpoint",
+    "prop_stamp_for_intro_letter",
+    "prop_triple_tier_wooden_stamp_rack",
+    "prop_violet_ink_pad",
+    "prop_wall_clock_morning"
+  ],
+  "status_breakdown": {
+    "AVAILABLE_IN_LIBRARY_SPEC": 0,
+    "PLANNED_PROCEDURAL_GENERATION": 2,
+    "NEEDS_EXTERNAL_CC0_SEARCH": 18,
+    "NEEDS_CUSTOM_AUTHORING": 5
+  },
+  "semantic_asset_specs": [
+    {
+      "asset_id": "char_damar_pemohon",
+      "semantic_category": "hero_character",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S001",
+        "S002",
+        "S002",
+        "S003",
+        "S003",
+        "S004",
+        "S004",
+        "S005",
+        "S005",
+        "S006",
+        "S006",
+        "S007",
+        "S007",
+        "S008",
+        "S008",
+        "S009",
+        "S009",
+        "S010",
+        "S010",
+        "S011",
+        "S011",
+        "S012",
+        "S012",
+        "S013",
+        "S013",
+        "S014",
+        "S014",
+        "S015",
+        "S015",
+        "S016",
+        "S016",
+        "S017",
+        "S017",
+        "S018",
+        "S018",
+        "S019",
+        "S019",
+        "S020",
+        "S020"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'char_damar_pemohon' (hero_character) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.52,
+        "depth_m": 0.34,
+        "height_m": 1.68
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_hero_character",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "humanoid_fk_ik_and_facial_visemes",
+      "animation_requirement": "grounded_locomotion_gesture_and_speech",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_diorama_adjacent_counters_hall",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S013",
+        "S014",
+        "S015",
+        "S016"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_diorama_adjacent_counters_hall' (exterior_environment) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_diorama_civic_waiting_hall",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_diorama_civic_waiting_hall' (exterior_environment) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_diorama_counter_window_closeup",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S005",
+        "S006",
+        "S007",
+        "S008"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_diorama_counter_window_closeup' (exterior_environment) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_diorama_photocopy_and_color_folders",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S009",
+        "S010",
+        "S011",
+        "S012"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_diorama_photocopy_and_color_folders' (exterior_environment) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "font_plus_jakarta_sans_v1",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S007",
+        "S008",
+        "S009",
+        "S010",
+        "S011",
+        "S012",
+        "S013",
+        "S014",
+        "S015",
+        "S016",
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'font_plus_jakarta_sans_v1' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_accordion_requirement_checklist",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S005",
+        "S006"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_accordion_requirement_checklist' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_adjacent_counter_signs_01_02",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S013",
+        "S014"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_adjacent_counter_signs_01_02' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_branching_letter_flowchart_sign",
+      "semantic_category": "diagram_callout_3d",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S007",
+        "S008"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 2,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_branching_letter_flowchart_sign' (diagram_callout_3d) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_diagram_callout_3d",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_counter_desktop_monitor_ktp",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S011",
+        "S012"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_counter_desktop_monitor_ktp' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_expired_queue_ticket_clock",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S017",
+        "S018"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_expired_queue_ticket_clock' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_final_single_certificate_sheet",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S019",
+        "S020"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_final_single_certificate_sheet' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_glass_counter_partition",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S003",
+        "S004",
+        "S007",
+        "S008"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_glass_counter_partition' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_miniature_photocopier_machine",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S009",
+        "S010"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_miniature_photocopier_machine' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_overloaded_paper_trolley",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S003",
+        "S004"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_overloaded_paper_trolley' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_photocopy_stack_ktp",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S009",
+        "S010",
+        "S011",
+        "S012"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_photocopy_stack_ktp' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_queue_number_dispenser",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_queue_number_dispenser' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_rainbow_folder_tower",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S009",
+        "S010",
+        "S011",
+        "S012",
+        "S013",
+        "S014",
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_rainbow_folder_tower' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_rolling_office_chair_diorama",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S013",
+        "S014"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_rolling_office_chair_diorama' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_single_blue_thin_folder",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_single_blue_thin_folder' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_spring_coil_ballpoint",
+      "semantic_category": "scientific_cutaway_device",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S005",
+        "S006"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_spring_coil_ballpoint' (scientific_cutaway_device) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.95,
+        "depth_m": 0.45,
+        "height_m": 0.65
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_scientific_cutaway_device",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "hinged_cutaway_casing_and_flow_empties",
+      "animation_requirement": "fluid_or_thermal_phase_state_transition",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_stamp_for_intro_letter",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S015",
+        "S016"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_stamp_for_intro_letter' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_triple_tier_wooden_stamp_rack",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S015",
+        "S016"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_triple_tier_wooden_stamp_rack' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_violet_ink_pad",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S015",
+        "S016"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_violet_ink_pad' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_wall_clock_morning",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_wall_clock_morning' (household_prop) matching 'diorama'."
+      },
+      "visual_style": {
+        "style_profile": "diorama",
+        "style_bible_id": "xdx_stylized_diorama_v4_0",
+        "detail_tier": "crafted_miniature_architectural_detail"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_miniature_tiltshift_acescg",
+        "primary_material_preset": "mat_diorama_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'diorama' Global Style Bible"
+      ]
+    }
+  ]
+}

@@ -101,13 +101,18 @@ def cmd_validate_all() -> int:
     agent_reg = AgentRegistry()
     agent_cust = agent_reg.validate_workspace_customizations()
 
+    from orchestration.defect_registry import MasterAuditDefectRegistry
+
+    defect_summary = MasterAuditDefectRegistry().summary()
+
     print(
         json.dumps(
             {
                 "status": "VALIDATED",
-                "studio_version": "4.0.0-alpha.2",
+                "studio_version": "4.0.0-alpha.3-phase01.6c",
                 "schemas_checked": len(list(schemas_dir.glob("*.schema.json"))),
-                "registries_checked": 6 if agent_reg_file.is_file() else 5,
+                "registries_checked": 7 if agent_reg_file.is_file() else 6,
+                "master_audit_defect_registry": defect_summary,
                 "preset_libraries": libs.summary_stats(),
                 "reference_database_verified": verified_refs,
                 "multi_agent_foundation": agent_cust,
@@ -173,7 +178,22 @@ def cmd_plan(args: argparse.Namespace) -> int:
         authored_payload=authored,
         reference_ids=args.ref_ids,
         include_related_references=args.include_related_refs,
+        return_status_on_missing_payload=True,
     )
+    if res["status"] == "CREATIVE_PAYLOAD_REQUIRED":
+        print(
+            json.dumps(
+                {
+                    "status": "CREATIVE_PAYLOAD_REQUIRED",
+                    "project_id": args.project_id,
+                    "topic": args.topic,
+                    "output_dir": str(args.out),
+                    "note": "Authored creative payload required — sample showcase fallback has been removed in Phase 01.6C.",
+                },
+                indent=2,
+            )
+        )
+        return 2
     print(
         json.dumps(
             {

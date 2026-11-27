@@ -1,0 +1,181 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_a_ac_explainer_60s",
+  "topic_title": "Bagaimana AC Mendinginkan Ruangan?",
+  "genres": [
+    "explainer",
+    "edukasi"
+  ],
+  "epistemic_mode": "factual_verified",
+  "research_status": "VERIFIED_COMPLETE",
+  "topic_scope": "Mekanisme termodinamika siklus kompresi uap pada AC split rumah tangga\u2014meliputi evaporator, perubahan fase refrigeran, kompresor, kondensor, katup ekspansi, kalor laten pengembunan uap air, dan efisiensi pengaturan suhu termostat\u2014dalam format explainer 3D berdurasi 60 detik.",
+  "research_questions": [
+    "Bagaimana AC mendinginkan ruangan tertutup tanpa mengambil udara segar dari luar bangunan?",
+    "Mengapa perubahan fase cair-ke-uap refrigeran serta kerja kompresor dan katup ekspansi mampu memindahkan kalor melawan gradien suhu?",
+    "Mengapa menurunkan setelan remot ke 16 derajat Celsius tidak mempercepat laju pendinginan awal ruangan?"
+  ],
+  "verified_factual_claims": [
+    {
+      "claim_id": "CLM_01",
+      "statement": "Sistem AC mendinginkan ruangan dengan menarik udara hangat kamar melewati kumparan evaporator dingin berisi refrigeran yang menyerap kalor saat menguap dari cair menjadi gas.",
+      "epistemic_status": "verified_fact",
+      "source_title": "U.S. Department of Energy \u2014 Energy Saver: Air Conditioning",
+      "source_url": "https://www.energy.gov/energysaver/air-conditioning",
+      "publication_date": "2024-06",
+      "evidence_excerpt": "Air conditioners transfer heat from the indoor air to the outdoors via an indoor evaporator coil filled with cold evaporating refrigerant."
+    },
+    {
+      "claim_id": "CLM_02",
+      "statement": "Kompresor pada unit luar memampatkan gas refrigeran bertekanan rendah menjadi gas bersuhu dan bertekanan tinggi sehingga kalornya dapat dilepaskan ke udara luar melalui sirip kondensor.",
+      "epistemic_status": "verified_fact",
+      "source_title": "Encyclopaedia Britannica \u2014 Air-conditioning: Principles of Operation",
+      "source_url": "https://www.britannica.com/technology/air-conditioning",
+      "publication_date": "2024-08",
+      "evidence_excerpt": "In vapor-compression air conditioning, the compressor raises refrigerant vapor pressure and temperature so the outdoor condenser coil rejects heat to ambient air."
+    },
+    {
+      "claim_id": "CLM_03",
+      "statement": "Katup ekspansi menurunkan tekanan cairan refrigeran secara mendadak setelah keluar dari kondensor, menjatuhkan titik didih dan suhunya secara drastis sebelum masuk kembali ke evaporator.",
+      "epistemic_status": "verified_fact",
+      "source_title": "National Institute of Standards and Technology (NIST) \u2014 Thermophysical Properties of Fluid Systems",
+      "source_url": "https://webbook.nist.gov/chemistry/fluid/",
+      "publication_date": "2023-11",
+      "evidence_excerpt": "Isenthalpic throttling across an expansion device drops refrigerant pressure and saturation temperature simultaneously, producing a cold two-phase mixture."
+    },
+    {
+      "claim_id": "CLM_04",
+      "statement": "Selain menurunkan suhu udara (kalor sensibel), sirip evaporator dingin mengembunkan uap air dari udara kamar (kalor laten dehumidifikasi), dan termostat bekerja paling hemat pada suhu nyaman stabil tanpa perlu disetel ekstrem rendah di awal.",
+      "epistemic_status": "verified_fact",
+      "source_title": "U.S. Department of Energy \u2014 Central Air Conditioning and Thermostat Operation",
+      "source_url": "https://www.energy.gov/energysaver/central-air-conditioning",
+      "publication_date": "2024-05",
+      "evidence_excerpt": "Indoor evaporator coils dehumidify room air by condensing moisture while cooling at a steady rate; setting the thermostat lower does not cool the house faster."
+    }
+  ],
+  "primary_sources": [
+    {
+      "claim_id": "CLM_01",
+      "source_title": "U.S. Department of Energy \u2014 Energy Saver: Air Conditioning",
+      "source_url": "https://www.energy.gov/energysaver/air-conditioning",
+      "publication_date": "2024-06",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "Air conditioners transfer heat from the indoor air to the outdoors via an indoor evaporator coil filled with cold evaporating refrigerant."
+    },
+    {
+      "claim_id": "CLM_02",
+      "source_title": "Encyclopaedia Britannica \u2014 Air-conditioning: Principles of Operation",
+      "source_url": "https://www.britannica.com/technology/air-conditioning",
+      "publication_date": "2024-08",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "In vapor-compression air conditioning, the compressor raises refrigerant vapor pressure and temperature so the outdoor condenser coil rejects heat to ambient air."
+    },
+    {
+      "claim_id": "CLM_03",
+      "source_title": "National Institute of Standards and Technology (NIST) \u2014 Thermophysical Properties of Fluid Systems",
+      "source_url": "https://webbook.nist.gov/chemistry/fluid/",
+      "publication_date": "2023-11",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "Isenthalpic throttling across an expansion device drops refrigerant pressure and saturation temperature simultaneously, producing a cold two-phase mixture."
+    },
+    {
+      "claim_id": "CLM_04",
+      "source_title": "U.S. Department of Energy \u2014 Central Air Conditioning and Thermostat Operation",
+      "source_url": "https://www.energy.gov/energysaver/central-air-conditioning",
+      "publication_date": "2024-05",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "Indoor evaporator coils dehumidify room air by condensing moisture while cooling at a steady rate; setting the thermostat lower does not cool the house faster."
+    }
+  ],
+  "source_urls": [
+    "https://www.energy.gov/energysaver/air-conditioning",
+    "https://www.britannica.com/technology/air-conditioning",
+    "https://webbook.nist.gov/chemistry/fluid/",
+    "https://www.energy.gov/energysaver/central-air-conditioning"
+  ],
+  "evidence_excerpts": [
+    {
+      "claim_id": "CLM_01",
+      "excerpt": "Air conditioners transfer heat from the indoor air to the outdoors via an indoor evaporator coil filled with cold evaporating refrigerant."
+    },
+    {
+      "claim_id": "CLM_02",
+      "excerpt": "In vapor-compression air conditioning, the compressor raises refrigerant vapor pressure and temperature so the outdoor condenser coil rejects heat to ambient air."
+    },
+    {
+      "claim_id": "CLM_03",
+      "excerpt": "Isenthalpic throttling across an expansion device drops refrigerant pressure and saturation temperature simultaneously, producing a cold two-phase mixture."
+    },
+    {
+      "claim_id": "CLM_04",
+      "excerpt": "Indoor evaporator coils dehumidify room air by condensing moisture while cooling at a steady rate; setting the thermostat lower does not cool the house faster."
+    }
+  ],
+  "misconceptions": [
+    {
+      "misconception": "Unit AC menyedot udara luar lalu menyemprotkannya sebagai udara dingin baru ke dalam ruangan.",
+      "correction": "AC split mensirkulasikan ulang udara di dalam ruangan melewati sirip evaporator dingin; hanya kalor yang berpindah ke luar melalui aliran pipa refrigeran tertutup.",
+      "claim_ref": "CLM_01"
+    },
+    {
+      "misconception": "Menyetel remot ke suhu paling rendah seperti 16 derajat Celsius membuat AC menyemburkan hawa dingin lebih cepat sejak menit pertama.",
+      "correction": "Pada AC standar, laju penyerapan panas evaporator berlangsung konstan sampai suhu ruang menyentuh target termostat, sehingga setelan terlalu rendah hanya memaksa kompresor bekerja lebih lama.",
+      "claim_ref": "CLM_04"
+    }
+  ],
+  "uncertainties": [
+    "Kecepatan penurunan suhu kamar pada praktik sehari-hari bervariasi menurut beban kalor matahari, kerapatan insulasi dinding, jumlah penghuni, dan teknologi kompresor inverter maupun non-inverter.",
+    "Koefisien performa (COP) aktual berubah mengikuti selisih suhu udara luar di sekitar unit kondensor dan tingkat kebersihan kisi penukar kalor."
+  ],
+  "fictional_vs_real_world_separation": {
+    "contains_fictional_dramatization": true,
+    "real_world_claim_ids": [
+      "CLM_01",
+      "CLM_02",
+      "CLM_03",
+      "CLM_04"
+    ],
+    "declared_fictional_elements": [
+      "Tokoh presenter Nadia dan penghuni kamar Bima beserta tata ruang kamar kos bergaya stylized 3D merupakan perangkat dramatisasi visual edukatif untuk memperjelas komponen nyata siklus AC."
+    ]
+  },
+  "fact_to_narration_mapping": {
+    "CLM_01": [
+      {
+        "beat_id": "B01",
+        "beat_role": "hook_anomaly_and_misconception",
+        "narration_excerpt": "Pernah heran bagaimana AC mendinginkan ruangan pengap tanpa memasukkan udara dari luar? Rahasianya: AC bukan pembuat dingin, melainkan pemin"
+      },
+      {
+        "beat_id": "B02",
+        "beat_role": "evaporator_phase_change_mechanism",
+        "narration_excerpt": "Udara hangat ruangan ditarik kipas melewati kisi evaporator yang sangat dingin. Di dalam pipanya, cairan refrigeran menyerap kalor udara lal"
+      }
+    ],
+    "CLM_02": [
+      {
+        "beat_id": "B03",
+        "beat_role": "compressor_and_condenser_heat_rejection",
+        "narration_excerpt": "Uap pembawa panas itu mengalir ke unit luar menuju kompresor. Kompresor memampatkannya hingga bersuhu tinggi, supaya sirip kondensor mudah m"
+      }
+    ],
+    "CLM_03": [
+      {
+        "beat_id": "B04",
+        "beat_role": "expansion_valve_drop_and_dehumidification",
+        "narration_excerpt": "Setelah mengembun kembali jadi cairan, refrigeran dipaksa melewati celah sempit katup ekspansi. Tekanannya anjlok, suhunya langsung membeku "
+      }
+    ],
+    "CLM_04": [
+      {
+        "beat_id": "B04",
+        "beat_role": "expansion_valve_drop_and_dehumidification",
+        "narration_excerpt": "Setelah mengembun kembali jadi cairan, refrigeran dipaksa melewati celah sempit katup ekspansi. Tekanannya anjlok, suhunya langsung membeku "
+      },
+      {
+        "beat_id": "B05",
+        "beat_role": "payoff_thermostat_efficiency_callback",
+        "narration_excerpt": "Jadi tak perlu menekan remot ke enam belas derajat agar cepat sejuk. Setel dua puluh empat derajat saja, biarkan siklus pemindah panas beker"
+      }
+    ]
+  }
+}

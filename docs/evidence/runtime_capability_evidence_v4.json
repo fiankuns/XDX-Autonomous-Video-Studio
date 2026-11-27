@@ -1,6 +1,6 @@
 {
-  "schema_version": "4.0.0-phase01.6b",
-  "generated_at_utc": "2026-11-27T14:24:58.273097+00:00",
+  "schema_version": "4.0.0-phase01.6c",
+  "generated_at_utc": "2026-11-27T20:13:56.103506+00:00",
   "ttl_seconds": 604800,
   "runtime_identity": {
     "adapter_type": "antigravity",
@@ -13,22 +13,22 @@
     {
       "capability_id": "host_tool:invoke_subagent",
       "status": "LIVE_INVOCATION_VERIFIED",
-      "verification_method": "live_native_subagents_ref_analyst_research_and_verifier",
-      "invocation_id": "RCPT-1f95749e4198",
-      "conversation_id": "3000627e8e86efb4196e72fb2c2bd86b",
+      "verification_method": "phase01_6c_live_native_subagents_8_specialists_and_verifier",
+      "invocation_id": "RCPT-657b6a323cf1",
+      "conversation_id": "c79ed6ebdcece7b37688875f35f93796",
       "workspace_mode": "inherit",
-      "timestamp_utc": "2026-11-27T14:18:28+00:00",
-      "evidence_summary": "Invoked xdx-rea-reference-analyst, research, and xdx-preproduction-verifier natively."
+      "timestamp_utc": "2026-11-27T20:13:56.103481+00:00",
+      "evidence_summary": "Invoked topic_researcher, rea_reference_analyst, creative_scriptwriter (x2), character_art_director, storyboard_cinematographer, audio_caption_specialist, and fresh read-only preproduction_verifier natively."
     },
     {
       "capability_id": "workspace_mode:inherit",
       "status": "LIVE_INVOCATION_VERIFIED",
-      "verification_method": "live_native_subagents_concurrent_inherit_workspace",
-      "invocation_id": "RCPT-3cf1da452c58",
-      "conversation_id": "da609aaf922107b8f659c4ec5d199b1f",
+      "verification_method": "phase01_6c_concurrent_inherit_workspace_execution",
+      "invocation_id": "RCPT-88c5fd1ed840",
+      "conversation_id": "79297c7c2b6cfb965b66a31089b67c5e",
       "workspace_mode": "inherit",
-      "timestamp_utc": "2026-11-27T14:11:45+00:00",
-      "evidence_summary": "Verified concurrent read-only subagent execution in inherit workspace mode."
+      "timestamp_utc": "2026-11-27T20:13:56.103481+00:00",
+      "evidence_summary": "Verified concurrent native subagent execution in inherit workspace mode with canonical path & flock locks."
     }
   ]
 }

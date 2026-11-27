@@ -1,0 +1,87 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_c_laut_hilang_hybrid_180s",
+  "package_version": "v1",
+  "status": "WAITING_APPROVAL",
+  "package_digest": "e11bfc057bed1e05f536950b269a8efd7f2f9851bbc20634a0d2b1c26a294496",
+  "mandatory_13_items": {
+    "01_topic_and_concept": {
+      "present": true,
+      "artifact_file": "blueprint.md",
+      "summary": "Apa yang Terjadi Jika Seluruh Laut Bumi Menghilang? (explainer, dokumenter, storytelling, komedi_absurd)"
+    },
+    "02_research_results": {
+      "present": true,
+      "artifact_file": "research.md",
+      "summary": "5 klaim terverifikasi + pemetaan narasi"
+    },
+    "03_full_script": {
+      "present": true,
+      "artifact_file": "script.md",
+      "summary": "10 beat naskah Bahasa Indonesia siap baca"
+    },
+    "04_narration_and_dialogue": {
+      "present": true,
+      "artifact_file": "narration_dialogue.json",
+      "summary": "10 VO & 7 dialog (137.7 WPM, ESTIMATED)"
+    },
+    "05_clip_by_clip_storyboard": {
+      "present": true,
+      "artifact_file": "storyboard.json",
+      "summary": "5 seq / 10 scene / 10 beat / 57 shot"
+    },
+    "06_shot_timestamps_and_durations": {
+      "present": true,
+      "artifact_file": "storyboard.json",
+      "summary": "5400 frame (180.0s @ 30fps, semua shot <= 10s)"
+    },
+    "07_camera_framing_cutaway_transitions": {
+      "present": true,
+      "artifact_file": "camera_plan.json",
+      "summary": "Lensa dinamis [20.0, 24.0, 35.0, 40.0, 45.0, 50.0, 65.0, 75.0, 85.0]mm sesuai tujuan naratif"
+    },
+    "08_complete_asset_list": {
+      "present": true,
+      "artifact_file": "asset_manifest.json",
+      "summary": "75 spesifikasi aset semantik 12-atribut"
+    },
+    "09_character_designs": {
+      "present": true,
+      "artifact_file": "character_bible.json",
+      "summary": "2 karakter orisinal 11-atribut (stylized_3d)"
+    },
+    "10_motion_plan": {
+      "present": true,
+      "artifact_file": "motion_plan.json",
+      "summary": "57 rencana aksi 14-atribut dengan kontak IK"
+    },
+    "11_caption_and_audio_plan": {
+      "present": true,
+      "artifact_file": "caption_audio_plan.json",
+      "summary": "72 cue takarir ESTIMATED & label ilmiah"
+    },
+    "12_engine_selection_per_shot": {
+      "present": true,
+      "artifact_file": "engine_plan.json",
+      "summary": "Routing hybrid (blender, threejs, remotion, rea_video, ffmpeg)"
+    },
+    "13_hybrid_execution_plan": {
+      "present": true,
+      "artifact_file": "execution_plan.md",
+      "summary": "Rencana eksekusi pasca-persetujuan Blender MCP, Three.js, Remotion & FFmpeg"
+    }
+  },
+  "required_files_sha256": {
+    "blueprint.md": "cf2f3c5b7cda0999a6da37ac6bc64209b97da35df7bb68455bd1bd2f9c361647",
+    "script.md": "2d0bba679111318e77ceeddb174cceb6bc9d0f8a991b53dca6210a4334995476",
+    "storyboard.json": "d6717143262c534c60ebac523c5ba95ec065f2572c0e918b3ee0c0f4e602316a",
+    "asset_manifest.json": "4d207773f3146bdb7c17d4e5ef33ff09ff2fac153e16add5a8c5ccd23565f90a",
+    "character_bible.md": "0d02df089ad865fd2c69f3f31d045124560abaa529af8a5dd8a6c7f407bf3087",
+    "motion_plan.json": "08157bba622f6469c0233f8aaa60ae15345348d33c90001df0a0e13d3ee00500",
+    "execution_plan.md": "561eef0323eaabd2a5757b7946d56b79acb60999465c9e963bf6483ca765dba3",
+    "production_config.json": "c6dd619070a4f4b3971ac8c670a28ff2f3840724efdfcb0ab5f8fff307a66ca6",
+    "engine_plan.json": "1ea9f23787563205d3fbada863763bfd2722c73f217fc22ac6f987b4b3b039a0",
+    "research.md": "50a879e59bc86b53dd61f1ae64a5ba1dd2195b1736d8cc3655644dfc0f977813",
+    "reference_analysis.md": "76194ea41920047be2cc362d59b0dc137308b08173e755053fe73d58a20cfe7a"
+  }
+}

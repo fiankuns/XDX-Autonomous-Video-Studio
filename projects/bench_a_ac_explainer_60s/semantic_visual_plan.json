@@ -1,0 +1,560 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_a_ac_explainer_60s",
+  "pipeline_chain": "CLAUSE -> VISUAL_PURPOSE -> SHOT -> ACTION -> CHARACTER_OBJECT -> ASSET -> CAMERA -> ENGINE -> QC",
+  "total_clauses": 13,
+  "mapped_clauses": 13,
+  "clause_coverage_ratio": 1.0,
+  "visual_purposes_used": [
+    "character_acting",
+    "establishing_shot",
+    "exploded_view",
+    "object_insert",
+    "reaction_shot",
+    "scientific_mechanism",
+    "technical_cutaway"
+  ],
+  "supported_visual_purposes": [
+    "character_acting",
+    "object_insert",
+    "technical_cutaway",
+    "exploded_view",
+    "scientific_mechanism",
+    "reaction_shot",
+    "historical_reconstruction",
+    "visual_metaphor",
+    "data_visualization",
+    "scale_comparison",
+    "timeline",
+    "establishing_shot"
+  ],
+  "master_timeline_unit": "integer_frames",
+  "fps": 30,
+  "total_frames": 1800,
+  "non_uniform_semantic_frame_allocation": true,
+  "shots_in_2_to_6s_target_ratio": 1.0,
+  "max_shot_duration_s": 3.6667,
+  "narration_timing_summary": {
+    "estimated_duration_s": 64.38,
+    "implied_wpm": 135.0
+  },
+  "clause_to_shot_mappings": [
+    {
+      "clause_id": "CL_001",
+      "beat_id": "B01",
+      "clause_text": "Pernah heran bagaimana AC mendinginkan ruangan pengap tanpa memasukkan udara dari luar? Rahasianya:",
+      "01_clause": "Pernah heran bagaimana AC mendinginkan ruangan pengap tanpa memasukkan udara dari luar? Rahasianya:",
+      "02_visual_purpose": "establishing_shot",
+      "03_shot_id": "S001",
+      "03_frame_range": [
+        0,
+        72
+      ],
+      "04_action": "Kamera mendorong masuk ke kamar kos yang jendelanya tertutup rapat sementara Bima mengipasi wajah dan termometer meja menyala di angka 32 derajat Celsius.",
+      "05_character_or_object": {
+        "characters": [
+          "char_bima_penghuni"
+        ],
+        "subject": "Bima kepanasan di kamar tertutup di bawah unit AC split"
+      },
+      "06_assets": [
+        "env_bedroom_tropical_sealed_3d",
+        "char_bima_penghuni",
+        "prop_ac_indoor_evaporator_cutaway",
+        "prop_room_thermometer_digital",
+        "prop_sealed_glass_window",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "establishing",
+        "focal_length_mm": 28.0,
+        "angle": "isometric_high_18deg"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_002",
+      "beat_id": "B01",
+      "clause_text": "AC bukan pembuat dingin, melainkan pemindah panas kamar.",
+      "01_clause": "AC bukan pembuat dingin, melainkan pemindah panas kamar.",
+      "02_visual_purpose": "character_acting",
+      "03_shot_id": "S002",
+      "03_frame_range": [
+        72,
+        143
+      ],
+      "04_action": "Kamera mendorong masuk ke kamar kos yang jendelanya tertutup rapat sementara Bima mengipasi wajah dan termometer meja menyala di angka 32 derajat Celsius. Kamera beralih ke sudut close up menyoroti interaksi detail prop_ac_indoor_evaporator_cutaway, prop_room_thermometer_digital.",
+      "05_character_or_object": {
+        "characters": [
+          "char_bima_penghuni"
+        ],
+        "subject": "Nadia menggeser penutup depan AC di samping Bima"
+      },
+      "06_assets": [
+        "env_bedroom_tropical_sealed_3d",
+        "char_bima_penghuni",
+        "prop_ac_indoor_evaporator_cutaway",
+        "prop_room_thermometer_digital",
+        "prop_sealed_glass_window",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "close_up",
+        "focal_length_mm": 65.0,
+        "angle": "intimate_eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_003",
+      "beat_id": "B01",
+      "clause_text": "[char_bima_penghuni] Pantas lubang anginnya rapat semua!",
+      "01_clause": "[char_bima_penghuni] Pantas lubang anginnya rapat semua!",
+      "02_visual_purpose": "character_acting",
+      "03_shot_id": "S003",
+      "03_frame_range": [
+        143,
+        222
+      ],
+      "04_action": "Bima menoleh ke kusen jendela yang terkunci sambil berujar heran, lalu Nadia mengangkat cangkang depan unit AC indoor hingga tampak deretan pipa tembaga evaporator berkilau dingin.",
+      "05_character_or_object": {
+        "characters": [
+          "char_bima_penghuni"
+        ],
+        "subject": "Nadia menggeser penutup depan AC di samping Bima"
+      },
+      "06_assets": [
+        "env_bedroom_tropical_sealed_3d",
+        "char_bima_penghuni",
+        "prop_ac_indoor_evaporator_cutaway",
+        "prop_ac_remote_control",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "medium",
+        "focal_length_mm": 40.0,
+        "angle": "eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_004",
+      "beat_id": "B02",
+      "clause_text": "Udara hangat ruangan ditarik kipas melewati kisi evaporator yang sangat dingin.",
+      "01_clause": "Udara hangat ruangan ditarik kipas melewati kisi evaporator yang sangat dingin.",
+      "02_visual_purpose": "technical_cutaway",
+      "03_shot_id": "S005",
+      "03_frame_range": [
+        300,
+        393
+      ],
+      "04_action": "Pita udara oranye hangat dari kamar tersedot ke kisi aluminium evaporator lalu meluncur keluar kembali ke kamar sebagai aliran udara biru sejuk.",
+      "05_character_or_object": {
+        "characters": [
+          "char_bima_penghuni"
+        ],
+        "subject": "Penampang kipas blower dan kisi evaporator dalam ruang"
+      },
+      "06_assets": [
+        "env_ac_indoor_evaporator_interior_3d",
+        "char_bima_penghuni",
+        "prop_ac_indoor_evaporator_cutaway",
+        "prop_crossflow_blower_fan",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "cutaway",
+        "focal_length_mm": 50.0,
+        "angle": "orthographic_feel_25deg"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_005",
+      "beat_id": "B02",
+      "clause_text": "Di dalam pipanya, cairan refrigeran menyerap kalor udara lalu mendidih menjadi uap bertekanan rendah.",
+      "01_clause": "Di dalam pipanya, cairan refrigeran menyerap kalor udara lalu mendidih menjadi uap bertekanan rendah.",
+      "02_visual_purpose": "scientific_mechanism",
+      "03_shot_id": "S007",
+      "03_frame_range": [
+        486,
+        588
+      ],
+      "04_action": "Kamera makro menembus dinding pipa evaporator memperlihatkan cairan refrigeran biru pirus menyerap partikel kalor keemasan hingga bergejolak mendidih menjadi uap.",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Gelembung refrigeran mendidih di dalam pipa tembaga transparan"
+      },
+      "06_assets": [
+        "env_ac_indoor_evaporator_interior_3d",
+        "prop_refrigerant_coil_loop",
+        "prop_ac_indoor_evaporator_cutaway",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "close_up",
+        "focal_length_mm": 65.0,
+        "angle": "intimate_eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "threejs",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_006",
+      "beat_id": "B03",
+      "clause_text": "Uap pembawa panas itu mengalir ke unit luar menuju kompresor.",
+      "01_clause": "Uap pembawa panas itu mengalir ke unit luar menuju kompresor.",
+      "02_visual_purpose": "exploded_view",
+      "03_shot_id": "S009",
+      "03_frame_range": [
+        690,
+        800
+      ],
+      "04_action": "Casing logam unit outdoor bergeser terbuka secara exploded view; tabung kompresor memompa uap refrigeran hingga berpijar merah-oranye bertekanan tinggi menuju jaringan pipa kondensor.",
+      "05_character_or_object": {
+        "characters": [
+          "char_bima_penghuni"
+        ],
+        "subject": "Unit outdoor terurai memperlihatkan kompresor dan sirip kondensor"
+      },
+      "06_assets": [
+        "env_exterior_wall_outdoor_unit_3d",
+        "char_bima_penghuni",
+        "prop_outdoor_condenser_compressor",
+        "prop_refrigerant_coil_loop",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "wide",
+        "focal_length_mm": 30.0,
+        "angle": "wide_eye_12deg"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_007",
+      "beat_id": "B03",
+      "clause_text": "Kompresor memampatkannya hingga bersuhu tinggi, supaya sirip kondensor mudah membuang panasnya ke udara luar.",
+      "01_clause": "Kompresor memampatkannya hingga bersuhu tinggi, supaya sirip kondensor mudah membuang panasnya ke udara luar.",
+      "02_visual_purpose": "character_acting",
+      "03_shot_id": "S010",
+      "03_frame_range": [
+        800,
+        910
+      ],
+      "04_action": "Casing logam unit outdoor bergeser terbuka secara exploded view; tabung kompresor memompa uap refrigeran hingga berpijar merah-oranye bertekanan tinggi menuju jaringan pipa kondensor. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_outdoor_condenser_compressor, prop_refrigerant_coil_loop.",
+      "05_character_or_object": {
+        "characters": [
+          "char_bima_penghuni"
+        ],
+        "subject": "Nadia berdiri di balkon samping kipas unit outdoor yang membuang kalor"
+      },
+      "06_assets": [
+        "env_exterior_wall_outdoor_unit_3d",
+        "char_bima_penghuni",
+        "prop_outdoor_condenser_compressor",
+        "prop_refrigerant_coil_loop",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "reaction",
+        "focal_length_mm": 45.0,
+        "angle": "three_quarter_eye"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_008",
+      "beat_id": "B03",
+      "clause_text": "[char_nadia_presenter] Makanya angin unit luar selalu terasa gerah.",
+      "01_clause": "[char_nadia_presenter] Makanya angin unit luar selalu terasa gerah.",
+      "02_visual_purpose": "character_acting",
+      "03_shot_id": "S011",
+      "03_frame_range": [
+        910,
+        1010
+      ],
+      "04_action": "Kipas besar unit outdoor menghembuskan gelombang kalor hangat ke udara terbuka sementara Nadia menunjuk aliran panas keluar dari sirip kondensor.",
+      "05_character_or_object": {
+        "characters": [
+          "char_bima_penghuni"
+        ],
+        "subject": "Nadia berdiri di balkon samping kipas unit outdoor yang membuang kalor"
+      },
+      "06_assets": [
+        "env_exterior_wall_outdoor_unit_3d",
+        "char_bima_penghuni",
+        "prop_outdoor_condenser_compressor",
+        "prop_balcony_potted_fern",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "medium",
+        "focal_length_mm": 40.0,
+        "angle": "eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_009",
+      "beat_id": "B04",
+      "clause_text": "Setelah mengembun kembali jadi cairan, refrigeran dipaksa melewati celah sempit katup ekspansi.",
+      "01_clause": "Setelah mengembun kembali jadi cairan, refrigeran dipaksa melewati celah sempit katup ekspansi.",
+      "02_visual_purpose": "scientific_mechanism",
+      "03_shot_id": "S013",
+      "03_frame_range": [
+        1110,
+        1212
+      ],
+      "04_action": "Cairan refrigeran hangat melesat melewati leher sempit katup ekspansi; begitu melewati celah, warnanya langsung berubah biru es disertai kabut dingin bertekanan rendah.",
+      "05_character_or_object": {
+        "characters": [],
+        "subject": "Penyempitan celah katup ekspansi yang mendinginkan cairan refrigeran"
+      },
+      "06_assets": [
+        "env_refrigerant_valve_and_drain_3d",
+        "prop_expansion_valve_macro",
+        "prop_refrigerant_coil_loop",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "insert",
+        "focal_length_mm": 72.0,
+        "angle": "tabletop_35deg"
+      },
+      "08_engine": {
+        "primary_engine": "threejs",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_010",
+      "beat_id": "B04",
+      "clause_text": "Tekanannya anjlok, suhunya langsung membeku lagi, sambil mengembunkan uap air lembap ruangan.",
+      "01_clause": "Tekanannya anjlok, suhunya langsung membeku lagi, sambil mengembunkan uap air lembap ruangan.",
+      "02_visual_purpose": "object_insert",
+      "03_shot_id": "S015",
+      "03_frame_range": [
+        1314,
+        1407
+      ],
+      "04_action": "Tetesan uap air dari udara kamar mengembun di permukaan sirip evaporator dingin lalu mengalir rapi melalui talang dan selang pembuangan air AC.",
+      "05_character_or_object": {
+        "characters": [
+          "char_bima_penghuni"
+        ],
+        "subject": "Butiran embun uap air menetes ke talang pembuangan evaporator"
+      },
+      "06_assets": [
+        "env_refrigerant_valve_and_drain_3d",
+        "char_bima_penghuni",
+        "prop_condensation_drain_tray",
+        "prop_ac_indoor_evaporator_cutaway",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "close_up",
+        "focal_length_mm": 65.0,
+        "angle": "intimate_eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_011",
+      "beat_id": "B05",
+      "clause_text": "Jadi tak perlu menekan remot ke enam belas derajat agar cepat sejuk.",
+      "01_clause": "Jadi tak perlu menekan remot ke enam belas derajat agar cepat sejuk.",
+      "02_visual_purpose": "object_insert",
+      "03_shot_id": "S017",
+      "03_frame_range": [
+        1500,
+        1572
+      ],
+      "04_action": "Ibu jari Bima menekan tombol naik pada remot AC dari 16\u00b0C menuju 24\u00b0C sementara layar termometer digital meja di latar belakang turun mantap ke 24\u00b0C.",
+      "05_character_or_object": {
+        "characters": [
+          "char_bima_penghuni"
+        ],
+        "subject": "Layar remot AC naik dari 16\u00b0C ke 24\u00b0C di depan termometer kamar"
+      },
+      "06_assets": [
+        "env_bedroom_tropical_sealed_3d",
+        "char_bima_penghuni",
+        "prop_ac_remote_control",
+        "prop_room_thermometer_digital",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "insert",
+        "focal_length_mm": 72.0,
+        "angle": "tabletop_35deg"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_012",
+      "beat_id": "B05",
+      "clause_text": "Setel dua puluh empat derajat saja, biarkan siklus pemindah panas bekerja hemat!",
+      "01_clause": "Setel dua puluh empat derajat saja, biarkan siklus pemindah panas bekerja hemat!",
+      "02_visual_purpose": "reaction_shot",
+      "03_shot_id": "S018",
+      "03_frame_range": [
+        1572,
+        1643
+      ],
+      "04_action": "Ibu jari Bima menekan tombol naik pada remot AC dari 16\u00b0C menuju 24\u00b0C sementara layar termometer digital meja di latar belakang turun mantap ke 24\u00b0C. Kamera beralih ke sudut close up menyoroti interaksi detail prop_ac_remote_control, prop_room_thermometer_digital.",
+      "05_character_or_object": {
+        "characters": [
+          "char_bima_penghuni"
+        ],
+        "subject": "Bima bersandar nyaman bersama Nadia di kamar yang sejuk"
+      },
+      "06_assets": [
+        "env_bedroom_tropical_sealed_3d",
+        "char_bima_penghuni",
+        "prop_ac_remote_control",
+        "prop_room_thermometer_digital",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "close_up",
+        "focal_length_mm": 65.0,
+        "angle": "intimate_eye_level"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    },
+    {
+      "clause_id": "CL_013",
+      "beat_id": "B05",
+      "clause_text": "[char_bima_penghuni] Dompet aman, kamar tetap adem!",
+      "01_clause": "[char_bima_penghuni] Dompet aman, kamar tetap adem!",
+      "02_visual_purpose": "reaction_shot",
+      "03_shot_id": "S019",
+      "03_frame_range": [
+        1643,
+        1722
+      ],
+      "04_action": "Penutup unit AC indoor kembali tertutup rapi menghembuskan angin lembut, Nadia mengangguk puas, dan Bima bersandar santai meletakkan kipas kertasnya.",
+      "05_character_or_object": {
+        "characters": [
+          "char_bima_penghuni"
+        ],
+        "subject": "Bima bersandar nyaman bersama Nadia di kamar yang sejuk"
+      },
+      "06_assets": [
+        "env_bedroom_tropical_sealed_3d",
+        "char_bima_penghuni",
+        "prop_ac_indoor_evaporator_cutaway",
+        "prop_ac_remote_control",
+        "prop_room_thermometer_digital",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "07_camera": {
+        "shot_size": "reaction",
+        "focal_length_mm": 45.0,
+        "angle": "three_quarter_eye"
+      },
+      "08_engine": {
+        "primary_engine": "blender",
+        "overlay_engine": "remotion"
+      },
+      "09_qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ]
+    }
+  ]
+}

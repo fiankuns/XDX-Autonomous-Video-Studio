@@ -1,0 +1,23 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "topic_title": "Misteri Kaus Kaki Sebelah yang Selalu Hilang Saat Dicuci",
+  "genres": [
+    "komedi_absurd",
+    "horor"
+  ],
+  "blueprint": {
+    "premise": "Kino, penghuni kos yang kelewat dramatis, menyelidiki hilangnya sebelah kaus kaki belang kuningnya pada malam cucian seperti kasus detektif menegangkan, hanya untuk menemukan pelaku aslinya adalah lipatan karet pintu mesin cuci dan pipa celana olahraganya sendiri.",
+    "hook_0_3s_visual": "Bayangan panjang keranjang cucian bergoyang di bawah lampu ruang cuci kos yang berkedip lembut saat Kino mengangkat tiga belas kaus kaki dengan tatapan syok komikal.",
+    "hook_0_3s_spoken": "Tujuh pasang kaus kaki masuk ke mesin cuci malam ini, tetapi hanya tiga belas helai yang keluar.",
+    "story_arc": {
+      "act_1_setup": "Kino menghitung hasil cucian malamnya di ruang binatu kos yang remang hangat dan panik mendapati kaus kaki belang kuning kesayangannya tinggal sebelah.",
+      "act_2_escalation": "Atmosfer misteri kartun memuncak saat kaca mesin cuci berembun, lalu penampang kartun 2D membongkar persembunyian Detektif Kaus di lipatan karet pintu mesin cuci serta jebakan perhatian selektif di dalam pipa celana.",
+      "act_3_resolution": "Ketegangan berubah menjadi tawa hangat ketika Kino pasrah memadukan kaus kaki belang kuning dengan polkadot biru sebagai gaya baru anak kos."
+    },
+    "explainer_mechanism": "Potongan melintang bergaya ilustrasi kartun pipih 2D pada lipatan karet pintu mesin cuci bukaan depan dan sorotan sinar senter pada kaus kaki yang terselip di pipa celana panjang.",
+    "humor_strategy": "Parodi ketegangan misteri malam hari yang langsung dipatahkan oleh realitas sepele anak kos dan ekspresi lebay Kino saat bernegosiasi dengan kaus kakinya sendiri.",
+    "historical_biography_notes": "Murni cerita komedi-misteri fiksi sehari-hari tanpa tokoh sejarah atau biografi nyata, dirancang aman dan hangat untuk seluruh kelompok usia.",
+    "payoff_callback": "Kaus kaki belang kuning yang dicari sejak detik pertama akhirnya dipakai bangga berpasangan dengan kaus kaki polkadot biru yang sama-sama kehilangan kembarannya."
+  }
+}

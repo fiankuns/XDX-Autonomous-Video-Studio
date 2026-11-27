@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /opt/pyenv/versions/3.12.16/bin/python3.12
+cachedir: .pytest_cache
+rootdir: /home/antigravity/fiankuns/XDX-Autonomous-Video-Studio
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0
+collecting ... collected 101 items / 92 deselected / 9 selected
+
+tests/test_phase01_6b_persistent_intelligence.py::test_11_capability_evidence_live_verified_and_stale_report_detection PASSED [ 11%]
+tests/test_phase01_6b_persistent_intelligence.py::test_12_codex_and_antigravity_runtime_adapters_honest_probing PASSED [ 22%]
+tests/test_phase01_6b_persistent_intelligence.py::test_15_scheduler_task_timeout_retry_and_retry_exhaustion_downstream_blocked PASSED [ 33%]
+tests/test_phase01_6b_persistent_intelligence.py::test_16_scheduler_cancellation_propagates_cancelled_and_blocked PASSED [ 44%]
+tests/test_phase01_6b_persistent_intelligence.py::test_22_corrupted_sqlite_memory_row_sha256_detection PASSED [ 55%]
+tests/test_phase01_6b_persistent_intelligence.py::test_26_checkpoint_resume_demotes_missing_output_invalidates_downstream_and_blocks_unknown_external PASSED [ 66%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_11_corrupted_latest_checkpoint_automatic_fallback_and_portable_bundle PASSED [ 77%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_12_runtime_capability_portability_unknown_outside_antigravity PASSED [ 88%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_21_native_execution_5_modes_and_static_conversation_id_rejection PASSED [100%]
+
+======================= 9 passed, 92 deselected in 3.26s =======================

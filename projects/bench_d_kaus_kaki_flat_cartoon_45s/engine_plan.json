@@ -1,0 +1,291 @@
+{
+  "schema_version": "3.4.0",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "master_compositor": "remotion",
+  "encoding_validator": "ffmpeg",
+  "reference_qc_engine": "rea_video",
+  "fps": 30,
+  "resolution": {
+    "width": 1080,
+    "height": 1920,
+    "pixel_format": "yuv420p"
+  },
+  "color_management": {
+    "working_space": "Linear Rec.709",
+    "view_transform": "ACESFilmic",
+    "delivery_space": "sRGB / Rec.709",
+    "alpha_interchange": "PNG RGBA 16-bit/8-bit"
+  },
+  "engines_used": [
+    "threejs",
+    "remotion",
+    "rea_video",
+    "ffmpeg"
+  ],
+  "omitted_engines_rationale": {
+    "blender": "Tidak ada shot yang membutuhkan blender pada naskah ini."
+  },
+  "shot_routing": [
+    {
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 150,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202601,
+      "inputs": [
+        "prop_frontload_washer_2d",
+        "prop_laundry_basket_plastic",
+        "prop_thirteen_socks_row",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 150
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S002",
+      "start_frame": 150,
+      "end_frame": 300,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202602,
+      "inputs": [
+        "prop_single_yellow_striped_sock",
+        "prop_mini_pocket_flashlight",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 156
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S003",
+      "start_frame": 300,
+      "end_frame": 407,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202603,
+      "inputs": [
+        "prop_rubber_door_gasket_cutaway_2d",
+        "prop_spinning_washer_drum_2d",
+        "prop_detective_striped_sock_card",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 113
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S004",
+      "start_frame": 407,
+      "end_frame": 513,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202604,
+      "inputs": [
+        "prop_rubber_door_gasket_cutaway_2d",
+        "prop_spinning_washer_drum_2d",
+        "prop_detective_striped_sock_card",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 106
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S005",
+      "start_frame": 513,
+      "end_frame": 602,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_rubber_door_gasket_cutaway_2d, prop_mini_pocket_flashlight) berbasis frame/fps.",
+      "deterministic_seed": 202605,
+      "inputs": [
+        "prop_rubber_door_gasket_cutaway_2d",
+        "prop_mini_pocket_flashlight",
+        "prop_detective_striped_sock_card",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 89
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S006",
+      "start_frame": 602,
+      "end_frame": 690,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_rubber_door_gasket_cutaway_2d, prop_mini_pocket_flashlight) berbasis frame/fps.",
+      "deterministic_seed": 202606,
+      "inputs": [
+        "prop_rubber_door_gasket_cutaway_2d",
+        "prop_mini_pocket_flashlight",
+        "prop_detective_striped_sock_card",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 94
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S007",
+      "start_frame": 690,
+      "end_frame": 776,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202607,
+      "inputs": [
+        "prop_jogger_pants_cutout_2d",
+        "prop_hidden_sock_xray_badge",
+        "prop_folded_bedsheet_stack",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 92
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S008",
+      "start_frame": 776,
+      "end_frame": 861,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202608,
+      "inputs": [
+        "prop_jogger_pants_cutout_2d",
+        "prop_hidden_sock_xray_badge",
+        "prop_folded_bedsheet_stack",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 85
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S009",
+      "start_frame": 861,
+      "end_frame": 956,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202609,
+      "inputs": [
+        "prop_jogger_pants_cutout_2d",
+        "prop_detective_striped_sock_card",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 95
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S010",
+      "start_frame": 956,
+      "end_frame": 1050,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202610,
+      "inputs": [
+        "prop_jogger_pants_cutout_2d",
+        "prop_detective_striped_sock_card",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 106
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S011",
+      "start_frame": 1050,
+      "end_frame": 1193,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_wooden_sock_drawer_2d, prop_single_yellow_striped_sock) berbasis frame/fps.",
+      "deterministic_seed": 202611,
+      "inputs": [
+        "prop_wooden_sock_drawer_2d",
+        "prop_single_yellow_striped_sock",
+        "prop_single_blue_polkadot_sock",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 155
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S012",
+      "start_frame": 1193,
+      "end_frame": 1350,
+      "primary_engine": "remotion",
+      "overlay_engine": "remotion",
+      "rationale": "Grafis data perbandingan & kartu lini masa deterministik langsung pada timeline utama.",
+      "deterministic_seed": 202612,
+      "inputs": [
+        "prop_single_yellow_striped_sock",
+        "prop_single_blue_polkadot_sock",
+        "prop_dorm_woven_rug_2d",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "remotion_sequence",
+        "has_alpha": false,
+        "frame_count": 157
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    }
+  ]
+}

@@ -20,7 +20,7 @@
     "shots"
   ],
   "properties": {
-    "schema_version": { "type": "string", "enum": ["3.3.0", "3.4.0"] },
+    "schema_version": { "type": "string", "enum": ["3.3.0", "3.4.0", "4.0.0-phase01.6c"] },
     "project_id": { "type": "string", "minLength": 1 },
     "fps": { "type": "integer", "minimum": 1, "maximum": 120 },
     "width": { "type": "integer", "minimum": 128 },
@@ -144,6 +144,7 @@
           "duration_s": { "type": "number", "exclusiveMinimum": 0, "maximum": 10.0 },
           "primary_engine": { "type": "string", "enum": ["blender", "threejs", "remotion"] },
           "overlay_engine": { "type": ["string", "null"], "enum": ["remotion", null] },
+          "semantic_visual_purpose": { "type": "string", "minLength": 3 },
           "narration_segment": { "type": "string" },
           "dialogue_lines": {
             "type": "array",

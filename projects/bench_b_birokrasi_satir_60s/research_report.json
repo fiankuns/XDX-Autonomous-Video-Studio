@@ -1,0 +1,192 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_b_birokrasi_satir_60s",
+  "topic_title": "Mengurus Satu Surat yang Membutuhkan Banyak Surat Lain",
+  "genres": [
+    "satir_sosial",
+    "storytelling"
+  ],
+  "epistemic_mode": "hybrid_factual_satire",
+  "research_status": "VERIFIED_COMPLETE",
+  "topic_scope": "Fenomena beban administrasi berulang, persyaratan surat pengantar bertingkat, dan prinsip penyederhanaan layanan publik satu data sebagai pijakan faktual untuk cerita satir sosial bergaya miniatur diorama berdurasi 60 detik.",
+  "research_questions": [
+    "Mengapa prosedur mengurus satu surat administrasi sering berkembang menjadi rantai permintaan banyak surat pengantar lain?",
+    "Apa dampak permintaan fotokopi identitas berulang terhadap biaya waktu warga menurut kajian pelayanan publik?",
+    "Bagaimana prinsip integrasi layanan sekali input data (once-only principle) dirancang untuk memangkas duplikasi berkas antar loket?"
+  ],
+  "verified_factual_claims": [
+    {
+      "claim_id": "CLM_01",
+      "statement": "Pengawasan pelayanan publik mencatat keluhan berulang warga terkait ketidakjelasan standar persyaratan, permintaan dokumen tambahan bertingkat, dan penundaan berlarut dalam pengurusan surat administrasi dasar.",
+      "epistemic_status": "verified_fact",
+      "source_title": "Ombudsman Republik Indonesia \u2014 Laporan Tahunan Pengawasan Pelayanan Publik",
+      "source_url": "https://www.ombudsman.go.id/publikasi/laporan-tahunan",
+      "publication_date": "2023-12",
+      "evidence_excerpt": "Substansi laporan masyarakat pada kelompok administrasi pemerintahan dan kependudukan didominasi penundaan berlarut serta penyimpangan prosedur persyaratan layanan."
+    },
+    {
+      "claim_id": "CLM_02",
+      "statement": "Beban administrasi birokrasi meningkat tajam ketika instansi mewajibkan warga menyerahkan ulang salinan dokumen dan surat keterangan yang datanya telah dimiliki oleh lembaga pemerintah lain.",
+      "epistemic_status": "verified_fact",
+      "source_title": "OECD \u2014 Regulatory Policy and Administrative Simplification",
+      "source_url": "https://www.oecd.org/en/topics/regulatory-policy.html",
+      "publication_date": "2023-09",
+      "evidence_excerpt": "Redundant document requests and fragmented counter procedures impose disproportionate time and compliance costs on citizens seeking routine certificates."
+    },
+    {
+      "claim_id": "CLM_03",
+      "statement": "Reformasi pelayanan publik mendorong penerapan standar pelayanan transparan dan prinsip pertukaran data terpadu agar warga tidak lagi menjadi kurir berkas kertas antar meja layanan.",
+      "epistemic_status": "verified_fact",
+      "source_title": "Kementerian Pendayagunaan Aparatur Negara dan Reformasi Birokrasi \u2014 Transformasi Pelayanan Publik",
+      "source_url": "https://www.menpan.go.id/site/berita-terkini",
+      "publication_date": "2024-04",
+      "evidence_excerpt": "Integrasi layanan publik berfokus memangkas persyaratan berulang sehingga masyarakat cukup menyerahkan data satu kali tanpa fotokopi berlapis."
+    },
+    {
+      "claim_id": "CLM_04",
+      "statement": "Layanan administrasi manual berbasis rantai persetujuan kertas berlapis menguras jam produktif masyarakat dibandingkan alur layanan berorientasi pengguna yang menyatukan verifikasi di belakang layar.",
+      "epistemic_status": "verified_fact",
+      "source_title": "World Bank \u2014 GovTech: Putting People First in Public Service Delivery",
+      "source_url": "https://www.worldbank.org/en/programs/govtech",
+      "publication_date": "2023-10",
+      "evidence_excerpt": "Citizen-centric service redesign eliminates multi-stop paper prerequisite chains that force applicants to visit multiple counters for a single certificate."
+    }
+  ],
+  "primary_sources": [
+    {
+      "claim_id": "CLM_01",
+      "source_title": "Ombudsman Republik Indonesia \u2014 Laporan Tahunan Pengawasan Pelayanan Publik",
+      "source_url": "https://www.ombudsman.go.id/publikasi/laporan-tahunan",
+      "publication_date": "2023-12",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "Substansi laporan masyarakat pada kelompok administrasi pemerintahan dan kependudukan didominasi penundaan berlarut serta penyimpangan prosedur persyaratan layanan."
+    },
+    {
+      "claim_id": "CLM_02",
+      "source_title": "OECD \u2014 Regulatory Policy and Administrative Simplification",
+      "source_url": "https://www.oecd.org/en/topics/regulatory-policy.html",
+      "publication_date": "2023-09",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "Redundant document requests and fragmented counter procedures impose disproportionate time and compliance costs on citizens seeking routine certificates."
+    },
+    {
+      "claim_id": "CLM_03",
+      "source_title": "Kementerian Pendayagunaan Aparatur Negara dan Reformasi Birokrasi \u2014 Transformasi Pelayanan Publik",
+      "source_url": "https://www.menpan.go.id/site/berita-terkini",
+      "publication_date": "2024-04",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "Integrasi layanan publik berfokus memangkas persyaratan berulang sehingga masyarakat cukup menyerahkan data satu kali tanpa fotokopi berlapis."
+    },
+    {
+      "claim_id": "CLM_04",
+      "source_title": "World Bank \u2014 GovTech: Putting People First in Public Service Delivery",
+      "source_url": "https://www.worldbank.org/en/programs/govtech",
+      "publication_date": "2023-10",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "Citizen-centric service redesign eliminates multi-stop paper prerequisite chains that force applicants to visit multiple counters for a single certificate."
+    }
+  ],
+  "source_urls": [
+    "https://www.ombudsman.go.id/publikasi/laporan-tahunan",
+    "https://www.oecd.org/en/topics/regulatory-policy.html",
+    "https://www.menpan.go.id/site/berita-terkini",
+    "https://www.worldbank.org/en/programs/govtech"
+  ],
+  "evidence_excerpts": [
+    {
+      "claim_id": "CLM_01",
+      "excerpt": "Substansi laporan masyarakat pada kelompok administrasi pemerintahan dan kependudukan didominasi penundaan berlarut serta penyimpangan prosedur persyaratan layanan."
+    },
+    {
+      "claim_id": "CLM_02",
+      "excerpt": "Redundant document requests and fragmented counter procedures impose disproportionate time and compliance costs on citizens seeking routine certificates."
+    },
+    {
+      "claim_id": "CLM_03",
+      "excerpt": "Integrasi layanan publik berfokus memangkas persyaratan berulang sehingga masyarakat cukup menyerahkan data satu kali tanpa fotokopi berlapis."
+    },
+    {
+      "claim_id": "CLM_04",
+      "excerpt": "Citizen-centric service redesign eliminates multi-stop paper prerequisite chains that force applicants to visit multiple counters for a single certificate."
+    }
+  ],
+  "misconceptions": [
+    {
+      "misconception": "Semakin banyak map fisik dan fotokopi surat pengantar berlapis berarti verifikasi data otomatis semakin akurat.",
+      "correction": "Duplikasi berkas fisik antar meja justru memperbesar risiko salah ketik ulang dan penundaan layanan dibandingkan verifikasi basis data terintegrasi.",
+      "claim_ref": "CLM_02"
+    },
+    {
+      "misconception": "Kerumitan persyaratan berulang semata-mata kesalahan pribadi petugas garis depan di balik kaca loket.",
+      "correction": "Beban administrasi umumnya berakar pada standar operasional prosedur warisan yang belum diselaraskan antar unit layanan.",
+      "claim_ref": "CLM_01"
+    }
+  ],
+  "uncertainties": [
+    "Kecepatan pengurusan dokumen administrasi nyata di lapangan sangat bervariasi antar daerah bergantung pada kematangan integrasi layanan kependudukan digital setempat.",
+    "Sebagian jenis perizinan berisiko hukum tinggi memang tetap memerlukan verifikasi faktual berlapis di luar surat keterangan dasar warga."
+  ],
+  "fictional_vs_real_world_separation": {
+    "contains_fictional_dramatization": true,
+    "real_world_claim_ids": [
+      "CLM_01",
+      "CLM_02",
+      "CLM_03",
+      "CLM_04"
+    ],
+    "declared_fictional_elements": [
+      "Tokoh pemohon Damar, petugas loket Bu Rantih, serta ruang diorama Balai Layanan Suka Berkas adalah karya satir fiksi orisinal yang tidak merujuk pada individu maupun kantor pemerintahan tertentu.",
+      "Adegan menara map pelangi, fotokopi kartu identitas untuk membuktikan kartu identitas asli, serta stempel pengantar khusus bagi surat pengantar merupakan hiperbola komedi situasional."
+    ]
+  },
+  "fact_to_narration_mapping": {
+    "CLM_01": [
+      {
+        "beat_id": "B01",
+        "beat_role": "hook_everyday_threshold",
+        "narration_excerpt": "Kamu cuma niat mengurus satu surat keterangan domisili lima menit, tapi pulang memeluk bundel berkas setebal bantal."
+      },
+      {
+        "beat_id": "B02",
+        "beat_role": "first_prerequisite_trap",
+        "narration_excerpt": "Begitu map tipis disodorkan ke loket, muncul aturan klasik birokrasi: satu surat utama ternyata membutuhkan banyak surat pengantar lain terl"
+      },
+      {
+        "beat_id": "B05",
+        "beat_role": "ironic_payoff_callback",
+        "narration_excerpt": "Akhirnya satu surat impian itu terbit sore hari, tepat setelah masa berlaku surat pengantar pertamanya habis tadi siang."
+      }
+    ],
+    "CLM_02": [
+      {
+        "beat_id": "B02",
+        "beat_role": "first_prerequisite_trap",
+        "narration_excerpt": "Begitu map tipis disodorkan ke loket, muncul aturan klasik birokrasi: satu surat utama ternyata membutuhkan banyak surat pengantar lain terl"
+      },
+      {
+        "beat_id": "B03",
+        "beat_role": "absurd_folder_tower_escalation",
+        "narration_excerpt": "Damar bolak-balik fotokopi kartu identitas yang datanya sudah tercetak jelas di layar komputer, lengkap dengan map merah, kuning, dan hijau "
+      }
+    ],
+    "CLM_03": [
+      {
+        "beat_id": "B04",
+        "beat_role": "bureaucratic_stamp_reveal",
+        "narration_excerpt": "Riset pelayanan publik menyebutnya beban administrasi berulang: waktu warga habis mengantar kertas dari meja kanan ke meja sebelahnya yang b"
+      }
+    ],
+    "CLM_04": [
+      {
+        "beat_id": "B04",
+        "beat_role": "bureaucratic_stamp_reveal",
+        "narration_excerpt": "Riset pelayanan publik menyebutnya beban administrasi berulang: waktu warga habis mengantar kertas dari meja kanan ke meja sebelahnya yang b"
+      },
+      {
+        "beat_id": "B05",
+        "beat_role": "ironic_payoff_callback",
+        "narration_excerpt": "Akhirnya satu surat impian itu terbit sore hari, tepat setelah masa berlaku surat pengantar pertamanya habis tadi siang."
+      }
+    ]
+  }
+}

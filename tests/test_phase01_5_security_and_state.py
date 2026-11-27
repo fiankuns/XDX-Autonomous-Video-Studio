@@ -76,11 +76,14 @@ def test_critical_audit_regression_negative_conditional_quoted_and_ambiguous_app
 
 
 def test_invalid_state_transitions_ai_self_approval_expiry_and_revocation(tmp_path: Path) -> None:
+    from intelligence.authored_showcase_150s import build_authored_time_perception_payload
+
     pkg_dir = tmp_path / "pkg_sec"
     res = PreProductionPackageBuilder().build_waiting_approval_package(
         package_dir=pkg_dir,
         project_id="sec_proj_01",
         target_duration_s=15,
+        authored_payload=build_authored_time_perception_payload(project_id="sec_proj_01", target_duration_s=15),
     )
     state_mgr = ProjectStateManager(pkg_dir / "project_state.json")
     digest = res["package_digest"]
@@ -139,11 +142,14 @@ def test_invalid_state_transitions_ai_self_approval_expiry_and_revocation(tmp_pa
 
 
 def test_mcp_tool_allowlist_unknown_tool_rejection_and_live_tamper_blocking(tmp_path: Path) -> None:
+    from intelligence.authored_showcase_150s import build_authored_time_perception_payload
+
     pkg_dir = tmp_path / "pkg_mcp_authz"
     res = PreProductionPackageBuilder().build_waiting_approval_package(
         package_dir=pkg_dir,
         project_id="mcp_proj_01",
         target_duration_s=15,
+        authored_payload=build_authored_time_perception_payload(project_id="mcp_proj_01", target_duration_s=15),
     )
     state_mgr = ProjectStateManager(pkg_dir / "project_state.json")
 

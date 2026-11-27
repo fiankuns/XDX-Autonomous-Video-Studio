@@ -189,6 +189,11 @@ def test_specific_id_and_multi_reference_selection() -> None:
 
 
 def test_creative_pipeline_and_approval_gate_with_references(tmp_path: Path) -> None:
+    from intelligence.authored_showcase_150s import (
+        build_authored_social_satire_payload,
+        build_authored_time_perception_payload,
+    )
+
     builder = PreProductionPackageBuilder()
     gate = ApprovalGate()
 
@@ -199,6 +204,9 @@ def test_creative_pipeline_and_approval_gate_with_references(tmp_path: Path) -> 
         project_id="uji_explainair_ref002",
         genres=["explainair"],
         target_duration_s=60,
+        authored_payload=build_authored_time_perception_payload(
+            project_id="uji_explainair_ref002", target_duration_s=60, genres=["explainer"]
+        ),
     )
     assert res_exp["status"] == "WAITING_APPROVAL"
     assert res_exp["reference_intelligence"]["selected_reference_ids"] == ["REF-002"]
@@ -218,6 +226,9 @@ def test_creative_pipeline_and_approval_gate_with_references(tmp_path: Path) -> 
         project_id="uji_satir_ref001",
         genres=["satir_sosial", "storytelling"],
         target_duration_s=60,
+        authored_payload=build_authored_social_satire_payload(
+            project_id="uji_satir_ref001", target_duration_s=60, genres=["satir_sosial", "storytelling"]
+        ),
     )
     assert res_sat["status"] == "WAITING_APPROVAL"
     assert res_sat["reference_intelligence"]["selected_reference_ids"] == ["REF-001"]
@@ -238,8 +249,19 @@ def test_creative_pipeline_and_approval_gate_with_references(tmp_path: Path) -> 
     )
     assert approved_state["current_state"] == "APPROVED"
 
-    # 3. CLI multi-reference plan (`--ref-ids REF-001 REF-002`)
+    # 3. CLI multi-reference plan (`--ref-ids REF-001 REF-002`) with explicit fixture payload
     pkg_multi = tmp_path / "pkg_cli_multi"
+    cli_fixture = tmp_path / "cli_multi_fixture.json"
+    cli_fixture.write_text(
+        json.dumps(
+            build_authored_time_perception_payload(
+                project_id="uji_multi_ref_cli",
+                target_duration_s=30,
+                genres=["explainer", "satir_sosial"],
+            )
+        ),
+        encoding="utf-8",
+    )
     cli = subprocess.run(
         [
             sys.executable,
@@ -255,6 +277,8 @@ def test_creative_pipeline_and_approval_gate_with_references(tmp_path: Path) -> 
             "REF-002",
             "--duration",
             "30",
+            "--payload-json",
+            str(cli_fixture),
             "--out",
             str(pkg_multi),
         ],

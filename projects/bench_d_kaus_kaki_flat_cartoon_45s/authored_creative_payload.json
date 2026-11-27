@@ -1,0 +1,412 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "topic_title": "Misteri Kaus Kaki Sebelah yang Selalu Hilang Saat Dicuci",
+  "style_profile": "flat_cartoon",
+  "genres": [
+    "komedi_absurd",
+    "horor"
+  ],
+  "target_duration_s": 45,
+  "topic_research": {
+    "epistemic_mode": "fictional_dramatization",
+    "research_status": "FICTION_DECLARED",
+    "summary": "Dramatisasi komedi-misteri bergaya kartun pipih ramah segala usia yang memadukan penjelasan nyata rumah tangga dengan imajinasi jenaka: kaus kaki berukuran kecil kerap terselip di lipatan karet penyekat pintu mesin cuci bukaan depan saat putaran tinggi atau luput terlihat akibat perhatian selektif manusia ketika menyortir tumpukan pakaian.",
+    "topic_scope": "Fenomena sehari-hari hilangnya sebelah kaus kaki saat mencuci pakaian ditinjau dari mekanika celah karet tabung mesin cuci bukaan depan dan psikologi perhatian selektif saat menyortir cucian, dikemas dalam atmosfer misteri ringan yang hangat.",
+    "research_questions": [
+      "Di celah mekanis mana kaus kaki kecil paling sering terjebak pada mesin cuci bukaan depan?",
+      "Mengapa mata manusia sering melewatkan sebelah kaus kaki yang terselip di pakaian lain saat menyortir cucian?",
+      "Bagaimana memadukan ketegangan misteri ringan dengan komedi absurd yang ramah untuk seluruh usia?"
+    ],
+    "misconceptions": [
+      {
+        "misconception": "Kaus kaki benar-benar hancur larut menjadi air sabun di dalam tabung cuci.",
+        "correction": "Kaus kaki utuh biasanya tersangkut di lipatan karet penyekat pintu mesin cuci atau bersembunyi di dalam pipa celana dan sudut seprai.",
+        "claim_ref": "CLM_01"
+      }
+    ],
+    "uncertainties": [
+      "Proporsi pasti kaus kaki yang hilang di lipatan karet mesin cuci dibanding yang terselip di keranjang jemuran berbeda-beda pada tiap rumah tangga."
+    ],
+    "fictional_elements_declared": [
+      "Personifikasi kartun pipih Detektif Kaus, sehelai kaus kaki belang kuning yang digambarkan seolah punya ekspresi jahil dan mengintip dari balik karet tabung mesin cuci.",
+      "Pencahayaan ruang cuci kos malam hari bergaya misteri detektif ringan yang aman dan menghibur bagi semua umur."
+    ],
+    "claims": [
+      {
+        "claim_id": "CLM_01",
+        "statement": "Pada mesin cuci bukaan depan, lipatan karet penyekat pintu dan celah sempit di tepi tabung putar dapat menjebak tekstil kecil seperti kaus kaki saat putaran sentrifugal.",
+        "epistemic_status": "verified_fact",
+        "source_title": "Where Do Missing Socks Go in the Washer and Dryer? \u2014 Whirlpool Laundry Care Guide",
+        "source_url": "https://www.whirlpool.com/blog/washers-and-dryers/where-do-missing-socks-go.html",
+        "publication_year": 2023,
+        "publication_date": "2023-05-18",
+        "evidence_excerpt": "Small items like socks can slip under or into the folds of the rubber door boot seal during high-speed wash and spin cycles.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_02",
+        "statement": "Perhatian selektif dan kelelahan pengelompokan visual saat menyortir tumpukan cucian membuat seseorang mudah melewatkan satu kaus kaki yang menempel di bagian dalam pakaian lain.",
+        "epistemic_status": "verified_fact",
+        "source_title": "Attention and Visual Search Overview \u2014 American Psychological Association",
+        "source_url": "https://www.apa.org/topics/cognitive-science",
+        "publication_year": 2023,
+        "publication_date": "2023-08-10",
+        "evidence_excerpt": "Selective attention limits visual detection when scanning cluttered, overlapping everyday objects.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_03",
+        "statement": "Adegan kaus kaki belang kuning yang melirik jenaka seperti agen penyamar di balik bayangan karet tabung merupakan dramatisasi komedi absurd ramah segala usia.",
+        "epistemic_status": "declared_fiction",
+        "source_title": "Deklarasi Dramatisasi Fiksi Ramah Usia XDX Studio Phase 01.6C",
+        "source_url": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio",
+        "publication_year": 2026,
+        "publication_date": "2026-11-27",
+        "evidence_excerpt": "Declared comedic-mystery personification of a striped sock character for flat_cartoon benchmark.",
+        "is_primary_source": true
+      }
+    ]
+  },
+  "blueprint": {
+    "premise": "Kino, penghuni kos yang kelewat dramatis, menyelidiki hilangnya sebelah kaus kaki belang kuningnya pada malam cucian seperti kasus detektif menegangkan, hanya untuk menemukan pelaku aslinya adalah lipatan karet pintu mesin cuci dan pipa celana olahraganya sendiri.",
+    "hook_0_3s_visual": "Bayangan panjang keranjang cucian bergoyang di bawah lampu ruang cuci kos yang berkedip lembut saat Kino mengangkat tiga belas kaus kaki dengan tatapan syok komikal.",
+    "hook_0_3s_spoken": "Tujuh pasang kaus kaki masuk ke mesin cuci malam ini, tetapi hanya tiga belas helai yang keluar.",
+    "story_arc": {
+      "act_1_setup": "Kino menghitung hasil cucian malamnya di ruang binatu kos yang remang hangat dan panik mendapati kaus kaki belang kuning kesayangannya tinggal sebelah.",
+      "act_2_escalation": "Atmosfer misteri kartun memuncak saat kaca mesin cuci berembun, lalu penampang kartun 2D membongkar persembunyian Detektif Kaus di lipatan karet pintu mesin cuci serta jebakan perhatian selektif di dalam pipa celana.",
+      "act_3_resolution": "Ketegangan berubah menjadi tawa hangat ketika Kino pasrah memadukan kaus kaki belang kuning dengan polkadot biru sebagai gaya baru anak kos."
+    },
+    "explainer_mechanism": "Potongan melintang bergaya ilustrasi kartun pipih 2D pada lipatan karet pintu mesin cuci bukaan depan dan sorotan sinar senter pada kaus kaki yang terselip di pipa celana panjang.",
+    "humor_strategy": "Parodi ketegangan misteri malam hari yang langsung dipatahkan oleh realitas sepele anak kos dan ekspresi lebay Kino saat bernegosiasi dengan kaus kakinya sendiri.",
+    "historical_biography_notes": "Murni cerita komedi-misteri fiksi sehari-hari tanpa tokoh sejarah atau biografi nyata, dirancang aman dan hangat untuk seluruh kelompok usia.",
+    "payoff_callback": "Kaus kaki belang kuning yang dicari sejak detik pertama akhirnya dipakai bangga berpasangan dengan kaus kaki polkadot biru yang sama-sama kehilangan kembarannya."
+  },
+  "characters": [
+    {
+      "character_id": "char_kino_pencuci",
+      "name": "Kino",
+      "role": "hero",
+      "silhouette_and_proportions": "Kartun pipih 2D bergaris tinta hitam 2px dengan kepala bulat ekspresif, jambul rambut mencuat, dan piyama kebesaran yang membentuk siluet segitiga jenaka.",
+      "facial_design": "Mata bundar besar ala kartun grafis dengan pupil kontras, alis tebal melayang, dan mulut ekspresif untuk reaksi kaget komikal.",
+      "wardrobe": "Jaket piyama katun ungu muda bergaris, celana rumah longgar biru tua, dan sandal jepit kos hijau limau.",
+      "materials": [
+        "flat_cel_vector_fill",
+        "crisp_ink_outline_2px"
+      ],
+      "palette": [
+        "#6C5CE7",
+        "#2D3436",
+        "#A8E6CF",
+        "#FFEAA7"
+      ],
+      "expressions": [
+        "dramatic_gasp",
+        "suspicious_squint",
+        "aha_discovery",
+        "proud_mismatched_grin"
+      ],
+      "rig_spec": "rig_2d_cutout_deform_v4",
+      "facial_controls": [
+        "eye_pop_scale",
+        "brow_tilt_dramatic",
+        "mouth_viseme_swap_2d"
+      ],
+      "pose_requirements": [
+        "hold_single_sock_aloft",
+        "shine_flashlight_into_drum",
+        "show_off_mismatched_ankles"
+      ],
+      "action_requirements": [
+        "count_laundry_pile_frantically",
+        "peel_back_rubber_door_gasket",
+        "shake_jogger_pants_upside_down"
+      ],
+      "biography_disclaimer": "Karakter kartun fiksi orisinal penghuni kos yang ramah segala usia."
+    },
+    {
+      "character_id": "char_detektif_kaus",
+      "name": "Detektif Kaus Belang",
+      "role": "supporting",
+      "silhouette_and_proportions": "Ilustrasi kaus kaki rajut melengkung pipih 2D bergaris kuning-hitam dengan lipatan tumit menyerupai kerah jas detektif mungil.",
+      "facial_design": "Sepasang kancing jahit putih-hitam di bagian pergelangan kain yang membentuk ilusi mata mengintip jahil tanpa unsur menyeramkan.",
+      "wardrobe": "Motif rajut garis kuning kenari dan biru dongker dengan ujung jari kaus berwarna merah tomat.",
+      "materials": [
+        "flat_cel_knit_pattern_2d",
+        "crisp_ink_outline_2px"
+      ],
+      "palette": [
+        "#FDCB6E",
+        "#1B263B",
+        "#FF6B6B",
+        "#FFFFFF"
+      ],
+      "expressions": [
+        "sneaky_peek",
+        "cozy_tucked_in",
+        "caught_busted_flop"
+      ],
+      "rig_spec": "rig_2d_bendy_ribbon_v4",
+      "facial_controls": [
+        "button_eye_shift_lr",
+        "cuff_fold_brow"
+      ],
+      "pose_requirements": [
+        "peek_from_rubber_gasket_fold",
+        "dangle_from_pant_cuff",
+        "paired_next_to_polkadot_sock"
+      ],
+      "action_requirements": [
+        "slip_into_washer_seal_gap",
+        "slide_out_of_pant_leg",
+        "wiggle_happy_on_foot"
+      ],
+      "biography_disclaimer": "Ilustrasi objek kaus kaki yang dipersonifikasikan secara jenaka untuk kebutuhan komedi visual."
+    }
+  ],
+  "narrative_beats": [
+    {
+      "beat_id": "B01",
+      "act": "ACT_1",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_01",
+      "environment_id": "env_laundry_nook_chiaroscuro_2d",
+      "beat_role": "hook_uncanny_laundry_count",
+      "target_duration_s": 10.0,
+      "narration_vo": "Tujuh pasang kaus kaki masuk ke mesin cuci malam ini tetapi saat pintu dibuka, hanya tiga belas helai yang keluar hidup-hidup.",
+      "claim_refs": [
+        "CLM_03"
+      ],
+      "humor_beat": "Kino mengangkat kaus kaki ke-13 di bawah sorot lampu gantung layaknya detektif menemukan barang bukti berharga.",
+      "emotion": "playful_spooky_shock",
+      "voice_direction": "Berbisik dramatis ala narator kisah misteri malam hari namun dengan ujung kalimat ringan yang mengundang senyum.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_kino_pencuci",
+          "line": "Pasangan belang kuningku menguap ke mana?",
+          "delivery": "dramatis lebay sambil memegang satu kaus kaki belang kuning",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "establishing_shot",
+          "visual_subject": "Kino berlutut di depan mesin cuci bukaan depan dengan bayangan panjang kartun",
+          "concrete_action": "Pintu kaca mesin cuci terbuka mengeluarkan uap tipis sementara Kino menghitung barisan kaus kaki di keranjang",
+          "props": [
+            "prop_frontload_washer_2d",
+            "prop_laundry_basket_plastic",
+            "prop_thirteen_socks_row"
+          ],
+          "preferred_engine": "remotion",
+          "shot_size": "wide",
+          "focal_length_mm": 32.0,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        },
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "reaction_shot",
+          "visual_subject": "Wajah kaget Kino mengangkat satu kaus kaki belang kuning yang sendirian",
+          "concrete_action": "Kino mengangkat kaus kaki belang kuning setinggi mata dengan sorot senter kecil dari bawah dagu",
+          "props": [
+            "prop_single_yellow_striped_sock",
+            "prop_mini_pocket_flashlight"
+          ],
+          "preferred_engine": "remotion",
+          "shot_size": "close_up",
+          "focal_length_mm": 65.0,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B02",
+      "act": "ACT_2",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_02",
+      "environment_id": "env_washer_gasket_cutaway_2d",
+      "beat_role": "midnight_washer_suspense_and_gasket_cutaway",
+      "target_duration_s": 13.0,
+      "narration_vo": "Lampu ruang cuci berkedip pelan. Bukan ulah hantu binatu, melainkan lipatan karet pintu mesin cuci yang diam-diam menelan kaus kaki kecil saat tabung berputar kencang.",
+      "claim_refs": [
+        "CLM_01",
+        "CLM_03"
+      ],
+      "humor_beat": "Detektif Kaus menyembulkan dua mata kancingnya dengan nyaman dari dalam lipatan karet pintu mesin cuci seperti sedang selimutan.",
+      "emotion": "suspense_to_comic_reveal",
+      "voice_direction": "Mulai dengan ketegangan misteri pelan, lalu berubah ceria dan terang saat mengungkap mekanisme lipatan karet pintu.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_detektif_kaus",
+          "line": "Sst, di balik karet ini hangat sekali.",
+          "delivery": "bisikan jenaka menggemaskan dari balik lipatan karet",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.2,
+          "visual_purpose": "technical_cutaway",
+          "visual_subject": "Penampang kartun 2D lipatan karet penyekat pintu mesin cuci bukaan depan",
+          "concrete_action": "Tabung mesin cuci berputar cepat lalu sehelai kaus kaki belang terselip rapi ke celah lipatan karet pintu",
+          "props": [
+            "prop_rubber_door_gasket_cutaway_2d",
+            "prop_spinning_washer_drum_2d",
+            "prop_detective_striped_sock_card"
+          ],
+          "preferred_engine": "remotion",
+          "shot_size": "cutaway",
+          "focal_length_mm": 50.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Menjelaskan bagaimana celah karet pintu mesin cuci bukaan depan menjebak kaus kaki kecil",
+          "scientific_labels": [
+            "Lipatan Karet Pintu (Door Boot Seal)",
+            "Pusaran Air Sentrifugal"
+          ],
+          "transition_in": "trans_whip_pan_cutaway_6f"
+        },
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "character_acting",
+          "visual_subject": "Detektif Kaus mengintip dari balik lipatan karet abu-abu saat disorot senter Kino",
+          "concrete_action": "Tangan Kino menyibak lipatan karet mesin cuci dan menampakkan ujung kaus kaki belang berhias mata kancing",
+          "props": [
+            "prop_rubber_door_gasket_cutaway_2d",
+            "prop_mini_pocket_flashlight",
+            "prop_detective_striped_sock_card"
+          ],
+          "preferred_engine": "threejs",
+          "shot_size": "insert",
+          "focal_length_mm": 72.0,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B03",
+      "act": "ACT_2",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_03",
+      "environment_id": "env_dorm_laundry_pile_2d",
+      "beat_role": "sorting_blindspot_and_absurd_chase",
+      "target_duration_s": 12.0,
+      "narration_vo": "Sisanya bersembunyi di ujung pipa celana panjang karena mata kita lengah oleh perhatian selektif waktu menyortir tumpukan cucian.",
+      "claim_refs": [
+        "CLM_02"
+      ],
+      "humor_beat": "Saat Kino mengguncang celana olahraganya terbalik, kaus kaki belang meluncur jatuh tepat ke atas kepalanya seperti topi.",
+      "emotion": "energetic_aha_comedy",
+      "voice_direction": "Lincah, cepat, dan penuh senyum saat membongkar trik persembunyian kedua di tumpukan pakaian.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_kino_pencuci",
+          "line": "Ketahuan kau bersembunyi di celana olahraga!",
+          "delivery": "girang penuh kemenangan sambil mengguncang pipa celana panjang",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "visual_metaphor",
+          "visual_subject": "Siluet tembus pandang kaus kaki yang menempel di bagian dalam pipa celana olahraga",
+          "concrete_action": "Garis sorot x-ray kartun menembus tumpukan kain memperlihatkan kaus kaki tersangkut di pergelangan celana panjang",
+          "props": [
+            "prop_jogger_pants_cutout_2d",
+            "prop_hidden_sock_xray_badge",
+            "prop_folded_bedsheet_stack"
+          ],
+          "preferred_engine": "remotion",
+          "shot_size": "cutaway",
+          "focal_length_mm": 50.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Memperlihatkan efek perhatian selektif manusia terhadap objek kecil yang tersembunyi di dalam pakaian besar",
+          "scientific_labels": [
+            "Bias Perhatian Selektif",
+            "Terselip di Pipa Celana"
+          ],
+          "transition_in": "trans_whip_pan_cutaway_6f"
+        },
+        {
+          "duration_weight": 1.1,
+          "visual_purpose": "character_acting",
+          "visual_subject": "Kino mengguncang celana olahraga terbalik hingga kaus kaki meluncur keluar",
+          "concrete_action": "Kino mengibaskan celana olahraga ke atas lalu Detektif Kaus meluncur mendarat jenaka di jambul rambut Kino",
+          "props": [
+            "prop_jogger_pants_cutout_2d",
+            "prop_detective_striped_sock_card"
+          ],
+          "preferred_engine": "remotion",
+          "shot_size": "medium",
+          "focal_length_mm": 40.0,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B04",
+      "act": "ACT_3",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_04",
+      "environment_id": "env_sunny_dorm_sock_drawer_2d",
+      "beat_role": "payoff_callback_mismatch_parade",
+      "target_duration_s": 10.0,
+      "narration_vo": "Misteri terpecahkan tanpa drama mistis, meski laci kos tetap penuh kaus kaki jomblo aneka motif.",
+      "claim_refs": [
+        "CLM_01",
+        "CLM_02",
+        "CLM_03"
+      ],
+      "humor_beat": "Kino memamerkan dua kakinya dengan bangga: kiri belang kuning, kanan polkadot biru, keduanya bergoyang serempak.",
+      "emotion": "warm_absurd_satisfaction",
+      "voice_direction": "Ceria, hangat, dan santai menutup cerita dengan nada kemenangan komedi.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_kino_pencuci",
+          "line": "Mulai besok, belang kuning resmi berjodoh dengan polkadot biru.",
+          "delivery": "percaya diri sambil bertolak pinggang memamerkan kedua pergelangan kaki",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "object_insert",
+          "visual_subject": "Laci kayu terbuka berisi deretan kaus kaki tunggal warna-warni yang rapi",
+          "concrete_action": "Tangan Kino menyandingkan kaus kaki belang kuning dengan kaus kaki polkadot biru di dalam sekat laci",
+          "props": [
+            "prop_wooden_sock_drawer_2d",
+            "prop_single_yellow_striped_sock",
+            "prop_single_blue_polkadot_sock"
+          ],
+          "preferred_engine": "threejs",
+          "shot_size": "insert",
+          "focal_length_mm": 70.0,
+          "is_cutaway": false,
+          "transition_in": "trans_cross_dissolve_12f"
+        },
+        {
+          "duration_weight": 1.1,
+          "visual_purpose": "character_acting",
+          "visual_subject": "Sepasang kaki Kino memakai kaus kaki belang kuning dan polkadot biru",
+          "concrete_action": "Kino mengetukkan kedua tumitnya bergantian dengan gembira di lantai kamar kos yang cerah",
+          "props": [
+            "prop_single_yellow_striped_sock",
+            "prop_single_blue_polkadot_sock",
+            "prop_dorm_woven_rug_2d"
+          ],
+          "preferred_engine": "remotion",
+          "shot_size": "medium",
+          "focal_length_mm": 40.0,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    }
+  ]
+}

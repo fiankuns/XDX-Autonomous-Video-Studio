@@ -1,0 +1,1177 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_a_ac_explainer_60s",
+  "procurement_or_modeling_executed": false,
+  "style_bible": {
+    "schema_version": "4.0.0-phase01.6c",
+    "project_id": "bench_a_ac_explainer_60s",
+    "style_profile": "stylized_3d",
+    "style_bible_id": "xdx_stylized_3d_v4_0",
+    "display_name": "Stylized 3D Narrative & Cutaway",
+    "supported_profiles_available": [
+      "2d_animation",
+      "anime_inspired",
+      "diorama",
+      "flat_cartoon",
+      "infographic",
+      "mixed_media",
+      "realistic",
+      "stylized_3d"
+    ],
+    "forced_from_ref001_or_ref002": false,
+    "reference_ids_consulted": [
+      "REF-002"
+    ],
+    "shading_model": "pbr_stylized_soft_subsurface_acescg",
+    "color_space": "ACEScg_rec709_view",
+    "palette_mood": "balanced_warm_cool_cinematic",
+    "cross_asset_consistency_contract": {
+      "detail_tier": "medium_sculpted_beveled_forms",
+      "character_detail_tier": "medium_sculpted_beveled_forms",
+      "environment_detail_tier": "medium_sculpted_beveled_forms",
+      "prop_detail_tier": "medium_sculpted_beveled_forms",
+      "material_cohesion_rule": "Hand-crafted tactile PBR roughness with beveled silhouettes; uniform texel density across cast and props.",
+      "anti_placeholder_rule": "Zero untextured greybox cubes or mismatched shader models permitted."
+    },
+    "modeling_executed_in_phase_01_6c": false
+  },
+  "characters": [
+    {
+      "character_id": "char_nadia_presenter",
+      "name": "Nadia",
+      "role": "narrator_avatar",
+      "identity": {
+        "name": "Nadia",
+        "role": "narrator_avatar",
+        "biography_disclaimer": "Karakter presenter edukasi fiksi orisinal XDX Studio; bukan representasi individu nyata.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Siluet ramping proporsional bergaya stylized 3D setinggi 6.5 kepala, bahu tegas dari jaket kerja teknik dan gestur tangan ekspresif saat menunjuk diagram pipa.",
+      "proportions": "Siluet ramping proporsional bergaya stylized 3D setinggi 6.5 kepala, bahu tegas dari jaket kerja teknik dan gestur tangan ekspresif saat menunjuk diagram pipa.",
+      "facial_design": "Wajah oval hangat dengan mata cokelat besar yang fokus, alis ekspresif, senyum ramah percaya diri, dan kacamata bingkai tipis perak matte.",
+      "clothing": "Jaket kerja pendek biru kobalt dengan aksen garis pirus di kerah, kaus dalam putih bersih, celana chino abu-abu tua, dan sepatu kets putih minimalis.",
+      "wardrobe": "Jaket kerja pendek biru kobalt dengan aksen garis pirus di kerah, kaus dalam putih bersih, celana chino abu-abu tua, dan sepatu kets putih minimalis.",
+      "materials": [
+        "stylized_cotton_twill_matte",
+        "brushed_silver_eyewear_frame",
+        "soft_subsurface_skin_aces"
+      ],
+      "color_palette": [
+        "#1E4FAF",
+        "#18B7C9",
+        "#F4F6F8",
+        "#333A45"
+      ],
+      "palette": [
+        "#1E4FAF",
+        "#18B7C9",
+        "#F4F6F8",
+        "#333A45"
+      ],
+      "expressions": [
+        "curious_smile",
+        "confident_explaining",
+        "playful_wink",
+        "satisfied_nod"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_biped_stylized_v4_ik_fk_hands_facial_visemes",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "jaw_viseme_driver",
+          "brow_arch_lr",
+          "eye_dart_target",
+          "cheek_smile_blend"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_biped_stylized_v4_ik_fk_hands_facial_visemes",
+      "pose_requirements": [
+        "presenter_open_palm_cutaway",
+        "pointing_at_coil_flow",
+        "holding_thermometer_comparison"
+      ],
+      "action_requirements": [
+        "membuka penutup depan unit AC indoor secara bersih",
+        "menelusuri arah aliran refrigeran dari evaporator ke dinding",
+        "menunjukkan perbandingan angka suhu pada remot AC"
+      ],
+      "biography_disclaimer": "Karakter presenter edukasi fiksi orisinal XDX Studio; bukan representasi individu nyata.",
+      "shot_appearances": [],
+      "continuity_lock": {
+        "palette_locked": [
+          "#1E4FAF",
+          "#18B7C9",
+          "#F4F6F8",
+          "#333A45"
+        ],
+        "proportions_locked": "Siluet ramping proporsional bergaya stylized 3D setinggi 6.5 kepala, bahu tegas dari jaket kerja teknik dan gestur tangan ekspresif saat menunjuk diagram pipa.",
+        "wardrobe_locked": "Jaket kerja pendek biru kobalt dengan aksen garis pirus di kerah, kaus dalam putih bersih, celana chino abu-abu tua, dan sepatu kets putih minimalis.",
+        "style_profile_locked": "stylized_3d"
+      }
+    },
+    {
+      "character_id": "char_bima_penghuni",
+      "name": "Bima",
+      "role": "hero",
+      "identity": {
+        "name": "Bima",
+        "role": "hero",
+        "biography_disclaimer": "Karakter penghuni kamar fiksi orisinal XDX Studio; bukan representasi individu nyata.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Siluet pemuda santai bergaya stylized 3D setinggi 6.3 kepala dengan rambut ikal pendek mengembang dan bahu sedikit membungkuk saat kepanasan lalu tegak segar saat kamar sejuk.",
+      "proportions": "Siluet pemuda santai bergaya stylized 3D setinggi 6.3 kepala dengan rambut ikal pendek mengembang dan bahu sedikit membungkuk saat kepanasan lalu tegak segar saat kamar sejuk.",
+      "facial_design": "Pipi bulat ekspresif, mata lebar mudah terkejut, bulir keringat stylized di pelipis pada babak awal, dan ekspresi lega jenaka di akhir.",
+      "clothing": "Kaus santai kuning mustard berkerah bundar, celana pendek rumah warna krem koral, dan sandal selop dalam ruang abu-abu muda.",
+      "wardrobe": "Kaus santai kuning mustard berkerah bundar, celana pendek rumah warna krem koral, dan sandal selop dalam ruang abu-abu muda.",
+      "materials": [
+        "soft_jersey_knit_fabric",
+        "matte_plastic_remote_shell",
+        "soft_subsurface_skin_aces"
+      ],
+      "color_palette": [
+        "#E0A11B",
+        "#E8DFCA",
+        "#2C3539",
+        "#FF6B4A"
+      ],
+      "palette": [
+        "#E0A11B",
+        "#E8DFCA",
+        "#2C3539",
+        "#FF6B4A"
+      ],
+      "expressions": [
+        "overheated_exhausted",
+        "surprised_aha",
+        "sheepish_grin",
+        "relaxed_chilled"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_biped_stylized_v4_ik_fk_hands_facial_visemes",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "jaw_viseme_driver",
+          "sweat_drop_toggle",
+          "brow_furrow_relief",
+          "wide_eye_surprise"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_biped_stylized_v4_ik_fk_hands_facial_visemes",
+      "pose_requirements": [
+        "slumped_fanning_self",
+        "peering_at_sealed_window",
+        "adjusting_remote_to_24c"
+      ],
+      "action_requirements": [
+        "mengipasi wajah sambil menatap jendela kamar yang tertutup rapat",
+        "mengintip bagian dalam kisi AC indoor dengan takjub",
+        "mengubah suhu remot AC ke 24 derajat Celsius sambil tersenyum lega"
+      ],
+      "biography_disclaimer": "Karakter penghuni kamar fiksi orisinal XDX Studio; bukan representasi individu nyata.",
+      "shot_appearances": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S009",
+        "S010",
+        "S011",
+        "S012",
+        "S015",
+        "S016",
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ],
+      "continuity_lock": {
+        "palette_locked": [
+          "#E0A11B",
+          "#E8DFCA",
+          "#2C3539",
+          "#FF6B4A"
+        ],
+        "proportions_locked": "Siluet pemuda santai bergaya stylized 3D setinggi 6.3 kepala dengan rambut ikal pendek mengembang dan bahu sedikit membungkuk saat kepanasan lalu tegak segar saat kamar sejuk.",
+        "wardrobe_locked": "Kaus santai kuning mustard berkerah bundar, celana pendek rumah warna krem koral, dan sandal selop dalam ruang abu-abu muda.",
+        "style_profile_locked": "stylized_3d"
+      }
+    }
+  ],
+  "required_assets": [
+    "env_ac_indoor_evaporator_interior_3d",
+    "env_bedroom_tropical_sealed_3d",
+    "env_exterior_wall_outdoor_unit_3d",
+    "env_refrigerant_valve_and_drain_3d",
+    "font_plus_jakarta_sans_v1",
+    "prop_ac_indoor_evaporator_cutaway",
+    "prop_ac_remote_control",
+    "prop_balcony_potted_fern",
+    "prop_condensation_drain_tray",
+    "prop_crossflow_blower_fan",
+    "prop_expansion_valve_macro",
+    "prop_outdoor_condenser_compressor",
+    "prop_refrigerant_coil_loop",
+    "prop_room_thermometer_digital",
+    "prop_sealed_glass_window"
+  ],
+  "status_breakdown": {
+    "AVAILABLE_IN_LIBRARY_SPEC": 0,
+    "PLANNED_PROCEDURAL_GENERATION": 3,
+    "NEEDS_EXTERNAL_CC0_SEARCH": 7,
+    "NEEDS_CUSTOM_AUTHORING": 6
+  },
+  "semantic_asset_specs": [
+    {
+      "asset_id": "char_bima_penghuni",
+      "semantic_category": "hero_character",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S001",
+        "S002",
+        "S002",
+        "S003",
+        "S003",
+        "S004",
+        "S004",
+        "S005",
+        "S005",
+        "S006",
+        "S006",
+        "S009",
+        "S009",
+        "S010",
+        "S010",
+        "S011",
+        "S011",
+        "S012",
+        "S012",
+        "S015",
+        "S015",
+        "S016",
+        "S016",
+        "S017",
+        "S017",
+        "S018",
+        "S018",
+        "S019",
+        "S019",
+        "S020",
+        "S020"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'char_bima_penghuni' (hero_character) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.52,
+        "depth_m": 0.34,
+        "height_m": 1.68
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_hero_character",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "humanoid_fk_ik_and_facial_visemes",
+      "animation_requirement": "grounded_locomotion_gesture_and_speech",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_ac_indoor_evaporator_interior_3d",
+      "semantic_category": "architectural_interior",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S005",
+        "S006",
+        "S007",
+        "S008"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_ac_indoor_evaporator_interior_3d' (architectural_interior) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_architectural_interior",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_bedroom_tropical_sealed_3d",
+      "semantic_category": "architectural_interior",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_bedroom_tropical_sealed_3d' (architectural_interior) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_architectural_interior",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_exterior_wall_outdoor_unit_3d",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S009",
+        "S010",
+        "S011",
+        "S012"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_exterior_wall_outdoor_unit_3d' (exterior_environment) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "env_refrigerant_valve_and_drain_3d",
+      "semantic_category": "exterior_environment",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S013",
+        "S014",
+        "S015",
+        "S016"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'env_refrigerant_valve_and_drain_3d' (exterior_environment) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_exterior_environment",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "font_plus_jakarta_sans_v1",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S007",
+        "S008",
+        "S009",
+        "S010",
+        "S011",
+        "S012",
+        "S013",
+        "S014",
+        "S015",
+        "S016",
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'font_plus_jakarta_sans_v1' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_ac_indoor_evaporator_cutaway",
+      "semantic_category": "scientific_cutaway_device",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S007",
+        "S008",
+        "S015",
+        "S016",
+        "S019",
+        "S020"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_ac_indoor_evaporator_cutaway' (scientific_cutaway_device) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.95,
+        "depth_m": 0.45,
+        "height_m": 0.65
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_scientific_cutaway_device",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "hinged_cutaway_casing_and_flow_empties",
+      "animation_requirement": "fluid_or_thermal_phase_state_transition",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_ac_remote_control",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S003",
+        "S004",
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_ac_remote_control' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_balcony_potted_fern",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S011",
+        "S012"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_balcony_potted_fern' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_condensation_drain_tray",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S015",
+        "S016"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_condensation_drain_tray' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_crossflow_blower_fan",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S005",
+        "S006"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_crossflow_blower_fan' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_expansion_valve_macro",
+      "semantic_category": "scientific_cutaway_device",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S013",
+        "S014"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_expansion_valve_macro' (scientific_cutaway_device) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.95,
+        "depth_m": 0.45,
+        "height_m": 0.65
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_scientific_cutaway_device",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "hinged_cutaway_casing_and_flow_empties",
+      "animation_requirement": "fluid_or_thermal_phase_state_transition",
+      "engine_compatibility": [
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_outdoor_condenser_compressor",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S009",
+        "S010",
+        "S011",
+        "S012"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_outdoor_condenser_compressor' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_refrigerant_coil_loop",
+      "semantic_category": "scientific_cutaway_device",
+      "planning_status": "PLANNED_PROCEDURAL_GENERATION",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S007",
+        "S008",
+        "S009",
+        "S010",
+        "S013",
+        "S014"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_refrigerant_coil_loop' (scientific_cutaway_device) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.95,
+        "depth_m": 0.45,
+        "height_m": 0.65
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_scientific_cutaway_device",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "hinged_cutaway_casing_and_flow_empties",
+      "animation_requirement": "fluid_or_thermal_phase_state_transition",
+      "engine_compatibility": [
+        "blender",
+        "threejs"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "multi_component_procedural_geometry_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_room_thermometer_digital",
+      "semantic_category": "architectural_interior",
+      "planning_status": "NEEDS_CUSTOM_AUTHORING",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002",
+        "S017",
+        "S018",
+        "S019",
+        "S020"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_room_thermometer_digital' (architectural_interior) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 6.0,
+        "depth_m": 6.0,
+        "height_m": 3.2
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_architectural_interior",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "static_modular_cutaway_walls_and_door_pivots",
+      "animation_requirement": "camera_clearance_and_lighting_fixture_state",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "custom_character_or_stage_build_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    },
+    {
+      "asset_id": "prop_sealed_glass_window",
+      "semantic_category": "household_prop",
+      "planning_status": "NEEDS_EXTERNAL_CC0_SEARCH",
+      "ready_on_disk_now": false,
+      "used_in_shots": [
+        "S001",
+        "S002"
+      ],
+      "geometry_specification": {
+        "min_sub_components": 4,
+        "up_axis_blender": "+Z",
+        "up_axis_threejs": "+Y",
+        "placeholder_12_tri_box_forbidden": true,
+        "silhouette_notes": "Multi-part semantic geometry for 'prop_sealed_glass_window' (household_prop) matching 'stylized_3d'."
+      },
+      "visual_style": {
+        "style_profile": "stylized_3d",
+        "style_bible_id": "xdx_stylized_3d_v4_0",
+        "detail_tier": "medium_sculpted_beveled_forms"
+      },
+      "dimensions": {
+        "width_m": 0.35,
+        "depth_m": 0.28,
+        "height_m": 0.25
+      },
+      "material": {
+        "shading_model": "pbr_stylized_soft_subsurface_acescg",
+        "primary_material_preset": "mat_stylized_3d_household_prop",
+        "roughness_calibrated": true
+      },
+      "rig_requirement": "rigid_pivot_handle_or_none",
+      "animation_requirement": "hand_constraint_pickup_or_table_contact",
+      "engine_compatibility": [
+        "blender"
+      ],
+      "license_requirements": {
+        "allowed_licenses": [
+          "CC0-1.0",
+          "MIT",
+          "Apache-2.0",
+          "XDX-Original-Procedural"
+        ],
+        "attribution_ledger_required": true,
+        "paid_or_unlicensed_forbidden": true
+      },
+      "source_strategy": "polyhaven_or_ambientcg_cc0_then_style_converter_phase02",
+      "qc_criteria": [
+        "Non-placeholder geometry (>12 triangles, >=2 named sub-parts)",
+        "Valid normals and non-degenerate bounding box matching declared dimensions",
+        "Shader & texel density consistent with 'stylized_3d' Global Style Bible"
+      ]
+    }
+  ]
+}

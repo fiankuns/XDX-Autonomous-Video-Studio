@@ -1,0 +1,48 @@
+{
+  "schema_version": "3.4.0",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "project_title": "Misteri Kaus Kaki Sebelah yang Selalu Hilang Saat Dicuci",
+  "mode": "topik",
+  "current_state": "WAITING_APPROVAL",
+  "package_version": "v1",
+  "package_digest": "d0776ccbaa9396ad963ab04e783b887e792271cf40e466af6baed2753ea5e120",
+  "genres": [
+    "komedi_absurd",
+    "horor"
+  ],
+  "timeline_spec": {
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "aspect_ratio": "9:16",
+    "total_frames": 1350
+  },
+  "approval_status": {
+    "approved": false,
+    "approval_id": null,
+    "actor_role": null,
+    "approved_digest": null,
+    "approved_version": null,
+    "approved_scopes": [],
+    "explicit_user_message": null,
+    "recorded_at": null,
+    "expires_at": null,
+    "revoked": false
+  },
+  "blocked_reason": null,
+  "history": [
+    {
+      "from_state": null,
+      "to_state": "INIT",
+      "timestamp": "2026-11-27T20:13:55.721943+00:00",
+      "reason": "Project initialized"
+    },
+    {
+      "from_state": "INIT",
+      "to_state": "WAITING_APPROVAL",
+      "timestamp": "2026-11-27T20:13:55.778033+00:00",
+      "reason": "Pre-production package v1 locked (d0776ccbaa93)"
+    }
+  ],
+  "updated_at": "2026-11-27T20:13:55.778033+00:00"
+}

@@ -1,0 +1,276 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_c_laut_hilang_hybrid_180s",
+  "topic_title": "Apa yang Terjadi Jika Seluruh Laut Bumi Menghilang?",
+  "genres": [
+    "explainer",
+    "dokumenter",
+    "storytelling",
+    "komedi_absurd"
+  ],
+  "epistemic_mode": "factual_verified",
+  "research_status": "VERIFIED_COMPLETE",
+  "topic_scope": "Eksperimen pikiran geofisika dan oseanografi skala planet mencakup volume hidrosfer, batimetri dasar samudra, keruntuhan siklus hidrologi dan awan global, hilangnya kapasitas penyangga kalor samudra serta sirkulasi termohalin, dan dampak biogeokimia hilangnya fitoplankton laut.",
+  "research_questions": [
+    "Berapa volume total air laut yang hilang dan bagaimana proporsinya terhadap seluruh cadangan air di Bumi?",
+    "Bentang alam raksasa apa saja yang tersingkap di dasar samudra mulai dari landas kontinen hingga Palung Mariana?",
+    "Bagaimana penghentian penguapan samudra meruntuhkan pembentukan awan, curah hujan, dan ketersediaan air tawar daratan?",
+    "Mengapa hilangnya penyangga panas samudra memicu lonjakan suhu siang-malam dan iklim benua yang ekstrem?",
+    "Apa konsekuensi atmosferik dari kematian massal fitoplankton laut serta pembusukan sedimen organik dasar samudra?"
+  ],
+  "verified_factual_claims": [
+    {
+      "claim_id": "CLM_01",
+      "statement": "Samudra menampung sekitar 96,5 hingga 97 persen seluruh air di Bumi dengan volume total sekitar 1,332 miliar kilometer kubik.",
+      "epistemic_status": "verified_fact",
+      "source_title": "How much water is in the ocean? \u2014 NOAA National Ocean Service",
+      "source_url": "https://oceanservice.noaa.gov/facts/oceanwater.html",
+      "publication_date": "2024-06-16",
+      "evidence_excerpt": "About 97 percent of Earth's water is in the ocean, totaling roughly 1.332 billion cubic kilometers."
+    },
+    {
+      "claim_id": "CLM_02",
+      "statement": "Siklus air daratan sangat bergantung pada penguapan samudra, sedangkan air tawar permukaan di sungai dan danau hanya mencakup sebagian sangat kecil dari total hidrosfer Bumi.",
+      "epistemic_status": "verified_fact",
+      "source_title": "How Much Water is There on Earth? \u2014 USGS Water Science School",
+      "source_url": "https://www.usgs.gov/special-topics/water-science-school/science/how-much-water-there-earth",
+      "publication_date": "2019-11-13",
+      "evidence_excerpt": "Oceans hold 96.5 percent of all Earth's water and supply the vast majority of atmospheric evaporation driving precipitation."
+    },
+    {
+      "claim_id": "CLM_03",
+      "statement": "Titik terdalam samudra di Challenger Deep, Palung Mariana, mencapai kedalaman hampir 11 kilometer di bawah permukaan laut, berdampingan dengan sistem punggungan tengah samudra global.",
+      "epistemic_status": "verified_fact",
+      "source_title": "How deep is the Mariana Trench? \u2014 NOAA National Ocean Service",
+      "source_url": "https://oceanservice.noaa.gov/facts/mariana-trench.html",
+      "publication_date": "2024-06-16",
+      "evidence_excerpt": "Challenger Deep in the Mariana Trench extends nearly 11,000 meters (about 11 kilometers) below sea level."
+    },
+    {
+      "claim_id": "CLM_04",
+      "statement": "Samudra bertindak sebagai penyangga termal utama planet yang menyerap sekitar 90 persen kelebihan panas global serta menggerakkan pembentukan awan dan distribusi kalor lewat arus laut.",
+      "epistemic_status": "verified_fact",
+      "source_title": "The Water Cycle and Ocean Heat Budget \u2014 NASA Earth Observatory",
+      "source_url": "https://earthobservatory.nasa.gov",
+      "publication_date": "2023-09-01",
+      "evidence_excerpt": "Earth's oceans store and redistribute solar heat and supply roughly 86 percent of global evaporation that forms clouds."
+    },
+    {
+      "claim_id": "CLM_05",
+      "statement": "Fitoplankton dan organisme fotosintetik laut menghasilkan sekitar separuh oksigen di atmosfer Bumi sekaligus menyerap karbon dioksida dalam jumlah masif.",
+      "epistemic_status": "verified_fact",
+      "source_title": "How much oxygen comes from the ocean? \u2014 NOAA National Ocean Service",
+      "source_url": "https://oceanservice.noaa.gov/facts/plankton.html",
+      "publication_date": "2024-06-16",
+      "evidence_excerpt": "Scientists estimate that roughly half of Earth's oxygen production comes from the ocean, primarily marine phytoplankton."
+    }
+  ],
+  "primary_sources": [
+    {
+      "claim_id": "CLM_01",
+      "source_title": "How much water is in the ocean? \u2014 NOAA National Ocean Service",
+      "source_url": "https://oceanservice.noaa.gov/facts/oceanwater.html",
+      "publication_date": "2024-06-16",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "About 97 percent of Earth's water is in the ocean, totaling roughly 1.332 billion cubic kilometers."
+    },
+    {
+      "claim_id": "CLM_02",
+      "source_title": "How Much Water is There on Earth? \u2014 USGS Water Science School",
+      "source_url": "https://www.usgs.gov/special-topics/water-science-school/science/how-much-water-there-earth",
+      "publication_date": "2019-11-13",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "Oceans hold 96.5 percent of all Earth's water and supply the vast majority of atmospheric evaporation driving precipitation."
+    },
+    {
+      "claim_id": "CLM_03",
+      "source_title": "How deep is the Mariana Trench? \u2014 NOAA National Ocean Service",
+      "source_url": "https://oceanservice.noaa.gov/facts/mariana-trench.html",
+      "publication_date": "2024-06-16",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "Challenger Deep in the Mariana Trench extends nearly 11,000 meters (about 11 kilometers) below sea level."
+    },
+    {
+      "claim_id": "CLM_04",
+      "source_title": "The Water Cycle and Ocean Heat Budget \u2014 NASA Earth Observatory",
+      "source_url": "https://earthobservatory.nasa.gov",
+      "publication_date": "2023-09-01",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "Earth's oceans store and redistribute solar heat and supply roughly 86 percent of global evaporation that forms clouds."
+    },
+    {
+      "claim_id": "CLM_05",
+      "source_title": "How much oxygen comes from the ocean? \u2014 NOAA National Ocean Service",
+      "source_url": "https://oceanservice.noaa.gov/facts/plankton.html",
+      "publication_date": "2024-06-16",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "Scientists estimate that roughly half of Earth's oxygen production comes from the ocean, primarily marine phytoplankton."
+    }
+  ],
+  "source_urls": [
+    "https://oceanservice.noaa.gov/facts/oceanwater.html",
+    "https://www.usgs.gov/special-topics/water-science-school/science/how-much-water-there-earth",
+    "https://oceanservice.noaa.gov/facts/mariana-trench.html",
+    "https://earthobservatory.nasa.gov",
+    "https://oceanservice.noaa.gov/facts/plankton.html"
+  ],
+  "evidence_excerpts": [
+    {
+      "claim_id": "CLM_01",
+      "excerpt": "About 97 percent of Earth's water is in the ocean, totaling roughly 1.332 billion cubic kilometers."
+    },
+    {
+      "claim_id": "CLM_02",
+      "excerpt": "Oceans hold 96.5 percent of all Earth's water and supply the vast majority of atmospheric evaporation driving precipitation."
+    },
+    {
+      "claim_id": "CLM_03",
+      "excerpt": "Challenger Deep in the Mariana Trench extends nearly 11,000 meters (about 11 kilometers) below sea level."
+    },
+    {
+      "claim_id": "CLM_04",
+      "excerpt": "Earth's oceans store and redistribute solar heat and supply roughly 86 percent of global evaporation that forms clouds."
+    },
+    {
+      "claim_id": "CLM_05",
+      "excerpt": "Scientists estimate that roughly half of Earth's oxygen production comes from the ocean, primarily marine phytoplankton."
+    }
+  ],
+  "misconceptions": [
+    {
+      "misconception": "Sungai dan danau daratan tetap mengalir normal karena berasal dari mata air pegunungan.",
+      "correction": "Mata air, gletser, sungai, dan danau bergantung pada presipitasi yang lebih dari 85 persen uap airnya dipasok oleh penguapan permukaan samudra.",
+      "claim_ref": "CLM_02"
+    },
+    {
+      "misconception": "Dasar laut hanyalah hamparan pasir datar seperti pantai yang meluas.",
+      "correction": "Dasar samudra memiliki ngarai curam landas kontinen, barisan pegunungan api punggungan tengah samudra, dan palung tektonik hingga kedalaman hampir 11 kilometer.",
+      "claim_ref": "CLM_03"
+    },
+    {
+      "misconception": "Hutan daratan saja sudah mampu menjaga seluruh pasokan oksigen dan keseimbangan karbon Bumi tanpa laut.",
+      "correction": "Fitoplankton laut menghasilkan sekitar separuh oksigen Bumi dan mengunci karbon dalam skala gigaton; tanpanya serta dengan pembusukan biomassa laut, neraca karbon atmosfer terganggu hebat.",
+      "claim_ref": "CLM_05"
+    }
+  ],
+  "uncertainties": [
+    "Laju pasti penurunan kelembapan regional pada minggu pertama dalam skenario penghilangan instan bergantung pada distribusi uap air atmosfer saat kejadian.",
+    "Skala waktu pantulan isostatik kerak samudra dan pemicuan aktivitas vulkanik punggungan tengah samudra berlangsung bertahap dari hitungan hari hingga ribuan tahun."
+  ],
+  "fictional_vs_real_world_separation": {
+    "contains_fictional_dramatization": true,
+    "real_world_claim_ids": [
+      "CLM_01",
+      "CLM_02",
+      "CLM_03",
+      "CLM_04",
+      "CLM_05"
+    ],
+    "declared_fictional_elements": [
+      "Premis eksperimen pikiran bahwa seluruh air laut dikuras habis seketika untuk memperlihatkan kontras kausal sistem Bumi secara visual.",
+      "Adegan komedi deadpan karakter fiksi Pak Teguh yang perahu kayunya mendarat utuh di lumpur ngarai dasar laut bersama peneliti geosains Alya."
+    ]
+  },
+  "fact_to_narration_mapping": {
+    "CLM_01": [
+      {
+        "beat_id": "B01",
+        "beat_role": "hook_anomaly_and_setup",
+        "narration_excerpt": "Detik ini juga, cabut sumbat raksasa Bumi dan kuras habis seluruh samudra dalam sekejap mata. Perahu kayu Pak Teguh tidak tenggelam, melaink"
+      },
+      {
+        "beat_id": "B02",
+        "beat_role": "core_question_and_ocean_volume",
+        "narration_excerpt": "Apa yang sebenarnya terjadi jika seluruh laut Bumi menghilang? Kita baru saja melenyapkan satu koma tiga ratus tiga puluh dua miliar kilomet"
+      },
+      {
+        "beat_id": "B03",
+        "beat_role": "bathymetry_reveal_and_scale_comparison",
+        "narration_excerpt": "Begitu air surut, tepi pantai berubah menjadi jurang landas kontinen setinggi gedung pencakar langit. Kapal kargo yang tadinya mengapung kin"
+      },
+      {
+        "beat_id": "B09",
+        "beat_role": "planetary_desert_climax_and_reflection",
+        "narration_excerpt": "Hanya kantong kecil kehidupan di sekitar cadangan air tanah dalam dan kutub es yang sempat bertahan sementara. Selebihnya, kerak samudra yan"
+      },
+      {
+        "beat_id": "B10",
+        "beat_role": "payoff_callback_and_resolution",
+        "narration_excerpt": "Ternyata laut bukan sekadar genangan tempat berlayar, melainkan pengatur napas, suhu, dan hujan bagi setiap makhluk darat. Untungnya, samudr"
+      }
+    ],
+    "CLM_02": [
+      {
+        "beat_id": "B02",
+        "beat_role": "core_question_and_ocean_volume",
+        "narration_excerpt": "Apa yang sebenarnya terjadi jika seluruh laut Bumi menghilang? Kita baru saja melenyapkan satu koma tiga ratus tiga puluh dua miliar kilomet"
+      },
+      {
+        "beat_id": "B05",
+        "beat_role": "hydrological_cycle_and_cloud_collapse",
+        "narration_excerpt": "Bencana sesungguhnya justru dimulai di langit. Lebih dari delapan puluh lima persen uap air pembentuk awan berasal dari penguapan laut. Tanp"
+      },
+      {
+        "beat_id": "B08",
+        "beat_role": "timeline_escalation_days_to_centuries",
+        "narration_excerpt": "Mari urutkan garis waktunya. Hari pertama, pelabuhan lumpuh dan badai debu garam menyapu pesisir. Bulan pertama, gagal panen melanda seluruh"
+      },
+      {
+        "beat_id": "B09",
+        "beat_role": "planetary_desert_climax_and_reflection",
+        "narration_excerpt": "Hanya kantong kecil kehidupan di sekitar cadangan air tanah dalam dan kutub es yang sempat bertahan sementara. Selebihnya, kerak samudra yan"
+      }
+    ],
+    "CLM_03": [
+      {
+        "beat_id": "B03",
+        "beat_role": "bathymetry_reveal_and_scale_comparison",
+        "narration_excerpt": "Begitu air surut, tepi pantai berubah menjadi jurang landas kontinen setinggi gedung pencakar langit. Kapal kargo yang tadinya mengapung kin"
+      },
+      {
+        "beat_id": "B04",
+        "beat_role": "mariana_trench_and_mid_ocean_ridge",
+        "narration_excerpt": "Di dasar Pasifik, menganga Palung Mariana sedalam hampir sebelas kilometer, lebih tinggi dari Gunung Everest jika dibalik. Sementara di teng"
+      }
+    ],
+    "CLM_04": [
+      {
+        "beat_id": "B05",
+        "beat_role": "hydrological_cycle_and_cloud_collapse",
+        "narration_excerpt": "Bencana sesungguhnya justru dimulai di langit. Lebih dari delapan puluh lima persen uap air pembentuk awan berasal dari penguapan laut. Tanp"
+      },
+      {
+        "beat_id": "B06",
+        "beat_role": "thermal_buffer_loss_and_climate_extremes",
+        "narration_excerpt": "Samudra juga bekerja sebagai penyangga panas raksasa yang menyerap sembilan puluh persen kelebihan kalor Bumi dan membagikannya lewat arus t"
+      },
+      {
+        "beat_id": "B08",
+        "beat_role": "timeline_escalation_days_to_centuries",
+        "narration_excerpt": "Mari urutkan garis waktunya. Hari pertama, pelabuhan lumpuh dan badai debu garam menyapu pesisir. Bulan pertama, gagal panen melanda seluruh"
+      },
+      {
+        "beat_id": "B10",
+        "beat_role": "payoff_callback_and_resolution",
+        "narration_excerpt": "Ternyata laut bukan sekadar genangan tempat berlayar, melainkan pengatur napas, suhu, dan hujan bagi setiap makhluk darat. Untungnya, samudr"
+      }
+    ],
+    "CLM_05": [
+      {
+        "beat_id": "B07",
+        "beat_role": "phytoplankton_collapse_and_carbon_oxygen",
+        "narration_excerpt": "Di lapisan permukaan yang lenyap tadi, miliaran fitoplankton mikroskopis tadinya memproduksi sekitar separuh oksigen Bumi sekaligus mengunci"
+      },
+      {
+        "beat_id": "B08",
+        "beat_role": "timeline_escalation_days_to_centuries",
+        "narration_excerpt": "Mari urutkan garis waktunya. Hari pertama, pelabuhan lumpuh dan badai debu garam menyapu pesisir. Bulan pertama, gagal panen melanda seluruh"
+      },
+      {
+        "beat_id": "B10",
+        "beat_role": "payoff_callback_and_resolution",
+        "narration_excerpt": "Ternyata laut bukan sekadar genangan tempat berlayar, melainkan pengatur napas, suhu, dan hujan bagi setiap makhluk darat. Untungnya, samudr"
+      }
+    ]
+  }
+}

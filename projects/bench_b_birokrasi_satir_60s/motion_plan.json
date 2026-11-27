@@ -1,0 +1,1652 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_b_birokrasi_satir_60s",
+  "fps": 30,
+  "total_frames": 1800,
+  "blender_executor_status": "PLANNED_ONLY_SCHEDULED_PHASE_02B_AND_PHASE_03",
+  "generic_idle_actions_used": false,
+  "planned_actions": [
+    {
+      "action_id": "ACT_S001",
+      "shot_id": "S001",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_establishing_shot",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 0,
+      "end_frame": 72,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_0f (Ruang pelayanan diorama hangat dengan deretan kursi tunggu dan loket k)",
+      "key_poses": [
+        {
+          "frame": 18,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 36,
+          "pose": "apex_interaction_Kamera tilt-shift meluncur mendekati ruang loket diorama pukul de"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_72f (Gerak ruang pelayanan diorama hangat dengan deretan kursi tunggu dan l)",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'establishing_shot' clearly for beat B01: Kamera tilt-shift meluncur mendekati ruang loket diorama pukul delapan pagi saat Damar melangkah ringan memegang satu map biru tipis menuju Loket 01.",
+      "acceptance_criteria": [
+        "Exact frame bounds [0, 72] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S002",
+      "shot_id": "S002",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 72,
+      "end_frame": 143,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_72f (Ruang pelayanan diorama hangat dengan deretan kursi tunggu dan loket k)",
+      "key_poses": [
+        {
+          "frame": 89,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 107,
+          "pose": "apex_interaction_Kamera tilt-shift meluncur mendekati ruang loket diorama pukul de"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_143f (Gerak ruang pelayanan diorama hangat dengan deretan kursi tunggu dan l)",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B01: Kamera tilt-shift meluncur mendekati ruang loket diorama pukul delapan pagi saat Damar melangkah ringan memegang satu map biru tipis menuju Loket 01. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_queue_number_dispenser.",
+      "acceptance_criteria": [
+        "Exact frame bounds [72, 143] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S003",
+      "shot_id": "S003",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 143,
+      "end_frame": 222,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_143f (Damar menyodorkan map biru tipis ke celah kaca loket Bu Rantih berada )",
+      "key_poses": [
+        {
+          "frame": 162,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 182,
+          "pose": "apex_interaction_Damar membungkuk sopan menyelipkan map biru tipis lewat celah kac"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_222f (Gerak damar menyodorkan map biru tipis ke celah kaca loket bu rantih m)",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B01: Damar membungkuk sopan menyelipkan map biru tipis lewat celah kaca loket sementara seorang warga lain melintas di belakangnya sambil mendorong troli penuh bundel kertas.",
+      "acceptance_criteria": [
+        "Exact frame bounds [143, 222] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S004",
+      "shot_id": "S004",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 222,
+      "end_frame": 300,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_222f (Damar menyodorkan map biru tipis ke celah kaca loket Bu Rantih berada )",
+      "key_poses": [
+        {
+          "frame": 241,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 261,
+          "pose": "apex_interaction_Damar membungkuk sopan menyelipkan map biru tipis lewat celah kac"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_300f (Gerak damar menyodorkan map biru tipis ke celah kaca loket bu rantih m)",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B01: Damar membungkuk sopan menyelipkan map biru tipis lewat celah kaca loket sementara seorang warga lain melintas di belakangnya sambil mendorong troli penuh bundel kertas. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_glass_counter_partition.",
+      "acceptance_criteria": [
+        "Exact frame bounds [222, 300] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S005",
+      "shot_id": "S005",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 300,
+      "end_frame": 402,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_300f (Bu Rantih menurunkan kacamata dan membuka daftar syarat lipat akordeon)",
+      "key_poses": [
+        {
+          "frame": 325,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 351,
+          "pose": "apex_interaction_Bu Rantih melirik map biru tipis selama sedetik, lalu menarik ker"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_402f (Gerak bu rantih menurunkan kacamata dan membuka daftar syarat lipat ak)",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B02: Bu Rantih melirik map biru tipis selama sedetik, lalu menarik kertas daftar persyaratan lipat akordeon yang terbentang memanjang sampai menyentuh meja loket.",
+      "acceptance_criteria": [
+        "Exact frame bounds [300, 402] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S006",
+      "shot_id": "S006",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_micro_reaction_and_settle",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 402,
+      "end_frame": 504,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_402f (Bu Rantih menurunkan kacamata dan membuka daftar syarat lipat akordeon)",
+      "key_poses": [
+        {
+          "frame": 427,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 453,
+          "pose": "apex_interaction_Bu Rantih melirik map biru tipis selama sedetik, lalu menarik ker"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_504f (Gerak bu rantih menurunkan kacamata dan membuka daftar syarat lipat ak)",
+      "contact_point": "floor_and_desk_contact:env_diorama_counter_window_closeup",
+      "ik_target": "eye_look_at:char_damar_pemohon",
+      "weight_transfer": "subtle_upper_torso_lean_back_3cm_planted_feet",
+      "facial_expression": "deadpan_double_take_to_eyebrow_raise",
+      "motion_intent": "Convey 'reaction_shot' clearly for beat B02: Bu Rantih melirik map biru tipis selama sedetik, lalu menarik kertas daftar persyaratan lipat akordeon yang terbentang memanjang sampai menyentuh meja loket. Kamera beralih ke sudut insert menyoroti interaksi detail prop_accordion_requirement_checklist, prop_spring_coil_ballpoint.",
+      "acceptance_criteria": [
+        "Exact frame bounds [402, 504] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S007",
+      "shot_id": "S007",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_micro_reaction_and_settle",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 504,
+      "end_frame": 597,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_504f (Ekspresi senyum membeku Damar di depan kaca loket berada pada posisi k)",
+      "key_poses": [
+        {
+          "frame": 527,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 550,
+          "pose": "apex_interaction_Senyum optimistis Damar perlahan membeku sementara kedua alisnya "
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_597f (Gerak ekspresi senyum membeku damar di depan kaca loket mereda stabil )",
+      "contact_point": "floor_and_desk_contact:env_diorama_counter_window_closeup",
+      "ik_target": "eye_look_at:char_damar_pemohon",
+      "weight_transfer": "subtle_upper_torso_lean_back_3cm_planted_feet",
+      "facial_expression": "deadpan_double_take_to_eyebrow_raise",
+      "motion_intent": "Convey 'reaction_shot' clearly for beat B02: Senyum optimistis Damar perlahan membeku sementara kedua alisnya naik tak percaya menatap bagan panah surat pengantar yang bercabang tiga di kaca loket.",
+      "acceptance_criteria": [
+        "Exact frame bounds [504, 597] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S008",
+      "shot_id": "S008",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 597,
+      "end_frame": 690,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_597f (Ekspresi senyum membeku Damar di depan kaca loket berada pada posisi k)",
+      "key_poses": [
+        {
+          "frame": 620,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 643,
+          "pose": "apex_interaction_Senyum optimistis Damar perlahan membeku sementara kedua alisnya "
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_690f (Gerak ekspresi senyum membeku damar di depan kaca loket mereda stabil )",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B02: Senyum optimistis Damar perlahan membeku sementara kedua alisnya naik tak percaya menatap bagan panah surat pengantar yang bercabang tiga di kaca loket. Kamera beralih ke sudut insert menyoroti interaksi detail prop_glass_counter_partition, prop_branching_letter_flowchart_sign.",
+      "acceptance_criteria": [
+        "Exact frame bounds [597, 690] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S009",
+      "shot_id": "S009",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_object_insert",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 690,
+      "end_frame": 786,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_690f (Kilatan cahaya mesin fotokopi memuntahkan lembaran KTP ke dalam map wa)",
+      "key_poses": [
+        {
+          "frame": 714,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 738,
+          "pose": "apex_interaction_Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat samb"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_786f (Gerak kilatan cahaya mesin fotokopi memuntahkan lembaran ktp ke dalam )",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'object_insert' clearly for beat B03: Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat sambil melontarkan lembaran salinan kartu identitas langsung ke dalam map merah, kuning, dan hijau yang terus bertambah tinggi.",
+      "acceptance_criteria": [
+        "Exact frame bounds [690, 786] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S010",
+      "shot_id": "S010",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "mechanism_technical_cutaway",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 786,
+      "end_frame": 881,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_786f (Kilatan cahaya mesin fotokopi memuntahkan lembaran KTP ke dalam map wa)",
+      "key_poses": [
+        {
+          "frame": 809,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 833,
+          "pose": "apex_interaction_Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat samb"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_881f (Gerak kilatan cahaya mesin fotokopi memuntahkan lembaran ktp ke dalam )",
+      "contact_point": "anchor_socket:char_damar_pemohon:cutaway_plane",
+      "ik_target": "rig_ctrl:char_damar_pemohon:flow_path_target",
+      "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+      "facial_expression": "focused_explanation",
+      "motion_intent": "Convey 'technical_cutaway' clearly for beat B03: Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat sambil melontarkan lembaran salinan kartu identitas langsung ke dalam map merah, kuning, dan hijau yang terus bertambah tinggi. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_miniature_photocopier_machine, prop_photocopy_stack_ktp.",
+      "acceptance_criteria": [
+        "Exact frame bounds [786, 881] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S011",
+      "shot_id": "S011",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_visual_metaphor",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 881,
+      "end_frame": 996,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_881f (Damar menahan menara map pelangi di samping monitor komputer yang mena)",
+      "key_poses": [
+        {
+          "frame": 909,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 938,
+          "pose": "apex_interaction_Damar menahan menara map warna-warni setinggi dagu di depan loket"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_996f (Gerak damar menahan menara map pelangi di samping monitor komputer yan)",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'visual_metaphor' clearly for beat B03: Damar menahan menara map warna-warni setinggi dagu di depan loket, tepat di sebelah layar komputer petugas yang sudah menampilkan data kartu identitas Damar secara lengkap.",
+      "acceptance_criteria": [
+        "Exact frame bounds [881, 996] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S012",
+      "shot_id": "S012",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 996,
+      "end_frame": 1110,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_996f (Damar menahan menara map pelangi di samping monitor komputer yang mena)",
+      "key_poses": [
+        {
+          "frame": 1024,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 1053,
+          "pose": "apex_interaction_Damar menahan menara map warna-warni setinggi dagu di depan loket"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_1110f (Gerak damar menahan menara map pelangi di samping monitor komputer yan)",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B03: Damar menahan menara map warna-warni setinggi dagu di depan loket, tepat di sebelah layar komputer petugas yang sudah menampilkan data kartu identitas Damar secara lengkap. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_rainbow_folder_tower, prop_counter_desktop_monitor_ktp.",
+      "acceptance_criteria": [
+        "Exact frame bounds [996, 1110] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S013",
+      "shot_id": "S013",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_visual_metaphor",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 1110,
+      "end_frame": 1212,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_1110f (Dua loket bersebelahan satu meter yang dihubungkan langkah geser Damar)",
+      "key_poses": [
+        {
+          "frame": 1135,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 1161,
+          "pose": "apex_interaction_Kamera simetris dari depan memperlihatkan Damar melangkah satu me"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_1212f (Gerak dua loket bersebelahan satu meter yang dihubungkan langkah geser)",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'visual_metaphor' clearly for beat B04: Kamera simetris dari depan memperlihatkan Damar melangkah satu meter dari Loket 01 ke Loket 02 membawa menara map, sementara di balik kaca Bu Rantih meluncur di kursi beroda ke loket yang sama.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1110, 1212] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S014",
+      "shot_id": "S014",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_object_insert",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 1212,
+      "end_frame": 1314,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_1212f (Dua loket bersebelahan satu meter yang dihubungkan langkah geser Damar)",
+      "key_poses": [
+        {
+          "frame": 1237,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 1263,
+          "pose": "apex_interaction_Kamera simetris dari depan memperlihatkan Damar melangkah satu me"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_1314f (Gerak dua loket bersebelahan satu meter yang dihubungkan langkah geser)",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'object_insert' clearly for beat B04: Kamera simetris dari depan memperlihatkan Damar melangkah satu meter dari Loket 01 ke Loket 02 membawa menara map, sementara di balik kaca Bu Rantih meluncur di kursi beroda ke loket yang sama. Kamera beralih ke sudut medium menyoroti interaksi detail prop_rainbow_folder_tower, prop_adjacent_counter_signs_01_02.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1212, 1314] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S015",
+      "shot_id": "S015",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_object_insert",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 1314,
+      "end_frame": 1407,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_1314f (Rak stempel kayu bertingkat tiga dan bantalan tinta ungu berada pada p)",
+      "key_poses": [
+        {
+          "frame": 1337,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 1360,
+          "pose": "apex_interaction_Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SU"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_1407f (Gerak rak stempel kayu bertingkat tiga dan bantalan tinta ungu mereda )",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'object_insert' clearly for beat B04: Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SURAT PENGANTAR' dari rak bertingkat tiga, menekannya ke bantalan tinta ungu, lalu mencapkannya mantap ke lembar formulir.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1314, 1407] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S016",
+      "shot_id": "S016",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "mechanism_technical_cutaway",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 1407,
+      "end_frame": 1500,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_1407f (Rak stempel kayu bertingkat tiga dan bantalan tinta ungu berada pada p)",
+      "key_poses": [
+        {
+          "frame": 1430,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 1453,
+          "pose": "apex_interaction_Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SU"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_1500f (Gerak rak stempel kayu bertingkat tiga dan bantalan tinta ungu mereda )",
+      "contact_point": "anchor_socket:char_damar_pemohon:cutaway_plane",
+      "ik_target": "rig_ctrl:char_damar_pemohon:flow_path_target",
+      "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+      "facial_expression": "focused_explanation",
+      "motion_intent": "Convey 'technical_cutaway' clearly for beat B04: Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SURAT PENGANTAR' dari rak bertingkat tiga, menekannya ke bantalan tinta ungu, lalu mencapkannya mantap ke lembar formulir. Kamera beralih ke sudut medium menyoroti interaksi detail prop_triple_tier_wooden_stamp_rack, prop_stamp_for_intro_letter.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1407, 1500] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S017",
+      "shot_id": "S017",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_object_insert",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 1500,
+      "end_frame": 1572,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_1500f (Jam dinding sore pukul empat lewat berdampingan dengan map biru tipis )",
+      "key_poses": [
+        {
+          "frame": 1518,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 1536,
+          "pose": "apex_interaction_Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_1572f (Gerak jam dinding sore pukul empat lewat berdampingan dengan map biru )",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'object_insert' clearly for beat B05: Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan satu lembar surat jadi, namun ujung map biru tipis paling bawah memperlihatkan cap masa berlaku yang berakhir pukul dua siang.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1500, 1572] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S018",
+      "shot_id": "S018",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 1572,
+      "end_frame": 1643,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_1572f (Jam dinding sore pukul empat lewat berdampingan dengan map biru tipis )",
+      "key_poses": [
+        {
+          "frame": 1589,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 1607,
+          "pose": "apex_interaction_Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_1643f (Gerak jam dinding sore pukul empat lewat berdampingan dengan map biru )",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B05: Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan satu lembar surat jadi, namun ujung map biru tipis paling bawah memperlihatkan cap masa berlaku yang berakhir pukul dua siang. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_rainbow_folder_tower.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1572, 1643] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S019",
+      "shot_id": "S019",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 1643,
+      "end_frame": 1722,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_1643f (Damar berdiri memeluk menara map pelangi sambil memegang satu lembar s)",
+      "key_poses": [
+        {
+          "frame": 1662,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 1682,
+          "pose": "apex_interaction_Damar memeluk menara map warna-warni di lengan kiri dan mengangka"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_1722f (Gerak damar berdiri memeluk menara map pelangi sambil memegang satu le)",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B05: Damar memeluk menara map warna-warni di lengan kiri dan mengangkat satu lembar surat tipis di tangan kanan sambil menatap kamera dengan senyum pasrah saat lampu loket mulai diredupkan.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1643, 1722] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S020",
+      "shot_id": "S020",
+      "actor_id": "char_damar_pemohon",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_damar_pemohon",
+      "start_frame": 1722,
+      "end_frame": 1800,
+      "start_pose": "char_damar_pemohon_anticipation_ready_at_1722f (Damar berdiri memeluk menara map pelangi sambil memegang satu lembar s)",
+      "key_poses": [
+        {
+          "frame": 1741,
+          "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+        },
+        {
+          "frame": 1761,
+          "pose": "apex_interaction_Damar memeluk menara map warna-warni di lengan kiri dan mengangka"
+        }
+      ],
+      "end_pose": "char_damar_pemohon_settled_hold_at_1800f (Gerak damar berdiri memeluk menara map pelangi sambil memegang satu le)",
+      "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+      "ik_target": "hand_ik_contact:char_damar_pemohon",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B05: Damar memeluk menara map warna-warni di lengan kiri dan mengangkat satu lembar surat tipis di tangan kanan sambil menatap kamera dengan senyum pasrah saat lampu loket mulai diredupkan. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_rainbow_folder_tower.",
+      "acceptance_criteria": [
+        "Exact frame bounds [1722, 1800] respected with zero foot sliding",
+        "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 72,
+      "primary_engine": "blender",
+      "motion_curve": "mot_snappy_spring_pop",
+      "action_events": [
+        {
+          "event_id": "ACT_S001_01",
+          "start_frame": 0,
+          "end_frame": 72,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Kamera tilt-shift meluncur mendekati ruang loket diorama pukul delapan pagi saat Damar melangkah ringan memegang satu map biru tipis menuju Loket 01.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S001",
+          "shot_id": "S001",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_establishing_shot",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 0,
+          "end_frame": 72,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_0f (Ruang pelayanan diorama hangat dengan deretan kursi tunggu dan loket k)",
+          "key_poses": [
+            {
+              "frame": 18,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 36,
+              "pose": "apex_interaction_Kamera tilt-shift meluncur mendekati ruang loket diorama pukul de"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_72f (Gerak ruang pelayanan diorama hangat dengan deretan kursi tunggu dan l)",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'establishing_shot' clearly for beat B01: Kamera tilt-shift meluncur mendekati ruang loket diorama pukul delapan pagi saat Damar melangkah ringan memegang satu map biru tipis menuju Loket 01.",
+          "acceptance_criteria": [
+            "Exact frame bounds [0, 72] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S002",
+      "start_frame": 72,
+      "end_frame": 143,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S002_01",
+          "start_frame": 72,
+          "end_frame": 143,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Kamera tilt-shift meluncur mendekati ruang loket diorama pukul delapan pagi saat Damar melangkah ringan memegang satu map biru tipis menuju Loket 01. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_queue_number_dispenser.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S002",
+          "shot_id": "S002",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 72,
+          "end_frame": 143,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_72f (Ruang pelayanan diorama hangat dengan deretan kursi tunggu dan loket k)",
+          "key_poses": [
+            {
+              "frame": 89,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 107,
+              "pose": "apex_interaction_Kamera tilt-shift meluncur mendekati ruang loket diorama pukul de"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_143f (Gerak ruang pelayanan diorama hangat dengan deretan kursi tunggu dan l)",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B01: Kamera tilt-shift meluncur mendekati ruang loket diorama pukul delapan pagi saat Damar melangkah ringan memegang satu map biru tipis menuju Loket 01. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_queue_number_dispenser.",
+          "acceptance_criteria": [
+            "Exact frame bounds [72, 143] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S003",
+      "start_frame": 143,
+      "end_frame": 222,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S003_01",
+          "start_frame": 143,
+          "end_frame": 222,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Damar membungkuk sopan menyelipkan map biru tipis lewat celah kaca loket sementara seorang warga lain melintas di belakangnya sambil mendorong troli penuh bundel kertas.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S003",
+          "shot_id": "S003",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 143,
+          "end_frame": 222,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_143f (Damar menyodorkan map biru tipis ke celah kaca loket Bu Rantih berada )",
+          "key_poses": [
+            {
+              "frame": 162,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 182,
+              "pose": "apex_interaction_Damar membungkuk sopan menyelipkan map biru tipis lewat celah kac"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_222f (Gerak damar menyodorkan map biru tipis ke celah kaca loket bu rantih m)",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B01: Damar membungkuk sopan menyelipkan map biru tipis lewat celah kaca loket sementara seorang warga lain melintas di belakangnya sambil mendorong troli penuh bundel kertas.",
+          "acceptance_criteria": [
+            "Exact frame bounds [143, 222] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S004",
+      "start_frame": 222,
+      "end_frame": 300,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S004_01",
+          "start_frame": 222,
+          "end_frame": 300,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Damar membungkuk sopan menyelipkan map biru tipis lewat celah kaca loket sementara seorang warga lain melintas di belakangnya sambil mendorong troli penuh bundel kertas. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_glass_counter_partition.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S004",
+          "shot_id": "S004",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 222,
+          "end_frame": 300,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_222f (Damar menyodorkan map biru tipis ke celah kaca loket Bu Rantih berada )",
+          "key_poses": [
+            {
+              "frame": 241,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 261,
+              "pose": "apex_interaction_Damar membungkuk sopan menyelipkan map biru tipis lewat celah kac"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_300f (Gerak damar menyodorkan map biru tipis ke celah kaca loket bu rantih m)",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B01: Damar membungkuk sopan menyelipkan map biru tipis lewat celah kaca loket sementara seorang warga lain melintas di belakangnya sambil mendorong troli penuh bundel kertas. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_glass_counter_partition.",
+          "acceptance_criteria": [
+            "Exact frame bounds [222, 300] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S005",
+      "start_frame": 300,
+      "end_frame": 402,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S005_01",
+          "start_frame": 300,
+          "end_frame": 402,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Bu Rantih melirik map biru tipis selama sedetik, lalu menarik kertas daftar persyaratan lipat akordeon yang terbentang memanjang sampai menyentuh meja loket.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S005",
+          "shot_id": "S005",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 300,
+          "end_frame": 402,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_300f (Bu Rantih menurunkan kacamata dan membuka daftar syarat lipat akordeon)",
+          "key_poses": [
+            {
+              "frame": 325,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 351,
+              "pose": "apex_interaction_Bu Rantih melirik map biru tipis selama sedetik, lalu menarik ker"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_402f (Gerak bu rantih menurunkan kacamata dan membuka daftar syarat lipat ak)",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B02: Bu Rantih melirik map biru tipis selama sedetik, lalu menarik kertas daftar persyaratan lipat akordeon yang terbentang memanjang sampai menyentuh meja loket.",
+          "acceptance_criteria": [
+            "Exact frame bounds [300, 402] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S006",
+      "start_frame": 402,
+      "end_frame": 504,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S006_01",
+          "start_frame": 402,
+          "end_frame": 504,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Bu Rantih melirik map biru tipis selama sedetik, lalu menarik kertas daftar persyaratan lipat akordeon yang terbentang memanjang sampai menyentuh meja loket. Kamera beralih ke sudut insert menyoroti interaksi detail prop_accordion_requirement_checklist, prop_spring_coil_ballpoint.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S006",
+          "shot_id": "S006",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_micro_reaction_and_settle",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 402,
+          "end_frame": 504,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_402f (Bu Rantih menurunkan kacamata dan membuka daftar syarat lipat akordeon)",
+          "key_poses": [
+            {
+              "frame": 427,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 453,
+              "pose": "apex_interaction_Bu Rantih melirik map biru tipis selama sedetik, lalu menarik ker"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_504f (Gerak bu rantih menurunkan kacamata dan membuka daftar syarat lipat ak)",
+          "contact_point": "floor_and_desk_contact:env_diorama_counter_window_closeup",
+          "ik_target": "eye_look_at:char_damar_pemohon",
+          "weight_transfer": "subtle_upper_torso_lean_back_3cm_planted_feet",
+          "facial_expression": "deadpan_double_take_to_eyebrow_raise",
+          "motion_intent": "Convey 'reaction_shot' clearly for beat B02: Bu Rantih melirik map biru tipis selama sedetik, lalu menarik kertas daftar persyaratan lipat akordeon yang terbentang memanjang sampai menyentuh meja loket. Kamera beralih ke sudut insert menyoroti interaksi detail prop_accordion_requirement_checklist, prop_spring_coil_ballpoint.",
+          "acceptance_criteria": [
+            "Exact frame bounds [402, 504] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S007",
+      "start_frame": 504,
+      "end_frame": 597,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S007_01",
+          "start_frame": 504,
+          "end_frame": 597,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Senyum optimistis Damar perlahan membeku sementara kedua alisnya naik tak percaya menatap bagan panah surat pengantar yang bercabang tiga di kaca loket.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S007",
+          "shot_id": "S007",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_micro_reaction_and_settle",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 504,
+          "end_frame": 597,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_504f (Ekspresi senyum membeku Damar di depan kaca loket berada pada posisi k)",
+          "key_poses": [
+            {
+              "frame": 527,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 550,
+              "pose": "apex_interaction_Senyum optimistis Damar perlahan membeku sementara kedua alisnya "
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_597f (Gerak ekspresi senyum membeku damar di depan kaca loket mereda stabil )",
+          "contact_point": "floor_and_desk_contact:env_diorama_counter_window_closeup",
+          "ik_target": "eye_look_at:char_damar_pemohon",
+          "weight_transfer": "subtle_upper_torso_lean_back_3cm_planted_feet",
+          "facial_expression": "deadpan_double_take_to_eyebrow_raise",
+          "motion_intent": "Convey 'reaction_shot' clearly for beat B02: Senyum optimistis Damar perlahan membeku sementara kedua alisnya naik tak percaya menatap bagan panah surat pengantar yang bercabang tiga di kaca loket.",
+          "acceptance_criteria": [
+            "Exact frame bounds [504, 597] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S008",
+      "start_frame": 597,
+      "end_frame": 690,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S008_01",
+          "start_frame": 597,
+          "end_frame": 690,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Senyum optimistis Damar perlahan membeku sementara kedua alisnya naik tak percaya menatap bagan panah surat pengantar yang bercabang tiga di kaca loket. Kamera beralih ke sudut insert menyoroti interaksi detail prop_glass_counter_partition, prop_branching_letter_flowchart_sign.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S008",
+          "shot_id": "S008",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 597,
+          "end_frame": 690,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_597f (Ekspresi senyum membeku Damar di depan kaca loket berada pada posisi k)",
+          "key_poses": [
+            {
+              "frame": 620,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 643,
+              "pose": "apex_interaction_Senyum optimistis Damar perlahan membeku sementara kedua alisnya "
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_690f (Gerak ekspresi senyum membeku damar di depan kaca loket mereda stabil )",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B02: Senyum optimistis Damar perlahan membeku sementara kedua alisnya naik tak percaya menatap bagan panah surat pengantar yang bercabang tiga di kaca loket. Kamera beralih ke sudut insert menyoroti interaksi detail prop_glass_counter_partition, prop_branching_letter_flowchart_sign.",
+          "acceptance_criteria": [
+            "Exact frame bounds [597, 690] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S009",
+      "start_frame": 690,
+      "end_frame": 786,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S009_01",
+          "start_frame": 690,
+          "end_frame": 786,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat sambil melontarkan lembaran salinan kartu identitas langsung ke dalam map merah, kuning, dan hijau yang terus bertambah tinggi.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S009",
+          "shot_id": "S009",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_object_insert",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 690,
+          "end_frame": 786,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_690f (Kilatan cahaya mesin fotokopi memuntahkan lembaran KTP ke dalam map wa)",
+          "key_poses": [
+            {
+              "frame": 714,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 738,
+              "pose": "apex_interaction_Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat samb"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_786f (Gerak kilatan cahaya mesin fotokopi memuntahkan lembaran ktp ke dalam )",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'object_insert' clearly for beat B03: Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat sambil melontarkan lembaran salinan kartu identitas langsung ke dalam map merah, kuning, dan hijau yang terus bertambah tinggi.",
+          "acceptance_criteria": [
+            "Exact frame bounds [690, 786] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S010",
+      "start_frame": 786,
+      "end_frame": 881,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S010_01",
+          "start_frame": 786,
+          "end_frame": 881,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat sambil melontarkan lembaran salinan kartu identitas langsung ke dalam map merah, kuning, dan hijau yang terus bertambah tinggi. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_miniature_photocopier_machine, prop_photocopy_stack_ktp.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S010",
+          "shot_id": "S010",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "mechanism_technical_cutaway",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 786,
+          "end_frame": 881,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_786f (Kilatan cahaya mesin fotokopi memuntahkan lembaran KTP ke dalam map wa)",
+          "key_poses": [
+            {
+              "frame": 809,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 833,
+              "pose": "apex_interaction_Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat samb"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_881f (Gerak kilatan cahaya mesin fotokopi memuntahkan lembaran ktp ke dalam )",
+          "contact_point": "anchor_socket:char_damar_pemohon:cutaway_plane",
+          "ik_target": "rig_ctrl:char_damar_pemohon:flow_path_target",
+          "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+          "facial_expression": "focused_explanation",
+          "motion_intent": "Convey 'technical_cutaway' clearly for beat B03: Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat sambil melontarkan lembaran salinan kartu identitas langsung ke dalam map merah, kuning, dan hijau yang terus bertambah tinggi. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_miniature_photocopier_machine, prop_photocopy_stack_ktp.",
+          "acceptance_criteria": [
+            "Exact frame bounds [786, 881] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S011",
+      "start_frame": 881,
+      "end_frame": 996,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S011_01",
+          "start_frame": 881,
+          "end_frame": 996,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Damar menahan menara map warna-warni setinggi dagu di depan loket, tepat di sebelah layar komputer petugas yang sudah menampilkan data kartu identitas Damar secara lengkap.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S011",
+          "shot_id": "S011",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_visual_metaphor",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 881,
+          "end_frame": 996,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_881f (Damar menahan menara map pelangi di samping monitor komputer yang mena)",
+          "key_poses": [
+            {
+              "frame": 909,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 938,
+              "pose": "apex_interaction_Damar menahan menara map warna-warni setinggi dagu di depan loket"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_996f (Gerak damar menahan menara map pelangi di samping monitor komputer yan)",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'visual_metaphor' clearly for beat B03: Damar menahan menara map warna-warni setinggi dagu di depan loket, tepat di sebelah layar komputer petugas yang sudah menampilkan data kartu identitas Damar secara lengkap.",
+          "acceptance_criteria": [
+            "Exact frame bounds [881, 996] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S012",
+      "start_frame": 996,
+      "end_frame": 1110,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S012_01",
+          "start_frame": 996,
+          "end_frame": 1110,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Damar menahan menara map warna-warni setinggi dagu di depan loket, tepat di sebelah layar komputer petugas yang sudah menampilkan data kartu identitas Damar secara lengkap. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_rainbow_folder_tower, prop_counter_desktop_monitor_ktp.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S012",
+          "shot_id": "S012",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 996,
+          "end_frame": 1110,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_996f (Damar menahan menara map pelangi di samping monitor komputer yang mena)",
+          "key_poses": [
+            {
+              "frame": 1024,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 1053,
+              "pose": "apex_interaction_Damar menahan menara map warna-warni setinggi dagu di depan loket"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_1110f (Gerak damar menahan menara map pelangi di samping monitor komputer yan)",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B03: Damar menahan menara map warna-warni setinggi dagu di depan loket, tepat di sebelah layar komputer petugas yang sudah menampilkan data kartu identitas Damar secara lengkap. Kamera beralih ke sudut reaction menyoroti interaksi detail prop_rainbow_folder_tower, prop_counter_desktop_monitor_ktp.",
+          "acceptance_criteria": [
+            "Exact frame bounds [996, 1110] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S013",
+      "start_frame": 1110,
+      "end_frame": 1212,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S013_01",
+          "start_frame": 1110,
+          "end_frame": 1212,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Kamera simetris dari depan memperlihatkan Damar melangkah satu meter dari Loket 01 ke Loket 02 membawa menara map, sementara di balik kaca Bu Rantih meluncur di kursi beroda ke loket yang sama.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S013",
+          "shot_id": "S013",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_visual_metaphor",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 1110,
+          "end_frame": 1212,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_1110f (Dua loket bersebelahan satu meter yang dihubungkan langkah geser Damar)",
+          "key_poses": [
+            {
+              "frame": 1135,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 1161,
+              "pose": "apex_interaction_Kamera simetris dari depan memperlihatkan Damar melangkah satu me"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_1212f (Gerak dua loket bersebelahan satu meter yang dihubungkan langkah geser)",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'visual_metaphor' clearly for beat B04: Kamera simetris dari depan memperlihatkan Damar melangkah satu meter dari Loket 01 ke Loket 02 membawa menara map, sementara di balik kaca Bu Rantih meluncur di kursi beroda ke loket yang sama.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1110, 1212] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S014",
+      "start_frame": 1212,
+      "end_frame": 1314,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S014_01",
+          "start_frame": 1212,
+          "end_frame": 1314,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Kamera simetris dari depan memperlihatkan Damar melangkah satu meter dari Loket 01 ke Loket 02 membawa menara map, sementara di balik kaca Bu Rantih meluncur di kursi beroda ke loket yang sama. Kamera beralih ke sudut medium menyoroti interaksi detail prop_rainbow_folder_tower, prop_adjacent_counter_signs_01_02.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S014",
+          "shot_id": "S014",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_object_insert",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 1212,
+          "end_frame": 1314,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_1212f (Dua loket bersebelahan satu meter yang dihubungkan langkah geser Damar)",
+          "key_poses": [
+            {
+              "frame": 1237,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 1263,
+              "pose": "apex_interaction_Kamera simetris dari depan memperlihatkan Damar melangkah satu me"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_1314f (Gerak dua loket bersebelahan satu meter yang dihubungkan langkah geser)",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'object_insert' clearly for beat B04: Kamera simetris dari depan memperlihatkan Damar melangkah satu meter dari Loket 01 ke Loket 02 membawa menara map, sementara di balik kaca Bu Rantih meluncur di kursi beroda ke loket yang sama. Kamera beralih ke sudut medium menyoroti interaksi detail prop_rainbow_folder_tower, prop_adjacent_counter_signs_01_02.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1212, 1314] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S015",
+      "start_frame": 1314,
+      "end_frame": 1407,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S015_01",
+          "start_frame": 1314,
+          "end_frame": 1407,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SURAT PENGANTAR' dari rak bertingkat tiga, menekannya ke bantalan tinta ungu, lalu mencapkannya mantap ke lembar formulir.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S015",
+          "shot_id": "S015",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_object_insert",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 1314,
+          "end_frame": 1407,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_1314f (Rak stempel kayu bertingkat tiga dan bantalan tinta ungu berada pada p)",
+          "key_poses": [
+            {
+              "frame": 1337,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 1360,
+              "pose": "apex_interaction_Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SU"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_1407f (Gerak rak stempel kayu bertingkat tiga dan bantalan tinta ungu mereda )",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'object_insert' clearly for beat B04: Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SURAT PENGANTAR' dari rak bertingkat tiga, menekannya ke bantalan tinta ungu, lalu mencapkannya mantap ke lembar formulir.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1314, 1407] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S016",
+      "start_frame": 1407,
+      "end_frame": 1500,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S016_01",
+          "start_frame": 1407,
+          "end_frame": 1500,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SURAT PENGANTAR' dari rak bertingkat tiga, menekannya ke bantalan tinta ungu, lalu mencapkannya mantap ke lembar formulir. Kamera beralih ke sudut medium menyoroti interaksi detail prop_triple_tier_wooden_stamp_rack, prop_stamp_for_intro_letter.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S016",
+          "shot_id": "S016",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "mechanism_technical_cutaway",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 1407,
+          "end_frame": 1500,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_1407f (Rak stempel kayu bertingkat tiga dan bantalan tinta ungu berada pada p)",
+          "key_poses": [
+            {
+              "frame": 1430,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 1453,
+              "pose": "apex_interaction_Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SU"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_1500f (Gerak rak stempel kayu bertingkat tiga dan bantalan tinta ungu mereda )",
+          "contact_point": "anchor_socket:char_damar_pemohon:cutaway_plane",
+          "ik_target": "rig_ctrl:char_damar_pemohon:flow_path_target",
+          "weight_transfer": "rigid_or_fluid_causal_progression_no_foot_slip",
+          "facial_expression": "focused_explanation",
+          "motion_intent": "Convey 'technical_cutaway' clearly for beat B04: Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SURAT PENGANTAR' dari rak bertingkat tiga, menekannya ke bantalan tinta ungu, lalu mencapkannya mantap ke lembar formulir. Kamera beralih ke sudut medium menyoroti interaksi detail prop_triple_tier_wooden_stamp_rack, prop_stamp_for_intro_letter.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1407, 1500] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S017",
+      "start_frame": 1500,
+      "end_frame": 1572,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S017_01",
+          "start_frame": 1500,
+          "end_frame": 1572,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan satu lembar surat jadi, namun ujung map biru tipis paling bawah memperlihatkan cap masa berlaku yang berakhir pukul dua siang.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S017",
+          "shot_id": "S017",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_object_insert",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 1500,
+          "end_frame": 1572,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_1500f (Jam dinding sore pukul empat lewat berdampingan dengan map biru tipis )",
+          "key_poses": [
+            {
+              "frame": 1518,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 1536,
+              "pose": "apex_interaction_Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_1572f (Gerak jam dinding sore pukul empat lewat berdampingan dengan map biru )",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'object_insert' clearly for beat B05: Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan satu lembar surat jadi, namun ujung map biru tipis paling bawah memperlihatkan cap masa berlaku yang berakhir pukul dua siang.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1500, 1572] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S018",
+      "start_frame": 1572,
+      "end_frame": 1643,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S018_01",
+          "start_frame": 1572,
+          "end_frame": 1643,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan satu lembar surat jadi, namun ujung map biru tipis paling bawah memperlihatkan cap masa berlaku yang berakhir pukul dua siang. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_rainbow_folder_tower.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S018",
+          "shot_id": "S018",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 1572,
+          "end_frame": 1643,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_1572f (Jam dinding sore pukul empat lewat berdampingan dengan map biru tipis )",
+          "key_poses": [
+            {
+              "frame": 1589,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 1607,
+              "pose": "apex_interaction_Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_1643f (Gerak jam dinding sore pukul empat lewat berdampingan dengan map biru )",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B05: Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan satu lembar surat jadi, namun ujung map biru tipis paling bawah memperlihatkan cap masa berlaku yang berakhir pukul dua siang. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_rainbow_folder_tower.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1572, 1643] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S019",
+      "start_frame": 1643,
+      "end_frame": 1722,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S019_01",
+          "start_frame": 1643,
+          "end_frame": 1722,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Damar memeluk menara map warna-warni di lengan kiri dan mengangkat satu lembar surat tipis di tangan kanan sambil menatap kamera dengan senyum pasrah saat lampu loket mulai diredupkan.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S019",
+          "shot_id": "S019",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 1643,
+          "end_frame": 1722,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_1643f (Damar berdiri memeluk menara map pelangi sambil memegang satu lembar s)",
+          "key_poses": [
+            {
+              "frame": 1662,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 1682,
+              "pose": "apex_interaction_Damar memeluk menara map warna-warni di lengan kiri dan mengangka"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_1722f (Gerak damar berdiri memeluk menara map pelangi sambil memegang satu le)",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B05: Damar memeluk menara map warna-warni di lengan kiri dan mengangkat satu lembar surat tipis di tangan kanan sambil menatap kamera dengan senyum pasrah saat lampu loket mulai diredupkan.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1643, 1722] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S020",
+      "start_frame": 1722,
+      "end_frame": 1800,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S020_01",
+          "start_frame": 1722,
+          "end_frame": 1800,
+          "subject_id": "char_damar_pemohon",
+          "concrete_action": "Damar memeluk menara map warna-warni di lengan kiri dan mengangkat satu lembar surat tipis di tangan kanan sambil menatap kamera dengan senyum pasrah saat lampu loket mulai diredupkan. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_rainbow_folder_tower.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S020",
+          "shot_id": "S020",
+          "actor_id": "char_damar_pemohon",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_damar_pemohon",
+          "start_frame": 1722,
+          "end_frame": 1800,
+          "start_pose": "char_damar_pemohon_anticipation_ready_at_1722f (Damar berdiri memeluk menara map pelangi sambil memegang satu lembar s)",
+          "key_poses": [
+            {
+              "frame": 1741,
+              "pose": "anticipation_and_reach_toward_char_damar_pemohon"
+            },
+            {
+              "frame": 1761,
+              "pose": "apex_interaction_Damar memeluk menara map warna-warni di lengan kiri dan mengangka"
+            }
+          ],
+          "end_pose": "char_damar_pemohon_settled_hold_at_1800f (Gerak damar berdiri memeluk menara map pelangi sambil memegang satu le)",
+          "contact_point": "planted_feet_and_hand_prop:char_damar_pemohon",
+          "ik_target": "hand_ik_contact:char_damar_pemohon",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B05: Damar memeluk menara map warna-warni di lengan kiri dan mengangkat satu lembar surat tipis di tangan kanan sambil menatap kamera dengan senyum pasrah saat lampu loket mulai diredupkan. Kamera beralih ke sudut close up menyoroti interaksi detail prop_single_blue_thin_folder, prop_rainbow_folder_tower.",
+          "acceptance_criteria": [
+            "Exact frame bounds [1722, 1800] respected with zero foot sliding",
+            "Contact target 'char_damar_pemohon' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    }
+  ]
+}

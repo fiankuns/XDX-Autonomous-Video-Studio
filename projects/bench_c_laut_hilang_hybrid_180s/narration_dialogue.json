@@ -1,0 +1,1394 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_c_laut_hilang_hybrid_180s",
+  "timing_status": "ESTIMATED",
+  "actual_audio_and_forced_alignment_phase": "SCHEDULED_PHASE_04",
+  "language": "id-ID",
+  "narration_style": "Warm, articulate Indonesian science & story narrator",
+  "target_wpm": 143,
+  "measured_script_wpm": 137.7,
+  "estimated_timing": {
+    "estimated_total_s": 189.895,
+    "target_duration_s": 180.0,
+    "playback_speed_multiplier": 1.0,
+    "duration_recommendation": {
+      "suggest_duration_change": false,
+      "recommended_target_duration_s": 180,
+      "rationale": "Estimated delivery (189.895s, 137.7 WPM) fits comfortably within 180s with natural breath pauses."
+    }
+  },
+  "voice_delivery_mode": "hybrid_vo_and_character_dialogue",
+  "voice_direction": {
+    "narrator_register": "baritone_or_mezzo_clear_indonesian",
+    "pace_policy": "Adaptive clause-breathing pace (~130-160 WPM); never time-stretched.",
+    "dialogue_separation": "Distinct mic/room coloration and turn-taking pause per character."
+  },
+  "music_direction": "Light acoustic pizzicato & dry percussion stings stopping cleanly before punchlines; ducked -16 dB under VO.",
+  "ambience": "Grounded Indonesian interior / public-counter room tone (-25 LUFS).",
+  "foley": [
+    {
+      "event_id": "FOL_S001",
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 75,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (establishing_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S002",
+      "shot_id": "S002",
+      "start_frame": 75,
+      "end_frame": 150,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S003",
+      "shot_id": "S003",
+      "start_frame": 150,
+      "end_frame": 240,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (reaction_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S004",
+      "shot_id": "S004",
+      "start_frame": 240,
+      "end_frame": 330,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S005",
+      "shot_id": "S005",
+      "start_frame": 330,
+      "end_frame": 405,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (reaction_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S006",
+      "shot_id": "S006",
+      "start_frame": 405,
+      "end_frame": 480,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S007",
+      "shot_id": "S007",
+      "start_frame": 480,
+      "end_frame": 581,
+      "foley_description": "Subtle tactile foley for prop_earth_bathymetry_globe (data_visualization)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S008",
+      "shot_id": "S008",
+      "start_frame": 581,
+      "end_frame": 682,
+      "foley_description": "Subtle tactile foley for prop_earth_bathymetry_globe (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S009",
+      "shot_id": "S009",
+      "start_frame": 682,
+      "end_frame": 767,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (object_insert)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S010",
+      "shot_id": "S010",
+      "start_frame": 767,
+      "end_frame": 851,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S011",
+      "shot_id": "S011",
+      "start_frame": 851,
+      "end_frame": 936,
+      "foley_description": "Subtle tactile foley for prop_graduated_hydrosphere_cylinder (object_insert)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S012",
+      "shot_id": "S012",
+      "start_frame": 936,
+      "end_frame": 1020,
+      "foley_description": "Subtle tactile foley for prop_graduated_hydrosphere_cylinder (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S013",
+      "shot_id": "S013",
+      "start_frame": 1020,
+      "end_frame": 1132,
+      "foley_description": "Subtle tactile foley for prop_skyscraper_reference_300m (scale_comparison)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S014",
+      "shot_id": "S014",
+      "start_frame": 1132,
+      "end_frame": 1243,
+      "foley_description": "Subtle tactile foley for prop_skyscraper_reference_300m (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S015",
+      "shot_id": "S015",
+      "start_frame": 1243,
+      "end_frame": 1346,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S016",
+      "shot_id": "S016",
+      "start_frame": 1346,
+      "end_frame": 1449,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S017",
+      "shot_id": "S017",
+      "start_frame": 1449,
+      "end_frame": 1535,
+      "foley_description": "Subtle tactile foley for prop_crustal_shelf_cross_section (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S018",
+      "shot_id": "S018",
+      "start_frame": 1535,
+      "end_frame": 1620,
+      "foley_description": "Subtle tactile foley for prop_crustal_shelf_cross_section (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S019",
+      "shot_id": "S019",
+      "start_frame": 1620,
+      "end_frame": 1716,
+      "foley_description": "Subtle tactile foley for prop_mariana_trench_cutaway_11km (scale_comparison)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S020",
+      "shot_id": "S020",
+      "start_frame": 1716,
+      "end_frame": 1811,
+      "foley_description": "Subtle tactile foley for prop_mariana_trench_cutaway_11km (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S021",
+      "shot_id": "S021",
+      "start_frame": 1811,
+      "end_frame": 1906,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S022",
+      "shot_id": "S022",
+      "start_frame": 1906,
+      "end_frame": 2001,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S023",
+      "shot_id": "S023",
+      "start_frame": 2001,
+      "end_frame": 2081,
+      "foley_description": "Subtle tactile foley for prop_ridge_magma_conduit_cutaway (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S024",
+      "shot_id": "S024",
+      "start_frame": 2081,
+      "end_frame": 2160,
+      "foley_description": "Subtle tactile foley for prop_ridge_magma_conduit_cutaway (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S025",
+      "shot_id": "S025",
+      "start_frame": 2160,
+      "end_frame": 2275,
+      "foley_description": "Subtle tactile foley for prop_hydrological_cycle_diorama (scientific_mechanism)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S026",
+      "shot_id": "S026",
+      "start_frame": 2275,
+      "end_frame": 2389,
+      "foley_description": "Subtle tactile foley for prop_hydrological_cycle_diorama (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S027",
+      "shot_id": "S027",
+      "start_frame": 2389,
+      "end_frame": 2486,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S028",
+      "shot_id": "S028",
+      "start_frame": 2486,
+      "end_frame": 2583,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (object_insert)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S029",
+      "shot_id": "S029",
+      "start_frame": 2583,
+      "end_frame": 2672,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (object_insert)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S030",
+      "shot_id": "S030",
+      "start_frame": 2672,
+      "end_frame": 2760,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S031",
+      "shot_id": "S031",
+      "start_frame": 2760,
+      "end_frame": 2875,
+      "foley_description": "Subtle tactile foley for prop_thermohaline_conveyor_globe (scientific_mechanism)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S032",
+      "shot_id": "S032",
+      "start_frame": 2875,
+      "end_frame": 2989,
+      "foley_description": "Subtle tactile foley for prop_thermohaline_conveyor_globe (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S033",
+      "shot_id": "S033",
+      "start_frame": 2989,
+      "end_frame": 3086,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S034",
+      "shot_id": "S034",
+      "start_frame": 3086,
+      "end_frame": 3183,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (data_visualization)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S035",
+      "shot_id": "S035",
+      "start_frame": 3183,
+      "end_frame": 3272,
+      "foley_description": "Subtle tactile foley for prop_diurnal_temperature_chart_card (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S036",
+      "shot_id": "S036",
+      "start_frame": 3272,
+      "end_frame": 3360,
+      "foley_description": "Subtle tactile foley for prop_diurnal_temperature_chart_card (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S037",
+      "shot_id": "S037",
+      "start_frame": 3360,
+      "end_frame": 3458,
+      "foley_description": "Subtle tactile foley for prop_diatom_phytoplankton_cluster (scientific_mechanism)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S038",
+      "shot_id": "S038",
+      "start_frame": 3458,
+      "end_frame": 3556,
+      "foley_description": "Subtle tactile foley for prop_diatom_phytoplankton_cluster (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S039",
+      "shot_id": "S039",
+      "start_frame": 3556,
+      "end_frame": 3646,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (data_visualization)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S040",
+      "shot_id": "S040",
+      "start_frame": 3646,
+      "end_frame": 3736,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S041",
+      "shot_id": "S041",
+      "start_frame": 3736,
+      "end_frame": 3818,
+      "foley_description": "Subtle tactile foley for prop_oxygen_pie_50pct_widget (data_visualization)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S042",
+      "shot_id": "S042",
+      "start_frame": 3818,
+      "end_frame": 3900,
+      "foley_description": "Subtle tactile foley for prop_oxygen_pie_50pct_widget (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S043",
+      "shot_id": "S043",
+      "start_frame": 3900,
+      "end_frame": 4008,
+      "foley_description": "Subtle tactile foley for prop_chronological_timeline_rail (timeline)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S044",
+      "shot_id": "S044",
+      "start_frame": 4008,
+      "end_frame": 4116,
+      "foley_description": "Subtle tactile foley for prop_chronological_timeline_rail (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S045",
+      "shot_id": "S045",
+      "start_frame": 4116,
+      "end_frame": 4201,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (establishing_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S046",
+      "shot_id": "S046",
+      "start_frame": 4201,
+      "end_frame": 4286,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (establishing_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S047",
+      "shot_id": "S047",
+      "start_frame": 4286,
+      "end_frame": 4363,
+      "foley_description": "Subtle tactile foley for prop_orbital_arid_earth_mesh (establishing_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S048",
+      "shot_id": "S048",
+      "start_frame": 4363,
+      "end_frame": 4440,
+      "foley_description": "Subtle tactile foley for prop_orbital_arid_earth_mesh (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S049",
+      "shot_id": "S049",
+      "start_frame": 4440,
+      "end_frame": 4528,
+      "foley_description": "Subtle tactile foley for prop_isostatic_rebound_slab (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S050",
+      "shot_id": "S050",
+      "start_frame": 4528,
+      "end_frame": 4615,
+      "foley_description": "Subtle tactile foley for prop_isostatic_rebound_slab (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S051",
+      "shot_id": "S051",
+      "start_frame": 4615,
+      "end_frame": 4702,
+      "foley_description": "Subtle tactile foley for prop_isostatic_rebound_slab (establishing_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S052",
+      "shot_id": "S052",
+      "start_frame": 4702,
+      "end_frame": 4811,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S053",
+      "shot_id": "S053",
+      "start_frame": 4811,
+      "end_frame": 4920,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S054",
+      "shot_id": "S054",
+      "start_frame": 4920,
+      "end_frame": 5035,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (establishing_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S055",
+      "shot_id": "S055",
+      "start_frame": 5035,
+      "end_frame": 5150,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S056",
+      "shot_id": "S056",
+      "start_frame": 5150,
+      "end_frame": 5275,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S057",
+      "shot_id": "S057",
+      "start_frame": 5275,
+      "end_frame": 5400,
+      "foley_description": "Subtle tactile foley for char_alya_presenter (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    }
+  ],
+  "sound_effect_events": [
+    {
+      "event_id": "SFX_S001",
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 18,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "establishing_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S002",
+      "shot_id": "S002",
+      "start_frame": 75,
+      "end_frame": 93,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S003",
+      "shot_id": "S003",
+      "start_frame": 150,
+      "end_frame": 168,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "reaction_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S004",
+      "shot_id": "S004",
+      "start_frame": 240,
+      "end_frame": 258,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S005",
+      "shot_id": "S005",
+      "start_frame": 330,
+      "end_frame": 348,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "reaction_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S006",
+      "shot_id": "S006",
+      "start_frame": 405,
+      "end_frame": 423,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S007",
+      "shot_id": "S007",
+      "start_frame": 480,
+      "end_frame": 498,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "data_visualization",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S008",
+      "shot_id": "S008",
+      "start_frame": 581,
+      "end_frame": 599,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S009",
+      "shot_id": "S009",
+      "start_frame": 682,
+      "end_frame": 700,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "object_insert",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S010",
+      "shot_id": "S010",
+      "start_frame": 767,
+      "end_frame": 785,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S011",
+      "shot_id": "S011",
+      "start_frame": 851,
+      "end_frame": 869,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "object_insert",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S012",
+      "shot_id": "S012",
+      "start_frame": 936,
+      "end_frame": 954,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S013",
+      "shot_id": "S013",
+      "start_frame": 1020,
+      "end_frame": 1038,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "scale_comparison",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S014",
+      "shot_id": "S014",
+      "start_frame": 1132,
+      "end_frame": 1150,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S015",
+      "shot_id": "S015",
+      "start_frame": 1243,
+      "end_frame": 1261,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S016",
+      "shot_id": "S016",
+      "start_frame": 1346,
+      "end_frame": 1364,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S017",
+      "shot_id": "S017",
+      "start_frame": 1449,
+      "end_frame": 1467,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S018",
+      "shot_id": "S018",
+      "start_frame": 1535,
+      "end_frame": 1553,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S019",
+      "shot_id": "S019",
+      "start_frame": 1620,
+      "end_frame": 1638,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "scale_comparison",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S020",
+      "shot_id": "S020",
+      "start_frame": 1716,
+      "end_frame": 1734,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S021",
+      "shot_id": "S021",
+      "start_frame": 1811,
+      "end_frame": 1829,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S022",
+      "shot_id": "S022",
+      "start_frame": 1906,
+      "end_frame": 1924,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S023",
+      "shot_id": "S023",
+      "start_frame": 2001,
+      "end_frame": 2019,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S024",
+      "shot_id": "S024",
+      "start_frame": 2081,
+      "end_frame": 2099,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S025",
+      "shot_id": "S025",
+      "start_frame": 2160,
+      "end_frame": 2178,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "scientific_mechanism",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S026",
+      "shot_id": "S026",
+      "start_frame": 2275,
+      "end_frame": 2293,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S027",
+      "shot_id": "S027",
+      "start_frame": 2389,
+      "end_frame": 2407,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S028",
+      "shot_id": "S028",
+      "start_frame": 2486,
+      "end_frame": 2504,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "object_insert",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S029",
+      "shot_id": "S029",
+      "start_frame": 2583,
+      "end_frame": 2601,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "object_insert",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S030",
+      "shot_id": "S030",
+      "start_frame": 2672,
+      "end_frame": 2690,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S031",
+      "shot_id": "S031",
+      "start_frame": 2760,
+      "end_frame": 2778,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "scientific_mechanism",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S032",
+      "shot_id": "S032",
+      "start_frame": 2875,
+      "end_frame": 2893,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S033",
+      "shot_id": "S033",
+      "start_frame": 2989,
+      "end_frame": 3007,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S034",
+      "shot_id": "S034",
+      "start_frame": 3086,
+      "end_frame": 3104,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "data_visualization",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S035",
+      "shot_id": "S035",
+      "start_frame": 3183,
+      "end_frame": 3201,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S036",
+      "shot_id": "S036",
+      "start_frame": 3272,
+      "end_frame": 3290,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S037",
+      "shot_id": "S037",
+      "start_frame": 3360,
+      "end_frame": 3378,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "scientific_mechanism",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S038",
+      "shot_id": "S038",
+      "start_frame": 3458,
+      "end_frame": 3476,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S039",
+      "shot_id": "S039",
+      "start_frame": 3556,
+      "end_frame": 3574,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "data_visualization",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S040",
+      "shot_id": "S040",
+      "start_frame": 3646,
+      "end_frame": 3664,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S041",
+      "shot_id": "S041",
+      "start_frame": 3736,
+      "end_frame": 3754,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "data_visualization",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S042",
+      "shot_id": "S042",
+      "start_frame": 3818,
+      "end_frame": 3836,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S043",
+      "shot_id": "S043",
+      "start_frame": 3900,
+      "end_frame": 3918,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "timeline",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S044",
+      "shot_id": "S044",
+      "start_frame": 4008,
+      "end_frame": 4026,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S045",
+      "shot_id": "S045",
+      "start_frame": 4116,
+      "end_frame": 4134,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "establishing_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S046",
+      "shot_id": "S046",
+      "start_frame": 4201,
+      "end_frame": 4219,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "establishing_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S047",
+      "shot_id": "S047",
+      "start_frame": 4286,
+      "end_frame": 4304,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "establishing_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S048",
+      "shot_id": "S048",
+      "start_frame": 4363,
+      "end_frame": 4381,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S049",
+      "shot_id": "S049",
+      "start_frame": 4440,
+      "end_frame": 4458,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S050",
+      "shot_id": "S050",
+      "start_frame": 4528,
+      "end_frame": 4546,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S051",
+      "shot_id": "S051",
+      "start_frame": 4615,
+      "end_frame": 4633,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "establishing_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S052",
+      "shot_id": "S052",
+      "start_frame": 4702,
+      "end_frame": 4720,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S053",
+      "shot_id": "S053",
+      "start_frame": 4811,
+      "end_frame": 4829,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S054",
+      "shot_id": "S054",
+      "start_frame": 4920,
+      "end_frame": 4938,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "establishing_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S055",
+      "shot_id": "S055",
+      "start_frame": 5035,
+      "end_frame": 5053,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S056",
+      "shot_id": "S056",
+      "start_frame": 5150,
+      "end_frame": 5168,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S057",
+      "shot_id": "S057",
+      "start_frame": 5275,
+      "end_frame": 5293,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    }
+  ],
+  "vo_segments": [
+    {
+      "segment_id": "VO_001",
+      "beat_id": "B01",
+      "shot_id": "S001",
+      "shot_ids": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Detik ini juga, cabut sumbat raksasa Bumi dan kuras habis seluruh samudra dalam sekejap mata. Perahu kayu Pak Teguh tidak tenggelam, melainkan mendarat mulus di hamparan lumpur asin tanpa setetes ombak pun.",
+      "word_count": 32,
+      "start_time_s": 0.0,
+      "end_time_s": 16.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Tegas dan memikat di kalimat pembuka tiga detik pertama, lalu bergeser ke nada bercerita ringan yang jenaka.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_002",
+      "beat_id": "B02",
+      "shot_id": "S007",
+      "shot_ids": [
+        "S007",
+        "S008",
+        "S009",
+        "S010",
+        "S011",
+        "S012"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Apa yang sebenarnya terjadi jika seluruh laut Bumi menghilang? Kita baru saja melenyapkan satu koma tiga ratus tiga puluh dua miliar kilometer kubik air asin, atau sekitar sembilan puluh tujuh persen cadangan air planet ini.",
+      "word_count": 35,
+      "start_time_s": 16.0,
+      "end_time_s": 34.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Jernih dan terukur dengan penekanan pada angka volume 1,332 miliar kilometer kubik dan rasio 97 persen.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_003",
+      "beat_id": "B03",
+      "shot_id": "S013",
+      "shot_ids": [
+        "S013",
+        "S014",
+        "S015",
+        "S016",
+        "S017",
+        "S018"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Begitu air surut, tepi pantai berubah menjadi jurang landas kontinen setinggi gedung pencakar langit. Kapal kargo yang tadinya mengapung kini bertengger di bibir tebing curam sedalam empat kilometer menuju dataran abisal yang gelap dan berdebu.",
+      "word_count": 35,
+      "start_time_s": 34.0,
+      "end_time_s": 54.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Bernada takjub menggambarkan ketinggian tebing empat kilometer, memberi jeda pendek sebelum dialog komedi Pak Teguh.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_004",
+      "beat_id": "B04",
+      "shot_id": "S019",
+      "shot_ids": [
+        "S019",
+        "S020",
+        "S021",
+        "S022",
+        "S023",
+        "S024"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Di dasar Pasifik, menganga Palung Mariana sedalam hampir sebelas kilometer, lebih tinggi dari Gunung Everest jika dibalik. Sementara di tengah samudra, punggungan gunung api bawah laut sepanjang enam puluh lima ribu kilometer langsung menyemburkan asap belerang ke udara terbuka.",
+      "word_count": 39,
+      "start_time_s": 54.0,
+      "end_time_s": 72.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Dramatis dan berwibawa layaknya dokumenter ekspedisi kebumian saat menyebut Palung Mariana dan punggungan tengah samudra.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_005",
+      "beat_id": "B05",
+      "shot_id": "S025",
+      "shot_ids": [
+        "S025",
+        "S026",
+        "S027",
+        "S028",
+        "S029",
+        "S030"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Bencana sesungguhnya justru dimulai di langit. Lebih dari delapan puluh lima persen uap air pembentuk awan berasal dari penguapan laut. Tanpa samudra, pabrik hujan global tutup total, awan memudar dalam hitungan hari, dan sungai besar mengering.",
+      "word_count": 36,
+      "start_time_s": 72.0,
+      "end_time_s": 92.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Mengalir cepat namun jernih untuk menghubungkan sebab-akibat dari hilangnya penguapan laut ke berhentinya hujan daratan.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_006",
+      "beat_id": "B06",
+      "shot_id": "S031",
+      "shot_ids": [
+        "S031",
+        "S032",
+        "S033",
+        "S034",
+        "S035",
+        "S036"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Samudra juga bekerja sebagai penyangga panas raksasa yang menyerap sembilan puluh persen kelebihan kalor Bumi dan membagikannya lewat arus termal. Tanpa selimut air ini, siang hari memanggang benua secara ekstrem, sedangkan malam hari anjlok membeku seperti gurun.",
+      "word_count": 37,
+      "start_time_s": 92.0,
+      "end_time_s": 112.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Kontraskan intonasi panas menyengat pada bagian siang hari dengan penurunan nada dingin tajam pada bagian malam hari.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_007",
+      "beat_id": "B07",
+      "shot_id": "S037",
+      "shot_ids": [
+        "S037",
+        "S038",
+        "S039",
+        "S040",
+        "S041",
+        "S042"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Di lapisan permukaan yang lenyap tadi, miliaran fitoplankton mikroskopis tadinya memproduksi sekitar separuh oksigen Bumi sekaligus mengunci karbon dioksida. Saat hamparan lumpur organik di dasar laut mengering dan membusuk, gas karbon terlepas deras ke atmosfer.",
+      "word_count": 35,
+      "start_time_s": 112.0,
+      "end_time_s": 130.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Jelas saat menjelaskan peran mikroskopis fitoplankton, lalu beri ruang komedi singkat untuk reaksi Pak Teguh.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_008",
+      "beat_id": "B08",
+      "shot_id": "S043",
+      "shot_ids": [
+        "S043",
+        "S044",
+        "S045",
+        "S046",
+        "S047",
+        "S048"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Mari urutkan garis waktunya. Hari pertama, pelabuhan lumpuh dan badai debu garam menyapu pesisir. Bulan pertama, gagal panen melanda seluruh benua karena hujan berhenti. Dalam hitungan dekade, hutan hujan mengering dan memicu kebakaran lintas benua.",
+      "word_count": 35,
+      "start_time_s": 130.0,
+      "end_time_s": 148.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Berirama kronologis tegas mengikuti penanda waktu Hari Pertama, Bulan Pertama, hingga Dekade.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_009",
+      "beat_id": "B09",
+      "shot_id": "S049",
+      "shot_ids": [
+        "S049",
+        "S050",
+        "S051",
+        "S052",
+        "S053"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Hanya kantong kecil kehidupan di sekitar cadangan air tanah dalam dan kutub es yang sempat bertahan sementara. Selebihnya, kerak samudra yang kehilangan beban triliunan ton air mulai memantul naik dan mengguncang lempeng tektonik.",
+      "word_count": 33,
+      "start_time_s": 148.0,
+      "end_time_s": 164.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Khidmat dan berbobot menggambarkan puncak perubahan geologi planet tanpa samudra.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_010",
+      "beat_id": "B10",
+      "shot_id": "S054",
+      "shot_ids": [
+        "S054",
+        "S055",
+        "S056",
+        "S057"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Ternyata laut bukan sekadar genangan tempat berlayar, melainkan pengatur napas, suhu, dan hujan bagi setiap makhluk darat. Untungnya, samudra kita masih utuh menjaga Bumi hari ini.",
+      "word_count": 26,
+      "start_time_s": 164.0,
+      "end_time_s": 180.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Hangat, lega, dan reflektif sebagai penutup dokumenter sebelum menyerahkan kalimat punchline terakhir pada Pak Teguh.",
+      "breath_pause_ms": 220
+    }
+  ],
+  "dialogue_lines": [
+    {
+      "beat_id": "B01",
+      "shot_id": "S002",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_pak_teguh_nelayan",
+      "line": "Ikan cakalangnya mendadak jadi pendaki tebing, Mbak.",
+      "delivery": "deadpan datar sambil bersandar pada dayung",
+      "onscreen_speaking": true
+    },
+    {
+      "beat_id": "B02",
+      "shot_id": "S008",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_alya_presenter",
+      "line": "Dan sisanya di darat bahkan tak cukup mengisi cangkir raksasa ini.",
+      "delivery": "antusias sambil menunjuk bola air perbandingan",
+      "onscreen_speaking": true
+    },
+    {
+      "beat_id": "B03",
+      "shot_id": "S014",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_pak_teguh_nelayan",
+      "line": "Mau turun ambil jangkar saja harus sewa tali panjat gunung.",
+      "delivery": "mengintip ke bawah jurang sambil memegangi topi caping",
+      "onscreen_speaking": true
+    },
+    {
+      "beat_id": "B05",
+      "shot_id": "S026",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_alya_presenter",
+      "line": "Langit biru bersih, tapi itu tanda mesin hidrologi Bumi mogok.",
+      "delivery": "serius sambil menunjuk langit kosong tanpa awan di atas lembah sungai kering",
+      "onscreen_speaking": true
+    },
+    {
+      "beat_id": "B07",
+      "shot_id": "S038",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_pak_teguh_nelayan",
+      "line": "Bau amis satu kelurahan saja pusing, apalagi satu samudra.",
+      "delivery": "sengau datar sambil menjepit hidung",
+      "onscreen_speaking": true
+    },
+    {
+      "beat_id": "B08",
+      "shot_id": "S044",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_alya_presenter",
+      "line": "Bumi perlahan berubah dari kelereng biru menjadi planet batu kecokelatan.",
+      "delivery": "tenang namun reflektif menatap bola Bumi yang mengering",
+      "onscreen_speaking": true
+    },
+    {
+      "beat_id": "B10",
+      "shot_id": "S055",
+      "timing_status": "ESTIMATED",
+      "speaker_id": "char_pak_teguh_nelayan",
+      "line": "Syukurlah, Mbak. Saya lebih rela kena ombak daripada nyangkul garam di dasar Pasifik.",
+      "delivery": "tersenyum tipis deadpan sambil memegang kemudi dayung di atas perahu yang kembali mengapung",
+      "onscreen_speaking": true
+    }
+  ],
+  "lip_sync_plan": {
+    "status": "ESTIMATED_PRE_AUDIO",
+    "onscreen_dialogue_present": true,
+    "phase_04_backend": "rhubarb_or_whisper_forced_viseme_alignment"
+  }
+}

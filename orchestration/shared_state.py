@@ -166,14 +166,23 @@ class StateVersionConflictError(RuntimeError):
     """Raised when optimistic concurrency `expected_version` does not match current persisted `state_version`."""
 
 
+class ProductionApprovalFrozenError(InvalidStateTransitionError):
+    """Raised prior to Phase 01.6D when any caller attempts to enter APPROVED or production states."""
+
+
 def _utc_now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
 class SharedProjectStateMachine:
-    """Atomic, cross-process locked 26-state project state machine with optimistic concurrency."""
+    """Atomic, cross-process locked 26-state project state machine with Phase 01.6C production approval freeze."""
 
-    def __init__(self, state_file: Path) -> None:
+    def __init__(self, state_file: Path, *, allow_production_approval: bool = False) -> None:
+        if allow_production_approval:
+            raise ProductionApprovalFrozenError(
+                "Boolean configuration cannot authorize production approval! "
+                "Full Trusted Human Approval & Execution Guard are scheduled for Phase 01.6D."
+            )
         self.state_file = Path(os.path.realpath(state_file))
         self.lock_file = self.state_file.with_suffix(".state.lock")
         self.state_file.parent.mkdir(parents=True, exist_ok=True)
@@ -209,7 +218,7 @@ class SharedProjectStateMachine:
         def _init() -> dict[str, Any]:
             now = _utc_now_iso()
             doc = {
-                "schema_version": "4.0.0-phase01.6b",
+                "schema_version": "4.0.0-phase01.6c",
                 "entity_kind": "project_state",
                 "project_id": project_id,
                 "project_title": project_title,
@@ -221,6 +230,7 @@ class SharedProjectStateMachine:
                     "approved_digest": None,
                     "approved_version": None,
                     "trusted_channel_verified": False,
+                    "production_approval_frozen_until": "Phase 01.6D",
                     "revoked": False,
                 },
                 "artifact_manifest": {},
@@ -290,39 +300,38 @@ class SharedProjectStateMachine:
                     f"Illegal v4.0 state transition '{prev}' -> '{next_state}'. Allowed: {sorted(allowed)}"
                 )
 
-            # Block agent self-approval or recovery-triggered auto-approval
+            # Phase 01.6C Section 4.F: Production Approval Freeze prior to Phase 01.6D!
+            # Rejects actor labels ('trusted_human_approval_gate'), agent-crafted approval dicts,
+            # invalid digests, trusted_channel_verified=False, and any transition to APPROVED or production!
             if next_state == "APPROVED":
                 if actor != "trusted_human_approval_gate" or not verified_human_approval:
-                    raise InvalidStateTransitionError(
-                        "Agents cannot transition directly to 'APPROVED'; requires trusted_human_approval_gate evidence."
+                    raise ProductionApprovalFrozenError(
+                        "Agents cannot transition directly to 'APPROVED'; requires trusted_human_approval_gate "
+                        "and production approval is frozen until Phase 01.6D."
                     )
-                if not verified_human_approval.get("approved_digest"):
-                    raise InvalidStateTransitionError("APPROVED transition missing approved_digest")
-                doc["approval_status"] = {
-                    "approved": True,
-                    "approved_digest": verified_human_approval["approved_digest"],
-                    "approved_version": verified_human_approval.get("approved_version", "v1"),
-                    "trusted_channel_verified": bool(verified_human_approval.get("trusted_channel_verified", False)),
-                    "revoked": False,
-                }
+                raise ProductionApprovalFrozenError(
+                    "Production transition to 'APPROVED' is strictly frozen in Phase 01.6C! "
+                    "Actor labels and agent-supplied approval dictionaries are not accepted as proof of "
+                    "human identity prior to Phase 01.6D Trusted Human Approval & Execution Guard."
+                )
 
-            # Block direct COMPLETED without Success Auditor + Visual/Technical QC gate
+            # Block direct COMPLETED without Success Auditor + freeze all post-approval production states
             if next_state == "COMPLETED":
                 if actor != "success_auditor" or not verified_success_auditor_pass:
                     raise InvalidStateTransitionError(
                         "Cannot transition to 'COMPLETED' without verified 'success_auditor' sign-off."
                     )
 
+            if next_state in POST_APPROVAL_PRODUCTION_STATES:
+                raise ProductionApprovalFrozenError(
+                    f"Production state '{next_state}' is strictly frozen prior to Phase 01.6D "
+                    "(rendering, modeling, animation, and Blender mutations are prohibited in Phase 01.6C)."
+                )
+
             # Invalidate approval automatically if entering WAITING_REAPPROVAL or REVISION_REQUIRED
             if next_state in {"WAITING_REAPPROVAL", "REVISION_REQUIRED"}:
                 doc["approval_status"]["approved"] = False
                 doc["approval_status"]["revoked"] = True
-
-            # Block post-approval production states if approval is not active
-            if next_state in POST_APPROVAL_PRODUCTION_STATES and not doc["approval_status"].get("approved"):
-                raise InvalidStateTransitionError(
-                    f"Cannot enter production state '{next_state}' while approval_status.approved is False"
-                )
 
             new_ver = cur_ver + 1
             now = _utc_now_iso()

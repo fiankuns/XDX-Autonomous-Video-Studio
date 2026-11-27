@@ -1,0 +1,23 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_a_ac_explainer_60s",
+  "topic_title": "Bagaimana AC Mendinginkan Ruangan?",
+  "genres": [
+    "explainer",
+    "edukasi"
+  ],
+  "blueprint": {
+    "premise": "Menjelaskan bagaimana AC mendinginkan ruangan pengap bukan dengan menyuntikkan udara dingin dari luar, melainkan mengoperasikan kurir kalor bernama refrigeran yang menyerap panas kamar di evaporator dan membuangnya lewat kompresor serta kondensor di luar dinding.",
+    "hook_0_3s_visual": "Kamera meluncur menembus jendela kamar kos yang tertutup rapat ke arah Bima yang mengipasi wajah di bawah unit AC indoor, lalu selubung depan AC terbelah mulus memperlihatkan pipa evaporator berkabut biru es.",
+    "hook_0_3s_spoken": "Pernah heran bagaimana AC mendinginkan ruangan pengap tanpa memasukkan udara dari luar?",
+    "story_arc": {
+      "act_1_setup": "Bima heran mengapa kamarnya yang rapat tanpa celah ventilasi bisa berubah sejuk; Nadia membuka selubung AC indoor untuk menunjukkan penyerapan kalor di kisi evaporator oleh refrigeran yang mendidih.",
+      "act_2_escalation": "Kamera mengikuti aliran uap refrigeran menembus dinding ke unit outdoor tempat kompresor memampatkan gas panas dan kondensor membuangnya ke luar, lalu menyusut masuk ke celah mikro katup ekspansi hingga kembali membeku sambil meneteskan embun kelembapan kamar.",
+      "act_3_resolution": "Kembali ke kamar Bima yang kini sejuk di angka 24 derajat Celsius, meluruskan kebiasaan keliru memencet remot 16 derajat sekaligus menutup dengan penghematan tagihan listrik."
+    },
+    "explainer_mechanism": "Bedah penampang 3D kontinu (exploded view & cutaway pipa tertutup) yang memberi kode warna oranye hangat untuk refrigeran pembawa kalor dan biru pirus untuk refrigeran dingin bertekanan rendah di sepanjang empat komponen utama: evaporator, kompresor, kondensor, dan katup ekspansi.",
+    "humor_strategy": "Humor situasional ringan dari ekspresi dramatis Bima yang semula menempelkan pipi ke tembok dan menekan tombol remot bertubi-tubi ke 16 derajat, dikontraskan dengan penjelasan santai dan presisi dari Nadia.",
+    "historical_biography_notes": "Tidak berfokus pada biografi tokoh sejarah; prinsip dehumidifikasi dan siklus kompresi uap modern merujuk pada standar rekayasa tata udara institusional.",
+    "payoff_callback": "Callback langsung ke adegan pembuka kamar tertutup dan remot AC: Bima mengembalikan setelan remot dari 16 ke 24 derajat Celsius sementara termometer meja stabil nyaman dan putaran meteran listrik melambat."
+  }
+}

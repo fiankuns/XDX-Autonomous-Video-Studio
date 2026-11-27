@@ -1,21 +1,17 @@
-"""7-Tier Honest Runtime Capability Discovery & Evidence Ledger (Phase 01.6B).
+"""7-Tier Portable Runtime Capability Discovery & Evidence Ledger (Phase 01.6C).
 
-Fixes Phase 01.6A Independent Audit finding:
-- Separates capability states strictly into 7 categories:
-  1. `DOCUMENTED_CAPABILITY`
-  2. `CONFIGURED_CAPABILITY`
-  3. `DETECTED_CAPABILITY`
-  4. `LIVE_INVOCATION_VERIFIED`
-  5. `UNAVAILABLE`
-  6. `UNKNOWN`
-  7. `BLOCKED`
-- NEVER returns hardcoded source-code tool lists as `DETECTED_CAPABILITY`. Because Python
-  cannot directly introspect host LLM tool registries, host-native tools (`invoke_subagent`,
-  `define_subagent`, `send_message`, `manage_subagents`) remain `DOCUMENTED_CAPABILITY` or
-  `UNKNOWN` unless backed by a fresh, non-stale `CapabilityEvidence` record from an actual
-  host-agent invocation!
-- Supports `AntigravityRuntimeCapabilityAdapter` and `CodexRuntimeCapabilityAdapter` without
-  inventing fake APIs or adding any external AI gateway.
+Fixes Phase 01.6A & Phase 01.6B Independent Audit findings (Section 4.E):
+1. Separates capability states into 7 categories:
+   ``DOCUMENTED_CAPABILITY``, ``CONFIGURED_CAPABILITY``, ``DETECTED_CAPABILITY``,
+   ``LIVE_INVOCATION_VERIFIED``, ``UNAVAILABLE``, ``UNKNOWN``, ``BLOCKED``.
+2. Explicitly separates three orthogonal dimensions per capability:
+   - ``runtime_capability_status`` (what Python directly detects at runtime)
+   - ``documentation_status`` (whether host-applicable documentation exists)
+   - ``live_invocation_evidence`` (fresh timestamped invocation receipt with ``invocation_id``)
+3. ``DOCUMENTED_CAPABILITY`` is ONLY emitted when host markers match the documented host AND
+   relevant documentation is present. Outside Antigravity without live evidence, host-native tools
+   and workspace modes report ``UNKNOWN`` — NEVER ``DOCUMENTED_CAPABILITY`` and NEVER fabricated
+   as ``LIVE_INVOCATION_VERIFIED``.
 """
 
 from __future__ import annotations
@@ -36,7 +32,7 @@ import jsonschema
 from adapters.xdx_mcp_adapter import XDXBlenderMCPAdapter
 from engines.ffmpeg_engine import FFmpegEngine
 from engines.web_engines import RemotionEngine, ThreeJSEngine
-from intelligence.reference_database_bridge import ReferenceDatabaseBridge
+from intelligence.reference_database_bridge import ReferenceDatabaseBridge, ReferenceMediaIntegrityError
 from orchestration.agent_registry import AgentRegistry
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
@@ -140,7 +136,7 @@ class RuntimeCapabilityDiscovery:
         """Persist verified host-agent capability invocation evidence to disk with schema validation."""
         now_dt = now or _utc_now()
         ledger = {
-            "schema_version": "4.0.0-phase01.6b",
+            "schema_version": "4.0.0-phase01.6c",
             "generated_at_utc": now_dt.isoformat(),
             "ttl_seconds": ttl_seconds,
             "runtime_identity": self.current_runtime_identity(),
@@ -207,6 +203,11 @@ class RuntimeCapabilityDiscovery:
             "verified_live_map": live_map,
         }
 
+    def _has_antigravity_host_docs(self) -> bool:
+        doc_file = self.root_dir / "docs" / "AGENT_CAPABILITY_AND_MODEL_ROUTING.md"
+        rule_file = self.root_dir / ".agents" / "rules" / "xdx-core-governance.md"
+        return doc_file.is_file() and rule_file.is_file()
+
     def discover(self, *, now: datetime | None = None) -> dict[str, Any]:
         reg = AgentRegistry(root_dir=self.root_dir)
         cust_summary = reg.validate_workspace_customizations()
@@ -216,6 +217,7 @@ class RuntimeCapabilityDiscovery:
         runtime_id = self.current_runtime_identity()
         ev_eval = self.evaluate_evidence_ledger(now=now)
         live_map = ev_eval["verified_live_map"]
+        ag_docs_relevant = bool(ag_markers["detected"] and self._has_antigravity_host_docs())
 
         hooks_file = self.root_dir / ".agents" / "hooks.json"
         mcp_config_file = self.root_dir / ".agents" / "mcp_config.json"
@@ -232,129 +234,213 @@ class RuntimeCapabilityDiscovery:
         refs_by_id, _, profiles_by_id = ref_bridge.load_registries()
         verified_refs = []
         for rid in sorted(refs_by_id):
-            rec = ref_bridge.verify_and_load_reference(rid)
-            verified_refs.append(
-                {
-                    "id": rec.reference_id,
-                    "sha256": rec.video_sha256,
-                    "bytes": rec.bytes_size,
-                    "profile_id": rec.profile["id"],
-                    "status": "VERIFIED",
-                }
-            )
+            try:
+                rec = ref_bridge.verify_and_load_reference(rid)
+                verified_refs.append(
+                    {
+                        "id": rec.reference_id,
+                        "sha256": rec.video_sha256,
+                        "bytes": rec.bytes_size,
+                        "profile_id": rec.profile["id"],
+                        "status": "VERIFIED",
+                    }
+                )
+            except ReferenceMediaIntegrityError as exc:
+                entry = refs_by_id[rid]
+                verified_refs.append(
+                    {
+                        "id": rid,
+                        "sha256": entry["sha256"],
+                        "bytes": int(entry["bytes"]),
+                        "profile_id": entry.get("profile_id"),
+                        "status": "UNHYDRATED_OR_MISSING_IN_ENVIRONMENT",
+                        "detail": str(exc),
+                    }
+                )
 
         def _host_tool_status(cap_id: str) -> dict[str, Any]:
+            doc_status = "HOST_DOCUMENTED" if ag_docs_relevant else "NOT_APPLICABLE_ON_CURRENT_HOST"
             if cap_id in live_map:
                 rec = live_map[cap_id]
                 return {
                     "status": "LIVE_INVOCATION_VERIFIED",
+                    "runtime_capability_status": "UNKNOWN_DIRECT_PYTHON_INTROSPECTION",
+                    "documentation_status": doc_status,
+                    "live_invocation_evidence": {
+                        "verified": True,
+                        "invocation_id": rec["invocation_id"],
+                        "conversation_id": rec.get("conversation_id"),
+                        "timestamp_utc": rec["timestamp_utc"],
+                        "is_stale": False,
+                    },
                     "verification_method": rec["verification_method"],
                     "invocation_id": rec["invocation_id"],
                     "conversation_id": rec.get("conversation_id"),
                     "timestamp_utc": rec["timestamp_utc"],
                 }
-            if ag_markers["detected"]:
+            if ag_docs_relevant:
                 return {
                     "status": "DOCUMENTED_CAPABILITY",
-                    "verification_method": "antigravity_docs_only_python_cannot_introspect_host_llm_tools",
+                    "runtime_capability_status": "UNKNOWN",
+                    "documentation_status": "HOST_DOCUMENTED",
+                    "live_invocation_evidence": {
+                        "verified": False,
+                        "invocation_id": None,
+                        "conversation_id": None,
+                        "timestamp_utc": None,
+                        "is_stale": bool(ev_eval["is_stale"]),
+                    },
+                    "verification_method": "antigravity_host_docs_present_no_fresh_live_receipt",
                     "invocation_id": None,
                     "conversation_id": None,
-                    "note": "Stale or missing host invocation receipt; not claimed as DETECTED_CAPABILITY.",
+                    "note": "Host markers match Antigravity docs, but live receipt is absent or stale.",
                 }
             return {
                 "status": "UNKNOWN",
-                "verification_method": "no_host_agent_evidence",
+                "runtime_capability_status": "UNKNOWN",
+                "documentation_status": "NOT_APPLICABLE_ON_CURRENT_HOST",
+                "live_invocation_evidence": {
+                    "verified": False,
+                    "invocation_id": None,
+                    "conversation_id": None,
+                    "timestamp_utc": None,
+                    "is_stale": bool(ev_eval["is_stale"]),
+                },
+                "verification_method": "non_antigravity_or_undocumented_host_no_live_evidence",
                 "invocation_id": None,
                 "conversation_id": None,
             }
 
+        def _binary_or_config_entry(
+            *,
+            status: str,
+            verification_method: str,
+            doc_status: str = "RUNTIME_PROBED",
+            extra: dict[str, Any] | None = None,
+        ) -> dict[str, Any]:
+            base: dict[str, Any] = {
+                "status": status,
+                "runtime_capability_status": status,
+                "documentation_status": doc_status,
+                "live_invocation_evidence": {"verified": False, "invocation_id": None},
+                "verification_method": verification_method,
+            }
+            if extra:
+                base.update(extra)
+            return base
+
+        inherit_entry = (
+            {
+                "status": "LIVE_INVOCATION_VERIFIED",
+                "runtime_capability_status": "UNKNOWN_DIRECT_PYTHON_INTROSPECTION",
+                "documentation_status": "HOST_DOCUMENTED" if ag_docs_relevant else "NOT_APPLICABLE_ON_CURRENT_HOST",
+                "live_invocation_evidence": {
+                    "verified": True,
+                    "invocation_id": live_map["workspace_mode:inherit"]["invocation_id"],
+                    "conversation_id": live_map["workspace_mode:inherit"].get("conversation_id"),
+                    "timestamp_utc": live_map["workspace_mode:inherit"]["timestamp_utc"],
+                    "is_stale": False,
+                },
+                "verification_method": live_map["workspace_mode:inherit"]["verification_method"],
+                "invocation_id": live_map["workspace_mode:inherit"]["invocation_id"],
+            }
+            if "workspace_mode:inherit" in live_map
+            else {
+                "status": "DOCUMENTED_CAPABILITY" if ag_docs_relevant else "UNKNOWN",
+                "runtime_capability_status": "UNKNOWN",
+                "documentation_status": "HOST_DOCUMENTED" if ag_docs_relevant else "NOT_APPLICABLE_ON_CURRENT_HOST",
+                "live_invocation_evidence": {
+                    "verified": False,
+                    "invocation_id": None,
+                    "is_stale": bool(ev_eval["is_stale"]),
+                },
+                "verification_method": (
+                    "antigravity_host_policy_declaration"
+                    if ag_docs_relevant
+                    else "unknown_outside_antigravity_host"
+                ),
+            }
+        )
+
         capabilities_matrix: dict[str, dict[str, Any]] = {
-            # Host-native LLM subagent tools (NEVER claimed DETECTED from Python constants!)
             "host_tool:invoke_subagent": _host_tool_status("host_tool:invoke_subagent"),
             "host_tool:define_subagent": _host_tool_status("host_tool:define_subagent"),
             "host_tool:send_message": _host_tool_status("host_tool:send_message"),
             "host_tool:manage_subagents": _host_tool_status("host_tool:manage_subagents"),
-            # Workspace configurations on disk
-            "workspace_config:custom_subagents_md": {
-                "status": "CONFIGURED_CAPABILITY",
-                "count": len(cust_summary["custom_agent_files_validated"]),
-                "verification_method": "disk_yaml_frontmatter_schema_validated",
-            },
-            "workspace_config:skills_md": {
-                "status": "CONFIGURED_CAPABILITY",
-                "count": len(cust_summary["workspace_skills_validated"]),
-                "verification_method": "disk_yaml_frontmatter_schema_validated",
-            },
-            "workspace_config:rules_md": {
-                "status": "CONFIGURED_CAPABILITY",
-                "count": len(cust_summary["workspace_rules_validated"]),
-                "verification_method": "disk_yaml_frontmatter_schema_validated",
-            },
-            "workspace_config:lifecycle_hooks_json": {
-                "status": "CONFIGURED_CAPABILITY" if hooks_file.is_file() else "UNAVAILABLE",
-                "verification_method": "filesystem_probe",
-            },
-            # Workspace isolation modes
-            "workspace_mode:inherit": (
-                {
-                    "status": "LIVE_INVOCATION_VERIFIED",
-                    "verification_method": live_map["workspace_mode:inherit"]["verification_method"],
-                    "invocation_id": live_map["workspace_mode:inherit"]["invocation_id"],
-                }
-                if "workspace_mode:inherit" in live_map
-                else {
-                    "status": "DOCUMENTED_CAPABILITY" if ag_markers["detected"] else "UNKNOWN",
-                    "verification_method": "host_policy_declaration",
-                }
+            "workspace_config:custom_subagents_md": _binary_or_config_entry(
+                status="CONFIGURED_CAPABILITY",
+                doc_status="WORKSPACE_CONFIGURED",
+                verification_method="disk_yaml_frontmatter_schema_validated",
+                extra={"count": len(cust_summary["custom_agent_files_validated"])},
             ),
-            "workspace_mode:branch_git_worktree": {
-                "status": "BLOCKED" if ag_markers["is_remote_devbox"] else "UNKNOWN",
-                "verification_method": "remote_devbox_sandbox_policy",
-            },
-            "workspace_mode:share": {
-                "status": "BLOCKED" if ag_markers["is_remote_devbox"] else "UNKNOWN",
-                "verification_method": "remote_devbox_sandbox_policy",
-            },
-            # Directly detectable OS/Python/Node binaries & libraries
-            "runtime:sqlite3_wal": {
-                "status": "DETECTED_CAPABILITY",
-                "verification_method": "python_stdlib_sqlite3_probe",
-            },
-            "runtime:git_lfs": {
-                "status": "DETECTED_CAPABILITY" if git_lfs_bin else "UNAVAILABLE",
-                "binary": git_lfs_bin,
-                "verification_method": "shutil_which_and_lfs_verify",
-            },
-            "runtime:ffmpeg": {
-                "status": "DETECTED_CAPABILITY" if ffmpeg_ready else "UNAVAILABLE",
-                "verification_method": "subprocess_ffmpeg_version_probe",
-            },
-            "runtime:threejs_v0_187": {
-                "status": "DETECTED_CAPABILITY" if three_ready else "UNAVAILABLE",
-                "verification_method": "node_package_probe",
-            },
-            "runtime:remotion_v4": {
-                "status": "DETECTED_CAPABILITY" if remotion_ready else "UNAVAILABLE",
-                "verification_method": "node_package_probe",
-            },
-            "runtime:chromium_headless": {
-                "status": "DETECTED_CAPABILITY" if chromium_bin else "UNAVAILABLE",
-                "binary": chromium_bin,
-                "verification_method": "shutil_which",
-            },
-            "runtime:local_desktop_blender": {
-                "status": "DETECTED_CAPABILITY" if local_blender else "UNAVAILABLE",
-                "binary": local_blender,
-                "verification_method": "shutil_which",
-            },
-            "runtime:live_vivo_x200_pro_blender_mcp": {
-                "status": "DETECTED_CAPABILITY" if mcp_report.relay_device_connected else "UNAVAILABLE",
-                "verification_method": "xdx_mcp_readonly_health_probe",
-            },
-            "runtime:agy_cli_in_vm": {
-                "status": "DETECTED_CAPABILITY" if ag_markers["agy_cli_binary"] else "UNAVAILABLE",
-                "verification_method": "shutil_which",
-            },
+            "workspace_config:skills_md": _binary_or_config_entry(
+                status="CONFIGURED_CAPABILITY",
+                doc_status="WORKSPACE_CONFIGURED",
+                verification_method="disk_yaml_frontmatter_schema_validated",
+                extra={"count": len(cust_summary["workspace_skills_validated"])},
+            ),
+            "workspace_config:rules_md": _binary_or_config_entry(
+                status="CONFIGURED_CAPABILITY",
+                doc_status="WORKSPACE_CONFIGURED",
+                verification_method="disk_yaml_frontmatter_schema_validated",
+                extra={"count": len(cust_summary["workspace_rules_validated"])},
+            ),
+            "workspace_config:lifecycle_hooks_json": _binary_or_config_entry(
+                status="CONFIGURED_CAPABILITY" if hooks_file.is_file() else "UNAVAILABLE",
+                doc_status="WORKSPACE_CONFIGURED" if hooks_file.is_file() else "SCHEDULED_PHASE_01_6D",
+                verification_method="filesystem_probe",
+            ),
+            "workspace_mode:inherit": inherit_entry,
+            "workspace_mode:branch_git_worktree": _binary_or_config_entry(
+                status="BLOCKED" if ag_markers["is_remote_devbox"] else "UNKNOWN",
+                doc_status="HOST_POLICY_BLOCKED" if ag_markers["is_remote_devbox"] else "NOT_APPLICABLE_ON_CURRENT_HOST",
+                verification_method="remote_devbox_sandbox_policy",
+            ),
+            "workspace_mode:share": _binary_or_config_entry(
+                status="BLOCKED" if ag_markers["is_remote_devbox"] else "UNKNOWN",
+                doc_status="HOST_POLICY_BLOCKED" if ag_markers["is_remote_devbox"] else "NOT_APPLICABLE_ON_CURRENT_HOST",
+                verification_method="remote_devbox_sandbox_policy",
+            ),
+            "runtime:sqlite3_wal": _binary_or_config_entry(
+                status="DETECTED_CAPABILITY",
+                verification_method="python_stdlib_sqlite3_probe",
+            ),
+            "runtime:git_lfs": _binary_or_config_entry(
+                status="DETECTED_CAPABILITY" if git_lfs_bin else "UNAVAILABLE",
+                verification_method="shutil_which_and_lfs_verify",
+                extra={"binary": git_lfs_bin},
+            ),
+            "runtime:ffmpeg": _binary_or_config_entry(
+                status="DETECTED_CAPABILITY" if ffmpeg_ready else "UNAVAILABLE",
+                verification_method="subprocess_ffmpeg_version_probe",
+            ),
+            "runtime:threejs_v0_187": _binary_or_config_entry(
+                status="DETECTED_CAPABILITY" if three_ready else "UNAVAILABLE",
+                verification_method="node_package_probe",
+            ),
+            "runtime:remotion_v4": _binary_or_config_entry(
+                status="DETECTED_CAPABILITY" if remotion_ready else "UNAVAILABLE",
+                verification_method="node_package_probe",
+            ),
+            "runtime:chromium_headless": _binary_or_config_entry(
+                status="DETECTED_CAPABILITY" if chromium_bin else "UNAVAILABLE",
+                verification_method="shutil_which",
+                extra={"binary": chromium_bin},
+            ),
+            "runtime:local_desktop_blender": _binary_or_config_entry(
+                status="DETECTED_CAPABILITY" if local_blender else "UNAVAILABLE",
+                verification_method="shutil_which",
+                extra={"binary": local_blender},
+            ),
+            "runtime:live_vivo_x200_pro_blender_mcp": _binary_or_config_entry(
+                status="DETECTED_CAPABILITY" if mcp_report.relay_device_connected else "UNAVAILABLE",
+                verification_method="xdx_mcp_readonly_health_probe",
+            ),
+            "runtime:agy_cli_in_vm": _binary_or_config_entry(
+                status="DETECTED_CAPABILITY" if ag_markers["agy_cli_binary"] else "UNAVAILABLE",
+                verification_method="shutil_which",
+                extra={"binary": ag_markers["agy_cli_binary"]},
+            ),
         }
 
         by_status: dict[str, list[str]] = {st: [] for st in CAPABILITY_STATUSES}
@@ -368,7 +454,7 @@ class RuntimeCapabilityDiscovery:
         )
 
         return {
-            "schema_version": "4.0.0-phase01.6b",
+            "schema_version": "4.0.0-phase01.6c",
             "runtime_identity": runtime_id,
             "adapters_probed": {
                 "antigravity": ag_markers,
@@ -387,6 +473,7 @@ class RuntimeCapabilityDiscovery:
             "capabilities_by_status": by_status,
             "antigravity_native_multi_agent": {
                 "python_direct_tool_introspection": False,
+                "host_documentation_applicable": ag_docs_relevant,
                 "workspace_modes": {
                     "inherit": inherit_legacy,
                     "branch_git_worktree": capabilities_matrix["workspace_mode:branch_git_worktree"]["status"],
@@ -398,7 +485,8 @@ class RuntimeCapabilityDiscovery:
             },
             "model_routing": {
                 "session_orchestrator_documented": {
-                    "status": "DOCUMENTED_CAPABILITY",
+                    "status": "DOCUMENTED_CAPABILITY" if ag_docs_relevant else "UNKNOWN",
+                    "documentation_status": "HOST_DOCUMENTED" if ag_docs_relevant else "NOT_APPLICABLE_ON_CURRENT_HOST",
                     "planner": "Gemini 4 Neon (Google AI Pro/Ultra) or Gemini 4 Carbon (Enterprise)",
                     "executor": "Gemini 4 Hydrogen",
                 },

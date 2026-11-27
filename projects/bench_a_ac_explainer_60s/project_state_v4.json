@@ -1,0 +1,169 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "entity_kind": "project_state",
+  "project_id": "bench_a_ac_explainer_60s",
+  "project_title": "Bagaimana AC Mendinginkan Ruangan?",
+  "genres": [
+    "explainer",
+    "edukasi"
+  ],
+  "current_state": "WAITING_APPROVAL",
+  "state_version": 11,
+  "approval_status": {
+    "approved": false,
+    "approved_digest": null,
+    "approved_version": null,
+    "trusted_channel_verified": false,
+    "production_approval_frozen_until": "Phase 01.6D",
+    "revoked": true
+  },
+  "artifact_manifest": {
+    "asset_manifest.json": "915849b27aa20d411762af26bbb74b471ced3c030bf5c0139de6ae289226082a",
+    "blueprint.md": "3148a1807173c19d152899ba1bfbcc3f89f90b688a63c4c54a05f860dee97549",
+    "character_bible.md": "0d3a611d12636f18935f96a848f823d6799d72413996ed3f85fc4b6f027bb795",
+    "engine_plan.json": "6ed36927f8c1b667a1b3d7501e89e99f9c23deafcdf25a53cdb07d4d34fea409",
+    "execution_plan.md": "903704085ff3891b433ca0f7eb95b0e334a2fb9dcfaa82a7da3edb6b0a2bd2f9",
+    "motion_plan.json": "9f5e3e8495046924387c18ecbd5e28d415f66fc2cc463deef790203ce777e041",
+    "production_config.json": "7486eb5b55e1d32b5d38f9766b6a5de102b36ece9f02feb39139bce4d54c883c",
+    "reference_analysis.md": "e38f83e8f3ff8f4aa0ed87b8e1068ab1bd9d74620a2c63833d1a4e2ad1b6d4d7",
+    "research.md": "69d47c4a001e743a1d744ed92041c7dd1fe753ea6ebd7c74da788317ceedf604",
+    "script.md": "a4bbe84a5ba09acf43149f91c39d50def22a8c71e142934271b9d5c31d8b8f92",
+    "storyboard.json": "48d0a37f9ca12dbce55fa68e9c3d0fbc86ceb4e7ac4adfbb62db730f91017ce6"
+  },
+  "transitions": [
+    {
+      "previous_state": null,
+      "next_state": "IDLE",
+      "trigger": "project_initialized",
+      "actor": "master_director",
+      "task_id": null,
+      "evidence": "Initial project state created",
+      "timestamp": "2026-11-27T20:13:18.477314+00:00",
+      "state_version": 1,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "IDLE",
+      "next_state": "REQUEST_RECEIVED",
+      "trigger": "BUAT_VIDEO",
+      "actor": "master_director",
+      "task_id": null,
+      "evidence": "Accepted preproduction request topic='Bagaimana AC Mendinginkan Ruangan?' (60s, ['explainer', 'edukasi'])",
+      "timestamp": "2026-11-27T20:13:18.485465+00:00",
+      "state_version": 2,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "REQUEST_RECEIVED",
+      "next_state": "RESEARCHING",
+      "trigger": "dispatch_wave_1",
+      "actor": "master_director",
+      "task_id": "TASK-01-RESEARCH",
+      "evidence": "Dispatched Topic Research & REA Reference specialists",
+      "timestamp": "2026-11-27T20:13:18.896460+00:00",
+      "state_version": 3,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "RESEARCHING",
+      "next_state": "REFERENCE_ANALYSIS",
+      "trigger": "wave_1_reference",
+      "actor": "master_director",
+      "task_id": "TASK-02-REFERENCE",
+      "evidence": "Reference selection and cache validation active",
+      "timestamp": "2026-11-27T20:13:18.942171+00:00",
+      "state_version": 4,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "REFERENCE_ANALYSIS",
+      "next_state": "CREATIVE_DEVELOPMENT",
+      "trigger": "wave_2_creative",
+      "actor": "master_director",
+      "task_id": "TASK-03-CREATIVE",
+      "evidence": "Blueprint, Indonesian script, Character Bible, and Global Style Bible development",
+      "timestamp": "2026-11-27T20:13:18.950718+00:00",
+      "state_version": 5,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "CREATIVE_DEVELOPMENT",
+      "next_state": "STORYBOARDING",
+      "trigger": "wave_5_storyboard",
+      "actor": "master_director",
+      "task_id": "TASK-07-STORYBOARD",
+      "evidence": "Integer-frame storyboard, motion, camera, asset, audio, caption, and engine compilation",
+      "timestamp": "2026-11-27T20:13:18.956772+00:00",
+      "state_version": 6,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "STORYBOARDING",
+      "next_state": "PREPRODUCTION_QC",
+      "trigger": "enter_independent_preproduction_qc",
+      "actor": "master_director",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "Invoking read-only preproduction_verifier against manifest 780929e8bc40",
+      "timestamp": "2026-11-27T20:13:24.390795+00:00",
+      "state_version": 7,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "PREPRODUCTION_QC",
+      "next_state": "REVISION_REQUIRED",
+      "trigger": "verifier_revision_required",
+      "actor": "preproduction_verifier",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "Independent verifier reported preproduction defect(s); triggering RevisionManager",
+      "timestamp": "2026-11-27T20:13:25.341624+00:00",
+      "state_version": 8,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "REVISION_REQUIRED",
+      "next_state": "STORYBOARDING",
+      "trigger": "revision_reexecution:REV-bench_a_ac_explainer_60s-0006-f7b45f",
+      "actor": "master_director",
+      "task_id": "TASK-13-CAPTION",
+      "evidence": "Re-validating revised artifact and re-running independent verifier",
+      "timestamp": "2026-11-27T20:13:25.402414+00:00",
+      "state_version": 9,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "STORYBOARDING",
+      "next_state": "PREPRODUCTION_QC",
+      "trigger": "enter_independent_preproduction_qc",
+      "actor": "master_director",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "Invoking read-only preproduction_verifier against manifest 780929e8bc40",
+      "timestamp": "2026-11-27T20:13:26.254373+00:00",
+      "state_version": 10,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "PREPRODUCTION_QC",
+      "next_state": "WAITING_APPROVAL",
+      "trigger": "preproduction_verifier_pass",
+      "actor": "master_director",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "All 15 independent review criteria PASSED; sealed 13-item package digest=679db03f5f62e02f",
+      "timestamp": "2026-11-27T20:13:27.532854+00:00",
+      "state_version": 11,
+      "artifact_manifest": {
+        "asset_manifest.json": "915849b27aa20d411762af26bbb74b471ced3c030bf5c0139de6ae289226082a",
+        "blueprint.md": "3148a1807173c19d152899ba1bfbcc3f89f90b688a63c4c54a05f860dee97549",
+        "character_bible.md": "0d3a611d12636f18935f96a848f823d6799d72413996ed3f85fc4b6f027bb795",
+        "engine_plan.json": "6ed36927f8c1b667a1b3d7501e89e99f9c23deafcdf25a53cdb07d4d34fea409",
+        "execution_plan.md": "903704085ff3891b433ca0f7eb95b0e334a2fb9dcfaa82a7da3edb6b0a2bd2f9",
+        "motion_plan.json": "9f5e3e8495046924387c18ecbd5e28d415f66fc2cc463deef790203ce777e041",
+        "production_config.json": "7486eb5b55e1d32b5d38f9766b6a5de102b36ece9f02feb39139bce4d54c883c",
+        "reference_analysis.md": "e38f83e8f3ff8f4aa0ed87b8e1068ab1bd9d74620a2c63833d1a4e2ad1b6d4d7",
+        "research.md": "69d47c4a001e743a1d744ed92041c7dd1fe753ea6ebd7c74da788317ceedf604",
+        "script.md": "a4bbe84a5ba09acf43149f91c39d50def22a8c71e142934271b9d5c31d8b8f92",
+        "storyboard.json": "48d0a37f9ca12dbce55fa68e9c3d0fbc86ceb4e7ac4adfbb62db730f91017ce6"
+      }
+    }
+  ],
+  "updated_at": "2026-11-27T20:13:27.532854+00:00"
+}

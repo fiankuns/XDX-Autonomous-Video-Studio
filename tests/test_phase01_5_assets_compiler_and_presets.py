@@ -186,11 +186,16 @@ def test_cache_hardening_safe_paths_ssrf_html_spoof_and_zip_slip(tmp_path: Path)
 
 
 def test_blender_shot_compiler_preset_executors_and_cross_engine_compatibility(tmp_path: Path) -> None:
+    from intelligence.authored_showcase_150s import build_authored_time_perception_payload
+
     pkg_dir = tmp_path / "pkg_150s_cross"
     PreProductionPackageBuilder().build_waiting_approval_package(
         package_dir=pkg_dir,
         project_id="cross_engine_150s",
         target_duration_s=150,
+        authored_payload=build_authored_time_perception_payload(
+            project_id="cross_engine_150s", target_duration_s=150
+        ),
     )
     sb = json.loads((pkg_dir / "storyboard.json").read_text(encoding="utf-8"))
     cap_plan = json.loads((pkg_dir / "caption_audio_plan.json").read_text(encoding="utf-8"))

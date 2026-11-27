@@ -18,15 +18,23 @@ SYNTHETIC_MP4 = ROOT_DIR / "tests" / "fixtures" / "synthetic.mp4"
 
 
 def test_13_item_approval_gate_and_state_machine_across_hybrid_genres(tmp_path: Path) -> None:
+    from intelligence.authored_showcase_150s import build_authored_time_perception_payload
+
     pkg_dir = tmp_path / "pkg_hybrid"
     builder = PreProductionPackageBuilder()
+    fixture_payload = build_authored_time_perception_payload(
+        project_id="sejarah_horor_01",
+        target_duration_s=24,
+        genres=["sejarah", "horor", "komedi_absurd"],
+    )
     result = builder.build_waiting_approval_package(
         package_dir=pkg_dir,
         project_id="sejarah_horor_01",
-        topic="Misteri Jam Tua di Gedung Arsip 1928",
+        topic="Misteri Jam Tua dan Persepsi Waktu 1928",
         genres=["sejarah", "horor", "komedi_absurd"],
         target_duration_s=24,
         package_version="v1",
+        authored_payload=fixture_payload,
     )
 
     assert result["status"] == "WAITING_APPROVAL"
@@ -91,10 +99,13 @@ def test_13_item_approval_gate_and_state_machine_across_hybrid_genres(tmp_path: 
 
 
 def test_rea_video_reference_analysis_and_visual_qc_on_synthetic_mp4(tmp_path: Path) -> None:
-    assert SYNTHETIC_MP4.is_file()
+    from tests.fixtures.synthetic_fixture_generator import ensure_deterministic_synthetic_mp4
+
+    mp4_path = ensure_deterministic_synthetic_mp4(SYNTHETIC_MP4 if SYNTHETIC_MP4.is_file() else (tmp_path / "synthetic.mp4"))
+    assert mp4_path.is_file()
     out_dir = tmp_path / "rea_out"
     rea = REAReferenceIntelligence()
-    report = rea.analyze_video(SYNTHETIC_MP4, out_dir)
+    report = rea.analyze_video(mp4_path, out_dir)
 
     assert report["measurements"]["duration_s"] == pytest.approx(4.0, abs=0.15)
     # At scene_threshold=0.30 FFmpeg catches the strong 2.0s cut (2 segments), while OpenCV adaptive MAD catches subtle 1s/2s/3s cuts
@@ -104,12 +115,12 @@ def test_rea_video_reference_analysis_and_visual_qc_on_synthetic_mp4(tmp_path: P
     assert (out_dir / "REPORT_BASELINE.md").is_file()
 
     qc_engine = VisualQualityControlEngine()
-    qc_report = qc_engine.evaluate_video(SYNTHETIC_MP4, require_audio=False, current_attempt=1)
+    qc_report = qc_engine.evaluate_video(mp4_path, require_audio=False, current_attempt=1)
     assert qc_report["technical_qc"]["full_decode_ok"] is True
     assert qc_report["technical_qc"]["has_video_stream"] is True
     assert qc_report["visual_qc"]["sampled_frames"] > 0
 
     # Verify bounded max-3 self-correction cap when defects occur (e.g. require_audio=True on silent fixture)
-    qc_fail_attempt_3 = qc_engine.evaluate_video(SYNTHETIC_MP4, require_audio=True, current_attempt=3)
+    qc_fail_attempt_3 = qc_engine.evaluate_video(mp4_path, require_audio=True, current_attempt=3)
     assert qc_fail_attempt_3["overall_status"] == "HARD_FAIL"
     assert qc_fail_attempt_3["self_correction_plan"]["requires_re_render"] is False

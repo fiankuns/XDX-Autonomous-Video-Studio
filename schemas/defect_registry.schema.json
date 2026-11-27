@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio/schemas/defect_registry.schema.json",
+  "title": "XDX Master Audit Defect Registry Schema (Phase 01 through Phase 01.6C+)",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "registry_id",
+    "updated_at_utc",
+    "append_only_policy",
+    "defects"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": ["4.0.0-phase01.6c"]
+    },
+    "registry_id": {
+      "type": "string",
+      "const": "xdx_master_audit_defect_registry"
+    },
+    "updated_at_utc": {
+      "type": "string",
+      "minLength": 10
+    },
+    "append_only_policy": {
+      "type": "string",
+      "minLength": 15
+    },
+    "defects": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "defect_id",
+          "source_phase",
+          "severity",
+          "affected_module",
+          "reproduction_steps",
+          "observed_result",
+          "expected_result",
+          "root_cause",
+          "correction_plan",
+          "target_phase",
+          "regression_test",
+          "evidence",
+          "current_status"
+        ],
+        "properties": {
+          "defect_id": {
+            "type": "string",
+            "pattern": "^DEF-P[0-9A-Za-z]+-[0-9]{3,}$"
+          },
+          "source_phase": {
+            "type": "string",
+            "minLength": 5
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"]
+          },
+          "affected_module": {
+            "type": "string",
+            "minLength": 3
+          },
+          "reproduction_steps": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 5 }
+          },
+          "observed_result": {
+            "type": "string",
+            "minLength": 10
+          },
+          "expected_result": {
+            "type": "string",
+            "minLength": 10
+          },
+          "root_cause": {
+            "type": "string",
+            "minLength": 10
+          },
+          "correction_plan": {
+            "type": "string",
+            "minLength": 10
+          },
+          "target_phase": {
+            "type": "string",
+            "minLength": 5
+          },
+          "regression_test": {
+            "type": ["string", "null"]
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 10
+          },
+          "current_status": {
+            "type": "string",
+            "enum": ["OPEN", "SCHEDULED", "IN_PROGRESS", "FIXED", "VERIFIED", "BLOCKED"]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

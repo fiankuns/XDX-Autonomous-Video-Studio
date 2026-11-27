@@ -1,0 +1,107 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "generated_at_utc": "2026-11-27T20:13:57.130907+00:00",
+  "max_parallel_specialists": 4,
+  "benchmarks": {
+    "bench_a_ac_explainer_60s": {
+      "overall_status": "SUCCEEDED",
+      "completed_tasks": [
+        "TASK-01-RESEARCH",
+        "TASK-02-REFERENCE",
+        "TASK-03-CREATIVE",
+        "TASK-04-SCRIPT",
+        "TASK-05-CHARACTER",
+        "TASK-06-STYLE",
+        "TASK-07-STORYBOARD",
+        "TASK-08-REF-ADAPT",
+        "TASK-09-MOTION",
+        "TASK-10-CAMERA",
+        "TASK-11-ASSET",
+        "TASK-12-AUDIO",
+        "TASK-13-CAPTION",
+        "TASK-14-ENGINE",
+        "TASK-15-VERIFY"
+      ],
+      "failed_tasks": [],
+      "blocked_tasks": [],
+      "task_graph_digest": "fd51db2c5cc852e1347f06c5e4d21c2225fb84eaf47d0b54ebebc2328bc3bb95",
+      "max_parallel_observed": 4,
+      "execution_timeline": []
+    },
+    "bench_b_birokrasi_satir_60s": {
+      "overall_status": "SUCCEEDED",
+      "completed_tasks": [
+        "TASK-01-RESEARCH",
+        "TASK-02-REFERENCE",
+        "TASK-03-CREATIVE",
+        "TASK-04-SCRIPT",
+        "TASK-05-CHARACTER",
+        "TASK-06-STYLE",
+        "TASK-07-STORYBOARD",
+        "TASK-08-REF-ADAPT",
+        "TASK-09-MOTION",
+        "TASK-10-CAMERA",
+        "TASK-11-ASSET",
+        "TASK-12-AUDIO",
+        "TASK-13-CAPTION",
+        "TASK-14-ENGINE",
+        "TASK-15-VERIFY"
+      ],
+      "failed_tasks": [],
+      "blocked_tasks": [],
+      "task_graph_digest": "f8c1ed1efa22673546de85f04d31eab4e5f2cf0fd29dbd232d5ac9df5acb01de",
+      "max_parallel_observed": 4,
+      "execution_timeline": []
+    },
+    "bench_c_laut_hilang_hybrid_180s": {
+      "overall_status": "SUCCEEDED",
+      "completed_tasks": [
+        "TASK-01-RESEARCH",
+        "TASK-02-REFERENCE",
+        "TASK-03-CREATIVE",
+        "TASK-04-SCRIPT",
+        "TASK-05-CHARACTER",
+        "TASK-06-STYLE",
+        "TASK-07-STORYBOARD",
+        "TASK-08-REF-ADAPT",
+        "TASK-09-MOTION",
+        "TASK-10-CAMERA",
+        "TASK-11-ASSET",
+        "TASK-12-AUDIO",
+        "TASK-13-CAPTION",
+        "TASK-14-ENGINE",
+        "TASK-15-VERIFY"
+      ],
+      "failed_tasks": [],
+      "blocked_tasks": [],
+      "task_graph_digest": "a273d6b6fe1c4099c899f6c70118338447d4eeb5a769ccea00cac578d288d292",
+      "max_parallel_observed": 4,
+      "execution_timeline": []
+    },
+    "bench_d_kaus_kaki_flat_cartoon_45s": {
+      "overall_status": "SUCCEEDED",
+      "completed_tasks": [
+        "TASK-01-RESEARCH",
+        "TASK-02-REFERENCE",
+        "TASK-03-CREATIVE",
+        "TASK-04-SCRIPT",
+        "TASK-05-CHARACTER",
+        "TASK-06-STYLE",
+        "TASK-07-STORYBOARD",
+        "TASK-08-REF-ADAPT",
+        "TASK-09-MOTION",
+        "TASK-10-CAMERA",
+        "TASK-11-ASSET",
+        "TASK-12-AUDIO",
+        "TASK-13-CAPTION",
+        "TASK-14-ENGINE",
+        "TASK-15-VERIFY"
+      ],
+      "failed_tasks": [],
+      "blocked_tasks": [],
+      "task_graph_digest": "ca012f1f5e199e5de54560d2e4823416ec5783aabf5f85547fb2bf7d3e51560f",
+      "max_parallel_observed": 4,
+      "execution_timeline": []
+    }
+  }
+}

@@ -1,0 +1,974 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_c_laut_hilang_hybrid_180s",
+  "topic_title": "Apa yang Terjadi Jika Seluruh Laut Bumi Menghilang?",
+  "style_profile": "stylized_3d",
+  "genres": [
+    "explainer",
+    "dokumenter",
+    "storytelling",
+    "komedi_absurd"
+  ],
+  "reference_ids": [
+    "REF-001",
+    "REF-002"
+  ],
+  "target_duration_s": 180,
+  "topic_research": {
+    "epistemic_mode": "factual_verified",
+    "research_status": "VERIFIED_COMPLETE",
+    "summary": "Kajian oseanografi, hidrologi, dan klimatologi sistem Bumi menunjukkan bahwa samudra menyimpan sekitar 1,332 miliar kilometer kubik air atau mendekati 97 persen total air Bumi. Jika seluruh air laut menghilang secara hipotetis, topografi batimetri ekstrem seperti tebing landas kontinen, punggungan tengah samudra sepanjang 65.000 kilometer, dan Palung Mariana sedalam hampir 11 kilometer akan tersingkap ke atmosfer. Secara berantai, kehilangan sumber utama penguapan global akan menghentikan pembentukan awan dan siklus hujan benua, melenyapkan penyangga termal samudra yang selama ini menyerap sekitar 90 persen kelebihan panas Bumi, serta mematikan fitoplankton laut yang menyumbang sekitar separuh produksi oksigen atmosfer dan pompa karbon biologis.",
+    "topic_scope": "Eksperimen pikiran geofisika dan oseanografi skala planet mencakup volume hidrosfer, batimetri dasar samudra, keruntuhan siklus hidrologi dan awan global, hilangnya kapasitas penyangga kalor samudra serta sirkulasi termohalin, dan dampak biogeokimia hilangnya fitoplankton laut.",
+    "research_questions": [
+      "Berapa volume total air laut yang hilang dan bagaimana proporsinya terhadap seluruh cadangan air di Bumi?",
+      "Bentang alam raksasa apa saja yang tersingkap di dasar samudra mulai dari landas kontinen hingga Palung Mariana?",
+      "Bagaimana penghentian penguapan samudra meruntuhkan pembentukan awan, curah hujan, dan ketersediaan air tawar daratan?",
+      "Mengapa hilangnya penyangga panas samudra memicu lonjakan suhu siang-malam dan iklim benua yang ekstrem?",
+      "Apa konsekuensi atmosferik dari kematian massal fitoplankton laut serta pembusukan sedimen organik dasar samudra?"
+    ],
+    "misconceptions": [
+      {
+        "misconception": "Sungai dan danau daratan tetap mengalir normal karena berasal dari mata air pegunungan.",
+        "correction": "Mata air, gletser, sungai, dan danau bergantung pada presipitasi yang lebih dari 85 persen uap airnya dipasok oleh penguapan permukaan samudra.",
+        "claim_ref": "CLM_02"
+      },
+      {
+        "misconception": "Dasar laut hanyalah hamparan pasir datar seperti pantai yang meluas.",
+        "correction": "Dasar samudra memiliki ngarai curam landas kontinen, barisan pegunungan api punggungan tengah samudra, dan palung tektonik hingga kedalaman hampir 11 kilometer.",
+        "claim_ref": "CLM_03"
+      },
+      {
+        "misconception": "Hutan daratan saja sudah mampu menjaga seluruh pasokan oksigen dan keseimbangan karbon Bumi tanpa laut.",
+        "correction": "Fitoplankton laut menghasilkan sekitar separuh oksigen Bumi dan mengunci karbon dalam skala gigaton; tanpanya serta dengan pembusukan biomassa laut, neraca karbon atmosfer terganggu hebat.",
+        "claim_ref": "CLM_05"
+      }
+    ],
+    "uncertainties": [
+      "Laju pasti penurunan kelembapan regional pada minggu pertama dalam skenario penghilangan instan bergantung pada distribusi uap air atmosfer saat kejadian.",
+      "Skala waktu pantulan isostatik kerak samudra dan pemicuan aktivitas vulkanik punggungan tengah samudra berlangsung bertahap dari hitungan hari hingga ribuan tahun."
+    ],
+    "fictional_elements_declared": [
+      "Premis eksperimen pikiran bahwa seluruh air laut dikuras habis seketika untuk memperlihatkan kontras kausal sistem Bumi secara visual.",
+      "Adegan komedi deadpan karakter fiksi Pak Teguh yang perahu kayunya mendarat utuh di lumpur ngarai dasar laut bersama peneliti geosains Alya."
+    ],
+    "claims": [
+      {
+        "claim_id": "CLM_01",
+        "statement": "Samudra menampung sekitar 96,5 hingga 97 persen seluruh air di Bumi dengan volume total sekitar 1,332 miliar kilometer kubik.",
+        "epistemic_status": "verified_fact",
+        "source_title": "How much water is in the ocean? \u2014 NOAA National Ocean Service",
+        "source_url": "https://oceanservice.noaa.gov/facts/oceanwater.html",
+        "publication_year": 2024,
+        "publication_date": "2024-06-16",
+        "evidence_excerpt": "About 97 percent of Earth's water is in the ocean, totaling roughly 1.332 billion cubic kilometers.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_02",
+        "statement": "Siklus air daratan sangat bergantung pada penguapan samudra, sedangkan air tawar permukaan di sungai dan danau hanya mencakup sebagian sangat kecil dari total hidrosfer Bumi.",
+        "epistemic_status": "verified_fact",
+        "source_title": "How Much Water is There on Earth? \u2014 USGS Water Science School",
+        "source_url": "https://www.usgs.gov/special-topics/water-science-school/science/how-much-water-there-earth",
+        "publication_year": 2019,
+        "publication_date": "2019-11-13",
+        "evidence_excerpt": "Oceans hold 96.5 percent of all Earth's water and supply the vast majority of atmospheric evaporation driving precipitation.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_03",
+        "statement": "Titik terdalam samudra di Challenger Deep, Palung Mariana, mencapai kedalaman hampir 11 kilometer di bawah permukaan laut, berdampingan dengan sistem punggungan tengah samudra global.",
+        "epistemic_status": "verified_fact",
+        "source_title": "How deep is the Mariana Trench? \u2014 NOAA National Ocean Service",
+        "source_url": "https://oceanservice.noaa.gov/facts/mariana-trench.html",
+        "publication_year": 2024,
+        "publication_date": "2024-06-16",
+        "evidence_excerpt": "Challenger Deep in the Mariana Trench extends nearly 11,000 meters (about 11 kilometers) below sea level.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_04",
+        "statement": "Samudra bertindak sebagai penyangga termal utama planet yang menyerap sekitar 90 persen kelebihan panas global serta menggerakkan pembentukan awan dan distribusi kalor lewat arus laut.",
+        "epistemic_status": "verified_fact",
+        "source_title": "The Water Cycle and Ocean Heat Budget \u2014 NASA Earth Observatory",
+        "source_url": "https://earthobservatory.nasa.gov",
+        "publication_year": 2023,
+        "publication_date": "2023-09-01",
+        "evidence_excerpt": "Earth's oceans store and redistribute solar heat and supply roughly 86 percent of global evaporation that forms clouds.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_05",
+        "statement": "Fitoplankton dan organisme fotosintetik laut menghasilkan sekitar separuh oksigen di atmosfer Bumi sekaligus menyerap karbon dioksida dalam jumlah masif.",
+        "epistemic_status": "verified_fact",
+        "source_title": "How much oxygen comes from the ocean? \u2014 NOAA National Ocean Service",
+        "source_url": "https://oceanservice.noaa.gov/facts/plankton.html",
+        "publication_year": 2024,
+        "publication_date": "2024-06-16",
+        "evidence_excerpt": "Scientists estimate that roughly half of Earth's oxygen production comes from the ocean, primarily marine phytoplankton.",
+        "is_primary_source": true
+      }
+    ]
+  },
+  "blueprint": {
+    "premise": "Sebuah eksperimen pikiran sinematik 3D yang menguras habis 1,332 miliar kilometer kubik air laut Bumi untuk menyingkap jurang batimetri raksasa, keruntuhan mesin hujan dan penyangga panas planet, hingga krisis oksigen-karbon, ditemani pengamatan tajam peneliti geosains Alya dan komentar datar Pak Teguh yang perahunya terdampar di dasar samudra.",
+    "hook_0_3s_visual": "Perahu kayu bercadik milik Pak Teguh mendadak mendarat di atas hamparan lumpur garam berkerak di bibir jurang samudra yang airnya baru saja surut lenyap menjadi debu asin berkilau.",
+    "hook_0_3s_spoken": "Detik ini juga, cabut sumbat raksasa Bumi dan kuras habis seluruh samudra dalam sekejap mata.",
+    "story_arc": {
+      "act_1_setup": "Anomali visual hilangnya seluruh air laut membuat perahu Pak Teguh parkir di dasar ngarai asin, lalu Alya memvisualisasikan skala 1,332 miliar km3 air yang lenyap dibandingkan sisa air tawar daratan.",
+      "act_2_escalation": "Eksplorasi berjenjang dari perbandingan skala gedung terhadap tebing landas kontinen dan Palung Mariana 11 km, dilanjutkan potongan mekanisme ilmiah berhentinya penguapan awan, hilangnya penyangga panas samudra, pembusukan sedimen fitoplankton, serta garis waktu keruntuhan ekosistem dari hari pertama hingga dekade berikutnya.",
+      "act_3_resolution": "Klimaks visual Bumi yang berubah menjadi planet gurun kecokelatan bertekanan tektonik, ditutup kembalinya samudra biru dalam eksperimen pikiran dan celetukan syukur deadpan Pak Teguh di atas ombak."
+    },
+    "explainer_mechanism": "Menggabungkan perbandingan skala fisik (gedung pencakar langit vs tebing landas kontinen 4 km dan Palung Mariana 11 km), penampang teknis kerak samudra, visualisasi data proporsi air 97 persen, serta simulasi mekanisme ilmiah berhentinya penguapan awan dan sirkulasi termal.",
+    "humor_strategy": "Kontras komedi deadpan situasional antara skala bencana geofisika planet dengan keluhan praktis sehari-hari Pak Teguh soal jangkar yang jatuh ke ngarai, bau amis sedimen satu samudra, dan nasib perahunya yang berubah fungsi jadi gerobak tebing.",
+    "historical_biography_notes": "Tidak mengangkat tokoh biografi historis nyata; seluruh karakter adalah persona naratif orisinal untuk memandu dokumenter sains populer secara komunikatif.",
+    "payoff_callback": "Perahu kayu Pak Teguh yang di detik pembuka terdampar konyol di lumpur garam akhirnya kembali terombang-ambing nyaman di atas ombak laut saat simulasi dikembalikan ke kondisi Bumi nyata."
+  },
+  "characters": [
+    {
+      "character_id": "char_alya_presenter",
+      "name": "Alya Pradipta",
+      "role": "hero",
+      "silhouette_and_proportions": "Proporsi stylized 3D 6,5 kepala dengan siluet jaket lapangan berkerah tegas, tas selempang instrumen geologi, dan gestur tangan ekspresif saat menunjuk diagram ruang.",
+      "facial_design": "Wajah oval hangat dengan mata cokelat besar ekspresif, alis artikulatif, dan kacamata bingkai tipis transparan.",
+      "wardrobe": "Jaket lapangan biru samudra digulung sesiku, kaus terakota hangat, celana kargo abu-abu tua, dan sepatu bot survei bertali.",
+      "materials": [
+        "cotton_twill_matte_stylized",
+        "brushed_metal_compass_clip",
+        "soft_subsurface_skin_stylized"
+      ],
+      "palette": [
+        "#1D4E89",
+        "#E07A5F",
+        "#3D405B",
+        "#F4F1DE"
+      ],
+      "expressions": [
+        "curious_analytical",
+        "awestruck_scale",
+        "urgent_warning",
+        "warm_relief"
+      ],
+      "rig_spec": "rig_biped_stylized_ik_fk_v4",
+      "facial_controls": [
+        "brow_arch_lr",
+        "eyelid_blink_lr",
+        "jaw_viseme_blend",
+        "cheek_smile_asym"
+      ],
+      "pose_requirements": [
+        "presenter_open_palm_explain",
+        "crouch_inspect_salt_crust",
+        "point_up_cloud_diagram"
+      ],
+      "action_requirements": [
+        "walk_along_continental_shelf_rim",
+        "activate_holo_globe_scale",
+        "react_to_heatwave_gust"
+      ],
+      "biography_disclaimer": "Karakter fiksi orisinal peneliti geosains yang dirancang khusus untuk memandu eksperimen pikiran ilmiah."
+    },
+    {
+      "character_id": "char_pak_teguh_nelayan",
+      "name": "Pak Teguh",
+      "role": "supporting",
+      "silhouette_and_proportions": "Proporsi stylized 3D 6 kepala dengan bahu lebar kokoh, topi caping nelayan pesisir, dan postur berdiri santai bertolak pinggang yang kontras dengan latar jurang samudra.",
+      "facial_design": "Rahang persegi tenang, kumis tipis rapi, kelopak mata setengah sayu khas ekspresi deadpan yang tak mudah panik.",
+      "wardrobe": "Rompi pelampung jingga pudar di atas kemeja flanel kotak biru-putih, celana pendek kain kanvas, dan sepatu bot karet kuning.",
+      "materials": [
+        "weathered_canvas_fabric",
+        "matte_rubber_boots",
+        "woven_bamboo_hat_stylized"
+      ],
+      "palette": [
+        "#E76F51",
+        "#264653",
+        "#E9C46A",
+        "#F1FAEE"
+      ],
+      "expressions": [
+        "deadpan_unimpressed",
+        "squint_down_abyss",
+        "pinch_nose_dry_humor",
+        "content_nod"
+      ],
+      "rig_spec": "rig_biped_stylized_ik_fk_v4",
+      "facial_controls": [
+        "deadpan_heavy_lid_lr",
+        "brow_single_raise",
+        "jaw_viseme_blend",
+        "mouth_flat_smirk"
+      ],
+      "pose_requirements": [
+        "lean_on_wooden_oar",
+        "peer_over_cliff_edge",
+        "sit_relaxed_in_boat"
+      ],
+      "action_requirements": [
+        "tap_dry_seabed_with_oar",
+        "hold_anchor_rope_over_canyon",
+        "wave_hand_against_sulfur_haze"
+      ],
+      "biography_disclaimer": "Karakter fiksi komedi situasional orisinal yang mewakili sudut pandang warga pesisir secara hangat dan hormat."
+    }
+  ],
+  "narrative_beats": [
+    {
+      "beat_id": "B01",
+      "act": "ACT_1",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_01",
+      "environment_id": "env_drained_coastal_shelf_3d",
+      "beat_role": "hook_anomaly_and_setup",
+      "target_duration_s": 16.0,
+      "narration_vo": "Detik ini juga, cabut sumbat raksasa Bumi dan kuras habis seluruh samudra dalam sekejap mata. Perahu kayu Pak Teguh tidak tenggelam, melainkan mendarat mulus di hamparan lumpur asin tanpa setetes ombak pun.",
+      "claim_refs": [
+        "CLM_01"
+      ],
+      "humor_beat": "Pak Teguh mengetuk dasar laut kering dengan dayung kayu seolah mengecek ban kempes sambil menatap ikan teri pantulan hologram.",
+      "emotion": "surprised_intrigue",
+      "voice_direction": "Tegas dan memikat di kalimat pembuka tiga detik pertama, lalu bergeser ke nada bercerita ringan yang jenaka.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_pak_teguh_nelayan",
+          "line": "Ikan cakalangnya mendadak jadi pendaki tebing, Mbak.",
+          "delivery": "deadpan datar sambil bersandar pada dayung",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "establishing_shot",
+          "visual_subject": "Perahu kayu bercadik di dasar pesisir yang mendadak kering",
+          "concrete_action": "Air laut biru menyusut cepat meninggalkan perahu kayu bercadik di atas lumpur garam retak",
+          "props": [
+            "prop_wooden_outrigger_boat",
+            "prop_cracked_salt_mudflat",
+            "prop_stranded_buoy"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "establishing",
+          "focal_length_mm": 28.0,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        },
+        {
+          "duration_weight": 1.2,
+          "visual_purpose": "character_acting",
+          "visual_subject": "Pak Teguh memegang dayung kayu di samping lambung perahu",
+          "concrete_action": "Pak Teguh mengetukkan ujung dayung kayu ke kerak garam lalu menoleh datar ke arah Alya",
+          "props": [
+            "prop_wooden_oar",
+            "prop_wooden_outrigger_boat",
+            "prop_salt_crust_chunk"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "medium",
+          "focal_length_mm": 40.0,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        },
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "reaction_shot",
+          "visual_subject": "Alya berjongkok memeriksa kristal garam di bibir ngarai pesisir",
+          "concrete_action": "Alya mengangkat segenggam kerak garam berkilau sambil menatap hamparan cekungan samudra kosong",
+          "props": [
+            "prop_salt_crust_chunk",
+            "prop_field_geology_satchel"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "reaction",
+          "focal_length_mm": 45.0,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B02",
+      "act": "ACT_1",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_02",
+      "environment_id": "env_planetary_water_comparison_stage",
+      "beat_role": "core_question_and_ocean_volume",
+      "target_duration_s": 18.0,
+      "narration_vo": "Apa yang sebenarnya terjadi jika seluruh laut Bumi menghilang? Kita baru saja melenyapkan satu koma tiga ratus tiga puluh dua miliar kilometer kubik air asin, atau sekitar sembilan puluh tujuh persen cadangan air planet ini.",
+      "claim_refs": [
+        "CLM_01",
+        "CLM_02"
+      ],
+      "humor_beat": null,
+      "emotion": "curious_analytical",
+      "voice_direction": "Jernih dan terukur dengan penekanan pada angka volume 1,332 miliar kilometer kubik dan rasio 97 persen.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_alya_presenter",
+          "line": "Dan sisanya di darat bahkan tak cukup mengisi cangkir raksasa ini.",
+          "delivery": "antusias sambil menunjuk bola air perbandingan",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.2,
+          "visual_purpose": "data_visualization",
+          "visual_subject": "Bola air samudra raksasa dibanding butiran kecil air tawar di samping globe Bumi",
+          "concrete_action": "Bola air biru berdiameter raksasa terangkat dari lekukan kerak Bumi berdampingan dengan butir kecil air tawar",
+          "props": [
+            "prop_earth_bathymetry_globe",
+            "prop_ocean_volume_sphere_1332m_km3",
+            "prop_freshwater_droplet_sphere"
+          ],
+          "preferred_engine": "threejs",
+          "shot_size": "wide",
+          "focal_length_mm": 32.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Membandingkan 97% volume air laut terhadap 3% sisa air Bumi secara visual proporsional",
+          "scientific_labels": [
+            "Laut: 1,332 Miliar km\u00b3 (~97%)",
+            "Es & Air Tanah (~2,9%)",
+            "Sungai & Danau (<0,1%)"
+          ],
+          "transition_in": "trans_whip_pan_cutaway_6f"
+        },
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "character_acting",
+          "visual_subject": "Alya berdiri di samping proyeksi proporsi hidrosfer",
+          "concrete_action": "Alya merentangkan tangan membandingkan bola samudra utama dengan tetes kecil cadangan air sungai",
+          "props": [
+            "prop_holo_hydrosphere_pedestal",
+            "prop_freshwater_droplet_sphere"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "medium",
+          "focal_length_mm": 40.0,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        },
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "object_insert",
+          "visual_subject": "Indikator bar persentase air asin versus air tawar permukaan",
+          "concrete_action": "Kolom kaca ukur 97 persen air asin terkuras habis menyisakan garis tipis air tawar di dasar tabung",
+          "props": [
+            "prop_graduated_hydrosphere_cylinder",
+            "prop_metric_callout_card"
+          ],
+          "preferred_engine": "remotion",
+          "shot_size": "insert",
+          "focal_length_mm": 70.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Menegaskan ketimpangan kuantitatif cadangan air global",
+          "scientific_labels": [
+            "96,5% - 97% Air Laut",
+            "Sumber: NOAA & USGS"
+          ],
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B03",
+      "act": "ACT_2",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_03",
+      "environment_id": "env_continental_shelf_drop_4km",
+      "beat_role": "bathymetry_reveal_and_scale_comparison",
+      "target_duration_s": 20.0,
+      "narration_vo": "Begitu air surut, tepi pantai berubah menjadi jurang landas kontinen setinggi gedung pencakar langit. Kapal kargo yang tadinya mengapung kini bertengger di bibir tebing curam sedalam empat kilometer menuju dataran abisal yang gelap dan berdebu.",
+      "claim_refs": [
+        "CLM_01",
+        "CLM_03"
+      ],
+      "humor_beat": "Pak Teguh mengulur tali jangkar perahunya ke bawah tebing, tetapi ujung jangkarnya menggantung kerdil ribuan meter di atas dataran abisal.",
+      "emotion": "vertigo_and_dry_wit",
+      "voice_direction": "Bernada takjub menggambarkan ketinggian tebing empat kilometer, memberi jeda pendek sebelum dialog komedi Pak Teguh.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_pak_teguh_nelayan",
+          "line": "Mau turun ambil jangkar saja harus sewa tali panjat gunung.",
+          "delivery": "mengintip ke bawah jurang sambil memegangi topi caping",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.3,
+          "visual_purpose": "scale_comparison",
+          "visual_subject": "Siluet gedung pencakar langit dibandingkan lereng curam landas kontinen sedalam 4 kilometer",
+          "concrete_action": "Kamera meluncur mundur menampakkan siluet gedung 300 meter tampak mungil di atas tebing landas kontinen 4 kilometer",
+          "props": [
+            "prop_skyscraper_reference_300m",
+            "prop_continental_slope_cliff_4km",
+            "prop_stranded_cargo_hull"
+          ],
+          "preferred_engine": "threejs",
+          "shot_size": "establishing",
+          "focal_length_mm": 28.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Perbandingan skala gedung pencakar langit terhadap tebing menuju dataran abisal 4 km",
+          "scientific_labels": [
+            "Gedung 300 m",
+            "Lereng Kontinen ~4.000 m",
+            "Dataran Abisal"
+          ],
+          "transition_in": "trans_whip_pan_cutaway_6f"
+        },
+        {
+          "duration_weight": 1.2,
+          "visual_purpose": "character_acting",
+          "visual_subject": "Pak Teguh mengulur tali jangkar besi di tepi tebing landas kontinen",
+          "concrete_action": "Pak Teguh mengulur tali jangkar pendek yang terayun jauh di atas dasar ngarai berdebu",
+          "props": [
+            "prop_iron_boat_anchor",
+            "prop_coiled_hemp_rope",
+            "prop_continental_slope_cliff_4km"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "medium",
+          "focal_length_mm": 40.0,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        },
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "technical_cutaway",
+          "visual_subject": "Penampang melintang kerak benua menurun ke dataran abisal",
+          "concrete_action": "Potongan melintang kerak pesisir memperlihatkan undakan landas kontinen, ngarai bawah laut, dan endapan sedimen",
+          "props": [
+            "prop_crustal_shelf_cross_section",
+            "prop_elevation_marker_pins"
+          ],
+          "preferred_engine": "threejs",
+          "shot_size": "cutaway",
+          "focal_length_mm": 50.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Menjelaskan anatomi geologi peralihan kerak benua ke kerak samudra",
+          "scientific_labels": [
+            "Paparan Benua",
+            "Lereng Kontinen",
+            "Dataran Abisal (-4 km)"
+          ],
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B04",
+      "act": "ACT_2",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_04",
+      "environment_id": "env_mariana_trench_and_mid_ocean_ridge",
+      "beat_role": "mariana_trench_and_mid_ocean_ridge",
+      "target_duration_s": 18.0,
+      "narration_vo": "Di dasar Pasifik, menganga Palung Mariana sedalam hampir sebelas kilometer, lebih tinggi dari Gunung Everest jika dibalik. Sementara di tengah samudra, punggungan gunung api bawah laut sepanjang enam puluh lima ribu kilometer langsung menyemburkan asap belerang ke udara terbuka.",
+      "claim_refs": [
+        "CLM_03"
+      ],
+      "humor_beat": null,
+      "emotion": "monumental_awe",
+      "voice_direction": "Dramatis dan berwibawa layaknya dokumenter ekspedisi kebumian saat menyebut Palung Mariana dan punggungan tengah samudra.",
+      "dialogue_lines": [],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.2,
+          "visual_purpose": "scale_comparison",
+          "visual_subject": "Penampang Palung Mariana 11 km dibandingkan siluet Gunung Everest 8,8 km",
+          "concrete_action": "Siluet Gunung Everest dimasukkan terbalik ke celah Challenger Deep dan masih menyisakan ruang lebih dari dua kilometer",
+          "props": [
+            "prop_mariana_trench_cutaway_11km",
+            "prop_everest_scale_silhouette_8849m",
+            "prop_depth_ruler_grid"
+          ],
+          "preferred_engine": "remotion",
+          "shot_size": "cutaway",
+          "focal_length_mm": 50.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Memperlihatkan skala vertikal ekstrem Palung Mariana ~11 km terhadap puncak tertinggi daratan",
+          "scientific_labels": [
+            "Gunung Everest: 8.849 m",
+            "Challenger Deep: ~10.984 m (~11 km)"
+          ],
+          "transition_in": "trans_whip_pan_cutaway_6f"
+        },
+        {
+          "duration_weight": 1.2,
+          "visual_purpose": "establishing_shot",
+          "visual_subject": "Rangkaian punggungan tengah samudra dengan cerobong hidrotermal terbuka",
+          "concrete_action": "Barisan gunung api punggungan tengah samudra mengepulkan asap belerang putih langsung ke atmosfer tanpa tekanan air",
+          "props": [
+            "prop_mid_ocean_ridge_chain",
+            "prop_exposed_hydrothermal_vents",
+            "prop_sulfur_plume_emitter"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "wide",
+          "focal_length_mm": 30.0,
+          "is_cutaway": false,
+          "transition_in": "trans_cross_dissolve_12f"
+        },
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "technical_cutaway",
+          "visual_subject": "Celah tektonik punggungan samudra yang kehilangan tekanan hidrostatik kolom air",
+          "concrete_action": "Panah tekanan air menghilang dari atas celah magma sehingga gas vulkanik menyembur bebas ke udara rendah",
+          "props": [
+            "prop_ridge_magma_conduit_cutaway",
+            "prop_pressure_vector_arrows"
+          ],
+          "preferred_engine": "threejs",
+          "shot_size": "insert",
+          "focal_length_mm": 68.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Menunjukkan hilangnya beban tekanan kolom air di atas ventilasi hidrotermal",
+          "scientific_labels": [
+            "Punggungan Tengah Samudra (65.000 km)",
+            "Pelepasan Gas Hidrotermal Langsung"
+          ],
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B05",
+      "act": "ACT_2",
+      "sequence_id": "SEQ_03",
+      "scene_id": "SCN_05",
+      "environment_id": "env_hydrological_cycle_cutaway_stage",
+      "beat_role": "hydrological_cycle_and_cloud_collapse",
+      "target_duration_s": 20.0,
+      "narration_vo": "Bencana sesungguhnya justru dimulai di langit. Lebih dari delapan puluh lima persen uap air pembentuk awan berasal dari penguapan laut. Tanpa samudra, pabrik hujan global tutup total, awan memudar dalam hitungan hari, dan sungai besar mengering.",
+      "claim_refs": [
+        "CLM_02",
+        "CLM_04"
+      ],
+      "humor_beat": null,
+      "emotion": "rising_concern",
+      "voice_direction": "Mengalir cepat namun jernih untuk menghubungkan sebab-akibat dari hilangnya penguapan laut ke berhentinya hujan daratan.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_alya_presenter",
+          "line": "Langit biru bersih, tapi itu tanda mesin hidrologi Bumi mogok.",
+          "delivery": "serius sambil menunjuk langit kosong tanpa awan di atas lembah sungai kering",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.3,
+          "visual_purpose": "scientific_mechanism",
+          "visual_subject": "Diagram 3D siklus hidrologi ketika panah penguapan laut padam dan awan menghilang",
+          "concrete_action": "Panah uap air dari cekungan samudra terputus, gumpalan awan kumulus menyusut tipis, dan aliran sungai berhenti",
+          "props": [
+            "prop_hydrological_cycle_diorama",
+            "prop_evaporation_arrow_rig",
+            "prop_dissipating_cloud_cluster"
+          ],
+          "preferred_engine": "threejs",
+          "shot_size": "cutaway",
+          "focal_length_mm": 50.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Simulasi terencana keruntuhan siklus penguapan laut, transpor awan, dan presipitasi daratan",
+          "scientific_labels": [
+            "Penguapan Laut ~86% Berhenti",
+            "Kondensasi Awan Anjlok",
+            "Defisit Hujan Benua"
+          ],
+          "transition_in": "trans_whip_pan_cutaway_6f"
+        },
+        {
+          "duration_weight": 1.1,
+          "visual_purpose": "character_acting",
+          "visual_subject": "Alya menengadah di atas jembatan sungai yang dasarnya berubah menjadi batu kerikil kering",
+          "concrete_action": "Alya menunjuk langit cerah menyilaukan tanpa awan sementara aliran sungai di bawah jembatan menyisakan pasir retak",
+          "props": [
+            "prop_dry_riverbed_stones",
+            "prop_field_hygrometer_handheld"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "medium",
+          "focal_length_mm": 40.0,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        },
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "object_insert",
+          "visual_subject": "Higrometer lapangan yang jarum kelembapan udaranya turun tajam ke zona kering",
+          "concrete_action": "Jarum indikator kelembapan relatif pada alat genggam Alya bergerak turun cepat menuju angka ekstrem rendah",
+          "props": [
+            "prop_field_hygrometer_handheld",
+            "prop_cracked_river_silt"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "close_up",
+          "focal_length_mm": 65.0,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B06",
+      "act": "ACT_2",
+      "sequence_id": "SEQ_03",
+      "scene_id": "SCN_06",
+      "environment_id": "env_planetary_thermal_buffer_model",
+      "beat_role": "thermal_buffer_loss_and_climate_extremes",
+      "target_duration_s": 20.0,
+      "narration_vo": "Samudra juga bekerja sebagai penyangga panas raksasa yang menyerap sembilan puluh persen kelebihan kalor Bumi dan membagikannya lewat arus termal. Tanpa selimut air ini, siang hari memanggang benua secara ekstrem, sedangkan malam hari anjlok membeku seperti gurun.",
+      "claim_refs": [
+        "CLM_04"
+      ],
+      "humor_beat": null,
+      "emotion": "tense_escalation",
+      "voice_direction": "Kontraskan intonasi panas menyengat pada bagian siang hari dengan penurunan nada dingin tajam pada bagian malam hari.",
+      "dialogue_lines": [],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.3,
+          "visual_purpose": "scientific_mechanism",
+          "visual_subject": "Simulasi sabuk arus termohalin yang padam pada bola Bumi 3D",
+          "concrete_action": "Pita arus hangat merah dan arus dingin biru di samudra memudar lalu radiasi panas terpantul tajam di daratan",
+          "props": [
+            "prop_thermohaline_conveyor_globe",
+            "prop_solar_heat_flux_arrows",
+            "prop_thermal_gradient_shader_ring"
+          ],
+          "preferred_engine": "threejs",
+          "shot_size": "wide",
+          "focal_length_mm": 30.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Memvisualisasikan hilangnya penyerapan 90% kelebihan kalor dan matinya distribusi panas arus laut",
+          "scientific_labels": [
+            "Penyerapan Kalor Laut ~90% Hilang",
+            "Sirkulasi Termohalin Berhenti",
+            "Ayunan Suhu Siang-Malam Ekstrem"
+          ],
+          "transition_in": "trans_whip_pan_cutaway_6f"
+        },
+        {
+          "duration_weight": 1.1,
+          "visual_purpose": "visual_metaphor",
+          "visual_subject": "Lanskap terbelah dua antara siang membara dan malam berembun beku kering",
+          "concrete_action": "Cahaya matahari terik memanaskan batu garam jingga lalu bayangan malam menyapu cepat membentuk kristal beku",
+          "props": [
+            "prop_split_diurnal_desert_stage",
+            "prop_dual_thermometer_tower"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "wide",
+          "focal_length_mm": 30.0,
+          "is_cutaway": false,
+          "transition_in": "trans_cross_dissolve_12f"
+        },
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "data_visualization",
+          "visual_subject": "Kurva perbandingan ayunan suhu harian Bumi berair versus Bumi kering",
+          "concrete_action": "Garis grafik suhu harian melonjak tinggi saat siang dan menukik tajam di bawah titik beku saat malam",
+          "props": [
+            "prop_diurnal_temperature_chart_card",
+            "prop_heat_capacity_comparison_bars"
+          ],
+          "preferred_engine": "remotion",
+          "shot_size": "insert",
+          "focal_length_mm": 70.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Menunjukkan perbedaan kapasitas kalor spesifik air laut dibanding batuan kering",
+          "scientific_labels": [
+            "Dengan Laut: Suhu Stabil",
+            "Tanpa Laut: Lonjakan Termal Ekstrem"
+          ],
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B07",
+      "act": "ACT_2",
+      "sequence_id": "SEQ_04",
+      "scene_id": "SCN_07",
+      "environment_id": "env_abyssal_organic_ooze_plain",
+      "beat_role": "phytoplankton_collapse_and_carbon_oxygen",
+      "target_duration_s": 18.0,
+      "narration_vo": "Di lapisan permukaan yang lenyap tadi, miliaran fitoplankton mikroskopis tadinya memproduksi sekitar separuh oksigen Bumi sekaligus mengunci karbon dioksida. Saat hamparan lumpur organik di dasar laut mengering dan membusuk, gas karbon terlepas deras ke atmosfer.",
+      "claim_refs": [
+        "CLM_05"
+      ],
+      "humor_beat": "Pak Teguh menjepit hidung rapat-rapat dengan dua jari di tengah kabut tipis debu organik dasar samudra.",
+      "emotion": "scientific_urgency_with_comic_relief",
+      "voice_direction": "Jelas saat menjelaskan peran mikroskopis fitoplankton, lalu beri ruang komedi singkat untuk reaksi Pak Teguh.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_pak_teguh_nelayan",
+          "line": "Bau amis satu kelurahan saja pusing, apalagi satu samudra.",
+          "delivery": "sengau datar sambil menjepit hidung",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.2,
+          "visual_purpose": "scientific_mechanism",
+          "visual_subject": "Sel-sel fitoplankton bercahaya hijau zamrud yang mengering dan melepaskan gelembung karbon",
+          "concrete_action": "Lensa mikroskopik memperlihatkan diatom fitoplankton meredup lalu panah oksigen berhenti dan panah CO2 naik",
+          "props": [
+            "prop_diatom_phytoplankton_cluster",
+            "prop_oxygen_carbon_exchange_tokens",
+            "prop_microscope_ring_frame"
+          ],
+          "preferred_engine": "threejs",
+          "shot_size": "insert",
+          "focal_length_mm": 72.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Menjelaskan berhentinya produksi ~50% oksigen laut dan pompa karbon biologis",
+          "scientific_labels": [
+            "Fitoplankton Laut (~50% Produksi O\u2082)",
+            "Pelepasan CO\u2082 Sedimen Organik"
+          ],
+          "transition_in": "trans_whip_pan_cutaway_6f"
+        },
+        {
+          "duration_weight": 1.1,
+          "visual_purpose": "reaction_shot",
+          "visual_subject": "Pak Teguh menjepit hidung dan mengibaskan topi caping di atas hamparan sedimen kering",
+          "concrete_action": "Pak Teguh menjepit hidung dengan ekspresi datar sementara kabut tipis gas pembusukan naik dari retakan lumpur",
+          "props": [
+            "prop_woven_caping_hat",
+            "prop_drying_marine_sediment_slab"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "reaction",
+          "focal_length_mm": 45.0,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        },
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "data_visualization",
+          "visual_subject": "Diagram neraca oksigen dan lonjakan karbon dioksida atmosfer",
+          "concrete_action": "Lingkaran kontribusi oksigen laut separuh penuh meredup sementara grafik konsentrasi karbon dioksida merangkak naik",
+          "props": [
+            "prop_oxygen_pie_50pct_widget",
+            "prop_co2_surge_gauge"
+          ],
+          "preferred_engine": "remotion",
+          "shot_size": "cutaway",
+          "focal_length_mm": 50.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Merangkum dampak kuantitatif hilangnya biosfer laut terhadap komposisi atmosfer",
+          "scientific_labels": [
+            "Pasokan O\u2082 Baru Turun ~50%",
+            "Emisi Dekomposisi Biomassa Laut"
+          ],
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B08",
+      "act": "ACT_2",
+      "sequence_id": "SEQ_04",
+      "scene_id": "SCN_08",
+      "environment_id": "env_global_cascade_timeline_stage",
+      "beat_role": "timeline_escalation_days_to_centuries",
+      "target_duration_s": 18.0,
+      "narration_vo": "Mari urutkan garis waktunya. Hari pertama, pelabuhan lumpuh dan badai debu garam menyapu pesisir. Bulan pertama, gagal panen melanda seluruh benua karena hujan berhenti. Dalam hitungan dekade, hutan hujan mengering dan memicu kebakaran lintas benua.",
+      "claim_refs": [
+        "CLM_02",
+        "CLM_04",
+        "CLM_05"
+      ],
+      "humor_beat": null,
+      "emotion": "dramatic_momentum",
+      "voice_direction": "Berirama kronologis tegas mengikuti penanda waktu Hari Pertama, Bulan Pertama, hingga Dekade.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_alya_presenter",
+          "line": "Bumi perlahan berubah dari kelereng biru menjadi planet batu kecokelatan.",
+          "delivery": "tenang namun reflektif menatap bola Bumi yang mengering",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.4,
+          "visual_purpose": "timeline",
+          "visual_subject": "Garis waktu progresif Hari 1, Bulan 1, dan Dekade 1 pada penampang benua",
+          "concrete_action": "Penanda kronologis bergeser dari badai garam pesisir ke ladang menguning lalu hutan mengering terbakar",
+          "props": [
+            "prop_chronological_timeline_rail",
+            "prop_salt_dust_plume_card",
+            "prop_arid_continent_miniature"
+          ],
+          "preferred_engine": "remotion",
+          "shot_size": "wide",
+          "focal_length_mm": 30.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Menyusun eskalasi kausal lintas skala waktu secara terstruktur",
+          "scientific_labels": [
+            "Hari ke-1: Badai Debu Garam",
+            "Bulan ke-1: Krisis Air & Pangan",
+            "Dekade ke-1: Hutan Mengering"
+          ],
+          "transition_in": "trans_whip_pan_cutaway_6f"
+        },
+        {
+          "duration_weight": 1.1,
+          "visual_purpose": "character_acting",
+          "visual_subject": "Alya memutar model bola Bumi yang warnanya bergeser dari biru ke oker berdebu",
+          "concrete_action": "Alya menyentuh permukaan model Bumi sementara lapisan vegetasi hijau menyusut menjadi warna cokelat gersang",
+          "props": [
+            "prop_transforming_earth_globe",
+            "prop_timeline_pointer_stylus"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "medium",
+          "focal_length_mm": 40.0,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        },
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "establishing_shot",
+          "visual_subject": "Bola Bumi tampak dari orbit rendah dengan cekungan samudra kelabu berkerak garam",
+          "concrete_action": "Kamera orbital memperlihatkan cekungan Pasifik dan Atlantik tampak pucat berdebu tanpa selimut awan putih",
+          "props": [
+            "prop_orbital_arid_earth_mesh",
+            "prop_salt_basin_albedo_layer"
+          ],
+          "preferred_engine": "threejs",
+          "shot_size": "establishing",
+          "focal_length_mm": 28.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Memperlihatkan transformasi visual Bumi dari luar angkasa",
+          "scientific_labels": [
+            "Albedo Cekungan Garam Tinggi",
+            "Tutupan Awan Global Nyaris Nol"
+          ],
+          "transition_in": "trans_cross_dissolve_12f"
+        }
+      ]
+    },
+    {
+      "beat_id": "B09",
+      "act": "ACT_3",
+      "sequence_id": "SEQ_03",
+      "scene_id": "SCN_09",
+      "environment_id": "env_rebounding_oceanic_crust_vista",
+      "beat_role": "planetary_desert_climax_and_reflection",
+      "target_duration_s": 16.0,
+      "narration_vo": "Hanya kantong kecil kehidupan di sekitar cadangan air tanah dalam dan kutub es yang sempat bertahan sementara. Selebihnya, kerak samudra yang kehilangan beban triliunan ton air mulai memantul naik dan mengguncang lempeng tektonik.",
+      "claim_refs": [
+        "CLM_01",
+        "CLM_02"
+      ],
+      "humor_beat": null,
+      "emotion": "climactic_gravity",
+      "voice_direction": "Khidmat dan berbobot menggambarkan puncak perubahan geologi planet tanpa samudra.",
+      "dialogue_lines": [],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.2,
+          "visual_purpose": "technical_cutaway",
+          "visual_subject": "Penampang lempeng kerak samudra yang terangkat naik akibat hilangnya beban massa air",
+          "concrete_action": "Lapisan batuan kerak samudra melengkung naik perlahan disertai getaran patahan di batas lempeng benua",
+          "props": [
+            "prop_isostatic_rebound_slab",
+            "prop_tectonic_fault_indicators",
+            "prop_mass_unload_arrows"
+          ],
+          "preferred_engine": "threejs",
+          "shot_size": "cutaway",
+          "focal_length_mm": 50.0,
+          "is_cutaway": true,
+          "cutaway_purpose": "Memvisualisasikan respons elastis-isostatik kerak Bumi saat kehilangan beban triliunan ton air",
+          "scientific_labels": [
+            "Hilangnya Beban Hidrosfer",
+            "Pantulan Isostatik Kerak Samudra"
+          ],
+          "transition_in": "trans_hard_cut_zero"
+        },
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "establishing_shot",
+          "visual_subject": "Kubah oasis kecil di dekat tudung es kutub yang dikelilingi dataran gersang luas",
+          "concrete_action": "Cahaya senja menyapu sisa lapisan es kutub dan sumur akuifer dalam di tengah lanskap batuan kering",
+          "props": [
+            "prop_polar_ice_remnant_ridge",
+            "prop_deep_aquifer_wellhead",
+            "prop_windswept_salt_plain"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "establishing",
+          "focal_length_mm": 28.0,
+          "is_cutaway": false,
+          "transition_in": "trans_cross_dissolve_12f"
+        }
+      ]
+    },
+    {
+      "beat_id": "B10",
+      "act": "ACT_3",
+      "sequence_id": "SEQ_05",
+      "scene_id": "SCN_10",
+      "environment_id": "env_restored_living_ocean_coast",
+      "beat_role": "payoff_callback_and_resolution",
+      "target_duration_s": 16.0,
+      "narration_vo": "Ternyata laut bukan sekadar genangan tempat berlayar, melainkan pengatur napas, suhu, dan hujan bagi setiap makhluk darat. Untungnya, samudra kita masih utuh menjaga Bumi hari ini.",
+      "claim_refs": [
+        "CLM_01",
+        "CLM_04",
+        "CLM_05"
+      ],
+      "humor_beat": "Callback ke pembuka: perahu Pak Teguh kembali mengapung santai di atas air biru, dan Pak Teguh menepuk lambung perahunya dengan lega.",
+      "emotion": "warm_gratitude_and_payoff",
+      "voice_direction": "Hangat, lega, dan reflektif sebagai penutup dokumenter sebelum menyerahkan kalimat punchline terakhir pada Pak Teguh.",
+      "dialogue_lines": [
+        {
+          "speaker_id": "char_pak_teguh_nelayan",
+          "line": "Syukurlah, Mbak. Saya lebih rela kena ombak daripada nyangkul garam di dasar Pasifik.",
+          "delivery": "tersenyum tipis deadpan sambil memegang kemudi dayung di atas perahu yang kembali mengapung",
+          "onscreen_speaking": true
+        }
+      ],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.1,
+          "visual_purpose": "establishing_shot",
+          "visual_subject": "Gelombang air biru jernih dan awan putih kembali memenuhi cekungan samudra",
+          "concrete_action": "Air laut biru berkilau mengalir kembali mengangkat perahu kayu bercadik sementara awan putih tumbuh di cakrawala",
+          "props": [
+            "prop_wooden_outrigger_boat",
+            "prop_restored_ocean_waves",
+            "prop_cumulus_cloud_horizon"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "establishing",
+          "focal_length_mm": 28.0,
+          "is_cutaway": false,
+          "transition_in": "trans_cross_dissolve_12f"
+        },
+        {
+          "duration_weight": 1.2,
+          "visual_purpose": "character_acting",
+          "visual_subject": "Pak Teguh dan Alya di tepi dermaga pesisir yang kembali berombak tenang",
+          "concrete_action": "Pak Teguh duduk santai di perahu mengayun dayung di air biru sementara Alya tersenyum melambaikan tangan dari dermaga",
+          "props": [
+            "prop_wooden_outrigger_boat",
+            "prop_wooden_oar",
+            "prop_coastal_wooden_pier"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "medium",
+          "focal_length_mm": 40.0,
+          "is_cutaway": false,
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    }
+  ]
+}

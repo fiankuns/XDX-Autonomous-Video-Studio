@@ -1,62 +1,83 @@
-"""Asynchronous Task DAG Dependency Scheduler with Deterministic Completion & Checkpoint Recovery (Phase 01.6B).
+"""Asynchronous Task DAG Dependency Scheduler with Deterministic Acceptance & Checkpoint Binding (Phase 01.6C).
 
-Implements Section 4 requirements:
-1. Topological DAG validation, deterministic ready queue, and downstream dependency resolution.
-2. Concurrency control: global specialist cap (`max_parallel_specialists` <= 6, default 4) +
-   per-role `max_concurrent_instances` from `AgentRegistry`.
-3. Phase 01.6B hard execution guardrail: blocks live execution of `blender_specialist` or
-   production renderers prior to Phase 02 / `ExecutionAuthorizationContext`.
-4. Execution-boundary re-validation + `ArtifactOwnershipLockManager` (`fcntl.flock`) acquisition
-   and guaranteed `finally` release on every task attempt.
-5. Per-task `asyncio.wait_for` timeout, retry budget accounting, retry exhaustion -> `FAILED`,
-   cancellation -> `CANCELLED`, and automatic transitive downstream failure propagation -> `BLOCKED`.
-6. Deterministic `done_when` + `required_evidence` + on-disk output SHA-256 verification:
-   NEVER trusts a worker's self-claimed `COMPLETED`/`SUCCEEDED` status!
-7. Full integration with `SixPartitionMemoryStore` and `CheckpointManager` (including zero-duplicate
-   execution upon `resume()`).
+Implements Phase 01.6B Section 4 + Phase 01.6C Section 4.A, 4.B, 4.C, 4.D & 4.F requirements:
+1. Never trusts initial task ``status``: fresh DAG tasks MUST start in ``PENDING`` (or ``READY`` normalized
+   to ``PENDING``). Initial ``COMPLETED`` (or terminal/running states) is rejected fail-closed with
+   ``InitialCompletedStatusRejectedError``.
+2. ``COMPLETED`` can ONLY be restored via a SHA-256-sealed, verified checkpoint bound to ``project_id``,
+   ``task_graph_digest``, ``task_definition_digest``, ``AgentInvocationReceipt``, and all on-disk output
+   SHA-256 hashes.
+3. Boolean configuration bypasses (``allow_phase02_roles=True``) are strictly rejected prior to
+   Phase 01.6D Trusted Human Approval & Execution Guard.
+4. Full 6-handler ``AcceptanceCriteriaEngine`` integration: unsupported ``check_type`` values transition
+   tasks immediately to ``BLOCKED`` (never ignored), receipt task/project/role identity and output hashes
+   are verified against actual disk files, and unrelated evidence strings are rejected.
+5. Independent Verification Department tasks enforce Master Director ``ImmutableReviewCriteriaManifest``
+   integrity and all 11 review bindings.
 """
 
 from __future__ import annotations
 
 import asyncio
 import copy
-import json
 import os
 import uuid
 from pathlib import Path
 from typing import Any, Awaitable, Callable
 
 from memory.persistent_memory import SixPartitionMemoryStore
+from orchestration.acceptance_criteria import (
+    AcceptanceCriteriaEngine,
+    AcceptanceCriteriaError,
+    UnsupportedAcceptanceCheckError,
+    snapshot_directory_hashes,
+)
 from orchestration.agent_registry import AgentRegistry
-from orchestration.checkpoint_manager import CheckpointManager
+from orchestration.checkpoint_manager import (
+    CheckpointManager,
+    CrossProjectCheckpointError,
+    TaskGraphMismatchError,
+    UnverifiedCheckpointError,
+    _compute_checkpoint_seal,
+)
 from orchestration.handoff_manager import (
+    HandoffValidationError,
     ParallelWriteConflictError,
+    SilentArtifactMutationError,
     TaskHandoffManager,
     compute_file_sha256,
 )
 from orchestration.native_execution_adapter import (
     AgentExecutionResult,
     AgentFailureReport,
+    AgentInvocationReceipt,
     NativeAgentExecutionAdapter,
     compute_idempotency_key,
     utc_now_iso,
 )
+from orchestration.task_identity import compute_task_definition_digest
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
 AsyncTaskExecutor = Callable[[dict[str, Any], int], Awaitable[AgentExecutionResult]]
+
+ALLOWED_INITIAL_TASK_STATUSES: frozenset[str] = frozenset({"PENDING", "READY"})
 
 
 class SchedulerError(RuntimeError):
     """Base exception for DAG scheduler errors."""
 
 
+class InitialCompletedStatusRejectedError(SchedulerError):
+    """Raised when a caller attempts to inject a pre-marked COMPLETED (or non-initial) task without a verified checkpoint."""
+
+
 class PhaseBoundaryExecutionBlockedError(SchedulerError):
-    """Raised if live Blender / production render execution is attempted in Phase 01.6B."""
+    """Raised if live Blender / production render execution or boolean bypass is attempted before Phase 01.6D/02."""
 
 
 class WorkerCompletionRejectedError(SchedulerError):
-    """Raised when a worker claims completion without passing deterministic artifact/evidence checks."""
+    """Raised when a worker claims completion without passing deterministic artifact/receipt/evidence checks."""
 
 
 class TaskDependencyScheduler:
@@ -71,13 +92,20 @@ class TaskDependencyScheduler:
         max_parallel_specialists: int = 4,
         handoff_manager: TaskHandoffManager | None = None,
         execution_adapter: NativeAgentExecutionAdapter | None = None,
+        acceptance_engine: AcceptanceCriteriaEngine | None = None,
         memory_store: SixPartitionMemoryStore | None = None,
         checkpoint_manager: CheckpointManager | None = None,
         allow_phase02_roles: bool = False,
+        disallow_mock_execution: bool = False,
         timeout_override_seconds: float | None = None,
     ) -> None:
         if not (1 <= max_parallel_specialists <= 6):
             raise ValueError("max_parallel_specialists must be between 1 and 6 per XDX v4.0 governance")
+        if allow_phase02_roles:
+            raise PhaseBoundaryExecutionBlockedError(
+                "Boolean configuration 'allow_phase02_roles=True' is forbidden! "
+                "Production roles are frozen prior to Phase 01.6D Trusted Human Approval & Execution Guard."
+            )
         self.root_dir = Path(os.path.realpath(root_dir or ROOT_DIR))
         self.max_parallel_specialists = max_parallel_specialists
         self.registry = AgentRegistry(root_dir=self.root_dir)
@@ -89,9 +117,14 @@ class TaskDependencyScheduler:
             handoff_manager=self.handoff_manager,
             registry=self.registry,
         )
+        self.acceptance_engine = acceptance_engine or AcceptanceCriteriaEngine(
+            root_dir=self.root_dir,
+            handoff_manager=self.handoff_manager,
+        )
         self.memory_store = memory_store
         self.checkpoint_manager = checkpoint_manager
-        self.allow_phase02_roles = allow_phase02_roles
+        self.allow_phase02_roles = False
+        self.disallow_mock_execution = disallow_mock_execution
         self.timeout_override_seconds = timeout_override_seconds
 
     @staticmethod
@@ -111,6 +144,123 @@ class TaskDependencyScheduler:
                     queue.append(nxt)
         return sorted(visited)
 
+    def _validate_and_bind_resume_state(
+        self,
+        *,
+        resume_state: dict[str, Any],
+        project_id: str,
+        tasks_copy: list[dict[str, Any]],
+    ) -> dict[str, dict[str, Any]]:
+        """Verify resume_state comes from a sealed checkpoint bound to project_id, DAG digest, receipts & disk hashes."""
+        if not isinstance(resume_state, dict):
+            raise UnverifiedCheckpointError("resume_state must be a dictionary produced by CheckpointManager.resume()")
+
+        if resume_state.get("project_id") != project_id:
+            raise CrossProjectCheckpointError(
+                f"Cross-project resume_state rejected: '{resume_state.get('project_id')}' != '{project_id}'"
+            )
+
+        src_ckpt = resume_state.get("verified_source_checkpoint")
+        if not isinstance(src_ckpt, dict):
+            raise UnverifiedCheckpointError(
+                "Unverified resume_state rejected: missing 'verified_source_checkpoint' from CheckpointManager.resume()!"
+            )
+
+        ckpt_validator = self.checkpoint_manager or CheckpointManager(
+            self.root_dir / ".xdx_locks" / "_ephemeral_ckpt_verify",
+            root_dir=self.root_dir,
+            handoff_manager=self.handoff_manager,
+        )
+        ckpt_validator.validate_checkpoint_against_dag(
+            src_ckpt,
+            expected_project_id=project_id,
+            expected_handoffs=tasks_copy,
+            min_state_version=1,
+        )
+        if _compute_checkpoint_seal(src_ckpt) != resume_state.get("checkpoint_sha256"):
+            raise UnverifiedCheckpointError("resume_state checkpoint_sha256 does not match verified_source_checkpoint")
+
+        by_tid = {h["task_id"]: h for h in tasks_copy}
+        comp_set = set(resume_state.get("completed_tasks") or [])
+        src_comp_set = set(src_ckpt.get("completed_tasks") or [])
+        if not comp_set.issubset(src_comp_set):
+            raise UnverifiedCheckpointError(
+                f"resume_state claims completed tasks {sorted(comp_set - src_comp_set)} not completed in sealed checkpoint!"
+            )
+
+        art_sha = dict(resume_state.get("artifact_sha256") or {})
+        receipts_map = dict(resume_state.get("agent_invocation_receipts") or {})
+
+        for tid in sorted(comp_set):
+            if tid not in by_tid:
+                raise TaskGraphMismatchError(f"Checkpoint completed task '{tid}' does not exist in target DAG")
+            h = by_tid[tid]
+            raw_rcpt = receipts_map.get(tid)
+            if not isinstance(raw_rcpt, dict):
+                raise UnverifiedCheckpointError(
+                    f"Cannot restore COMPLETED for '{tid}': missing AgentInvocationReceipt in checkpoint!"
+                )
+            rcpt = AgentInvocationReceipt.from_dict(raw_rcpt)
+            if (
+                not rcpt.verify_integrity()
+                or not rcpt.actually_invoked
+                or rcpt.execution_mode == "dispatch_plan_only_not_invoked"
+                or rcpt.task_id != tid
+                or rcpt.project_id != project_id
+                or rcpt.assigned_agent != h["assigned_agent"]
+            ):
+                raise UnverifiedCheckpointError(
+                    f"Cannot restore COMPLETED for '{tid}': invalid or mismatched AgentInvocationReceipt!"
+                )
+            if rcpt.task_definition_digest and rcpt.task_definition_digest != compute_task_definition_digest(h):
+                raise TaskGraphMismatchError(f"Task definition digest changed for completed task '{tid}'")
+
+            for cpath in self.handoff_manager.canonical_owned_paths(h, base_dir=self.root_dir):
+                rel_posix = cpath.relative_to(self.root_dir).as_posix()
+                if not cpath.is_file() or cpath.stat().st_size == 0:
+                    raise UnverifiedCheckpointError(
+                        f"Cannot restore COMPLETED for '{tid}': output '{rel_posix}' is missing or empty on disk!"
+                    )
+                live_sha = compute_file_sha256(cpath)
+                if art_sha.get(rel_posix) != live_sha or rcpt.output_artifact_hashes.get(rel_posix) != live_sha:
+                    raise UnverifiedCheckpointError(
+                        f"Cannot restore COMPLETED for '{tid}': output SHA-256 mismatch on '{rel_posix}'!"
+                    )
+
+        return by_tid
+
+    def _capture_pre_execution_context(
+        self,
+        handoff: dict[str, Any],
+        by_id: dict[str, dict[str, Any]],
+        artifact_sha256: dict[str, str],
+    ) -> dict[str, Any]:
+        pre_snapshots: dict[str, dict[str, str]] = {}
+        for dw in handoff.get("done_when", []):
+            if dw.get("check_type") == "no_unapproved_mutation":
+                cid = dw["criterion_id"]
+                tpath = self.handoff_manager.canonicalize_artifact_path(
+                    dw["target"], base_dir=self.root_dir, is_writable_output=False
+                )
+                pre_snapshots[cid] = snapshot_directory_hashes(tpath)
+
+        pre_review_hashes: dict[str, str] = {}
+        role = self.registry.get_role(handoff["assigned_agent"])
+        if role["department"] == "independent_verification_department":
+            for dep_tid in handoff.get("dependencies", []):
+                if dep_tid in by_id:
+                    for cp in self.handoff_manager.canonical_owned_paths(by_id[dep_tid], base_dir=self.root_dir):
+                        rp = cp.relative_to(self.root_dir).as_posix()
+                        if cp.is_file():
+                            pre_review_hashes[rp] = compute_file_sha256(cp)
+                        elif rp in artifact_sha256:
+                            pre_review_hashes[rp] = artifact_sha256[rp]
+
+        return {
+            "pre_execution_snapshots": pre_snapshots,
+            "pre_review_hashes": pre_review_hashes,
+        }
+
     def _verify_worker_completion_deterministically(
         self,
         *,
@@ -119,9 +269,10 @@ class TaskDependencyScheduler:
         by_id: dict[str, dict[str, Any]],
         artifact_sha256: dict[str, str],
         receipts_by_task: dict[str, dict[str, Any]],
+        pre_exec_ctx: dict[str, Any] | None = None,
         custom_predicate: Callable[[dict[str, Any], AgentExecutionResult, Path], bool] | None = None,
     ) -> dict[str, str]:
-        """Deterministically verify receipt, disk outputs, JSON parseability, evidence & verifier integrity."""
+        """Deterministically verify receipt, identity, disk outputs, all 6 done_when types, evidence & verifier integrity."""
         tid = handoff["task_id"]
         if result.status != "SUCCEEDED":
             raise WorkerCompletionRejectedError(
@@ -133,51 +284,34 @@ class TaskDependencyScheduler:
             raise WorkerCompletionRejectedError(
                 f"Task '{tid}' returned a non-invoked dispatch plan; cannot mark COMPLETED!"
             )
-
-        # Verify top-level required_evidence count and substance
-        req_ev = handoff["required_evidence"]
-        clean_ev = [e.strip() for e in result.evidence_items if isinstance(e, str) and len(e.strip()) >= 5]
-        if len(clean_ev) < len(req_ev):
+        if self.disallow_mock_execution and result.receipt.execution_mode == "mock_execution":
             raise WorkerCompletionRejectedError(
-                f"Task '{tid}' insufficient evidence items: got {len(clean_ev)}, required {len(req_ev)}"
+                f"Task '{tid}' used 'mock_execution' while disallow_mock_execution=True!"
             )
 
-        # Evaluate deterministic done_when file checks
-        for dw in handoff["done_when"]:
-            if dw.get("check_type") == "file_exists_nonempty":
-                dw_path = self.handoff_manager.canonicalize_artifact_path(
-                    dw["target"], base_dir=self.root_dir, is_writable_output=False
-                )
-                if not dw_path.is_file() or dw_path.stat().st_size == 0:
-                    raise WorkerCompletionRejectedError(
-                        f"Task '{tid}' failed done_when '{dw['criterion_id']}': target '{dw['target']}' missing or empty"
-                    )
+        try:
+            eval_out = self.acceptance_engine.evaluate_all(
+                handoff=handoff,
+                result=result,
+                context_state={
+                    "by_id": by_id,
+                    "artifact_sha256": artifact_sha256,
+                    "receipts_by_task": receipts_by_task,
+                    **(pre_exec_ctx or {}),
+                },
+            )
+        except UnsupportedAcceptanceCheckError:
+            # Propagate intact so scheduler transitions task directly to BLOCKED (never retried/ignored)
+            raise
+        except (AcceptanceCriteriaError, HandoffValidationError, SilentArtifactMutationError) as exc:
+            raise WorkerCompletionRejectedError(str(exc)) from exc
 
-        # Verify every declared owned & output artifact exists on disk, is non-empty, and parses if JSON
-        verified_outputs: dict[str, str] = {}
-        canon_owned = self.handoff_manager.canonical_owned_paths(handoff, base_dir=self.root_dir)
-        for cpath in canon_owned:
-            if not cpath.is_file():
-                raise WorkerCompletionRejectedError(
-                    f"Worker claimed completion for '{tid}', but owned output '{cpath}' does not exist on disk!"
-                )
-            if cpath.stat().st_size == 0:
-                raise WorkerCompletionRejectedError(
-                    f"Worker claimed completion for '{tid}', but owned output '{cpath}' is 0 bytes!"
-                )
-            if cpath.suffix.lower() == ".json":
-                try:
-                    json.loads(cpath.read_text(encoding="utf-8"))
-                except Exception as exc:
-                    raise WorkerCompletionRejectedError(
-                        f"Owned JSON output '{cpath}' for '{tid}' is malformed: {exc}"
-                    ) from exc
-            rel_posix = cpath.relative_to(self.root_dir).as_posix()
-            verified_outputs[rel_posix] = compute_file_sha256(cpath)
+        verified_outputs: dict[str, str] = eval_out["verified_outputs"]
 
-        # If this is an Independent Verification Department task, enforce verify_independent_review_pass!
+        # Enforce Independent Verification Department review check even if done_when used another check_type
         role = self.registry.get_role(handoff["assigned_agent"])
-        if role["department"] == "independent_verification_department":
+        has_review_dw = any(dw.get("check_type") == "independent_review_verdict" for dw in handoff["done_when"])
+        if role["department"] == "independent_verification_department" and not has_review_dw:
             if result.review_report is None:
                 raise WorkerCompletionRejectedError(
                     f"Independent verifier task '{tid}' did not return a structured AgentReviewReport!"
@@ -189,20 +323,34 @@ class TaskDependencyScheduler:
                     f"Verifier report references unknown producer task '{prod_tid}'"
                 )
             prod_handoff = by_id[prod_tid]
-            pre_hashes: dict[str, str] = {}
-            for cp in self.handoff_manager.canonical_owned_paths(prod_handoff, base_dir=self.root_dir):
-                rp = cp.relative_to(self.root_dir).as_posix()
-                if rp in artifact_sha256:
-                    pre_hashes[rp] = artifact_sha256[rp]
-            prod_conv = (receipts_by_task.get(prod_tid) or {}).get("conversation_id")
-            self.handoff_manager.verify_independent_review_pass(
-                verifier_handoff=handoff,
-                producer_handoff=prod_handoff,
-                pre_review_hashes=pre_hashes,
-                review_report=rep_dict,
-                producer_conversation_id=prod_conv,
-                base_dir=self.root_dir,
+            extra_tids = list(
+                rep_dict.get("additional_reviewed_task_ids")
+                or handoff.get("context", {}).get("additional_reviewed_task_ids")
+                or []
             )
+            extra_handoffs = [by_id[et] for et in extra_tids if et in by_id and et != prod_tid]
+            pre_hashes: dict[str, str] = dict((pre_exec_ctx or {}).get("pre_review_hashes") or {})
+            if not pre_hashes:
+                for ph in [prod_handoff, *extra_handoffs]:
+                    for cp in self.handoff_manager.canonical_owned_paths(ph, base_dir=self.root_dir):
+                        rp = cp.relative_to(self.root_dir).as_posix()
+                        if rp in artifact_sha256:
+                            pre_hashes[rp] = artifact_sha256[rp]
+            prod_conv = (receipts_by_task.get(prod_tid) or {}).get("conversation_id")
+            try:
+                self.handoff_manager.verify_independent_review_pass(
+                    verifier_handoff=handoff,
+                    producer_handoff=prod_handoff,
+                    additional_producer_handoffs=extra_handoffs,
+                    pre_review_hashes=pre_hashes,
+                    review_report=rep_dict,
+                    criteria_manifest=handoff.get("context", {}).get("criteria_manifest"),
+                    required_criteria_ids=handoff.get("context", {}).get("required_criteria_ids"),
+                    producer_conversation_id=prod_conv,
+                    base_dir=self.root_dir,
+                )
+            except (HandoffValidationError, SilentArtifactMutationError) as exc:
+                raise WorkerCompletionRejectedError(str(exc)) from exc
             if rep_dict["verdict"] != "PASS":
                 raise WorkerCompletionRejectedError(
                     f"Independent verifier '{tid}' returned verdict='{rep_dict['verdict']}'"
@@ -237,29 +385,62 @@ class TaskDependencyScheduler:
             raise SchedulerError(f"All tasks in a DAG run must share one project_id; got {sorted(project_ids)}")
         project_id = next(iter(project_ids))
 
-        # Normalize statuses if resuming from checkpoint reconciliation
-        if resume_state is not None:
+        # Detect unsupported check_types up front so even check_types outside schema enum become BLOCKED (not ignored)
+        pre_unsupported_by_tid: dict[str, tuple[str, str]] = {}
+        validation_view: list[dict[str, Any]] = []
+        for h in tasks_copy:
+            unsup = self.acceptance_engine.find_unsupported_checks(h)
+            if unsup:
+                pre_unsupported_by_tid[h["task_id"]] = unsup[0]
+                h_val = copy.deepcopy(h)
+                for dw in h_val.get("done_when", []):
+                    if dw.get("check_type") not in AcceptanceCriteriaEngine.SUPPORTED_CHECK_TYPES:
+                        dw["check_type"] = "file_exists_nonempty"
+                validation_view.append(h_val)
+            else:
+                validation_view.append(h)
+
+        # NEVER trust caller-supplied initial task status when resume_state is None!
+        if resume_state is None:
+            for h, hv in zip(tasks_copy, validation_view):
+                init_st = str(h.get("status", ""))
+                if init_st not in ALLOWED_INITIAL_TASK_STATUSES:
+                    raise InitialCompletedStatusRejectedError(
+                        f"Task '{h['task_id']}' has forbidden initial status='{init_st}'! "
+                        "Fresh tasks must start in PENDING (or READY), and COMPLETED can ONLY be restored "
+                        "from a SHA-256-sealed verified checkpoint."
+                    )
+                h["status"] = "PENDING"
+                hv["status"] = "PENDING"
+        else:
+            self._validate_and_bind_resume_state(
+                resume_state=resume_state,
+                project_id=project_id,
+                tasks_copy=validation_view,
+            )
             comp_set = set(resume_state["completed_tasks"])
             fail_set = set(resume_state["failed_tasks"])
             blk_set = set(resume_state["blocked_tasks"])
             canc_set = set(resume_state["cancelled_tasks"])
-            for h in tasks_copy:
+            for h, hv in zip(tasks_copy, validation_view):
                 tid = h["task_id"]
                 if tid in resume_state.get("retry_budget", {}):
                     h["retry_budget"] = copy.deepcopy(resume_state["retry_budget"][tid])
-                if tid in comp_set:
-                    h["status"] = "COMPLETED"
-                elif tid in fail_set:
-                    h["status"] = "FAILED"
-                elif tid in blk_set:
-                    h["status"] = "BLOCKED"
-                elif tid in canc_set:
-                    h["status"] = "CANCELLED"
-                else:
-                    h["status"] = "PENDING"
+                    hv["retry_budget"] = copy.deepcopy(resume_state["retry_budget"][tid])
+                new_st = (
+                    "COMPLETED"
+                    if tid in comp_set
+                    else (
+                        "FAILED"
+                        if tid in fail_set
+                        else ("BLOCKED" if tid in blk_set else ("CANCELLED" if tid in canc_set else "PENDING"))
+                    )
+                )
+                h["status"] = new_st
+                hv["status"] = new_st
 
         topo_order = self.handoff_manager.validate_task_dag_and_ownership(
-            tasks_copy, base_dir=self.root_dir
+            validation_view, base_dir=self.root_dir
         )
         by_id: dict[str, dict[str, Any]] = {h["task_id"]: h for h in tasks_copy}
 
@@ -282,16 +463,54 @@ class TaskDependencyScheduler:
         idem_ledger: dict[str, str] = (
             copy.deepcopy(resume_state["idempotency_ledger"]) if resume_state else {}
         )
-        eff_approval = copy.deepcopy(
-            approval_status
-            or (resume_state["approval_status"] if resume_state else None)
-            or {"approved": False, "approved_digest": None, "approved_version": None, "revoked": False}
-        )
+        # Production approval is frozen to False prior to Phase 01.6D
+        eff_approval = {
+            "approved": False,
+            "approved_digest": None,
+            "approved_version": (approval_status or {}).get("approved_version"),
+            "revoked": bool((approval_status or {}).get("revoked", False)),
+        }
         skipped_via_idempotency: list[str] = sorted(completed)
         failures_recorded: list[dict[str, Any]] = []
         active_role_counts: dict[str, int] = {}
         active_owned_canon: dict[str, str] = {}
         state_guard = asyncio.Lock()
+
+        # Immediately transition tasks with unsupported acceptance check_type -> BLOCKED (never ignored!)
+        for bad_tid, (bad_cid, bad_ctype) in sorted(pre_unsupported_by_tid.items()):
+            if bad_tid in pending or bad_tid in completed:
+                pending.discard(bad_tid)
+                completed.discard(bad_tid)
+                blocked.add(bad_tid)
+                by_id[bad_tid]["status"] = "BLOCKED"
+                fail_rep = AgentFailureReport(
+                    failure_id=f"ERR-{bad_tid}-UNSUP-{uuid.uuid4().hex[:6]}",
+                    task_id=bad_tid,
+                    project_id=project_id,
+                    assigned_agent=by_id[bad_tid]["assigned_agent"],
+                    error_category="UNSUPPORTED_ACCEPTANCE_CHECK",
+                    message=(
+                        f"Task '{bad_tid}' criterion '{bad_cid}' uses unsupported check_type='{bad_ctype}'; "
+                        "transitioned to BLOCKED."
+                    ),
+                    attempt_number=0,
+                    retryable=False,
+                    occurred_at=utc_now_iso(),
+                )
+                failures_recorded.append(fail_rep.to_dict())
+                if self.memory_store is not None:
+                    self.memory_store.error.record_error(
+                        project_id=project_id,
+                        error_id=fail_rep.failure_id,
+                        task_id=bad_tid,
+                        error_category="UNSUPPORTED_ACCEPTANCE_CHECK",
+                        payload=fail_rep.to_dict(),
+                    )
+                for dep_tid in self._transitive_dependents(bad_tid, by_id):
+                    if dep_tid in pending:
+                        pending.discard(dep_tid)
+                        blocked.add(dep_tid)
+                        by_id[dep_tid]["status"] = "BLOCKED"
 
         # Apply initial explicit cancellations
         for c_tid in sorted(cancelled_task_ids or set()):
@@ -332,7 +551,7 @@ class TaskDependencyScheduler:
             h = by_id[tid]
             aid = h["assigned_agent"]
 
-            if not self.allow_phase02_roles and aid in self.PHASE01_6B_BLOCKED_LIVE_ROLES:
+            if aid in self.PHASE01_6B_BLOCKED_LIVE_ROLES:
                 async with state_guard:
                     running.discard(tid)
                     active_role_counts[aid] = max(0, active_role_counts.get(aid, 1) - 1)
@@ -345,7 +564,7 @@ class TaskDependencyScheduler:
                             by_id[dep_tid]["status"] = "BLOCKED"
                     _persist_checkpoint()
                 raise PhaseBoundaryExecutionBlockedError(
-                    f"Live execution of '{aid}' is strictly blocked in Phase 01.6B prior to Phase 02 authorization!"
+                    f"Live execution of '{aid}' is strictly blocked in Phase 01.6B/01.6C prior to Phase 02 authorization!"
                 )
 
             # Auto-bind freshly generated upstream hashes if requested
@@ -358,6 +577,8 @@ class TaskDependencyScheduler:
                     rp = cp.relative_to(self.root_dir).as_posix()
                     if rp in artifact_sha256:
                         new_hashes[raw_inp] = artifact_sha256[rp]
+                    elif cp.is_file() and h["input_artifact_hashes"].get(raw_inp) == "0" * 64:
+                        new_hashes[raw_inp] = compute_file_sha256(cp)
                     elif raw_inp in h["input_artifact_hashes"]:
                         new_hashes[raw_inp] = h["input_artifact_hashes"][raw_inp]
                 if len(new_hashes) == len(h["input_artifacts"]):
@@ -370,7 +591,6 @@ class TaskDependencyScheduler:
                 input_artifact_hashes=h["input_artifact_hashes"],
             )
 
-            # Check idempotency ledger before running
             async with state_guard:
                 if idem_ledger.get(idem_key) == tid and tid in completed:
                     running.discard(tid)
@@ -408,7 +628,6 @@ class TaskDependencyScheduler:
                 attempt_no = int(rb["attempts_used"]) + 1
                 locks_acquired = False
                 try:
-                    # Execution-boundary re-validation + cross-process fcntl lock acquisition
                     await asyncio.to_thread(
                         self.handoff_manager.revalidate_at_execution_boundary,
                         h,
@@ -416,6 +635,13 @@ class TaskDependencyScheduler:
                         acquire_locks=True,
                     )
                     locks_acquired = True
+
+                    pre_exec_ctx = await asyncio.to_thread(
+                        self._capture_pre_execution_context,
+                        h,
+                        by_id,
+                        artifact_sha256,
+                    )
 
                     exec_result = await asyncio.wait_for(executor(h, attempt_no), timeout=timeout_s)
 
@@ -426,6 +652,7 @@ class TaskDependencyScheduler:
                             by_id=by_id,
                             artifact_sha256=artifact_sha256,
                             receipts_by_task=receipts_by_task,
+                            pre_exec_ctx=pre_exec_ctx,
                             custom_predicate=custom_done_predicate,
                         )
                         rb["attempts_used"] = attempt_no
@@ -470,6 +697,44 @@ class TaskDependencyScheduler:
                                     review_status=rep_d["verdict"],
                                     payload=rep_d,
                                 )
+                        _persist_checkpoint()
+                    return
+
+                except UnsupportedAcceptanceCheckError as unsup_exc:
+                    rb["attempts_used"] = attempt_no
+                    fail_rep = AgentFailureReport(
+                        failure_id=f"ERR-{tid}-{attempt_no}-{uuid.uuid4().hex[:6]}",
+                        task_id=tid,
+                        project_id=project_id,
+                        assigned_agent=aid,
+                        error_category="UNSUPPORTED_ACCEPTANCE_CHECK",
+                        message=str(unsup_exc),
+                        attempt_number=attempt_no,
+                        retryable=False,
+                        occurred_at=utc_now_iso(),
+                    )
+                    async with state_guard:
+                        failures_recorded.append(fail_rep.to_dict())
+                        if self.memory_store is not None:
+                            self.memory_store.error.record_error(
+                                project_id=project_id,
+                                error_id=fail_rep.failure_id,
+                                task_id=tid,
+                                error_category="UNSUPPORTED_ACCEPTANCE_CHECK",
+                                payload=fail_rep.to_dict(),
+                            )
+                        running.discard(tid)
+                        blocked.add(tid)
+                        h["status"] = "BLOCKED"
+                        active_role_counts[aid] = max(0, active_role_counts.get(aid, 1) - 1)
+                        for ck, owner in list(active_owned_canon.items()):
+                            if owner == tid:
+                                active_owned_canon.pop(ck, None)
+                        for dep_tid in self._transitive_dependents(tid, by_id):
+                            if dep_tid in pending:
+                                pending.discard(dep_tid)
+                                blocked.add(dep_tid)
+                                by_id[dep_tid]["status"] = "BLOCKED"
                         _persist_checkpoint()
                     return
 
@@ -518,7 +783,6 @@ class TaskDependencyScheduler:
                             for ck, owner in list(active_owned_canon.items()):
                                 if owner == tid:
                                     active_owned_canon.pop(ck, None)
-                            # Propagate failure to all transitive downstream dependents -> BLOCKED
                             for dep_tid in self._transitive_dependents(tid, by_id):
                                 if dep_tid in pending:
                                     pending.discard(dep_tid)
@@ -543,7 +807,6 @@ class TaskDependencyScheduler:
                         by_id[p_tid]["status"] = "CANCELLED"
                     _persist_checkpoint()
 
-            # Dispatch eligible READY tasks respecting global cap, role cap, and canonical file ownership
             async with state_guard:
                 for tid in topo_order:
                     if tid not in pending:
@@ -572,7 +835,6 @@ class TaskDependencyScheduler:
                     if any(ck in active_owned_canon for ck in canon_paths):
                         continue
 
-                    # Transition PENDING -> READY -> RUNNING
                     pending.discard(tid)
                     running.add(tid)
                     h["status"] = "RUNNING"
@@ -583,7 +845,6 @@ class TaskDependencyScheduler:
                     active_futures[tid] = asyncio.create_task(_run_single_task(tid))
 
             if not active_futures:
-                # Check if remaining pending tasks are unschedulable due to blocked/failed upstream
                 async with state_guard:
                     progressed = False
                     for p_tid in list(pending):
@@ -602,7 +863,6 @@ class TaskDependencyScheduler:
             finished_tids = [k for k, fut in active_futures.items() if fut in done]
             for f_tid in finished_tids:
                 fut = active_futures.pop(f_tid)
-                # Re-raise hard phase-boundary violations immediately after cleaning up remaining tasks
                 exc = fut.exception()
                 if isinstance(exc, PhaseBoundaryExecutionBlockedError):
                     for other in active_futures.values():
@@ -612,10 +872,11 @@ class TaskDependencyScheduler:
                     raise exc
 
         final_ckpt = _persist_checkpoint()
+        has_unsup = any(f["error_category"] == "UNSUPPORTED_ACCEPTANCE_CHECK" for f in failures_recorded)
         overall_status = (
             "SUCCEEDED"
             if len(completed) == len(by_id)
-            else ("CANCELLED" if cancelled and not failed else "PARTIAL_OR_FAILED")
+            else ("CANCELLED" if cancelled and not failed and not has_unsup else "PARTIAL_OR_FAILED")
         )
         return {
             "project_id": project_id,

@@ -77,6 +77,10 @@ class SilentArtifactMutationError(PermissionError):
     """Raised if an Independent Verification Agent silently modifies any producer artifact during review."""
 
 
+class ReviewerCriteriaManipulationError(HandoffValidationError):
+    """Raised when an independent reviewer drops, renames, or weakens Master Director mandatory criteria."""
+
+
 def compute_file_sha256(path: Path) -> str:
     h = hashlib.sha256()
     with path.open("rb") as f:
@@ -664,13 +668,18 @@ class TaskHandoffManager:
         pre_review_hashes: dict[str, str],
         review_report: dict[str, Any],
         required_criteria_ids: list[str] | None = None,
+        criteria_manifest: dict[str, Any] | None = None,
+        additional_producer_handoffs: list[dict[str, Any]] | None = None,
         producer_conversation_id: str | None = None,
         base_dir: Path | None = None,
     ) -> dict[str, Any]:
-        """Fail-closed verification of an Independent Verifier pass (Phase 01.6B hardened)."""
+        """Fail-closed verification of an Independent Verifier report (Phase 01.6C 11-way binding)."""
         ws_root = Path(os.path.realpath(base_dir or self.root_dir))
         v_role = self.validate_handoff(verifier_handoff, base_dir=ws_root)
         self.validate_handoff(producer_handoff, base_dir=ws_root)
+        extra_producers = list(additional_producer_handoffs or [])
+        for ep in extra_producers:
+            self.validate_handoff(ep, base_dir=ws_root)
 
         if v_role["department"] != "independent_verification_department" or not v_role["read_only"]:
             raise HandoffValidationError(
@@ -683,11 +692,18 @@ class TaskHandoffManager:
         except jsonschema.ValidationError as exc:
             raise HandoffValidationError(f"Review report schema violation: {exc.message}") from exc
 
-        # 2. Producer & Verifier task/identity binding
-        if review_report["project_id"] != producer_handoff["project_id"] or review_report["project_id"] != verifier_handoff["project_id"]:
+        # 2. Producer & Reviewer task/project/role identity binding
+        if (
+            review_report["project_id"] != producer_handoff["project_id"]
+            or review_report["project_id"] != verifier_handoff["project_id"]
+        ):
             raise HandoffValidationError("Review report project_id mismatch against producer/verifier handoffs")
         if review_report["verifier_agent"] != verifier_handoff["assigned_agent"]:
             raise HandoffValidationError("verifier_agent mismatch against verifier_handoff")
+        if "reviewer_task_id" in review_report and review_report["reviewer_task_id"] != verifier_handoff["task_id"]:
+            raise HandoffValidationError(
+                f"Mismatched reviewer_task_id: '{review_report['reviewer_task_id']}' != '{verifier_handoff['task_id']}'"
+            )
         if review_report["reviewed_task_id"] != producer_handoff["task_id"]:
             raise HandoffValidationError(
                 f"Mismatched reviewed_task_id: '{review_report['reviewed_task_id']}' != producer '{producer_handoff['task_id']}'"
@@ -703,12 +719,38 @@ class TaskHandoffManager:
                 f"Verifier task '{verifier_handoff['task_id']}' must declare producer '{producer_handoff['task_id']}' in dependencies"
             )
 
-        # 3. Validate reviewer runtime invocation receipt (never rely on fresh_context_confirmed boolean alone!)
+        # 3. Validate reviewer runtime invocation receipt & conversation isolation
         receipt = review_report["invocation_receipt"]
         if receipt["agent_id"] != verifier_handoff["assigned_agent"] or receipt.get("actually_invoked") is not True:
             raise HandoffValidationError("Invalid reviewer invocation_receipt: agent mismatch or not actually invoked")
+        if receipt.get("task_id") and receipt["task_id"] != verifier_handoff["task_id"]:
+            raise HandoffValidationError(
+                f"Reviewer invocation_receipt task_id '{receipt['task_id']}' != '{verifier_handoff['task_id']}'"
+            )
+        if receipt.get("project_id") and receipt["project_id"] != verifier_handoff["project_id"]:
+            raise HandoffValidationError("Reviewer invocation_receipt project_id mismatch")
+        if receipt.get("receipt_sha256") and receipt.get("receipt_id"):
+            from orchestration.native_execution_adapter import AgentInvocationReceipt
+
+            if not AgentInvocationReceipt.from_dict(receipt).verify_integrity():
+                raise HandoffValidationError("Reviewer invocation_receipt failed SHA-256 integrity seal check")
+
+        rev_conv_raw = receipt.get("conversation_id")
+        if "reviewer_conversation_id" in review_report and review_report["reviewer_conversation_id"] != rev_conv_raw:
+            raise HandoffValidationError(
+                "reviewer_conversation_id in report does not match invocation_receipt.conversation_id"
+            )
+        if (
+            producer_conversation_id is not None
+            and "producer_conversation_id" in review_report
+            and review_report["producer_conversation_id"] != producer_conversation_id
+        ):
+            raise HandoffValidationError(
+                f"producer_conversation_id mismatch: report='{review_report['producer_conversation_id']}' != expected='{producer_conversation_id}'"
+            )
+
         if receipt["execution_mode"] == "native_subagent":
-            conv_id = (receipt.get("conversation_id") or "").strip()
+            conv_id = (rev_conv_raw or "").strip()
             if len(conv_id) < 8:
                 raise HandoffValidationError(
                     "native_subagent review requires a valid runtime conversation_id in invocation_receipt"
@@ -718,27 +760,80 @@ class TaskHandoffManager:
                     "Independent review context violation: verifier conversation_id equals producer conversation_id!"
                 )
 
-        # 4. Validate non-empty pre_review_hashes & full coverage of ALL producer owned/output artifacts
+        # 4. Validate Master Director ImmutableReviewCriteriaManifest (if provided on call or in verifier context)
+        ctx_manifest = criteria_manifest or verifier_handoff.get("context", {}).get("criteria_manifest")
+        manifest_digest: str | None = None
+        authoritative_criteria_ids: list[str] | None = None
+        if ctx_manifest is not None:
+            from orchestration.native_execution_adapter import ImmutableReviewCriteriaManifest
+
+            try:
+                sealed_manifest = ImmutableReviewCriteriaManifest.from_dict(ctx_manifest)
+            except Exception as exc:
+                raise ReviewerCriteriaManipulationError(
+                    f"Invalid or tampered ImmutableReviewCriteriaManifest: {exc}"
+                ) from exc
+            if sealed_manifest.project_id != verifier_handoff["project_id"]:
+                raise ReviewerCriteriaManipulationError("Criteria manifest project_id mismatch")
+            if sealed_manifest.reviewer_task_id != verifier_handoff["task_id"]:
+                raise ReviewerCriteriaManipulationError("Criteria manifest reviewer_task_id mismatch")
+            if sealed_manifest.producer_task_id != producer_handoff["task_id"]:
+                raise ReviewerCriteriaManipulationError("Criteria manifest producer_task_id mismatch")
+            manifest_digest = sealed_manifest.manifest_sha256
+            authoritative_criteria_ids = sealed_manifest.required_criteria_ids
+
+            rep_digest = review_report.get("criteria_manifest_digest")
+            if rep_digest != manifest_digest:
+                raise ReviewerCriteriaManipulationError(
+                    f"Review report criteria_manifest_digest '{rep_digest}' != sealed manifest '{manifest_digest}'"
+                )
+
+        elif verifier_handoff.get("context", {}).get("required_criteria_ids"):
+            authoritative_criteria_ids = list(verifier_handoff["context"]["required_criteria_ids"])
+
+        if required_criteria_ids is not None:
+            if authoritative_criteria_ids is None:
+                authoritative_criteria_ids = list(required_criteria_ids)
+            else:
+                authoritative_criteria_ids = list(dict.fromkeys([*authoritative_criteria_ids, *required_criteria_ids]))
+
+        # Reviewer MUST NOT drop, rename, or redefine authoritative mandatory criteria!
+        reported_req_ids = list(review_report["required_criteria_ids"])
+        if authoritative_criteria_ids is not None:
+            missing_from_report_decl = [cid for cid in authoritative_criteria_ids if cid not in reported_req_ids]
+            unexpected_redefined = (
+                [cid for cid in reported_req_ids if cid not in authoritative_criteria_ids]
+                if ctx_manifest is not None
+                else []
+            )
+            if missing_from_report_decl or unexpected_redefined:
+                raise ReviewerCriteriaManipulationError(
+                    f"Reviewer criteria manipulation rejected: missing={missing_from_report_decl}, "
+                    f"redefined={unexpected_redefined}, authoritative={authoritative_criteria_ids}"
+                )
+
+        # 5. Validate non-empty pre_review_hashes & full coverage of ALL reviewed producer owned artifacts
         if not pre_review_hashes:
             raise HandoffValidationError("Empty pre_review_hashes rejected; at least one artifact must be verified")
 
-        canon_pre: dict[str, str] = {}
-        for raw_p, sha in pre_review_hashes.items():
-            cp = self.canonicalize_artifact_path(raw_p, base_dir=ws_root, is_writable_output=False)
-            key = cp.as_posix()
-            if key in canon_pre:
-                raise DuplicateArtifactPathError(f"Duplicate canonical path in pre_review_hashes: {raw_p}")
-            canon_pre[key] = sha
+        def _canon_hash_map(raw_map: dict[str, str], label: str) -> dict[str, str]:
+            out: dict[str, str] = {}
+            for raw_p, sha in raw_map.items():
+                cp = self.canonicalize_artifact_path(raw_p, base_dir=ws_root, is_writable_output=False)
+                key = cp.as_posix()
+                if key in out:
+                    raise DuplicateArtifactPathError(f"Duplicate canonical path in {label}: {raw_p}")
+                out[key] = sha
+            return out
 
-        canon_report_hashes: dict[str, str] = {}
-        for raw_p, sha in review_report["reviewed_artifact_hashes"].items():
-            cp = self.canonicalize_artifact_path(raw_p, base_dir=ws_root, is_writable_output=False)
-            key = cp.as_posix()
-            if key in canon_report_hashes:
-                raise DuplicateArtifactPathError(f"Duplicate canonical path in reviewed_artifact_hashes: {raw_p}")
-            canon_report_hashes[key] = sha
+        canon_pre = _canon_hash_map(pre_review_hashes, "pre_review_hashes")
+        canon_report_hashes = _canon_hash_map(review_report["reviewed_artifact_hashes"], "reviewed_artifact_hashes")
 
-        producer_owned_canon = {p.as_posix() for p in self.canonical_owned_paths(producer_handoff, base_dir=ws_root)}
+        all_reviewed_producers = [producer_handoff, *extra_producers]
+        producer_owned_canon: set[str] = set()
+        for ph in all_reviewed_producers:
+            for p in self.canonical_owned_paths(ph, base_dir=ws_root):
+                producer_owned_canon.add(p.as_posix())
         if not producer_owned_canon:
             raise HandoffValidationError("Producer handoff has zero owned_artifacts to bind review against")
 
@@ -755,7 +850,27 @@ class TaskHandoffManager:
                     f"Reviewed hash mismatch in report for '{c_key}': {canon_report_hashes[c_key]} != {expected_pre_sha}"
                 )
 
-        # 5. Full pre-review vs post-review disk SHA-256 comparison (blocks silent edits!)
+        if review_report.get("pre_review_hashes") is not None:
+            canon_rep_pre = _canon_hash_map(review_report["pre_review_hashes"], "report.pre_review_hashes")
+            if canon_rep_pre != canon_pre:
+                raise HandoffValidationError("Report pre_review_hashes mismatch against Master Director pre_review_hashes")
+
+        if review_report.get("reviewed_artifact_manifest") is not None:
+            canon_art_man: dict[str, dict[str, Any]] = {}
+            for raw_p, meta in review_report["reviewed_artifact_manifest"].items():
+                cp = self.canonicalize_artifact_path(raw_p, base_dir=ws_root, is_writable_output=False)
+                canon_art_man[cp.as_posix()] = meta
+            missing_in_art_man = sorted(producer_owned_canon - set(canon_art_man.keys()))
+            if missing_in_art_man:
+                raise HandoffValidationError(
+                    f"reviewed_artifact_manifest missing producer artifacts: {missing_in_art_man}"
+                )
+            for c_key in producer_owned_canon:
+                if canon_art_man[c_key].get("sha256") != canon_pre[c_key]:
+                    raise HandoffValidationError(f"reviewed_artifact_manifest sha256 mismatch for '{c_key}'")
+
+        # 6. Full pre-review vs post-review disk SHA-256 comparison (blocks silent edits!)
+        live_post_hashes: dict[str, str] = {}
         for c_key, before_sha in canon_pre.items():
             target = Path(c_key)
             if not target.is_file():
@@ -765,10 +880,16 @@ class TaskHandoffManager:
                 raise SilentArtifactMutationError(
                     f"Silent artifact mutation detected on '{c_key}' during independent review!"
                 )
+            live_post_hashes[c_key] = after_sha
 
-        # 6. Validate mandatory criteria manifest & reject false PASS
+        if review_report.get("post_review_hashes") is not None:
+            canon_rep_post = _canon_hash_map(review_report["post_review_hashes"], "report.post_review_hashes")
+            if canon_rep_post != live_post_hashes:
+                raise HandoffValidationError("Report post_review_hashes mismatch against live post-review disk SHA-256")
+
+        # 7. Validate mandatory criteria manifest, per-criterion evidence & complete defect reporting
         effective_required = list(
-            dict.fromkeys([*(required_criteria_ids or []), *review_report["required_criteria_ids"]])
+            dict.fromkeys([*(authoritative_criteria_ids or []), *reported_req_ids])
         )
         if not effective_required:
             raise HandoffValidationError("required_criteria_ids cannot be empty")
@@ -794,17 +915,25 @@ class TaskHandoffManager:
                 )
             if review_report["defects"]:
                 raise HandoffValidationError("False PASS rejected: defects list is non-empty")
+        elif failed_criteria and len(review_report["defects"]) < len(failed_criteria):
+            raise HandoffValidationError(
+                f"Incomplete defect reporting: {len(failed_criteria)} criteria failed ({failed_criteria}) "
+                f"but only {len(review_report['defects'])} defect(s) were reported!"
+            )
 
         assert len(canon_pre) >= 1
         return {
             "verified": True,
             "review_id": review_report["review_id"],
             "reviewed_task_id": producer_handoff["task_id"],
+            "reviewer_task_id": verifier_handoff["task_id"],
             "producer_agent": producer_handoff["assigned_agent"],
             "verifier_agent": review_report["verifier_agent"],
             "verdict": review_report["verdict"],
+            "criteria_manifest_digest": manifest_digest or review_report.get("criteria_manifest_digest"),
             "defect_count": len(review_report["defects"]),
             "criteria_verified_count": len(checked_by_id),
             "artifacts_unchanged": len(canon_pre),
             "execution_mode": receipt["execution_mode"],
         }
+

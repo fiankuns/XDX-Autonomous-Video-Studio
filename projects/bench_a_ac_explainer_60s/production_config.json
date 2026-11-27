@@ -1,0 +1,396 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_a_ac_explainer_60s",
+  "package_version": "v1",
+  "topic": {
+    "topic": "Bagaimana AC Mendinginkan Ruangan?",
+    "genres": [
+      "explainer",
+      "edukasi"
+    ],
+    "epistemic_mode": "factual_verified",
+    "research_status": "VERIFIED_COMPLETE",
+    "metrics_measured": {
+      "total_claims": 4,
+      "verified_claims": 4,
+      "unique_verified_sources": 4,
+      "citation_coverage_ratio": 1.0
+    },
+    "claims": [
+      {
+        "claim_id": "CLM_01",
+        "statement": "Sistem AC mendinginkan ruangan dengan menarik udara hangat kamar melewati kumparan evaporator dingin berisi refrigeran yang menyerap kalor saat menguap dari cair menjadi gas.",
+        "epistemic_status": "verified_fact",
+        "source_title": "U.S. Department of Energy \u2014 Energy Saver: Air Conditioning",
+        "source_url": "https://www.energy.gov/energysaver/air-conditioning",
+        "publication_year": 2024,
+        "publication_date": "2024-06",
+        "evidence_excerpt": "Air conditioners transfer heat from the indoor air to the outdoors via an indoor evaporator coil filled with cold evaporating refrigerant.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_02",
+        "statement": "Kompresor pada unit luar memampatkan gas refrigeran bertekanan rendah menjadi gas bersuhu dan bertekanan tinggi sehingga kalornya dapat dilepaskan ke udara luar melalui sirip kondensor.",
+        "epistemic_status": "verified_fact",
+        "source_title": "Encyclopaedia Britannica \u2014 Air-conditioning: Principles of Operation",
+        "source_url": "https://www.britannica.com/technology/air-conditioning",
+        "publication_year": 2024,
+        "publication_date": "2024-08",
+        "evidence_excerpt": "In vapor-compression air conditioning, the compressor raises refrigerant vapor pressure and temperature so the outdoor condenser coil rejects heat to ambient air.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_03",
+        "statement": "Katup ekspansi menurunkan tekanan cairan refrigeran secara mendadak setelah keluar dari kondensor, menjatuhkan titik didih dan suhunya secara drastis sebelum masuk kembali ke evaporator.",
+        "epistemic_status": "verified_fact",
+        "source_title": "National Institute of Standards and Technology (NIST) \u2014 Thermophysical Properties of Fluid Systems",
+        "source_url": "https://webbook.nist.gov/chemistry/fluid/",
+        "publication_year": 2023,
+        "publication_date": "2023-11",
+        "evidence_excerpt": "Isenthalpic throttling across an expansion device drops refrigerant pressure and saturation temperature simultaneously, producing a cold two-phase mixture.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_04",
+        "statement": "Selain menurunkan suhu udara (kalor sensibel), sirip evaporator dingin mengembunkan uap air dari udara kamar (kalor laten dehumidifikasi), dan termostat bekerja paling hemat pada suhu nyaman stabil tanpa perlu disetel ekstrem rendah di awal.",
+        "epistemic_status": "verified_fact",
+        "source_title": "U.S. Department of Energy \u2014 Central Air Conditioning and Thermostat Operation",
+        "source_url": "https://www.energy.gov/energysaver/central-air-conditioning",
+        "publication_year": 2024,
+        "publication_date": "2024-05",
+        "evidence_excerpt": "Indoor evaporator coils dehumidify room air by condensing moisture while cooling at a steady rate; setting the thermostat lower does not cool the house faster.",
+        "is_primary_source": true
+      }
+    ]
+  },
+  "style_profile": "stylized_3d",
+  "style_bible_id": "xdx_stylized_3d_v4_0",
+  "creative_validation_metrics": {
+    "spoken_word_count": 135,
+    "title_keyword_overlap_script": 3,
+    "domain_keyword_overlap_script": 43,
+    "domain_keyword_overlap_actions": 37
+  },
+  "narration_timing_summary": {
+    "timing_status": "ESTIMATED",
+    "estimated_duration_s": 64.38,
+    "implied_wpm": 135.0,
+    "duration_recommendation": {
+      "suggest_duration_change": false,
+      "recommended_target_duration_s": 60,
+      "rationale": "Estimated delivery (64.38s, 135.0 WPM) fits comfortably within 60s with natural breath pauses."
+    }
+  },
+  "reference_intelligence": {
+    "selection_mode": "explicit_single_reference",
+    "selected_reference_ids": [
+      "REF-002"
+    ],
+    "related_candidate_ids": [],
+    "upload_prompt_suppressed": true,
+    "production_authorized": false,
+    "analyzer_fingerprint": "6cae4e67e0d33fd90776acb0abe0ea5bf360d3966147120955e84439b75d306f",
+    "cache_reports": [
+      {
+        "reference_id": "REF-002",
+        "cache_status": "CACHE_HIT_VALID",
+        "invalidation_reasons": [],
+        "reanalyzed": false,
+        "cache_key": {
+          "reference_id": "REF-002",
+          "video_sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+          "analyzer_source_fingerprint": "e9f8598cbb6648fcd2ed091fa9477d9b1bc527de5d8d01d7432b0e3b2fa6a3cd",
+          "analyzer_version": "4.0.0-phase01.6c",
+          "analyzer_config_hash": "4841894b8c58a7d4d4dd8c45c69d97ea86f7a8a2f29af736ba06d1435a01bd94",
+          "analysis_schema_version": "rea_reference_analysis.v4.0",
+          "profile_version": "1.0.0+0ee9fff3875b",
+          "analysis_method_or_model": "ffmpeg_scdet_ebur128+opencv_hsv_edge_luma_mad",
+          "cache_key_sha256": "edfefb172fc2ae9521b30d75fac2f69357f3f7ad717817cb30f587f733314e09"
+        },
+        "preserved_versions_count": 3,
+        "epistemic_analysis": {
+          "measurements": {
+            "container_duration_s": 105.543,
+            "video_stream_duration_s": 105.543,
+            "width": 720,
+            "height": 1600,
+            "aspect_ratio": "9:20_screen_capture_crop_to_9:16_production",
+            "video_codec": "hevc",
+            "fps": 34.999953,
+            "decoded_frames": 3694,
+            "audio": {
+              "codec": "aac",
+              "profile": "LC",
+              "sample_rate_hz": 48000,
+              "channels": 2,
+              "channel_layout": "stereo",
+              "integrated_loudness_lufs": -20.0,
+              "loudness_range_lu": 2.9,
+              "true_peak_dbfs": -9.4,
+              "silence_intervals_gt_250ms_at_neg35db": 33,
+              "total_silence_s": 10.71
+            },
+            "signal_candidates": {
+              "ffmpeg_gt_0_18_segments": 46,
+              "ffmpeg_gt_0_18_median_s": 2.257,
+              "ffmpeg_gt_0_18_mean_s": 2.294,
+              "ffmpeg_gt_0_18_min_s": 0.6,
+              "ffmpeg_gt_0_18_max_s": 6.028,
+              "opencv_adaptive_abrupt_candidates": 47,
+              "opencv_adaptive_sustained_change_candidates": 4,
+              "note": "Predominantly crisp hard-cut editing; FFmpeg (46 segments) and OpenCV adaptive abrupt detector (47 hits) closely agree, with every candidate segment <= 6.03s."
+            }
+          },
+          "visual_observations": [
+            "[01_narrative_structure_and_hook] hook_0_6s=Concrete sensory need in 0-6s: stepping out of a desert adobe house (00:00s), top-down pouring of sweet iced tea (00:02-00:04s), and sitting under blazing sun craving cold ice without electricity (00:06s).",
+            "[02_shots_timestamps_and_pacing] candidate_segments=46; median_shot_s=2.257",
+            "[03_characters_and_acting] host_avatar=Single recurring presenter in desert robe/headscarf who physically performs every step (digging, pouring, mortaring, carrying ice) while reacting to viewer objections.; historical_cast=Supporting period-dressed figures introduced only at 01:34-01:40s to ground historical scale.",
+            "[04_body_motion_facial_expressions_and_objects] task_actions=Concrete verb-driven body mechanics: pouring pitcher, kneeling by ice trench, scratching head in puzzlement (00:18s), fanning face (00:40s), stirring mortar paddle beside 3D goat (01:00-01:02s), chipping ice blocks (01:24s), toasting glass (01:42s).; facial_readability=Clean brow/eye punctuation supporting curiosity, heat exhaustion, and satisfaction.",
+            "[05_camera_and_cinematography] camera_motion=Locked orthographic/top-down frames for technical clarity; controlled slow push-ins and vertical tilts on architectural scale.",
+            "[06_environment_assets_materials_and_lighting] environment_progression=Scene evolves causally as the host builds the engineering system step by step (bare desert -> trench -> shade wall -> deep pit -> conical dome -> windcatcher).; materials=Tactile matte clay, adobe brick, layered soil strata, translucent ice/water shader, wood.",
+            "[08_captions_and_typography] capture_artifact_warning=Source file is a 720x1600 mobile screen recording containing Android status bar, social app icons, and transient toast overlay (00:06-00:10s). XDX Studio productions NEVER reproduce capture UI chrome.; content_captions=Clean 2-3 word clause-chunks in lower-center safe zone (white sans-serif with subtle dark stroke/shadow) plus minimal diegetic labels ('YAKHCHAL - YAZD, IRAN').",
+            "[09_narration_audio_and_sfx] delivery=Clear conversational Indonesian step-by-step explanation (-20.0 LUFS in captured stream, 2.9 LU LRA) structured around 33 deliberate micro-pauses (>250ms) that let each visual physics beat land.; unverified_audio_boundaries=Original studio master stems and full verbatim ASR transcript are not claimed or copied.",
+            "[10_editing_transitions_and_vfx] transitions=Almost 100% clean hard cuts aligned to spoken clause boundaries and action completions.; vfx=Animated 3D vector arrows/ribbons for thermal/airflow physics, frost/ice surface state change, and time-of-day sky/shadow shift."
+          ],
+          "inferences": [
+            "Reusable profile 'hosted_3d_explainer_cutaway_v1' targets shot split [2, 4]s for explainer.",
+            "Hook pattern 'concrete_need_visual_question_0_3s' inferred to sustain early viewer retention."
+          ],
+          "limitations": [
+            "Original authoring project files, proprietary prompts, and source stems are not recoverable from encoded MP4 bytes.",
+            "Signal-level FFmpeg/OpenCV cut and loudness measurements complement \u2014 and never replace \u2014 semantic human/multimodal review.",
+            "Copyrighted characters, dialogue, recorder UI elements, and music in the reference are strictly excluded from reuse."
+          ]
+        }
+      }
+    ],
+    "references": [
+      {
+        "id": "REF-002",
+        "genre": "explainer",
+        "video_relpath": "reference_database/references/explainer/REF-002-Yakhchal/original.mp4",
+        "video_sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+        "bytes": 38669358,
+        "verification_status": "VERIFIED",
+        "profile_id": "hosted_3d_explainer_cutaway_v1",
+        "prior_analysis_relpath": "reference_database/references/explainer/REF-002-Yakhchal/prior_analysis.json",
+        "rea_analysis_v3_4_relpath": "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json",
+        "measurements": {
+          "container_duration_s": 105.543,
+          "video_stream_duration_s": 105.543,
+          "width": 720,
+          "height": 1600,
+          "aspect_ratio": "9:20_screen_capture_crop_to_9:16_production",
+          "video_codec": "hevc",
+          "fps": 34.999953,
+          "decoded_frames": 3694,
+          "audio": {
+            "codec": "aac",
+            "profile": "LC",
+            "sample_rate_hz": 48000,
+            "channels": 2,
+            "channel_layout": "stereo",
+            "integrated_loudness_lufs": -20.0,
+            "loudness_range_lu": 2.9,
+            "true_peak_dbfs": -9.4,
+            "silence_intervals_gt_250ms_at_neg35db": 33,
+            "total_silence_s": 10.71
+          },
+          "signal_candidates": {
+            "ffmpeg_gt_0_18_segments": 46,
+            "ffmpeg_gt_0_18_median_s": 2.257,
+            "ffmpeg_gt_0_18_mean_s": 2.294,
+            "ffmpeg_gt_0_18_min_s": 0.6,
+            "ffmpeg_gt_0_18_max_s": 6.028,
+            "opencv_adaptive_abrupt_candidates": 47,
+            "opencv_adaptive_sustained_change_candidates": 4,
+            "note": "Predominantly crisp hard-cut editing; FFmpeg (46 segments) and OpenCV adaptive abrupt detector (47 hits) closely agree, with every candidate segment <= 6.03s."
+          }
+        },
+        "narrative_pattern": "need -> question -> physical_demo -> mechanism -> obstacle_loop -> historical_reveal -> callback"
+      }
+    ],
+    "fused_production_profile": {
+      "is_multi_reference_blend": false,
+      "source_reference_ids": [
+        "REF-002"
+      ],
+      "profile_ids": [
+        "hosted_3d_explainer_cutaway_v1"
+      ],
+      "requires_hero_character": true,
+      "hook_formula": "concrete_need_visual_question_0_3s",
+      "pacing_benchmark": {
+        "typical_shot_s": [
+          2.0,
+          4.0
+        ],
+        "preferred_split_s": 4.0,
+        "hard_max_shot_s": 10.0
+      },
+      "story_beats": [
+        "personal_need",
+        "question",
+        "demonstration",
+        "mechanism",
+        "obstacle",
+        "solution",
+        "reveal",
+        "callback"
+      ],
+      "visual_modes": [
+        "HOST_ACTING",
+        "OBJECT_INSERT",
+        "PHYSICAL_DEMONSTRATION",
+        "TECHNICAL_CUTAWAY",
+        "CONTEXTUAL_CUTAWAY",
+        "HISTORICAL_REENACTMENT",
+        "DATA_VISUALIZATION",
+        "CALLBACK"
+      ],
+      "camera_vocabulary": [
+        "host_medium",
+        "topdown_insert",
+        "sectional_cutaway",
+        "architecture_or_object_reveal",
+        "reaction_closeup"
+      ],
+      "motion_vocabulary": [
+        "idle_breathing",
+        "blink",
+        "look",
+        "point",
+        "present",
+        "pick_up",
+        "carry",
+        "pour",
+        "bend",
+        "walk_short",
+        "reaction"
+      ],
+      "caption_preset": "cap_xdx_bold_stroke_9x16",
+      "quality_gates": [
+        "semantic_clause_to_visual_alignment",
+        "fact_source_verified",
+        "no_placeholder_final_assets",
+        "character_continuity",
+        "frame_determinism",
+        "audio_caption_sync",
+        "actual_render_visual_review"
+      ],
+      "restrictions": [
+        "do not copy source character, script, music, branding, UI or assets",
+        "no automatic production before approval",
+        "no render claim from schema validation",
+        "no fixed desert palette or historical reveal for unrelated topics"
+      ]
+    },
+    "ten_dimension_fusion": {
+      "fusion_mode": "single_reference_10d_mapped",
+      "source_reference_ids": [
+        "REF-002"
+      ],
+      "unified_visual_style_profile": "stylized_3d",
+      "style_consistency_verified": true,
+      "conflicts_detected_count": 0,
+      "dimensions": {
+        "narrative_structure": {
+          "dimension": "narrative_structure",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "counterintuitive_anomaly_hook_to_causal_mechanism_and_synthesis",
+          "adaptation_rationale": "Single-reference 'REF-002' governs 'narrative_structure' cleanly for ['edukasi', 'explainer']."
+        },
+        "character_acting": {
+          "dimension": "character_acting",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "hosted_presenter_direct_address_pointing_to_3d_cutaway_models",
+          "adaptation_rationale": "Single-reference 'REF-002' governs 'character_acting' cleanly for ['edukasi', 'explainer']."
+        },
+        "visual_style": {
+          "dimension": "visual_style",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "clean_stylized_3d_architectural_cutaway_with_diagrammatic_clarity",
+          "adaptation_rationale": "Locked single unified visual style 'stylized_3d' anchored to primary 'REF-002' so character, prop, and cutaway shaders never clash across shots."
+        },
+        "environment": {
+          "dimension": "environment",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "modular_cross_section_stage_and_scale_comparison_diorama",
+          "adaptation_rationale": "Single-reference 'REF-002' governs 'environment' cleanly for ['edukasi', 'explainer']."
+        },
+        "camera": {
+          "dimension": "camera",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "smooth_orthographic_feel_cutaway_push_and_macro_mechanism_inserts",
+          "adaptation_rationale": "Single-reference 'REF-002' governs 'camera' cleanly for ['edukasi', 'explainer']."
+        },
+        "motion": {
+          "dimension": "motion",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "causal_flow_arrows_fluid_thermal_paths_and_exploded_assembly",
+          "adaptation_rationale": "Single-reference 'REF-002' governs 'motion' cleanly for ['edukasi', 'explainer']."
+        },
+        "technical_visualization": {
+          "dimension": "technical_visualization",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "3d_cross_section_cutaway_exploded_view_and_annotated_scientific_labels",
+          "adaptation_rationale": "Single-reference 'REF-002' governs 'technical_visualization' cleanly for ['edukasi', 'explainer']."
+        },
+        "caption": {
+          "dimension": "caption",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "high_contrast_keyword_highlighted_captions_paired_with_callouts",
+          "adaptation_rationale": "Single-reference 'REF-002' governs 'caption' cleanly for ['edukasi', 'explainer']."
+        },
+        "audio": {
+          "dimension": "audio",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes",
+          "adaptation_rationale": "Single-reference 'REF-002' governs 'audio' cleanly for ['edukasi', 'explainer']."
+        },
+        "editing": {
+          "dimension": "editing",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [],
+          "conflict_detected": false,
+          "conflicting_approaches": {},
+          "selected_strategy": "clause_locked_visual_evidence_cuts_2_5_to_5_5s_on_causal_transitions",
+          "adaptation_rationale": "Single-reference 'REF-002' governs 'editing' cleanly for ['edukasi', 'explainer']."
+        }
+      }
+    },
+    "adaptation_record_count": 20
+  },
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "aspect_ratio": "9:16",
+  "total_frames": 1800
+}

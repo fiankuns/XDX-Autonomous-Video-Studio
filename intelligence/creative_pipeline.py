@@ -21,18 +21,28 @@ import jsonschema
 
 from adapters.caption_lipsync_adapter import RhubarbLipSyncAdapter, WhisperCaptionAdapter
 from intelligence.asset_management import GLOBAL_STYLE_BIBLE_V3_4, atomic_write_bytes
-from intelligence.authored_showcase_150s import (
-    build_authored_social_satire_payload,
-    build_authored_time_perception_payload,
-)
 from intelligence.reference_database_bridge import (
     ReferenceDatabaseBridge,
     normalize_genre_list,
+)
+from intelligence.reference_lifecycle import (
+    MultiReferenceFusionEngine,
+    REAReferenceLifecycleManager,
+    ReferenceToProductionAdapter,
 )
 from intelligence.state_and_approval import (
     ProjectStateManager,
     compute_package_digest,
     format_structured_approval_command,
+)
+from intelligence.universal_preproduction import (
+    CharacterActionPlanner,
+    CharacterAndStyleIntelligence,
+    NarrationTimingIntelligence,
+    PurposeDrivenCameraAudioCaptionPlanner,
+    SemanticAssetPlanner,
+    SemanticVisualDirector,
+    UniversalTopicResearchCompiler,
 )
 from libraries.loader import PresetLibraryRegistry
 
@@ -93,7 +103,8 @@ INDONESIAN_STOPWORDS: frozenset[str] = frozenset(
         "yang", "dan", "dari", "pada", "untuk", "dengan", "dalam", "saat", "ketika",
         "mengapa", "kenapa", "bagaimana", "apakah", "kita", "kamu", "mereka", "akan",
         "bisa", "lebih", "atau", "juga", "tidak", "bukan", "hingga", "sampai", "oleh",
-        "sebagai", "adalah", "itu", "ini", "para", "satu", "dua", "tiga",
+        "sebagai", "adalah", "itu", "ini", "para", "satu", "dua", "tiga", "ada", "tak",
+        "pun", "hal", "nya", "ke", "di", "se", "ya", "si", "sang", "lah", "kah", "apa",
     }
 )
 
@@ -197,6 +208,25 @@ class UnverifiedResearchError(ValueError):
 
 class PlaceholderScriptError(ValueError):
     """Raised when narration, dialogue, or visual action contains placeholders or lacks topic relevance."""
+
+
+class TopicRelevanceError(PlaceholderScriptError):
+    """Raised when authored payload content does not match the requested topic_title (e.g. title-swapped fallback)."""
+
+
+class CreativePayloadRequiredError(ValueError):
+    """Raised when a new production topic is requested without an authored creative payload (-> CREATIVE_PAYLOAD_REQUIRED)."""
+
+    def __init__(self, project_id: str, topic: str | None, state_file: Path | None = None) -> None:
+        self.project_id = project_id
+        self.topic = topic
+        self.status = "CREATIVE_PAYLOAD_REQUIRED"
+        self.state_file = state_file
+        super().__init__(
+            f"CREATIVE_PAYLOAD_REQUIRED for project '{project_id}' (topic={topic!r}): "
+            "authored sample payloads are forbidden as general topic fallbacks. "
+            "Run Research -> Reference -> Creative Director -> Scriptwriter first."
+        )
 
 
 class UniversalMasterPromptEngine:
@@ -344,18 +374,25 @@ class CreativePayloadValidator:
 
     @staticmethod
     def _extract_domain_keywords(text: str) -> set[str]:
-        tokens = re.findall(r"[a-zA-Z]{4,}", text.lower())
-        return {t for t in tokens if t not in INDONESIAN_STOPWORDS}
+        tokens = re.findall(r"[a-zA-Z]{2,}", text.lower())
+        return {
+            t
+            for t in tokens
+            if t not in INDONESIAN_STOPWORDS and (len(t) >= 3 or t in {"ac", "uv", "ai", "es"})
+        }
 
     def validate(self, payload: dict[str, Any]) -> dict[str, Any]:
         jsonschema.validate(instance=payload, schema=self._schema)
 
         topic_title = payload["topic_title"].strip()
-        domain_terms = (
-            self._extract_domain_keywords(topic_title)
-            | self._extract_domain_keywords(payload["blueprint"]["premise"])
-            | self._extract_domain_keywords(" ".join(c["statement"] for c in payload["topic_research"]["claims"]))
+        title_terms = self._extract_domain_keywords(topic_title)
+        premise_terms = self._extract_domain_keywords(payload["blueprint"]["premise"])
+        claims_terms = self._extract_domain_keywords(
+            " ".join(c["statement"] for c in payload["topic_research"]["claims"])
+            + " "
+            + payload["topic_research"].get("summary", "")
         )
+        domain_terms = title_terms | premise_terms | claims_terms
 
         all_spoken_words: list[str] = []
         all_actions_text: list[str] = []
@@ -386,6 +423,17 @@ class CreativePayloadValidator:
         script_keywords = self._extract_domain_keywords(" ".join(all_spoken_words))
         action_keywords = self._extract_domain_keywords(" ".join(all_actions_text))
 
+        # Independent topic_title coherence check: prevents swapping a new topic title onto an unrelated showcase script!
+        if title_terms:
+            body_anchor_terms = premise_terms | claims_terms | script_keywords
+            if len(title_terms & script_keywords) < 1 or len(title_terms & (premise_terms | claims_terms)) < 1:
+                raise TopicRelevanceError(
+                    f"Topic relevance check failed: topic_title={topic_title!r} keywords {sorted(title_terms)} "
+                    "do not align with research claims, blueprint premise, and spoken narration (unrelated fallback rejected)."
+                )
+            if len(title_terms & body_anchor_terms) < 1:
+                raise TopicRelevanceError("Topic title has zero lexical overlap with payload content.")
+
         if domain_terms and len(script_keywords & domain_terms) < 2:
             raise PlaceholderScriptError("Spoken narration/dialogue lacks lexical relevance to the researched topic.")
         if domain_terms and len(action_keywords & domain_terms) < 1:
@@ -393,6 +441,7 @@ class CreativePayloadValidator:
 
         return {
             "spoken_word_count": len(all_spoken_words),
+            "title_keyword_overlap_script": len(title_terms & script_keywords),
             "domain_keyword_overlap_script": len(script_keywords & domain_terms),
             "domain_keyword_overlap_actions": len(action_keywords & domain_terms),
         }
@@ -1098,13 +1147,20 @@ class HybridEngineOrchestrator:
 
 
 class PreProductionPackageBuilder:
-    """Validates AI-authored creative payloads, compiles the 13-item package, and stops at WAITING_APPROVAL."""
+    """Validates AI-authored creative payloads, compiles the 13-item v4.0 package, and stops at WAITING_APPROVAL."""
 
     def __init__(self, *, reference_db_root: Path | None = None) -> None:
         self.master = UniversalMasterPromptEngine()
         self.validator = CreativePayloadValidator()
         self.research = TopicResearchEngine()
+        self.research_v4 = UniversalTopicResearchCompiler()
         self.story = StoryScriptIntelligence()
+        self.timing_engine = NarrationTimingIntelligence()
+        self.semantic_visual = SemanticVisualDirector()
+        self.char_style_v4 = CharacterAndStyleIntelligence()
+        self.action_planner = CharacterActionPlanner()
+        self.asset_planner = SemanticAssetPlanner()
+        self.cam_aud_cap = PurposeDrivenCameraAudioCaptionPlanner()
         self.narration = NarrationDialogueEngine()
         self.storyboard_dir = StoryboardDirector()
         self.character = CharacterDesignIntelligence()
@@ -1112,6 +1168,9 @@ class PreProductionPackageBuilder:
         self.orchestrator = HybridEngineOrchestrator()
         self.presets = PresetLibraryRegistry()
         self.reference_bridge = ReferenceDatabaseBridge(db_root=reference_db_root)
+        self.ref_lifecycle = REAReferenceLifecycleManager(db_root=reference_db_root)
+        self.fusion_engine = MultiReferenceFusionEngine()
+        self.ref_adapter = ReferenceToProductionAdapter()
         self._approval_schema = json.loads((SCHEMAS_DIR / "approval_package.schema.json").read_text(encoding="utf-8"))
 
     def build_waiting_approval_package(
@@ -1125,7 +1184,9 @@ class PreProductionPackageBuilder:
         package_version: str = "v1",
         authored_payload: dict[str, Any] | None = None,
         reference_ids: list[str] | None = None,
+        disable_reference: bool = False,
         include_related_references: bool = False,
+        return_status_on_missing_payload: bool = False,
     ) -> dict[str, Any]:
         package_dir.mkdir(parents=True, exist_ok=True)
         self.presets.load_all(validate=True)
@@ -1134,88 +1195,194 @@ class PreProductionPackageBuilder:
         if raw_genres is None and authored_payload is not None:
             raw_genres = list(authored_payload.get("genres", []))
         if not raw_genres:
-            raw_genres = ["explainer", "edukasi", "sejarah", "biografi", "komedi_absurd"]
+            raw_genres = ["explainer", "edukasi"]
+
+        # Phase 01.6C Section 5: NEVER fall back to authored_showcase_150s!
+        # If authored_payload is absent, record CREATIVE_PAYLOAD_REQUIRED and halt fail-closed.
+        if authored_payload is None:
+            from orchestration.shared_state import SharedProjectStateMachine
+
+            norm_g = normalize_genre_list(raw_genres) or ["explainer"]
+            v4_state_path = package_dir / "project_state_v4.json"
+            sm_v4 = SharedProjectStateMachine(v4_state_path)
+            sm_v4.initialize(
+                project_id=project_id,
+                project_title=topic or f"Project {project_id}",
+                genres=norm_g,
+            )
+            sm_v4.transition(
+                "REQUEST_RECEIVED",
+                expected_version=1,
+                trigger="plan_request",
+                actor="master_director",
+                evidence=f"Received topic={topic!r} without authored creative payload",
+            )
+            sm_v4.transition(
+                "CREATIVE_PAYLOAD_REQUIRED",
+                expected_version=2,
+                trigger="missing_authored_payload",
+                actor="master_director",
+                evidence="Authored creative payload not yet created by Research/Creative/Scriptwriter agents.",
+            )
+            state_mgr = ProjectStateManager(package_dir / "project_state.json")
+            state_mgr.initialize(
+                project_id=project_id,
+                project_title=topic or f"Project {project_id}",
+                genres=norm_g,
+                total_frames=max(30, int(target_duration_s * 30)),
+            )
+            state_mgr.transition("BLOCKED", reason="CREATIVE_PAYLOAD_REQUIRED")
+            if return_status_on_missing_payload:
+                return {
+                    "status": "CREATIVE_PAYLOAD_REQUIRED",
+                    "project_id": project_id,
+                    "topic": topic,
+                    "genres": norm_g,
+                    "project_state_v4": sm_v4.load(),
+                }
+            raise CreativePayloadRequiredError(project_id, topic, state_file=v4_state_path)
 
         explicit_refs = reference_ids
-        if explicit_refs is None and authored_payload is not None and authored_payload.get("reference_ids"):
+        if (
+            not disable_reference
+            and explicit_refs is None
+            and authored_payload.get("reference_ids") is not None
+        ):
             explicit_refs = list(authored_payload["reference_ids"])
 
-        ref_context = self.reference_bridge.resolve_context(
-            genres=raw_genres,
-            explicit_reference_ids=explicit_refs,
-            include_related=include_related_references,
-        )
-        normalized_genres = ref_context["normalized_genres"]
-
-        if authored_payload is not None:
-            payload = copy.deepcopy(authored_payload)
-            payload["project_id"] = project_id
-            payload["genres"] = normalized_genres
-            if topic is not None:
-                payload["topic_title"] = topic
-            payload["target_duration_s"] = target_duration_s
+        if disable_reference or (explicit_refs is not None and len(explicit_refs) == 0):
+            ref_context = {
+                "schema_version": "4.0.0-phase01.6c",
+                "database_integrated": True,
+                "selection_mode": "genre_without_specific_reference",
+                "normalized_genres": normalize_genre_list(raw_genres),
+                "selected_reference_ids": [],
+                "related_candidate_ids": [],
+                "upload_prompt_suppressed": False,
+                "production_authorized": False,
+                "analyzer_fingerprint": self.ref_lifecycle.bridge._db_mod.analyzer_fingerprint(ROOT_DIR),
+                "references": [],
+                "fused_production_profile": None,
+                "reference_analysis_markdown": (
+                    "# Analisis Referensi Pra-Produksi (Mode Tanpa Referensi Khusus)\n\n"
+                    "- **Mode Pemilihan**: `genre_without_specific_reference`\n"
+                    "- **Keputusan Artistik**: Menggunakan Global Style Bible secara otonom tanpa memaksakan gaya `REF-001` atau `REF-002`.\n"
+                    "- **Status Otorisasi Produksi**: `False`\n"
+                ),
+            }
+            resolved_records = []
         else:
-            is_social_satire_lead = normalized_genres[0] in {"social_satire", "satir_sosial", "storytelling"} and all(
-                g in {"social_satire", "satir_sosial", "storytelling", "komedi_absurd"} for g in normalized_genres
+            ref_context = self.reference_bridge.resolve_context(
+                genres=raw_genres,
+                explicit_reference_ids=explicit_refs,
+                include_related=include_related_references,
             )
-            if is_social_satire_lead:
-                payload = build_authored_social_satire_payload(
-                    project_id=project_id,
-                    target_duration_s=target_duration_s,
-                    genres=normalized_genres,
-                )
-                if topic is not None and topic.strip():
-                    if "kertas" not in topic.lower() and "fotokopi" not in topic.lower():
-                        payload["topic_title"] = f"{topic.strip()} — Satir Layanan Tanpa Kertas & Aplikasi Publik"
-                    else:
-                        payload["topic_title"] = topic.strip()
-            else:
-                payload = build_authored_time_perception_payload(
-                    project_id=project_id,
-                    target_duration_s=target_duration_s,
-                    genres=normalized_genres,
-                )
-                if topic is not None and topic.strip():
-                    if "waktu" not in topic.lower() and "jam" not in topic.lower():
-                        payload["topic_title"] = f"{topic.strip()} — Studi Persepsi Waktu & Memori"
-                    else:
-                        payload["topic_title"] = topic.strip()
+            resolved_records = [
+                self.reference_bridge.verify_and_load_reference(rid)
+                for rid in ref_context["selected_reference_ids"]
+            ]
+
+        normalized_genres = ref_context["normalized_genres"]
+        payload = copy.deepcopy(authored_payload)
+        payload["project_id"] = project_id
+        payload["genres"] = normalized_genres
+        if topic is not None and topic.strip():
+            payload["topic_title"] = topic.strip()
+        payload["target_duration_s"] = int(target_duration_s)
 
         if ref_context["selected_reference_ids"]:
             payload["reference_ids"] = list(ref_context["selected_reference_ids"])
+        else:
+            payload.pop("reference_ids", None)
 
-        creative_metrics = self.validator.validate(payload)
         blend = self.master.blend_genres(payload["genres"], reference_context=ref_context)
-        topic_obj, research_md = self.research.validate_and_compile_research(payload)
-        blueprint_md, script_md = self.story.compile_blueprint_and_script_markdown(payload, genre_blend=blend)
+        timing_report = self.timing_engine.evaluate_and_adapt_payload_timing(
+            payload, base_wpm=blend["target_wpm"]
+        )
+        creative_metrics = self.validator.validate(payload)
 
+        topic_obj, _ = self.research.validate_and_compile_research(payload)
+        research_report_v4, research_md = self.research_v4.compile_research_dossier(payload)
+
+        style_bible = self.char_style_v4.compile_style_bible(
+            payload,
+            reference_ids=ref_context["selected_reference_ids"],
+        )
+        fusion_plan = self.fusion_engine.fuse(
+            resolved_records,
+            genres=payload["genres"],
+            chosen_style_profile=style_bible["style_profile"],
+        )
+
+        blueprint_md, script_md = self.story.compile_blueprint_and_script_markdown(payload, genre_blend=blend)
         storyboard = self.storyboard_dir.compile_hierarchical_storyboard(
             payload,
             genre_blend=blend,
         )
-        narration_plan, caption_audio_plan = self.narration.build_plan_from_storyboard(
-            payload,
-            storyboard,
-            target_wpm=blend["target_wpm"],
-            caption_preset_id=blend["default_caption_preset"],
+        storyboard["style_bible_id"] = style_bible["style_bible_id"]
+
+        semantic_visual_plan = self.semantic_visual.build_clause_to_shot_plan(
+            payload=payload,
+            storyboard=storyboard,
+            timing_report=timing_report,
         )
-        chars, char_bible_md = self.character.compile_character_bible(payload)
-        motion_plan = self.motion.build_motion_plan(storyboard)
+        camera_plan = self.cam_aud_cap.build_camera_plan(storyboard, style_bible)
+
+        char_bible_json, chars_v4, char_bible_md = self.char_style_v4.compile_character_bible_v4(
+            payload,
+            style_bible=style_bible,
+            storyboard=storyboard,
+        )
+        motion_plan = self.action_planner.build_action_plan(
+            storyboard=storyboard,
+            characters=chars_v4,
+        )
+        asset_manifest = self.asset_planner.build_semantic_asset_manifest(
+            project_id=project_id,
+            storyboard=storyboard,
+            style_bible=style_bible,
+            characters=chars_v4,
+        )
+        narration_plan, caption_audio_plan = self.cam_aud_cap.build_audio_and_caption_plans(
+            payload=payload,
+            storyboard=storyboard,
+            style_bible=style_bible,
+            timing_report=timing_report,
+            caption_preset_id=blend["default_caption_preset"],
+            typography_preset_id=blend["default_typography_preset"],
+        )
         engine_plan, exec_md = self.orchestrator.build_engine_plan(storyboard)
 
-        asset_manifest = {
-            "schema_version": "3.4.0",
+        adaptation_records = self.ref_adapter.build_adaptation_records(
+            storyboard=storyboard,
+            records=resolved_records,
+            fusion_plan=fusion_plan,
+            genres=payload["genres"],
+        )
+        reference_adaptation_doc = {
+            "schema_version": "4.0.0-phase01.6c",
             "project_id": project_id,
-            "style_bible": GLOBAL_STYLE_BIBLE_V3_4,
-            "characters": chars,
-            "required_assets": sorted({aid for s in storyboard["shots"] for aid in [s["environment_id"], *s["asset_ids"]]}),
+            "selection_mode": ref_context["selection_mode"],
+            "selected_reference_ids": ref_context["selected_reference_ids"],
+            "multi_reference_fusion": fusion_plan,
+            "adaptation_records": adaptation_records,
+            "production_authorized": False,
         }
+
         prod_config = {
-            "schema_version": "3.4.0",
+            "schema_version": "4.0.0-phase01.6c",
             "project_id": project_id,
             "package_version": package_version,
             "topic": topic_obj,
+            "style_profile": style_bible["style_profile"],
+            "style_bible_id": style_bible["style_bible_id"],
             "creative_validation_metrics": creative_metrics,
+            "narration_timing_summary": {
+                "timing_status": timing_report["timing_status"],
+                "estimated_duration_s": timing_report["final_estimated_duration_s"],
+                "implied_wpm": timing_report["implied_script_wpm"],
+                "duration_recommendation": timing_report["duration_recommendation"],
+            },
             "reference_intelligence": {
                 "selection_mode": ref_context["selection_mode"],
                 "selected_reference_ids": ref_context["selected_reference_ids"],
@@ -1225,6 +1392,8 @@ class PreProductionPackageBuilder:
                 "analyzer_fingerprint": ref_context["analyzer_fingerprint"],
                 "references": ref_context["references"],
                 "fused_production_profile": ref_context["fused_production_profile"],
+                "ten_dimension_fusion": fusion_plan,
+                "adaptation_record_count": len(adaptation_records),
             },
             "fps": storyboard["fps"],
             "width": storyboard["width"],
@@ -1237,11 +1406,17 @@ class PreProductionPackageBuilder:
         files_text = {
             "blueprint.md": blueprint_md + "\n",
             "research.md": research_md + "\n",
+            "research_report.json": json.dumps(research_report_v4, indent=2) + "\n",
             "script.md": script_md + "\n",
             "character_bible.md": char_bible_md + "\n",
+            "character_bible.json": json.dumps(char_bible_json, indent=2) + "\n",
+            "style_bible.json": json.dumps(style_bible, indent=2) + "\n",
             "execution_plan.md": exec_md + "\n",
             "reference_analysis.md": ref_md,
+            "reference_adaptation.json": json.dumps(reference_adaptation_doc, indent=2) + "\n",
             "storyboard.json": json.dumps(storyboard, indent=2) + "\n",
+            "semantic_visual_plan.json": json.dumps(semantic_visual_plan, indent=2) + "\n",
+            "camera_plan.json": json.dumps(camera_plan, indent=2) + "\n",
             "asset_manifest.json": json.dumps(asset_manifest, indent=2) + "\n",
             "motion_plan.json": json.dumps(motion_plan, indent=2) + "\n",
             "production_config.json": json.dumps(prod_config, indent=2) + "\n",
@@ -1256,25 +1431,25 @@ class PreProductionPackageBuilder:
         digest, file_hashes = compute_package_digest(package_dir)
 
         approval_manifest = {
-            "schema_version": "3.4.0",
+            "schema_version": "4.0.0-phase01.6c",
             "project_id": project_id,
             "package_version": package_version,
             "status": "WAITING_APPROVAL",
             "package_digest": digest,
             "mandatory_13_items": {
                 "01_topic_and_concept": {"present": True, "artifact_file": "blueprint.md", "summary": f"{payload['topic_title']} ({', '.join(payload['genres'])})"},
-                "02_research_results": {"present": True, "artifact_file": "research.md", "summary": f"{len(topic_obj['claims'])} klaim terverifikasi sumber primer/institusional"},
+                "02_research_results": {"present": True, "artifact_file": "research.md", "summary": f"{len(research_report_v4['verified_factual_claims'])} klaim terverifikasi + miskonsepsi & pemetaan narasi"},
                 "03_full_script": {"present": True, "artifact_file": "script.md", "summary": f"{len(payload['narrative_beats'])} beat naskah natural siap dibacakan"},
-                "04_narration_and_dialogue": {"present": True, "artifact_file": "narration_dialogue.json", "summary": f"{len(narration_plan['vo_segments'])} VO & {len(narration_plan['dialogue_lines'])} dialog ({narration_plan['measured_script_wpm']} WPM)"},
+                "04_narration_and_dialogue": {"present": True, "artifact_file": "narration_dialogue.json", "summary": f"{len(narration_plan['vo_segments'])} VO & {len(narration_plan['dialogue_lines'])} dialog ({narration_plan['measured_script_wpm']} WPM, ESTIMATED)"},
                 "05_clip_by_clip_storyboard": {"present": True, "artifact_file": "storyboard.json", "summary": f"{len(storyboard['sequences'])} seq / {len(storyboard['scenes'])} scene / {len(storyboard['narrative_beats'])} beat / {len(storyboard['shots'])} shot"},
                 "06_shot_timestamps_and_durations": {"present": True, "artifact_file": "storyboard.json", "summary": f"{storyboard['total_frames']} frame ({storyboard['duration_s']}s @ {storyboard['fps']}fps, semua shot <= 10s)"},
-                "07_camera_framing_cutaway_transitions": {"present": True, "artifact_file": "storyboard.json", "summary": "Kamera 36mm, cutaway bukti, dan handle transisi eksplisit"},
-                "08_complete_asset_list": {"present": True, "artifact_file": "asset_manifest.json", "summary": f"{len(asset_manifest['required_assets'])} kebutuhan aset semantik"},
-                "09_character_designs": {"present": True, "artifact_file": "character_bible.md", "summary": f"{len(chars)} karakter orisinal lengkap"},
-                "10_motion_plan": {"present": True, "artifact_file": "motion_plan.json", "summary": f"{len(motion_plan['shots'])} rencana gerak shot & kontak IK"},
-                "11_caption_and_audio_plan": {"present": True, "artifact_file": "caption_audio_plan.json", "summary": f"{len(caption_audio_plan['cues'])} cue subtitle & mastering -15 LUFS"},
+                "07_camera_framing_cutaway_transitions": {"present": True, "artifact_file": "camera_plan.json", "summary": f"Lensa dinamis {camera_plan['distinct_focal_lengths_mm']}mm sesuai tujuan naratif & handle transisi"},
+                "08_complete_asset_list": {"present": True, "artifact_file": "asset_manifest.json", "summary": f"{len(asset_manifest['semantic_asset_specs'])} spesifikasi aset semantik 12-atribut (belum diproduksi)"},
+                "09_character_designs": {"present": True, "artifact_file": "character_bible.json", "summary": f"{len(chars_v4)} karakter orisinal 11-atribut ({style_bible['style_profile']})"},
+                "10_motion_plan": {"present": True, "artifact_file": "motion_plan.json", "summary": f"{len(motion_plan['planned_actions'])} rencana aksi 14-atribut dengan kontak IK"},
+                "11_caption_and_audio_plan": {"present": True, "artifact_file": "caption_audio_plan.json", "summary": f"{len(caption_audio_plan['cues'])} cue takarir ESTIMATED, label ilmiah & mastering -15 LUFS"},
                 "12_engine_selection_per_shot": {"present": True, "artifact_file": "engine_plan.json", "summary": f"Routing hybrid ({', '.join(engine_plan['engines_used'])})"},
-                "13_hybrid_execution_plan": {"present": True, "artifact_file": "execution_plan.md", "summary": "Urutan kompilasi Blender MCP, Three.js, Remotion, dan FFmpeg"},
+                "13_hybrid_execution_plan": {"present": True, "artifact_file": "execution_plan.md", "summary": "Rencana eksekusi pasca-persetujuan Blender MCP, Three.js, Remotion & FFmpeg"},
             },
             "required_files_sha256": file_hashes,
         }

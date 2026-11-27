@@ -1,0 +1,25 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_c_laut_hilang_hybrid_180s",
+  "topic_title": "Apa yang Terjadi Jika Seluruh Laut Bumi Menghilang?",
+  "genres": [
+    "explainer",
+    "dokumenter",
+    "storytelling",
+    "komedi_absurd"
+  ],
+  "blueprint": {
+    "premise": "Sebuah eksperimen pikiran sinematik 3D yang menguras habis 1,332 miliar kilometer kubik air laut Bumi untuk menyingkap jurang batimetri raksasa, keruntuhan mesin hujan dan penyangga panas planet, hingga krisis oksigen-karbon, ditemani pengamatan tajam peneliti geosains Alya dan komentar datar Pak Teguh yang perahunya terdampar di dasar samudra.",
+    "hook_0_3s_visual": "Perahu kayu bercadik milik Pak Teguh mendadak mendarat di atas hamparan lumpur garam berkerak di bibir jurang samudra yang airnya baru saja surut lenyap menjadi debu asin berkilau.",
+    "hook_0_3s_spoken": "Detik ini juga, cabut sumbat raksasa Bumi dan kuras habis seluruh samudra dalam sekejap mata.",
+    "story_arc": {
+      "act_1_setup": "Anomali visual hilangnya seluruh air laut membuat perahu Pak Teguh parkir di dasar ngarai asin, lalu Alya memvisualisasikan skala 1,332 miliar km3 air yang lenyap dibandingkan sisa air tawar daratan.",
+      "act_2_escalation": "Eksplorasi berjenjang dari perbandingan skala gedung terhadap tebing landas kontinen dan Palung Mariana 11 km, dilanjutkan potongan mekanisme ilmiah berhentinya penguapan awan, hilangnya penyangga panas samudra, pembusukan sedimen fitoplankton, serta garis waktu keruntuhan ekosistem dari hari pertama hingga dekade berikutnya.",
+      "act_3_resolution": "Klimaks visual Bumi yang berubah menjadi planet gurun kecokelatan bertekanan tektonik, ditutup kembalinya samudra biru dalam eksperimen pikiran dan celetukan syukur deadpan Pak Teguh di atas ombak."
+    },
+    "explainer_mechanism": "Menggabungkan perbandingan skala fisik (gedung pencakar langit vs tebing landas kontinen 4 km dan Palung Mariana 11 km), penampang teknis kerak samudra, visualisasi data proporsi air 97 persen, serta simulasi mekanisme ilmiah berhentinya penguapan awan dan sirkulasi termal.",
+    "humor_strategy": "Kontras komedi deadpan situasional antara skala bencana geofisika planet dengan keluhan praktis sehari-hari Pak Teguh soal jangkar yang jatuh ke ngarai, bau amis sedimen satu samudra, dan nasib perahunya yang berubah fungsi jadi gerobak tebing.",
+    "historical_biography_notes": "Tidak mengangkat tokoh biografi historis nyata; seluruh karakter adalah persona naratif orisinal untuk memandu dokumenter sains populer secara komunikatif.",
+    "payoff_callback": "Perahu kayu Pak Teguh yang di detik pembuka terdampar konyol di lumpur garam akhirnya kembali terombang-ambing nyaman di atas ombak laut saat simulasi dikembalikan ke kondisi Bumi nyata."
+  }
+}

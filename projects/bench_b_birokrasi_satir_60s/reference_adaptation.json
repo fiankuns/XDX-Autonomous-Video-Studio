@@ -1,0 +1,512 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_b_birokrasi_satir_60s",
+  "selection_mode": "explicit_single_reference",
+  "selected_reference_ids": [
+    "REF-001"
+  ],
+  "multi_reference_fusion": {
+    "fusion_mode": "single_reference_10d_mapped",
+    "source_reference_ids": [
+      "REF-001"
+    ],
+    "unified_visual_style_profile": "diorama",
+    "style_consistency_verified": true,
+    "conflicts_detected_count": 0,
+    "dimensions": {
+      "narrative_structure": {
+        "dimension": "narrative_structure",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "three_act_domestic_civic_escalation_with_ironic_callback",
+        "adaptation_rationale": "Single-reference 'REF-001' governs 'narrative_structure' cleanly for ['satir_sosial', 'storytelling']."
+      },
+      "character_acting": {
+        "dimension": "character_acting",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "expressive_ensemble_acting_deadpan_micro_reactions_and_props",
+        "adaptation_rationale": "Single-reference 'REF-001' governs 'character_acting' cleanly for ['satir_sosial', 'storytelling']."
+      },
+      "visual_style": {
+        "dimension": "visual_style",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "warm_stylized_3d_diorama_grounded_everyday_textures",
+        "adaptation_rationale": "Locked single unified visual style 'diorama' anchored to primary 'REF-001' so character, prop, and cutaway shaders never clash across shots."
+      },
+      "environment": {
+        "dimension": "environment",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "lived_in_indonesian_interior_and_public_service_counter_vignettes",
+        "adaptation_rationale": "Single-reference 'REF-001' governs 'environment' cleanly for ['satir_sosial', 'storytelling']."
+      },
+      "camera": {
+        "dimension": "camera",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "conversational_medium_two_shot_with_snap_reaction_closeups",
+        "adaptation_rationale": "Single-reference 'REF-001' governs 'camera' cleanly for ['satir_sosial', 'storytelling']."
+      },
+      "motion": {
+        "dimension": "motion",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "snappy_anticipation_settle_prop_hand_transfer_and_double_takes",
+        "adaptation_rationale": "Single-reference 'REF-001' governs 'motion' cleanly for ['satir_sosial', 'storytelling']."
+      },
+      "technical_visualization": {
+        "dimension": "technical_visualization",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "diegetic_paperwork_stamps_and_visual_metaphor_props",
+        "adaptation_rationale": "Single-reference 'REF-001' governs 'technical_visualization' cleanly for ['satir_sosial', 'storytelling']."
+      },
+      "caption": {
+        "dimension": "caption",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third",
+        "adaptation_rationale": "Single-reference 'REF-001' governs 'caption' cleanly for ['satir_sosial', 'storytelling']."
+      },
+      "audio": {
+        "dimension": "audio",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause",
+        "adaptation_rationale": "Single-reference 'REF-001' governs 'audio' cleanly for ['satir_sosial', 'storytelling']."
+      },
+      "editing": {
+        "dimension": "editing",
+        "primary_reference_id": "REF-001",
+        "secondary_reference_ids": [],
+        "conflict_detected": false,
+        "conflicting_approaches": {},
+        "selected_strategy": "reaction_driven_hard_cuts_2_to_4_5s_with_ comedic_hold_before_cut",
+        "adaptation_rationale": "Single-reference 'REF-001' governs 'editing' cleanly for ['satir_sosial', 'storytelling']."
+      }
+    }
+  },
+  "adaptation_records": [
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "establishing_shot:B01",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S001 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S001",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Kamera tilt-shift meluncur mendekati ruang loket diorama pukul delapan pagi saat",
+      "camera_behavior": "establishing 24.0mm (elevated_establishing_16deg) -> mot_snappy_spring_pop",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S001 duration 2.4s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 24.0mm matches 'establishing_shot' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "character_acting:B01",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S002 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S002",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Kamera tilt-shift meluncur mendekati ruang loket diorama pukul delapan pagi saat",
+      "camera_behavior": "close_up 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S002 duration 2.3667s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "character_acting:B01",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S003 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S003",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Damar membungkuk sopan menyelipkan map biru tipis lewat celah kaca loket sementa",
+      "camera_behavior": "medium 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S003 duration 2.6333s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "character_acting:B01",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S004 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S004",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Damar membungkuk sopan menyelipkan map biru tipis lewat celah kaca loket sementa",
+      "camera_behavior": "close_up 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=4)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S004 duration 2.6s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "character_acting:B02",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S005 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S005",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Bu Rantih melirik map biru tipis selama sedetik, lalu menarik kertas daftar pers",
+      "camera_behavior": "medium 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S005 duration 3.4s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "reaction_shot:B02",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S006 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S006",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Bu Rantih melirik map biru tipis selama sedetik, lalu menarik kertas daftar pers",
+      "camera_behavior": "insert 75.0mm (intimate_three_quarter_reaction) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S006 duration 3.4s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 75.0mm matches 'reaction_shot' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "reaction_shot:B02",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S007 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S007",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Senyum optimistis Damar perlahan membeku sementara kedua alisnya naik tak percay",
+      "camera_behavior": "reaction 75.0mm (intimate_three_quarter_reaction) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S007 duration 3.1s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 75.0mm matches 'reaction_shot' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "character_acting:B02",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S008 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S008",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Senyum optimistis Damar perlahan membeku sementara kedua alisnya naik tak percay",
+      "camera_behavior": "insert 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=4)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S008 duration 3.1s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "object_insert:B03",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S009 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S009",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat sambil melontarkan ",
+      "camera_behavior": "insert 85.0mm (macro_evidence_tabletop_32deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S009 duration 3.2s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 85.0mm matches 'object_insert' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "technical_cutaway:B03",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S010 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S010",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Cahaya hijau mesin fotokopi menyapu bolak-balik dengan cepat sambil melontarkan ",
+      "camera_behavior": "reaction 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S010 duration 3.1667s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "visual_metaphor:B03",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S011 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S011",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Damar menahan menara map warna-warni setinggi dagu di depan loket, tepat di sebe",
+      "camera_behavior": "wide 35.0mm (symmetric_deadpan_frame) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S011 duration 3.8333s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 35.0mm matches 'visual_metaphor' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "character_acting:B03",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S012 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S012",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Damar menahan menara map warna-warni setinggi dagu di depan loket, tepat di sebe",
+      "camera_behavior": "reaction 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=4)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S012 duration 3.8s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "visual_metaphor:B04",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S013 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S013",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Kamera simetris dari depan memperlihatkan Damar melangkah satu meter dari Loket ",
+      "camera_behavior": "wide 35.0mm (symmetric_deadpan_frame) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S013 duration 3.4s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 35.0mm matches 'visual_metaphor' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "object_insert:B04",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S014 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S014",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Kamera simetris dari depan memperlihatkan Damar melangkah satu meter dari Loket ",
+      "camera_behavior": "medium 85.0mm (macro_evidence_tabletop_32deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S014 duration 3.4s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 85.0mm matches 'object_insert' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "object_insert:B04",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S015 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S015",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SURAT PENGANTAR' ",
+      "camera_behavior": "close_up 85.0mm (macro_evidence_tabletop_32deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S015 duration 3.1s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 85.0mm matches 'object_insert' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "technical_cutaway:B04",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S016 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S016",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Tangan Bu Rantih mengambil stempel kayu bertuliskan 'PENGANTAR SURAT PENGANTAR' ",
+      "camera_behavior": "medium 50.0mm (orthographic_feel_cross_section_22deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=4)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S016 duration 3.1s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 50.0mm matches 'technical_cutaway' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "object_insert:B05",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S017 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S017",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan satu lembar su",
+      "camera_behavior": "insert 85.0mm (macro_evidence_tabletop_32deg) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S017 duration 2.4s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 85.0mm matches 'object_insert' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "character_acting:B05",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S018 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S018",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Cahaya jingga sore jatuh ke meja loket saat Bu Rantih menyerahkan satu lembar su",
+      "camera_behavior": "close_up 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S018 duration 2.3667s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "character_acting:B05",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S019 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S019",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Damar memeluk menara map warna-warni di lengan kiri dan mengangkat satu lembar s",
+      "camera_behavior": "medium 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S019 duration 2.6333s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "character_acting:B05",
+      "applicable_genre": "satir_sosial",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S020 under unified style 'diorama' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S020",
+      "required_asset": "char_damar_pemohon",
+      "required_motion": "char_damar_pemohon:Damar memeluk menara map warna-warni di lengan kiri dan mengangkat satu lembar s",
+      "camera_behavior": "close_up 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third (cues=1, status=ESTIMATED)",
+      "audio_behavior": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause (events=4)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S020 duration 2.6s <= 10.0s",
+        "Asset 'char_damar_pemohon' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    }
+  ],
+  "production_authorized": false
+}

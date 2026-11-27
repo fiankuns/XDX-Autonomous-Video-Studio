@@ -1,0 +1,87 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "package_version": "v1",
+  "status": "WAITING_APPROVAL",
+  "package_digest": "d0776ccbaa9396ad963ab04e783b887e792271cf40e466af6baed2753ea5e120",
+  "mandatory_13_items": {
+    "01_topic_and_concept": {
+      "present": true,
+      "artifact_file": "blueprint.md",
+      "summary": "Misteri Kaus Kaki Sebelah yang Selalu Hilang Saat Dicuci (komedi_absurd, horor)"
+    },
+    "02_research_results": {
+      "present": true,
+      "artifact_file": "research.md",
+      "summary": "2 klaim terverifikasi + pemetaan narasi"
+    },
+    "03_full_script": {
+      "present": true,
+      "artifact_file": "script.md",
+      "summary": "4 beat naskah Bahasa Indonesia siap baca"
+    },
+    "04_narration_and_dialogue": {
+      "present": true,
+      "artifact_file": "narration_dialogue.json",
+      "summary": "4 VO & 4 dialog (142.7 WPM, ESTIMATED)"
+    },
+    "05_clip_by_clip_storyboard": {
+      "present": true,
+      "artifact_file": "storyboard.json",
+      "summary": "2 seq / 4 scene / 4 beat / 12 shot"
+    },
+    "06_shot_timestamps_and_durations": {
+      "present": true,
+      "artifact_file": "storyboard.json",
+      "summary": "1350 frame (45.0s @ 30fps, semua shot <= 10s)"
+    },
+    "07_camera_framing_cutaway_transitions": {
+      "present": true,
+      "artifact_file": "camera_plan.json",
+      "summary": "Lensa dinamis [24.0, 35.0, 40.0, 50.0, 75.0, 85.0]mm sesuai tujuan naratif"
+    },
+    "08_complete_asset_list": {
+      "present": true,
+      "artifact_file": "asset_manifest.json",
+      "summary": "19 spesifikasi aset semantik 12-atribut"
+    },
+    "09_character_designs": {
+      "present": true,
+      "artifact_file": "character_bible.json",
+      "summary": "2 karakter orisinal 11-atribut (flat_cartoon)"
+    },
+    "10_motion_plan": {
+      "present": true,
+      "artifact_file": "motion_plan.json",
+      "summary": "12 rencana aksi 14-atribut dengan kontak IK"
+    },
+    "11_caption_and_audio_plan": {
+      "present": true,
+      "artifact_file": "caption_audio_plan.json",
+      "summary": "17 cue takarir ESTIMATED & label ilmiah"
+    },
+    "12_engine_selection_per_shot": {
+      "present": true,
+      "artifact_file": "engine_plan.json",
+      "summary": "Routing hybrid (threejs, remotion, rea_video, ffmpeg)"
+    },
+    "13_hybrid_execution_plan": {
+      "present": true,
+      "artifact_file": "execution_plan.md",
+      "summary": "Rencana eksekusi pasca-persetujuan Blender MCP, Three.js, Remotion & FFmpeg"
+    }
+  },
+  "required_files_sha256": {
+    "blueprint.md": "38be1740d9c71a79d85ee794e84b0195ee457a84384dc3a7e0f6cb1c9f3f3186",
+    "script.md": "3af7d187c0b0e1db87916e81b2ade3ce576e1fe21ecfa633a66f4624e2ba5129",
+    "storyboard.json": "0e12b492cd1b18b564471449914ad334bab15a0b2d71c4b49747c3c1805095df",
+    "asset_manifest.json": "ddb3a8353f7298e9257968c7f6422b56be64526073062943164e78d862f5eb69",
+    "character_bible.md": "3a66d36c06cfc0b478a76139339d82804912dee58d875b022bc1bdb54c9d6bfe",
+    "motion_plan.json": "816116af1dba9408239d9fa1b4c83ef758cb34368be41983610bac8a5daa36c7",
+    "execution_plan.md": "2a6d7eabe5f1577af839103805c101af69cb4380c35bd69187976ba4df50451e",
+    "production_config.json": "fd5d78cce81f95c06ee04873e8969d6a2c0cc9cd876bf523b238da721e9510e8",
+    "engine_plan.json": "e04ff6b2fe5c20c04f48731d083cd0976c4cbc2a3f4d2c86422815f7c4d97b1e",
+    "research.md": "5714df3c927e0a301dcf8a8e0062947862f4786404a664977d2656f4583ddf88",
+    "reference_analysis.md": "c219adfbf9d9c053ab55d8b6b8f6f0b4d4c00e7f2d8469b783b6c8087ecf773a"
+  }
+}

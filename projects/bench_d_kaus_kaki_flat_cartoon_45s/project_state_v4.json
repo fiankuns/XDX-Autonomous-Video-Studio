@@ -1,0 +1,169 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "entity_kind": "project_state",
+  "project_id": "bench_d_kaus_kaki_flat_cartoon_45s",
+  "project_title": "Misteri Kaus Kaki Sebelah yang Selalu Hilang Saat Dicuci",
+  "genres": [
+    "komedi_absurd",
+    "horor"
+  ],
+  "current_state": "WAITING_APPROVAL",
+  "state_version": 11,
+  "approval_status": {
+    "approved": false,
+    "approved_digest": null,
+    "approved_version": null,
+    "trusted_channel_verified": false,
+    "production_approval_frozen_until": "Phase 01.6D",
+    "revoked": true
+  },
+  "artifact_manifest": {
+    "asset_manifest.json": "ddb3a8353f7298e9257968c7f6422b56be64526073062943164e78d862f5eb69",
+    "blueprint.md": "38be1740d9c71a79d85ee794e84b0195ee457a84384dc3a7e0f6cb1c9f3f3186",
+    "character_bible.md": "3a66d36c06cfc0b478a76139339d82804912dee58d875b022bc1bdb54c9d6bfe",
+    "engine_plan.json": "e04ff6b2fe5c20c04f48731d083cd0976c4cbc2a3f4d2c86422815f7c4d97b1e",
+    "execution_plan.md": "2a6d7eabe5f1577af839103805c101af69cb4380c35bd69187976ba4df50451e",
+    "motion_plan.json": "816116af1dba9408239d9fa1b4c83ef758cb34368be41983610bac8a5daa36c7",
+    "production_config.json": "fd5d78cce81f95c06ee04873e8969d6a2c0cc9cd876bf523b238da721e9510e8",
+    "reference_analysis.md": "c219adfbf9d9c053ab55d8b6b8f6f0b4d4c00e7f2d8469b783b6c8087ecf773a",
+    "research.md": "5714df3c927e0a301dcf8a8e0062947862f4786404a664977d2656f4583ddf88",
+    "script.md": "3af7d187c0b0e1db87916e81b2ade3ce576e1fe21ecfa633a66f4624e2ba5129",
+    "storyboard.json": "0e12b492cd1b18b564471449914ad334bab15a0b2d71c4b49747c3c1805095df"
+  },
+  "transitions": [
+    {
+      "previous_state": null,
+      "next_state": "IDLE",
+      "trigger": "project_initialized",
+      "actor": "master_director",
+      "task_id": null,
+      "evidence": "Initial project state created",
+      "timestamp": "2026-11-27T20:13:47.722721+00:00",
+      "state_version": 1,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "IDLE",
+      "next_state": "REQUEST_RECEIVED",
+      "trigger": "BUAT_VIDEO",
+      "actor": "master_director",
+      "task_id": null,
+      "evidence": "Accepted preproduction request topic='Misteri Kaus Kaki Sebelah yang Selalu Hilang Saat Dicuci' (45s, ['komedi_absurd', 'horor'])",
+      "timestamp": "2026-11-27T20:13:47.731173+00:00",
+      "state_version": 2,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "REQUEST_RECEIVED",
+      "next_state": "RESEARCHING",
+      "trigger": "dispatch_wave_1",
+      "actor": "master_director",
+      "task_id": "TASK-01-RESEARCH",
+      "evidence": "Dispatched Topic Research & REA Reference specialists",
+      "timestamp": "2026-11-27T20:13:47.749651+00:00",
+      "state_version": 3,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "RESEARCHING",
+      "next_state": "REFERENCE_ANALYSIS",
+      "trigger": "wave_1_reference",
+      "actor": "master_director",
+      "task_id": "TASK-02-REFERENCE",
+      "evidence": "Reference selection and cache validation active",
+      "timestamp": "2026-11-27T20:13:47.792725+00:00",
+      "state_version": 4,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "REFERENCE_ANALYSIS",
+      "next_state": "CREATIVE_DEVELOPMENT",
+      "trigger": "wave_2_creative",
+      "actor": "master_director",
+      "task_id": "TASK-03-CREATIVE",
+      "evidence": "Blueprint, Indonesian script, Character Bible, and Global Style Bible development",
+      "timestamp": "2026-11-27T20:13:47.799248+00:00",
+      "state_version": 5,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "CREATIVE_DEVELOPMENT",
+      "next_state": "STORYBOARDING",
+      "trigger": "wave_5_storyboard",
+      "actor": "master_director",
+      "task_id": "TASK-07-STORYBOARD",
+      "evidence": "Integer-frame storyboard, motion, camera, asset, audio, caption, and engine compilation",
+      "timestamp": "2026-11-27T20:13:47.806669+00:00",
+      "state_version": 6,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "STORYBOARDING",
+      "next_state": "PREPRODUCTION_QC",
+      "trigger": "enter_independent_preproduction_qc",
+      "actor": "master_director",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "Invoking read-only preproduction_verifier against manifest f186d750b161",
+      "timestamp": "2026-11-27T20:13:52.674445+00:00",
+      "state_version": 7,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "PREPRODUCTION_QC",
+      "next_state": "REVISION_REQUIRED",
+      "trigger": "verifier_revision_required",
+      "actor": "preproduction_verifier",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "Independent verifier reported preproduction defect(s); triggering RevisionManager",
+      "timestamp": "2026-11-27T20:13:53.593273+00:00",
+      "state_version": 8,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "REVISION_REQUIRED",
+      "next_state": "STORYBOARDING",
+      "trigger": "revision_reexecution:REV-bench_d_kaus_kaki_flat_cartoon_45s-0004-5ab618",
+      "actor": "master_director",
+      "task_id": "TASK-13-CAPTION",
+      "evidence": "Re-validating revised artifact and re-running independent verifier",
+      "timestamp": "2026-11-27T20:13:53.638386+00:00",
+      "state_version": 9,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "STORYBOARDING",
+      "next_state": "PREPRODUCTION_QC",
+      "trigger": "enter_independent_preproduction_qc",
+      "actor": "master_director",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "Invoking read-only preproduction_verifier against manifest f186d750b161",
+      "timestamp": "2026-11-27T20:13:54.574157+00:00",
+      "state_version": 10,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "PREPRODUCTION_QC",
+      "next_state": "WAITING_APPROVAL",
+      "trigger": "preproduction_verifier_pass",
+      "actor": "master_director",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "All 15 independent review criteria PASSED; sealed 13-item package digest=d0776ccbaa9396ad",
+      "timestamp": "2026-11-27T20:13:55.809514+00:00",
+      "state_version": 11,
+      "artifact_manifest": {
+        "asset_manifest.json": "ddb3a8353f7298e9257968c7f6422b56be64526073062943164e78d862f5eb69",
+        "blueprint.md": "38be1740d9c71a79d85ee794e84b0195ee457a84384dc3a7e0f6cb1c9f3f3186",
+        "character_bible.md": "3a66d36c06cfc0b478a76139339d82804912dee58d875b022bc1bdb54c9d6bfe",
+        "engine_plan.json": "e04ff6b2fe5c20c04f48731d083cd0976c4cbc2a3f4d2c86422815f7c4d97b1e",
+        "execution_plan.md": "2a6d7eabe5f1577af839103805c101af69cb4380c35bd69187976ba4df50451e",
+        "motion_plan.json": "816116af1dba9408239d9fa1b4c83ef758cb34368be41983610bac8a5daa36c7",
+        "production_config.json": "fd5d78cce81f95c06ee04873e8969d6a2c0cc9cd876bf523b238da721e9510e8",
+        "reference_analysis.md": "c219adfbf9d9c053ab55d8b6b8f6f0b4d4c00e7f2d8469b783b6c8087ecf773a",
+        "research.md": "5714df3c927e0a301dcf8a8e0062947862f4786404a664977d2656f4583ddf88",
+        "script.md": "3af7d187c0b0e1db87916e81b2ade3ce576e1fe21ecfa633a66f4624e2ba5129",
+        "storyboard.json": "0e12b492cd1b18b564471449914ad334bab15a0b2d71c4b49747c3c1805095df"
+      }
+    }
+  ],
+  "updated_at": "2026-11-27T20:13:55.809514+00:00"
+}

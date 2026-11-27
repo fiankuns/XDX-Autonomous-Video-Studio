@@ -1,0 +1,325 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_b_birokrasi_satir_60s",
+  "timestamp_status": "ESTIMATED",
+  "caption_preset_id": "cap_xdx_bold_stroke_9x16",
+  "caption_format": {
+    "container_formats": [
+      "SRT",
+      "WebVTT",
+      "Remotion_Estimated_JSON"
+    ],
+    "max_lines_per_cue": 2,
+    "max_words_per_phrase": 5
+  },
+  "phrase_grouping": {
+    "strategy": "syntactic_indonesian_clause_chunks",
+    "orphan_single_word_avoided": true
+  },
+  "typography": {
+    "typography_preset_id": "typo_jakarta_modern_explainer",
+    "style_profile": "diorama",
+    "stroke_and_shadow_high_contrast": true
+  },
+  "safe_area": {
+    "aspect_ratio": "9:16",
+    "bottom_margin_px": 340,
+    "top_margin_px": 220,
+    "horizontal_margin_px": 90,
+    "ui_occlusion_free": true
+  },
+  "word_highlight": {
+    "enabled": true,
+    "mode": "semantic_keyword_accent_not_distracting",
+    "timing_source": "ESTIMATED_PRE_PHASE04_ALIGNMENT"
+  },
+  "scientific_labels": [
+    {
+      "shot_id": "S010",
+      "beat_id": "B03",
+      "label": "Duplikasi Data Berulang",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S013",
+      "beat_id": "B04",
+      "label": "Beban Administrasi (Administrative Burden)",
+      "timing_status": "ESTIMATED"
+    }
+  ],
+  "estimated_caption_timing": {
+    "status": "ESTIMATED",
+    "cue_count": 23,
+    "requires_phase04_wav_realignment": true
+  },
+  "audio_master_preset_id": "aud_master_vo_indonesia_15lufs",
+  "sample_rate_hz": 48000,
+  "target_lufs": -15.0,
+  "true_peak_dbtp": -1.0,
+  "music_direction": "Light acoustic pizzicato & dry percussion stings stopping cleanly before punchlines; ducked -16 dB under VO.",
+  "ambience": "Grounded Indonesian interior / public-counter room tone (-25 LUFS).",
+  "foley_count": 20,
+  "sfx_event_count": 20,
+  "asr_backends_detected": {
+    "whisper_cpp_binary": null,
+    "faster_whisper_python": false,
+    "whisperx_binary": null,
+    "any_asr_ready": false
+  },
+  "cues": [
+    {
+      "cue_id": "CAP_001",
+      "shot_id": "S001",
+      "start_s": 0.0,
+      "end_s": 2.941,
+      "text": "Kamu cuma niat mengurus satu",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Kamu"
+    },
+    {
+      "cue_id": "CAP_002",
+      "shot_id": "S001",
+      "start_s": 2.941,
+      "end_s": 5.882,
+      "text": "surat keterangan domisili lima menit,",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "surat"
+    },
+    {
+      "cue_id": "CAP_003",
+      "shot_id": "S001",
+      "start_s": 5.882,
+      "end_s": 8.824,
+      "text": "tapi pulang memeluk bundel berkas",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "tapi"
+    },
+    {
+      "cue_id": "CAP_004",
+      "shot_id": "S001",
+      "start_s": 8.824,
+      "end_s": 10.0,
+      "text": "setebal bantal.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 2,
+      "highlighted_keyword": "setebal"
+    },
+    {
+      "cue_id": "CAP_005",
+      "shot_id": "S005",
+      "start_s": 10.0,
+      "end_s": 13.095,
+      "text": "Begitu map tipis disodorkan ke",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Begitu"
+    },
+    {
+      "cue_id": "CAP_006",
+      "shot_id": "S005",
+      "start_s": 13.095,
+      "end_s": 16.19,
+      "text": "loket, muncul aturan klasik birokrasi:",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "loket,"
+    },
+    {
+      "cue_id": "CAP_007",
+      "shot_id": "S005",
+      "start_s": 16.19,
+      "end_s": 19.286,
+      "text": "satu surat utama ternyata membutuhkan",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "satu"
+    },
+    {
+      "cue_id": "CAP_008",
+      "shot_id": "S005",
+      "start_s": 19.286,
+      "end_s": 22.381,
+      "text": "banyak surat pengantar lain terlebih",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "banyak"
+    },
+    {
+      "cue_id": "CAP_009",
+      "shot_id": "S005",
+      "start_s": 22.381,
+      "end_s": 23.0,
+      "text": "dahulu.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 1,
+      "highlighted_keyword": "dahulu."
+    },
+    {
+      "cue_id": "CAP_010",
+      "shot_id": "S009",
+      "start_s": 23.0,
+      "end_s": 26.182,
+      "text": "Damar bolak-balik fotokopi kartu identitas",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Damar"
+    },
+    {
+      "cue_id": "CAP_011",
+      "shot_id": "S009",
+      "start_s": 26.182,
+      "end_s": 29.364,
+      "text": "yang datanya sudah tercetak jelas",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "yang"
+    },
+    {
+      "cue_id": "CAP_012",
+      "shot_id": "S009",
+      "start_s": 29.364,
+      "end_s": 32.545,
+      "text": "di layar komputer, lengkap dengan",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "di"
+    },
+    {
+      "cue_id": "CAP_013",
+      "shot_id": "S009",
+      "start_s": 32.545,
+      "end_s": 35.727,
+      "text": "map merah, kuning, dan hijau",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "map"
+    },
+    {
+      "cue_id": "CAP_014",
+      "shot_id": "S009",
+      "start_s": 35.727,
+      "end_s": 37.0,
+      "text": "sesuai hari.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 2,
+      "highlighted_keyword": "sesuai"
+    },
+    {
+      "cue_id": "CAP_015",
+      "shot_id": "S013",
+      "start_s": 37.0,
+      "end_s": 39.955,
+      "text": "Riset pelayanan publik menyebutnya beban",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Riset"
+    },
+    {
+      "cue_id": "CAP_016",
+      "shot_id": "S013",
+      "start_s": 39.955,
+      "end_s": 42.909,
+      "text": "administrasi berulang: waktu warga habis",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "administrasi"
+    },
+    {
+      "cue_id": "CAP_017",
+      "shot_id": "S013",
+      "start_s": 42.909,
+      "end_s": 45.864,
+      "text": "mengantar kertas dari meja kanan",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "mengantar"
+    },
+    {
+      "cue_id": "CAP_018",
+      "shot_id": "S013",
+      "start_s": 45.864,
+      "end_s": 48.818,
+      "text": "ke meja sebelahnya yang berjarak",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "ke"
+    },
+    {
+      "cue_id": "CAP_019",
+      "shot_id": "S013",
+      "start_s": 48.818,
+      "end_s": 50.0,
+      "text": "satu meter.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 2,
+      "highlighted_keyword": "satu"
+    },
+    {
+      "cue_id": "CAP_020",
+      "shot_id": "S017",
+      "start_s": 50.0,
+      "end_s": 52.778,
+      "text": "Akhirnya satu surat impian itu",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Akhirnya"
+    },
+    {
+      "cue_id": "CAP_021",
+      "shot_id": "S017",
+      "start_s": 52.778,
+      "end_s": 55.556,
+      "text": "terbit sore hari, tepat setelah",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "terbit"
+    },
+    {
+      "cue_id": "CAP_022",
+      "shot_id": "S017",
+      "start_s": 55.556,
+      "end_s": 58.333,
+      "text": "masa berlaku surat pengantar pertamanya",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "masa"
+    },
+    {
+      "cue_id": "CAP_023",
+      "shot_id": "S017",
+      "start_s": 58.333,
+      "end_s": 60.0,
+      "text": "habis tadi siang.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 3,
+      "highlighted_keyword": "habis"
+    }
+  ],
+  "srt_preview": "1\n00:00:00,000 --> 00:00:02,941\nKamu cuma niat mengurus satu\n\n2\n00:00:02,941 --> 00:00:05,882\nsurat keterangan domisili lima menit,\n\n3\n00:00:05,882 --> 00:00:08,824\ntapi pulang memeluk bundel berkas\n\n4\n00:00:08,824 --> 00:00:10,000\nsetebal bantal.\n\n5\n00:00:10,000 --> 00:00:13,095\nBegitu map tipis disodorkan ke\n\n6\n00:00:13,095 --> 00:00:16,190\nloket, muncul aturan klasik birokrasi:\n\n7\n00:00:16,190 --> 00:00:19,286\nsatu surat utama ternyata membutuhkan\n\n8\n00:00:19,286 --> 00:00:22,381\nbanyak surat pengantar lain terlebih\n\n9\n00:00:22,381 --> 00:00:23,000\ndahulu.\n\n10\n00:00:23,000 --> 00:00:26,182\nDamar bolak-balik fotokopi kartu identitas\n\n11\n00:00:26,182 --> 00:00:29,364\nyang datanya sudah tercetak jelas\n\n12\n00:00:29,364 --> 00:00:32,545\ndi layar komputer, lengkap dengan\n\n13\n00:00:32,545 --> 00:00:35,727\nmap merah, kuning, dan hijau\n\n14\n00:00:35,727 --> 00:00:37,000\nsesuai hari.\n\n15\n00:00:37,000 --> 00:00:39,955\nRiset pelayanan publik menyebutnya beban\n\n16\n00:00:39,955 --> 00:00:42,909\nadministrasi berulang: waktu warga habis\n\n17\n00:00:42,909 --> 00:00:45,864\nmengantar kertas dari meja kanan\n\n18\n00:00:45,864 --> 00:00:48,818\nke meja sebelahnya yang berjarak\n\n19\n00:00:48,818 --> 00:00:50,000\nsatu meter.\n\n20\n00:00:50,000 --> 00:00:52,778\nAkhirnya satu surat impian itu\n\n21\n00:00:52,778 --> 00:00:55,556\nterbit sore hari, tepat setelah\n\n22\n00:00:55,556 --> 00:00:58,333\nmasa berlaku surat pengantar pertamanya\n\n23\n00:00:58,333 --> 00:01:00,000\nhabis tadi siang.\n"
+}

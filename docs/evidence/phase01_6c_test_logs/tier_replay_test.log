@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /opt/pyenv/versions/3.12.16/bin/python3.12
+cachedir: .pytest_cache
+rootdir: /home/antigravity/fiankuns/XDX-Autonomous-Video-Studio
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0
+collecting ... collected 101 items / 100 deselected / 1 selected
+
+tests/test_phase01_6c_universal_creative_intelligence.py::test_23_recorded_workflow_replay_verifies_benchmark_receipts_honestly PASSED [100%]
+
+====================== 1 passed, 100 deselected in 6.48s =======================

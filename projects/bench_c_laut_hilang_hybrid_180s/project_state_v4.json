@@ -1,0 +1,171 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "entity_kind": "project_state",
+  "project_id": "bench_c_laut_hilang_hybrid_180s",
+  "project_title": "Apa yang Terjadi Jika Seluruh Laut Bumi Menghilang?",
+  "genres": [
+    "explainer",
+    "dokumenter",
+    "storytelling",
+    "komedi_absurd"
+  ],
+  "current_state": "WAITING_APPROVAL",
+  "state_version": 11,
+  "approval_status": {
+    "approved": false,
+    "approved_digest": null,
+    "approved_version": null,
+    "trusted_channel_verified": false,
+    "production_approval_frozen_until": "Phase 01.6D",
+    "revoked": true
+  },
+  "artifact_manifest": {
+    "asset_manifest.json": "4d207773f3146bdb7c17d4e5ef33ff09ff2fac153e16add5a8c5ccd23565f90a",
+    "blueprint.md": "cf2f3c5b7cda0999a6da37ac6bc64209b97da35df7bb68455bd1bd2f9c361647",
+    "character_bible.md": "0d02df089ad865fd2c69f3f31d045124560abaa529af8a5dd8a6c7f407bf3087",
+    "engine_plan.json": "1ea9f23787563205d3fbada863763bfd2722c73f217fc22ac6f987b4b3b039a0",
+    "execution_plan.md": "561eef0323eaabd2a5757b7946d56b79acb60999465c9e963bf6483ca765dba3",
+    "motion_plan.json": "08157bba622f6469c0233f8aaa60ae15345348d33c90001df0a0e13d3ee00500",
+    "production_config.json": "c6dd619070a4f4b3971ac8c670a28ff2f3840724efdfcb0ab5f8fff307a66ca6",
+    "reference_analysis.md": "76194ea41920047be2cc362d59b0dc137308b08173e755053fe73d58a20cfe7a",
+    "research.md": "50a879e59bc86b53dd61f1ae64a5ba1dd2195b1736d8cc3655644dfc0f977813",
+    "script.md": "2d0bba679111318e77ceeddb174cceb6bc9d0f8a991b53dca6210a4334995476",
+    "storyboard.json": "d6717143262c534c60ebac523c5ba95ec065f2572c0e918b3ee0c0f4e602316a"
+  },
+  "transitions": [
+    {
+      "previous_state": null,
+      "next_state": "IDLE",
+      "trigger": "project_initialized",
+      "actor": "master_director",
+      "task_id": null,
+      "evidence": "Initial project state created",
+      "timestamp": "2026-11-27T20:13:37.276171+00:00",
+      "state_version": 1,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "IDLE",
+      "next_state": "REQUEST_RECEIVED",
+      "trigger": "BUAT_VIDEO",
+      "actor": "master_director",
+      "task_id": null,
+      "evidence": "Accepted preproduction request topic='Apa yang Terjadi Jika Seluruh Laut Bumi Menghilang?' (180s, ['explainer', 'dokumenter', 'storytelling', 'komedi_absurd'])",
+      "timestamp": "2026-11-27T20:13:37.283750+00:00",
+      "state_version": 2,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "REQUEST_RECEIVED",
+      "next_state": "RESEARCHING",
+      "trigger": "dispatch_wave_1",
+      "actor": "master_director",
+      "task_id": "TASK-01-RESEARCH",
+      "evidence": "Dispatched Topic Research & REA Reference specialists",
+      "timestamp": "2026-11-27T20:13:38.045949+00:00",
+      "state_version": 3,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "RESEARCHING",
+      "next_state": "REFERENCE_ANALYSIS",
+      "trigger": "wave_1_reference",
+      "actor": "master_director",
+      "task_id": "TASK-02-REFERENCE",
+      "evidence": "Reference selection and cache validation active",
+      "timestamp": "2026-11-27T20:13:38.088323+00:00",
+      "state_version": 4,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "REFERENCE_ANALYSIS",
+      "next_state": "CREATIVE_DEVELOPMENT",
+      "trigger": "wave_2_creative",
+      "actor": "master_director",
+      "task_id": "TASK-03-CREATIVE",
+      "evidence": "Blueprint, Indonesian script, Character Bible, and Global Style Bible development",
+      "timestamp": "2026-11-27T20:13:38.095235+00:00",
+      "state_version": 5,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "CREATIVE_DEVELOPMENT",
+      "next_state": "STORYBOARDING",
+      "trigger": "wave_5_storyboard",
+      "actor": "master_director",
+      "task_id": "TASK-07-STORYBOARD",
+      "evidence": "Integer-frame storyboard, motion, camera, asset, audio, caption, and engine compilation",
+      "timestamp": "2026-11-27T20:13:38.102397+00:00",
+      "state_version": 6,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "STORYBOARDING",
+      "next_state": "PREPRODUCTION_QC",
+      "trigger": "enter_independent_preproduction_qc",
+      "actor": "master_director",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "Invoking read-only preproduction_verifier against manifest f787eb4d9d8e",
+      "timestamp": "2026-11-27T20:13:43.528448+00:00",
+      "state_version": 7,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "PREPRODUCTION_QC",
+      "next_state": "REVISION_REQUIRED",
+      "trigger": "verifier_revision_required",
+      "actor": "preproduction_verifier",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "Independent verifier reported preproduction defect(s); triggering RevisionManager",
+      "timestamp": "2026-11-27T20:13:44.731492+00:00",
+      "state_version": 8,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "REVISION_REQUIRED",
+      "next_state": "STORYBOARDING",
+      "trigger": "revision_reexecution:REV-bench_c_laut_hilang_hybrid_180s-0004-64fb46",
+      "actor": "master_director",
+      "task_id": "TASK-13-CAPTION",
+      "evidence": "Re-validating revised artifact and re-running independent verifier",
+      "timestamp": "2026-11-27T20:13:44.786252+00:00",
+      "state_version": 9,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "STORYBOARDING",
+      "next_state": "PREPRODUCTION_QC",
+      "trigger": "enter_independent_preproduction_qc",
+      "actor": "master_director",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "Invoking read-only preproduction_verifier against manifest f787eb4d9d8e",
+      "timestamp": "2026-11-27T20:13:45.691096+00:00",
+      "state_version": 10,
+      "artifact_manifest": {}
+    },
+    {
+      "previous_state": "PREPRODUCTION_QC",
+      "next_state": "WAITING_APPROVAL",
+      "trigger": "preproduction_verifier_pass",
+      "actor": "master_director",
+      "task_id": "TASK-15-VERIFY",
+      "evidence": "All 15 independent review criteria PASSED; sealed 13-item package digest=e11bfc057bed1e05",
+      "timestamp": "2026-11-27T20:13:47.080664+00:00",
+      "state_version": 11,
+      "artifact_manifest": {
+        "asset_manifest.json": "4d207773f3146bdb7c17d4e5ef33ff09ff2fac153e16add5a8c5ccd23565f90a",
+        "blueprint.md": "cf2f3c5b7cda0999a6da37ac6bc64209b97da35df7bb68455bd1bd2f9c361647",
+        "character_bible.md": "0d02df089ad865fd2c69f3f31d045124560abaa529af8a5dd8a6c7f407bf3087",
+        "engine_plan.json": "1ea9f23787563205d3fbada863763bfd2722c73f217fc22ac6f987b4b3b039a0",
+        "execution_plan.md": "561eef0323eaabd2a5757b7946d56b79acb60999465c9e963bf6483ca765dba3",
+        "motion_plan.json": "08157bba622f6469c0233f8aaa60ae15345348d33c90001df0a0e13d3ee00500",
+        "production_config.json": "c6dd619070a4f4b3971ac8c670a28ff2f3840724efdfcb0ab5f8fff307a66ca6",
+        "reference_analysis.md": "76194ea41920047be2cc362d59b0dc137308b08173e755053fe73d58a20cfe7a",
+        "research.md": "50a879e59bc86b53dd61f1ae64a5ba1dd2195b1736d8cc3655644dfc0f977813",
+        "script.md": "2d0bba679111318e77ceeddb174cceb6bc9d0f8a991b53dca6210a4334995476",
+        "storyboard.json": "d6717143262c534c60ebac523c5ba95ec065f2572c0e918b3ee0c0f4e602316a"
+      }
+    }
+  ],
+  "updated_at": "2026-11-27T20:13:47.080664+00:00"
+}

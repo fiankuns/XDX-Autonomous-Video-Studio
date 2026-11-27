@@ -1,0 +1,40 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /opt/pyenv/versions/3.12.16/bin/python3.12
+cachedir: .pytest_cache
+rootdir: /home/antigravity/fiankuns/XDX-Autonomous-Video-Studio
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0
+collecting ... collected 101 items / 72 deselected / 29 selected
+
+tests/test_phase01_6b_persistent_intelligence.py::test_01_canonical_path_collision_rejection PASSED [  3%]
+tests/test_phase01_6b_persistent_intelligence.py::test_03_outside_workspace_and_outside_project_output_rejection PASSED [  6%]
+tests/test_phase01_6b_persistent_intelligence.py::test_04_output_artifacts_not_in_owned_artifacts_and_role_pattern_mismatch_rejection PASSED [ 10%]
+tests/test_phase01_6b_persistent_intelligence.py::test_06_verifier_empty_hashes_or_empty_criteria_rejection PASSED [ 13%]
+tests/test_phase01_6b_persistent_intelligence.py::test_07_verifier_incomplete_artifact_manifest_and_mismatched_producer_task_rejection PASSED [ 17%]
+tests/test_phase01_6b_persistent_intelligence.py::test_08_verifier_false_pass_with_failed_criterion_or_defects_rejection PASSED [ 20%]
+tests/test_phase01_6b_persistent_intelligence.py::test_09_verifier_invocation_receipt_and_same_conversation_context_rejection PASSED [ 24%]
+tests/test_phase01_6b_persistent_intelligence.py::test_10_capability_discovery_7_statuses_no_hardcoded_detected_host_tools PASSED [ 27%]
+tests/test_phase01_6b_persistent_intelligence.py::test_14_blender_worker_phase01_6b_execution_blocked PASSED [ 31%]
+tests/test_phase01_6b_persistent_intelligence.py::test_17_scheduler_rejects_false_worker_completion_missing_output_or_dispatch_plan PASSED [ 34%]
+tests/test_phase01_6b_persistent_intelligence.py::test_18_native_execution_adapter_separates_dispatch_plan_native_receipt_and_honest_fallback PASSED [ 37%]
+tests/test_phase01_6b_persistent_intelligence.py::test_19_shared_state_26_states_optimistic_version_conflict_and_task_state_separation PASSED [ 41%]
+tests/test_phase01_6b_persistent_intelligence.py::test_20_shared_state_blocks_agent_self_approval_and_unverified_completed PASSED [ 44%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_01_initial_completed_status_rejected_without_worker_execution PASSED [ 48%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_02_unverified_checkpoint_resume_state_rejected PASSED [ 51%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_03_cross_project_checkpoint_rejected PASSED [ 55%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_04_task_graph_and_definition_mismatch_checkpoint_rejected PASSED [ 58%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_06_unsupported_acceptance_check_transitions_task_to_blocked PASSED [ 62%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_07_unrelated_evidence_and_foreign_task_evidence_rejected PASSED [ 65%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_08_receipt_task_identity_mismatch_rejected PASSED [ 68%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_09_receipt_output_hash_mismatch_rejected PASSED [ 72%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_10_reviewer_criteria_manipulation_and_missing_defect_rejected PASSED [ 75%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_13_untrusted_approval_and_boolean_production_bypass_rejected PASSED [ 79%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_14_universal_topic_relevance_and_unrelated_authored_fallback_rejected PASSED [ 82%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_16_semantic_clause_coverage_and_12_visual_purposes PASSED [ 86%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_17_narration_duration_estimation_and_non_destructive_tightening PASSED [ 89%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_18_multi_reference_10d_conflict_handling_and_14_field_adaptation PASSED [ 93%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_19_character_11_field_continuity_and_8_style_profiles_consistency PASSED [ 96%]
+tests/test_phase01_6c_universal_creative_intelligence.py::test_20_master_audit_defect_registry_completeness_and_verified_guard PASSED [100%]
+
+====================== 29 passed, 72 deselected in 8.12s =======================

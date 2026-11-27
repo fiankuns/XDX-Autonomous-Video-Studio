@@ -270,13 +270,25 @@ class ReferenceDatabaseBridge:
                 {
                     "id": rec.reference_id,
                     "genre": rec.genre,
-                    "video_relpath": str(rec.video_path.relative_to(self.studio_root)),
+                    "video_relpath": str(
+                        rec.video_path.relative_to(self.studio_root)
+                        if rec.video_path.is_relative_to(self.studio_root)
+                        else rec.video_path.relative_to(self.db_root.parent)
+                    ),
                     "video_sha256": rec.video_sha256,
                     "bytes": rec.bytes_size,
                     "verification_status": "VERIFIED",
                     "profile_id": rec.profile["id"],
-                    "prior_analysis_relpath": str(rec.prior_analysis_path.relative_to(self.studio_root)),
-                    "rea_analysis_v3_4_relpath": str(rec.rea_v3_4_json_path.relative_to(self.studio_root)),
+                    "prior_analysis_relpath": str(
+                        rec.prior_analysis_path.relative_to(self.studio_root)
+                        if rec.prior_analysis_path.is_relative_to(self.studio_root)
+                        else rec.prior_analysis_path.relative_to(self.db_root.parent)
+                    ),
+                    "rea_analysis_v3_4_relpath": str(
+                        rec.rea_v3_4_json_path.relative_to(self.studio_root)
+                        if rec.rea_v3_4_json_path.is_relative_to(self.studio_root)
+                        else rec.rea_v3_4_json_path.relative_to(self.db_root.parent)
+                    ),
                     "measurements": rec.rea_v3_4_data["measurements"],
                     "narrative_pattern": rec.rea_v3_4_data["ten_dimension_analysis"]["01_narrative_structure_and_hook"]["pattern"],
                 }

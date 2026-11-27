@@ -1,0 +1,1098 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_c_laut_hilang_hybrid_180s",
+  "timestamp_status": "ESTIMATED",
+  "caption_preset_id": "cap_xdx_bold_stroke_9x16",
+  "caption_format": {
+    "container_formats": [
+      "SRT",
+      "WebVTT",
+      "Remotion_Estimated_JSON"
+    ],
+    "max_lines_per_cue": 2,
+    "max_words_per_phrase": 5
+  },
+  "phrase_grouping": {
+    "strategy": "syntactic_indonesian_clause_chunks",
+    "orphan_single_word_avoided": true
+  },
+  "typography": {
+    "typography_preset_id": "typo_jakarta_modern_explainer",
+    "style_profile": "stylized_3d",
+    "stroke_and_shadow_high_contrast": true
+  },
+  "safe_area": {
+    "aspect_ratio": "9:16",
+    "bottom_margin_px": 340,
+    "top_margin_px": 220,
+    "horizontal_margin_px": 90,
+    "ui_occlusion_free": true
+  },
+  "word_highlight": {
+    "enabled": true,
+    "mode": "semantic_keyword_accent_not_distracting",
+    "timing_source": "ESTIMATED_PRE_PHASE04_ALIGNMENT"
+  },
+  "scientific_labels": [
+    {
+      "shot_id": "S007",
+      "beat_id": "B02",
+      "label": "Laut: 1,332 Miliar km\u00b3 (~97%)",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S007",
+      "beat_id": "B02",
+      "label": "Es & Air Tanah (~2,9%)",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S007",
+      "beat_id": "B02",
+      "label": "Sungai & Danau (<0,1%)",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S009",
+      "beat_id": "B02",
+      "label": "96,5% - 97% Air Laut",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S009",
+      "beat_id": "B02",
+      "label": "Sumber: NOAA & USGS",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S013",
+      "beat_id": "B03",
+      "label": "Gedung 300 m",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S013",
+      "beat_id": "B03",
+      "label": "Lereng Kontinen ~4.000 m",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S013",
+      "beat_id": "B03",
+      "label": "Dataran Abisal",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S015",
+      "beat_id": "B03",
+      "label": "Paparan Benua",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S015",
+      "beat_id": "B03",
+      "label": "Lereng Kontinen",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S015",
+      "beat_id": "B03",
+      "label": "Dataran Abisal (-4 km)",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S019",
+      "beat_id": "B04",
+      "label": "Gunung Everest: 8.849 m",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S019",
+      "beat_id": "B04",
+      "label": "Challenger Deep: ~10.984 m (~11 km)",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S021",
+      "beat_id": "B04",
+      "label": "Punggungan Tengah Samudra (65.000 km)",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S021",
+      "beat_id": "B04",
+      "label": "Pelepasan Gas Hidrotermal Langsung",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S025",
+      "beat_id": "B05",
+      "label": "Penguapan Laut ~86% Berhenti",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S025",
+      "beat_id": "B05",
+      "label": "Kondensasi Awan Anjlok",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S025",
+      "beat_id": "B05",
+      "label": "Defisit Hujan Benua",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S031",
+      "beat_id": "B06",
+      "label": "Penyerapan Kalor Laut ~90% Hilang",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S031",
+      "beat_id": "B06",
+      "label": "Sirkulasi Termohalin Berhenti",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S031",
+      "beat_id": "B06",
+      "label": "Ayunan Suhu Siang-Malam Ekstrem",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S033",
+      "beat_id": "B06",
+      "label": "Dengan Laut: Suhu Stabil",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S033",
+      "beat_id": "B06",
+      "label": "Tanpa Laut: Lonjakan Termal Ekstrem",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S037",
+      "beat_id": "B07",
+      "label": "Fitoplankton Laut (~50% Produksi O\u2082)",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S037",
+      "beat_id": "B07",
+      "label": "Pelepasan CO\u2082 Sedimen Organik",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S039",
+      "beat_id": "B07",
+      "label": "Pasokan O\u2082 Baru Turun ~50%",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S039",
+      "beat_id": "B07",
+      "label": "Emisi Dekomposisi Biomassa Laut",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S043",
+      "beat_id": "B08",
+      "label": "Hari ke-1: Badai Debu Garam",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S043",
+      "beat_id": "B08",
+      "label": "Bulan ke-1: Krisis Air & Pangan",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S043",
+      "beat_id": "B08",
+      "label": "Dekade ke-1: Hutan Mengering",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S045",
+      "beat_id": "B08",
+      "label": "Albedo Cekungan Garam Tinggi",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S045",
+      "beat_id": "B08",
+      "label": "Tutupan Awan Global Nyaris Nol",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S049",
+      "beat_id": "B09",
+      "label": "Hilangnya Beban Hidrosfer",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S049",
+      "beat_id": "B09",
+      "label": "Pantulan Isostatik Kerak Samudra",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S017",
+      "beat_id": "B03",
+      "label": "Kilometer",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S019",
+      "beat_id": "B04",
+      "label": "Palung",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S019",
+      "beat_id": "B04",
+      "label": "Mariana",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S020",
+      "beat_id": "B04",
+      "label": "Kilometer",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S023",
+      "beat_id": "B04",
+      "label": "Kilometer",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S038",
+      "beat_id": "B07",
+      "label": "Fitoplankton",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S042",
+      "beat_id": "B07",
+      "label": "Atmosfer",
+      "timing_status": "ESTIMATED"
+    }
+  ],
+  "estimated_caption_timing": {
+    "status": "ESTIMATED",
+    "cue_count": 72,
+    "requires_phase04_wav_realignment": true
+  },
+  "audio_master_preset_id": "aud_master_vo_indonesia_15lufs",
+  "sample_rate_hz": 48000,
+  "target_lufs": -15.0,
+  "true_peak_dbtp": -1.0,
+  "music_direction": "Light acoustic pizzicato & dry percussion stings stopping cleanly before punchlines; ducked -16 dB under VO.",
+  "ambience": "Grounded Indonesian interior / public-counter room tone (-25 LUFS).",
+  "foley_count": 57,
+  "sfx_event_count": 57,
+  "asr_backends_detected": {
+    "whisper_cpp_binary": null,
+    "faster_whisper_python": false,
+    "whisperx_binary": null,
+    "any_asr_ready": false
+  },
+  "cues": [
+    {
+      "cue_id": "CAP_001",
+      "shot_id": "S001",
+      "start_s": 0.0,
+      "end_s": 2.5,
+      "text": "Detik ini juga, cabut sumbat",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Detik"
+    },
+    {
+      "cue_id": "CAP_002",
+      "shot_id": "S001",
+      "start_s": 2.5,
+      "end_s": 5.0,
+      "text": "raksasa Bumi dan kuras habis",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "raksasa"
+    },
+    {
+      "cue_id": "CAP_003",
+      "shot_id": "S001",
+      "start_s": 5.0,
+      "end_s": 7.5,
+      "text": "seluruh samudra dalam sekejap mata.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "seluruh"
+    },
+    {
+      "cue_id": "CAP_004",
+      "shot_id": "S001",
+      "start_s": 7.5,
+      "end_s": 10.0,
+      "text": "Perahu kayu Pak Teguh tidak",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Perahu"
+    },
+    {
+      "cue_id": "CAP_005",
+      "shot_id": "S001",
+      "start_s": 10.0,
+      "end_s": 12.5,
+      "text": "tenggelam, melainkan mendarat mulus di",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "tenggelam,"
+    },
+    {
+      "cue_id": "CAP_006",
+      "shot_id": "S001",
+      "start_s": 12.5,
+      "end_s": 15.0,
+      "text": "hamparan lumpur asin tanpa setetes",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "hamparan"
+    },
+    {
+      "cue_id": "CAP_007",
+      "shot_id": "S001",
+      "start_s": 15.0,
+      "end_s": 16.0,
+      "text": "ombak pun.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 2,
+      "highlighted_keyword": "ombak"
+    },
+    {
+      "cue_id": "CAP_008",
+      "shot_id": "S007",
+      "start_s": 16.0,
+      "end_s": 18.571,
+      "text": "Apa yang sebenarnya terjadi jika",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Apa"
+    },
+    {
+      "cue_id": "CAP_009",
+      "shot_id": "S007",
+      "start_s": 18.571,
+      "end_s": 21.143,
+      "text": "seluruh laut Bumi menghilang? Kita",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "seluruh"
+    },
+    {
+      "cue_id": "CAP_010",
+      "shot_id": "S007",
+      "start_s": 21.143,
+      "end_s": 23.714,
+      "text": "baru saja melenyapkan satu koma",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "baru"
+    },
+    {
+      "cue_id": "CAP_011",
+      "shot_id": "S007",
+      "start_s": 23.714,
+      "end_s": 26.286,
+      "text": "tiga ratus tiga puluh dua",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "tiga"
+    },
+    {
+      "cue_id": "CAP_012",
+      "shot_id": "S007",
+      "start_s": 26.286,
+      "end_s": 28.857,
+      "text": "miliar kilometer kubik air asin,",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "miliar"
+    },
+    {
+      "cue_id": "CAP_013",
+      "shot_id": "S007",
+      "start_s": 28.857,
+      "end_s": 31.429,
+      "text": "atau sekitar sembilan puluh tujuh",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "atau"
+    },
+    {
+      "cue_id": "CAP_014",
+      "shot_id": "S007",
+      "start_s": 31.429,
+      "end_s": 34.0,
+      "text": "persen cadangan air planet ini.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "persen"
+    },
+    {
+      "cue_id": "CAP_015",
+      "shot_id": "S013",
+      "start_s": 34.0,
+      "end_s": 36.857,
+      "text": "Begitu air surut, tepi pantai",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Begitu"
+    },
+    {
+      "cue_id": "CAP_016",
+      "shot_id": "S013",
+      "start_s": 36.857,
+      "end_s": 39.714,
+      "text": "berubah menjadi jurang landas kontinen",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "berubah"
+    },
+    {
+      "cue_id": "CAP_017",
+      "shot_id": "S013",
+      "start_s": 39.714,
+      "end_s": 42.571,
+      "text": "setinggi gedung pencakar langit. Kapal",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "setinggi"
+    },
+    {
+      "cue_id": "CAP_018",
+      "shot_id": "S013",
+      "start_s": 42.571,
+      "end_s": 45.429,
+      "text": "kargo yang tadinya mengapung kini",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "kargo"
+    },
+    {
+      "cue_id": "CAP_019",
+      "shot_id": "S013",
+      "start_s": 45.429,
+      "end_s": 48.286,
+      "text": "bertengger di bibir tebing curam",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "bertengger"
+    },
+    {
+      "cue_id": "CAP_020",
+      "shot_id": "S013",
+      "start_s": 48.286,
+      "end_s": 51.143,
+      "text": "sedalam empat kilometer menuju dataran",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "kilometer"
+    },
+    {
+      "cue_id": "CAP_021",
+      "shot_id": "S013",
+      "start_s": 51.143,
+      "end_s": 54.0,
+      "text": "abisal yang gelap dan berdebu.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "abisal"
+    },
+    {
+      "cue_id": "CAP_022",
+      "shot_id": "S019",
+      "start_s": 54.0,
+      "end_s": 56.308,
+      "text": "Di dasar Pasifik, menganga Palung",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Palung"
+    },
+    {
+      "cue_id": "CAP_023",
+      "shot_id": "S019",
+      "start_s": 56.308,
+      "end_s": 58.615,
+      "text": "Mariana sedalam hampir sebelas kilometer,",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Mariana"
+    },
+    {
+      "cue_id": "CAP_024",
+      "shot_id": "S019",
+      "start_s": 58.615,
+      "end_s": 60.923,
+      "text": "lebih tinggi dari Gunung Everest",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "lebih"
+    },
+    {
+      "cue_id": "CAP_025",
+      "shot_id": "S019",
+      "start_s": 60.923,
+      "end_s": 63.231,
+      "text": "jika dibalik. Sementara di tengah",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "jika"
+    },
+    {
+      "cue_id": "CAP_026",
+      "shot_id": "S019",
+      "start_s": 63.231,
+      "end_s": 65.538,
+      "text": "samudra, punggungan gunung api bawah",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "samudra,"
+    },
+    {
+      "cue_id": "CAP_027",
+      "shot_id": "S019",
+      "start_s": 65.538,
+      "end_s": 67.846,
+      "text": "laut sepanjang enam puluh lima",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "laut"
+    },
+    {
+      "cue_id": "CAP_028",
+      "shot_id": "S019",
+      "start_s": 67.846,
+      "end_s": 70.154,
+      "text": "ribu kilometer langsung menyemburkan asap",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "kilometer"
+    },
+    {
+      "cue_id": "CAP_029",
+      "shot_id": "S019",
+      "start_s": 70.154,
+      "end_s": 72.0,
+      "text": "belerang ke udara terbuka.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 4,
+      "highlighted_keyword": "belerang"
+    },
+    {
+      "cue_id": "CAP_030",
+      "shot_id": "S025",
+      "start_s": 72.0,
+      "end_s": 74.778,
+      "text": "Bencana sesungguhnya justru dimulai di",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Bencana"
+    },
+    {
+      "cue_id": "CAP_031",
+      "shot_id": "S025",
+      "start_s": 74.778,
+      "end_s": 77.556,
+      "text": "langit. Lebih dari delapan puluh",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "langit."
+    },
+    {
+      "cue_id": "CAP_032",
+      "shot_id": "S025",
+      "start_s": 77.556,
+      "end_s": 80.333,
+      "text": "lima persen uap air pembentuk",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "lima"
+    },
+    {
+      "cue_id": "CAP_033",
+      "shot_id": "S025",
+      "start_s": 80.333,
+      "end_s": 83.111,
+      "text": "awan berasal dari penguapan laut.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "awan"
+    },
+    {
+      "cue_id": "CAP_034",
+      "shot_id": "S025",
+      "start_s": 83.111,
+      "end_s": 85.889,
+      "text": "Tanpa samudra, pabrik hujan global",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Tanpa"
+    },
+    {
+      "cue_id": "CAP_035",
+      "shot_id": "S025",
+      "start_s": 85.889,
+      "end_s": 88.667,
+      "text": "tutup total, awan memudar dalam",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "tutup"
+    },
+    {
+      "cue_id": "CAP_036",
+      "shot_id": "S025",
+      "start_s": 88.667,
+      "end_s": 91.444,
+      "text": "hitungan hari, dan sungai besar",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "hitungan"
+    },
+    {
+      "cue_id": "CAP_037",
+      "shot_id": "S025",
+      "start_s": 91.444,
+      "end_s": 92.0,
+      "text": "mengering.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 1,
+      "highlighted_keyword": "mengering."
+    },
+    {
+      "cue_id": "CAP_038",
+      "shot_id": "S031",
+      "start_s": 92.0,
+      "end_s": 94.703,
+      "text": "Samudra juga bekerja sebagai penyangga",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Samudra"
+    },
+    {
+      "cue_id": "CAP_039",
+      "shot_id": "S031",
+      "start_s": 94.703,
+      "end_s": 97.405,
+      "text": "panas raksasa yang menyerap sembilan",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "panas"
+    },
+    {
+      "cue_id": "CAP_040",
+      "shot_id": "S031",
+      "start_s": 97.405,
+      "end_s": 100.108,
+      "text": "puluh persen kelebihan kalor Bumi",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "kalor"
+    },
+    {
+      "cue_id": "CAP_041",
+      "shot_id": "S031",
+      "start_s": 100.108,
+      "end_s": 102.811,
+      "text": "dan membagikannya lewat arus termal.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "dan"
+    },
+    {
+      "cue_id": "CAP_042",
+      "shot_id": "S031",
+      "start_s": 102.811,
+      "end_s": 105.514,
+      "text": "Tanpa selimut air ini, siang",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Tanpa"
+    },
+    {
+      "cue_id": "CAP_043",
+      "shot_id": "S031",
+      "start_s": 105.514,
+      "end_s": 108.216,
+      "text": "hari memanggang benua secara ekstrem,",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "hari"
+    },
+    {
+      "cue_id": "CAP_044",
+      "shot_id": "S031",
+      "start_s": 108.216,
+      "end_s": 110.919,
+      "text": "sedangkan malam hari anjlok membeku",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "sedangkan"
+    },
+    {
+      "cue_id": "CAP_045",
+      "shot_id": "S031",
+      "start_s": 110.919,
+      "end_s": 112.0,
+      "text": "seperti gurun.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 2,
+      "highlighted_keyword": "seperti"
+    },
+    {
+      "cue_id": "CAP_046",
+      "shot_id": "S037",
+      "start_s": 112.0,
+      "end_s": 114.571,
+      "text": "Di lapisan permukaan yang lenyap",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Di"
+    },
+    {
+      "cue_id": "CAP_047",
+      "shot_id": "S037",
+      "start_s": 114.571,
+      "end_s": 117.143,
+      "text": "tadi, miliaran fitoplankton mikroskopis tadinya",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "fitoplankton"
+    },
+    {
+      "cue_id": "CAP_048",
+      "shot_id": "S037",
+      "start_s": 117.143,
+      "end_s": 119.714,
+      "text": "memproduksi sekitar separuh oksigen Bumi",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "memproduksi"
+    },
+    {
+      "cue_id": "CAP_049",
+      "shot_id": "S037",
+      "start_s": 119.714,
+      "end_s": 122.286,
+      "text": "sekaligus mengunci karbon dioksida. Saat",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "sekaligus"
+    },
+    {
+      "cue_id": "CAP_050",
+      "shot_id": "S037",
+      "start_s": 122.286,
+      "end_s": 124.857,
+      "text": "hamparan lumpur organik di dasar",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "hamparan"
+    },
+    {
+      "cue_id": "CAP_051",
+      "shot_id": "S037",
+      "start_s": 124.857,
+      "end_s": 127.429,
+      "text": "laut mengering dan membusuk, gas",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "laut"
+    },
+    {
+      "cue_id": "CAP_052",
+      "shot_id": "S037",
+      "start_s": 127.429,
+      "end_s": 130.0,
+      "text": "karbon terlepas deras ke atmosfer.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "atmosfer."
+    },
+    {
+      "cue_id": "CAP_053",
+      "shot_id": "S043",
+      "start_s": 130.0,
+      "end_s": 132.571,
+      "text": "Mari urutkan garis waktunya. Hari",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Mari"
+    },
+    {
+      "cue_id": "CAP_054",
+      "shot_id": "S043",
+      "start_s": 132.571,
+      "end_s": 135.143,
+      "text": "pertama, pelabuhan lumpuh dan badai",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "pertama,"
+    },
+    {
+      "cue_id": "CAP_055",
+      "shot_id": "S043",
+      "start_s": 135.143,
+      "end_s": 137.714,
+      "text": "debu garam menyapu pesisir. Bulan",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "debu"
+    },
+    {
+      "cue_id": "CAP_056",
+      "shot_id": "S043",
+      "start_s": 137.714,
+      "end_s": 140.286,
+      "text": "pertama, gagal panen melanda seluruh",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "pertama,"
+    },
+    {
+      "cue_id": "CAP_057",
+      "shot_id": "S043",
+      "start_s": 140.286,
+      "end_s": 142.857,
+      "text": "benua karena hujan berhenti. Dalam",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "benua"
+    },
+    {
+      "cue_id": "CAP_058",
+      "shot_id": "S043",
+      "start_s": 142.857,
+      "end_s": 145.429,
+      "text": "hitungan dekade, hutan hujan mengering",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "hitungan"
+    },
+    {
+      "cue_id": "CAP_059",
+      "shot_id": "S043",
+      "start_s": 145.429,
+      "end_s": 148.0,
+      "text": "dan memicu kebakaran lintas benua.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "dan"
+    },
+    {
+      "cue_id": "CAP_060",
+      "shot_id": "S049",
+      "start_s": 148.0,
+      "end_s": 150.424,
+      "text": "Hanya kantong kecil kehidupan di",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Hanya"
+    },
+    {
+      "cue_id": "CAP_061",
+      "shot_id": "S049",
+      "start_s": 150.424,
+      "end_s": 152.848,
+      "text": "sekitar cadangan air tanah dalam",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "sekitar"
+    },
+    {
+      "cue_id": "CAP_062",
+      "shot_id": "S049",
+      "start_s": 152.848,
+      "end_s": 155.273,
+      "text": "dan kutub es yang sempat",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "dan"
+    },
+    {
+      "cue_id": "CAP_063",
+      "shot_id": "S049",
+      "start_s": 155.273,
+      "end_s": 157.697,
+      "text": "bertahan sementara. Selebihnya, kerak samudra",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "bertahan"
+    },
+    {
+      "cue_id": "CAP_064",
+      "shot_id": "S049",
+      "start_s": 157.697,
+      "end_s": 160.121,
+      "text": "yang kehilangan beban triliunan ton",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "yang"
+    },
+    {
+      "cue_id": "CAP_065",
+      "shot_id": "S049",
+      "start_s": 160.121,
+      "end_s": 162.545,
+      "text": "air mulai memantul naik dan",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "air"
+    },
+    {
+      "cue_id": "CAP_066",
+      "shot_id": "S049",
+      "start_s": 162.545,
+      "end_s": 164.0,
+      "text": "mengguncang lempeng tektonik.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 3,
+      "highlighted_keyword": "tektonik."
+    },
+    {
+      "cue_id": "CAP_067",
+      "shot_id": "S054",
+      "start_s": 164.0,
+      "end_s": 167.077,
+      "text": "Ternyata laut bukan sekadar genangan",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Ternyata"
+    },
+    {
+      "cue_id": "CAP_068",
+      "shot_id": "S054",
+      "start_s": 167.077,
+      "end_s": 170.154,
+      "text": "tempat berlayar, melainkan pengatur napas,",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "tempat"
+    },
+    {
+      "cue_id": "CAP_069",
+      "shot_id": "S054",
+      "start_s": 170.154,
+      "end_s": 173.231,
+      "text": "suhu, dan hujan bagi setiap",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "suhu,"
+    },
+    {
+      "cue_id": "CAP_070",
+      "shot_id": "S054",
+      "start_s": 173.231,
+      "end_s": 176.308,
+      "text": "makhluk darat. Untungnya, samudra kita",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "makhluk"
+    },
+    {
+      "cue_id": "CAP_071",
+      "shot_id": "S054",
+      "start_s": 176.308,
+      "end_s": 179.385,
+      "text": "masih utuh menjaga Bumi hari",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "masih"
+    },
+    {
+      "cue_id": "CAP_072",
+      "shot_id": "S054",
+      "start_s": 179.385,
+      "end_s": 180.0,
+      "text": "ini.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 1,
+      "highlighted_keyword": "ini."
+    }
+  ],
+  "srt_preview": "1\n00:00:00,000 --> 00:00:02,500\nDetik ini juga, cabut sumbat\n\n2\n00:00:02,500 --> 00:00:05,000\nraksasa Bumi dan kuras habis\n\n3\n00:00:05,000 --> 00:00:07,500\nseluruh samudra dalam sekejap mata.\n\n4\n00:00:07,500 --> 00:00:10,000\nPerahu kayu Pak Teguh tidak\n\n5\n00:00:10,000 --> 00:00:12,500\ntenggelam, melainkan mendarat mulus di\n\n6\n00:00:12,500 --> 00:00:15,000\nhamparan lumpur asin tanpa setetes\n\n7\n00:00:15,000 --> 00:00:16,000\nombak pun.\n\n8\n00:00:16,000 --> 00:00:18,571\nApa yang sebenarnya terjadi jika\n\n9\n00:00:18,571 --> 00:00:21,143\nseluruh laut Bumi menghilang? Kita\n\n10\n00:00:21,143 --> 00:00:23,714\nbaru saja melenyapkan satu koma\n\n11\n00:00:23,714 --> 00:00:26,286\ntiga ratus tiga puluh dua\n\n12\n00:00:26,286 --> 00:00:28,857\nmiliar kilometer kubik air asin,\n\n13\n00:00:28,857 --> 00:00:31,429\natau sekitar sembilan puluh tujuh\n\n14\n00:00:31,429 --> 00:00:34,000\npersen cadangan air planet ini.\n\n15\n00:00:34,000 --> 00:00:36,857\nBegitu air surut, tepi pantai\n\n16\n00:00:36,857 --> 00:00:39,714\nberubah menjadi jurang landas kontinen\n\n17\n00:00:39,714 --> 00:00:42,571\nsetinggi gedung pencakar langit. Kapal\n\n18\n00:00:42,571 --> 00:00:45,429\nkargo yang tadinya mengapung kini\n\n19\n00:00:45,429 --> 00:00:48,286\nbertengger di bibir tebing curam\n\n20\n00:00:48,286 --> 00:00:51,143\nsedalam empat kilometer menuju dataran\n\n21\n00:00:51,143 --> 00:00:54,000\nabisal yang gelap dan berdebu.\n\n22\n00:00:54,000 --> 00:00:56,308\nDi dasar Pasifik, menganga Palung\n\n23\n00:00:56,308 --> 00:00:58,615\nMariana sedalam hampir sebelas kilometer,\n\n24\n00:00:58,615 --> 00:01:00,923\nlebih tinggi dari Gunung Everest\n\n25\n00:01:00,923 --> 00:01:03,231\njika dibalik. Sementara di tengah\n\n26\n00:01:03,231 --> 00:01:05,538\nsamudra, punggungan gunung api bawah\n\n27\n00:01:05,538 --> 00:01:07,846\nlaut sepanjang enam puluh lima\n\n28\n00:01:07,846 --> 00:01:10,154\nribu kilometer langsung menyemburkan asap\n\n29\n00:01:10,154 --> 00:01:12,000\nbelerang ke udara terbuka.\n\n30\n00:01:12,000 --> 00:01:14,778\nBencana sesungguhnya justru dimulai di\n\n31\n00:01:14,778 --> 00:01:17,556\nlangit. Lebih dari delapan puluh\n\n32\n00:01:17,556 --> 00:01:20,333\nlima persen uap air pembentuk\n\n33\n00:01:20,333 --> 00:01:23,111\nawan berasal dari penguapan laut.\n\n34\n00:01:23,111 --> 00:01:25,889\nTanpa samudra, pabrik hujan global\n\n35\n00:01:25,889 --> 00:01:28,667\ntutup total, awan memudar dalam\n\n36\n00:01:28,667 --> 00:01:31,444\nhitungan hari, dan sungai besar\n\n37\n00:01:31,444 --> 00:01:32,000\nmengering.\n\n38\n00:01:32,000 --> 00:01:34,703\nSamudra juga bekerja sebagai penyangga\n\n39\n00:01:34,703 --> 00:01:37,405\npanas raksasa yang menyerap sembilan\n\n40\n00:01:37,405 --> 00:01:40,108\npuluh persen kelebihan kalor Bumi\n\n41\n00:01:40,108 --> 00:01:42,811\ndan membagikannya lewat arus termal.\n\n42\n00:01:42,811 --> 00:01:45,514\nTanpa selimut air ini, siang\n\n43\n00:01:45,514 --> 00:01:48,216\nhari memanggang benua secara ekstrem,\n\n44\n00:01:48,216 --> 00:01:50,919\nsedangkan malam hari anjlok membeku\n\n45\n00:01:50,919 --> 00:01:52,000\nseperti gurun.\n\n46\n00:01:52,000 --> 00:01:54,571\nDi lapisan permukaan yang lenyap\n\n47\n00:01:54,571 --> 00:01:57,143\ntadi, miliaran fitoplankton mikroskopis tadinya\n\n48\n00:01:57,143 --> 00:01:59,714\nmemproduksi sekitar separuh oksigen Bumi\n\n49\n00:01:59,714 --> 00:02:02,286\nsekaligus mengunci karbon dioksida. Saat\n\n50\n00:02:02,286 --> 00:02:04,857\nhamparan lumpur organik di dasar\n\n51\n00:02:04,857 --> 00:02:07,429\nlaut mengering dan membusuk, gas\n\n52\n00:02:07,429 --> 00:02:10,000\nkarbon terlepas deras ke atmosfer.\n\n53\n00:02:10,000 --> 00:02:12,571\nMari urutkan garis waktunya. Hari\n\n54\n00:02:12,571 --> 00:02:15,143\npertama, pelabuhan lumpuh dan badai\n\n55\n00:02:15,143 --> 00:02:17,714\ndebu garam menyapu pesisir. Bulan\n\n56\n00:02:17,714 --> 00:02:20,286\npertama, gagal panen melanda seluruh\n\n57\n00:02:20,286 --> 00:02:22,857\nbenua karena hujan berhenti. Dalam\n\n58\n00:02:22,857 --> 00:02:25,429\nhitungan dekade, hutan hujan mengering\n\n59\n00:02:25,429 --> 00:02:28,000\ndan memicu kebakaran lintas benua.\n\n60\n00:02:28,000 --> 00:02:30,424\nHanya kantong kecil kehidupan di\n\n61\n00:02:30,424 --> 00:02:32,848\nsekitar cadangan air tanah dalam\n\n62\n00:02:32,848 --> 00:02:35,273\ndan kutub es yang sempat\n\n63\n00:02:35,273 --> 00:02:37,697\nbertahan sementara. Selebihnya, kerak samudra\n\n64\n00:02:37,697 --> 00:02:40,121\nyang kehilangan beban triliunan ton\n\n65\n00:02:40,121 --> 00:02:42,545\nair mulai memantul naik dan\n\n66\n00:02:42,545 --> 00:02:44,000\nmengguncang lempeng tektonik.\n\n67\n00:02:44,000 --> 00:02:47,077\nTernyata laut bukan sekadar genangan\n\n68\n00:02:47,077 --> 00:02:50,154\ntempat berlayar, melainkan pengatur napas,\n\n69\n00:02:50,154 --> 00:02:53,231\nsuhu, dan hujan bagi setiap\n\n70\n00:02:53,231 --> 00:02:56,308\nmakhluk darat. Untungnya, samudra kita\n\n71\n00:02:56,308 --> 00:02:59,385\nmasih utuh menjaga Bumi hari\n\n72\n00:02:59,385 --> 00:03:00,000\nini.\n"
+}

@@ -385,10 +385,11 @@ def test_permission_policy_default_deny_and_mcp_guards() -> None:
 
 def test_capability_discovery_router_modes_and_cli() -> None:
     cap = RuntimeCapabilityDiscovery().discover()
-    assert cap["antigravity_native_multi_agent"]["workspace_modes"]["inherit"] in {
-        "DOCUMENTED_CAPABILITY",
-        "SUPPORTED_AND_VERIFIED",
-    }
+    ag_detected = cap["adapters_probed"]["antigravity"]["detected"]
+    expected_inherit_statuses = (
+        {"DOCUMENTED_CAPABILITY", "SUPPORTED_AND_VERIFIED"} if ag_detected else {"UNKNOWN"}
+    )
+    assert cap["antigravity_native_multi_agent"]["workspace_modes"]["inherit"] in expected_inherit_statuses
     assert len(cap["reference_database"]["verified_references"]) == 2
 
     router = MasterDirectorTaskRouter()

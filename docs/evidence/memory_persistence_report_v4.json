@@ -1,0 +1,27 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "generated_at_utc": "2026-11-27T20:13:57.130301+00:00",
+  "sqlite_integrity": {
+    "schema_version": "4.0.0-phase01.6b",
+    "sqlite_integrity": "ok",
+    "partition_row_counts": {
+      "knowledge_memory": 4,
+      "production_memory": 3,
+      "project_memory": 36,
+      "execution_memory": 208,
+      "error_memory": 8,
+      "quality_memory": 8
+    },
+    "all_rows_sha256_verified": true
+  },
+  "partitions_verified": [
+    "knowledge_memory",
+    "production_memory",
+    "project_memory",
+    "execution_memory",
+    "error_memory",
+    "quality_memory"
+  ],
+  "secret_redaction_enforced": true,
+  "sqlite_file_committed_to_git": false
+}

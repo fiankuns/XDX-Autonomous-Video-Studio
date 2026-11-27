@@ -11,7 +11,7 @@
     "records"
   ],
   "properties": {
-    "schema_version": { "type": "string", "enum": ["4.0.0-phase01.6b"] },
+    "schema_version": { "type": "string", "enum": ["4.0.0-phase01.6b", "4.0.0-phase01.6c"] },
     "generated_at_utc": { "type": "string", "minLength": 10 },
     "ttl_seconds": { "type": "integer", "minimum": 1, "maximum": 604800 },
     "runtime_identity": {
