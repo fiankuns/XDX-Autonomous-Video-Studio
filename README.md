@@ -23,6 +23,8 @@ Fondasi produksi video otonom hybrid generasi **v3.4 (Phase 01.5 — Hardened & 
    - 16 pustaka preset (`53` preset) diaudit ke dalam 7 status jujur (`RUNTIME_TESTED`, `UNIT_TESTED`, `SPECIFICATION_ONLY`, dst.) dan didukung `PresetExecutorEngine` (10 domain) serta `BlenderXDXEngine` (scene, koleksi, aset, karakter/armature/IK, keyframe, kamera, lighting, material, render settings, dan skrip `bpy` terverifikasi AST).
 6. **Integrated Git LFS Reference Database (`reference_database/` — `REF-001` & `REF-002`)**:
    - Verifikasi SHA-256 otomatis atas video referensi Git LFS (`REF-001` Satir Sosial/Storytelling & `REF-002` Yakhchal Explainer), analisis mendalam 10 dimensi REA-Video v3.4 (dengan mempertahankan `prior_analysis.*`), routing otomatis genre/alias (`explainer`/`explainair` → `REF-002`; `storytelling`/`satir_sosial` → `REF-001`), serta penggabungan multi-referensi (`--ref-ids REF-001 REF-002`) tanpa pernah meminta unggah ulang dan tetap berhenti pada `WAITING_APPROVAL`.
+7. **Multi-Agent Foundation & Capability Discovery (`v4.0-alpha.1` — Phase 01.6A)**:
+   - Piagam tim [`TEAM.md`](TEAM.md), kontrak `master_director` + **20 Specialist Agents** (`registry/agent_registry_v4.json`, `orchestration/agent_registry.py`), kustomisasi native Antigravity (`.agents/agents/`, `.agents/skills/`, `.agents/rules/`), validator handoff 18 field & DAG kepemilikan tunggal (`orchestration/handoff_manager.py`), matriks izin *default-deny* (`governance/permission_policy.py`), serta pemanggilan subagent native baca-saja (*Producer* + *Independent Verifier*).
 
 ---
 

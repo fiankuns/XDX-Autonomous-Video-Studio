@@ -31,3 +31,10 @@ description: Hardened universal multi-genre autonomous video production studio (
      python3 scripts/xdx_studio.py references --genres explainair
      ```
    - Routing otomatis pada `xdx_studio.py plan`: `explainer`/`explainair` → `REF-002` (`hosted_3d_explainer_cutaway_v1`); `storytelling`/`satir_sosial` → `REF-001` (`satirical_3d_vignette_storytelling_v1`); dukung pemilihan spesifik & multi-referensi melalui `--ref-ids REF-001 REF-002`. Pertahankan seluruh `prior_analysis.*` secara *append-only* dan selalu berhenti pada `WAITING_APPROVAL`.
+7. **v4.0 Multi-Agent Foundation & Skill Routing (`TEAM.md`, `.agents/`, `orchestration/`)**:
+   - Gunakan skill terfokus di `.agents/skills/` (`xdx-master-orchestration`, `xdx-reference-intelligence`, `xdx-preproduction-planning`, `xdx-independent-audit`) serta custom subagents di `.agents/agents/`.
+   - Periksa kapabilitas runtime dan rencana dispatch 20 specialist:
+     ```bash
+     python3 scripts/xdx_studio.py capabilities
+     python3 scripts/xdx_studio.py agents --mode BUAT_VIDEO
+     ```

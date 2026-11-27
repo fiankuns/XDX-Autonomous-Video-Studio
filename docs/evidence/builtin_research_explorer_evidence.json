@@ -1,0 +1,12 @@
+{
+  "subagent_conversation_id": "5bb75abe72f40d6f90ea0f4d010fd834",
+  "agent_type": "research",
+  "roles_count": 21,
+  "specialists_count": 20,
+  "custom_agent_files_count": 10,
+  "workspace_skills_count": 4,
+  "workspace_rules_count": 3,
+  "xdx_blender_studio_edits": 0,
+  "xdx_blender_studio_unmodified": true,
+  "isolated_context_confirmed": true
+}

@@ -1,0 +1,75 @@
+{
+  "task_id": "TASK-P016A-PRODUCER-01",
+  "project_id": "phase_01_6a_foundation_test",
+  "parent_task_id": null,
+  "assigned_agent": "rea_video_reference_analyst",
+  "goal": "Extract structured PART 10 Reference DNA techniques from verified REF-001 and REF-002 REA-Video v3.4 analyses in a read-only fresh context.",
+  "context": {
+    "project_state": "REFERENCE_ANALYSIS",
+    "genre_ids": [
+      "explainer",
+      "social_satire"
+    ],
+    "reference_ids": [
+      "REF-001",
+      "REF-002"
+    ],
+    "workspace_mode": "inherit",
+    "notes": "Phase 01.6A live read-only Producer subagent test."
+  },
+  "input_artifacts": [
+    "reference_database/reference_registry.json",
+    "reference_database/references/social_satire/REF-001/rea_analysis_v3_4.json",
+    "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json"
+  ],
+  "input_artifact_hashes": {
+    "reference_database/reference_registry.json": "f300d4bf1709b020a1f204829e2e2a25e1e2599eedc2fb6625310f414e8f03c0",
+    "reference_database/references/social_satire/REF-001/rea_analysis_v3_4.json": "82266ad01c5072368753a86553949207d52b69572098d0ec4dde848eae02f8cf",
+    "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json": "77d5dfc35b57d3928c62e021606f64b44b947af36f9849f4b6b222bdbbe8f61b"
+  },
+  "dependencies": [],
+  "owned_artifacts": [
+    "docs/evidence/producer_reference_dna_v4.json"
+  ],
+  "allowed_tools": [
+    "view_file"
+  ],
+  "forbidden_actions": [
+    "Mutate any repository or reference_database file directly",
+    "Copy copyrighted characters, scripts, branding, or mobile UI chrome",
+    "Invent timestamps or measurements absent from rea_analysis_v3_4.json"
+  ],
+  "expected_output": {
+    "summary": "Structured JSON mapping REF-001 and REF-002 into Narrative, Camera, Cutaway, and Editing DNA entries.",
+    "output_artifacts": [
+      "docs/evidence/producer_reference_dna_v4.json"
+    ],
+    "output_format": "json"
+  },
+  "return_schema": "xdx.reference-dna.v4.0",
+  "done_when": [
+    {
+      "criterion_id": "DONE_01",
+      "check_type": "file_exists_nonempty",
+      "target": "docs/evidence/producer_reference_dna_v4.json",
+      "description": "Producer Reference DNA JSON artifact exists and contains non-empty techniques for REF-001 and REF-002."
+    },
+    {
+      "criterion_id": "DONE_02",
+      "check_type": "independent_review_verdict",
+      "target": "TASK-P016A-VERIFIER-02",
+      "description": "Independent Preproduction Verifier confirms PASS with zero defects."
+    }
+  ],
+  "required_evidence": [
+    "Verified video_sha256 for REF-001 and REF-002",
+    "Evidence timestamps from rea_analysis_v3_4.json",
+    "Target engine and acceptance_criteria per technique"
+  ],
+  "retry_budget": {
+    "max_attempts": 2,
+    "attempts_used": 1,
+    "timeout_seconds": 180
+  },
+  "status": "COMPLETED"
+}

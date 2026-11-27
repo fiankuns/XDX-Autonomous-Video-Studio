@@ -1,0 +1,155 @@
+{
+  "schema_version": "4.0.0-phase01.6a",
+  "studio_version": "4.0.0-alpha.1",
+  "identity": {
+    "role_id": "master_director",
+    "title": "XDX Master Director",
+    "default_language": "id-ID",
+    "pipeline_chain": [
+      "ORCHESTRATOR",
+      "SPECIALIST_AGENTS",
+      "INDEPENDENT_VERIFIER",
+      "HUMAN_APPROVAL",
+      "PRODUCTION",
+      "ACTUAL_RENDER",
+      "VISUAL_CRITIC",
+      "SUCCESS_AUDITOR"
+    ]
+  },
+  "concurrency_and_budget": {
+    "recommended_active_specialists_min": 3,
+    "recommended_active_specialists_max": 6,
+    "hard_max_active_specialists": 6,
+    "max_blender_scene_mutating_workers": 1,
+    "default_task_timeout_seconds": 300,
+    "default_max_retries_per_task": 3,
+    "self_correction_max_iterations_per_defect": 3
+  },
+  "model_routing_policy": {
+    "antigravity_session_orchestrator": {
+      "preferred_planner_model": "Gemini 4 Neon",
+      "enterprise_fallback_planner_model": "Gemini 4 Carbon",
+      "preferred_executor_model": "Gemini 4 Hydrogen",
+      "cross_family_reviewer_when_supported": "Claude Sonnet 5.5 / Claude Opus 5.5",
+      "note": "Configured by the user via Antigravity Model Selector ('Orchestrator'); never fabricated in Python if unavailable on the active account tier."
+    },
+    "programmatic_subagent_invocation": {
+      "supported_tool_enum": ["inherit", "flash_lite", "flash", "pro"],
+      "default_model_argument": "inherit",
+      "policy": "Always pass Model='inherit' to invoke_subagent unless the user explicitly instructs switching to 'pro' or 'flash'."
+    },
+    "execution_modes": {
+      "single_agent": "Focused single-file edits, quick inspections, and deterministic validations.",
+      "subagents": "Specialized role delegation and fresh-context independent verification.",
+      "swarm": "Broad tasks cleanly partitioned across independent files/packages with a @verifier.",
+      "boost": "Hard algorithmic, concurrency, or multi-round debugging challenges.",
+      "teamwork": "Long-horizon multi-milestone engineering with Critic/Challenger/Auditor/Success Auditor gates."
+    }
+  },
+  "separation_of_duties": {
+    "master_director_can_be_sole_reviewer": false,
+    "master_director_can_set_approved_directly": false,
+    "master_director_can_set_completed_directly": false,
+    "verifier_can_mutate_producer_artifacts": false,
+    "success_auditor_requires_render_and_visual_evidence_for_production_pass": true
+  },
+  "v4_state_machine_catalog": {
+    "primary_linear_states": [
+      "IDLE",
+      "REQUEST_RECEIVED",
+      "RESEARCHING",
+      "REFERENCE_ANALYSIS",
+      "CREATIVE_DEVELOPMENT",
+      "STORYBOARDING",
+      "PREPRODUCTION_QC",
+      "WAITING_APPROVAL",
+      "APPROVED",
+      "ASSET_PRODUCTION",
+      "ANIMATING",
+      "RENDERING",
+      "POST_PRODUCTION",
+      "TECHNICAL_QC",
+      "VISUAL_QC",
+      "COMPLETED"
+    ],
+    "auxiliary_and_exception_states": [
+      "CREATIVE_PAYLOAD_REQUIRED",
+      "REFERENCE_UNAVAILABLE",
+      "WAITING_RESOURCE",
+      "WAITING_CONNECTION",
+      "WAITING_REAPPROVAL",
+      "REVISION_REQUIRED",
+      "PAUSED",
+      "FAILED",
+      "CANCELLED",
+      "BLOCKED"
+    ],
+    "phase_01_6a_status": "SPECIFICATION_AND_MAPPING_READY_PRESERVES_V3_4_STATE_MANAGER_UNTIL_PHASE_01_6B"
+  },
+  "user_command_modes": {
+    "CARI_TOPIK": {
+      "active_specialists": ["topic_research_agent", "creative_director", "rea_video_reference_analyst"],
+      "independent_verifier": "preproduction_verifier",
+      "halt_point": "WAIT_USER_TOPIC_CHOICE"
+    },
+    "BUAT_VIDEO": {
+      "active_specialists": [
+        "topic_research_agent",
+        "rea_video_reference_analyst",
+        "creative_director",
+        "scriptwriter_agent",
+        "storyboard_director",
+        "character_design_agent"
+      ],
+      "independent_verifier": "preproduction_verifier",
+      "halt_point": "WAITING_APPROVAL"
+    },
+    "BUAT_OTOMATIS": {
+      "active_specialists": [
+        "topic_research_agent",
+        "rea_video_reference_analyst",
+        "creative_director",
+        "scriptwriter_agent",
+        "storyboard_director",
+        "art_director"
+      ],
+      "independent_verifier": "preproduction_verifier",
+      "halt_point": "WAITING_APPROVAL"
+    },
+    "ANALISIS_REFERENSI": {
+      "active_specialists": ["rea_video_reference_analyst", "cinematographer", "motion_director"],
+      "independent_verifier": "technical_auditor",
+      "halt_point": "REFERENCE_REPORT_DELIVERED"
+    },
+    "GUNAKAN_REF": {
+      "active_specialists": ["rea_video_reference_analyst", "creative_director", "art_director"],
+      "independent_verifier": "preproduction_verifier",
+      "halt_point": "REFERENCE_LOCKED_NO_PRODUCTION_AUTH"
+    },
+    "GABUNGKAN_REFERENSI": {
+      "active_specialists": ["rea_video_reference_analyst", "creative_director", "art_director", "cinematographer"],
+      "independent_verifier": "preproduction_verifier",
+      "halt_point": "MULTI_REFERENCE_FUSION_REPORT"
+    },
+    "REVISI": {
+      "active_specialists": ["creative_director", "scriptwriter_agent", "storyboard_director", "audio_director", "caption_specialist"],
+      "independent_verifier": "preproduction_verifier",
+      "halt_point": "WAITING_REAPPROVAL"
+    },
+    "SETUJUI_PAKET": {
+      "active_specialists": ["technical_auditor"],
+      "independent_verifier": "technical_auditor",
+      "halt_point": "TRUSTED_HUMAN_APPROVAL_GATE_ONLY"
+    },
+    "LANJUTKAN_PROJECT": {
+      "active_specialists": ["technical_auditor", "asset_specialist", "blender_specialist"],
+      "independent_verifier": "technical_auditor",
+      "halt_point": "CHECKPOINT_RESTORED_WITHOUT_AUTO_APPROVAL"
+    },
+    "AUDIT_PROJECT": {
+      "active_specialists": ["preproduction_verifier", "visual_critic", "technical_auditor", "success_auditor"],
+      "independent_verifier": "success_auditor",
+      "halt_point": "AUDIT_REPORT_DELIVERED"
+    }
+  }
+}

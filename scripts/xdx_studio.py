@@ -22,6 +22,9 @@ from engines.web_engines import RemotionEngine, ThreeJSEngine
 from intelligence.creative_pipeline import SUPPORTED_GENRE_INPUTS, PreProductionPackageBuilder
 from intelligence.reference_database_bridge import ReferenceDatabaseBridge
 from libraries.loader import PresetLibraryRegistry
+from orchestration.agent_registry import AgentRegistry
+from orchestration.capability_discovery import RuntimeCapabilityDiscovery
+from orchestration.task_router import MasterDirectorTaskRouter
 
 
 def cmd_preflight() -> int:
@@ -33,7 +36,7 @@ def cmd_preflight() -> int:
     refs_by_id, _, profiles_by_id = ref_bridge.load_registries()
 
     payload = {
-        "studio_version": "3.4.0",
+        "studio_version": "4.0.0-alpha.1",
         "runtimes": {
             "python": sys.version.split()[0],
             "node": shutil.which("node"),
@@ -70,6 +73,7 @@ def cmd_validate_all() -> int:
 
     dep_schema = json.loads((schemas_dir / "dependency_registry.schema.json").read_text(encoding="utf-8"))
     asset_schema = json.loads((schemas_dir / "asset_registry.schema.json").read_text(encoding="utf-8"))
+    agent_schema = json.loads((schemas_dir / "agent_role_contract.schema.json").read_text(encoding="utf-8"))
 
     for fname in ("dependency_registry.json", "engine_registry.json", "license_registry.json", "repository_registry.json"):
         data = json.loads((reg_dir / fname).read_text(encoding="utf-8"))
@@ -78,6 +82,10 @@ def cmd_validate_all() -> int:
     asset_data = json.loads((reg_dir / "asset_registry.json").read_text(encoding="utf-8"))
     jsonschema.validate(instance=asset_data, schema=asset_schema)
 
+    agent_reg_file = reg_dir / "agent_registry_v4.json"
+    if agent_reg_file.is_file():
+        jsonschema.validate(instance=json.loads(agent_reg_file.read_text(encoding="utf-8")), schema=agent_schema)
+
     libs = PresetLibraryRegistry()
     libs.load_all(validate=True)
 
@@ -85,19 +93,38 @@ def cmd_validate_all() -> int:
     refs_by_id, _, _ = ref_bridge.load_registries()
     verified_refs = [ref_bridge.verify_and_load_reference(rid).reference_id for rid in sorted(refs_by_id)]
 
+    agent_reg = AgentRegistry()
+    agent_cust = agent_reg.validate_workspace_customizations()
+
     print(
         json.dumps(
             {
                 "status": "VALIDATED",
-                "studio_version": "3.4.0",
+                "studio_version": "4.0.0-alpha.1",
                 "schemas_checked": len(list(schemas_dir.glob("*.schema.json"))),
-                "registries_checked": 5,
+                "registries_checked": 6 if agent_reg_file.is_file() else 5,
                 "preset_libraries": libs.summary_stats(),
                 "reference_database_verified": verified_refs,
+                "multi_agent_foundation": agent_cust,
             },
             indent=2,
         )
     )
+    return 0
+
+
+def cmd_capabilities() -> int:
+    print(json.dumps(RuntimeCapabilityDiscovery().discover(), indent=2))
+    return 0
+
+
+def cmd_agents(args: argparse.Namespace) -> int:
+    router = MasterDirectorTaskRouter()
+    if args.mode:
+        print(json.dumps(router.build_dispatch_plan(args.mode), indent=2))
+        return 0
+    reg = AgentRegistry()
+    print(json.dumps(reg.data, indent=2))
     return 0
 
 
@@ -152,7 +179,11 @@ def main() -> int:
     sub = parser.add_subparsers(dest="command", required=True)
 
     sub.add_parser("preflight", help="Inspect runtime availability, Reference Database, and 6-tier XDX MCP status.")
-    sub.add_parser("validate-all", help="Validate all 11 schemas, 5 registries, 16 preset libraries, and Reference Database.")
+    sub.add_parser("validate-all", help="Validate all schemas, registries, 16 preset libraries, Reference DB, and .agents/ customizations.")
+    sub.add_parser("capabilities", help="Inspect native Antigravity multi-agent, model routing, and workspace capabilities.")
+
+    p_agents = sub.add_parser("agents", help="Inspect Master Director + 20 specialist contracts or simulate command-mode dispatch.")
+    p_agents.add_argument("--mode", default=None, help="Optional user command mode (e.g. BUAT_VIDEO, CARI_TOPIK, AUDIT_PROJECT).")
 
     p_refs = sub.add_parser("references", help="Resolve Reference Database profiles by genre or explicit reference IDs (read-only).")
     p_refs.add_argument("--genres", nargs="*", choices=SUPPORTED_GENRE_INPUTS, default=["explainer"])
@@ -179,6 +210,10 @@ def main() -> int:
         return cmd_preflight()
     if args.command == "validate-all":
         return cmd_validate_all()
+    if args.command == "capabilities":
+        return cmd_capabilities()
+    if args.command == "agents":
+        return cmd_agents(args)
     if args.command == "references":
         return cmd_references(args)
     if args.command == "plan":

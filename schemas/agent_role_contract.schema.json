@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio/schemas/agent_role_contract.schema.json",
+  "title": "XDX v4.0 Agent Registry & Specialist Role Contract Schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "studio_version",
+    "max_initial_active_specialists",
+    "master_director",
+    "specialists"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "enum": ["4.0.0-phase01.6a"] },
+    "studio_version": { "type": "string", "enum": ["4.0.0-alpha.1"] },
+    "max_initial_active_specialists": {
+      "type": "object",
+      "required": ["min_recommended", "max_recommended", "hard_cap_without_override"],
+      "properties": {
+        "min_recommended": { "type": "integer", "minimum": 1 },
+        "max_recommended": { "type": "integer", "minimum": 3, "maximum": 10 },
+        "hard_cap_without_override": { "type": "integer", "minimum": 3, "maximum": 10 }
+      },
+      "additionalProperties": false
+    },
+    "master_director": { "$ref": "#/$defs/role_contract" },
+    "specialists": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": { "$ref": "#/$defs/role_contract" }
+    }
+  },
+  "$defs": {
+    "antigravity_tool": {
+      "type": "string",
+      "enum": [
+        "view_file",
+        "write_to_file",
+        "replace_file_content",
+        "run_command",
+        "manage_task",
+        "invoke_subagent",
+        "define_subagent",
+        "send_message",
+        "manage_subagents",
+        "list_skills",
+        "lookup_skill",
+        "lookup_skills",
+        "get_skill_resources",
+        "google_search",
+        "ask_question",
+        "generate_image"
+      ]
+    },
+    "role_contract": {
+      "type": "object",
+      "required": [
+        "agent_id",
+        "agent_number",
+        "department",
+        "display_name",
+        "mission",
+        "read_only",
+        "requires_fresh_context",
+        "can_self_approve",
+        "max_concurrent_instances",
+        "preferred_model_routing",
+        "allowed_tools",
+        "forbidden_actions",
+        "owned_artifact_patterns",
+        "linked_skills",
+        "linked_python_modules",
+        "custom_subagent_file",
+        "implementation_status"
+      ],
+      "properties": {
+        "agent_id": { "type": "string", "pattern": "^[a-z][a-z0-9_]{2,48}$" },
+        "agent_number": { "type": "integer", "minimum": 0, "maximum": 20 },
+        "department": {
+          "type": "string",
+          "enum": [
+            "orchestration",
+            "creative_department",
+            "production_department",
+            "independent_verification_department"
+          ]
+        },
+        "display_name": { "type": "string", "minLength": 3 },
+        "mission": { "type": "string", "minLength": 20 },
+        "read_only": { "type": "boolean" },
+        "requires_fresh_context": { "type": "boolean" },
+        "can_self_approve": { "type": "boolean", "const": false },
+        "max_concurrent_instances": { "type": "integer", "minimum": 1, "maximum": 8 },
+        "preferred_model_routing": {
+          "type": "object",
+          "required": ["session_orchestrator_preference", "subagent_tool_model_arg", "rationale"],
+          "properties": {
+            "session_orchestrator_preference": { "type": "string", "minLength": 3 },
+            "subagent_tool_model_arg": {
+              "type": "string",
+              "enum": ["inherit", "flash_lite", "flash", "pro"]
+            },
+            "rationale": { "type": "string", "minLength": 10 }
+          },
+          "additionalProperties": false
+        },
+        "allowed_tools": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/antigravity_tool" }
+        },
+        "forbidden_actions": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "type": "string", "minLength": 5 }
+        },
+        "owned_artifact_patterns": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "linked_skills": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "linked_python_modules": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "custom_subagent_file": { "type": "string", "pattern": "^\\.agents/agents/[a-z0-9-]+\\.md$" },
+        "implementation_status": {
+          "type": "string",
+          "enum": [
+            "RUNTIME_TESTED",
+            "UNIT_TESTED",
+            "SCHEMA_VALIDATED",
+            "SPECIFICATION_ONLY"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

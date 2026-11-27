@@ -1,0 +1,100 @@
+{
+  "schema": "xdx.reference-dna.v4.0",
+  "task_id": "TASK-P016A-PRODUCER-01",
+  "produced_by_agent": "rea_video_reference_analyst",
+  "producer_subagent_conversation_id": "fd32553c50a4a4ea68cb9b805332c722",
+  "references_verified": [
+    {
+      "reference_id": "REF-001",
+      "video_sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
+      "bytes": 27026130,
+      "profile_id": "satirical_3d_vignette_storytelling_v1"
+    },
+    {
+      "reference_id": "REF-002",
+      "video_sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+      "bytes": 38669358,
+      "profile_id": "hosted_3d_explainer_cutaway_v1"
+    }
+  ],
+  "dna_techniques": [
+    {
+      "technique_id": "DNA-REF001-NARR-01",
+      "dna_category": "Narrative DNA",
+      "reference_id": "REF-001",
+      "evidence_timestamp_s": [0.0, 5.5],
+      "observed_pattern": "Circular domestic-to-civic framing loop: protagonist wakes up in a cozy bedroom at 0.0s and opens the front door into public infrastructure at 3.0s within SEQ_01 (0.0s-5.5s) under second-person Indonesian narration, then closes with a matching wake-up (150.0s) and front-door exit callback (153.0s) in SEQ_08 (149.0s-154.6s).",
+      "confidence": 0.96,
+      "production_adaptation": "Frame original Indonesian social-commentary or civic-explainer scripts with a recurring everyday domestic threshold opening (0.0s-5.0s) and bookend callback in the final 5.0s using an original XDX audience-surrogate character, without copying REF-001 bedroom layout, teal-shirt protagonist, or script wording.",
+      "target_engine": "blender",
+      "required_asset": "Original stylized 3D interior room diorama with working door prop, warm practical lamp light, and original rigged everyday citizen character with matte PBR materials (roughness 0.45-0.85).",
+      "required_animation": "Character wake-up stretch and door-open walk-through cycle (0.0s-5.0s at 30 fps) paired with gentle linear camera dolly push-in, mirrored at closing beat.",
+      "acceptance_criteria": "Opening hook establishes audience-surrogate action within <= 5.5s, final sequence visually echoes opening room/threshold framing, 9:16 clean render contains zero REF-001 character/asset reuse and zero placeholder geometry."
+    },
+    {
+      "technique_id": "DNA-REF001-CUT-02",
+      "dna_category": "Cutaway DNA",
+      "reference_id": "REF-001",
+      "evidence_timestamp_s": [35.5, 53.5],
+      "observed_pattern": "Diegetic 3D data staging inside SEQ_04 (35.5s-53.5s) and adjacent civic vignettes: quantitative ratios and public statistics are materialized as physical in-world 3D props and crowd arrangements—such as a single practitioner surrounded by hundreds of 3D citizen figures in a high-angle wide shot at 48.0s—rather than flat 2D chart slides.",
+      "confidence": 0.95,
+      "production_adaptation": "Convert verified factual research metrics into physical in-scene 3D spatial ratios, signage, and scale props photographed from high-angle infographic wide framing, adapting environment and typography to the new project topic without copying REF-001 signage text or institutional gags.",
+      "target_engine": "blender",
+      "required_asset": "Instanced original stylized 3D crowd/token array, modular civic diorama ground plane, and high-contrast diegetic 3D metric board readable on 9:16 vertical screens.",
+      "required_animation": "High-angle orthographic-leaning dolly pull-back (2.5s-4.0s duration) revealing proportional crowd/object count synchronized with spoken statistic beat.",
+      "acceptance_criteria": "Shot duration stays within 2.0s-4.5s vignette window, diegetic metric label is legible at 720x1280+, all numerical claims map to verified research URLs, and no flat 2D slide substitute or 12-triangle box placeholder is used."
+    },
+    {
+      "technique_id": "DNA-REF001-EDIT-03",
+      "dna_category": "Editing DNA",
+      "reference_id": "REF-001",
+      "evidence_timestamp_s": [6.0, 36.0],
+      "observed_pattern": "Hybrid rhythmic assembly across 154.618821s (30.0 fps, 4635 decoded frames): crisp 2.0s-4.5s hard cuts drive visual gags inside a single location while 10-15 frame cross-dissolves bridge major topical/location shifts (observed at 6.0s, 21.0s, 36.0s, and 135.0s), paired with brisk narration (-14.8 LUFS, 4.2 LU LRA, 9 breath pauses >250ms) and 1-2 word dynamic captions at ~78% vertical height.",
+      "confidence": 0.94,
+      "production_adaptation": "Use hard cuts for intra-scene beats and explicit 12-frame cross-dissolve handles exclusively at sequence/location boundaries, compositing clean 1-2 token bold outlined Indonesian captions in the lower-third safe zone over normalized voiceover without reproducing REF-001 audio or text.",
+      "target_engine": "remotion",
+      "required_asset": "Clean 9:16 rendered shot plates with explicit 12-frame head/tail transition handles, original voiceover audio stem, and MIT-clean custom caption overlay component.",
+      "required_animation": "10-15 frame opacity cross-dissolve between sequence transitions at 30 fps plus word-synced 1-2 word caption pop/highlight cues positioned near 78% vertical frame height.",
+      "acceptance_criteria": "Intra-scene shots use 0-frame hard cuts within 2.0s-4.5s target duration, inter-sequence dissolves have verified 10-15 frame overlap handles without frozen tail frames, integrated loudness targets ~ -14.8 LUFS (+/- 1.5 LU), and zero UNLICENSED caption code or UI chrome is present."
+    },
+    {
+      "technique_id": "DNA-REF002-NARR-04",
+      "dna_category": "Narrative DNA",
+      "reference_id": "REF-002",
+      "evidence_timestamp_s": [0.0, 8.0],
+      "observed_pattern": "Concrete sensory-need hook to iterative engineering progression across 105.543s: opens in SEQ_01 (0.0s-8.0s) with an immediate relatable physical problem (stepping outside at 0.0s, top-down drink pour at 2.0s-4.0s, heat discomfort without electricity at 6.0s), advances through question -> mechanism -> 3 obstacle-solution loops -> historical reveal, and resolves with a table callback in SEQ_08 (101.0s-105.543s).",
+      "confidence": 0.97,
+      "production_adaptation": "Anchor educational/historical explainers in a concrete 0.0s-6.0s everyday sensory problem performed by an original presenter, escalate through explicit physical obstacle-and-fix beats punctuated by ~250ms+ comprehension micro-pauses, and close with a functional payoff callback adapted to the target topic's native setting and palette.",
+      "target_engine": "blender",
+      "required_asset": "Original topic-appropriate 3D presenter rig, tactile tabletop/problem-setup props, and progressive modular environment stages reflecting each solved engineering or causal step.",
+      "required_animation": "Verb-driven presenter task actions (pouring, inspecting, building, demonstrating payoff) split into tight 2.0s-4.0s clause-synced shots (all shots <= 6.0s).",
+      "acceptance_criteria": "Sensory hook lands within <= 6.0s, narrative beat sheet maps at least 2 causal obstacle-to-solution transitions before historical/conceptual reveal, clean 9:16 crop/render excludes all 720x1600 mobile status-bar/toast capture artifacts and 'How Come?' branding."
+    },
+    {
+      "technique_id": "DNA-REF002-CAM-05",
+      "dna_category": "Camera DNA",
+      "reference_id": "REF-002",
+      "evidence_timestamp_s": [24.0, 48.0],
+      "observed_pattern": "Disciplined technical framing alternation combining locked 90-degree top-down tabletop/process inserts (2.0s, 10.0s, 30.0s, 36.0s, 58.0s), locked orthographic cross-section cutaways (24.0s, 48.0s, 72.0s, 78.0s), and low-angle architectural scale reveals (46.0s, 66.0s, 88.0s), reinforced at 36.0s-38.0s by directional sunlight casting functional geometric shadows that visually prove the mechanism.",
+      "confidence": 0.96,
+      "production_adaptation": "Alternate locked 90-degree top-down task inserts with locked orthographic side-section cameras for mechanism clarity, reserving slow push-ins/tilts for scale reveals and using keyframed sun-angle shadows as direct visual proof of physical claims.",
+      "target_engine": "blender",
+      "required_asset": "Multi-camera Blender rig (locked 90-degree ortho/top-down camera, locked side-profile orthographic section camera, low-angle perspective reveal camera) and directional sun lamp with crisp shadow map.",
+      "required_animation": "Zero-shake locked camera holds during 0.6s-4.0s technical inserts, keyframed directional sun elevation/shadow sweep for physical proof beats, and controlled slow vertical tilt on full-structure reveals.",
+      "acceptance_criteria": "Technical demonstration shots maintain zero handheld camera drift, shadow direction visually matches narrated causal mechanism, median shot duration stays near 2.0s-3.0s with hard ceiling <= 6.0s, and aspect ratio is native clean 9:16."
+    },
+    {
+      "technique_id": "DNA-REF002-CUT-06",
+      "dna_category": "Cutaway DNA",
+      "reference_id": "REF-002",
+      "evidence_timestamp_s": [70.0, 87.5],
+      "observed_pattern": "Sectional cutaway paired with color-coded 3D directional physics streamlines across SEQ_03, SEQ_05, and SEQ_06 (70.0s-87.5s): ground and structure are sliced open in side profile while animated 3D vector arrows encode thermal/fluid states (cool blue sinking air at 26.0s, red ground-heat vectors at 50.0s, warm orange rising convection at 72.0s, cyan intake circulation at 80.0s), cut with 100% clause-synced hard cuts (median 2.257s, max 6.028s across 46-47 segments).",
+      "confidence": 0.96,
+      "production_adaptation": "Render cross-sectional cutaway diagrams with semantic color-coded 3D vector arrows/streamlines and instrument dial micro-inserts (0.6s-1.5s) synchronized via clean hard cuts to spoken Indonesian explanation clauses, customized to the target scientific or historical mechanism.",
+      "target_engine": "threejs",
+      "required_asset": "Cross-section clipped 3D structural/strata model, procedural spline-based 3D arrow/ribbon streamline geometries with semantic thermal/flow color shaders, and clean analog gauge/metric insert.",
+      "required_animation": "Spline-path flow animation along directional 3D arrows and state-transition shaders timed to 2.0s-4.0s hard-cut clause boundaries with 0-frame transition cuts.",
+      "acceptance_criteria": "Cross-section interior and directional streamlines are unambiguous at mobile 9:16 viewing scale, color coding remains consistent across all cutaway shots, 100% of cuts are crisp hard cuts <= 6.0s, and zero REF-002 geometry, desert-only palette lock, or screen-capture overlays appear."
+    }
+  ]
+}

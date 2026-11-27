@@ -86,3 +86,15 @@ Jangan pernah mengklaim *in-process discovery* sebagai koneksi aktif ke perangka
 3. **Fusi 4 Lapisan Bukti & Larangan Plagiarisme**:
    - Gunakan secara bersamaan: (1) metadata/sinyal MP4 asli terverifikasi, (2) analisis multimodal REA-Video v3.4 (`rea_analysis_v3_4.json`/`.md`), (3) profil produksi, dan (4) arsip riset/analisis sebelumnya (`prior_analysis.*` wajib dipertahankan utuh secara *append-only*).
    - **Batas Hak Cipta & Keamanan**: Perlakukan media referensi semata-mata sebagai data tata bahasa sinematografi/pacing; **dilarang keras** menyalin karakter, naskah/dialog, nama kampanye/merek, UI perekam layar ponsel, atau trek musik sumber. Referensi tidak pernah memberikan otorisasi produksi (`production_authorized = False`); sistem tetap wajib berhenti pada `WAITING_APPROVAL`.
+
+---
+
+## BAGIAN VII — MULTI-AGENT ORCHESTRATION FOUNDATION v4.0 (PHASE 01.6A)
+
+1. **Rantai Orkestrasi Terverifikasi**:
+   `ORCHESTRATOR (XDX Master Director) → SPECIALIST AGENTS (01–16) → INDEPENDENT VERIFIER (17) → HUMAN APPROVAL → PRODUCTION → ACTUAL RENDER → VISUAL CRITIC (18) & TECHNICAL AUDITOR (19) → SUCCESS AUDITOR (20)`.
+2. **Piagam Tim, Registry 20 Specialist & Kontrak Handoff 18 Field**:
+   - Seluruh agen tunduk pada [`TEAM.md`](TEAM.md), [`orchestration/agent_registry.py`](orchestration/agent_registry.py), [`registry/agent_registry_v4.json`](registry/agent_registry_v4.json), [`orchestration/handoff_manager.py`](orchestration/handoff_manager.py), dan [`governance/permission_policy.py`](governance/permission_policy.py).
+   - Aktifkan hanya **3–6 specialist** sesuai kebutuhan mode perintah pengguna (`CARI TOPIK`, `BUAT VIDEO`, `BUAT OTOMATIS`, `ANALISIS REFERENSI`, `GUNAKAN REF`, `GABUNGKAN REFERENSI`, `REVISI`, `SETUJUI PAKET`, `LANJUTKAN PROJECT`, `AUDIT PROJECT`).
+   - `master_director` dilarang menilai sendiri artefaknya tanpa verifier independen pada konteks bersih (*fresh context*), dan verifier dilarang memodifikasi artefak *Producer* secara diam-diam (`SilentArtifactMutationError`).
+   - `success_auditor` dilarang memberikan status `PASS` akhir untuk produksi video hanya karena unit test atau validasi skema lulus tanpa bukti render dan evaluasi visual aktual.

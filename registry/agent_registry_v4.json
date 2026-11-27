@@ -1,0 +1,821 @@
+{
+  "schema_version": "4.0.0-phase01.6a",
+  "studio_version": "4.0.0-alpha.1",
+  "max_initial_active_specialists": {
+    "min_recommended": 3,
+    "max_recommended": 6,
+    "hard_cap_without_override": 6
+  },
+  "master_director": {
+    "agent_id": "master_director",
+    "agent_number": 0,
+    "department": "orchestration",
+    "display_name": "XDX Master Director",
+    "mission": "Understand user intent, select mode/genre/references, schedule 3-6 active specialists via 18-field DAG handoffs, enforce human approval gate, and synthesize final reports.",
+    "read_only": false,
+    "requires_fresh_context": false,
+    "can_self_approve": false,
+    "max_concurrent_instances": 1,
+    "preferred_model_routing": {
+      "session_orchestrator_preference": "Gemini 4 Neon (Orchestrator Planner)",
+      "subagent_tool_model_arg": "inherit",
+      "rationale": "Strong frontier reasoning required for multi-department decomposition, conflict resolution, and state governance."
+    },
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "replace_file_content",
+      "run_command",
+      "manage_task",
+      "invoke_subagent",
+      "define_subagent",
+      "send_message",
+      "manage_subagents",
+      "list_skills",
+      "lookup_skill",
+      "ask_question"
+    ],
+    "forbidden_actions": [
+      "Act as sole verifier of its own creative or production artifacts",
+      "Transition project state directly to APPROVED or COMPLETED without verified gates",
+      "Execute Blender scene mutations or rendering prior to verified human approval"
+    ],
+    "owned_artifact_patterns": [
+      "projects/*/project_state.json",
+      "projects/*/production_config.json",
+      "projects/*/approval_package_manifest.json"
+    ],
+    "linked_skills": [
+      ".agents/skills/xdx-master-orchestration",
+      "SKILL.md"
+    ],
+    "linked_python_modules": [
+      "orchestration/agent_registry.py",
+      "orchestration/handoff_manager.py",
+      "orchestration/task_router.py",
+      "intelligence/state_and_approval.py"
+    ],
+    "custom_subagent_file": ".agents/agents/xdx-master-director.md",
+    "implementation_status": "RUNTIME_TESTED"
+  },
+  "specialists": [
+    {
+      "agent_id": "topic_research_agent",
+      "agent_number": 1,
+      "department": "creative_department",
+      "display_name": "01. Topic Research Agent",
+      "mission": "Discover compelling topics, formulate core questions, verify primary/institutional https:// sources, separate facts from misconceptions, and build an evidence ledger.",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 2,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Neon / Gemini 4 Hydrogen",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Requires careful epistemic discrimination and primary source verification."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "google_search",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Fabricate URLs, publication years, statistics, or historical quotes",
+        "Mark pending_external_verification as completed factual research"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/research.md"
+      ],
+      "linked_skills": [
+        ".agents/skills/xdx-preproduction-planning"
+      ],
+      "linked_python_modules": [
+        "intelligence/creative_pipeline.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-topic-researcher.md",
+      "implementation_status": "UNIT_TESTED"
+    },
+    {
+      "agent_id": "rea_video_reference_analyst",
+      "agent_number": 2,
+      "department": "creative_department",
+      "display_name": "02. REA-Video Reference Analyst",
+      "mission": "Verify Git LFS reference MP4 SHA-256 hashes, run REA-Video multimodal inspection, distinguish measured signals from visual observations/inferences, and emit Reference DNA manifests.",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 2,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Hydrogen / Gemini 4 Neon",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Combines deterministic ffprobe/OpenCV execution with multimodal frame review."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "run_command",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Ask user to re-upload verified reference_database/ MP4s",
+        "Overwrite or delete prior_analysis.* files",
+        "Claim FFmpeg/OpenCV heuristics alone constitute complete multimodal analysis"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/reference_analysis.md"
+      ],
+      "linked_skills": [
+        "rea-video",
+        ".agents/skills/xdx-reference-intelligence"
+      ],
+      "linked_python_modules": [
+        "intelligence/rea_reference_intelligence.py",
+        "intelligence/reference_database_bridge.py",
+        "reference_database/scripts/reference_db.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-rea-reference-analyst.md",
+      "implementation_status": "RUNTIME_TESTED"
+    },
+    {
+      "agent_id": "creative_director",
+      "agent_number": 3,
+      "department": "creative_department",
+      "display_name": "03. Creative Director",
+      "mission": "Define story concept, genre/subgenre blend, narrative arc, 0-3s hook, experiment/demonstration, escalation, reveal, payoff, callback, humor, and visual delivery strategy.",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 1,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Neon",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "High-level dramatic structure and genre adaptation require deep creative reasoning."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "replace_file_content",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Force a single rigid story formula onto unrelated genres",
+        "Copy copyrighted plots, political names, or character identities from references"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/blueprint.md"
+      ],
+      "linked_skills": [
+        ".agents/skills/xdx-preproduction-planning"
+      ],
+      "linked_python_modules": [
+        "intelligence/creative_pipeline.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-creative-scriptwriter.md",
+      "implementation_status": "UNIT_TESTED"
+    },
+    {
+      "agent_id": "scriptwriter_agent",
+      "agent_number": 4,
+      "department": "creative_department",
+      "display_name": "04. Scriptwriter Agent",
+      "mission": "Author original, natural, broadcast-ready Indonesian narration and character dialogue across all supported genres without template placeholders or unrelated showcase fallbacks.",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 1,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Neon",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Natural spoken Indonesian cadence, situational humor, and lexical fidelity require strong authoring quality."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "replace_file_content",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Emit bracketed beat placeholders ([HOOK_ANOMALY], TODO, TBD)",
+        "Substitute time-perception or social-satire showcase scripts onto unrelated user topics"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/script.md",
+        "projects/*/authored_creative_payload.json"
+      ],
+      "linked_skills": [
+        ".agents/skills/xdx-preproduction-planning"
+      ],
+      "linked_python_modules": [
+        "intelligence/creative_pipeline.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-creative-scriptwriter.md",
+      "implementation_status": "UNIT_TESTED"
+    },
+    {
+      "agent_id": "storyboard_director",
+      "agent_number": 5,
+      "department": "creative_department",
+      "display_name": "05. Storyboard Director",
+      "mission": "Compile script into integer-frame Story Arc -> Sequence -> Scene -> Narrative Beat -> Shot (2-6s typical, <=10s max) -> Action/Camera/Audio/Caption/VFX Events with concrete clause-aligned visuals.",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 1,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Hydrogen / Gemini 4 Neon",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Structured hierarchical compilation paired with semantic clause-to-visual alignment."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "replace_file_content",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Emit shots longer than 10.0s without explicit user-approved exception",
+        "Leave unrecorded timeline gaps or unplanned frame overlaps"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/storyboard.json"
+      ],
+      "linked_skills": [
+        ".agents/skills/xdx-preproduction-planning"
+      ],
+      "linked_python_modules": [
+        "intelligence/creative_pipeline.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-storyboard-cinematographer.md",
+      "implementation_status": "UNIT_TESTED"
+    },
+    {
+      "agent_id": "character_design_agent",
+      "agent_number": 6,
+      "department": "creative_department",
+      "display_name": "06. Character Design Agent",
+      "mission": "Author Character Bibles for hero and supporting characters defining silhouette, proportions, face, hair, wardrobe, materials, palette, expressions, rig spec, and pose/motion traits.",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 1,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Hydrogen",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Focused structured design specification with strict cross-shot continuity rules."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "replace_file_content",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Alter character face, proportions, or wardrobe across shots without approved narrative reason",
+        "Clone copyrighted character designs from REF-001 or REF-002"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/character_bible.md"
+      ],
+      "linked_skills": [
+        ".agents/skills/xdx-preproduction-planning"
+      ],
+      "linked_python_modules": [
+        "intelligence/creative_pipeline.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-character-art-director.md",
+      "implementation_status": "UNIT_TESTED"
+    },
+    {
+      "agent_id": "art_director",
+      "agent_number": 7,
+      "department": "creative_department",
+      "display_name": "07. Art Director",
+      "mission": "Govern Global Style Bible across 2D, flat cartoon, stylized 3D, diorama, anime-inspired, realistic, infographic, and mixed-media profiles ensuring uniform asset/character/environment quality.",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 1,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Neon / Gemini 4 Hydrogen",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Maintains holistic visual, material, color-space, and typographic cohesion."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "replace_file_content",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Mix polished environments with crude prototype box props or mismatched shader styles",
+        "Lock unrelated genres into desert palettes or rigid 3D cartoon defaults"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/style_bible.json"
+      ],
+      "linked_skills": [
+        ".agents/skills/xdx-preproduction-planning"
+      ],
+      "linked_python_modules": [
+        "intelligence/asset_management.py",
+        "intelligence/asset_style_converter.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-character-art-director.md",
+      "implementation_status": "UNIT_TESTED"
+    },
+    {
+      "agent_id": "asset_specialist",
+      "agent_number": 8,
+      "department": "production_department",
+      "display_name": "08. Asset Specialist",
+      "mission": "Execute the 9-stage asset pipeline (Registry -> Cache -> Audited Providers -> License/SSRF Check -> Download/Procedural glTF Generation -> Style Harmonization -> Asset QC -> Persistent Cache).",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 2,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Hydrogen",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Deterministic procurement, glTF/GLB buffer inspection, and license ledger enforcement."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "run_command",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Pass primitive 12-triangle PLACEHOLDER boxes as final production assets",
+        "Bulk-download entire external asset repositories or accept UNLICENSED/copyleft-tainted assets"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/asset_manifest.json"
+      ],
+      "linked_skills": [
+        ".agents/skills/xdx-preproduction-planning"
+      ],
+      "linked_python_modules": [
+        "intelligence/asset_management.py",
+        "intelligence/procedural_geometry.py",
+        "intelligence/asset_style_converter.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-hybrid-production-engineer.md",
+      "implementation_status": "UNIT_TESTED"
+    },
+    {
+      "agent_id": "blender_specialist",
+      "agent_number": 9,
+      "department": "production_department",
+      "display_name": "09. Blender Specialist",
+      "mission": "Compile and execute authorized Blender XDX scenes, armatures, IK, facial states, lighting, cameras, and renders while preserving mobile_guard and honest 6-tier MCP reporting.",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 1,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Hydrogen",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Single-worker exclusive scene mutation discipline and AST-verified bpy compilation."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "run_command",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Mutate any Blender scene without verified APPROVED ExecutionAuthorizationContext",
+        "Run more than 1 concurrent worker mutating the same Blender scene",
+        "Modify fiankuns/xdx-blender-studio or write to /tmp instead of bpy.app.tempdir"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/scenes/*.json"
+      ],
+      "linked_skills": [
+        "xdx-blender-vivo",
+        ".agents/skills/xdx-preproduction-planning"
+      ],
+      "linked_python_modules": [
+        "adapters/xdx_mcp_adapter.py",
+        "engines/blender_xdx_engine.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-hybrid-production-engineer.md",
+      "implementation_status": "UNIT_TESTED"
+    },
+    {
+      "agent_id": "threejs_specialist",
+      "agent_number": 10,
+      "department": "production_department",
+      "display_name": "10. Three.js Specialist",
+      "mission": "Build deterministic frame/fps Three.js v0.187 procedural 3D scenes, technical cutaways, scientific simulations, mechanism animations, particles, and WebGL frame renderers.",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 2,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Hydrogen",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Fast deterministic WebGL/Three.js scene implementation with seeded PRNG and load barriers."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "replace_file_content",
+        "run_command",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Use wall-clock requestAnimationFrame delta or unseeded Math.random() for production renders",
+        "Start production frame rendering before human approval"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/threejs/*.json"
+      ],
+      "linked_skills": [
+        "threejs",
+        ".agents/skills/xdx-preproduction-planning"
+      ],
+      "linked_python_modules": [
+        "engines/web_engines.py",
+        "engines/web/three_deterministic_scene.mjs"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-hybrid-production-engineer.md",
+      "implementation_status": "RUNTIME_TESTED"
+    },
+    {
+      "agent_id": "remotion_specialist",
+      "agent_number": 11,
+      "department": "production_department",
+      "display_name": "11. Remotion Specialist",
+      "mission": "Assemble the master deterministic Remotion v4.0.547 timeline, multi-layer compositing, motion graphics, transitions, safe-area captions, audio mixing, and FFmpeg handoff.",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 1,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Hydrogen",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Master timeline assembly across Blender/Three.js sequences, captions, and audio tracks."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "replace_file_content",
+        "run_command",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Replace Remotion master compositor without explicit user approval",
+        "Import UNLICENSED caption packages or non-deterministic CSS animations"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/engine_plan.json",
+        "projects/*/execution_plan.md"
+      ],
+      "linked_skills": [
+        "web-app-development",
+        ".agents/skills/xdx-preproduction-planning"
+      ],
+      "linked_python_modules": [
+        "engines/web_engines.py",
+        "engines/web/remotion_timeline_spec.mjs",
+        "engines/ffmpeg_engine.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-hybrid-production-engineer.md",
+      "implementation_status": "RUNTIME_TESTED"
+    },
+    {
+      "agent_id": "motion_director",
+      "agent_number": 12,
+      "department": "production_department",
+      "display_name": "12. Motion Director",
+      "mission": "Translate storyboard actions into concrete body mechanics (anticipation, easing, follow-through, weight transfer, start/end/key poses, contact points, IK targets, facial & lip-sync cues).",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 1,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Hydrogen",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Detailed per-shot pose, contact, and IK planning backed by preset executors."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "replace_file_content",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Reduce distinct physical actions to generic torso/hand rotation loops",
+        "Claim live IK/curve retargeting is RENDER_TESTED when still SPECIFICATION_ONLY"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/motion_plan.json"
+      ],
+      "linked_skills": [
+        ".agents/skills/xdx-preproduction-planning"
+      ],
+      "linked_python_modules": [
+        "intelligence/creative_pipeline.py",
+        "engines/preset_executors.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-storyboard-cinematographer.md",
+      "implementation_status": "UNIT_TESTED"
+    },
+    {
+      "agent_id": "cinematographer",
+      "agent_number": 13,
+      "department": "production_department",
+      "display_name": "13. Cinematographer",
+      "mission": "Design narrative-driven 36mm-sensor shot sizes, camera angles, lenses, DoF, dolly/pan/tilt/orbit/push-in trajectories, spatial continuity, and lighting direction.",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 1,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Hydrogen",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Deterministic camera math and 180-degree spatial orientation continuity across cuts."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "replace_file_content",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Add unmotivated camera motion that obscures technical cutaways or captions",
+        "Break sensor/focal-length consistency between Blender and Three.js shots"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/camera_plan.json"
+      ],
+      "linked_skills": [
+        ".agents/skills/xdx-preproduction-planning"
+      ],
+      "linked_python_modules": [
+        "intelligence/creative_pipeline.py",
+        "engines/preset_executors.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-storyboard-cinematographer.md",
+      "implementation_status": "RUNTIME_TESTED"
+    },
+    {
+      "agent_id": "vfx_specialist",
+      "agent_number": 14,
+      "department": "production_department",
+      "display_name": "14. VFX Specialist",
+      "mission": "Configure particles, dust, smoke, fog, rain, sparks, glow, atmosphere, and color-coded 3D airflow/thermal vectors without obstructing scene or caption readability.",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 1,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Hydrogen",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Applies audited particle and ACESFilmic grading presets within mobile/cloud budgets."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "replace_file_content",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Occlude lower-third safe-area captions or primary mechanism cutaways with dense particles",
+        "Use non-seeded particle emitters that vary across re-renders"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/vfx_plan.json"
+      ],
+      "linked_skills": [
+        "threejs",
+        ".agents/skills/xdx-preproduction-planning"
+      ],
+      "linked_python_modules": [
+        "engines/preset_executors.py",
+        "libraries/loader.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-hybrid-production-engineer.md",
+      "implementation_status": "RUNTIME_TESTED"
+    },
+    {
+      "agent_id": "audio_director",
+      "agent_number": 15,
+      "department": "production_department",
+      "display_name": "15. Audio Director",
+      "mission": "Plan narration voice settings, character dialogue delivery, ~130-160 WPM Indonesian pacing estimates pre-approval, BGM/ambience/foley/SFX cues, -15 LUFS mastering, and post-approval WAV alignment.",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 1,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Hydrogen",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Deterministic speech duration estimation before approval and exact WAV sync post-approval."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "replace_file_content",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Clone voices from reference videos without explicit authorization",
+        "Trigger paid TTS synthesis before human approval (or separate preview approval)",
+        "Time-compress speech unnaturally instead of revising overly long narration"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/narration_dialogue.json"
+      ],
+      "linked_skills": [
+        ".agents/skills/xdx-preproduction-planning"
+      ],
+      "linked_python_modules": [
+        "intelligence/creative_pipeline.py",
+        "adapters/caption_lipsync_adapter.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-audio-caption-specialist.md",
+      "implementation_status": "UNIT_TESTED"
+    },
+    {
+      "agent_id": "caption_specialist",
+      "agent_number": 16,
+      "department": "production_department",
+      "display_name": "16. Caption Specialist",
+      "mission": "Generate classic bold, word-highlight, karaoke, phrase, kinetic, scientific-label, numeric-callout, and speaker-ID captions inside safe areas synced to verified audio/ASR timestamps.",
+      "read_only": false,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 1,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Hydrogen",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Safe-area geometry enforcement and honest separation of pre-approval estimates vs ASR alignment."
+      },
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "replace_file_content",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Claim uniform word-duration estimates are verified forced-aligned ASR",
+        "Place captions outside vertical 9:16 safe zones or over critical visual labels"
+      ],
+      "owned_artifact_patterns": [
+        "projects/*/caption_audio_plan.json"
+      ],
+      "linked_skills": [
+        ".agents/skills/xdx-preproduction-planning"
+      ],
+      "linked_python_modules": [
+        "adapters/caption_lipsync_adapter.py",
+        "engines/preset_executors.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-audio-caption-specialist.md",
+      "implementation_status": "RUNTIME_TESTED"
+    },
+    {
+      "agent_id": "preproduction_verifier",
+      "agent_number": 17,
+      "department": "independent_verification_department",
+      "display_name": "17. Preproduction Verifier",
+      "mission": "Audit pre-production packages in a separate fresh context across topic fit, fact citations, script originality, hook strength, clause-to-shot alignment, character/asset completeness, and engine compatibility.",
+      "read_only": true,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 2,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Neon / Cross-Family Verifier",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Independent fresh-context critique prevents producer confirmation bias."
+      },
+      "allowed_tools": [
+        "view_file",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Silently edit, patch, or overwrite any producer artifact",
+        "Approve packages containing placeholder scripts, unverified factual claims, or >10s unapproved shots"
+      ],
+      "owned_artifact_patterns": [],
+      "linked_skills": [
+        ".agents/skills/xdx-independent-audit"
+      ],
+      "linked_python_modules": [
+        "orchestration/handoff_manager.py",
+        "intelligence/creative_pipeline.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-preproduction-verifier.md",
+      "implementation_status": "RUNTIME_TESTED"
+    },
+    {
+      "agent_id": "visual_critic",
+      "agent_number": 18,
+      "department": "independent_verification_department",
+      "display_name": "18. Visual Critic",
+      "mission": "Inspect actual rendered frames, contact sheets, and temporal motion via REA-Video for character continuity, foot sliding, mesh penetration, hand-prop contact, lighting, readability, and narrative relevance.",
+      "read_only": true,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 1,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Neon (Multimodal Vision)",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Requires genuine multimodal visual inspection citing exact shot_id, timestamp, or frame."
+      },
+      "allowed_tools": [
+        "view_file",
+        "run_command",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Judge visual quality from JSON manifests alone without inspecting actual rendered frames",
+        "Mutate scene or render files directly instead of emitting shot-referenced defects"
+      ],
+      "owned_artifact_patterns": [],
+      "linked_skills": [
+        "rea-video",
+        ".agents/skills/xdx-independent-audit"
+      ],
+      "linked_python_modules": [
+        "intelligence/visual_qc_engine.py",
+        "intelligence/rea_reference_intelligence.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-visual-technical-success-auditor.md",
+      "implementation_status": "UNIT_TESTED"
+    },
+    {
+      "agent_id": "technical_auditor",
+      "agent_number": 19,
+      "department": "independent_verification_department",
+      "display_name": "19. Technical Auditor",
+      "mission": "Deterministically verify file integrity, full FFmpeg video decode, resolution, FPS, frame count, duration, audio sync, zero timeline gaps/overlaps, asset provenance, and SHA-256 approval digests.",
+      "read_only": true,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 2,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Hydrogen / Gemini 4 Neon",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Executes deterministic CLI/Python checks (ffprobe, ffmpeg -f null, approval_gate, pytest)."
+      },
+      "allowed_tools": [
+        "view_file",
+        "run_command",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Modify source code, tests, or approval records to mask technical failures",
+        "Skip full stream decode verification on rendered media"
+      ],
+      "owned_artifact_patterns": [],
+      "linked_skills": [
+        ".agents/skills/xdx-independent-audit"
+      ],
+      "linked_python_modules": [
+        "engines/ffmpeg_engine.py",
+        "intelligence/state_and_approval.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-visual-technical-success-auditor.md",
+      "implementation_status": "RUNTIME_TESTED"
+    },
+    {
+      "agent_id": "success_auditor",
+      "agent_number": 20,
+      "department": "independent_verification_department",
+      "display_name": "20. Success Auditor",
+      "mission": "Render the final evidence-based PASS/REVISION_REQUIRED verdict across Preproduction Verifier, Technical Auditor, and Visual Critic reports against explicit milestone acceptance criteria.",
+      "read_only": true,
+      "requires_fresh_context": true,
+      "can_self_approve": false,
+      "max_concurrent_instances": 1,
+      "preferred_model_routing": {
+        "session_orchestrator_preference": "Gemini 4 Neon / Cross-Family Verifier",
+        "subagent_tool_model_arg": "inherit",
+        "rationale": "Final adversarial gatekeeper preventing premature victory claims."
+      },
+      "allowed_tools": [
+        "view_file",
+        "run_command",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Grant final production PASS based solely on unit tests, schema validation, or self-tests",
+        "Lower acceptance criteria or silently waive unresolved defects"
+      ],
+      "owned_artifact_patterns": [],
+      "linked_skills": [
+        ".agents/skills/xdx-independent-audit"
+      ],
+      "linked_python_modules": [
+        "orchestration/handoff_manager.py",
+        "intelligence/visual_qc_engine.py"
+      ],
+      "custom_subagent_file": ".agents/agents/xdx-visual-technical-success-auditor.md",
+      "implementation_status": "RUNTIME_TESTED"
+    }
+  ]
+}
