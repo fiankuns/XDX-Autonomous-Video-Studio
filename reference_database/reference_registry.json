@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "references": [
+    {
+      "id": "REF-001",
+      "original_filename": "1001952045.mp4",
+      "genre": "social_satire",
+      "tags": [
+        "storytelling",
+        "satir_sosial",
+        "social_satire"
+      ],
+      "path": "references/social_satire/REF-001/original.mp4",
+      "sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
+      "bytes": 27026130,
+      "metadata": "references/social_satire/REF-001/metadata.json",
+      "analysis_status": "PRIOR_PARTIAL_ANALYSIS",
+      "rights_status": "USER_SUPPLIED_PRIVATE_REFERENCE_RIGHTS_NOT_VERIFIED"
+    },
+    {
+      "id": "REF-002",
+      "original_filename": "1001952305.mp4",
+      "genre": "explainer",
+      "tags": [
+        "explainer",
+        "education",
+        "edukasi",
+        "history",
+        "sejarah"
+      ],
+      "path": "references/explainer/REF-002-Yakhchal/original.mp4",
+      "sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+      "bytes": 38669358,
+      "metadata": "references/explainer/REF-002-Yakhchal/metadata.json",
+      "analysis_status": "PRIOR_PARTIAL_ANALYSIS",
+      "rights_status": "USER_SUPPLIED_PRIVATE_REFERENCE_RIGHTS_NOT_VERIFIED"
+    }
+  ]
+}
