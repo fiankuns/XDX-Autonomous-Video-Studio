@@ -1,0 +1,1145 @@
+{
+  "audit_bundle_version": "4.0.0-phase01.6a",
+  "generated_at_utc": "2026-11-27T12:22:00Z",
+  "repository": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio",
+  "baseline_main_commit_sha": "3ac8b90ba9579d327d454c084a38680c683b6955",
+  "development_branch": "feat/phase-01.6a-multi-agent-foundation",
+  "phase_01_6a_commit_sha": "8cadb2a7ee02114ce9bfcc76edd21a4acff9d072",
+  "main_branch_untouched": true,
+  "xdx_blender_studio_untouched": true,
+  "added_files": [
+    ".agents/agents/xdx-audio-caption-specialist.md",
+    ".agents/agents/xdx-character-art-director.md",
+    ".agents/agents/xdx-creative-scriptwriter.md",
+    ".agents/agents/xdx-hybrid-production-engineer.md",
+    ".agents/agents/xdx-master-director.md",
+    ".agents/agents/xdx-preproduction-verifier.md",
+    ".agents/agents/xdx-rea-reference-analyst.md",
+    ".agents/agents/xdx-storyboard-cinematographer.md",
+    ".agents/agents/xdx-topic-researcher.md",
+    ".agents/agents/xdx-visual-technical-success-auditor.md",
+    ".agents/rules/xdx-blender-mcp-safety.md",
+    ".agents/rules/xdx-core-governance.md",
+    ".agents/rules/xdx-independent-verification.md",
+    ".agents/skills/xdx-independent-audit/SKILL.md",
+    ".agents/skills/xdx-master-orchestration/SKILL.md",
+    ".agents/skills/xdx-preproduction-planning/SKILL.md",
+    ".agents/skills/xdx-reference-intelligence/SKILL.md",
+    "TEAM.md",
+    "docs/AGENT_CAPABILITY_AND_MODEL_ROUTING.md",
+    "docs/PHASE_01_6A_BASELINE_AUDIT.md",
+    "docs/PHASE_01_6B_IMPLEMENTATION_PLAN.md",
+    "docs/evidence/builtin_research_explorer_evidence.json",
+    "docs/evidence/independent_verifier_report_v4.json",
+    "docs/evidence/producer_reference_dna_v4.json",
+    "docs/evidence/task_handoff_producer_01.json",
+    "docs/evidence/task_handoff_verifier_02.json",
+    "governance/__init__.py",
+    "governance/permission_policy.py",
+    "memory/README.md",
+    "memory/__init__.py",
+    "orchestration/__init__.py",
+    "orchestration/agent_registry.py",
+    "orchestration/capability_discovery.py",
+    "orchestration/handoff_manager.py",
+    "orchestration/master_director_config.json",
+    "orchestration/task_router.py",
+    "registry/agent_registry_v4.json",
+    "schemas/agent_role_contract.schema.json",
+    "schemas/task_handoff.schema.json",
+    "tests/test_phase01_6a_multi_agent_foundation.py"
+  ],
+  "modified_files": [
+    "AGENTS.md",
+    "MASTER_PROMPT.md",
+    "README.md",
+    "SKILL.md",
+    "scripts/xdx_studio.py"
+  ],
+  "studio_pytest_summary": "49 passed in XDX-Autonomous-Video-Studio",
+  "blender_mcp_pytest_summary": "17 passed in xdx-blender-studio (0 diff)",
+  "capabilities": {
+    "schema_version": "4.0.0-phase01.6a",
+    "environment": {
+      "os": "Linux-6.18.57-x86_64-with-glibc2.39",
+      "python_version": "3.12.16",
+      "is_antigravity_remote_devbox": true,
+      "agy_cli_binary_in_vm": null,
+      "git_lfs_binary": "/usr/bin/git-lfs",
+      "node_binary": "/opt/nvm/current/bin/node",
+      "chromium_binary": "/usr/bin/google-chrome",
+      "ffmpeg_ready": true,
+      "threejs_ready": true,
+      "remotion_ready": true
+    },
+    "antigravity_native_multi_agent": {
+      "built_in_subagents_available": [
+        "research",
+        "self",
+        "teamwork",
+        "teamwork_preview"
+      ],
+      "session_tools_available": [
+        "define_subagent",
+        "invoke_subagent",
+        "send_message",
+        "manage_subagents",
+        "list_skills",
+        "lookup_skill"
+      ],
+      "workspace_modes": {
+        "inherit": "SUPPORTED_AND_VERIFIED",
+        "branch_git_worktree": "UNSUPPORTED_IN_REMOTE_DEVBOX",
+        "share": "UNSUPPORTED_IN_REMOTE_DEVBOX"
+      },
+      "custom_workspace_customizations": {
+        "roles_validated": 21,
+        "custom_agent_files_validated": [
+          "xdx-audio-caption-specialist",
+          "xdx-character-art-director",
+          "xdx-creative-scriptwriter",
+          "xdx-hybrid-production-engineer",
+          "xdx-master-director",
+          "xdx-preproduction-verifier",
+          "xdx-rea-reference-analyst",
+          "xdx-storyboard-cinematographer",
+          "xdx-topic-researcher",
+          "xdx-visual-technical-success-auditor"
+        ],
+        "workspace_skills_validated": [
+          "xdx-independent-audit",
+          "xdx-master-orchestration",
+          "xdx-preproduction-planning",
+          "xdx-reference-intelligence"
+        ],
+        "workspace_rules_validated": [
+          "xdx-blender-mcp-safety.md",
+          "xdx-core-governance.md",
+          "xdx-independent-verification.md"
+        ]
+      },
+      "lifecycle_hooks_json_configured": false,
+      "workspace_mcp_config_present": false
+    },
+    "model_routing": {
+      "session_orchestrator_documented": {
+        "planner": "Gemini 4 Neon (Google AI Pro/Ultra) or Gemini 4 Carbon (Enterprise)",
+        "executor": "Gemini 4 Hydrogen",
+        "selection_surface": "User-selected via Antigravity UI/CLI Model Selector ('Orchestrator')"
+      },
+      "subagent_tool_model_enum": [
+        "inherit",
+        "flash_lite",
+        "flash",
+        "pro"
+      ],
+      "active_subagent_default": "inherit"
+    },
+    "xdx_mcp_status": {
+      "discovery_source": "in_process_protocol_only_not_live_device",
+      "server_reachable_live": false,
+      "relay_device_connected": false,
+      "verification_tiers": {
+        "source_code_discovery": true,
+        "in_process_protocol_test": true,
+        "local_http_integration_test": false,
+        "live_remote_relay_reachable": false,
+        "live_android_blender_connected": false,
+        "actual_visual_feedback_verified": false
+      },
+      "scene_mutated": false
+    },
+    "reference_database": {
+      "verified_references": [
+        {
+          "id": "REF-001",
+          "sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
+          "bytes": 27026130,
+          "profile_id": "satirical_3d_vignette_storytelling_v1",
+          "status": "VERIFIED"
+        },
+        {
+          "id": "REF-002",
+          "sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+          "bytes": 38669358,
+          "profile_id": "hosted_3d_explainer_cutaway_v1",
+          "status": "VERIFIED"
+        }
+      ],
+      "registered_profiles": [
+        "hosted_3d_explainer_cutaway_v1",
+        "satirical_3d_vignette_storytelling_v1"
+      ],
+      "production_authorized": false
+    },
+    "honest_limitations": [
+      "In this remote Linux devbox (jetski_remote_agents_3p_devbox), invoke_subagent supports Workspace='inherit' only; Git worktree ('branch') and 'share' modes are blocked by the host sandbox, so single-writer artifact locking is enforced deterministically in TaskHandoffManager.",
+      "Programmatic invoke_subagent exposes tier enums ('inherit', 'flash_lite', 'flash', 'pro') rather than raw model strings like 'gemini-4-neon'; Gemini 4 Neon + Gemini 4 Hydrogen Orchestrator pairing is controlled at the user's Antigravity UI/CLI session selector.",
+      "Lifecycle PreToolUse hooks (.agents/hooks.json) and full multi-artifact ExecutionGuard are scheduled for Phase 01.6D; Phase 01.6A preserves the v3.4 fail-closed Python ApprovalGate and MCP allowlist without claiming hook-level blocking is active yet.",
+      "Live Android Vivo X200 Pro Blender relay connection is false in this cloud VM (in-process & local HTTP MCP verified; zero Blender scene mutations executed)."
+    ]
+  },
+  "live_subagent_evidence": {
+    "producer_conversation_id": "fd32553c50a4a4ea68cb9b805332c722",
+    "explorer_conversation_id": "5bb75abe72f40d6f90ea0f4d010fd834",
+    "independent_verifier_conversation_id": "c7d1857fc52e258afe435fbc68b9f3bd",
+    "verifier_verdict": "PASS",
+    "verifier_defects": 0,
+    "inspected_files_unchanged": 7
+  },
+  "designed_vs_actually_running": [
+    {
+      "component": "Native Subagent Invocation (Producer + Independent Verifier + Research Explorer)",
+      "status": "ACTUALLY_RUNNING_AND_TESTED",
+      "evidence": "Executed live via define_subagent & invoke_subagent (conversations fd32553c..., c7d1857f..., 5bb75abe...) with cryptographic SHA-256 non-mutation check."
+    },
+    {
+      "component": "Agent Registry (Master Director + 20 Specialists) & .agents/ Customizations",
+      "status": "ACTUALLY_RUNNING_AND_TESTED",
+      "evidence": "21 role contracts validated against schemas/agent_role_contract.schema.json + 10 .agents/agents/*.md + 4 .agents/skills/*/SKILL.md + 3 .agents/rules/*.md."
+    },
+    {
+      "component": "18-Field TaskHandoff Validator, DAG Cycle Detector & Single-Writer Lock",
+      "status": "ACTUALLY_RUNNING_AND_TESTED",
+      "evidence": "orchestration/handoff_manager.py + schemas/task_handoff.schema.json + pytest tests."
+    },
+    {
+      "component": "Default-Deny Permission Policy Engine & Master Director Mode Router",
+      "status": "ACTUALLY_RUNNING_AND_TESTED",
+      "evidence": "governance/permission_policy.py + orchestration/task_router.py + xdx_studio.py capabilities/agents."
+    },
+    {
+      "component": "All Phase 01, Phase 01.5 & Git LFS Reference Database v3.4 Capabilities",
+      "status": "ACTUALLY_RUNNING_AND_TESTED",
+      "evidence": "49/49 Studio pytest + 17/17 xdx-blender-studio pytest + REF-001 & REF-002 VERIFIED."
+    },
+    {
+      "component": "26-State v4.0 Production State Machine, Shared 6-Partition Memory & Checkpoint Recovery",
+      "status": "DESIGNED_SPECIFICATION_FOR_PHASE_01_6B",
+      "evidence": "Documented in orchestration/master_director_config.json, memory/README.md, and docs/PHASE_01_6B_IMPLEMENTATION_PLAN.md."
+    },
+    {
+      "component": "CREATIVE_PAYLOAD_REQUIRED Hard Stop & Semantic Clause-to-Shot Visual Director",
+      "status": "DESIGNED_SPECIFICATION_FOR_PHASE_01_6C",
+      "evidence": "Mapped in docs/PHASE_01_6A_BASELINE_AUDIT.md (GAP-03); v3.4 showcase payloads preserved until Phase 01.6C."
+    },
+    {
+      "component": "Lifecycle PreToolUse Hooks (.agents/hooks.json) & Expanded Canonical Approval Guard",
+      "status": "DESIGNED_SPECIFICATION_FOR_PHASE_01_6D",
+      "evidence": "Official hook stdin/stdout JSON contract documented in docs/AGENT_CAPABILITY_AND_MODEL_ROUTING.md."
+    },
+    {
+      "component": "Live Three.js/Remotion Frame Rendering & Live Vivo X200 Pro Blender Execution",
+      "status": "DEFERRED_TO_PHASE_02A_AND_02B",
+      "evidence": "Strictly not executed per PART 28 instructions."
+    }
+  ],
+  "tracked_files_sha256": [
+    {
+      "path": ".agents/agents/xdx-audio-caption-specialist.md",
+      "size_bytes": 1124,
+      "sha256": "e00e31332a832d1476254f764ec8d28c55a0fe3c93efd79feea14568a23f282f",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/agents/xdx-character-art-director.md",
+      "size_bytes": 1018,
+      "sha256": "8bfc9461d77f0349b6717a6fa60048a46ff7d4d06134ca43fec4ca28be57f1c7",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/agents/xdx-creative-scriptwriter.md",
+      "size_bytes": 1096,
+      "sha256": "e8e238c377b3e425a543455d8cbb97c1ea2650c275c1847720f73cc90103372a",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/agents/xdx-hybrid-production-engineer.md",
+      "size_bytes": 1227,
+      "sha256": "81cc892b8f68205b8e86a36b4a1c3c5df5a2071b76fc8ac38e41a109f69b90b9",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/agents/xdx-master-director.md",
+      "size_bytes": 1505,
+      "sha256": "8f90a6e7fb16299d305bd61850220279c43997427a59b1ef7d1d25464dc72d82",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/agents/xdx-preproduction-verifier.md",
+      "size_bytes": 1104,
+      "sha256": "6f6c744a9efd4e23bb8a4e5d434e0b3f3c66a9c0ac5b034a1e8860e9435860da",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/agents/xdx-rea-reference-analyst.md",
+      "size_bytes": 1115,
+      "sha256": "1a43880538cf0c6d2aa80d0e7cb47d12020954b7838df2b31534a41785c6c8cd",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/agents/xdx-storyboard-cinematographer.md",
+      "size_bytes": 1153,
+      "sha256": "79a31c3c6069247b41fa7fc4633f51f5bd8b6705b839c58806cac89a8a278839",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/agents/xdx-topic-researcher.md",
+      "size_bytes": 932,
+      "sha256": "a23feaddb74d197cbd9cc43108d1b2104d7ed59d10a7543325d9d5e81233e60b",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/agents/xdx-visual-technical-success-auditor.md",
+      "size_bytes": 1272,
+      "sha256": "d225bce5d5735a16f2b6026974452ea5a155ff1388bd118743deec07541ddb33",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/rules/xdx-blender-mcp-safety.md",
+      "size_bytes": 1055,
+      "sha256": "8e2dc521962fa2af30f6cf9f08ffaa7cfd597745a0d4ecabf06e19c0e42472d1",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/rules/xdx-core-governance.md",
+      "size_bytes": 1113,
+      "sha256": "ee59725a3de910f9910df18e43632b80d17d3ae03880c12c1d34ca0287d31901",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/rules/xdx-independent-verification.md",
+      "size_bytes": 1063,
+      "sha256": "ecc220867ce50ec3a1c7ad1607586f1b6ad42097ab462d60939fef30e7d207c4",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/skills/xdx-independent-audit/SKILL.md",
+      "size_bytes": 1178,
+      "sha256": "6b1deef2d27a7faefb58e68c16f235439b0780136b54ffb459ea83d85e90fc26",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/skills/xdx-master-orchestration/SKILL.md",
+      "size_bytes": 1498,
+      "sha256": "50000b8567a6486fc788dad152e2ca0d7e6cbc21ab704d65d31e9b73c67b20fd",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/skills/xdx-preproduction-planning/SKILL.md",
+      "size_bytes": 1419,
+      "sha256": "f42ec040fce0a515d9f5db83962f87038f8c3ad2c62ff9b45f83849086bd4088",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".agents/skills/xdx-reference-intelligence/SKILL.md",
+      "size_bytes": 1427,
+      "sha256": "4c08a898264731f282267bbd7f6ab359bd5dca94b1cc3732b60a4a19e1a47ecf",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".env.example",
+      "size_bytes": 258,
+      "sha256": "56021185676c67dc10274c8d4f5e14c5add47f1768af6f726251e401b06789c3",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": ".gitignore",
+      "size_bytes": 792,
+      "sha256": "12d29466fdc03a9d10e82a6a0235ae0a83f6f83d1e713b99eb312f3b086a4494",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "AGENTS.md",
+      "size_bytes": 5533,
+      "sha256": "f834bcdb15a99114510287cbd3aeeaa2a16866f2b9fac442bdfaadae6b2e2832",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "MASTER_PROMPT.md",
+      "size_bytes": 12469,
+      "sha256": "711efd72da845362d1ca875c45f5800716e614f3a029cecba4c28084141f20a6",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 5430,
+      "sha256": "1142f037a0b87e67298fdd816f94d3eba276d316de22bb00ac9c8b6db03d20fd",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "SKILL.md",
+      "size_bytes": 3601,
+      "sha256": "4e74fd6bd49698a797517f410780e4eb02ca549ff144937c3f6f599f81ffe6b1",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "TEAM.md",
+      "size_bytes": 7922,
+      "sha256": "9d4b2b9d42ce5f8981a10a83ebfdf740527f8e865d7df12cdd0360046b96764d",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "adapters/__init__.py",
+      "size_bytes": 807,
+      "sha256": "b8dab2abe997767200e6303f90a11bffa1ca886049412f916cc004b4b29c70e4",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "adapters/ambientcg_adapter.py",
+      "size_bytes": 1889,
+      "sha256": "c292dbfc47eb28f719b938db065b118d25864c2ff292e3141f9d0322445f169b",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "adapters/caption_lipsync_adapter.py",
+      "size_bytes": 5275,
+      "sha256": "1adb06dc1532e1db8e0aeaf86a44f581ee0c7d3b74c2d21d0acebd9818475ddc",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "adapters/polyhaven_adapter.py",
+      "size_bytes": 3097,
+      "sha256": "f7bee79226972f57fe8e27af32888af82f1befccf420438475abdfdd29cff2ef",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "adapters/xdx_mcp_adapter.py",
+      "size_bytes": 16323,
+      "sha256": "954734db02beb7d5b302720e576a54d130761b8a86e6cad8d869bfe02bae044e",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/AGENT_CAPABILITY_AND_MODEL_ROUTING.md",
+      "size_bytes": 5181,
+      "sha256": "d5bea1f6ed18658105031d46c9e3a5fa55894b2d169ca830f44ba0eaf1a50fbf",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/ARCHITECTURE_V3_3.md",
+      "size_bytes": 1969,
+      "sha256": "1b65aa11475fbe342d1dc06c5323d5fcadecae29e95a0d34209135b1573128bc",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/EXTERNAL_REPO_AUDIT.md",
+      "size_bytes": 12424,
+      "sha256": "71f1d060520c4f9ef7f041a9f268b546462a54ed1c2d8493bd4874d7c9c7b310",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/MCP_INTEGRATION.md",
+      "size_bytes": 3266,
+      "sha256": "1dab0607ddc2c0fb395c66b985dbbbbec7b65cc6ea5b925a5699fd20552f7d18",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/PHASE_01_6A_BASELINE_AUDIT.md",
+      "size_bytes": 5503,
+      "sha256": "53373ce4c55aed68065ef08efb3366c346dbfad8494116dce92bdfef6f89bcf4",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/PHASE_01_6B_IMPLEMENTATION_PLAN.md",
+      "size_bytes": 2403,
+      "sha256": "d8dc0b37902f738bae3e0e9696077c8ea0c1a73ceeefacd0c365b1d820e54e38",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/PHASE_02A_DESIGN.md",
+      "size_bytes": 4571,
+      "sha256": "f5b079a6761756a27b4f6088649ddaf4f9d3f1880e0b990347f15d6dc7b2cc09",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/PHASE_02_ROADMAP.md",
+      "size_bytes": 1966,
+      "sha256": "9828b6da1628668681135f83fe19fde15f34482eb0ad2dca0d19c781597eaf69",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/evidence/builtin_research_explorer_evidence.json",
+      "size_bytes": 352,
+      "sha256": "af8e8661e652f92ade162f3d62629c2afcf698480cce7d6c1ed8e13ac48f1658",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/evidence/independent_verifier_report_v4.json",
+      "size_bytes": 2013,
+      "sha256": "d0af56d23fef18778743c548a9dda2f1c6dc6c442d4935f01e06a4a34d67d3d4",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/evidence/producer_reference_dna_v4.json",
+      "size_bytes": 10680,
+      "sha256": "c519c0ac09654d04e13ded09e41189dcc774d3efcc83ac2275b020da52680c28",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/evidence/task_handoff_producer_01.json",
+      "size_bytes": 2858,
+      "sha256": "8b1fa96ce8dc9c056b600612849240d1c1237a5ed0845e18101cddedc38c512b",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/evidence/task_handoff_verifier_02.json",
+      "size_bytes": 3316,
+      "sha256": "ea27cd74f5f3364c515fd961e8950d6b373fb915073dcc130f839e6275970706",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/v3_1_foundation/HYBRID_EXECUTION.md",
+      "size_bytes": 1063,
+      "sha256": "e669298da38df33e3899d032ae0235b880f204855006128b02714c701f516712",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/v3_1_foundation/MCP_EXECUTION.md",
+      "size_bytes": 989,
+      "sha256": "f2fa68198e2c0d3512b1a6dfeba942a1906511a48d5348583cfe74288ad35f46",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/v3_1_foundation/rea_video_upstream.md",
+      "size_bytes": 1501,
+      "sha256": "b63d1c84a7fdf3d4117453a584e5778a4dd0027a1bd816bf4d0313f7cfbf100c",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "docs/v3_1_foundation/reference_analysis.md",
+      "size_bytes": 3573,
+      "sha256": "e28961780b7544c36f0d9782093c5bd88c049df4edf032a9420498110d2d9f11",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "engines/__init__.py",
+      "size_bytes": 404,
+      "sha256": "326087871ec68dd4087089b1f2125f20d57881a9dd00e6fb895319536b284857",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "engines/blender_xdx_engine.py",
+      "size_bytes": 13454,
+      "sha256": "b1285b96e02aeb431dba9f7b228acde252b77e5000463da260fd15a5a7a24a95",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "engines/ffmpeg_engine.py",
+      "size_bytes": 3748,
+      "sha256": "e662168270ae0108cd909fdbfc8e9f617ef70cb870edecfb69f97af66926e30f",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "engines/preset_executors.py",
+      "size_bytes": 14702,
+      "sha256": "4811c08d3d115518a605ca386e6dd29556e8b1e690eadd84d2c602a87a6ad4a1",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "engines/web/remotion_timeline_spec.mjs",
+      "size_bytes": 2032,
+      "sha256": "db14afe7bba972ebc8652354e8092145b9a2036665134992a6ca58cb52e47e38",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "engines/web/three_deterministic_scene.mjs",
+      "size_bytes": 3187,
+      "sha256": "5d513fecb05157528a72fc58a77b8e0e1212ae8125e91dd95258f1a388c602b2",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "engines/web_engines.py",
+      "size_bytes": 3184,
+      "sha256": "53ad3a72afa96f80b3c80f5e0f20a1d3f39497c3ccabdb120f5815491f6a11e6",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "governance/__init__.py",
+      "size_bytes": 236,
+      "sha256": "6a7cf83d6acfb9d38705fc9bd0d48c3e0e7e6cfa2ff28d4d921e162eebd6d8ee",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "governance/permission_policy.py",
+      "size_bytes": 3728,
+      "sha256": "695ea31af395e2848904c8fc4af35a912f8c3718f981c9c4b32ade68ecb02088",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "intelligence/__init__.py",
+      "size_bytes": 3966,
+      "sha256": "5b9ed8a927edc77cd7454ac272fffd0243913a7a3e68186224adf0562dd6dfec",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "intelligence/asset_management.py",
+      "size_bytes": 44136,
+      "sha256": "b39d2b84142a5461ce6f71d2228ef77895689812f34bd21fe36232b18684114f",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "intelligence/asset_style_converter.py",
+      "size_bytes": 16580,
+      "sha256": "91647084ad9474edf2e579096ceb2465c58f5e98487f10e16c77071de9af555e",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "intelligence/authored_showcase_150s.py",
+      "size_bytes": 63769,
+      "sha256": "74ceca37ad7ddbb60d23092b21cb5f3f77794a4710f7c1b5be3e666af34e4cc0",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "intelligence/creative_pipeline.py",
+      "size_bytes": 62193,
+      "sha256": "547cdd1649817e35ab86aec11fc73748af21f7f73921d47dc4c3d551e153ab77",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "intelligence/procedural_geometry.py",
+      "size_bytes": 47678,
+      "sha256": "08a7c7e8a6bad9e727bbfbbaa79c628050bb3c3dc48ef48682863b9e9eede496",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "intelligence/rea_reference_intelligence.py",
+      "size_bytes": 12981,
+      "sha256": "030d1c5e57205ddac084f5a1f8508d5b3a15c2f72f85a22156983fd8afd20991",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "intelligence/reference_database_bridge.py",
+      "size_bytes": 19168,
+      "sha256": "74638bddb70e3181e997d9fdc8d4cc0c0294ddf711386bd8d9f05fe65ac20fb1",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "intelligence/state_and_approval.py",
+      "size_bytes": 33498,
+      "sha256": "444ba993c63f89ae949ae01bb4b859e5380aec5fbb3360f56cc2f672db3fb99a",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "intelligence/visual_qc_engine.py",
+      "size_bytes": 8798,
+      "sha256": "25ca0d5f580f270e1b7a7e9988efc96b4edeae8b4d9fd8ee1dd450cb44711fca",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/__init__.py",
+      "size_bytes": 179,
+      "sha256": "17cac08294398f2ced3dc393034d41b79d875397abb1c9830bb98eb49003d179",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/asset_3d_library.json",
+      "size_bytes": 2175,
+      "sha256": "2c8db871074f807d17e9e4e3a8b6d545ec0daed8e57162a0adb201012e9d6209",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/audio_sfx_library.json",
+      "size_bytes": 2173,
+      "sha256": "2d65373ef5743d9ffe6ee562bcf5b0713c6d8361caab58496c604a755d19dd43",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/camera_library.json",
+      "size_bytes": 2924,
+      "sha256": "dda1a9f8b22497bc3e8b9a6f640b5c5dce99bf84ac4c256b6a426a0b2aec5edd",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/caption_library.json",
+      "size_bytes": 2627,
+      "sha256": "e971888df08032506d0615aa6ee7655a513e1aeb6dceb1b14dece8818dd77899",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/character_animation_library.json",
+      "size_bytes": 2987,
+      "sha256": "06d3cd7b750727323839ca0c6e1ba0077fee522a36f76b9e16e4729c2737ca32",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/environment_library.json",
+      "size_bytes": 3404,
+      "sha256": "095040e8cf03d02b38fba3a7d98165eca24f5bff43c8e43294f92c4d9d18fd62",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/facial_expression_library.json",
+      "size_bytes": 2767,
+      "sha256": "313669b38e6e71cf48f10d4a0ddfe15516d9a976f968cc3049baf505346d60c5",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/lighting_library.json",
+      "size_bytes": 2136,
+      "sha256": "7bc9cc703f3aa51e0a0d2a504fb8859444ccbcd6e299d7a328173f48c2f650c8",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/lip_sync_library.json",
+      "size_bytes": 2264,
+      "sha256": "4cc989d85f23fb4a7bdf555951252df11b325526801feba5a41c11ecdcff0226",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/loader.py",
+      "size_bytes": 4293,
+      "sha256": "4c0ad10afe097013c213ed23b0978b7fbef7c9518ac8722c903bdc7cb3f669db",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/material_library.json",
+      "size_bytes": 1953,
+      "sha256": "7e14abc330341a6e0c612e0467f11fcca9bdc241a15e7d66b9404efa34e224c6",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/motion_library.json",
+      "size_bytes": 3098,
+      "sha256": "94b5f0e2dde76a43edbc4ab0e75820d5612c1616bdfccef1af9d1ee6e676410d",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/particle_library.json",
+      "size_bytes": 2367,
+      "sha256": "adb4bbd11bcc709c266b7a0c1dded6144d110b8766b058069d124e6e391179b5",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/transition_library.json",
+      "size_bytes": 2111,
+      "sha256": "4c450290745d24cff4887f9f5a0eeaea67298468132f957a238895f2d6aed710",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/typography_library.json",
+      "size_bytes": 2320,
+      "sha256": "996c68b0ebe0ab4ca1a55fa3171902f312d9ad37f5bb67200089c7d0293891bc",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/vfx_library.json",
+      "size_bytes": 2315,
+      "sha256": "0b35acf6e7ac703e3a8a2dceb21b3df9d486f13896ae548f61bf9403e8dd2d47",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "libraries/visual_explainer_library.json",
+      "size_bytes": 2341,
+      "sha256": "d39134e7c03d617a0c76f9a65be9d96adbbdfea35ea9b08f129843e4d1ec854e",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "memory/README.md",
+      "size_bytes": 1073,
+      "sha256": "efdcc01ae9dd8683246c176dac5eb06cc39da10b00dde330e8a40aa7af91fe47",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "memory/__init__.py",
+      "size_bytes": 480,
+      "sha256": "b442af217299ced610ff3cec42f25711e82b8b1d07fb82c6a16a520b1a502220",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "orchestration/__init__.py",
+      "size_bytes": 829,
+      "sha256": "1f24d667c77975e3afe3fe8fc0bf3d2843fe7d9c57f68dbcd31abc599ef20677",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "orchestration/agent_registry.py",
+      "size_bytes": 42208,
+      "sha256": "f4743cbcd44603cfec5a64cf38e3d5939fc315873592ea07ee783fe69de863e0",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "orchestration/capability_discovery.py",
+      "size_bytes": 6552,
+      "sha256": "a352c6d1c379758419f4694033f2a9028db4c643841348eef26874e9773c60a5",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "orchestration/handoff_manager.py",
+      "size_bytes": 13752,
+      "sha256": "725410921fe6523b2fe2fedb8254fb75f374a23d0eae822bb14c00986c050455",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "orchestration/master_director_config.json",
+      "size_bytes": 5874,
+      "sha256": "f611307e19d41f3c796286183660b70175a50be0a98365996df0d5d6a9adba15",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "orchestration/task_router.py",
+      "size_bytes": 3496,
+      "sha256": "9c55c39e75710321c8fb163f24a65158d4249269b324a129a06e9b630d2cf81c",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "package-lock.json",
+      "size_bytes": 9452,
+      "sha256": "89eb42a0ce5f061a26bf948d21b1970576cd1be468ec99b079f0ef5295080398",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "package.json",
+      "size_bytes": 799,
+      "sha256": "e43688fdd0786a9d3d98a959c5d55efb67bb6e1b6516ffd0339a00016f233d61",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "pyproject.toml",
+      "size_bytes": 980,
+      "sha256": "24397bb6f4e8dfce03abadeaaea750030c1c2cd90f392f6b32ed83a3f15151c2",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/.gitattributes",
+      "size_bytes": 42,
+      "sha256": "bfe2e7093f352205764534b2fc590dd92addf7e46dc6e29e66e6701706a9e581",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/.gitignore",
+      "size_bytes": 52,
+      "sha256": "88dd1061abc21c1668663dd52981679f524ad0d7644c89c42037e8f09f328b80",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/README.md",
+      "size_bytes": 3789,
+      "sha256": "034b1bde04843027ac3824df71e74ae5456cea135c8b7fdfde43d86914b83200",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/genre_registry.json",
+      "size_bytes": 671,
+      "sha256": "8b2a456579d80dc241562f6aaa3c214e0529c3c7e77657f60eccd800614cc67e",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/integration/AGENT_REFERENCE_RULES.md",
+      "size_bytes": 2603,
+      "sha256": "c1ba00bdb029168bdb3f3fa6230c8fa89610b975aae5ce2fd3586b4c91a81757",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/profiles/reference_pattern_registry.json",
+      "size_bytes": 6149,
+      "sha256": "57a0171bbfddd11f02daadb1b42bd187a347ffb3914e9f7b5ed8e8e2dc4bb3e1",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/reference_registry.json",
+      "size_bytes": 2331,
+      "sha256": "f300d4bf1709b020a1f204829e2e2a25e1e2599eedc2fb6625310f414e8f03c0",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/references/explainer/REF-002-Yakhchal/metadata.json",
+      "size_bytes": 1313,
+      "sha256": "a0ee889bc7dd4ae0af4af1c529d0d699fb59cdf5130018f65faf16e257cac9ec",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/references/explainer/REF-002-Yakhchal/original.mp4",
+      "size_bytes": 38669358,
+      "sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+      "included_in_zip_snapshot": false
+    },
+    {
+      "path": "reference_database/references/explainer/REF-002-Yakhchal/prior_analysis.json",
+      "size_bytes": 1565,
+      "sha256": "f2c6333781f6b44c040323159b6b6223942f8327303e6c113a7fe1e177acc19a",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json",
+      "size_bytes": 8376,
+      "sha256": "77d5dfc35b57d3928c62e021606f64b44b947af36f9849f4b6b222bdbbe8f61b",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.md",
+      "size_bytes": 4190,
+      "sha256": "31a738f52a0a1d017727aab8fbf23f2cf46abf6989ab191d7b408cfe179efa8b",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/references/social_satire/REF-001/metadata.json",
+      "size_bytes": 1269,
+      "sha256": "c852b49bcf81fe1123b314dd4f51389956a966af97e8431d7b0659ed03b4370c",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/references/social_satire/REF-001/original.mp4",
+      "size_bytes": 27026130,
+      "sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
+      "included_in_zip_snapshot": false
+    },
+    {
+      "path": "reference_database/references/social_satire/REF-001/prior_analysis.md",
+      "size_bytes": 1600,
+      "sha256": "3610a314576f8aebba38c79431616862fda19e095548683373ed00cfae4a11f2",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/references/social_satire/REF-001/rea_analysis_v3_4.json",
+      "size_bytes": 8264,
+      "sha256": "82266ad01c5072368753a86553949207d52b69572098d0ec4dde848eae02f8cf",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/references/social_satire/REF-001/rea_analysis_v3_4.md",
+      "size_bytes": 3996,
+      "sha256": "9a12e1e29b010bd73e88130a92f5b9aa0f43a3da1677082a46427571373bae06",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "reference_database/scripts/reference_db.py",
+      "size_bytes": 5283,
+      "sha256": "a749e85f5bfd519466adcc8814d8302063afb10a1e1f85a8ee7c9c5791aff20f",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "registry/agent_registry_v4.json",
+      "size_bytes": 33090,
+      "sha256": "5645715637164637f25cc65bca4e376ab157584344fd134d34ef92a104a41c3e",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "registry/asset_registry.json",
+      "size_bytes": 8747,
+      "sha256": "67627c9c7803864ff4a7d594f1e93db3847db2aa21ecac55a32f204683e6d5c5",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "registry/dependency_registry.json",
+      "size_bytes": 7717,
+      "sha256": "41ebbe24aa3e1ccc2315be94a3bf47f9d71b2bb214278098daed97db6ddb08e4",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "registry/engine_registry.json",
+      "size_bytes": 4332,
+      "sha256": "af0a981c44b9500bea36be49466ffd43bbefd572cd876861b776cb525655f21c",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "registry/license_registry.json",
+      "size_bytes": 5199,
+      "sha256": "67aa5be8066214f1665ba32b7400159558d167da8d06786fb7203f89bed93ad3",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "registry/repository_registry.json",
+      "size_bytes": 24007,
+      "sha256": "19be906538c9a20b5f7eccd76ce9dc2c911ae3a78439269b349b0e0c4bc02e24",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "requirements.lock",
+      "size_bytes": 378,
+      "sha256": "f289a5b862ef3355909bce0c5f68c4a3e55a3aa379346d5dc2a4e4e0845eb667",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "schemas/agent_role_contract.schema.json",
+      "size_bytes": 4746,
+      "sha256": "fd31bc22988c78c082eee2823946a6b92da50764546d9459ccb824198f2b5d9f",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "schemas/approval_package.schema.json",
+      "size_bytes": 3413,
+      "sha256": "b5fa99efc6b7faba34deea0ff801f47a6a24de0119892ecdf71e61738b0cefbd",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "schemas/asset_registry.schema.json",
+      "size_bytes": 3726,
+      "sha256": "fc9a7b576a33a2b26a1e5c965161b42ae8b00a1d47f3bd7195f6815b4a100876",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "schemas/blender_shot_manifest.schema.json",
+      "size_bytes": 6012,
+      "sha256": "1557b1e3deaa97920a466e0c60221e3ebf89409a9ab6679c9edb63994d22a475",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "schemas/creative_intelligence.schema.json",
+      "size_bytes": 8145,
+      "sha256": "ba6338ef8d654be16344f40058eb61ced6cfb88b3d00e8616c576c68a9fffc23",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "schemas/dependency_registry.schema.json",
+      "size_bytes": 1370,
+      "sha256": "c47e657c8063894f744428004af05dbf352f36616f69e76ab17d53e2be9f68cd",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "schemas/engine_plan.schema.json",
+      "size_bytes": 4803,
+      "sha256": "41f31a92c6948fabf835b135b28fd26e1813068fc6d7a95a7047f93f47172be8",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "schemas/preset_library.schema.json",
+      "size_bytes": 2415,
+      "sha256": "616dbdcaa9168d041c139474b079204dd5881d606dbaa0913d8db6f69a85a46f",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "schemas/project_state.schema.json",
+      "size_bytes": 3713,
+      "sha256": "bab86007431f8c4734c09a7871ac79793e1f4e54947270d8db137c1702e24e1b",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "schemas/qc_report.schema.json",
+      "size_bytes": 4728,
+      "sha256": "eb6c746dff382f61e477b19ac4ca85ab2d32bfa890dacc36bcc9fd0d68dea10b",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "schemas/semantic_asset_spec.schema.json",
+      "size_bytes": 4627,
+      "sha256": "bff1b72ccc38ef4876e7b0e59e2cb10c312fe149da86e8355b83a39ed9363b0a",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "schemas/storyboard.schema.json",
+      "size_bytes": 12403,
+      "sha256": "83a3be98746986fdc6b18389f188efa1e439526d4aa7a81bb9787e16c8d5de01",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "schemas/task_handoff.schema.json",
+      "size_bytes": 4826,
+      "sha256": "c585bf402e59c4e9f85ab79a7ed192c0909726aa65826aa8ffba3a8fed741df0",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "scripts/adaptive_detect.py",
+      "size_bytes": 1097,
+      "sha256": "e1fd501cd6c2d8492d720e3146c9d52daa7250eab371ec6c8ae3373958dc38bf",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "scripts/approval_gate.py",
+      "size_bytes": 1509,
+      "sha256": "323a082a3e51f683345e52ca6e3b56a624b2e326895f72415e9039892f394b2b",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "scripts/mcp_discovery.py",
+      "size_bytes": 996,
+      "sha256": "718a7528024e1f96ad2edae5067f57360c15a692e992845d476888d91865c489",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "scripts/rea_analyze.py",
+      "size_bytes": 1174,
+      "sha256": "77d451cd5ddc560b6e0652f4a29d2f4ed3868d5ff798f087be1cb2a82a933e97",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "scripts/xdx_studio.py",
+      "size_bytes": 9323,
+      "sha256": "4faca7faa8f86f1474347b0e9f4bf2f747418a8c853512cf875faaee22f6f1b0",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "tests/fixtures/synthetic.mp4",
+      "size_bytes": 74732,
+      "sha256": "25b6ea746d7d57d22dd9649464e9a13a23e88e9a8352327789cf734baa05027a",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "tests/fixtures/v3_1_regression/approval_gate_test.json",
+      "size_bytes": 926,
+      "sha256": "f037baba445ed06f9cb2c6b49d086e48fc24ac1b9e0ad61ac52956c77f38e99a",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "tests/fixtures/v3_1_regression/hybrid_approval_gate_test.json",
+      "size_bytes": 225,
+      "sha256": "74855f668dc904fed189d38470e0af163d70189e84ca99f2c56acc1434cd1979",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "tests/fixtures/v3_1_regression/real_candidates.json",
+      "size_bytes": 14877,
+      "sha256": "3dcb1d8c14e799894c8442cdc345c421cbbcf9ec0940983da996005d945f9f53",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "tests/fixtures/v3_1_regression/synthetic_qc.json",
+      "size_bytes": 251,
+      "sha256": "717ac81739ed2177582a75e516206eb4baed8cdc671f43aa2abe5324a968681b",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "tests/test_approval_state_rea_and_qc.py",
+      "size_bytes": 5311,
+      "sha256": "23fe32a7f0b004ae2acd5e6c3ee06549ea87c9ea98ce2faab3bcce3b72a91c98",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "tests/test_asset_management.py",
+      "size_bytes": 5494,
+      "sha256": "b45ecda4deaadf3dcbab620205751c5a1e8cf5654adb95b307367cd74522b8d1",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "tests/test_mcp_discovery_readonly.py",
+      "size_bytes": 4391,
+      "sha256": "bc8f85d3f3a814abebe393b7b9afea939a73c6d7f4ebd25c74228875a7a843b9",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "tests/test_phase01_5_assets_compiler_and_presets.py",
+      "size_bytes": 12525,
+      "sha256": "6208b5fe910f510dd48191c9d04585581cc8145ac82bb833bd80d0b7d8356563",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "tests/test_phase01_5_security_and_state.py",
+      "size_bytes": 8442,
+      "sha256": "f024d72f88d1e078b4d39fe2a1ac0aac8672b1e220b915c669847fd6a5683380",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "tests/test_phase01_5_storyboard_and_creative.py",
+      "size_bytes": 5985,
+      "sha256": "d204a15fb7936cb08003c2cfc96a414696861238e925b526b752b9d985430f24",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "tests/test_phase01_6a_multi_agent_foundation.py",
+      "size_bytes": 17396,
+      "sha256": "e2b35a401b59fa6a07b297f875f230920ca86383b961da5cf6e05d03e4ae177e",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "tests/test_reference_database_integration.py",
+      "size_bytes": 11232,
+      "sha256": "b48a478196960adaa05834525452ed12732cb30d32a5ee270bdb233200f2d511",
+      "included_in_zip_snapshot": true
+    },
+    {
+      "path": "tests/test_structure_schemas_and_runtimes.py",
+      "size_bytes": 4604,
+      "sha256": "4ba70e755e5a6444c2161cddd338902a245ce7a1d40c4edd08b1bfeaebe11016",
+      "included_in_zip_snapshot": true
+    }
+  ]
+}

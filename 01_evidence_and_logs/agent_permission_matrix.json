@@ -1,0 +1,301 @@
+{
+  "master_director": {
+    "department": "orchestration",
+    "read_only": false,
+    "requires_fresh_context": false,
+    "max_concurrent_instances": 1,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "replace_file_content",
+      "run_command",
+      "manage_task",
+      "invoke_subagent",
+      "define_subagent",
+      "send_message",
+      "manage_subagents",
+      "list_skills",
+      "lookup_skill",
+      "ask_question"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "topic_research_agent": {
+    "department": "creative_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 2,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "google_search",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "rea_video_reference_analyst": {
+    "department": "creative_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 2,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "run_command",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "creative_director": {
+    "department": "creative_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 1,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "replace_file_content",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "scriptwriter_agent": {
+    "department": "creative_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 1,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "replace_file_content",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "storyboard_director": {
+    "department": "creative_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 1,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "replace_file_content",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "character_design_agent": {
+    "department": "creative_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 1,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "replace_file_content",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "art_director": {
+    "department": "creative_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 1,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "replace_file_content",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "asset_specialist": {
+    "department": "production_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 2,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "run_command",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "blender_specialist": {
+    "department": "production_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 1,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "run_command",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": true,
+    "can_self_approve": false
+  },
+  "threejs_specialist": {
+    "department": "production_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 2,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "replace_file_content",
+      "run_command",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "remotion_specialist": {
+    "department": "production_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 1,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "replace_file_content",
+      "run_command",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "motion_director": {
+    "department": "production_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 1,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "replace_file_content",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "cinematographer": {
+    "department": "production_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 1,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "replace_file_content",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "vfx_specialist": {
+    "department": "production_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 1,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "replace_file_content",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "audio_director": {
+    "department": "production_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 1,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "replace_file_content",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "caption_specialist": {
+    "department": "production_department",
+    "read_only": false,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 1,
+    "allowed_tools": [
+      "view_file",
+      "write_to_file",
+      "replace_file_content",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "preproduction_verifier": {
+    "department": "independent_verification_department",
+    "read_only": true,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 2,
+    "allowed_tools": [
+      "view_file",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "visual_critic": {
+    "department": "independent_verification_department",
+    "read_only": true,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 1,
+    "allowed_tools": [
+      "view_file",
+      "run_command",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "technical_auditor": {
+    "department": "independent_verification_department",
+    "read_only": true,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 2,
+    "allowed_tools": [
+      "view_file",
+      "run_command",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  },
+  "success_auditor": {
+    "department": "independent_verification_department",
+    "read_only": true,
+    "requires_fresh_context": true,
+    "max_concurrent_instances": 1,
+    "allowed_tools": [
+      "view_file",
+      "run_command",
+      "lookup_skill"
+    ],
+    "can_mutate_blender_post_approval": false,
+    "can_self_approve": false
+  }
+}

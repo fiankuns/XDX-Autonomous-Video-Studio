@@ -1,0 +1,79 @@
+{
+  "task_id": "TASK-P016A-VERIFIER-02",
+  "project_id": "phase_01_6a_foundation_test",
+  "parent_task_id": "TASK-P016A-PRODUCER-01",
+  "assigned_agent": "preproduction_verifier",
+  "goal": "Independently verify Producer Reference DNA output, 18-field TaskHandoff schema, TEAM.md charter, and 20-specialist AgentRegistry in a separate read-only context without mutating any file.",
+  "context": {
+    "project_state": "PREPRODUCTION_QC",
+    "genre_ids": [
+      "explainer",
+      "social_satire"
+    ],
+    "reference_ids": [
+      "REF-001",
+      "REF-002"
+    ],
+    "workspace_mode": "inherit",
+    "notes": "Phase 01.6A Independent Verifier fresh-context check."
+  },
+  "input_artifacts": [
+    "docs/evidence/producer_reference_dna_v4.json",
+    "docs/evidence/task_handoff_producer_01.json",
+    "TEAM.md",
+    "schemas/task_handoff.schema.json",
+    "registry/agent_registry_v4.json",
+    "reference_database/references/social_satire/REF-001/rea_analysis_v3_4.json",
+    "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json"
+  ],
+  "input_artifact_hashes": {
+    "docs/evidence/producer_reference_dna_v4.json": "c519c0ac09654d04e13ded09e41189dcc774d3efcc83ac2275b020da52680c28",
+    "docs/evidence/task_handoff_producer_01.json": "8b1fa96ce8dc9c056b600612849240d1c1237a5ed0845e18101cddedc38c512b",
+    "TEAM.md": "9d4b2b9d42ce5f8981a10a83ebfdf740527f8e865d7df12cdd0360046b96764d",
+    "schemas/task_handoff.schema.json": "c585bf402e59c4e9f85ab79a7ed192c0909726aa65826aa8ffba3a8fed741df0",
+    "registry/agent_registry_v4.json": "5645715637164637f25cc65bca4e376ab157584344fd134d34ef92a104a41c3e",
+    "reference_database/references/social_satire/REF-001/rea_analysis_v3_4.json": "82266ad01c5072368753a86553949207d52b69572098d0ec4dde848eae02f8cf",
+    "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json": "77d5dfc35b57d3928c62e021606f64b44b947af36f9849f4b6b222bdbbe8f61b"
+  },
+  "dependencies": [
+    "TASK-P016A-PRODUCER-01"
+  ],
+  "owned_artifacts": [],
+  "allowed_tools": [
+    "view_file"
+  ],
+  "forbidden_actions": [
+    "Silently edit, patch, or overwrite any Producer or repository file",
+    "Approve ungrounded claims or copyright-copying adaptations"
+  ],
+  "expected_output": {
+    "summary": "Independent JSON review report containing verdict, checked_criteria, and structured defects list.",
+    "output_artifacts": [],
+    "output_format": "json"
+  },
+  "return_schema": "xdx.independent-review.v4.0",
+  "done_when": [
+    {
+      "criterion_id": "DONE_01",
+      "check_type": "no_unapproved_mutation",
+      "target": "docs/evidence/producer_reference_dna_v4.json",
+      "description": "Zero byte modifications to any inspected Producer or repository file during review."
+    },
+    {
+      "criterion_id": "DONE_02",
+      "check_type": "independent_review_verdict",
+      "target": "TASK-P016A-PRODUCER-01",
+      "description": "Explicit PASS or REVISION_REQUIRED verdict with structured criteria checks."
+    }
+  ],
+  "required_evidence": [
+    "Cross-check of timestamps and SHA-256 against rea_analysis_v3_4.json",
+    "Verification of 18-field task_handoff.schema.json & 20-specialist registry"
+  ],
+  "retry_budget": {
+    "max_attempts": 1,
+    "attempts_used": 1,
+    "timeout_seconds": 180
+  },
+  "status": "COMPLETED"
+}

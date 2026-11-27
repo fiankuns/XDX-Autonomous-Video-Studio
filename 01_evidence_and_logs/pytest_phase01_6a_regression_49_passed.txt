@@ -1,0 +1,63 @@
+Exit Code: 0
+
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /opt/pyenv/versions/3.12.16/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/antigravity/fiankuns/XDX-Autonomous-Video-Studio
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0
+collecting ... collected 49 items
+
+tests/test_approval_state_rea_and_qc.py::test_13_item_approval_gate_and_state_machine_across_hybrid_genres PASSED [  2%]
+tests/test_approval_state_rea_and_qc.py::test_rea_video_reference_analysis_and_visual_qc_on_synthetic_mp4 PASSED [  4%]
+tests/test_asset_management.py::test_license_validator_accepts_permissive_and_blocks_unlicensed_or_copyleft PASSED [  6%]
+tests/test_asset_management.py::test_cache_manager_sha256_integrity_and_lru_quota PASSED [  8%]
+tests/test_asset_management.py::test_9_step_asset_procurement_procedural_and_external_and_retargeting PASSED [ 10%]
+tests/test_mcp_discovery_readonly.py::CrossProjectMCPDiscoveryTests::test_inprocess_readonly_discovery_and_mutation_guard PASSED [ 12%]
+tests/test_mcp_discovery_readonly.py::CrossProjectMCPDiscoveryTests::test_live_streamable_http_cross_project_discovery_without_touching_repo PASSED [ 14%]
+tests/test_phase01_5_assets_compiler_and_presets.py::test_12_semantic_procedural_asset_categories_and_real_geometry[lamp] PASSED [ 16%]
+tests/test_phase01_5_assets_compiler_and_presets.py::test_12_semantic_procedural_asset_categories_and_real_geometry[table] PASSED [ 18%]
+tests/test_phase01_5_assets_compiler_and_presets.py::test_12_semantic_procedural_asset_categories_and_real_geometry[chair] PASSED [ 20%]
+tests/test_phase01_5_assets_compiler_and_presets.py::test_12_semantic_procedural_asset_categories_and_real_geometry[bed] PASSED [ 22%]
+tests/test_phase01_5_assets_compiler_and_presets.py::test_12_semantic_procedural_asset_categories_and_real_geometry[door] PASSED [ 24%]
+tests/test_phase01_5_assets_compiler_and_presets.py::test_12_semantic_procedural_asset_categories_and_real_geometry[window] PASSED [ 26%]
+tests/test_phase01_5_assets_compiler_and_presets.py::test_12_semantic_procedural_asset_categories_and_real_geometry[wardrobe] PASSED [ 28%]
+tests/test_phase01_5_assets_compiler_and_presets.py::test_12_semantic_procedural_asset_categories_and_real_geometry[book] PASSED [ 30%]
+tests/test_phase01_5_assets_compiler_and_presets.py::test_12_semantic_procedural_asset_categories_and_real_geometry[clock] PASSED [ 32%]
+tests/test_phase01_5_assets_compiler_and_presets.py::test_12_semantic_procedural_asset_categories_and_real_geometry[tree] PASSED [ 34%]
+tests/test_phase01_5_assets_compiler_and_presets.py::test_12_semantic_procedural_asset_categories_and_real_geometry[modular_building] PASSED [ 36%]
+tests/test_phase01_5_assets_compiler_and_presets.py::test_12_semantic_procedural_asset_categories_and_real_geometry[simple_vehicle] PASSED [ 38%]
+tests/test_phase01_5_assets_compiler_and_presets.py::test_primitive_placeholder_blocked_in_production_and_attribution_preserved PASSED [ 40%]
+tests/test_phase01_5_assets_compiler_and_presets.py::test_cache_hardening_safe_paths_ssrf_html_spoof_and_zip_slip PASSED [ 42%]
+tests/test_phase01_5_assets_compiler_and_presets.py::test_blender_shot_compiler_preset_executors_and_cross_engine_compatibility PASSED [ 44%]
+tests/test_phase01_5_security_and_state.py::test_critical_audit_regression_negative_conditional_quoted_and_ambiguous_approvals PASSED [ 46%]
+tests/test_phase01_5_security_and_state.py::test_invalid_state_transitions_ai_self_approval_expiry_and_revocation PASSED [ 48%]
+tests/test_phase01_5_security_and_state.py::test_mcp_tool_allowlist_unknown_tool_rejection_and_live_tamper_blocking PASSED [ 51%]
+tests/test_phase01_5_storyboard_and_creative.py::test_hierarchical_storyboard_across_durations_and_genres[15-genres0] PASSED [ 53%]
+tests/test_phase01_5_storyboard_and_creative.py::test_hierarchical_storyboard_across_durations_and_genres[30-genres1] PASSED [ 55%]
+tests/test_phase01_5_storyboard_and_creative.py::test_hierarchical_storyboard_across_durations_and_genres[60-genres2] PASSED [ 57%]
+tests/test_phase01_5_storyboard_and_creative.py::test_hierarchical_storyboard_across_durations_and_genres[150-genres3] PASSED [ 59%]
+tests/test_phase01_5_storyboard_and_creative.py::test_hierarchical_storyboard_across_durations_and_genres[180-genres4] PASSED [ 61%]
+tests/test_phase01_5_storyboard_and_creative.py::test_placeholder_narration_and_offtopic_script_rejected PASSED [ 63%]
+tests/test_phase01_5_storyboard_and_creative.py::test_unverified_factual_research_rejected PASSED [ 65%]
+tests/test_phase01_6a_multi_agent_foundation.py::test_team_charter_and_additive_v4_structure PASSED [ 67%]
+tests/test_phase01_6a_multi_agent_foundation.py::test_agent_registry_20_specialists_and_frontmatter_validation PASSED [ 69%]
+tests/test_phase01_6a_multi_agent_foundation.py::test_18_field_handoff_dag_dependencies_and_parallel_write_conflicts PASSED [ 71%]
+tests/test_phase01_6a_multi_agent_foundation.py::test_independent_verifier_blocks_silent_artifact_mutation PASSED [ 73%]
+tests/test_phase01_6a_multi_agent_foundation.py::test_permission_policy_default_deny_and_mcp_guards PASSED [ 75%]
+tests/test_phase01_6a_multi_agent_foundation.py::test_capability_discovery_router_modes_and_cli PASSED [ 77%]
+tests/test_phase01_6a_multi_agent_foundation.py::test_recorded_live_subagent_producer_and_independent_verifier_evidence PASSED [ 79%]
+tests/test_reference_database_integration.py::test_git_lfs_real_binaries_and_cli_verify PASSED [ 81%]
+tests/test_reference_database_integration.py::test_fail_closed_on_lfs_pointer_or_missing_media PASSED [ 83%]
+tests/test_reference_database_integration.py::test_prior_analyses_preserved_and_versioned_rea_v3_4_complete PASSED [ 85%]
+tests/test_reference_database_integration.py::test_automatic_genre_and_alias_routing PASSED [ 87%]
+tests/test_reference_database_integration.py::test_specific_id_and_multi_reference_selection PASSED [ 89%]
+tests/test_reference_database_integration.py::test_creative_pipeline_and_approval_gate_with_references PASSED [ 91%]
+tests/test_structure_schemas_and_runtimes.py::test_modular_repository_structure_and_gitignore PASSED [ 93%]
+tests/test_structure_schemas_and_runtimes.py::test_all_schemas_and_five_registries_valid PASSED [ 95%]
+tests/test_structure_schemas_and_runtimes.py::test_all_16_production_preset_libraries PASSED [ 97%]
+tests/test_structure_schemas_and_runtimes.py::test_lockfiles_and_actual_runtime_availability PASSED [100%]
+
+============================= 49 passed in 23.83s ==============================
+

@@ -1,0 +1,31 @@
+git status --porcelain: ''
+Exit Code: 0
+
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /opt/pyenv/versions/3.12.16/bin/python3
+cachedir: .pytest_cache
+rootdir: /home/antigravity/fiankuns/xdx-blender-studio
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 17 items
+
+tests/test_addon_package.py::AddonPackageTests::test_dist_zip_contains_expected_modules PASSED [  5%]
+tests/test_mobile_guard.py::MobileGuardTests::test_apply_cycles_guard_caps_threads_and_samples PASSED [ 11%]
+tests/test_mobile_guard.py::MobileGuardTests::test_device_profile_and_configure_guard_command PASSED [ 17%]
+tests/test_mobile_guard.py::MobileGuardTests::test_resolution_clamping_for_rendered_vs_material PASSED [ 23%]
+tests/test_mobile_guard.py::MobileGuardTests::test_resolve_safe_tempdir_prefers_bpy_tempdir PASSED [ 29%]
+tests/test_relay_and_mcp.py::RelayAndMCPIntegrationTests::test_auth_enforced_on_mcp_and_relay PASSED [ 35%]
+tests/test_relay_and_mcp.py::RelayAndMCPIntegrationTests::test_outbound_relay_look_and_mcp_app_end_to_end PASSED [ 41%]
+tests/test_security.py::SecurityTests::test_bearer_token_verification PASSED [ 47%]
+tests/test_security.py::SecurityTests::test_fail_closed_config_validation PASSED [ 52%]
+tests/test_security.py::SecurityTests::test_generate_strong_token_entropy PASSED [ 58%]
+tests/test_security.py::SecurityTests::test_hmac_rejects_tampered_body_and_expired_timestamp PASSED [ 64%]
+tests/test_security.py::SecurityTests::test_hmac_sign_verify_and_replay_rejection PASSED [ 70%]
+tests/test_settings_and_render.py::SettingsAndRenderPresetTests::test_render_resolution_table PASSED [ 76%]
+tests/test_settings_and_render.py::SettingsAndRenderPresetTests::test_save_and_load_settings_roundtrip PASSED [ 82%]
+tests/test_settings_and_render.py::SettingsAndRenderPresetTests::test_sensor_fit_recommendations PASSED [ 88%]
+tests/test_socket_bridge.py::SocketBridgeTests::test_refuses_0_0_0_0_bind PASSED [ 94%]
+tests/test_socket_bridge.py::SocketBridgeTests::test_usb_adb_localhost_hmac_roundtrip PASSED [100%]
+
+============================== 17 passed in 0.88s ==============================
+

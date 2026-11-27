@@ -1,0 +1,121 @@
+{
+  "schema_version": "4.0.0-phase01.6a",
+  "environment": {
+    "os": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "python_version": "3.12.16",
+    "is_antigravity_remote_devbox": true,
+    "agy_cli_binary_in_vm": null,
+    "git_lfs_binary": "/usr/bin/git-lfs",
+    "node_binary": "/opt/nvm/current/bin/node",
+    "chromium_binary": "/usr/bin/google-chrome",
+    "ffmpeg_ready": true,
+    "threejs_ready": true,
+    "remotion_ready": true
+  },
+  "antigravity_native_multi_agent": {
+    "built_in_subagents_available": [
+      "research",
+      "self",
+      "teamwork",
+      "teamwork_preview"
+    ],
+    "session_tools_available": [
+      "define_subagent",
+      "invoke_subagent",
+      "send_message",
+      "manage_subagents",
+      "list_skills",
+      "lookup_skill"
+    ],
+    "workspace_modes": {
+      "inherit": "SUPPORTED_AND_VERIFIED",
+      "branch_git_worktree": "UNSUPPORTED_IN_REMOTE_DEVBOX",
+      "share": "UNSUPPORTED_IN_REMOTE_DEVBOX"
+    },
+    "custom_workspace_customizations": {
+      "roles_validated": 21,
+      "custom_agent_files_validated": [
+        "xdx-audio-caption-specialist",
+        "xdx-character-art-director",
+        "xdx-creative-scriptwriter",
+        "xdx-hybrid-production-engineer",
+        "xdx-master-director",
+        "xdx-preproduction-verifier",
+        "xdx-rea-reference-analyst",
+        "xdx-storyboard-cinematographer",
+        "xdx-topic-researcher",
+        "xdx-visual-technical-success-auditor"
+      ],
+      "workspace_skills_validated": [
+        "xdx-independent-audit",
+        "xdx-master-orchestration",
+        "xdx-preproduction-planning",
+        "xdx-reference-intelligence"
+      ],
+      "workspace_rules_validated": [
+        "xdx-blender-mcp-safety.md",
+        "xdx-core-governance.md",
+        "xdx-independent-verification.md"
+      ]
+    },
+    "lifecycle_hooks_json_configured": false,
+    "workspace_mcp_config_present": false
+  },
+  "model_routing": {
+    "session_orchestrator_documented": {
+      "planner": "Gemini 4 Neon (Google AI Pro/Ultra) or Gemini 4 Carbon (Enterprise)",
+      "executor": "Gemini 4 Hydrogen",
+      "selection_surface": "User-selected via Antigravity UI/CLI Model Selector ('Orchestrator')"
+    },
+    "subagent_tool_model_enum": [
+      "inherit",
+      "flash_lite",
+      "flash",
+      "pro"
+    ],
+    "active_subagent_default": "inherit"
+  },
+  "xdx_mcp_status": {
+    "discovery_source": "in_process_protocol_only_not_live_device",
+    "server_reachable_live": false,
+    "relay_device_connected": false,
+    "verification_tiers": {
+      "source_code_discovery": true,
+      "in_process_protocol_test": true,
+      "local_http_integration_test": false,
+      "live_remote_relay_reachable": false,
+      "live_android_blender_connected": false,
+      "actual_visual_feedback_verified": false
+    },
+    "scene_mutated": false
+  },
+  "reference_database": {
+    "verified_references": [
+      {
+        "id": "REF-001",
+        "sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
+        "bytes": 27026130,
+        "profile_id": "satirical_3d_vignette_storytelling_v1",
+        "status": "VERIFIED"
+      },
+      {
+        "id": "REF-002",
+        "sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+        "bytes": 38669358,
+        "profile_id": "hosted_3d_explainer_cutaway_v1",
+        "status": "VERIFIED"
+      }
+    ],
+    "registered_profiles": [
+      "hosted_3d_explainer_cutaway_v1",
+      "satirical_3d_vignette_storytelling_v1"
+    ],
+    "production_authorized": false
+  },
+  "honest_limitations": [
+    "In this remote Linux devbox (jetski_remote_agents_3p_devbox), invoke_subagent supports Workspace='inherit' only; Git worktree ('branch') and 'share' modes are blocked by the host sandbox, so single-writer artifact locking is enforced deterministically in TaskHandoffManager.",
+    "Programmatic invoke_subagent exposes tier enums ('inherit', 'flash_lite', 'flash', 'pro') rather than raw model strings like 'gemini-4-neon'; Gemini 4 Neon + Gemini 4 Hydrogen Orchestrator pairing is controlled at the user's Antigravity UI/CLI session selector.",
+    "Lifecycle PreToolUse hooks (.agents/hooks.json) and full multi-artifact ExecutionGuard are scheduled for Phase 01.6D; Phase 01.6A preserves the v3.4 fail-closed Python ApprovalGate and MCP allowlist without claiming hook-level blocking is active yet.",
+    "Live Android Vivo X200 Pro Blender relay connection is false in this cloud VM (in-process & local HTTP MCP verified; zero Blender scene mutations executed)."
+  ]
+}
