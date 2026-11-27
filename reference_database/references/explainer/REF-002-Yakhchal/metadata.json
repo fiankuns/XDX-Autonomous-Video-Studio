@@ -1,0 +1,40 @@
+{
+  "id": "REF-002",
+  "original_filename": "1001952305.mp4",
+  "genre": "explainer",
+  "tags": [
+    "explainer",
+    "education",
+    "edukasi",
+    "history",
+    "sejarah"
+  ],
+  "path": "references/explainer/REF-002-Yakhchal/original.mp4",
+  "sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+  "bytes": 38669358,
+  "metadata": "references/explainer/REF-002-Yakhchal/metadata.json",
+  "analysis_status": "PRIOR_PARTIAL_ANALYSIS",
+  "rights_status": "USER_SUPPLIED_PRIVATE_REFERENCE_RIGHTS_NOT_VERIFIED",
+  "ffprobe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "hevc",
+        "codec_type": "video",
+        "width": 720,
+        "height": 1600,
+        "avg_frame_rate": "3694000/105543"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "avg_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "105.543000",
+      "size": "38669358"
+    }
+  }
+}
