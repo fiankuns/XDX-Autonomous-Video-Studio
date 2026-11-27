@@ -277,6 +277,7 @@
                 },
                 "visual_subject": { "type": "string", "minLength": 5 },
                 "concrete_action": { "type": "string", "minLength": 12 },
+                "interaction_target_object_id": { "type": "string", "minLength": 3 },
                 "props": { "type": "array", "items": { "type": "string" } },
                 "preferred_engine": { "type": "string", "enum": ["blender", "threejs", "remotion"] },
                 "shot_size": {

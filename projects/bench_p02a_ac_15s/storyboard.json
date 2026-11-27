@@ -1,0 +1,807 @@
+{
+  "schema_version": "3.4.0",
+  "project_id": "bench_p02a_ac_15s",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "aspect_ratio": "9:16",
+  "total_frames": 450,
+  "duration_s": 15.0,
+  "style_bible_id": "xdx_stylized_3d_v4_0",
+  "story_arc": {
+    "act_1_setup": "Bima kepanasan di kamar tertutup 32 derajat lalu menekan tombol 24 derajat pada remot AC hingga kisi unit indoor terbuka.",
+    "act_2_escalation": "Penampang teknis casing AC indoor terbuka memperlihatkan kumparan evaporator dingin menyerap kalor udara kamar.",
+    "act_3_resolution": "Visualisasi aliran refrigeran membawa panas menembus dinding ke kompresor dan kondensor outdoor untuk dilepas ke udara luar."
+  },
+  "sequences": [
+    {
+      "sequence_id": "SEQ_01",
+      "act": "ACT_1",
+      "start_frame": 0,
+      "end_frame": 210,
+      "scene_ids": [
+        "SCN_01"
+      ]
+    },
+    {
+      "sequence_id": "SEQ_02",
+      "act": "ACT_2",
+      "start_frame": 210,
+      "end_frame": 450,
+      "scene_ids": [
+        "SCN_02",
+        "SCN_03"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": "SCN_01",
+      "sequence_id": "SEQ_01",
+      "environment_id": "env_bedroom_tropical_sealed_3d",
+      "start_frame": 0,
+      "end_frame": 210,
+      "beat_ids": [
+        "B01",
+        "B02"
+      ]
+    },
+    {
+      "scene_id": "SCN_02",
+      "sequence_id": "SEQ_02",
+      "environment_id": "env_ac_evaporator_cutaway_3d",
+      "start_frame": 210,
+      "end_frame": 330,
+      "beat_ids": [
+        "B03"
+      ]
+    },
+    {
+      "scene_id": "SCN_03",
+      "sequence_id": "SEQ_02",
+      "environment_id": "env_wall_split_indoor_outdoor_3d",
+      "start_frame": 330,
+      "end_frame": 450,
+      "beat_ids": [
+        "B04"
+      ]
+    }
+  ],
+  "narrative_beats": [
+    {
+      "beat_id": "B01",
+      "scene_id": "SCN_01",
+      "beat_role": "hook_overheated_character",
+      "start_frame": 0,
+      "end_frame": 105,
+      "duration_s": 3.5,
+      "shot_ids": [
+        "S001"
+      ]
+    },
+    {
+      "beat_id": "B02",
+      "scene_id": "SCN_01",
+      "beat_role": "remote_interaction",
+      "start_frame": 105,
+      "end_frame": 210,
+      "duration_s": 3.5,
+      "shot_ids": [
+        "S002"
+      ]
+    },
+    {
+      "beat_id": "B03",
+      "scene_id": "SCN_02",
+      "beat_role": "technical_cutaway_evaporator",
+      "start_frame": 210,
+      "end_frame": 330,
+      "duration_s": 4.0,
+      "shot_ids": [
+        "S003"
+      ]
+    },
+    {
+      "beat_id": "B04",
+      "scene_id": "SCN_03",
+      "beat_role": "heat_transfer_visualization",
+      "start_frame": 330,
+      "end_frame": 450,
+      "duration_s": 4.0,
+      "shot_ids": [
+        "S004"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "shot_id": "S001",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_01",
+      "beat_id": "B01",
+      "start_frame": 0,
+      "end_frame": 105,
+      "duration_frames": 105,
+      "start_time_s": 0.0,
+      "end_time_s": 3.5,
+      "duration_s": 3.5,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "narration_segment": "AC tidak menciptakan dingin melainkan memindahkan panas kamarmu.",
+      "dialogue_lines": [],
+      "action_start": "Hook karakter Bima kepanasan di kamar tertutup 32 derajat di bawah unit AC indoor berada pada posisi kontak terukur bersama prop_ac_indoor_evaporator_cutaway.",
+      "action_mid": "Bima mengipasi wajah di kamar pengap 32 derajat Celsius dengan jendela tertutup rapat di bawah prop_ac_indoor_evaporator_cutaway.",
+      "action_end": "Gerak hook karakter bima kepanasan di kamar tertutup 32 derajat di bawah unit ac indoor mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S001_01",
+          "start_frame": 0,
+          "end_frame": 105,
+          "subject_id": "prop_ac_indoor_evaporator_cutaway",
+          "concrete_action": "Bima mengipasi wajah di kamar pengap 32 derajat Celsius dengan jendela tertutup rapat di bawah prop_ac_indoor_evaporator_cutaway.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_establishing_diorama_28mm",
+        "shot_size": "establishing",
+        "angle": "elevated_establishing_16deg",
+        "focal_length_mm": 24.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          2.3,
+          2.1,
+          4.7
+        ],
+        "position_end": [
+          1.9,
+          1.9,
+          4.0
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_snappy_spring_pop",
+        "dof_fstop": 5.6
+      },
+      "camera_event": {
+        "preset_id": "cam_establishing_diorama_28mm",
+        "shot_size": "establishing",
+        "angle": "elevated_establishing_16deg",
+        "focal_length_mm": 24.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          2.3,
+          2.1,
+          4.7
+        ],
+        "position_end": [
+          1.9,
+          1.9,
+          4.0
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_snappy_spring_pop",
+        "dof_fstop": 5.6
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S001_VO",
+          "kind": "vo",
+          "start_frame": 0,
+          "end_frame": 105,
+          "ref_id": "VO_B01_1",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S001_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 0,
+          "end_frame": 105,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S001_SFX",
+          "kind": "sfx",
+          "start_frame": 0,
+          "end_frame": 8,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_001",
+          "start_frame": 0,
+          "end_frame": 105,
+          "text": "AC tidak menciptakan dingin melainkan memindahkan panas kamarmu.",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S001_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 0,
+          "end_frame": 105
+        },
+        {
+          "event_id": "VFX_S001_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 0,
+          "end_frame": 105
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Bima mengipasi wajah di kamar pengap 32 derajat Celsius dengan jendela tertutup rapat di bawah prop_ac_indoor_evaporator_cutaway."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [],
+      "environment_id": "env_bedroom_tropical_sealed_3d",
+      "asset_ids": [
+        "prop_ac_indoor_evaporator_cutaway",
+        "prop_room_thermometer_digital",
+        "prop_sealed_glass_window",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_001"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "establishing_shot"
+    },
+    {
+      "shot_id": "S002",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_01",
+      "beat_id": "B02",
+      "start_frame": 105,
+      "end_frame": 210,
+      "duration_frames": 105,
+      "start_time_s": 3.5,
+      "end_time_s": 7.0,
+      "duration_s": 3.5,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "narration_segment": "Saat tombol remot ditekan, kisi AC terbuka.",
+      "dialogue_lines": [],
+      "action_start": "Interaksi tangan Bima menekan tombol 24 derajat pada remot AC menuju unit indoor berada pada posisi kontak terukur bersama prop_ac_remote_control.",
+      "action_mid": "Ibu jari kanan Bima menekan tombol daya dan setelan 24 derajat pada prop_ac_remote_control hingga sinyal inframerah membuka kisi prop_ac_indoor_evaporator_cutaway.",
+      "action_end": "Gerak interaksi tangan bima menekan tombol 24 derajat pada remot ac menuju unit indoor mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S002_01",
+          "start_frame": 105,
+          "end_frame": 210,
+          "subject_id": "prop_ac_remote_control",
+          "concrete_action": "Ibu jari kanan Bima menekan tombol daya dan setelan 24 derajat pada prop_ac_remote_control hingga sinyal inframerah membuka kisi prop_ac_indoor_evaporator_cutaway.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "medium",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "camera_event": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "medium",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S002_VO",
+          "kind": "vo",
+          "start_frame": 105,
+          "end_frame": 210,
+          "ref_id": "VO_B02_1",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S002_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 105,
+          "end_frame": 210,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S002_SFX",
+          "kind": "sfx",
+          "start_frame": 105,
+          "end_frame": 113,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_002",
+          "start_frame": 105,
+          "end_frame": 210,
+          "text": "Saat tombol remot ditekan, kisi AC terbuka.",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S002_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 105,
+          "end_frame": 210
+        },
+        {
+          "event_id": "VFX_S002_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 105,
+          "end_frame": 210
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Ibu jari kanan Bima menekan tombol daya dan setelan 24 derajat pada prop_ac_remote_control hingga sinyal inframerah membuka kisi prop_ac_indoor_evaporator_cutaway."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [],
+      "environment_id": "env_bedroom_tropical_sealed_3d",
+      "asset_ids": [
+        "prop_ac_remote_control",
+        "prop_ac_indoor_evaporator_cutaway",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_002"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "character_acting"
+    },
+    {
+      "shot_id": "S003",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_02",
+      "beat_id": "B03",
+      "start_frame": 210,
+      "end_frame": 330,
+      "duration_frames": 120,
+      "start_time_s": 7.0,
+      "end_time_s": 11.0,
+      "duration_s": 4.0,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "narration_segment": "Di evaporator, refrigeran cair menyerap panas kamar.",
+      "dialogue_lines": [],
+      "action_start": "Penampang teknis kumparan evaporator tembaga AC indoor berada pada posisi kontak terukur bersama prop_ac_indoor_evaporator_cutaway.",
+      "action_mid": "Casing depan prop_ac_indoor_evaporator_cutaway terbelah memperlihatkan kumparan pipa tembaga dingin menyerap panah kalor merah dari udara kamar hingga refrigeran cair menguap.",
+      "action_end": "Gerak penampang teknis kumparan evaporator tembaga ac indoor mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S003_01",
+          "start_frame": 210,
+          "end_frame": 330,
+          "subject_id": "prop_ac_indoor_evaporator_cutaway",
+          "concrete_action": "Casing depan prop_ac_indoor_evaporator_cutaway terbelah memperlihatkan kumparan pipa tembaga dingin menyerap panah kalor merah dari udara kamar hingga refrigeran cair menguap.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "cutaway",
+        "angle": "orthographic_feel_cross_section_22deg",
+        "focal_length_mm": 50.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.65,
+          3.8
+        ],
+        "position_end": [
+          0.28,
+          1.55,
+          3.4
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 5.6
+      },
+      "camera_event": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "cutaway",
+        "angle": "orthographic_feel_cross_section_22deg",
+        "focal_length_mm": 50.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.65,
+          3.8
+        ],
+        "position_end": [
+          0.28,
+          1.55,
+          3.4
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 5.6
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S003_VO",
+          "kind": "vo",
+          "start_frame": 210,
+          "end_frame": 330,
+          "ref_id": "VO_B03_1",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S003_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 210,
+          "end_frame": 330,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S003_SFX",
+          "kind": "sfx",
+          "start_frame": 210,
+          "end_frame": 218,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_003",
+          "start_frame": 210,
+          "end_frame": 330,
+          "text": "Di evaporator, refrigeran cair menyerap panas kamar.",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S003_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 210,
+          "end_frame": 330
+        },
+        {
+          "event_id": "VFX_S003_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 210,
+          "end_frame": 330
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": true,
+        "purpose": "Casing depan prop_ac_indoor_evaporator_cutaway terbelah memperlihatkan kumparan pipa tembaga dingin menyerap panah kalor merah dari udara kamar hingga refrigeran cair menguap."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [],
+      "environment_id": "env_ac_evaporator_cutaway_3d",
+      "asset_ids": [
+        "prop_ac_indoor_evaporator_cutaway",
+        "prop_heat_arrows_red_blue",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_003"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "technical_cutaway"
+    },
+    {
+      "shot_id": "S004",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_03",
+      "beat_id": "B04",
+      "start_frame": 330,
+      "end_frame": 450,
+      "duration_frames": 120,
+      "start_time_s": 11.0,
+      "end_time_s": 15.0,
+      "duration_s": 4.0,
+      "primary_engine": "threejs",
+      "overlay_engine": "remotion",
+      "narration_segment": "Kompresor memompa uap panas ke kondensor luar.",
+      "dialogue_lines": [],
+      "action_start": "Visualisasi perpindahan panas dari pipa evaporator indoor ke kompresor dan kondensor outdoor berada pada posisi kontak terukur bersama prop_outdoor_compressor_condenser_unit.",
+      "action_mid": "Aliran refrigeran oranye panas mengalir menembus dinding dari evaporator menuju prop_outdoor_compressor_condenser_unit sementara kipas kondensor melepas gelombang kalor ke udara luar.",
+      "action_end": "Gerak visualisasi perpindahan panas dari pipa evaporator indoor ke kompresor dan kondensor outdoor mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S004_01",
+          "start_frame": 330,
+          "end_frame": 450,
+          "subject_id": "prop_outdoor_compressor_condenser_unit",
+          "concrete_action": "Aliran refrigeran oranye panas mengalir menembus dinding dari evaporator menuju prop_outdoor_compressor_condenser_unit sementara kipas kondensor melepas gelombang kalor ke udara luar.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "wide",
+        "angle": "mechanism_flow_tracking",
+        "focal_length_mm": 65.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          1.6,
+          1.7,
+          4.4
+        ],
+        "position_end": [
+          1.2,
+          1.6,
+          3.9
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 4.0
+      },
+      "camera_event": {
+        "preset_id": "cam_insert_evidence_macro_70mm",
+        "shot_size": "wide",
+        "angle": "mechanism_flow_tracking",
+        "focal_length_mm": 65.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          1.6,
+          1.7,
+          4.4
+        ],
+        "position_end": [
+          1.2,
+          1.6,
+          3.9
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 4.0
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S004_VO",
+          "kind": "vo",
+          "start_frame": 330,
+          "end_frame": 450,
+          "ref_id": "VO_B04_1",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S004_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 330,
+          "end_frame": 450,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S004_SFX",
+          "kind": "sfx",
+          "start_frame": 330,
+          "end_frame": 338,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_004",
+          "start_frame": 330,
+          "end_frame": 450,
+          "text": "Kompresor memompa uap panas ke kondensor luar.",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S004_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 330,
+          "end_frame": 450
+        },
+        {
+          "event_id": "VFX_S004_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 330,
+          "end_frame": 450
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": true,
+        "purpose": "Aliran refrigeran oranye panas mengalir menembus dinding dari evaporator menuju prop_outdoor_compressor_condenser_unit sementara kipas kondensor melepas gelombang kalor ke udara luar."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [],
+      "environment_id": "env_wall_split_indoor_outdoor_3d",
+      "asset_ids": [
+        "prop_outdoor_compressor_condenser_unit",
+        "prop_heat_arrows_red_blue",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_004"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "scientific_mechanism"
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_p02a_ac_15s",
+  "timestamp_status": "ESTIMATED",
+  "caption_preset_id": "cap_xdx_bold_stroke_9x16",
+  "caption_format": {
+    "container_formats": [
+      "SRT",
+      "WebVTT",
+      "Remotion_Estimated_JSON"
+    ],
+    "max_lines_per_cue": 2,
+    "max_words_per_phrase": 5
+  },
+  "phrase_grouping": {
+    "strategy": "syntactic_indonesian_clause_chunks",
+    "orphan_single_word_avoided": true
+  },
+  "typography": {
+    "typography_preset_id": "typo_jakarta_modern_explainer",
+    "style_profile": "stylized_3d",
+    "stroke_and_shadow_high_contrast": true
+  },
+  "safe_area": {
+    "aspect_ratio": "9:16",
+    "bottom_margin_px": 340,
+    "top_margin_px": 220,
+    "horizontal_margin_px": 90,
+    "ui_occlusion_free": true
+  },
+  "word_highlight": {
+    "enabled": true,
+    "mode": "semantic_keyword_accent_not_distracting",
+    "timing_source": "ESTIMATED_PRE_PHASE04_ALIGNMENT"
+  },
+  "scientific_labels": [
+    {
+      "shot_id": "S001",
+      "beat_id": "B01",
+      "label": "Suhu Kamar: 32\u00b0C",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S002",
+      "beat_id": "B02",
+      "label": "Setelan Target: 24\u00b0C",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S003",
+      "beat_id": "B03",
+      "label": "Kumparan Evaporator",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S003",
+      "beat_id": "B03",
+      "label": "Refrigeran Cair \u2192 Uap",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S004",
+      "beat_id": "B04",
+      "label": "Kompresor & Kondensor Luar",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S004",
+      "beat_id": "B04",
+      "label": "Pelepasan Kalor ke Luar",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S003",
+      "beat_id": "B03",
+      "label": "Evaporator",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S003",
+      "beat_id": "B03",
+      "label": "Refrigeran",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S004",
+      "beat_id": "B04",
+      "label": "Kompresor",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S004",
+      "beat_id": "B04",
+      "label": "Kondensor",
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "shot_id": "S004",
+      "beat_id": "B04",
+      "label": "Kalor",
+      "timing_status": "ESTIMATED"
+    }
+  ],
+  "estimated_caption_timing": {
+    "status": "ESTIMATED",
+    "cue_count": 9,
+    "requires_phase04_wav_realignment": true
+  },
+  "audio_master_preset_id": "aud_master_vo_indonesia_15lufs",
+  "sample_rate_hz": 48000,
+  "target_lufs": -15.0,
+  "true_peak_dbtp": -1.0,
+  "music_direction": "Warm curious marimba/synth pulse supporting causal momentum; ducked -16 dB under VO.",
+  "ambience": "Clean studio room tone with gentle mechanical/environmental air bed (-26 LUFS).",
+  "foley_count": 4,
+  "sfx_event_count": 4,
+  "asr_backends_detected": {
+    "whisper_cpp_binary": null,
+    "faster_whisper_python": false,
+    "whisperx_binary": null,
+    "any_asr_ready": false
+  },
+  "cues": [
+    {
+      "cue_id": "CAP_001",
+      "shot_id": "S001",
+      "start_s": 0.0,
+      "end_s": 2.188,
+      "text": "AC tidak menciptakan dingin, melainkan",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "AC"
+    },
+    {
+      "cue_id": "CAP_002",
+      "shot_id": "S001",
+      "start_s": 2.188,
+      "end_s": 3.5,
+      "text": "memindahkan panas kamarmu.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 3,
+      "highlighted_keyword": "memindahkan"
+    },
+    {
+      "cue_id": "CAP_003",
+      "shot_id": "S002",
+      "start_s": 3.5,
+      "end_s": 5.25,
+      "text": "Saat tombol dua puluh empat",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Saat"
+    },
+    {
+      "cue_id": "CAP_004",
+      "shot_id": "S002",
+      "start_s": 5.25,
+      "end_s": 7.0,
+      "text": "derajat ditekan, kisi AC terbuka.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "derajat"
+    },
+    {
+      "cue_id": "CAP_005",
+      "shot_id": "S003",
+      "start_s": 7.0,
+      "end_s": 9.0,
+      "text": "Di evaporator, refrigeran cair menyerap",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "evaporator,"
+    },
+    {
+      "cue_id": "CAP_006",
+      "shot_id": "S003",
+      "start_s": 9.0,
+      "end_s": 11.0,
+      "text": "panas udara kamar lalu menguap.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "panas"
+    },
+    {
+      "cue_id": "CAP_007",
+      "shot_id": "S004",
+      "start_s": 11.0,
+      "end_s": 12.818,
+      "text": "Kompresor memompa uap panas ke",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "Kompresor"
+    },
+    {
+      "cue_id": "CAP_008",
+      "shot_id": "S004",
+      "start_s": 12.818,
+      "end_s": 14.636,
+      "text": "kondensor luar agar kalor terbuang",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 5,
+      "highlighted_keyword": "kondensor"
+    },
+    {
+      "cue_id": "CAP_009",
+      "shot_id": "S004",
+      "start_s": 14.636,
+      "end_s": 15.0,
+      "text": "keluar.",
+      "alignment_source": "script_estimated_pre_tts",
+      "timestamp_status": "ESTIMATED",
+      "phrase_word_count": 1,
+      "highlighted_keyword": "keluar."
+    }
+  ],
+  "srt_preview": "1\n00:00:00,000 --> 00:00:02,188\nAC tidak menciptakan dingin, melainkan\n\n2\n00:00:02,188 --> 00:00:03,500\nmemindahkan panas kamarmu.\n\n3\n00:00:03,500 --> 00:00:05,250\nSaat tombol dua puluh empat\n\n4\n00:00:05,250 --> 00:00:07,000\nderajat ditekan, kisi AC terbuka.\n\n5\n00:00:07,000 --> 00:00:09,000\nDi evaporator, refrigeran cair menyerap\n\n6\n00:00:09,000 --> 00:00:11,000\npanas udara kamar lalu menguap.\n\n7\n00:00:11,000 --> 00:00:12,818\nKompresor memompa uap panas ke\n\n8\n00:00:12,818 --> 00:00:14,636\nkondensor luar agar kalor terbuang\n\n9\n00:00:14,636 --> 00:00:15,000\nkeluar.\n"
+}

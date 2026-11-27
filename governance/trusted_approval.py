@@ -25,6 +25,8 @@ Token format
 from __future__ import annotations
 
 import base64
+from contextlib import contextmanager
+import fcntl
 import hashlib
 import json
 import os
@@ -33,7 +35,7 @@ import subprocess
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterator
 
 from cryptography.exceptions import InvalidSignature
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey, Ed25519PublicKey
@@ -246,7 +248,7 @@ class TrustedApprovalGuard:
 
     # ---- trust root
     def _registry_git_state(self) -> str:
-        """'CLEAN' | 'MODIFIED' | 'UNTRACKED' | 'NOT_IN_REPO'. Only the in-repo registry is git-pinned."""
+        """'CLEAN' | 'MODIFIED' | 'LOCAL_UNPUSHED' | 'UNTRACKED' | 'NOT_IN_REPO'. Only the in-repo registry is git-pinned."""
         try:
             rel = self.registry_path.resolve().relative_to(ROOT_DIR.resolve())
         except ValueError:
@@ -267,7 +269,25 @@ class TrustedApprovalGuard:
                 capture_output=True,
                 timeout=20,
             )
-            return "CLEAN" if diff.returncode == 0 else "MODIFIED"
+            if diff.returncode != 0:
+                return "MODIFIED"
+            # Guard against an agent running `git commit` locally to inject a key without remote/human push:
+            upstream = subprocess.run(
+                ["git", "-C", str(ROOT_DIR), "rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{upstream}"],
+                capture_output=True,
+                text=True,
+                timeout=20,
+            )
+            if upstream.returncode == 0 and upstream.stdout.strip():
+                up_ref = upstream.stdout.strip()
+                up_diff = subprocess.run(
+                    ["git", "-C", str(ROOT_DIR), "diff", "--quiet", up_ref, "HEAD", "--", rel.as_posix()],
+                    capture_output=True,
+                    timeout=20,
+                )
+                if up_diff.returncode != 0:
+                    return "LOCAL_UNPUSHED"
+            return "CLEAN"
         except (OSError, subprocess.SubprocessError):
             return "UNTRACKED"
 
@@ -298,8 +318,13 @@ class TrustedApprovalGuard:
         git_state = self._registry_git_state()
         keys = self._load_keys()
         reasons = []
-        if git_state in {"MODIFIED", "UNTRACKED"}:
-            reasons.append(f"trust registry {git_state.lower()} relative to the committed HEAD (unreviewed change)")
+        if git_state in {"MODIFIED", "UNTRACKED", "LOCAL_UNPUSHED"}:
+            reasons.append(f"trust registry {git_state.lower()} relative to reviewed remote/HEAD (independent user authorization required)")
+        pinned_sha = os.environ.get("XDX_TRUSTED_REGISTRY_SHA256", "").strip().lower()
+        if pinned_sha and self.registry_path.is_file():
+            actual_sha = hashlib.sha256(self.registry_path.read_bytes()).hexdigest()
+            if actual_sha != pinned_sha:
+                reasons.append("trust registry SHA-256 does not match out-of-band XDX_TRUSTED_REGISTRY_SHA256 pin")
         if not keys:
             reasons.append("no valid, unrevoked Ed25519 approver public key registered")
         return {
@@ -411,12 +436,30 @@ class TrustedApprovalGuard:
                 raise ScopeMismatchError(f"Required scope '{required_scope}' not covered by signed scopes {scopes}")
         return va
 
-    # ---- hash-chained, append-only ledger (replay + revocation)
+    # ---- hash-chained, append-only ledger (replay + revocation, concurrency-safe via fcntl.flock)
     @staticmethod
     def ledger_path(package_dir: Path) -> Path:
         return Path(package_dir) / LEDGER_DIRNAME / LEDGER_FILENAME
 
-    def read_ledger(self, package_dir: Path) -> list[dict[str, Any]]:
+    @staticmethod
+    def ledger_lock_path(package_dir: Path) -> Path:
+        return Path(package_dir) / LEDGER_DIRNAME / "approval_ledger.lock"
+
+    @contextmanager
+    def _ledger_lock(self, package_dir: Path, *, exclusive: bool) -> Iterator[None]:
+        lp = self.ledger_lock_path(package_dir)
+        lp.parent.mkdir(parents=True, exist_ok=True)
+        fd = os.open(str(lp), os.O_CREAT | os.O_RDWR, 0o600)
+        try:
+            fcntl.flock(fd, fcntl.LOCK_EX if exclusive else fcntl.LOCK_SH)
+            yield
+        finally:
+            try:
+                fcntl.flock(fd, fcntl.LOCK_UN)
+            finally:
+                os.close(fd)
+
+    def _read_ledger_unlocked(self, package_dir: Path) -> list[dict[str, Any]]:
         p = self.ledger_path(package_dir)
         if not p.is_file():
             return []
@@ -434,8 +477,12 @@ class TrustedApprovalGuard:
             entries.append(e)
         return entries
 
-    def _append_ledger(self, package_dir: Path, event: dict[str, Any]) -> dict[str, Any]:
-        entries = self.read_ledger(package_dir)
+    def read_ledger(self, package_dir: Path) -> list[dict[str, Any]]:
+        with self._ledger_lock(package_dir, exclusive=False):
+            return self._read_ledger_unlocked(package_dir)
+
+    def _append_ledger_unlocked(self, package_dir: Path, event: dict[str, Any]) -> dict[str, Any]:
+        entries = self._read_ledger_unlocked(package_dir)
         body = {**event, "seq": len(entries) + 1, "prev_sha256": entries[-1]["entry_sha256"] if entries else "0" * 64}
         body["entry_sha256"] = hashlib.sha256(canonical_json(body)).hexdigest()
         p = self.ledger_path(package_dir)
@@ -446,33 +493,39 @@ class TrustedApprovalGuard:
             os.fsync(fh.fileno())
         return body
 
+    def _append_ledger(self, package_dir: Path, event: dict[str, Any]) -> dict[str, Any]:
+        with self._ledger_lock(package_dir, exclusive=True):
+            return self._append_ledger_unlocked(package_dir, event)
+
     def consume(
         self, package_dir: Path, va: VerifiedApproval, *, state_consumed_nonces: list[str] | None = None
     ) -> dict[str, Any]:
-        """Single-use: a nonce can be consumed once per project, ever (checked in ledger AND state history)."""
-        entries = self.read_ledger(package_dir)
-        used = {e["nonce"] for e in entries if e.get("event") == "CONSUMED"} | set(state_consumed_nonces or [])
-        if va.nonce in used:
-            raise ApprovalReplayError(f"Approval nonce {va.nonce[:12]}... was already used (replay)")
-        return self._append_ledger(
-            package_dir,
-            {
-                "event": "CONSUMED",
-                "approval_id": va.approval_id,
-                "nonce": va.nonce,
-                "key_id": va.key_id,
-                "manifest_digest": va.manifest_digest,
-                "scopes": list(va.scopes),
-                "expires_at": va.expires_at,
-                "recorded_at": datetime.now(timezone.utc).isoformat(),
-            },
-        )
+        """Single-use & concurrency-safe: atomic check-and-append under fcntl.LOCK_EX."""
+        with self._ledger_lock(package_dir, exclusive=True):
+            entries = self._read_ledger_unlocked(package_dir)
+            used = {e["nonce"] for e in entries if e.get("event") == "CONSUMED"} | set(state_consumed_nonces or [])
+            if va.nonce in used:
+                raise ApprovalReplayError(f"Approval nonce {va.nonce[:12]}... was already used (replay)")
+            return self._append_ledger_unlocked(
+                package_dir,
+                {
+                    "event": "CONSUMED",
+                    "approval_id": va.approval_id,
+                    "nonce": va.nonce,
+                    "key_id": va.key_id,
+                    "manifest_digest": va.manifest_digest,
+                    "scopes": list(va.scopes),
+                    "expires_at": va.expires_at,
+                    "recorded_at": datetime.now(timezone.utc).isoformat(),
+                },
+            )
 
     def revoke(self, package_dir: Path, approval_id: str, *, reason: str) -> dict[str, Any]:
-        return self._append_ledger(
-            package_dir,
-            {"event": "REVOKED", "approval_id": approval_id, "reason": reason, "recorded_at": datetime.now(timezone.utc).isoformat()},
-        )
+        with self._ledger_lock(package_dir, exclusive=True):
+            return self._append_ledger_unlocked(
+                package_dir,
+                {"event": "REVOKED", "approval_id": approval_id, "reason": reason, "recorded_at": datetime.now(timezone.utc).isoformat()},
+            )
 
     # ---- live execution guard
     def verify_recorded_approval(

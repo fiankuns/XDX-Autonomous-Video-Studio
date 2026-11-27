@@ -1,0 +1,48 @@
+{
+  "schema_version": "3.4.0",
+  "project_id": "bench_p02a_ac_15s",
+  "project_title": "Bagaimana AC Mendinginkan Ruangan? (Uji 4-Shot 15 Detik)",
+  "mode": "topik",
+  "current_state": "WAITING_APPROVAL",
+  "package_version": "v1",
+  "package_digest": "da5da947063567b3e22639241c219acb430a8f2f84b375c2f71878f3b3ded378",
+  "genres": [
+    "explainer",
+    "edukasi"
+  ],
+  "timeline_spec": {
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "aspect_ratio": "9:16",
+    "total_frames": 450
+  },
+  "approval_status": {
+    "approved": false,
+    "approval_id": null,
+    "actor_role": null,
+    "approved_digest": null,
+    "approved_version": null,
+    "approved_scopes": [],
+    "explicit_user_message": null,
+    "recorded_at": null,
+    "expires_at": null,
+    "revoked": false
+  },
+  "blocked_reason": null,
+  "history": [
+    {
+      "from_state": null,
+      "to_state": "INIT",
+      "timestamp": "2026-11-27T21:10:10.666753+00:00",
+      "reason": "Project initialized"
+    },
+    {
+      "from_state": "INIT",
+      "to_state": "WAITING_APPROVAL",
+      "timestamp": "2026-11-27T21:10:10.723740+00:00",
+      "reason": "Pre-production package v1 locked (da5da9470635)"
+    }
+  ],
+  "updated_at": "2026-11-27T21:10:10.723740+00:00"
+}

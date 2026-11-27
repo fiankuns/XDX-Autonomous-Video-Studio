@@ -1,0 +1,284 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_p02a_ac_15s",
+  "topic_title": "Bagaimana AC Mendinginkan Ruangan? (Uji 4-Shot 15 Detik)",
+  "style_profile": "stylized_3d",
+  "genres": [
+    "explainer",
+    "edukasi"
+  ],
+  "reference_ids": [
+    "REF-002"
+  ],
+  "target_duration_s": 15,
+  "topic_research": {
+    "epistemic_mode": "factual_verified",
+    "research_status": "VERIFIED_COMPLETE",
+    "summary": "AC split mendinginkan kamar tertutup dengan memindahkan kalor udara ruangan keluar melalui siklus refrigerasi kompresi uap tertutup. Refrigeran cair bertekanan rendah menguap di kumparan evaporator indoor sambil menyerap kalor udara kamar, lalu kompresor memampatkan uap panas menuju sirip kondensor outdoor untuk dilepas ke udara luar.",
+    "topic_scope": "Empat tahap inti mekanisme AC split (kamar panas tertutup, pengaturan suhu remot 24C, penguapan refrigeran di evaporator, dan pelepasan kalor lewat kompresor-kondensor outdoor) dalam uji render 3D Three.js + Remotion berdurasi 15 detik.",
+    "research_questions": [
+      "Bagaimana AC mendinginkan ruangan tertutup tanpa menyedot udara dingin dari luar?",
+      "Bagaimana kumparan evaporator dan unit kondensor luar memindahkan kalor ruangan?"
+    ],
+    "misconceptions": [
+      {
+        "misconception": "AC menyemprotkan udara dingin baru dari luar rumah.",
+        "correction": "AC mensirkulasikan ulang udara dalam kamar melewati evaporator dingin dan membuang panasnya keluar lewat pipa refrigeran tertutup.",
+        "claim_ref": "CLM_01"
+      }
+    ],
+    "uncertainties": [
+      "Laju pendinginan aktual bergantung pada beban panas matahari, insulasi dinding, dan kapasitas BTU unit AC."
+    ],
+    "fictional_elements_declared": [
+      "Karakter penghuni kamar Bima bergaya stylized 3D merupakan dramatisasi visual edukatif untuk memperjelas komponen nyata AC."
+    ],
+    "claims": [
+      {
+        "claim_id": "CLM_01",
+        "statement": "Evaporator AC indoor menyerap kalor udara ruangan ketika refrigeran cair bertekanan rendah menguap menjadi gas di dalam kumparan pipa.",
+        "epistemic_status": "verified_fact",
+        "source_title": "U.S. Department of Energy \u2014 Energy Saver: Air Conditioning",
+        "source_url": "https://www.energy.gov/energysaver/air-conditioning",
+        "publication_year": 2024,
+        "publication_date": "2024-06",
+        "evidence_excerpt": "Air conditioners transfer heat from the indoor air to the outdoors via an indoor evaporator coil filled with cold evaporating refrigerant.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_02",
+        "statement": "Kompresor menaikkan tekanan dan suhu uap refrigeran sehingga sirip kondensor outdoor dapat membuang kalor ke udara luar.",
+        "epistemic_status": "verified_fact",
+        "source_title": "Encyclopaedia Britannica \u2014 Air-conditioning: Principles of Operation",
+        "source_url": "https://www.britannica.com/technology/air-conditioning",
+        "publication_year": 2024,
+        "publication_date": "2024-08",
+        "evidence_excerpt": "In vapor-compression air conditioning, the compressor raises refrigerant vapor pressure and temperature so the outdoor condenser coil rejects heat to ambient air.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_03",
+        "statement": "Termostat AC menjaga suhu ruangan nyaman stabil pada setelan target seperti 24 derajat Celsius tanpa mempercepat laju pendinginan awal saat disetel ekstrem rendah.",
+        "epistemic_status": "verified_fact",
+        "source_title": "U.S. Department of Energy \u2014 Central Air Conditioning",
+        "source_url": "https://www.energy.gov/energysaver/central-air-conditioning",
+        "publication_year": 2024,
+        "publication_date": "2024-05",
+        "evidence_excerpt": "Setting the thermostat lower than comfortable target temperature does not cool the room faster; the system removes heat at a steady rate.",
+        "is_primary_source": true
+      }
+    ]
+  },
+  "blueprint": {
+    "premise": "Uji render 4-shot 15 detik menjelaskan bagaimana AC mendinginkan kamar pengap lewat penyerapan kalor di evaporator indoor dan pembuangan panas di kondensor outdoor.",
+    "hook_0_3s_visual": "Bima kepanasan mengipasi wajah di kamar tertutup 32 derajat Celsius tepat di bawah unit AC indoor yang masih mati.",
+    "hook_0_3s_spoken": "AC tidak menciptakan dingin, melainkan memindahkan panas kamarmu keluar.",
+    "story_arc": {
+      "act_1_setup": "Bima kepanasan di kamar tertutup 32 derajat lalu menekan tombol 24 derajat pada remot AC hingga kisi unit indoor terbuka.",
+      "act_2_escalation": "Penampang teknis casing AC indoor terbuka memperlihatkan kumparan evaporator dingin menyerap kalor udara kamar.",
+      "act_3_resolution": "Visualisasi aliran refrigeran membawa panas menembus dinding ke kompresor dan kondensor outdoor untuk dilepas ke udara luar."
+    },
+    "explainer_mechanism": "Kode warna biru dingin untuk refrigeran evaporator dan oranye panas untuk gas bertekanan tinggi menuju kondensor luar.",
+    "humor_strategy": "Ekspresi lega Bima saat mengarahkan remot ke AC setelah kepanasan mengipasi wajah.",
+    "historical_biography_notes": "Fokus murni pada termodinamika pendinginan ruangan modern berdasarkan dokumentasi U.S. DOE dan Britannica.",
+    "payoff_callback": "Suhu kamar turun nyaman sementara panas ruangan terlihat keluar dari kipas kondensor outdoor."
+  },
+  "characters": [
+    {
+      "character_id": "char_bima_penghuni",
+      "name": "Bima",
+      "role": "hero",
+      "silhouette_and_proportions": "Siluet pemuda stylized 3D setinggi 6.3 kepala dengan rambut ikal pendek dan postur ekspresif.",
+      "facial_design": "Pipi bulat ekspresif, mata lebar, bulir keringat stylized di pelipis pada shot pembuka, berubah lega saat AC menyala.",
+      "wardrobe": "Kaus kuning mustard berkerah bundar dan celana santai krem.",
+      "materials": [
+        "soft_jersey_knit_fabric",
+        "matte_plastic_remote_shell",
+        "soft_subsurface_skin_aces"
+      ],
+      "palette": [
+        "#E0A11B",
+        "#E8DFCA",
+        "#2C3539",
+        "#FF6B4A"
+      ],
+      "expressions": [
+        "overheated_exhausted",
+        "focused_remote_press",
+        "relaxed_chilled"
+      ],
+      "rig_spec": "rig_biped_stylized_v4_ik_fk_hands_facial_visemes",
+      "facial_controls": [
+        "jaw_viseme_driver",
+        "sweat_drop_toggle",
+        "brow_furrow_relief"
+      ],
+      "pose_requirements": [
+        "slumped_fanning_self",
+        "aiming_pressing_ac_remote"
+      ],
+      "action_requirements": [
+        "mengipasi wajah di kamar panas 32 derajat Celsius",
+        "menekan tombol daya dan suhu 24 derajat pada prop_ac_remote_control ke arah prop_ac_indoor_evaporator_cutaway"
+      ],
+      "biography_disclaimer": "Karakter penghuni kamar fiksi orisinal XDX Studio; bukan individu nyata."
+    }
+  ],
+  "narrative_beats": [
+    {
+      "beat_id": "B01",
+      "act": "ACT_1",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_01",
+      "environment_id": "env_bedroom_tropical_sealed_3d",
+      "beat_role": "hook_overheated_character",
+      "target_duration_s": 3.5,
+      "narration_vo": "AC tidak menciptakan dingin melainkan memindahkan panas kamarmu.",
+      "claim_refs": [
+        "CLM_01"
+      ],
+      "humor_beat": "Bima mengipasi wajah di kamar tertutup 32 derajat sambil melirik unit AC.",
+      "emotion": "overheated_curious",
+      "voice_direction": "Tegas dan hangat untuk hook 3.5 detik pertama.",
+      "dialogue_lines": [],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "establishing_shot",
+          "visual_subject": "Hook karakter Bima kepanasan di kamar tertutup 32 derajat di bawah unit AC indoor",
+          "concrete_action": "Bima mengipasi wajah di kamar pengap 32 derajat Celsius dengan jendela tertutup rapat di bawah prop_ac_indoor_evaporator_cutaway.",
+          "interaction_target_object_id": "prop_room_thermometer_digital",
+          "props": [
+            "prop_ac_indoor_evaporator_cutaway",
+            "prop_room_thermometer_digital",
+            "prop_sealed_glass_window"
+          ],
+          "preferred_engine": "threejs",
+          "shot_size": "establishing",
+          "focal_length_mm": 28,
+          "is_cutaway": false,
+          "scientific_labels": [
+            "Suhu Kamar: 32\u00b0C"
+          ],
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B02",
+      "act": "ACT_1",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_01",
+      "environment_id": "env_bedroom_tropical_sealed_3d",
+      "beat_role": "remote_interaction",
+      "target_duration_s": 3.5,
+      "narration_vo": "Saat tombol remot ditekan, kisi AC terbuka.",
+      "claim_refs": [
+        "CLM_03"
+      ],
+      "humor_beat": "Ibu jari Bima menekan tombol remot dengan mantap dan kisi AC membuka mulus.",
+      "emotion": "focused",
+      "voice_direction": "Jelas, sinkron dengan klik tombol remot AC.",
+      "dialogue_lines": [],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "character_acting",
+          "visual_subject": "Interaksi tangan Bima menekan tombol 24 derajat pada remot AC menuju unit indoor",
+          "concrete_action": "Ibu jari kanan Bima menekan tombol daya dan setelan 24 derajat pada prop_ac_remote_control hingga sinyal inframerah membuka kisi prop_ac_indoor_evaporator_cutaway.",
+          "interaction_target_object_id": "prop_ac_remote_control",
+          "props": [
+            "prop_ac_remote_control",
+            "prop_ac_indoor_evaporator_cutaway"
+          ],
+          "preferred_engine": "threejs",
+          "shot_size": "medium",
+          "focal_length_mm": 50,
+          "is_cutaway": false,
+          "scientific_labels": [
+            "Setelan Target: 24\u00b0C"
+          ],
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B03",
+      "act": "ACT_2",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_02",
+      "environment_id": "env_ac_evaporator_cutaway_3d",
+      "beat_role": "technical_cutaway_evaporator",
+      "target_duration_s": 4.0,
+      "narration_vo": "Di evaporator, refrigeran cair menyerap panas kamar.",
+      "claim_refs": [
+        "CLM_01"
+      ],
+      "humor_beat": null,
+      "emotion": "analytical",
+      "voice_direction": "Artikulatif saat menjelaskan kumparan evaporator dan penguapan refrigeran.",
+      "dialogue_lines": [],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "technical_cutaway",
+          "visual_subject": "Penampang teknis kumparan evaporator tembaga AC indoor",
+          "concrete_action": "Casing depan prop_ac_indoor_evaporator_cutaway terbelah memperlihatkan kumparan pipa tembaga dingin menyerap panah kalor merah dari udara kamar hingga refrigeran cair menguap.",
+          "interaction_target_object_id": "prop_ac_indoor_evaporator_cutaway",
+          "props": [
+            "prop_ac_indoor_evaporator_cutaway",
+            "prop_heat_arrows_red_blue"
+          ],
+          "preferred_engine": "threejs",
+          "shot_size": "cutaway",
+          "focal_length_mm": 65,
+          "is_cutaway": true,
+          "scientific_labels": [
+            "Kumparan Evaporator",
+            "Refrigeran Cair \u2192 Uap"
+          ],
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B04",
+      "act": "ACT_3",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_03",
+      "environment_id": "env_wall_split_indoor_outdoor_3d",
+      "beat_role": "heat_transfer_visualization",
+      "target_duration_s": 4.0,
+      "narration_vo": "Kompresor memompa uap panas ke kondensor luar.",
+      "claim_refs": [
+        "CLM_02"
+      ],
+      "humor_beat": null,
+      "emotion": "warm_clear",
+      "voice_direction": "Tuntas dan meyakinkan sebagai penutup perpindahan panas keluar ruangan.",
+      "dialogue_lines": [],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "scientific_mechanism",
+          "visual_subject": "Visualisasi perpindahan panas dari pipa evaporator indoor ke kompresor dan kondensor outdoor",
+          "concrete_action": "Aliran refrigeran oranye panas mengalir menembus dinding dari evaporator menuju prop_outdoor_compressor_condenser_unit sementara kipas kondensor melepas gelombang kalor ke udara luar.",
+          "interaction_target_object_id": "prop_outdoor_compressor_condenser_unit",
+          "props": [
+            "prop_outdoor_compressor_condenser_unit",
+            "prop_heat_arrows_red_blue"
+          ],
+          "preferred_engine": "threejs",
+          "shot_size": "wide",
+          "focal_length_mm": 35,
+          "is_cutaway": true,
+          "scientific_labels": [
+            "Kompresor & Kondensor Luar",
+            "Pelepasan Kalor ke Luar"
+          ],
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    }
+  ]
+}

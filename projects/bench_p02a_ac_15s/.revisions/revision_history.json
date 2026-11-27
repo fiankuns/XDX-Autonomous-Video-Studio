@@ -1,0 +1,53 @@
+[
+  {
+    "revision_id": "REV-bench_p02a_ac_15s-0001-2dfc72",
+    "revision_number": 1,
+    "project_id": "bench_p02a_ac_15s",
+    "artifact_path": "projects/bench_p02a_ac_15s/caption_audio_plan.json",
+    "archived_previous_path": "projects/bench_p02a_ac_15s/.revisions/REV-bench_p02a_ac_15s-0001-2dfc72/caption_audio_plan.json",
+    "previous_digest": "6f191f099731b1c0088bae1274d44760faf705546be8ce6742bb0bdc5a003e19",
+    "new_digest": "6f191f099731b1c0088bae1274d44760faf705546be8ce6742bb0bdc5a003e19",
+    "digest_changed": false,
+    "task_owner": "TASK-13-CAPTION",
+    "owner_agent": "caption_specialist",
+    "reason": "Restore ESTIMATED timestamp_status after verifier defect detection",
+    "affected_downstream_tasks": [],
+    "required_revalidation": [],
+    "approval_invalidated": false,
+    "timestamp_utc": "2026-11-27T21:06:31.203347+00:00"
+  },
+  {
+    "revision_id": "REV-bench_p02a_ac_15s-0002-fb30be",
+    "revision_number": 2,
+    "project_id": "bench_p02a_ac_15s",
+    "artifact_path": "projects/bench_p02a_ac_15s/caption_audio_plan.json",
+    "archived_previous_path": "projects/bench_p02a_ac_15s/.revisions/REV-bench_p02a_ac_15s-0002-fb30be/caption_audio_plan.json",
+    "previous_digest": "6f191f099731b1c0088bae1274d44760faf705546be8ce6742bb0bdc5a003e19",
+    "new_digest": "6f191f099731b1c0088bae1274d44760faf705546be8ce6742bb0bdc5a003e19",
+    "digest_changed": false,
+    "task_owner": "TASK-13-CAPTION",
+    "owner_agent": "caption_specialist",
+    "reason": "Restore ESTIMATED timestamp_status after verifier defect detection",
+    "affected_downstream_tasks": [],
+    "required_revalidation": [],
+    "approval_invalidated": false,
+    "timestamp_utc": "2026-11-27T21:07:42.102982+00:00"
+  },
+  {
+    "revision_id": "REV-bench_p02a_ac_15s-0003-dcf7ea",
+    "revision_number": 3,
+    "project_id": "bench_p02a_ac_15s",
+    "artifact_path": "projects/bench_p02a_ac_15s/caption_audio_plan.json",
+    "archived_previous_path": "projects/bench_p02a_ac_15s/.revisions/REV-bench_p02a_ac_15s-0003-dcf7ea/caption_audio_plan.json",
+    "previous_digest": "06a498dc4771a826fc2353116e3b2b6978b4585e17ac3c64d935cf8cfe115ca7",
+    "new_digest": "06a498dc4771a826fc2353116e3b2b6978b4585e17ac3c64d935cf8cfe115ca7",
+    "digest_changed": false,
+    "task_owner": "TASK-13-CAPTION",
+    "owner_agent": "caption_specialist",
+    "reason": "Restore ESTIMATED timestamp_status after verifier defect detection",
+    "affected_downstream_tasks": [],
+    "required_revalidation": [],
+    "approval_invalidated": false,
+    "timestamp_utc": "2026-11-27T21:08:31.017118+00:00"
+  }
+]

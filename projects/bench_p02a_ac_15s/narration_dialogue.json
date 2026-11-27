@@ -1,0 +1,182 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_p02a_ac_15s",
+  "timing_status": "ESTIMATED",
+  "actual_audio_and_forced_alignment_phase": "SCHEDULED_PHASE_04",
+  "language": "id-ID",
+  "narration_style": "Warm, articulate Indonesian science & story narrator",
+  "target_wpm": 144,
+  "measured_script_wpm": 116.0,
+  "estimated_timing": {
+    "estimated_total_s": 14.444,
+    "target_duration_s": 15.0,
+    "duration_fit_status": "WITHIN_TARGET",
+    "duration_limit_s": 15.3,
+    "playback_speed_multiplier": 1.0,
+    "duration_recommendation": {
+      "suggest_duration_change": false,
+      "recommended_target_duration_s": 15,
+      "rationale": "Estimated delivery (14.444s, 116.0 WPM) fits comfortably within 15s with natural breath pauses."
+    }
+  },
+  "voice_delivery_mode": "offscreen_narrator",
+  "voice_direction": {
+    "narrator_register": "baritone_or_mezzo_clear_indonesian",
+    "pace_policy": "Adaptive clause-breathing pace (~130-160 WPM); never time-stretched.",
+    "dialogue_separation": "Distinct mic/room coloration and turn-taking pause per character."
+  },
+  "music_direction": "Warm curious marimba/synth pulse supporting causal momentum; ducked -16 dB under VO.",
+  "ambience": "Clean studio room tone with gentle mechanical/environmental air bed (-26 LUFS).",
+  "foley": [
+    {
+      "event_id": "FOL_S001",
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 105,
+      "foley_description": "Subtle tactile foley for prop_ac_indoor_evaporator_cutaway (establishing_shot)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S002",
+      "shot_id": "S002",
+      "start_frame": 105,
+      "end_frame": 210,
+      "foley_description": "Subtle tactile foley for prop_ac_remote_control (character_acting)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S003",
+      "shot_id": "S003",
+      "start_frame": 210,
+      "end_frame": 330,
+      "foley_description": "Subtle tactile foley for prop_ac_indoor_evaporator_cutaway (technical_cutaway)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "FOL_S004",
+      "shot_id": "S004",
+      "start_frame": 330,
+      "end_frame": 450,
+      "foley_description": "Subtle tactile foley for prop_outdoor_compressor_condenser_unit (scientific_mechanism)",
+      "gain_db": -16.0,
+      "timing_status": "ESTIMATED"
+    }
+  ],
+  "sound_effect_events": [
+    {
+      "event_id": "SFX_S001",
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 18,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "establishing_shot",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S002",
+      "shot_id": "S002",
+      "start_frame": 105,
+      "end_frame": 123,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "character_acting",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S003",
+      "shot_id": "S003",
+      "start_frame": 210,
+      "end_frame": 228,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "technical_cutaway",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    },
+    {
+      "event_id": "SFX_S004",
+      "shot_id": "S004",
+      "start_frame": 330,
+      "end_frame": 348,
+      "sfx_preset": "sfx_cutaway_soft_whoosh",
+      "purpose": "scientific_mechanism",
+      "gain_db": -12.0,
+      "timing_status": "ESTIMATED"
+    }
+  ],
+  "vo_segments": [
+    {
+      "segment_id": "VO_001",
+      "beat_id": "B01",
+      "shot_id": "S001",
+      "shot_ids": [
+        "S001"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "AC tidak menciptakan dingin melainkan memindahkan panas kamarmu.",
+      "word_count": 8,
+      "start_time_s": 0.0,
+      "end_time_s": 3.5,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Tegas dan hangat untuk hook 3.5 detik pertama.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_002",
+      "beat_id": "B02",
+      "shot_id": "S002",
+      "shot_ids": [
+        "S002"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Saat tombol remot ditekan, kisi AC terbuka.",
+      "word_count": 7,
+      "start_time_s": 3.5,
+      "end_time_s": 7.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Jelas, sinkron dengan klik tombol remot AC.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_003",
+      "beat_id": "B03",
+      "shot_id": "S003",
+      "shot_ids": [
+        "S003"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Di evaporator, refrigeran cair menyerap panas kamar.",
+      "word_count": 7,
+      "start_time_s": 7.0,
+      "end_time_s": 11.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Artikulatif saat menjelaskan kumparan evaporator dan penguapan refrigeran.",
+      "breath_pause_ms": 220
+    },
+    {
+      "segment_id": "VO_004",
+      "beat_id": "B04",
+      "shot_id": "S004",
+      "shot_ids": [
+        "S004"
+      ],
+      "speaker": "narrator_id_offscreen",
+      "text": "Kompresor memompa uap panas ke kondensor luar.",
+      "word_count": 7,
+      "start_time_s": 11.0,
+      "end_time_s": 15.0,
+      "timing_status": "ESTIMATED",
+      "voice_direction": "Tuntas dan meyakinkan sebagai penutup perpindahan panas keluar ruangan.",
+      "breath_pause_ms": 220
+    }
+  ],
+  "dialogue_lines": [],
+  "lip_sync_plan": {
+    "status": "ESTIMATED_PRE_AUDIO",
+    "onscreen_dialogue_present": false,
+    "phase_04_backend": "rhubarb_or_whisper_forced_viseme_alignment"
+  }
+}

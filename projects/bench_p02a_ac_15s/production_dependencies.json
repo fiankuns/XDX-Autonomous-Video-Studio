@@ -1,0 +1,49 @@
+{
+  "schema": "xdx.production-dependencies.v1",
+  "dependencies": {
+    "engines/ffmpeg_engine.py": {
+      "sha256": "e662168270ae0108cd909fdbfc8e9f617ef70cb870edecfb69f97af66926e30f",
+      "bytes": 3748
+    },
+    "engines/web/remotion_timeline_spec.mjs": {
+      "sha256": "db14afe7bba972ebc8652354e8092145b9a2036665134992a6ca58cb52e47e38",
+      "bytes": 2032
+    },
+    "engines/web/three_deterministic_scene.mjs": {
+      "sha256": "5d513fecb05157528a72fc58a77b8e0e1212ae8125e91dd95258f1a388c602b2",
+      "bytes": 3187
+    },
+    "engines/web_engines.py": {
+      "sha256": "2a63924c7315a9e37054c4050e4f1b22dee5c006abbbd15ec3c312d579225cc8",
+      "bytes": 4591
+    },
+    "governance/canonical_manifest.py": {
+      "sha256": "6dd8f5a77158d88ff72ce353a4f72baabfc5563c2e31201740336d6bf4761429",
+      "bytes": 8166
+    },
+    "governance/trusted_approval.py": {
+      "sha256": "302af95abc93b7c70c6ca3e413d24917c92536c424063f2fa7572f61f8f65fe9",
+      "bytes": 24473
+    },
+    "package-lock.json": {
+      "sha256": "89eb42a0ce5f061a26bf948d21b1970576cd1be468ec99b079f0ef5295080398",
+      "bytes": 9452
+    },
+    "package.json": {
+      "sha256": "e43688fdd0786a9d3d98a959c5d55efb67bb6e1b6516ffd0339a00016f233d61",
+      "bytes": 799
+    },
+    "reference_database/profiles/reference_pattern_registry.json": {
+      "sha256": "57a0171bbfddd11f02daadb1b42bd187a347ffb3914e9f7b5ed8e8e2dc4bb3e1",
+      "bytes": 6149
+    },
+    "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json": {
+      "sha256": "77d5dfc35b57d3928c62e021606f64b44b947af36f9849f4b6b222bdbbe8f61b",
+      "bytes": 8376
+    },
+    "scripts/execution_guard_hook.py": {
+      "sha256": "540698146305ed49e9291282d74bb8314812cecda35ed5977077c0b4001e828c",
+      "bytes": 4103
+    }
+  }
+}

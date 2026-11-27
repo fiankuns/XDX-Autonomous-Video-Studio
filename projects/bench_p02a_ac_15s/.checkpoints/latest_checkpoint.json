@@ -1,0 +1,2122 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "checkpoint_id": "CKPT-bench_p02a_ac_15s-0224",
+  "created_at_utc": "2026-11-27T21:10:10.431482+00:00",
+  "project_id": "bench_p02a_ac_15s",
+  "task_graph_version": 1,
+  "task_graph_digest": "dc8b8dc388936fba3776e8ff10174b560ac39467c742dda0cd26bf4c4a9ee088",
+  "task_definition_digests": {
+    "TASK-01-RESEARCH": "fc36bb08d8614b90affe3c3d7cfcd9970182f0214f487a1f561b44a86a0f3a6f",
+    "TASK-02-REFERENCE": "e022874c0ca52b96b3544b4636080cb3d9bbcd98fc73d9d773598d0b5cdfa78c",
+    "TASK-03-CREATIVE": "52dc74d292c366ab9b2a694262bfc2fd7af7634d1b90e3048bc0a43307f2b134",
+    "TASK-04-SCRIPT": "80cdaf4d2f5f617d04a27d5ccd98a117b5977e2474e6ad8157340760088d6dbb",
+    "TASK-05-CHARACTER": "15075d667762117b8a578581c50c595332e8622ccbf2c15712bc5df2b40b017c",
+    "TASK-06-STYLE": "92f8be5b4de311d4e5a8457482eed6eea011586a4367e317087d089043f87212",
+    "TASK-07-STORYBOARD": "7828fa756eb85e6ebb3cdda19b005517c0ae8abd8ec8800307e49911efea5c9c",
+    "TASK-08-REF-ADAPT": "8e0358c8fc82be7864e1b1e93ab5de411b11684d9bd370b962f9b154e469ab0f",
+    "TASK-09-MOTION": "159cdf76329660a38469d1ddee93a15e1a73b6f1851a128c63265ce94045b383",
+    "TASK-10-CAMERA": "c1d620eac49088004e0952cc60ef166cd7465b2077fffd6047f559d32bc806b0",
+    "TASK-11-ASSET": "a35a11128095c39bb2330e3a7e8ad543f0784e332972b00596f93ffab3f0cfa6",
+    "TASK-12-AUDIO": "992fc3f22c812f6529566cd802b5145b2c3fb8ab576b1b9679305c6c8d8baa6b",
+    "TASK-13-CAPTION": "91cc8bdc209b53e6057e66ed6fa58d4fe319fda98c991c7f8b274598d4bfe6f2",
+    "TASK-14-ENGINE": "ef1ea91a8658edec4668eab88787a0a7438319342d96c4ce1cb16df22407a9de",
+    "TASK-15-VERIFY": "cef3d9b41274030588b352466718ad50ec4ac8cfe88f079ef601c44e5f840739"
+  },
+  "checkpoint_lineage": {
+    "sequence_number": 224,
+    "parent_checkpoint_id": "CKPT-bench_p02a_ac_15s-0223",
+    "parent_checkpoint_sha256": "064da9d4bd32a27f2b55a4be3a16f64942391f04621fb7213add3194049e106a"
+  },
+  "completed_tasks": [
+    "TASK-01-RESEARCH",
+    "TASK-02-REFERENCE",
+    "TASK-03-CREATIVE",
+    "TASK-04-SCRIPT",
+    "TASK-05-CHARACTER",
+    "TASK-06-STYLE",
+    "TASK-07-STORYBOARD",
+    "TASK-08-REF-ADAPT",
+    "TASK-09-MOTION",
+    "TASK-10-CAMERA",
+    "TASK-11-ASSET",
+    "TASK-12-AUDIO",
+    "TASK-13-CAPTION",
+    "TASK-14-ENGINE",
+    "TASK-15-VERIFY"
+  ],
+  "pending_tasks": [],
+  "running_tasks": [],
+  "failed_tasks": [],
+  "blocked_tasks": [],
+  "cancelled_tasks": [],
+  "artifact_manifest": {
+    "projects/bench_p02a_ac_15s/asset_manifest.json": {
+      "owner_task_id": "TASK-11-ASSET",
+      "owner_agent": "asset_specialist",
+      "sha256": "a991f4d919544269a8f441faf763212fc1ca78d6bd296afe9132c9a0ba33a873",
+      "verified_at_utc": "2026-11-27T21:10:08.517359+00:00"
+    },
+    "projects/bench_p02a_ac_15s/authored_creative_payload.json": {
+      "owner_task_id": "TASK-04-SCRIPT",
+      "owner_agent": "scriptwriter_agent",
+      "sha256": "ce2edfdcab38c71f4ff4f5d4486d71e37aed433b0123dac5ed49f7d583345b7f",
+      "verified_at_utc": "2026-11-27T21:10:06.939555+00:00"
+    },
+    "projects/bench_p02a_ac_15s/blueprint.md": {
+      "owner_task_id": "TASK-03-CREATIVE",
+      "owner_agent": "creative_director",
+      "sha256": "5c6888adc4f00a5ddbeb196749f8882fec498406f0bcdfa2cdfb0dff4df20b39",
+      "verified_at_utc": "2026-11-27T21:10:06.565150+00:00"
+    },
+    "projects/bench_p02a_ac_15s/camera_plan.json": {
+      "owner_task_id": "TASK-10-CAMERA",
+      "owner_agent": "cinematographer",
+      "sha256": "ed6fc0ac58aa973dccfc85d87eb2eb235a5388a6bcb48e27c63e8c28ef5539b5",
+      "verified_at_utc": "2026-11-27T21:10:08.460116+00:00"
+    },
+    "projects/bench_p02a_ac_15s/caption_audio_plan.json": {
+      "owner_task_id": "TASK-13-CAPTION",
+      "owner_agent": "caption_specialist",
+      "sha256": "fd12110e59f8fcda6db4ef3279e7b7022ee5d7cfbc82de956804a499d1a67f03",
+      "verified_at_utc": "2026-11-27T21:10:09.224719+00:00"
+    },
+    "projects/bench_p02a_ac_15s/character_bible.json": {
+      "owner_task_id": "TASK-05-CHARACTER",
+      "owner_agent": "character_design_agent",
+      "sha256": "d572057b3576c79c7ffc6e9a8b6992fd00989dc9f54609fb9fcc6644ea0ecaf1",
+      "verified_at_utc": "2026-11-27T21:10:07.364463+00:00"
+    },
+    "projects/bench_p02a_ac_15s/character_bible.md": {
+      "owner_task_id": "TASK-05-CHARACTER",
+      "owner_agent": "character_design_agent",
+      "sha256": "9e422a6865c67e22de324ea080418bcb26362c3bb00ba28dfc3c2c25cbf85b21",
+      "verified_at_utc": "2026-11-27T21:10:07.364442+00:00"
+    },
+    "projects/bench_p02a_ac_15s/creative_concept.json": {
+      "owner_task_id": "TASK-03-CREATIVE",
+      "owner_agent": "creative_director",
+      "sha256": "32452b6e502c1edb937f961e234d46fcc293dc59885e267955b51dec837d16bc",
+      "verified_at_utc": "2026-11-27T21:10:06.565167+00:00"
+    },
+    "projects/bench_p02a_ac_15s/engine_plan.json": {
+      "owner_task_id": "TASK-14-ENGINE",
+      "owner_agent": "remotion_specialist",
+      "sha256": "fc7a33cd8f61cc06b98e75c1a2cf43566a093ac1a391ee60aa9cde8b6072bd63",
+      "verified_at_utc": "2026-11-27T21:10:09.038687+00:00"
+    },
+    "projects/bench_p02a_ac_15s/execution_plan.md": {
+      "owner_task_id": "TASK-14-ENGINE",
+      "owner_agent": "remotion_specialist",
+      "sha256": "117c265bccb31e47b2d8d6293fcc344620d8535f994a64feddba0cc3f4057cc1",
+      "verified_at_utc": "2026-11-27T21:10:09.038708+00:00"
+    },
+    "projects/bench_p02a_ac_15s/motion_plan.json": {
+      "owner_task_id": "TASK-09-MOTION",
+      "owner_agent": "motion_director",
+      "sha256": "4e0a98ab48e8d84e17816c525bf5ed6251ea5da72d005722a98241cebb0ca3fa",
+      "verified_at_utc": "2026-11-27T21:10:08.169146+00:00"
+    },
+    "projects/bench_p02a_ac_15s/narration_dialogue.json": {
+      "owner_task_id": "TASK-12-AUDIO",
+      "owner_agent": "audio_director",
+      "sha256": "9c4e83760d9289992dfbffaf5e867e2098caabef9705a991b64ab95d4e710e49",
+      "verified_at_utc": "2026-11-27T21:10:08.904603+00:00"
+    },
+    "projects/bench_p02a_ac_15s/reference_adaptation.json": {
+      "owner_task_id": "TASK-08-REF-ADAPT",
+      "owner_agent": "rea_video_reference_analyst",
+      "sha256": "1406222f7beadc471034efd6eb2c1cdc9969a51d1aa693cc2b6bb378a1074fb6",
+      "verified_at_utc": "2026-11-27T21:10:08.124646+00:00"
+    },
+    "projects/bench_p02a_ac_15s/reference_analysis.md": {
+      "owner_task_id": "TASK-02-REFERENCE",
+      "owner_agent": "rea_video_reference_analyst",
+      "sha256": "08368067a4e7b539bb4eda93cd90dafedd3681b977d56cba7ee04174cadd554d",
+      "verified_at_utc": "2026-11-27T21:10:06.365908+00:00"
+    },
+    "projects/bench_p02a_ac_15s/research.md": {
+      "owner_task_id": "TASK-01-RESEARCH",
+      "owner_agent": "topic_research_agent",
+      "sha256": "5a4a7c37e271325c7fc03dd644638f4ed67889d259c7b52f098cf1bfc127d404",
+      "verified_at_utc": "2026-11-27T21:10:06.404021+00:00"
+    },
+    "projects/bench_p02a_ac_15s/research_report.json": {
+      "owner_task_id": "TASK-01-RESEARCH",
+      "owner_agent": "topic_research_agent",
+      "sha256": "06e0f34a65ece25fd6f32c96b92262d96da3185abcdb0f16e908834ba4d0d149",
+      "verified_at_utc": "2026-11-27T21:10:06.404039+00:00"
+    },
+    "projects/bench_p02a_ac_15s/script.md": {
+      "owner_task_id": "TASK-04-SCRIPT",
+      "owner_agent": "scriptwriter_agent",
+      "sha256": "7f63277ea39b4242f9947a500425b8071754493f0eeb9d51b0bc93ac6ecd26ce",
+      "verified_at_utc": "2026-11-27T21:10:06.939534+00:00"
+    },
+    "projects/bench_p02a_ac_15s/semantic_visual_plan.json": {
+      "owner_task_id": "TASK-07-STORYBOARD",
+      "owner_agent": "storyboard_director",
+      "sha256": "4bfdebd5bdfbd9a52bb8b00098bbf1e8edfa1f5db23940563da0a9d6e6c19308",
+      "verified_at_utc": "2026-11-27T21:10:07.820407+00:00"
+    },
+    "projects/bench_p02a_ac_15s/storyboard.json": {
+      "owner_task_id": "TASK-07-STORYBOARD",
+      "owner_agent": "storyboard_director",
+      "sha256": "402442bcb89f521be209b67611c9c89f50de7234be916b4f0ce50d8172b0ec5e",
+      "verified_at_utc": "2026-11-27T21:10:07.820386+00:00"
+    },
+    "projects/bench_p02a_ac_15s/style_bible.json": {
+      "owner_task_id": "TASK-06-STYLE",
+      "owner_agent": "art_director",
+      "sha256": "121fd2603035341633eb110b0336bf4191370f9c4c72ece35e9273610a9c24f7",
+      "verified_at_utc": "2026-11-27T21:10:07.319280+00:00"
+    }
+  },
+  "artifact_sha256": {
+    "projects/bench_p02a_ac_15s/asset_manifest.json": "a991f4d919544269a8f441faf763212fc1ca78d6bd296afe9132c9a0ba33a873",
+    "projects/bench_p02a_ac_15s/authored_creative_payload.json": "ce2edfdcab38c71f4ff4f5d4486d71e37aed433b0123dac5ed49f7d583345b7f",
+    "projects/bench_p02a_ac_15s/blueprint.md": "5c6888adc4f00a5ddbeb196749f8882fec498406f0bcdfa2cdfb0dff4df20b39",
+    "projects/bench_p02a_ac_15s/camera_plan.json": "ed6fc0ac58aa973dccfc85d87eb2eb235a5388a6bcb48e27c63e8c28ef5539b5",
+    "projects/bench_p02a_ac_15s/caption_audio_plan.json": "fd12110e59f8fcda6db4ef3279e7b7022ee5d7cfbc82de956804a499d1a67f03",
+    "projects/bench_p02a_ac_15s/character_bible.json": "d572057b3576c79c7ffc6e9a8b6992fd00989dc9f54609fb9fcc6644ea0ecaf1",
+    "projects/bench_p02a_ac_15s/character_bible.md": "9e422a6865c67e22de324ea080418bcb26362c3bb00ba28dfc3c2c25cbf85b21",
+    "projects/bench_p02a_ac_15s/creative_concept.json": "32452b6e502c1edb937f961e234d46fcc293dc59885e267955b51dec837d16bc",
+    "projects/bench_p02a_ac_15s/engine_plan.json": "fc7a33cd8f61cc06b98e75c1a2cf43566a093ac1a391ee60aa9cde8b6072bd63",
+    "projects/bench_p02a_ac_15s/execution_plan.md": "117c265bccb31e47b2d8d6293fcc344620d8535f994a64feddba0cc3f4057cc1",
+    "projects/bench_p02a_ac_15s/motion_plan.json": "4e0a98ab48e8d84e17816c525bf5ed6251ea5da72d005722a98241cebb0ca3fa",
+    "projects/bench_p02a_ac_15s/narration_dialogue.json": "9c4e83760d9289992dfbffaf5e867e2098caabef9705a991b64ab95d4e710e49",
+    "projects/bench_p02a_ac_15s/reference_adaptation.json": "1406222f7beadc471034efd6eb2c1cdc9969a51d1aa693cc2b6bb378a1074fb6",
+    "projects/bench_p02a_ac_15s/reference_analysis.md": "08368067a4e7b539bb4eda93cd90dafedd3681b977d56cba7ee04174cadd554d",
+    "projects/bench_p02a_ac_15s/research.md": "5a4a7c37e271325c7fc03dd644638f4ed67889d259c7b52f098cf1bfc127d404",
+    "projects/bench_p02a_ac_15s/research_report.json": "06e0f34a65ece25fd6f32c96b92262d96da3185abcdb0f16e908834ba4d0d149",
+    "projects/bench_p02a_ac_15s/script.md": "7f63277ea39b4242f9947a500425b8071754493f0eeb9d51b0bc93ac6ecd26ce",
+    "projects/bench_p02a_ac_15s/semantic_visual_plan.json": "4bfdebd5bdfbd9a52bb8b00098bbf1e8edfa1f5db23940563da0a9d6e6c19308",
+    "projects/bench_p02a_ac_15s/storyboard.json": "402442bcb89f521be209b67611c9c89f50de7234be916b4f0ce50d8172b0ec5e",
+    "projects/bench_p02a_ac_15s/style_bible.json": "121fd2603035341633eb110b0336bf4191370f9c4c72ece35e9273610a9c24f7"
+  },
+  "durable_artifact_provenance": {
+    "projects/bench_p02a_ac_15s/asset_manifest.json": {
+      "sha256": "a991f4d919544269a8f441faf763212fc1ca78d6bd296afe9132c9a0ba33a873",
+      "size_bytes": 23706,
+      "owner_task_id": "TASK-11-ASSET",
+      "owner_agent": "asset_specialist",
+      "receipt_id": "RCPT-f21c5a61539d",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "a35a11128095c39bb2330e3a7e8ad543f0784e332972b00596f93ffab3f0cfa6",
+      "verified_at_utc": "2026-11-27T21:10:08.517359+00:00"
+    },
+    "projects/bench_p02a_ac_15s/authored_creative_payload.json": {
+      "sha256": "ce2edfdcab38c71f4ff4f5d4486d71e37aed433b0123dac5ed49f7d583345b7f",
+      "size_bytes": 13120,
+      "owner_task_id": "TASK-04-SCRIPT",
+      "owner_agent": "scriptwriter_agent",
+      "receipt_id": "RCPT-f7259ed87c30",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "80cdaf4d2f5f617d04a27d5ccd98a117b5977e2474e6ad8157340760088d6dbb",
+      "verified_at_utc": "2026-11-27T21:10:06.939555+00:00"
+    },
+    "projects/bench_p02a_ac_15s/blueprint.md": {
+      "sha256": "5c6888adc4f00a5ddbeb196749f8882fec498406f0bcdfa2cdfb0dff4df20b39",
+      "size_bytes": 1714,
+      "owner_task_id": "TASK-03-CREATIVE",
+      "owner_agent": "creative_director",
+      "receipt_id": "RCPT-d827d7e36578",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "52dc74d292c366ab9b2a694262bfc2fd7af7634d1b90e3048bc0a43307f2b134",
+      "verified_at_utc": "2026-11-27T21:10:06.565150+00:00"
+    },
+    "projects/bench_p02a_ac_15s/camera_plan.json": {
+      "sha256": "ed6fc0ac58aa973dccfc85d87eb2eb235a5388a6bcb48e27c63e8c28ef5539b5",
+      "size_bytes": 3230,
+      "owner_task_id": "TASK-10-CAMERA",
+      "owner_agent": "cinematographer",
+      "receipt_id": "RCPT-9269f1b5cf11",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "c1d620eac49088004e0952cc60ef166cd7465b2077fffd6047f559d32bc806b0",
+      "verified_at_utc": "2026-11-27T21:10:08.460116+00:00"
+    },
+    "projects/bench_p02a_ac_15s/caption_audio_plan.json": {
+      "sha256": "fd12110e59f8fcda6db4ef3279e7b7022ee5d7cfbc82de956804a499d1a67f03",
+      "size_bytes": 6050,
+      "owner_task_id": "TASK-13-CAPTION",
+      "owner_agent": "caption_specialist",
+      "receipt_id": "RCPT-f62cd9bba9c3",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "91cc8bdc209b53e6057e66ed6fa58d4fe319fda98c991c7f8b274598d4bfe6f2",
+      "verified_at_utc": "2026-11-27T21:10:09.224719+00:00"
+    },
+    "projects/bench_p02a_ac_15s/character_bible.json": {
+      "sha256": "d572057b3576c79c7ffc6e9a8b6992fd00989dc9f54609fb9fcc6644ea0ecaf1",
+      "size_bytes": 2946,
+      "owner_task_id": "TASK-05-CHARACTER",
+      "owner_agent": "character_design_agent",
+      "receipt_id": "RCPT-5231ecf9c959",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "15075d667762117b8a578581c50c595332e8622ccbf2c15712bc5df2b40b017c",
+      "verified_at_utc": "2026-11-27T21:10:07.364463+00:00"
+    },
+    "projects/bench_p02a_ac_15s/character_bible.md": {
+      "sha256": "9e422a6865c67e22de324ea080418bcb26362c3bb00ba28dfc3c2c25cbf85b21",
+      "size_bytes": 1019,
+      "owner_task_id": "TASK-05-CHARACTER",
+      "owner_agent": "character_design_agent",
+      "receipt_id": "RCPT-5231ecf9c959",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "15075d667762117b8a578581c50c595332e8622ccbf2c15712bc5df2b40b017c",
+      "verified_at_utc": "2026-11-27T21:10:07.364442+00:00"
+    },
+    "projects/bench_p02a_ac_15s/creative_concept.json": {
+      "sha256": "32452b6e502c1edb937f961e234d46fcc293dc59885e267955b51dec837d16bc",
+      "size_bytes": 1640,
+      "owner_task_id": "TASK-03-CREATIVE",
+      "owner_agent": "creative_director",
+      "receipt_id": "RCPT-d827d7e36578",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "52dc74d292c366ab9b2a694262bfc2fd7af7634d1b90e3048bc0a43307f2b134",
+      "verified_at_utc": "2026-11-27T21:10:06.565167+00:00"
+    },
+    "projects/bench_p02a_ac_15s/engine_plan.json": {
+      "sha256": "fc7a33cd8f61cc06b98e75c1a2cf43566a093ac1a391ee60aa9cde8b6072bd63",
+      "size_bytes": 4074,
+      "owner_task_id": "TASK-14-ENGINE",
+      "owner_agent": "remotion_specialist",
+      "receipt_id": "RCPT-92160447e36d",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "ef1ea91a8658edec4668eab88787a0a7438319342d96c4ce1cb16df22407a9de",
+      "verified_at_utc": "2026-11-27T21:10:09.038687+00:00"
+    },
+    "projects/bench_p02a_ac_15s/execution_plan.md": {
+      "sha256": "117c265bccb31e47b2d8d6293fcc344620d8535f994a64feddba0cc3f4057cc1",
+      "size_bytes": 882,
+      "owner_task_id": "TASK-14-ENGINE",
+      "owner_agent": "remotion_specialist",
+      "receipt_id": "RCPT-92160447e36d",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "ef1ea91a8658edec4668eab88787a0a7438319342d96c4ce1cb16df22407a9de",
+      "verified_at_utc": "2026-11-27T21:10:09.038708+00:00"
+    },
+    "projects/bench_p02a_ac_15s/motion_plan.json": {
+      "sha256": "4e0a98ab48e8d84e17816c525bf5ed6251ea5da72d005722a98241cebb0ca3fa",
+      "size_bytes": 17249,
+      "owner_task_id": "TASK-09-MOTION",
+      "owner_agent": "motion_director",
+      "receipt_id": "RCPT-bfc1551975be",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "159cdf76329660a38469d1ddee93a15e1a73b6f1851a128c63265ce94045b383",
+      "verified_at_utc": "2026-11-27T21:10:08.169146+00:00"
+    },
+    "projects/bench_p02a_ac_15s/narration_dialogue.json": {
+      "sha256": "9c4e83760d9289992dfbffaf5e867e2098caabef9705a991b64ab95d4e710e49",
+      "size_bytes": 5660,
+      "owner_task_id": "TASK-12-AUDIO",
+      "owner_agent": "audio_director",
+      "receipt_id": "RCPT-62859338ff74",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "992fc3f22c812f6529566cd802b5145b2c3fb8ab576b1b9679305c6c8d8baa6b",
+      "verified_at_utc": "2026-11-27T21:10:08.904603+00:00"
+    },
+    "projects/bench_p02a_ac_15s/reference_adaptation.json": {
+      "sha256": "1406222f7beadc471034efd6eb2c1cdc9969a51d1aa693cc2b6bb378a1074fb6",
+      "size_bytes": 10576,
+      "owner_task_id": "TASK-08-REF-ADAPT",
+      "owner_agent": "rea_video_reference_analyst",
+      "receipt_id": "RCPT-a2ee2bf05b2d",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "8e0358c8fc82be7864e1b1e93ab5de411b11684d9bd370b962f9b154e469ab0f",
+      "verified_at_utc": "2026-11-27T21:10:08.124646+00:00"
+    },
+    "projects/bench_p02a_ac_15s/reference_analysis.md": {
+      "sha256": "08368067a4e7b539bb4eda93cd90dafedd3681b977d56cba7ee04174cadd554d",
+      "size_bytes": 2008,
+      "owner_task_id": "TASK-02-REFERENCE",
+      "owner_agent": "rea_video_reference_analyst",
+      "receipt_id": "RCPT-5ec1e6af4261",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "e022874c0ca52b96b3544b4636080cb3d9bbcd98fc73d9d773598d0b5cdfa78c",
+      "verified_at_utc": "2026-11-27T21:10:06.365908+00:00"
+    },
+    "projects/bench_p02a_ac_15s/research.md": {
+      "sha256": "5a4a7c37e271325c7fc03dd644638f4ed67889d259c7b52f098cf1bfc127d404",
+      "size_bytes": 2911,
+      "owner_task_id": "TASK-01-RESEARCH",
+      "owner_agent": "topic_research_agent",
+      "receipt_id": "RCPT-ad8e7b8b0604",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "fc36bb08d8614b90affe3c3d7cfcd9970182f0214f487a1f561b44a86a0f3a6f",
+      "verified_at_utc": "2026-11-27T21:10:06.404021+00:00"
+    },
+    "projects/bench_p02a_ac_15s/research_report.json": {
+      "sha256": "06e0f34a65ece25fd6f32c96b92262d96da3185abcdb0f16e908834ba4d0d149",
+      "size_bytes": 6545,
+      "owner_task_id": "TASK-01-RESEARCH",
+      "owner_agent": "topic_research_agent",
+      "receipt_id": "RCPT-ad8e7b8b0604",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "fc36bb08d8614b90affe3c3d7cfcd9970182f0214f487a1f561b44a86a0f3a6f",
+      "verified_at_utc": "2026-11-27T21:10:06.404039+00:00"
+    },
+    "projects/bench_p02a_ac_15s/script.md": {
+      "sha256": "7f63277ea39b4242f9947a500425b8071754493f0eeb9d51b0bc93ac6ecd26ce",
+      "size_bytes": 2246,
+      "owner_task_id": "TASK-04-SCRIPT",
+      "owner_agent": "scriptwriter_agent",
+      "receipt_id": "RCPT-f7259ed87c30",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "80cdaf4d2f5f617d04a27d5ccd98a117b5977e2474e6ad8157340760088d6dbb",
+      "verified_at_utc": "2026-11-27T21:10:06.939534+00:00"
+    },
+    "projects/bench_p02a_ac_15s/semantic_visual_plan.json": {
+      "sha256": "4bfdebd5bdfbd9a52bb8b00098bbf1e8edfa1f5db23940563da0a9d6e6c19308",
+      "size_bytes": 6500,
+      "owner_task_id": "TASK-07-STORYBOARD",
+      "owner_agent": "storyboard_director",
+      "receipt_id": "RCPT-aa4605c24d7a",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "7828fa756eb85e6ebb3cdda19b005517c0ae8abd8ec8800307e49911efea5c9c",
+      "verified_at_utc": "2026-11-27T21:10:07.820407+00:00"
+    },
+    "projects/bench_p02a_ac_15s/storyboard.json": {
+      "sha256": "402442bcb89f521be209b67611c9c89f50de7234be916b4f0ce50d8172b0ec5e",
+      "size_bytes": 24543,
+      "owner_task_id": "TASK-07-STORYBOARD",
+      "owner_agent": "storyboard_director",
+      "receipt_id": "RCPT-aa4605c24d7a",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "7828fa756eb85e6ebb3cdda19b005517c0ae8abd8ec8800307e49911efea5c9c",
+      "verified_at_utc": "2026-11-27T21:10:07.820386+00:00"
+    },
+    "projects/bench_p02a_ac_15s/style_bible.json": {
+      "sha256": "121fd2603035341633eb110b0336bf4191370f9c4c72ece35e9273610a9c24f7",
+      "size_bytes": 1204,
+      "owner_task_id": "TASK-06-STYLE",
+      "owner_agent": "art_director",
+      "receipt_id": "RCPT-3022a5ac4595",
+      "execution_mode": "sequential_fallback_honest",
+      "task_definition_digest": "92f8be5b4de311d4e5a8457482eed6eea011586a4367e317087d089043f87212",
+      "verified_at_utc": "2026-11-27T21:10:07.319280+00:00"
+    }
+  },
+  "agent_invocation_receipts": {
+    "TASK-01-RESEARCH": {
+      "receipt_id": "RCPT-ad8e7b8b0604",
+      "request_id": "REQ-1383c74591f6",
+      "idempotency_key": "2191accdee8d85be5890442314d2b27389afd90112a652ecfcc020d7c25e23b3",
+      "task_id": "TASK-01-RESEARCH",
+      "project_id": "bench_p02a_ac_15s",
+      "assigned_agent": "topic_research_agent",
+      "runtime_name": "python_local_test",
+      "execution_mode": "sequential_fallback_honest",
+      "actually_invoked": true,
+      "conversation_id": null,
+      "known_model_routing": "local_sequential_python_callable",
+      "started_at": "2026-11-27T21:10:06.363266+00:00",
+      "completed_at": "2026-11-27T21:10:06.384523+00:00",
+      "output_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/research.md": "5a4a7c37e271325c7fc03dd644638f4ed67889d259c7b52f098cf1bfc127d404",
+        "projects/bench_p02a_ac_15s/research_report.json": "06e0f34a65ece25fd6f32c96b92262d96da3185abcdb0f16e908834ba4d0d149"
+      },
+      "task_definition_digest": "fc36bb08d8614b90affe3c3d7cfcd9970182f0214f487a1f561b44a86a0f3a6f",
+      "host_invocation_evidence": {},
+      "receipt_sha256": "10a866318fef872efe24054915735612394e47240c4c8030529619f08d25a3ec"
+    },
+    "TASK-02-REFERENCE": {
+      "receipt_id": "RCPT-5ec1e6af4261",
+      "request_id": "REQ-bccc460af4bd",
+      "idempotency_key": "a8200649b836e8c34cf99e94baa42d6b0e3ca28217a492fc845dd4245fcdbef1",
+      "task_id": "TASK-02-REFERENCE",
+      "project_id": "bench_p02a_ac_15s",
+      "assigned_agent": "rea_video_reference_analyst",
+      "runtime_name": "python_local_test",
+      "execution_mode": "sequential_fallback_honest",
+      "actually_invoked": true,
+      "conversation_id": null,
+      "known_model_routing": "local_sequential_python_callable",
+      "started_at": "2026-11-27T21:10:06.316590+00:00",
+      "completed_at": "2026-11-27T21:10:06.339047+00:00",
+      "output_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/reference_analysis.md": "08368067a4e7b539bb4eda93cd90dafedd3681b977d56cba7ee04174cadd554d"
+      },
+      "task_definition_digest": "e022874c0ca52b96b3544b4636080cb3d9bbcd98fc73d9d773598d0b5cdfa78c",
+      "host_invocation_evidence": {},
+      "receipt_sha256": "c253729f7b63c298e761ece326c50a1eb77b2f4c40d93263731e491e3d333639"
+    },
+    "TASK-03-CREATIVE": {
+      "receipt_id": "RCPT-d827d7e36578",
+      "request_id": "REQ-3506d022d5b9",
+      "idempotency_key": "8eb296abeb9db80dd2f7fbc20828777172e253a7718e497e20de8bafe13ff5b4",
+      "task_id": "TASK-03-CREATIVE",
+      "project_id": "bench_p02a_ac_15s",
+      "assigned_agent": "creative_director",
+      "runtime_name": "python_local_test",
+      "execution_mode": "sequential_fallback_honest",
+      "actually_invoked": true,
+      "conversation_id": null,
+      "known_model_routing": "local_sequential_python_callable",
+      "started_at": "2026-11-27T21:10:06.545482+00:00",
+      "completed_at": "2026-11-27T21:10:06.558923+00:00",
+      "output_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/blueprint.md": "5c6888adc4f00a5ddbeb196749f8882fec498406f0bcdfa2cdfb0dff4df20b39",
+        "projects/bench_p02a_ac_15s/creative_concept.json": "32452b6e502c1edb937f961e234d46fcc293dc59885e267955b51dec837d16bc"
+      },
+      "task_definition_digest": "52dc74d292c366ab9b2a694262bfc2fd7af7634d1b90e3048bc0a43307f2b134",
+      "host_invocation_evidence": {},
+      "receipt_sha256": "9c2ac250f56ae6effe591b2da698996599c70e4a8ad50e7691b642fc2c3c085b"
+    },
+    "TASK-04-SCRIPT": {
+      "receipt_id": "RCPT-f7259ed87c30",
+      "request_id": "REQ-f56d17bb4124",
+      "idempotency_key": "e566816d42db17fdfdc9e677dad21ede934c7f833bb82b57667d95d66cf7210c",
+      "task_id": "TASK-04-SCRIPT",
+      "project_id": "bench_p02a_ac_15s",
+      "assigned_agent": "scriptwriter_agent",
+      "runtime_name": "python_local_test",
+      "execution_mode": "sequential_fallback_honest",
+      "actually_invoked": true,
+      "conversation_id": null,
+      "known_model_routing": "local_sequential_python_callable",
+      "started_at": "2026-11-27T21:10:06.708139+00:00",
+      "completed_at": "2026-11-27T21:10:06.794272+00:00",
+      "output_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/authored_creative_payload.json": "ce2edfdcab38c71f4ff4f5d4486d71e37aed433b0123dac5ed49f7d583345b7f",
+        "projects/bench_p02a_ac_15s/script.md": "7f63277ea39b4242f9947a500425b8071754493f0eeb9d51b0bc93ac6ecd26ce"
+      },
+      "task_definition_digest": "80cdaf4d2f5f617d04a27d5ccd98a117b5977e2474e6ad8157340760088d6dbb",
+      "host_invocation_evidence": {},
+      "receipt_sha256": "b83d407e47bd442397bc8cb1c943fbc9cc4b03a7ae9de547bd2d5b977575b589"
+    },
+    "TASK-05-CHARACTER": {
+      "receipt_id": "RCPT-5231ecf9c959",
+      "request_id": "REQ-b51046f11f08",
+      "idempotency_key": "a8103052ded92bab31596fdb3d9685208d2dad0e81df7bd52e458c8a2dc44837",
+      "task_id": "TASK-05-CHARACTER",
+      "project_id": "bench_p02a_ac_15s",
+      "assigned_agent": "character_design_agent",
+      "runtime_name": "python_local_test",
+      "execution_mode": "sequential_fallback_honest",
+      "actually_invoked": true,
+      "conversation_id": null,
+      "known_model_routing": "local_sequential_python_callable",
+      "started_at": "2026-11-27T21:10:07.213379+00:00",
+      "completed_at": "2026-11-27T21:10:07.341903+00:00",
+      "output_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/character_bible.json": "d572057b3576c79c7ffc6e9a8b6992fd00989dc9f54609fb9fcc6644ea0ecaf1",
+        "projects/bench_p02a_ac_15s/character_bible.md": "9e422a6865c67e22de324ea080418bcb26362c3bb00ba28dfc3c2c25cbf85b21"
+      },
+      "task_definition_digest": "15075d667762117b8a578581c50c595332e8622ccbf2c15712bc5df2b40b017c",
+      "host_invocation_evidence": {},
+      "receipt_sha256": "076e63a5006a83beceddf0c4ef802355e5b85c4b40ea89fa195d5eb0a6035c83"
+    },
+    "TASK-06-STYLE": {
+      "receipt_id": "RCPT-3022a5ac4595",
+      "request_id": "REQ-874684232461",
+      "idempotency_key": "73587696ba1d027eb506a1448d2f082f9888460e5cbd88339257bec22ef5d5de",
+      "task_id": "TASK-06-STYLE",
+      "project_id": "bench_p02a_ac_15s",
+      "assigned_agent": "art_director",
+      "runtime_name": "python_local_test",
+      "execution_mode": "sequential_fallback_honest",
+      "actually_invoked": true,
+      "conversation_id": null,
+      "known_model_routing": "local_sequential_python_callable",
+      "started_at": "2026-11-27T21:10:07.210617+00:00",
+      "completed_at": "2026-11-27T21:10:07.235376+00:00",
+      "output_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/style_bible.json": "121fd2603035341633eb110b0336bf4191370f9c4c72ece35e9273610a9c24f7"
+      },
+      "task_definition_digest": "92f8be5b4de311d4e5a8457482eed6eea011586a4367e317087d089043f87212",
+      "host_invocation_evidence": {},
+      "receipt_sha256": "325bce9d75faa46f2b0ecdbbc2d61f20559ef97cecebd1448dac9513044b970a"
+    },
+    "TASK-07-STORYBOARD": {
+      "receipt_id": "RCPT-aa4605c24d7a",
+      "request_id": "REQ-1e6fa0d49ee5",
+      "idempotency_key": "d5c0549d91bf2dc0664268e3e756cb0e0c553a0cd19d77330c76289d732ba8ed",
+      "task_id": "TASK-07-STORYBOARD",
+      "project_id": "bench_p02a_ac_15s",
+      "assigned_agent": "storyboard_director",
+      "runtime_name": "python_local_test",
+      "execution_mode": "sequential_fallback_honest",
+      "actually_invoked": true,
+      "conversation_id": null,
+      "known_model_routing": "local_sequential_python_callable",
+      "started_at": "2026-11-27T21:10:07.521281+00:00",
+      "completed_at": "2026-11-27T21:10:07.631235+00:00",
+      "output_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/semantic_visual_plan.json": "4bfdebd5bdfbd9a52bb8b00098bbf1e8edfa1f5db23940563da0a9d6e6c19308",
+        "projects/bench_p02a_ac_15s/storyboard.json": "402442bcb89f521be209b67611c9c89f50de7234be916b4f0ce50d8172b0ec5e"
+      },
+      "task_definition_digest": "7828fa756eb85e6ebb3cdda19b005517c0ae8abd8ec8800307e49911efea5c9c",
+      "host_invocation_evidence": {},
+      "receipt_sha256": "103e719b68980844b96278d135cf86a0d7853e9aaf96db9ffb675c48cfcee59b"
+    },
+    "TASK-08-REF-ADAPT": {
+      "receipt_id": "RCPT-a2ee2bf05b2d",
+      "request_id": "REQ-3059f8a2ba0b",
+      "idempotency_key": "bea3999a4ffa7230811b43003ad46473b2f88dde2816798a46084dfa3af915e7",
+      "task_id": "TASK-08-REF-ADAPT",
+      "project_id": "bench_p02a_ac_15s",
+      "assigned_agent": "rea_video_reference_analyst",
+      "runtime_name": "python_local_test",
+      "execution_mode": "sequential_fallback_honest",
+      "actually_invoked": true,
+      "conversation_id": null,
+      "known_model_routing": "local_sequential_python_callable",
+      "started_at": "2026-11-27T21:10:08.109954+00:00",
+      "completed_at": "2026-11-27T21:10:08.118501+00:00",
+      "output_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/reference_adaptation.json": "1406222f7beadc471034efd6eb2c1cdc9969a51d1aa693cc2b6bb378a1074fb6"
+      },
+      "task_definition_digest": "8e0358c8fc82be7864e1b1e93ab5de411b11684d9bd370b962f9b154e469ab0f",
+      "host_invocation_evidence": {},
+      "receipt_sha256": "40f8d19148298636daaf3d0259f8e90347796b34058cf806beea93a698fa704d"
+    },
+    "TASK-09-MOTION": {
+      "receipt_id": "RCPT-bfc1551975be",
+      "request_id": "REQ-1c0609131b09",
+      "idempotency_key": "a826491a95838dfe3d3d4cda680df87f679bc0cfc6b177f86ce164f4e5b532a1",
+      "task_id": "TASK-09-MOTION",
+      "project_id": "bench_p02a_ac_15s",
+      "assigned_agent": "motion_director",
+      "runtime_name": "python_local_test",
+      "execution_mode": "sequential_fallback_honest",
+      "actually_invoked": true,
+      "conversation_id": null,
+      "known_model_routing": "local_sequential_python_callable",
+      "started_at": "2026-11-27T21:10:08.111861+00:00",
+      "completed_at": "2026-11-27T21:10:08.123017+00:00",
+      "output_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/motion_plan.json": "4e0a98ab48e8d84e17816c525bf5ed6251ea5da72d005722a98241cebb0ca3fa"
+      },
+      "task_definition_digest": "159cdf76329660a38469d1ddee93a15e1a73b6f1851a128c63265ce94045b383",
+      "host_invocation_evidence": {},
+      "receipt_sha256": "472680115d308af41e76372cee3a806f8cc25ae95b274094a87df2cbca6f3235"
+    },
+    "TASK-10-CAMERA": {
+      "receipt_id": "RCPT-9269f1b5cf11",
+      "request_id": "REQ-7aa520f3fa45",
+      "idempotency_key": "7c79bbaa026bd0709854136ec4e35f64b773de64955ead3519a0a60914c41fab",
+      "task_id": "TASK-10-CAMERA",
+      "project_id": "bench_p02a_ac_15s",
+      "assigned_agent": "cinematographer",
+      "runtime_name": "python_local_test",
+      "execution_mode": "sequential_fallback_honest",
+      "actually_invoked": true,
+      "conversation_id": null,
+      "known_model_routing": "local_sequential_python_callable",
+      "started_at": "2026-11-27T21:10:08.406897+00:00",
+      "completed_at": "2026-11-27T21:10:08.423127+00:00",
+      "output_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/camera_plan.json": "ed6fc0ac58aa973dccfc85d87eb2eb235a5388a6bcb48e27c63e8c28ef5539b5"
+      },
+      "task_definition_digest": "c1d620eac49088004e0952cc60ef166cd7465b2077fffd6047f559d32bc806b0",
+      "host_invocation_evidence": {},
+      "receipt_sha256": "f8ff188c51cd346a86891fe0ad70a6781d57615d3af93faa1cc548a75867aa9d"
+    },
+    "TASK-11-ASSET": {
+      "receipt_id": "RCPT-f21c5a61539d",
+      "request_id": "REQ-128c567f66d5",
+      "idempotency_key": "a118a26cc7ee03fe0e40b452988e1506961fd4c8d597667912cb109d20ac68aa",
+      "task_id": "TASK-11-ASSET",
+      "project_id": "bench_p02a_ac_15s",
+      "assigned_agent": "asset_specialist",
+      "runtime_name": "python_local_test",
+      "execution_mode": "sequential_fallback_honest",
+      "actually_invoked": true,
+      "conversation_id": null,
+      "known_model_routing": "local_sequential_python_callable",
+      "started_at": "2026-11-27T21:10:08.453025+00:00",
+      "completed_at": "2026-11-27T21:10:08.479405+00:00",
+      "output_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/asset_manifest.json": "a991f4d919544269a8f441faf763212fc1ca78d6bd296afe9132c9a0ba33a873"
+      },
+      "task_definition_digest": "a35a11128095c39bb2330e3a7e8ad543f0784e332972b00596f93ffab3f0cfa6",
+      "host_invocation_evidence": {},
+      "receipt_sha256": "7957d2e766eac78bec0568cf5500456ae684a9276e3c467b6c38c09ce9f4829c"
+    },
+    "TASK-12-AUDIO": {
+      "receipt_id": "RCPT-62859338ff74",
+      "request_id": "REQ-8c5905b36fa0",
+      "idempotency_key": "646b7db558f95fd6288998d9bc36d1422e2c1218ca37018263e817766324904b",
+      "task_id": "TASK-12-AUDIO",
+      "project_id": "bench_p02a_ac_15s",
+      "assigned_agent": "audio_director",
+      "runtime_name": "python_local_test",
+      "execution_mode": "sequential_fallback_honest",
+      "actually_invoked": true,
+      "conversation_id": null,
+      "known_model_routing": "local_sequential_python_callable",
+      "started_at": "2026-11-27T21:10:08.792736+00:00",
+      "completed_at": "2026-11-27T21:10:08.823027+00:00",
+      "output_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/narration_dialogue.json": "9c4e83760d9289992dfbffaf5e867e2098caabef9705a991b64ab95d4e710e49"
+      },
+      "task_definition_digest": "992fc3f22c812f6529566cd802b5145b2c3fb8ab576b1b9679305c6c8d8baa6b",
+      "host_invocation_evidence": {},
+      "receipt_sha256": "8694bce8568543b0bd7e93ee3243a417d2073e7f29f515498dd093b11870a5d4"
+    },
+    "TASK-13-CAPTION": {
+      "receipt_id": "RCPT-f62cd9bba9c3",
+      "request_id": "REQ-355cc539d569",
+      "idempotency_key": "0aeb8f1c30bd33fdb4bb5164b1dda9aeca2e6473eaf2a80dff76a058f0d0252e",
+      "task_id": "TASK-13-CAPTION",
+      "project_id": "bench_p02a_ac_15s",
+      "assigned_agent": "caption_specialist",
+      "runtime_name": "python_local_test",
+      "execution_mode": "sequential_fallback_honest",
+      "actually_invoked": true,
+      "conversation_id": null,
+      "known_model_routing": "local_sequential_python_callable",
+      "started_at": "2026-11-27T21:10:09.212750+00:00",
+      "completed_at": "2026-11-27T21:10:09.220598+00:00",
+      "output_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/caption_audio_plan.json": "fd12110e59f8fcda6db4ef3279e7b7022ee5d7cfbc82de956804a499d1a67f03"
+      },
+      "task_definition_digest": "91cc8bdc209b53e6057e66ed6fa58d4fe319fda98c991c7f8b274598d4bfe6f2",
+      "host_invocation_evidence": {},
+      "receipt_sha256": "bbd3489d1dd598441ce3e31c009febaf30c02411e95a538fde44cc51837de0ad"
+    },
+    "TASK-14-ENGINE": {
+      "receipt_id": "RCPT-92160447e36d",
+      "request_id": "REQ-99d07b2063f2",
+      "idempotency_key": "d97ecabd75ace3affefbc82bdb220d4052adeb2e8f0889a4ba2811ea8cf091ec",
+      "task_id": "TASK-14-ENGINE",
+      "project_id": "bench_p02a_ac_15s",
+      "assigned_agent": "remotion_specialist",
+      "runtime_name": "python_local_test",
+      "execution_mode": "sequential_fallback_honest",
+      "actually_invoked": true,
+      "conversation_id": null,
+      "known_model_routing": "local_sequential_python_callable",
+      "started_at": "2026-11-27T21:10:08.872359+00:00",
+      "completed_at": "2026-11-27T21:10:08.924476+00:00",
+      "output_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/engine_plan.json": "fc7a33cd8f61cc06b98e75c1a2cf43566a093ac1a391ee60aa9cde8b6072bd63",
+        "projects/bench_p02a_ac_15s/execution_plan.md": "117c265bccb31e47b2d8d6293fcc344620d8535f994a64feddba0cc3f4057cc1"
+      },
+      "task_definition_digest": "ef1ea91a8658edec4668eab88787a0a7438319342d96c4ce1cb16df22407a9de",
+      "host_invocation_evidence": {},
+      "receipt_sha256": "61160f8f7475bba389f2f37b2a2132150ccfe39901003848575c318b5ad6ad4d"
+    },
+    "TASK-15-VERIFY": {
+      "receipt_id": "RCPT-8c0c97185fe4",
+      "request_id": "REQ-42b7faa36f8a",
+      "idempotency_key": "465387468c60fd1d2bd6acb8213f6066b3202ea13aa1c7b0327966eb967fd1e2",
+      "task_id": "TASK-15-VERIFY",
+      "project_id": "bench_p02a_ac_15s",
+      "assigned_agent": "preproduction_verifier",
+      "runtime_name": "python_local_test",
+      "execution_mode": "sequential_fallback_honest",
+      "actually_invoked": true,
+      "conversation_id": null,
+      "known_model_routing": "local_sequential_python_callable",
+      "started_at": "2026-11-27T21:10:09.766569+00:00",
+      "completed_at": "2026-11-27T21:10:09.766576+00:00",
+      "output_artifact_hashes": {},
+      "task_definition_digest": "cef3d9b41274030588b352466718ad50ec4ac8cfe88f079ef601c44e5f840739",
+      "host_invocation_evidence": {},
+      "receipt_sha256": "8f777ae30f43554b4b7b3073293215c53a922d71b22501a906dcd42f681fd981"
+    }
+  },
+  "retry_budget": {
+    "TASK-01-RESEARCH": {
+      "max_attempts": 2,
+      "attempts_used": 1,
+      "timeout_seconds": 120
+    },
+    "TASK-02-REFERENCE": {
+      "max_attempts": 2,
+      "attempts_used": 1,
+      "timeout_seconds": 120
+    },
+    "TASK-03-CREATIVE": {
+      "max_attempts": 2,
+      "attempts_used": 1,
+      "timeout_seconds": 120
+    },
+    "TASK-04-SCRIPT": {
+      "max_attempts": 2,
+      "attempts_used": 1,
+      "timeout_seconds": 120
+    },
+    "TASK-05-CHARACTER": {
+      "max_attempts": 2,
+      "attempts_used": 1,
+      "timeout_seconds": 120
+    },
+    "TASK-06-STYLE": {
+      "max_attempts": 2,
+      "attempts_used": 1,
+      "timeout_seconds": 120
+    },
+    "TASK-07-STORYBOARD": {
+      "max_attempts": 2,
+      "attempts_used": 1,
+      "timeout_seconds": 120
+    },
+    "TASK-08-REF-ADAPT": {
+      "max_attempts": 2,
+      "attempts_used": 1,
+      "timeout_seconds": 120
+    },
+    "TASK-09-MOTION": {
+      "max_attempts": 2,
+      "attempts_used": 1,
+      "timeout_seconds": 120
+    },
+    "TASK-10-CAMERA": {
+      "max_attempts": 2,
+      "attempts_used": 1,
+      "timeout_seconds": 120
+    },
+    "TASK-11-ASSET": {
+      "max_attempts": 2,
+      "attempts_used": 1,
+      "timeout_seconds": 120
+    },
+    "TASK-12-AUDIO": {
+      "max_attempts": 2,
+      "attempts_used": 1,
+      "timeout_seconds": 120
+    },
+    "TASK-13-CAPTION": {
+      "max_attempts": 2,
+      "attempts_used": 1,
+      "timeout_seconds": 120
+    },
+    "TASK-14-ENGINE": {
+      "max_attempts": 2,
+      "attempts_used": 1,
+      "timeout_seconds": 120
+    },
+    "TASK-15-VERIFY": {
+      "max_attempts": 2,
+      "attempts_used": 1,
+      "timeout_seconds": 120
+    }
+  },
+  "approval_status": {
+    "approved": false,
+    "approved_digest": null,
+    "approved_version": null,
+    "revoked": false
+  },
+  "state_version": 6,
+  "task_definitions": {
+    "TASK-01-RESEARCH": {
+      "task_id": "TASK-01-RESEARCH",
+      "project_id": "bench_p02a_ac_15s",
+      "parent_task_id": null,
+      "assigned_agent": "topic_research_agent",
+      "goal": "Compile verified research claims, primary https:// sources, misconceptions, and narration mapping for bench_p02a_ac_15s.",
+      "context": {
+        "project_state": "RESEARCHING",
+        "genre_ids": [
+          "explainer",
+          "edukasi"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Phase 01.6C native preproduction workflow task TASK-01-RESEARCH"
+      },
+      "input_artifacts": [],
+      "input_artifact_hashes": {},
+      "dependencies": [],
+      "owned_artifacts": [
+        "projects/bench_p02a_ac_15s/research.md",
+        "projects/bench_p02a_ac_15s/research_report.json"
+      ],
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "google_search"
+      ],
+      "forbidden_actions": [
+        "Mutate files outside owned_artifacts",
+        "Execute Blender modeling, animation, or rendering prior to Phase 02 approval",
+        "Use unrelated time-perception or social-satire fallback payloads"
+      ],
+      "expected_output": {
+        "summary": "Verified preproduction artifact(s) for TASK-01-RESEARCH.",
+        "output_artifacts": [
+          "projects/bench_p02a_ac_15s/research.md",
+          "projects/bench_p02a_ac_15s/research_report.json"
+        ],
+        "output_format": "json_and_markdown"
+      },
+      "return_schema": "xdx.phase01_6c.preproduction.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/research.md",
+          "description": "Research markdown exists and is non-empty."
+        },
+        {
+          "criterion_id": "DONE_02",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/research_report.json",
+          "description": "Structured research report JSON exists."
+        }
+      ],
+      "required_evidence": [
+        "Verified https:// research report for TASK-01-RESEARCH (projects/bench_p02a_ac_15s/research_report.json)"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 1,
+        "timeout_seconds": 120
+      },
+      "status": "COMPLETED"
+    },
+    "TASK-02-REFERENCE": {
+      "task_id": "TASK-02-REFERENCE",
+      "project_id": "bench_p02a_ac_15s",
+      "parent_task_id": null,
+      "assigned_agent": "rea_video_reference_analyst",
+      "goal": "Verify reference MP4 SHA-256s, validate 8-part REA cache, and emit reference_analysis.md for bench_p02a_ac_15s.",
+      "context": {
+        "project_state": "REFERENCE_ANALYSIS",
+        "genre_ids": [
+          "explainer",
+          "edukasi"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Phase 01.6C native preproduction workflow task TASK-02-REFERENCE"
+      },
+      "input_artifacts": [],
+      "input_artifact_hashes": {},
+      "dependencies": [],
+      "owned_artifacts": [
+        "projects/bench_p02a_ac_15s/reference_analysis.md"
+      ],
+      "allowed_tools": [
+        "view_file",
+        "write_to_file",
+        "run_command"
+      ],
+      "forbidden_actions": [
+        "Mutate files outside owned_artifacts",
+        "Execute Blender modeling, animation, or rendering prior to Phase 02 approval",
+        "Use unrelated time-perception or social-satire fallback payloads"
+      ],
+      "expected_output": {
+        "summary": "Verified preproduction artifact(s) for TASK-02-REFERENCE.",
+        "output_artifacts": [
+          "projects/bench_p02a_ac_15s/reference_analysis.md"
+        ],
+        "output_format": "markdown"
+      },
+      "return_schema": "xdx.phase01_6c.preproduction.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/reference_analysis.md",
+          "description": "Reference analysis markdown exists."
+        }
+      ],
+      "required_evidence": [
+        "Verified reference analysis for TASK-02-REFERENCE (projects/bench_p02a_ac_15s/reference_analysis.md)"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 1,
+        "timeout_seconds": 120
+      },
+      "status": "COMPLETED"
+    },
+    "TASK-03-CREATIVE": {
+      "task_id": "TASK-03-CREATIVE",
+      "project_id": "bench_p02a_ac_15s",
+      "parent_task_id": null,
+      "assigned_agent": "creative_director",
+      "goal": "Author original 3-act concept, 0-3s hook, humor strategy, and payoff blueprint for bench_p02a_ac_15s.",
+      "context": {
+        "project_state": "CREATIVE_DEVELOPMENT",
+        "genre_ids": [
+          "explainer",
+          "edukasi"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Phase 01.6C native preproduction workflow task TASK-03-CREATIVE"
+      },
+      "input_artifacts": [
+        "projects/bench_p02a_ac_15s/research_report.json",
+        "projects/bench_p02a_ac_15s/reference_analysis.md"
+      ],
+      "input_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/research_report.json": "06e0f34a65ece25fd6f32c96b92262d96da3185abcdb0f16e908834ba4d0d149",
+        "projects/bench_p02a_ac_15s/reference_analysis.md": "08368067a4e7b539bb4eda93cd90dafedd3681b977d56cba7ee04174cadd554d"
+      },
+      "dependencies": [
+        "TASK-01-RESEARCH",
+        "TASK-02-REFERENCE"
+      ],
+      "owned_artifacts": [
+        "projects/bench_p02a_ac_15s/blueprint.md",
+        "projects/bench_p02a_ac_15s/creative_concept.json"
+      ],
+      "allowed_tools": [
+        "view_file",
+        "write_to_file"
+      ],
+      "forbidden_actions": [
+        "Mutate files outside owned_artifacts",
+        "Execute Blender modeling, animation, or rendering prior to Phase 02 approval",
+        "Use unrelated time-perception or social-satire fallback payloads"
+      ],
+      "expected_output": {
+        "summary": "Verified preproduction artifact(s) for TASK-03-CREATIVE.",
+        "output_artifacts": [
+          "projects/bench_p02a_ac_15s/blueprint.md",
+          "projects/bench_p02a_ac_15s/creative_concept.json"
+        ],
+        "output_format": "json_and_markdown"
+      },
+      "return_schema": "xdx.phase01_6c.preproduction.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/blueprint.md",
+          "description": "Blueprint markdown exists."
+        },
+        {
+          "criterion_id": "DONE_02",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/creative_concept.json",
+          "description": "Creative concept JSON exists."
+        }
+      ],
+      "required_evidence": [
+        "Original 3-act blueprint for TASK-03-CREATIVE (projects/bench_p02a_ac_15s/blueprint.md)"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 1,
+        "timeout_seconds": 120
+      },
+      "status": "COMPLETED"
+    },
+    "TASK-04-SCRIPT": {
+      "task_id": "TASK-04-SCRIPT",
+      "project_id": "bench_p02a_ac_15s",
+      "parent_task_id": null,
+      "assigned_agent": "scriptwriter_agent",
+      "goal": "Author natural Indonesian VO script, character dialogue, and schema-validated payload for bench_p02a_ac_15s.",
+      "context": {
+        "project_state": "CREATIVE_DEVELOPMENT",
+        "genre_ids": [
+          "explainer",
+          "edukasi"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Phase 01.6C native preproduction workflow task TASK-04-SCRIPT"
+      },
+      "input_artifacts": [
+        "projects/bench_p02a_ac_15s/research_report.json",
+        "projects/bench_p02a_ac_15s/blueprint.md"
+      ],
+      "input_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/research_report.json": "06e0f34a65ece25fd6f32c96b92262d96da3185abcdb0f16e908834ba4d0d149",
+        "projects/bench_p02a_ac_15s/blueprint.md": "5c6888adc4f00a5ddbeb196749f8882fec498406f0bcdfa2cdfb0dff4df20b39"
+      },
+      "dependencies": [
+        "TASK-01-RESEARCH",
+        "TASK-02-REFERENCE",
+        "TASK-03-CREATIVE"
+      ],
+      "owned_artifacts": [
+        "projects/bench_p02a_ac_15s/script.md",
+        "projects/bench_p02a_ac_15s/authored_creative_payload.json"
+      ],
+      "allowed_tools": [
+        "view_file",
+        "write_to_file"
+      ],
+      "forbidden_actions": [
+        "Mutate files outside owned_artifacts",
+        "Execute Blender modeling, animation, or rendering prior to Phase 02 approval",
+        "Use unrelated time-perception or social-satire fallback payloads"
+      ],
+      "expected_output": {
+        "summary": "Verified preproduction artifact(s) for TASK-04-SCRIPT.",
+        "output_artifacts": [
+          "projects/bench_p02a_ac_15s/script.md",
+          "projects/bench_p02a_ac_15s/authored_creative_payload.json"
+        ],
+        "output_format": "json_and_markdown"
+      },
+      "return_schema": "xdx.phase01_6c.preproduction.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/script.md",
+          "description": "Broadcast-ready Indonesian script exists."
+        },
+        {
+          "criterion_id": "DONE_02",
+          "check_type": "json_schema_valid",
+          "target": "projects/bench_p02a_ac_15s/authored_creative_payload.json::schemas/creative_intelligence.schema.json",
+          "description": "Creative payload validates against creative_intelligence.schema.json."
+        }
+      ],
+      "required_evidence": [
+        "Validated Indonesian script & payload for TASK-04-SCRIPT (projects/bench_p02a_ac_15s/authored_creative_payload.json)"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 1,
+        "timeout_seconds": 120
+      },
+      "status": "COMPLETED"
+    },
+    "TASK-05-CHARACTER": {
+      "task_id": "TASK-05-CHARACTER",
+      "project_id": "bench_p02a_ac_15s",
+      "parent_task_id": null,
+      "assigned_agent": "character_design_agent",
+      "goal": "Compile 11-attribute Character Bible and cross-shot continuity locks for bench_p02a_ac_15s.",
+      "context": {
+        "project_state": "CREATIVE_DEVELOPMENT",
+        "genre_ids": [
+          "explainer",
+          "edukasi"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Phase 01.6C native preproduction workflow task TASK-05-CHARACTER"
+      },
+      "input_artifacts": [
+        "projects/bench_p02a_ac_15s/authored_creative_payload.json"
+      ],
+      "input_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/authored_creative_payload.json": "ce2edfdcab38c71f4ff4f5d4486d71e37aed433b0123dac5ed49f7d583345b7f"
+      },
+      "dependencies": [
+        "TASK-04-SCRIPT"
+      ],
+      "owned_artifacts": [
+        "projects/bench_p02a_ac_15s/character_bible.md",
+        "projects/bench_p02a_ac_15s/character_bible.json"
+      ],
+      "allowed_tools": [
+        "view_file",
+        "write_to_file"
+      ],
+      "forbidden_actions": [
+        "Mutate files outside owned_artifacts",
+        "Execute Blender modeling, animation, or rendering prior to Phase 02 approval",
+        "Use unrelated time-perception or social-satire fallback payloads"
+      ],
+      "expected_output": {
+        "summary": "Verified preproduction artifact(s) for TASK-05-CHARACTER.",
+        "output_artifacts": [
+          "projects/bench_p02a_ac_15s/character_bible.md",
+          "projects/bench_p02a_ac_15s/character_bible.json"
+        ],
+        "output_format": "json_and_markdown"
+      },
+      "return_schema": "xdx.phase01_6c.preproduction.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/character_bible.json",
+          "description": "Character bible JSON exists."
+        },
+        {
+          "criterion_id": "DONE_02",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/character_bible.md",
+          "description": "Character bible markdown exists."
+        }
+      ],
+      "required_evidence": [
+        "11-attribute Character Bible for TASK-05-CHARACTER (projects/bench_p02a_ac_15s/character_bible.json)"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 1,
+        "timeout_seconds": 120
+      },
+      "status": "COMPLETED"
+    },
+    "TASK-06-STYLE": {
+      "task_id": "TASK-06-STYLE",
+      "project_id": "bench_p02a_ac_15s",
+      "parent_task_id": null,
+      "assigned_agent": "art_director",
+      "goal": "Compile Global Style Bible with unified detail tier across cast, environment, and props for bench_p02a_ac_15s.",
+      "context": {
+        "project_state": "CREATIVE_DEVELOPMENT",
+        "genre_ids": [
+          "explainer",
+          "edukasi"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Phase 01.6C native preproduction workflow task TASK-06-STYLE"
+      },
+      "input_artifacts": [
+        "projects/bench_p02a_ac_15s/reference_analysis.md",
+        "projects/bench_p02a_ac_15s/authored_creative_payload.json"
+      ],
+      "input_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/reference_analysis.md": "08368067a4e7b539bb4eda93cd90dafedd3681b977d56cba7ee04174cadd554d",
+        "projects/bench_p02a_ac_15s/authored_creative_payload.json": "ce2edfdcab38c71f4ff4f5d4486d71e37aed433b0123dac5ed49f7d583345b7f"
+      },
+      "dependencies": [
+        "TASK-02-REFERENCE",
+        "TASK-04-SCRIPT"
+      ],
+      "owned_artifacts": [
+        "projects/bench_p02a_ac_15s/style_bible.json"
+      ],
+      "allowed_tools": [
+        "view_file",
+        "write_to_file"
+      ],
+      "forbidden_actions": [
+        "Mutate files outside owned_artifacts",
+        "Execute Blender modeling, animation, or rendering prior to Phase 02 approval",
+        "Use unrelated time-perception or social-satire fallback payloads"
+      ],
+      "expected_output": {
+        "summary": "Verified preproduction artifact(s) for TASK-06-STYLE.",
+        "output_artifacts": [
+          "projects/bench_p02a_ac_15s/style_bible.json"
+        ],
+        "output_format": "json"
+      },
+      "return_schema": "xdx.phase01_6c.preproduction.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/style_bible.json",
+          "description": "Global Style Bible JSON exists."
+        }
+      ],
+      "required_evidence": [
+        "Unified Global Style Bible for TASK-06-STYLE (projects/bench_p02a_ac_15s/style_bible.json)"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 1,
+        "timeout_seconds": 120
+      },
+      "status": "COMPLETED"
+    },
+    "TASK-07-STORYBOARD": {
+      "task_id": "TASK-07-STORYBOARD",
+      "project_id": "bench_p02a_ac_15s",
+      "parent_task_id": null,
+      "assigned_agent": "storyboard_director",
+      "goal": "Compile integer-frame hierarchical storyboard (<=10s shots) and 100% clause-to-shot semantic plan for bench_p02a_ac_15s.",
+      "context": {
+        "project_state": "STORYBOARDING",
+        "genre_ids": [
+          "explainer",
+          "edukasi"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Phase 01.6C native preproduction workflow task TASK-07-STORYBOARD"
+      },
+      "input_artifacts": [
+        "projects/bench_p02a_ac_15s/authored_creative_payload.json",
+        "projects/bench_p02a_ac_15s/character_bible.json",
+        "projects/bench_p02a_ac_15s/style_bible.json"
+      ],
+      "input_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/authored_creative_payload.json": "ce2edfdcab38c71f4ff4f5d4486d71e37aed433b0123dac5ed49f7d583345b7f",
+        "projects/bench_p02a_ac_15s/character_bible.json": "d572057b3576c79c7ffc6e9a8b6992fd00989dc9f54609fb9fcc6644ea0ecaf1",
+        "projects/bench_p02a_ac_15s/style_bible.json": "121fd2603035341633eb110b0336bf4191370f9c4c72ece35e9273610a9c24f7"
+      },
+      "dependencies": [
+        "TASK-04-SCRIPT",
+        "TASK-05-CHARACTER",
+        "TASK-06-STYLE"
+      ],
+      "owned_artifacts": [
+        "projects/bench_p02a_ac_15s/storyboard.json",
+        "projects/bench_p02a_ac_15s/semantic_visual_plan.json"
+      ],
+      "allowed_tools": [
+        "view_file",
+        "write_to_file"
+      ],
+      "forbidden_actions": [
+        "Mutate files outside owned_artifacts",
+        "Execute Blender modeling, animation, or rendering prior to Phase 02 approval",
+        "Use unrelated time-perception or social-satire fallback payloads"
+      ],
+      "expected_output": {
+        "summary": "Verified preproduction artifact(s) for TASK-07-STORYBOARD.",
+        "output_artifacts": [
+          "projects/bench_p02a_ac_15s/storyboard.json",
+          "projects/bench_p02a_ac_15s/semantic_visual_plan.json"
+        ],
+        "output_format": "json"
+      },
+      "return_schema": "xdx.phase01_6c.preproduction.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "json_schema_valid",
+          "target": "projects/bench_p02a_ac_15s/storyboard.json::schemas/storyboard.schema.json",
+          "description": "Storyboard validates against storyboard.schema.json."
+        },
+        {
+          "criterion_id": "DONE_02",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/semantic_visual_plan.json",
+          "description": "Semantic visual plan JSON exists."
+        }
+      ],
+      "required_evidence": [
+        "Integer-frame storyboard & clause plan for TASK-07-STORYBOARD (projects/bench_p02a_ac_15s/storyboard.json)"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 1,
+        "timeout_seconds": 120
+      },
+      "status": "COMPLETED"
+    },
+    "TASK-08-REF-ADAPT": {
+      "task_id": "TASK-08-REF-ADAPT",
+      "project_id": "bench_p02a_ac_15s",
+      "parent_task_id": null,
+      "assigned_agent": "rea_video_reference_analyst",
+      "goal": "Compile 10-dimension reference fusion and 14-field shot-bound reference adaptation plan for bench_p02a_ac_15s.",
+      "context": {
+        "project_state": "STORYBOARDING",
+        "genre_ids": [
+          "explainer",
+          "edukasi"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Phase 01.6C native preproduction workflow task TASK-08-REF-ADAPT"
+      },
+      "input_artifacts": [
+        "projects/bench_p02a_ac_15s/reference_analysis.md",
+        "projects/bench_p02a_ac_15s/style_bible.json",
+        "projects/bench_p02a_ac_15s/storyboard.json"
+      ],
+      "input_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/reference_analysis.md": "08368067a4e7b539bb4eda93cd90dafedd3681b977d56cba7ee04174cadd554d",
+        "projects/bench_p02a_ac_15s/style_bible.json": "121fd2603035341633eb110b0336bf4191370f9c4c72ece35e9273610a9c24f7",
+        "projects/bench_p02a_ac_15s/storyboard.json": "402442bcb89f521be209b67611c9c89f50de7234be916b4f0ce50d8172b0ec5e"
+      },
+      "dependencies": [
+        "TASK-02-REFERENCE",
+        "TASK-06-STYLE",
+        "TASK-07-STORYBOARD"
+      ],
+      "owned_artifacts": [
+        "projects/bench_p02a_ac_15s/reference_adaptation.json"
+      ],
+      "allowed_tools": [
+        "view_file",
+        "write_to_file"
+      ],
+      "forbidden_actions": [
+        "Mutate files outside owned_artifacts",
+        "Execute Blender modeling, animation, or rendering prior to Phase 02 approval",
+        "Use unrelated time-perception or social-satire fallback payloads"
+      ],
+      "expected_output": {
+        "summary": "Verified preproduction artifact(s) for TASK-08-REF-ADAPT.",
+        "output_artifacts": [
+          "projects/bench_p02a_ac_15s/reference_adaptation.json"
+        ],
+        "output_format": "json"
+      },
+      "return_schema": "xdx.phase01_6c.preproduction.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/reference_adaptation.json",
+          "description": "Shot-bound reference adaptation JSON exists."
+        }
+      ],
+      "required_evidence": [
+        "10D fusion & 14-field adaptations for TASK-08-REF-ADAPT (projects/bench_p02a_ac_15s/reference_adaptation.json)"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 1,
+        "timeout_seconds": 120
+      },
+      "status": "COMPLETED"
+    },
+    "TASK-09-MOTION": {
+      "task_id": "TASK-09-MOTION",
+      "project_id": "bench_p02a_ac_15s",
+      "parent_task_id": null,
+      "assigned_agent": "motion_director",
+      "goal": "Compile 14-field character and mechanism action plan with IK/contact targets for bench_p02a_ac_15s.",
+      "context": {
+        "project_state": "STORYBOARDING",
+        "genre_ids": [
+          "explainer",
+          "edukasi"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Phase 01.6C native preproduction workflow task TASK-09-MOTION"
+      },
+      "input_artifacts": [
+        "projects/bench_p02a_ac_15s/character_bible.json",
+        "projects/bench_p02a_ac_15s/storyboard.json"
+      ],
+      "input_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/character_bible.json": "d572057b3576c79c7ffc6e9a8b6992fd00989dc9f54609fb9fcc6644ea0ecaf1",
+        "projects/bench_p02a_ac_15s/storyboard.json": "402442bcb89f521be209b67611c9c89f50de7234be916b4f0ce50d8172b0ec5e"
+      },
+      "dependencies": [
+        "TASK-05-CHARACTER",
+        "TASK-07-STORYBOARD"
+      ],
+      "owned_artifacts": [
+        "projects/bench_p02a_ac_15s/motion_plan.json"
+      ],
+      "allowed_tools": [
+        "view_file",
+        "write_to_file"
+      ],
+      "forbidden_actions": [
+        "Mutate files outside owned_artifacts",
+        "Execute Blender modeling, animation, or rendering prior to Phase 02 approval",
+        "Use unrelated time-perception or social-satire fallback payloads"
+      ],
+      "expected_output": {
+        "summary": "Verified preproduction artifact(s) for TASK-09-MOTION.",
+        "output_artifacts": [
+          "projects/bench_p02a_ac_15s/motion_plan.json"
+        ],
+        "output_format": "json"
+      },
+      "return_schema": "xdx.phase01_6c.preproduction.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/motion_plan.json",
+          "description": "Motion plan JSON exists."
+        }
+      ],
+      "required_evidence": [
+        "14-field IK motion plan for TASK-09-MOTION (projects/bench_p02a_ac_15s/motion_plan.json)"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 1,
+        "timeout_seconds": 120
+      },
+      "status": "COMPLETED"
+    },
+    "TASK-10-CAMERA": {
+      "task_id": "TASK-10-CAMERA",
+      "project_id": "bench_p02a_ac_15s",
+      "parent_task_id": null,
+      "assigned_agent": "cinematographer",
+      "goal": "Compile purpose-driven dynamic focal-length camera plan across shots for bench_p02a_ac_15s.",
+      "context": {
+        "project_state": "STORYBOARDING",
+        "genre_ids": [
+          "explainer",
+          "edukasi"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Phase 01.6C native preproduction workflow task TASK-10-CAMERA"
+      },
+      "input_artifacts": [
+        "projects/bench_p02a_ac_15s/style_bible.json",
+        "projects/bench_p02a_ac_15s/storyboard.json"
+      ],
+      "input_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/style_bible.json": "121fd2603035341633eb110b0336bf4191370f9c4c72ece35e9273610a9c24f7",
+        "projects/bench_p02a_ac_15s/storyboard.json": "402442bcb89f521be209b67611c9c89f50de7234be916b4f0ce50d8172b0ec5e"
+      },
+      "dependencies": [
+        "TASK-06-STYLE",
+        "TASK-07-STORYBOARD"
+      ],
+      "owned_artifacts": [
+        "projects/bench_p02a_ac_15s/camera_plan.json"
+      ],
+      "allowed_tools": [
+        "view_file",
+        "write_to_file"
+      ],
+      "forbidden_actions": [
+        "Mutate files outside owned_artifacts",
+        "Execute Blender modeling, animation, or rendering prior to Phase 02 approval",
+        "Use unrelated time-perception or social-satire fallback payloads"
+      ],
+      "expected_output": {
+        "summary": "Verified preproduction artifact(s) for TASK-10-CAMERA.",
+        "output_artifacts": [
+          "projects/bench_p02a_ac_15s/camera_plan.json"
+        ],
+        "output_format": "json"
+      },
+      "return_schema": "xdx.phase01_6c.preproduction.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/camera_plan.json",
+          "description": "Camera plan JSON exists."
+        }
+      ],
+      "required_evidence": [
+        "Dynamic lens camera plan for TASK-10-CAMERA (projects/bench_p02a_ac_15s/camera_plan.json)"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 1,
+        "timeout_seconds": 120
+      },
+      "status": "COMPLETED"
+    },
+    "TASK-11-ASSET": {
+      "task_id": "TASK-11-ASSET",
+      "project_id": "bench_p02a_ac_15s",
+      "parent_task_id": null,
+      "assigned_agent": "asset_specialist",
+      "goal": "Compile 12-field semantic asset specifications derived from storyboard shots for bench_p02a_ac_15s.",
+      "context": {
+        "project_state": "STORYBOARDING",
+        "genre_ids": [
+          "explainer",
+          "edukasi"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Phase 01.6C native preproduction workflow task TASK-11-ASSET"
+      },
+      "input_artifacts": [
+        "projects/bench_p02a_ac_15s/character_bible.json",
+        "projects/bench_p02a_ac_15s/style_bible.json",
+        "projects/bench_p02a_ac_15s/storyboard.json"
+      ],
+      "input_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/character_bible.json": "d572057b3576c79c7ffc6e9a8b6992fd00989dc9f54609fb9fcc6644ea0ecaf1",
+        "projects/bench_p02a_ac_15s/style_bible.json": "121fd2603035341633eb110b0336bf4191370f9c4c72ece35e9273610a9c24f7",
+        "projects/bench_p02a_ac_15s/storyboard.json": "402442bcb89f521be209b67611c9c89f50de7234be916b4f0ce50d8172b0ec5e"
+      },
+      "dependencies": [
+        "TASK-05-CHARACTER",
+        "TASK-06-STYLE",
+        "TASK-07-STORYBOARD"
+      ],
+      "owned_artifacts": [
+        "projects/bench_p02a_ac_15s/asset_manifest.json"
+      ],
+      "allowed_tools": [
+        "view_file",
+        "write_to_file"
+      ],
+      "forbidden_actions": [
+        "Mutate files outside owned_artifacts",
+        "Execute Blender modeling, animation, or rendering prior to Phase 02 approval",
+        "Use unrelated time-perception or social-satire fallback payloads"
+      ],
+      "expected_output": {
+        "summary": "Verified preproduction artifact(s) for TASK-11-ASSET.",
+        "output_artifacts": [
+          "projects/bench_p02a_ac_15s/asset_manifest.json"
+        ],
+        "output_format": "json"
+      },
+      "return_schema": "xdx.phase01_6c.preproduction.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/asset_manifest.json",
+          "description": "Semantic asset manifest JSON exists."
+        }
+      ],
+      "required_evidence": [
+        "12-field semantic asset manifest for TASK-11-ASSET (projects/bench_p02a_ac_15s/asset_manifest.json)"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 1,
+        "timeout_seconds": 120
+      },
+      "status": "COMPLETED"
+    },
+    "TASK-12-AUDIO": {
+      "task_id": "TASK-12-AUDIO",
+      "project_id": "bench_p02a_ac_15s",
+      "parent_task_id": null,
+      "assigned_agent": "audio_director",
+      "goal": "Compile ESTIMATED narration timing, dialogue direction, music, ambience, foley, and SFX events for bench_p02a_ac_15s.",
+      "context": {
+        "project_state": "STORYBOARDING",
+        "genre_ids": [
+          "explainer",
+          "edukasi"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Phase 01.6C native preproduction workflow task TASK-12-AUDIO"
+      },
+      "input_artifacts": [
+        "projects/bench_p02a_ac_15s/authored_creative_payload.json",
+        "projects/bench_p02a_ac_15s/storyboard.json"
+      ],
+      "input_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/authored_creative_payload.json": "ce2edfdcab38c71f4ff4f5d4486d71e37aed433b0123dac5ed49f7d583345b7f",
+        "projects/bench_p02a_ac_15s/storyboard.json": "402442bcb89f521be209b67611c9c89f50de7234be916b4f0ce50d8172b0ec5e"
+      },
+      "dependencies": [
+        "TASK-04-SCRIPT",
+        "TASK-07-STORYBOARD"
+      ],
+      "owned_artifacts": [
+        "projects/bench_p02a_ac_15s/narration_dialogue.json"
+      ],
+      "allowed_tools": [
+        "view_file",
+        "write_to_file"
+      ],
+      "forbidden_actions": [
+        "Mutate files outside owned_artifacts",
+        "Execute Blender modeling, animation, or rendering prior to Phase 02 approval",
+        "Use unrelated time-perception or social-satire fallback payloads"
+      ],
+      "expected_output": {
+        "summary": "Verified preproduction artifact(s) for TASK-12-AUDIO.",
+        "output_artifacts": [
+          "projects/bench_p02a_ac_15s/narration_dialogue.json"
+        ],
+        "output_format": "json"
+      },
+      "return_schema": "xdx.phase01_6c.preproduction.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/narration_dialogue.json",
+          "description": "Audio narration & dialogue plan JSON exists."
+        }
+      ],
+      "required_evidence": [
+        "ESTIMATED audio & narration plan for TASK-12-AUDIO (projects/bench_p02a_ac_15s/narration_dialogue.json)"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 1,
+        "timeout_seconds": 120
+      },
+      "status": "COMPLETED"
+    },
+    "TASK-13-CAPTION": {
+      "task_id": "TASK-13-CAPTION",
+      "project_id": "bench_p02a_ac_15s",
+      "parent_task_id": null,
+      "assigned_agent": "caption_specialist",
+      "goal": "Compile ESTIMATED phrase-grouped captions, safe-area specs, keyword highlights, and scientific labels for bench_p02a_ac_15s.",
+      "context": {
+        "project_state": "STORYBOARDING",
+        "genre_ids": [
+          "explainer",
+          "edukasi"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Phase 01.6C native preproduction workflow task TASK-13-CAPTION"
+      },
+      "input_artifacts": [
+        "projects/bench_p02a_ac_15s/style_bible.json",
+        "projects/bench_p02a_ac_15s/storyboard.json",
+        "projects/bench_p02a_ac_15s/narration_dialogue.json"
+      ],
+      "input_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/style_bible.json": "121fd2603035341633eb110b0336bf4191370f9c4c72ece35e9273610a9c24f7",
+        "projects/bench_p02a_ac_15s/storyboard.json": "402442bcb89f521be209b67611c9c89f50de7234be916b4f0ce50d8172b0ec5e",
+        "projects/bench_p02a_ac_15s/narration_dialogue.json": "9c4e83760d9289992dfbffaf5e867e2098caabef9705a991b64ab95d4e710e49"
+      },
+      "dependencies": [
+        "TASK-06-STYLE",
+        "TASK-07-STORYBOARD",
+        "TASK-12-AUDIO"
+      ],
+      "owned_artifacts": [
+        "projects/bench_p02a_ac_15s/caption_audio_plan.json"
+      ],
+      "allowed_tools": [
+        "view_file",
+        "write_to_file"
+      ],
+      "forbidden_actions": [
+        "Mutate files outside owned_artifacts",
+        "Execute Blender modeling, animation, or rendering prior to Phase 02 approval",
+        "Use unrelated time-perception or social-satire fallback payloads"
+      ],
+      "expected_output": {
+        "summary": "Verified preproduction artifact(s) for TASK-13-CAPTION.",
+        "output_artifacts": [
+          "projects/bench_p02a_ac_15s/caption_audio_plan.json"
+        ],
+        "output_format": "json"
+      },
+      "return_schema": "xdx.phase01_6c.preproduction.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/caption_audio_plan.json",
+          "description": "Caption & audio mastering plan JSON exists."
+        }
+      ],
+      "required_evidence": [
+        "ESTIMATED caption & scientific label plan for TASK-13-CAPTION (projects/bench_p02a_ac_15s/caption_audio_plan.json)"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 1,
+        "timeout_seconds": 120
+      },
+      "status": "COMPLETED"
+    },
+    "TASK-14-ENGINE": {
+      "task_id": "TASK-14-ENGINE",
+      "project_id": "bench_p02a_ac_15s",
+      "parent_task_id": null,
+      "assigned_agent": "remotion_specialist",
+      "goal": "Compile hybrid engine routing and post-approval execution plan for bench_p02a_ac_15s.",
+      "context": {
+        "project_state": "STORYBOARDING",
+        "genre_ids": [
+          "explainer",
+          "edukasi"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Phase 01.6C native preproduction workflow task TASK-14-ENGINE"
+      },
+      "input_artifacts": [
+        "projects/bench_p02a_ac_15s/style_bible.json",
+        "projects/bench_p02a_ac_15s/storyboard.json",
+        "projects/bench_p02a_ac_15s/camera_plan.json",
+        "projects/bench_p02a_ac_15s/asset_manifest.json"
+      ],
+      "input_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/style_bible.json": "121fd2603035341633eb110b0336bf4191370f9c4c72ece35e9273610a9c24f7",
+        "projects/bench_p02a_ac_15s/storyboard.json": "402442bcb89f521be209b67611c9c89f50de7234be916b4f0ce50d8172b0ec5e",
+        "projects/bench_p02a_ac_15s/camera_plan.json": "ed6fc0ac58aa973dccfc85d87eb2eb235a5388a6bcb48e27c63e8c28ef5539b5",
+        "projects/bench_p02a_ac_15s/asset_manifest.json": "a991f4d919544269a8f441faf763212fc1ca78d6bd296afe9132c9a0ba33a873"
+      },
+      "dependencies": [
+        "TASK-06-STYLE",
+        "TASK-07-STORYBOARD",
+        "TASK-10-CAMERA",
+        "TASK-11-ASSET"
+      ],
+      "owned_artifacts": [
+        "projects/bench_p02a_ac_15s/engine_plan.json",
+        "projects/bench_p02a_ac_15s/execution_plan.md"
+      ],
+      "allowed_tools": [
+        "view_file",
+        "write_to_file"
+      ],
+      "forbidden_actions": [
+        "Mutate files outside owned_artifacts",
+        "Execute Blender modeling, animation, or rendering prior to Phase 02 approval",
+        "Use unrelated time-perception or social-satire fallback payloads"
+      ],
+      "expected_output": {
+        "summary": "Verified preproduction artifact(s) for TASK-14-ENGINE.",
+        "output_artifacts": [
+          "projects/bench_p02a_ac_15s/engine_plan.json",
+          "projects/bench_p02a_ac_15s/execution_plan.md"
+        ],
+        "output_format": "json_and_markdown"
+      },
+      "return_schema": "xdx.phase01_6c.preproduction.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "json_schema_valid",
+          "target": "projects/bench_p02a_ac_15s/engine_plan.json::schemas/engine_plan.schema.json",
+          "description": "Engine routing plan validates against engine_plan.schema.json."
+        },
+        {
+          "criterion_id": "DONE_02",
+          "check_type": "file_exists_nonempty",
+          "target": "projects/bench_p02a_ac_15s/execution_plan.md",
+          "description": "Execution plan markdown exists."
+        }
+      ],
+      "required_evidence": [
+        "Validated hybrid engine routing for TASK-14-ENGINE (projects/bench_p02a_ac_15s/engine_plan.json)"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 1,
+        "timeout_seconds": 120
+      },
+      "status": "COMPLETED"
+    },
+    "TASK-15-VERIFY": {
+      "task_id": "TASK-15-VERIFY",
+      "project_id": "bench_p02a_ac_15s",
+      "parent_task_id": null,
+      "assigned_agent": "preproduction_verifier",
+      "goal": "Audit all 15 mandatory preproduction criteria in fresh read-only context for bench_p02a_ac_15s.",
+      "context": {
+        "project_state": "PREPRODUCTION_QC",
+        "genre_ids": [
+          "explainer",
+          "edukasi"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Phase 01.6C native preproduction workflow task TASK-15-VERIFY",
+        "criteria_manifest": {
+          "manifest_id": "CRITMAN-bench_p02a_ac_15s-ea61814e",
+          "project_id": "bench_p02a_ac_15s",
+          "producer_task_id": "TASK-07-STORYBOARD",
+          "reviewer_task_id": "TASK-15-VERIFY",
+          "additional_reviewed_task_ids": [
+            "TASK-01-RESEARCH",
+            "TASK-02-REFERENCE",
+            "TASK-03-CREATIVE",
+            "TASK-04-SCRIPT",
+            "TASK-05-CHARACTER",
+            "TASK-06-STYLE",
+            "TASK-08-REF-ADAPT",
+            "TASK-09-MOTION",
+            "TASK-10-CAMERA",
+            "TASK-11-ASSET",
+            "TASK-12-AUDIO",
+            "TASK-13-CAPTION",
+            "TASK-14-ENGINE"
+          ],
+          "created_by": "master_director",
+          "created_at_utc": "2026-11-27T21:10:05.488873+00:00",
+          "required_criteria": [
+            {
+              "criterion_id": "CRIT_01_TOPIC_RELEVANCE",
+              "category": "topic_relevance",
+              "description": "Topic title, research claims, blueprint premise, narration, and shot actions align semantically without unrelated fallback.",
+              "required_artifacts": [
+                "projects/bench_p02a_ac_15s/authored_creative_payload.json",
+                "projects/bench_p02a_ac_15s/blueprint.md",
+                "projects/bench_p02a_ac_15s/script.md"
+              ]
+            },
+            {
+              "criterion_id": "CRIT_02_FACTUAL_ACCURACY",
+              "category": "factual_accuracy",
+              "description": "Research dossier includes topic scope, questions, verified https:// claims, excerpts, misconceptions, uncertainties, and narration mapping.",
+              "required_artifacts": [
+                "projects/bench_p02a_ac_15s/research.md",
+                "projects/bench_p02a_ac_15s/research_report.json"
+              ]
+            },
+            {
+              "criterion_id": "CRIT_03_ORIGINALITY",
+              "category": "originality",
+              "description": "Script, characters, and actions are 100% original with zero placeholder tokens and zero copied reference IP.",
+              "required_artifacts": [
+                "projects/bench_p02a_ac_15s/authored_creative_payload.json",
+                "projects/bench_p02a_ac_15s/character_bible.json",
+                "projects/bench_p02a_ac_15s/script.md"
+              ]
+            },
+            {
+              "criterion_id": "CRIT_04_HOOK_STRENGTH",
+              "category": "hook",
+              "description": "0-3s visual and spoken hooks are concrete, immediate, and free of meta instructions.",
+              "required_artifacts": [
+                "projects/bench_p02a_ac_15s/authored_creative_payload.json",
+                "projects/bench_p02a_ac_15s/blueprint.md"
+              ]
+            },
+            {
+              "criterion_id": "CRIT_05_NARRATIVE_COHERENCE",
+              "category": "narrative_coherence",
+              "description": "Three-act progression (setup, escalation, resolution) and payoff/callback connect logically across beats.",
+              "required_artifacts": [
+                "projects/bench_p02a_ac_15s/blueprint.md",
+                "projects/bench_p02a_ac_15s/storyboard.json"
+              ]
+            },
+            {
+              "criterion_id": "CRIT_06_NARRATION_TIMING",
+              "category": "narration_timing",
+              "description": "Adaptive Indonesian narration timing is ESTIMATED with playback_speed_multiplier==1.0 and comfortable pacing or explicit duration recommendation.",
+              "required_artifacts": [
+                "projects/bench_p02a_ac_15s/narration_dialogue.json",
+                "projects/bench_p02a_ac_15s/production_config.json"
+              ]
+            },
+            {
+              "criterion_id": "CRIT_07_SEMANTIC_VISUAL_COVERAGE",
+              "category": "semantic_visual_coverage",
+              "description": "100% of substantive clauses map to purposeful shots on an integer-frame timeline with every shot <= 10.0s.",
+              "required_artifacts": [
+                "projects/bench_p02a_ac_15s/semantic_visual_plan.json",
+                "projects/bench_p02a_ac_15s/storyboard.json"
+              ]
+            },
+            {
+              "criterion_id": "CRIT_08_CHARACTER_CONSISTENCY",
+              "category": "character_consistency",
+              "description": "Every character specifies all 11 design/rig/pose/action attributes and cross-shot continuity locks.",
+              "required_artifacts": [
+                "projects/bench_p02a_ac_15s/character_bible.json",
+                "projects/bench_p02a_ac_15s/character_bible.md"
+              ]
+            },
+            {
+              "criterion_id": "CRIT_09_STYLE_CONSISTENCY",
+              "category": "style_consistency",
+              "description": "Global Style Bible uses a valid supported profile with unified detail tier across characters, environments, and props, and zero premature modeling.",
+              "required_artifacts": [
+                "projects/bench_p02a_ac_15s/style_bible.json"
+              ]
+            },
+            {
+              "criterion_id": "CRIT_10_ASSET_FEASIBILITY",
+              "category": "asset_feasibility",
+              "description": "Every storyboard asset has a 12-field semantic specification, honest non-READY status, and zero PLACEHOLDER geometry.",
+              "required_artifacts": [
+                "projects/bench_p02a_ac_15s/asset_manifest.json",
+                "projects/bench_p02a_ac_15s/storyboard.json"
+              ]
+            },
+            {
+              "criterion_id": "CRIT_11_MOTION_FEASIBILITY",
+              "category": "motion_feasibility",
+              "description": "Every shot has a 14-field character/mechanism action plan with contact/IK targets and zero generic idle loops.",
+              "required_artifacts": [
+                "projects/bench_p02a_ac_15s/motion_plan.json"
+              ]
+            },
+            {
+              "criterion_id": "CRIT_12_CAMERA_SUITABILITY",
+              "category": "camera_suitability",
+              "description": "Camera plan selects focal lengths dynamically according to narrative visual purpose (never locked to 36mm across all shots).",
+              "required_artifacts": [
+                "projects/bench_p02a_ac_15s/camera_plan.json",
+                "projects/bench_p02a_ac_15s/storyboard.json"
+              ]
+            },
+            {
+              "criterion_id": "CRIT_13_REFERENCE_ADAPTATION",
+              "category": "reference_adaptation",
+              "description": "10-dimension reference fusion resolves conflicts cleanly and emits 14-field shot-bound adaptation records (or clean autonomous no-ref mode).",
+              "required_artifacts": [
+                "projects/bench_p02a_ac_15s/reference_adaptation.json",
+                "projects/bench_p02a_ac_15s/reference_analysis.md"
+              ]
+            },
+            {
+              "criterion_id": "CRIT_14_ENGINE_COMPATIBILITY",
+              "category": "engine_compatibility",
+              "description": "Hybrid engine routing and execution plan validate against engine_plan.schema.json with zero live rendering or Blender mutation.",
+              "required_artifacts": [
+                "projects/bench_p02a_ac_15s/engine_plan.json",
+                "projects/bench_p02a_ac_15s/execution_plan.md"
+              ]
+            },
+            {
+              "criterion_id": "CRIT_15_PACKAGE_COMPLETENESS",
+              "category": "package_completeness",
+              "description": "All 13 mandatory human approval items exist, are non-empty, match SHA-256 digests, and halt at WAITING_APPROVAL.",
+              "required_artifacts": [
+                "projects/bench_p02a_ac_15s/approval_package_manifest.json",
+                "projects/bench_p02a_ac_15s/production_config.json"
+              ]
+            }
+          ],
+          "manifest_sha256": "b3071fa86cf0efdc600863d0d5fb3b53916df9a00081019c0e068315298ceed8"
+        },
+        "required_criteria_ids": [
+          "CRIT_01_TOPIC_RELEVANCE",
+          "CRIT_02_FACTUAL_ACCURACY",
+          "CRIT_03_ORIGINALITY",
+          "CRIT_04_HOOK_STRENGTH",
+          "CRIT_05_NARRATIVE_COHERENCE",
+          "CRIT_06_NARRATION_TIMING",
+          "CRIT_07_SEMANTIC_VISUAL_COVERAGE",
+          "CRIT_08_CHARACTER_CONSISTENCY",
+          "CRIT_09_STYLE_CONSISTENCY",
+          "CRIT_10_ASSET_FEASIBILITY",
+          "CRIT_11_MOTION_FEASIBILITY",
+          "CRIT_12_CAMERA_SUITABILITY",
+          "CRIT_13_REFERENCE_ADAPTATION",
+          "CRIT_14_ENGINE_COMPATIBILITY",
+          "CRIT_15_PACKAGE_COMPLETENESS"
+        ],
+        "additional_reviewed_task_ids": [
+          "TASK-01-RESEARCH",
+          "TASK-02-REFERENCE",
+          "TASK-03-CREATIVE",
+          "TASK-04-SCRIPT",
+          "TASK-05-CHARACTER",
+          "TASK-06-STYLE",
+          "TASK-08-REF-ADAPT",
+          "TASK-09-MOTION",
+          "TASK-10-CAMERA",
+          "TASK-11-ASSET",
+          "TASK-12-AUDIO",
+          "TASK-13-CAPTION",
+          "TASK-14-ENGINE"
+        ]
+      },
+      "input_artifacts": [
+        "projects/bench_p02a_ac_15s/research_report.json",
+        "projects/bench_p02a_ac_15s/reference_analysis.md",
+        "projects/bench_p02a_ac_15s/blueprint.md",
+        "projects/bench_p02a_ac_15s/script.md",
+        "projects/bench_p02a_ac_15s/authored_creative_payload.json",
+        "projects/bench_p02a_ac_15s/character_bible.json",
+        "projects/bench_p02a_ac_15s/style_bible.json",
+        "projects/bench_p02a_ac_15s/storyboard.json",
+        "projects/bench_p02a_ac_15s/semantic_visual_plan.json",
+        "projects/bench_p02a_ac_15s/reference_adaptation.json",
+        "projects/bench_p02a_ac_15s/motion_plan.json",
+        "projects/bench_p02a_ac_15s/camera_plan.json",
+        "projects/bench_p02a_ac_15s/asset_manifest.json",
+        "projects/bench_p02a_ac_15s/narration_dialogue.json",
+        "projects/bench_p02a_ac_15s/caption_audio_plan.json",
+        "projects/bench_p02a_ac_15s/engine_plan.json",
+        "projects/bench_p02a_ac_15s/execution_plan.md"
+      ],
+      "input_artifact_hashes": {
+        "projects/bench_p02a_ac_15s/research_report.json": "06e0f34a65ece25fd6f32c96b92262d96da3185abcdb0f16e908834ba4d0d149",
+        "projects/bench_p02a_ac_15s/reference_analysis.md": "08368067a4e7b539bb4eda93cd90dafedd3681b977d56cba7ee04174cadd554d",
+        "projects/bench_p02a_ac_15s/blueprint.md": "5c6888adc4f00a5ddbeb196749f8882fec498406f0bcdfa2cdfb0dff4df20b39",
+        "projects/bench_p02a_ac_15s/script.md": "7f63277ea39b4242f9947a500425b8071754493f0eeb9d51b0bc93ac6ecd26ce",
+        "projects/bench_p02a_ac_15s/authored_creative_payload.json": "ce2edfdcab38c71f4ff4f5d4486d71e37aed433b0123dac5ed49f7d583345b7f",
+        "projects/bench_p02a_ac_15s/character_bible.json": "d572057b3576c79c7ffc6e9a8b6992fd00989dc9f54609fb9fcc6644ea0ecaf1",
+        "projects/bench_p02a_ac_15s/style_bible.json": "121fd2603035341633eb110b0336bf4191370f9c4c72ece35e9273610a9c24f7",
+        "projects/bench_p02a_ac_15s/storyboard.json": "402442bcb89f521be209b67611c9c89f50de7234be916b4f0ce50d8172b0ec5e",
+        "projects/bench_p02a_ac_15s/semantic_visual_plan.json": "4bfdebd5bdfbd9a52bb8b00098bbf1e8edfa1f5db23940563da0a9d6e6c19308",
+        "projects/bench_p02a_ac_15s/reference_adaptation.json": "1406222f7beadc471034efd6eb2c1cdc9969a51d1aa693cc2b6bb378a1074fb6",
+        "projects/bench_p02a_ac_15s/motion_plan.json": "4e0a98ab48e8d84e17816c525bf5ed6251ea5da72d005722a98241cebb0ca3fa",
+        "projects/bench_p02a_ac_15s/camera_plan.json": "ed6fc0ac58aa973dccfc85d87eb2eb235a5388a6bcb48e27c63e8c28ef5539b5",
+        "projects/bench_p02a_ac_15s/asset_manifest.json": "a991f4d919544269a8f441faf763212fc1ca78d6bd296afe9132c9a0ba33a873",
+        "projects/bench_p02a_ac_15s/narration_dialogue.json": "9c4e83760d9289992dfbffaf5e867e2098caabef9705a991b64ab95d4e710e49",
+        "projects/bench_p02a_ac_15s/caption_audio_plan.json": "fd12110e59f8fcda6db4ef3279e7b7022ee5d7cfbc82de956804a499d1a67f03",
+        "projects/bench_p02a_ac_15s/engine_plan.json": "fc7a33cd8f61cc06b98e75c1a2cf43566a093ac1a391ee60aa9cde8b6072bd63",
+        "projects/bench_p02a_ac_15s/execution_plan.md": "117c265bccb31e47b2d8d6293fcc344620d8535f994a64feddba0cc3f4057cc1"
+      },
+      "dependencies": [
+        "TASK-01-RESEARCH",
+        "TASK-02-REFERENCE",
+        "TASK-03-CREATIVE",
+        "TASK-04-SCRIPT",
+        "TASK-05-CHARACTER",
+        "TASK-06-STYLE",
+        "TASK-07-STORYBOARD",
+        "TASK-08-REF-ADAPT",
+        "TASK-09-MOTION",
+        "TASK-10-CAMERA",
+        "TASK-11-ASSET",
+        "TASK-12-AUDIO",
+        "TASK-13-CAPTION",
+        "TASK-14-ENGINE"
+      ],
+      "owned_artifacts": [],
+      "allowed_tools": [
+        "view_file",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Mutate files outside owned_artifacts",
+        "Execute Blender modeling, animation, or rendering prior to Phase 02 approval",
+        "Use unrelated time-perception or social-satire fallback payloads"
+      ],
+      "expected_output": {
+        "summary": "15-criterion independent preproduction review report for bench_p02a_ac_15s.",
+        "output_artifacts": [],
+        "output_format": "json"
+      },
+      "return_schema": "xdx.phase01_6c.preproduction.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "independent_review_verdict",
+          "target": "TASK-07-STORYBOARD",
+          "description": "Independent 15-criterion preproduction verification returns PASS."
+        }
+      ],
+      "required_evidence": [
+        "15-criterion read-only review verdict for TASK-15-VERIFY (projects/bench_p02a_ac_15s/storyboard.json)"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 1,
+        "timeout_seconds": 120
+      },
+      "status": "COMPLETED"
+    }
+  },
+  "idempotency_ledger": {
+    "0aeb8f1c30bd33fdb4bb5164b1dda9aeca2e6473eaf2a80dff76a058f0d0252e": "TASK-13-CAPTION",
+    "2191accdee8d85be5890442314d2b27389afd90112a652ecfcc020d7c25e23b3": "TASK-01-RESEARCH",
+    "465387468c60fd1d2bd6acb8213f6066b3202ea13aa1c7b0327966eb967fd1e2": "TASK-15-VERIFY",
+    "646b7db558f95fd6288998d9bc36d1422e2c1218ca37018263e817766324904b": "TASK-12-AUDIO",
+    "73587696ba1d027eb506a1448d2f082f9888460e5cbd88339257bec22ef5d5de": "TASK-06-STYLE",
+    "7c79bbaa026bd0709854136ec4e35f64b773de64955ead3519a0a60914c41fab": "TASK-10-CAMERA",
+    "8eb296abeb9db80dd2f7fbc20828777172e253a7718e497e20de8bafe13ff5b4": "TASK-03-CREATIVE",
+    "a118a26cc7ee03fe0e40b452988e1506961fd4c8d597667912cb109d20ac68aa": "TASK-11-ASSET",
+    "a8103052ded92bab31596fdb3d9685208d2dad0e81df7bd52e458c8a2dc44837": "TASK-05-CHARACTER",
+    "a8200649b836e8c34cf99e94baa42d6b0e3ca28217a492fc845dd4245fcdbef1": "TASK-02-REFERENCE",
+    "a826491a95838dfe3d3d4cda680df87f679bc0cfc6b177f86ce164f4e5b532a1": "TASK-09-MOTION",
+    "bea3999a4ffa7230811b43003ad46473b2f88dde2816798a46084dfa3af915e7": "TASK-08-REF-ADAPT",
+    "d5c0549d91bf2dc0664268e3e756cb0e0c553a0cd19d77330c76289d732ba8ed": "TASK-07-STORYBOARD",
+    "d97ecabd75ace3affefbc82bdb220d4052adeb2e8f0889a4ba2811ea8cf091ec": "TASK-14-ENGINE",
+    "e566816d42db17fdfdc9e677dad21ede934c7f833bb82b57667d95d66cf7210c": "TASK-04-SCRIPT"
+  },
+  "checkpoint_sha256": "3143b29027ddb6f7a17a6ed50788461966c8179026f6603c42e0770ffd5e8ab7"
+}

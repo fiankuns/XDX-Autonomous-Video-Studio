@@ -12,6 +12,35 @@ WEB_DIR = Path(__file__).resolve().parent / "web"
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
 
+def assert_render_authorized(
+    package_dir: Path,
+    *,
+    required_scope: str = "render_production",
+    repo_root: Path | None = None,
+) -> dict[str, Any]:
+    """Fail-closed guard: block Three.js/Remotion/FFmpeg production renders without live trusted approval & dependency match."""
+    from governance.canonical_manifest import verify_production_dependencies
+    from governance.trusted_approval import assert_phase_boundary
+    from intelligence.state_and_approval import ApprovalGate, ProjectStateManager
+
+    pdir = Path(package_dir).resolve()
+    rroot = (repo_root or ROOT_DIR).resolve()
+    # 1. Verify phase boundary (blocks until Phase 02A execution is explicitly authorized)
+    assert_phase_boundary(required_scope, action="web_engine_render")
+    # 2. Verify live canonical manifest + Ed25519 signature + ledger + TTL + scope
+    ctx = ProjectStateManager(pdir / "project_state.json").build_authorization_context(pdir)
+    ApprovalGate().verify_live_execution_context(ctx, required_scope=required_scope)
+    # 3. Verify external production dependencies (package.json, engines/web/*, REF-002 profile, guard scripts)
+    dep_check = verify_production_dependencies(pdir, rroot)
+    return {
+        "authorized": True,
+        "project_id": ctx.project_id,
+        "manifest_digest": ctx.package_digest,
+        "scope": required_scope,
+        "dependencies_verified": dep_check,
+    }
+
+
 class ThreeJSEngine:
     """Executes deterministic Node/Three.js scene evaluation and compiles shot specs."""
 

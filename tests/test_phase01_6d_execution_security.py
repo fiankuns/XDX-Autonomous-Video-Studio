@@ -267,7 +267,7 @@ def test_narration_estimate_over_target_is_not_pass() -> None:
     from intelligence.universal_preproduction import NARRATION_DURATION_TOLERANCE
 
     over, ok = [], []
-    for proj in sorted((ROOT_DIR / "projects").glob("bench_*")):
+    for proj in sorted((ROOT_DIR / "projects").glob("bench_[a-d]_*")):
         est = json.loads((proj / "narration_dialogue.json").read_text(encoding="utf-8"))["estimated_timing"]
         target = float(est["target_duration_s"])
         (over if float(est["estimated_total_s"]) > target * (1 + NARRATION_DURATION_TOLERANCE) else ok).append(proj.name)

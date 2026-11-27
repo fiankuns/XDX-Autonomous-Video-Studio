@@ -143,3 +143,58 @@ def compute_canonical_package_digest(package_dir: Path) -> tuple[str, dict[str, 
     """Return (digest, {relpath: sha256}) over every production-input artifact."""
     man = build_canonical_manifest(package_dir)
     return manifest_digest(man), {k: v["sha256"] for k, v in man["files"].items()}
+
+
+def build_production_dependencies_manifest(
+    repo_root: Path,
+    dependency_relpaths: list[str],
+) -> dict[str, Any]:
+    """Hash external repository production dependencies (renderers, lockfiles, ref profiles) into a JSON manifest.
+
+    Saving the result as ``<package_dir>/production_dependencies.json`` automatically pins every external
+    dependency inside the human-signed canonical package digest.
+    """
+    real_repo = Path(os.path.realpath(repo_root))
+    deps: dict[str, dict[str, Any]] = {}
+    for rel in sorted(set(dependency_relpaths)):
+        norm = Path(rel).as_posix().lstrip("/")
+        fpath = (real_repo / norm)
+        if not fpath.is_file():
+            raise CanonicalManifestError(f"Production dependency missing: {norm}")
+        st = os.lstat(fpath)
+        if stat.S_ISLNK(st.st_mode) or not stat.S_ISREG(st.st_mode):
+            raise CanonicalManifestError(f"Production dependency must be a regular non-symlink file: {norm}")
+        if not Path(os.path.realpath(fpath)).is_relative_to(real_repo):
+            raise CanonicalManifestError(f"Production dependency escapes repo root: {norm}")
+        deps[norm] = {"sha256": _sha256_file(fpath), "bytes": st.st_size}
+    return {
+        "schema": "xdx.production-dependencies.v1",
+        "dependencies": deps,
+    }
+
+
+def verify_production_dependencies(package_dir: Path, repo_root: Path) -> dict[str, Any]:
+    """Re-verify every dependency listed in ``<package_dir>/production_dependencies.json`` against live disk."""
+    dep_file = Path(package_dir) / "production_dependencies.json"
+    if not dep_file.is_file():
+        raise CanonicalManifestError(f"Missing production_dependencies.json in {package_dir}")
+    doc = json.loads(dep_file.read_text(encoding="utf-8"))
+    deps = doc.get("dependencies")
+    if not isinstance(deps, dict) or not deps:
+        raise CanonicalManifestError("production_dependencies.json must contain a non-empty 'dependencies' map")
+    real_repo = Path(os.path.realpath(repo_root))
+    drifted: list[str] = []
+    for rel, meta in sorted(deps.items()):
+        fpath = real_repo / rel
+        if not fpath.is_file() or fpath.is_symlink():
+            drifted.append(f"{rel} (missing or symlink)")
+            continue
+        actual_sha = _sha256_file(fpath)
+        if actual_sha != meta.get("sha256"):
+            drifted.append(f"{rel} (sha256 drift)")
+    if drifted:
+        raise CanonicalManifestError(
+            "Production dependency drift detected after approval: " + "; ".join(drifted)
+        )
+    return {"verified": True, "dependency_count": len(deps)}
+

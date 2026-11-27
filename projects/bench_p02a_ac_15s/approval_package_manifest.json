@@ -1,0 +1,98 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_p02a_ac_15s",
+  "package_version": "v1",
+  "status": "WAITING_APPROVAL",
+  "package_digest": "da5da947063567b3e22639241c219acb430a8f2f84b375c2f71878f3b3ded378",
+  "mandatory_13_items": {
+    "01_topic_and_concept": {
+      "present": true,
+      "artifact_file": "blueprint.md",
+      "summary": "Bagaimana AC Mendinginkan Ruangan? (Uji 4-Shot 15 Detik) (explainer, edukasi)"
+    },
+    "02_research_results": {
+      "present": true,
+      "artifact_file": "research.md",
+      "summary": "3 klaim terverifikasi + pemetaan narasi"
+    },
+    "03_full_script": {
+      "present": true,
+      "artifact_file": "script.md",
+      "summary": "4 beat naskah Bahasa Indonesia siap baca"
+    },
+    "04_narration_and_dialogue": {
+      "present": true,
+      "artifact_file": "narration_dialogue.json",
+      "summary": "4 VO & 0 dialog (116.0 WPM, ESTIMATED)"
+    },
+    "05_clip_by_clip_storyboard": {
+      "present": true,
+      "artifact_file": "storyboard.json",
+      "summary": "2 seq / 3 scene / 4 beat / 4 shot"
+    },
+    "06_shot_timestamps_and_durations": {
+      "present": true,
+      "artifact_file": "storyboard.json",
+      "summary": "450 frame (15.0s @ 30fps, semua shot <= 10s)"
+    },
+    "07_camera_framing_cutaway_transitions": {
+      "present": true,
+      "artifact_file": "camera_plan.json",
+      "summary": "Lensa dinamis [24.0, 40.0, 50.0, 65.0]mm sesuai tujuan naratif"
+    },
+    "08_complete_asset_list": {
+      "present": true,
+      "artifact_file": "asset_manifest.json",
+      "summary": "10 spesifikasi aset semantik 12-atribut"
+    },
+    "09_character_designs": {
+      "present": true,
+      "artifact_file": "character_bible.json",
+      "summary": "1 karakter orisinal 11-atribut (stylized_3d)"
+    },
+    "10_motion_plan": {
+      "present": true,
+      "artifact_file": "motion_plan.json",
+      "summary": "4 rencana aksi 14-atribut dengan kontak IK"
+    },
+    "11_caption_and_audio_plan": {
+      "present": true,
+      "artifact_file": "caption_audio_plan.json",
+      "summary": "8 cue takarir ESTIMATED & label ilmiah"
+    },
+    "12_engine_selection_per_shot": {
+      "present": true,
+      "artifact_file": "engine_plan.json",
+      "summary": "Routing hybrid (threejs, remotion, rea_video, ffmpeg)"
+    },
+    "13_hybrid_execution_plan": {
+      "present": true,
+      "artifact_file": "execution_plan.md",
+      "summary": "Rencana eksekusi pasca-persetujuan Blender MCP, Three.js, Remotion & FFmpeg"
+    }
+  },
+  "required_files_sha256": {
+    "asset_manifest.json": "a991f4d919544269a8f441faf763212fc1ca78d6bd296afe9132c9a0ba33a873",
+    "authored_creative_payload.json": "ce2edfdcab38c71f4ff4f5d4486d71e37aed433b0123dac5ed49f7d583345b7f",
+    "blueprint.md": "5c6888adc4f00a5ddbeb196749f8882fec498406f0bcdfa2cdfb0dff4df20b39",
+    "camera_plan.json": "ed6fc0ac58aa973dccfc85d87eb2eb235a5388a6bcb48e27c63e8c28ef5539b5",
+    "caption_audio_plan.json": "fd12110e59f8fcda6db4ef3279e7b7022ee5d7cfbc82de956804a499d1a67f03",
+    "character_bible.json": "d572057b3576c79c7ffc6e9a8b6992fd00989dc9f54609fb9fcc6644ea0ecaf1",
+    "character_bible.md": "9e422a6865c67e22de324ea080418bcb26362c3bb00ba28dfc3c2c25cbf85b21",
+    "creative_concept.json": "32452b6e502c1edb937f961e234d46fcc293dc59885e267955b51dec837d16bc",
+    "engine_plan.json": "fc7a33cd8f61cc06b98e75c1a2cf43566a093ac1a391ee60aa9cde8b6072bd63",
+    "execution_plan.md": "117c265bccb31e47b2d8d6293fcc344620d8535f994a64feddba0cc3f4057cc1",
+    "motion_plan.json": "4e0a98ab48e8d84e17816c525bf5ed6251ea5da72d005722a98241cebb0ca3fa",
+    "narration_dialogue.json": "9c4e83760d9289992dfbffaf5e867e2098caabef9705a991b64ab95d4e710e49",
+    "production_config.json": "a0e0389b136e1443690a02cdf76a14b22bbb2060673936c24ace0abe163bea3d",
+    "production_dependencies.json": "0c80a6dfeb1b7ecbd872500799d005ae5a05359256286f5a89879c3dd08bf130",
+    "reference_adaptation.json": "1406222f7beadc471034efd6eb2c1cdc9969a51d1aa693cc2b6bb378a1074fb6",
+    "reference_analysis.md": "08368067a4e7b539bb4eda93cd90dafedd3681b977d56cba7ee04174cadd554d",
+    "research.md": "5a4a7c37e271325c7fc03dd644638f4ed67889d259c7b52f098cf1bfc127d404",
+    "research_report.json": "06e0f34a65ece25fd6f32c96b92262d96da3185abcdb0f16e908834ba4d0d149",
+    "script.md": "7f63277ea39b4242f9947a500425b8071754493f0eeb9d51b0bc93ac6ecd26ce",
+    "semantic_visual_plan.json": "4bfdebd5bdfbd9a52bb8b00098bbf1e8edfa1f5db23940563da0a9d6e6c19308",
+    "storyboard.json": "402442bcb89f521be209b67611c9c89f50de7234be916b4f0ce50d8172b0ec5e",
+    "style_bible.json": "121fd2603035341633eb110b0336bf4191370f9c4c72ece35e9273610a9c24f7"
+  }
+}

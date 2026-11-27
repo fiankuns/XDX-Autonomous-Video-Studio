@@ -476,27 +476,27 @@
       "expected_result": "Action-target coverage measured by an independent checker against script clauses, with failures surfaced.",
       "root_cause": "Coverage metric computed by the same component that produced the plan.",
       "correction_plan": "Carried forward unchanged (out of 01.6D security scope).",
-      "target_phase": "Next creative-intelligence phase (to be assigned)",
+      "target_phase": "Phase 02B",
       "regression_test": null,
-      "evidence": "Preserved from the external 01.6C audit per owner instruction; not re-run in 01.6D.",
+      "evidence": "Preserved from the external 01.6C audit per owner instruction; target assigned to Phase 02B (action target).",
       "current_status": "SCHEDULED"
     },
     {
       "defect_id": "DEF-P016D-029",
       "source_phase": "Phase 01.6D (internal audit)",
-      "severity": "MEDIUM",
+      "severity": "HIGH",
       "affected_module": ".agents/hooks.json (host), scripts/execution_guard_hook.py",
       "reproduction_steps": [
-        "Look for host lifecycle hook configuration invoking the execution guard before tool calls."
+        "Inspect Antigravity remote devbox .agents/ and ~/.gemini/ for documented host pre-tool lifecycle hook runtime capable of automatically invoking scripts/execution_guard_hook.py before run_command/MCP calls."
       ],
-      "observed_result": "scripts/execution_guard_hook.py exists and is tested, but no host hook config is wired because the Antigravity hook schema is not verified in this environment.",
-      "expected_result": "Host pre-tool hook invokes scripts/execution_guard_hook.py for every MCP / render / scene-write tool.",
-      "root_cause": "Host-specific configuration format unavailable for verification.",
-      "correction_plan": "Wire on the Antigravity host and record a live hook invocation as evidence.",
-      "target_phase": "Phase 02 readiness (host)",
+      "observed_result": "scripts/execution_guard_hook.py exists and is hardened, but this Antigravity remote devbox exposes only .agents/{agents,rules,skills} with NO documented or verifiable host pre-tool hook runtime that intercepts tool calls automatically.",
+      "expected_result": "Host pre-tool hook runtime automatically invokes scripts/execution_guard_hook.py for every terminal, renderer, and MCP call with live interception proof.",
+      "root_cause": "Host runtime does not expose a documented/verifiable native pre-tool hook configuration format on this devbox.",
+      "correction_plan": "Keep host-level automatic enforcement honestly marked BLOCKED until verified on a host with documented lifecycle hooks; enforce Python-level TrustedApprovalGuard + dependency verification on all renderer entrypoints.",
+      "target_phase": "Phase 02A",
       "regression_test": null,
-      "evidence": "Guard logic covered by tests/test_phase01_6d_execution_security.py::test_pre_tool_execution_guard_hook_fails_closed.",
-      "current_status": "SCHEDULED"
+      "evidence": "Host inspection of .agents/ and ~/.gemini/ confirmed no host hook runner; guard logic tested in Python only (not claiming host-level interception).",
+      "current_status": "BLOCKED"
     },
     {
       "defect_id": "DEF-P016D-030",
@@ -509,11 +509,11 @@
       "observed_result": "External audit flagged semantic storyboard quality and reviewer accuracy as unproven; DEF-P016D-026 is one concrete instance of the reviewer passing a real defect.",
       "expected_result": "Reviewer accuracy measured on a seeded-defect benchmark; semantic storyboard checks independent of the generator.",
       "root_cause": "Reviewer criteria validated only on happy-path packages.",
-      "correction_plan": "Carried forward unchanged (out of 01.6D security scope).",
-      "target_phase": "Next creative-intelligence phase (to be assigned)",
+      "correction_plan": "Addressed incrementally in Phase 02A (4-shot AC semantic storyboard + explicit object interaction targets) through Phase 03 (seeded-defect reviewer benchmark).",
+      "target_phase": "Phase 02A–03",
       "regression_test": null,
-      "evidence": "Preserved per owner instruction.",
-      "current_status": "SCHEDULED"
+      "evidence": "Preserved per owner instruction; 4-shot AC benchmark semantic alignment upgraded in Phase 02A.",
+      "current_status": "IN_PROGRESS"
     },
     {
       "defect_id": "DEF-P016D-031",
@@ -526,11 +526,79 @@
       "observed_result": "Recovery and persistence verified only on the same host (subprocesses / directories); cross-VM recovery has no runtime evidence.",
       "expected_result": "Multi-host resume test with recorded evidence before claiming cross-VM persistence.",
       "root_cause": "Single-host test environment.",
-      "correction_plan": "Carried forward; no cross-VM claim is made.",
-      "target_phase": "Phase 02+ (multi-host runtime)",
+      "correction_plan": "Carried forward; must be verified before full production rollout.",
+      "target_phase": "sebelum produksi penuh",
       "regression_test": null,
       "evidence": "docs/evidence/checkpoint_recovery_report_v4.json recovery_scope_disclaimer.",
       "current_status": "SCHEDULED"
+    },
+    {
+      "defect_id": "DEF-P02A-032",
+      "source_phase": "Phase 02A (security preflight)",
+      "severity": "HIGH",
+      "affected_module": "governance/trusted_approval.py",
+      "reproduction_steps": [
+        "Modify registry/trusted_approvers.json and run local git commit inside the agent VM without remote user push/review, then call TrustedApprovalGuard.channel_status()."
+      ],
+      "observed_result": "Phase 01.6D _registry_git_state() checked only git diff HEAD, so an unpushed local agent commit could appear CLEAN.",
+      "expected_result": "Local unpushed modifications relative to @{upstream} or mismatch against out-of-band XDX_TRUSTED_REGISTRY_SHA256 pin mark the channel UNAVAILABLE (BLOCKED).",
+      "root_cause": "Local HEAD cleanliness does not guarantee independent human review if the agent has local git commit capability.",
+      "correction_plan": "Added @{upstream} diff check (LOCAL_UNPUSHED -> UNAVAILABLE) and XDX_TRUSTED_REGISTRY_SHA256 pin check; pending regression test verification.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_preflight_and_benchmark.py::test_p02a_02_trust_registry_out_of_band_sha256_pin_enforced",
+      "evidence": "Verified local-unpushed @{upstream} guard and out-of-band XDX_TRUSTED_REGISTRY_SHA256 pin in test_p02a_02 (15/15 security tests passing).",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-033",
+      "source_phase": "Phase 02A (security preflight)",
+      "severity": "HIGH",
+      "affected_module": "governance/trusted_approval.py",
+      "reproduction_steps": [
+        "Invoke TrustedApprovalGuard.consume() concurrently from multiple processes using the same single-use signed approval token."
+      ],
+      "observed_result": "Phase 01.6D read_ledger -> check nonce -> _append_ledger lacked cross-process file locking, risking double-consume TOCTOU and hash-chain corruption.",
+      "expected_result": "OS-level fcntl.flock exclusive lock guarantees atomic single-use consumption across concurrent processes with intact hash chain.",
+      "root_cause": "Missing fcntl.flock lock around approval_ledger.jsonl read/check/append.",
+      "correction_plan": "Added _ledger_lock() using fcntl.flock on .approvals/approval_ledger.lock and verified across 6 parallel processes.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_preflight_and_benchmark.py::test_p02a_01_concurrent_approval_consume_is_atomic_and_hash_chain_intact",
+      "evidence": "Verified in 6-process spawn pool: exactly 1 CONSUMED, 5 ApprovalReplayError, and intact 1-entry hash chain.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-034",
+      "source_phase": "Phase 02A (security preflight)",
+      "severity": "HIGH",
+      "affected_module": "scripts/execution_guard_hook.py, engines/web_engines.py",
+      "reproduction_steps": [
+        "Pass CommandLine with 'npx remotion render', 'node engines/web/three_deterministic_scene.mjs', 'ffmpeg -i ... out.mp4', or 'python3 -c \"...remotion...\"' to scripts/execution_guard_hook.py."
+      ],
+      "observed_result": "Phase 01.6D _RENDER_CMD regex checked only 'command' key and narrow patterns ('blender -b', 'remotion render', 'ffmpeg projects/.../renders/'), missing Antigravity CommandLine and renderer/shell bypasses.",
+      "expected_result": "Guard inspects both CommandLine and command, blocks all Three.js/Remotion/FFmpeg/Blender/indirection render invocations and trust-registry shell tampering.",
+      "root_cause": "Narrow regex and missing Antigravity CommandLine field handling.",
+      "correction_plan": "Expanded _RENDER_CMD and _TRUST_TAMPER_CMD in scripts/execution_guard_hook.py and added fail-closed assert_render_authorized in engines/web_engines.py.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_preflight_and_benchmark.py::test_p02a_03_terminal_and_renderer_guard_blocks_all_bypass_patterns",
+      "evidence": "Verified all 6 shell/renderer/trust-tamper bypass commands blocked and assert_render_authorized raises PhaseBoundaryBlockedError.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-035",
+      "source_phase": "Phase 02A (security preflight)",
+      "severity": "MEDIUM",
+      "affected_module": "governance/canonical_manifest.py",
+      "reproduction_steps": [
+        "Modify engines/web/three_deterministic_scene.mjs or package.json after human approval of a package_dir."
+      ],
+      "observed_result": "Canonical manifest hashed files inside package_dir only, leaving external renderer scripts, package-lock.json, and REF-002 profile outside the signed digest.",
+      "expected_result": "production_dependencies.json inside package_dir pins SHA-256 of all external renderer/lockfile/reference dependencies and is verified live before execution.",
+      "root_cause": "External repo dependencies live outside projects/<id>/.",
+      "correction_plan": "Added build_production_dependencies_manifest() and verify_production_dependencies() in governance/canonical_manifest.py and pinned 11 dependencies in bench_p02a_ac_15s.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_preflight_and_benchmark.py::test_p02a_04_production_dependencies_pinned_and_drift_detected",
+      "evidence": "Verified 11 external dependencies pinned in bench_p02a_ac_15s canonical manifest and post-pinning file mutation raises CanonicalManifestError.",
+      "current_status": "VERIFIED"
     }
   ]
 }

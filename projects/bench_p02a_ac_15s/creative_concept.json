@@ -1,0 +1,23 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_p02a_ac_15s",
+  "topic_title": "Bagaimana AC Mendinginkan Ruangan? (Uji 4-Shot 15 Detik)",
+  "genres": [
+    "explainer",
+    "edukasi"
+  ],
+  "blueprint": {
+    "premise": "Uji render 4-shot 15 detik menjelaskan bagaimana AC mendinginkan kamar pengap lewat penyerapan kalor di evaporator indoor dan pembuangan panas di kondensor outdoor.",
+    "hook_0_3s_visual": "Bima kepanasan mengipasi wajah di kamar tertutup 32 derajat Celsius tepat di bawah unit AC indoor yang masih mati.",
+    "hook_0_3s_spoken": "AC tidak menciptakan dingin, melainkan memindahkan panas kamarmu keluar.",
+    "story_arc": {
+      "act_1_setup": "Bima kepanasan di kamar tertutup 32 derajat lalu menekan tombol 24 derajat pada remot AC hingga kisi unit indoor terbuka.",
+      "act_2_escalation": "Penampang teknis casing AC indoor terbuka memperlihatkan kumparan evaporator dingin menyerap kalor udara kamar.",
+      "act_3_resolution": "Visualisasi aliran refrigeran membawa panas menembus dinding ke kompresor dan kondensor outdoor untuk dilepas ke udara luar."
+    },
+    "explainer_mechanism": "Kode warna biru dingin untuk refrigeran evaporator dan oranye panas untuk gas bertekanan tinggi menuju kondensor luar.",
+    "humor_strategy": "Ekspresi lega Bima saat mengarahkan remot ke AC setelah kepanasan mengipasi wajah.",
+    "historical_biography_notes": "Fokus murni pada termodinamika pendinginan ruangan modern berdasarkan dokumentasi U.S. DOE dan Britannica.",
+    "payoff_callback": "Suhu kamar turun nyaman sementara panas ruangan terlihat keluar dari kipas kondensor outdoor."
+  }
+}

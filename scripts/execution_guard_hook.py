@@ -30,28 +30,48 @@ if str(ROOT_DIR) not in sys.path:
 from adapters.xdx_mcp_adapter import XDXBlenderMCPAdapter  # noqa: E402
 from intelligence.state_and_approval import ProjectStateManager  # noqa: E402
 
-_RENDER_CMD = re.compile(r"(\bblender\b.*\s-b\b|\bremotion\s+render\b|\bffmpeg\b.*projects/[^ ]+/renders/)")
+_RENDER_CMD = re.compile(
+    r"("
+    r"\bblender\b.*(\s-b\b|--background\b|--python\b)"
+    r"|\b(npx\s+)?remotion\s+(render|still|benchmark)\b"
+    r"|\bnode\b.*(remotion|three_deterministic|render_threejs|phase02a_render)"
+    r"|\b(puppeteer|playwright|chromium|google-chrome)\b.*\b(render|screenshot|mp4|png)\b"
+    r"|\bffmpeg\b.*\.(mp4|mov|mkv|webm|png)\b"
+    r"|\bffmpeg\b.*projects/[^ ]+/renders/"
+    r"|\b(bash|sh|zsh|python3?)\b.*(-c|--command).*(blender|remotion|threejs|ffmpeg|render_production|trusted_approvers)"
+    r")",
+    re.IGNORECASE,
+)
+_TRUST_TAMPER_CMD = re.compile(
+    r"(registry/trusted_approvers\.json|governance/trusted_approval\.py|scripts/execution_guard_hook\.py)",
+    re.IGNORECASE,
+)
 
 
 def decide(event: dict) -> tuple[bool, str]:
     tool = str(event.get("tool_name", ""))
     pkg = event.get("package_dir")
+    args = event.get("arguments") or {}
     if tool in {"bash", "shell", "run_command"}:
-        cmd = str((event.get("arguments") or {}).get("command", ""))
+        cmd = str(args.get("CommandLine") or args.get("command") or "")
+        if _TRUST_TAMPER_CMD.search(cmd) and any(
+            tok in cmd for tok in (">", "sed ", "tee ", "rm ", "mv ", "cp ", "git add", "git commit", "python", "node")
+        ):
+            return False, "TrustRegistryTamperBlocked: modifying trust registry or execution guard via shell requires independent human action"
         if not _RENDER_CMD.search(cmd):
             return True, "non-production shell command"
-        tool = "execute_blender_code"  # treat render/scene-write commands as scene mutation
+        tool = "execute_blender_code"  # treat render/scene-write commands as guarded production execution
     adapter = XDXBlenderMCPAdapter(read_only=False)
     try:
         try:
-            adapter.authorize_tool_call(tool, event.get("arguments") or {}, auth_context=None)
+            adapter.authorize_tool_call(tool, args, auth_context=None)
             return True, "read-only tool"
         except Exception as first:  # noqa: BLE001 - decide below with a context if possible
             if not pkg:
                 return False, f"{type(first).__name__}: {first}"
         pdir = (ROOT_DIR / str(pkg)).resolve() if not Path(str(pkg)).is_absolute() else Path(str(pkg))
         ctx = ProjectStateManager(pdir / "project_state.json").build_authorization_context(pdir)
-        adapter.authorize_tool_call(tool, event.get("arguments") or {}, auth_context=ctx)
+        adapter.authorize_tool_call(tool, args, auth_context=ctx)
         return True, "trusted approval verified"
     except Exception as exc:  # noqa: BLE001 - fail closed on anything
         return False, f"{type(exc).__name__}: {exc}"
