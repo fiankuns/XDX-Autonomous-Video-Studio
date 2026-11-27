@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "library_id": "audio_sfx_library",
   "library_name": "Audio and SFX Library",
   "category": "sound_design_and_mastering",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Loudness mastering targets (-15 LUFS), BGM ducking envelopes, and procedural/CC0 SFX cue specifications.",
   "presets": [
     {
@@ -24,7 +24,8 @@
         "remotion",
         "ffmpeg"
       ],
-      "test_status": "tested"
+      "test_status": "UNIT_TESTED",
+      "executor_binding": "PresetExecutorEngine.evaluate_audio_ducking_envelope"
     },
     {
       "id": "sfx_cutaway_soft_whoosh",
@@ -45,7 +46,8 @@
         "remotion",
         "ffmpeg"
       ],
-      "test_status": "tested"
+      "test_status": "SPECIFICATION_ONLY",
+      "executor_binding": "PresetExecutorEngine.evaluate_audio_ducking_envelope"
     },
     {
       "id": "sfx_horror_sub_drone",
@@ -63,11 +65,12 @@
         "remotion",
         "ffmpeg"
       ],
-      "test_status": "tested",
+      "test_status": "SPECIFICATION_ONLY",
       "genres": [
         "horor",
         "storytelling"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_audio_ducking_envelope"
     }
   ]
 }

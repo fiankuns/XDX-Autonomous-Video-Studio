@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "library_id": "visual_explainer_library",
   "library_name": "Visual Explainer Library",
   "category": "data_and_concept_visualizers",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Reusable 2D/3D explainer templates for quantitative comparison, historical timelines, and mechanism cutaways.",
   "presets": [
     {
@@ -22,12 +22,13 @@
         "threejs",
         "remotion"
       ],
-      "test_status": "tested",
+      "test_status": "UNIT_TESTED",
       "genres": [
         "explainer",
         "edukasi",
         "dokumenter"
-      ]
+      ],
+      "executor_binding": "ThreeJSEngine.compile_shot_spec"
     },
     {
       "id": "exp_epoch_timeline_scrubber",
@@ -44,12 +45,13 @@
         "remotion",
         "threejs"
       ],
-      "test_status": "tested",
+      "test_status": "UNIT_TESTED",
       "genres": [
         "sejarah",
         "biografi",
         "dokumenter"
-      ]
+      ],
+      "executor_binding": "ThreeJSEngine.compile_shot_spec"
     },
     {
       "id": "exp_mechanism_xray_cutaway",
@@ -67,11 +69,12 @@
         "threejs",
         "blender"
       ],
-      "test_status": "tested",
+      "test_status": "UNIT_TESTED",
       "genres": [
         "explainer",
         "edukasi"
-      ]
+      ],
+      "executor_binding": "ThreeJSEngine.compile_shot_spec"
     }
   ]
 }

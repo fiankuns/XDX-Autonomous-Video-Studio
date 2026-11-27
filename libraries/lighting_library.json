@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "library_id": "lighting_library",
   "library_name": "Lighting Library",
   "category": "lighting_rigs",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Cross-engine matched Three-Point, Cozy Interior, Daylight Exterior, and Chiaroscuro Horror lighting rigs.",
   "presets": [
     {
@@ -24,7 +24,8 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested"
+      "test_status": "UNIT_TESTED",
+      "executor_binding": "BlenderXDXEngine.compile_shot_plan"
     },
     {
       "id": "light_crisp_tropical_daylight",
@@ -43,7 +44,8 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested"
+      "test_status": "UNIT_TESTED",
+      "executor_binding": "BlenderXDXEngine.compile_shot_plan"
     },
     {
       "id": "light_horror_chiaroscuro",
@@ -63,11 +65,12 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested",
+      "test_status": "UNIT_TESTED",
       "genres": [
         "horor",
         "storytelling"
-      ]
+      ],
+      "executor_binding": "BlenderXDXEngine.compile_shot_plan"
     }
   ]
 }

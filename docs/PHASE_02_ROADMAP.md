@@ -1,16 +1,18 @@
-# Rencana Implementasi Phase 02 — XDX Autonomous Video Studio v3.3
+# Rencana Implementasi Phase 02A & 02B — XDX Autonomous Video Studio v3.4
 
-Setelah fondasi modular, skema, registri, 16 pustaka preset, sistem aset 9 tahap, dan gerbang persetujuan 13 item selesai pada **Phase 01**, tahapan **Phase 02** berfokus pada eksekusi produksi end-to-end setelah persetujuan pengguna:
+Dengan selesainya seluruh penguatan keamanan, kecerdasan naskah/riset, storyboard hierarkis, generator aset semantik 12 kategori, konverter GLB/glTF nyata, dan kompilator shot Blender pada **Phase 01.5 (v3.4)**, berikut adalah tahapan **Phase 02**:
 
-## Target Teknis Phase 02
-1. **Live End-to-End XDX Relay Pairing & Smoke Render**:
-   - Menghubungkan sesi Cloud `XDX-Autonomous-Video-Studio` ke server Relay aktif tempat **Vivo X200 Pro** terhubung (`relay_connected: true`).
-   - Menjalankan smoke test pasca-approval (`get_mobile_device_profile` → `get_scene_info` → turntable style frame `look(mode="angles", shading="material")`).
-2. **Headless Three.js WebGL Frame Sequence Renderer**:
-   - Mengintegrasikan Playwright + Chromium headless (`/usr/bin/google-chrome`) dengan `engines/web/three_deterministic_scene.mjs` untuk mengekspor sequence PNG RGBA 1080x1920 frame-demi-frame secara deterministik dengan load barrier penuh.
-3. **Remotion Full React Project & Master MP4 Render**:
-   - Membangun bundle komposisi React/Remotion (`@remotion/bundler` + `@remotion/renderer`) yang menggabungkan sequence shot Blender, sequence shot Three.js, overlay grafis D3/Anime.js, komponen subtitle aman 9:16, dan pencampuran multi-track WAV 48 kHz.
-4. **Indonesian TTS, Whisper Forced Alignment & Rhubarb Lip-Sync**:
-   - Mengintegrasikan penyedia TTS Bahasa Indonesia berlisensi + kompilasi `whisper.cpp` / `faster-whisper` untuk penyelarasan kata aktual pasca-WAV, serta biner `rhubarb` untuk adegan dialog on-screen.
-5. **Automated Closed-Loop Visual Self-Correction**:
-   - Menghubungkan `VisualQualityControlEngine` dan evaluasi frame multimodal untuk me-render ulang shot yang gagal QC secara otomatis hingga maksimal 3 iterasi sebelum pengemasan `final.mp4`.
+## Phase 02A — Headless WebGL, Remotion Bundler/Renderer & Audio/Caption Master Assembly
+Lihat spesifikasi teknis mendalam di [`docs/PHASE_02A_DESIGN.md`](PHASE_02A_DESIGN.md):
+1. **Playwright Headless Chromium WebGL Frame Exporter**:
+   - Mengekspor sequence PNG `1080x1920` deterministik dari `engines/web/three_deterministic_scene.mjs` + aset `.glb` semantik dengan `AssetLoadBarrier` ketat (`fonts.ready` + `GLTFLoader` + `textureDecode`).
+2. **Integrasi `@remotion/bundler@4.0.547`, `@remotion/renderer@4.0.547` & Opsional `@remotion/three@4.0.547` (`@react-three/fiber@9.8.2`)**:
+   - Membangun `RemotionRoot` dan `<TransitionSeries>` yang merakit sequence shot, `<CaptionSafeOverlay>` berbahasa Indonesia, dan kurva sidechain ducking `PresetExecutorEngine` menjadi `final.mp4` (`H.264 yuv420p` + `AAC 48 kHz`).
+3. **Verifikasi QC Tertutup (`FFmpeg` + `OpenCV`)**:
+   - Menjalankan `VisualQualityControlEngine` secara otomatis terhadap hasil render MP4 aktual.
+
+## Phase 02B — Live Vivo X200 Pro Relay Pairing, Indonesian TTS & Forced Alignment
+1. **Live Remote Relay Connection**:
+   - Menyambungkan `XDX_MCP_SERVER_URL` dan secret `MCP_AUTH_TOKEN` ke server Relay tempat **Vivo X200 Pro** aktif (`live_remote_relay_reachable: true`, `live_android_blender_connected: true`), lalu menguji `actual_visual_feedback_verified` melalui `look(mode="angles", shading="material")` pasca-approval.
+2. **TTS Bahasa Indonesia, `whisper.cpp` / `faster-whisper` & `rhubarb` CLI**:
+   - Menghasilkan WAV narasi/dialog aktual, menyelaraskan timestamp kata presisi untuk subtitle, dan mengekstrak viseme A–H+X untuk dialog karakter on-screen.

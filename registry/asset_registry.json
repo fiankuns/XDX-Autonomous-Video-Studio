@@ -1,7 +1,7 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "updated_at": "2026-11-26T14:47:00Z",
-  "style_bible_default": "xdx_stylized_diorama_v3_3",
+  "style_bible_default": "xdx_stylized_diorama_v3_4",
   "assets": [
     {
       "asset_id": "char_hero_diorama_base_v1",
@@ -14,22 +14,37 @@
       "attribution_required": false,
       "attribution_text": null,
       "commercial_allowed": true,
-      "formats": ["blend_recipe", "gltf"],
+      "formats": [
+        "blend_recipe",
+        "gltf"
+      ],
       "unit_scale_m": 1.0,
       "up_axis": "+Y",
       "polycount_budget": 18000,
-      "compatible_engines": ["blender", "threejs"],
+      "compatible_engines": [
+        "blender",
+        "threejs"
+      ],
       "style_harmonized": true,
       "style_profile": {
         "head_to_body_ratio": 0.34,
-        "roughness_range": [0.55, 0.85],
+        "roughness_range": [
+          0.55,
+          0.85
+        ],
         "metallic_max": 0.15,
         "outline_soft_bevel": true
       },
       "sha256": null,
       "cache_key": null,
       "qc_status": "verified_metadata",
-      "tags": ["hero", "character", "humanoid", "ik", "diorama"]
+      "tags": [
+        "hero",
+        "character",
+        "humanoid",
+        "ik",
+        "diorama"
+      ]
     },
     {
       "asset_id": "env_kamar_indonesia_modular_v1",
@@ -42,20 +57,37 @@
       "attribution_required": false,
       "attribution_text": null,
       "commercial_allowed": true,
-      "formats": ["gltf", "blend_recipe"],
+      "formats": [
+        "gltf",
+        "blend_recipe"
+      ],
       "unit_scale_m": 1.0,
       "up_axis": "+Y",
       "polycount_budget": 24000,
-      "compatible_engines": ["blender", "threejs"],
+      "compatible_engines": [
+        "blender",
+        "threejs"
+      ],
       "style_harmonized": true,
       "style_profile": {
-        "palette": ["#F4D8B8", "#8B5E3C", "#4A6B82", "#2C3539"],
+        "palette": [
+          "#F4D8B8",
+          "#8B5E3C",
+          "#4A6B82",
+          "#2C3539"
+        ],
         "lighting_mood": "warm_interior"
       },
       "sha256": null,
       "cache_key": null,
       "qc_status": "procedural_ready",
-      "tags": ["interior", "bedroom", "house", "indonesia", "diorama"]
+      "tags": [
+        "interior",
+        "bedroom",
+        "house",
+        "indonesia",
+        "diorama"
+      ]
     },
     {
       "asset_id": "env_historical_archive_hall_v1",
@@ -68,20 +100,37 @@
       "attribution_required": false,
       "attribution_text": null,
       "commercial_allowed": true,
-      "formats": ["gltf", "blend_recipe"],
+      "formats": [
+        "gltf",
+        "blend_recipe"
+      ],
       "unit_scale_m": 1.0,
       "up_axis": "+Y",
       "polycount_budget": 28000,
-      "compatible_engines": ["blender", "threejs"],
+      "compatible_engines": [
+        "blender",
+        "threejs"
+      ],
       "style_harmonized": true,
       "style_profile": {
-        "palette": ["#C8A97E", "#5C4033", "#2A2421", "#E6DCC8"],
+        "palette": [
+          "#C8A97E",
+          "#5C4033",
+          "#2A2421",
+          "#E6DCC8"
+        ],
         "lighting_mood": "golden_archival"
       },
       "sha256": null,
       "cache_key": null,
       "qc_status": "procedural_ready",
-      "tags": ["sejarah", "biografi", "dokumenter", "archive", "diorama"]
+      "tags": [
+        "sejarah",
+        "biografi",
+        "dokumenter",
+        "archive",
+        "diorama"
+      ]
     },
     {
       "asset_id": "env_dark_corridor_horror_v1",
@@ -94,20 +143,36 @@
       "attribution_required": false,
       "attribution_text": null,
       "commercial_allowed": true,
-      "formats": ["gltf", "blend_recipe"],
+      "formats": [
+        "gltf",
+        "blend_recipe"
+      ],
       "unit_scale_m": 1.0,
       "up_axis": "+Y",
       "polycount_budget": 20000,
-      "compatible_engines": ["blender", "threejs"],
+      "compatible_engines": [
+        "blender",
+        "threejs"
+      ],
       "style_harmonized": true,
       "style_profile": {
-        "palette": ["#141824", "#2B3348", "#6E7F99", "#9E2A2B"],
+        "palette": [
+          "#141824",
+          "#2B3348",
+          "#6E7F99",
+          "#9E2A2B"
+        ],
         "lighting_mood": "chiaroscuro_horror"
       },
       "sha256": null,
       "cache_key": null,
       "qc_status": "procedural_ready",
-      "tags": ["horor", "storytelling", "corridor", "suspense"]
+      "tags": [
+        "horor",
+        "storytelling",
+        "corridor",
+        "suspense"
+      ]
     },
     {
       "asset_id": "mat_stylized_matte_clay_v1",
@@ -120,11 +185,17 @@
       "attribution_required": false,
       "attribution_text": null,
       "commercial_allowed": true,
-      "formats": ["pbr_json", "png_maps"],
+      "formats": [
+        "pbr_json",
+        "png_maps"
+      ],
       "unit_scale_m": 1.0,
       "up_axis": "N/A",
       "polycount_budget": 0,
-      "compatible_engines": ["blender", "threejs"],
+      "compatible_engines": [
+        "blender",
+        "threejs"
+      ],
       "style_harmonized": true,
       "style_profile": {
         "roughness": 0.72,
@@ -134,7 +205,12 @@
       "sha256": null,
       "cache_key": null,
       "qc_status": "verified_metadata",
-      "tags": ["clay", "matte", "diorama", "pbr"]
+      "tags": [
+        "clay",
+        "matte",
+        "diorama",
+        "pbr"
+      ]
     },
     {
       "asset_id": "hdri_warm_studio_softbox_v1",
@@ -147,11 +223,17 @@
       "attribution_required": false,
       "attribution_text": null,
       "commercial_allowed": true,
-      "formats": ["hdr", "exr"],
+      "formats": [
+        "hdr",
+        "exr"
+      ],
       "unit_scale_m": 1.0,
       "up_axis": "+Y",
       "polycount_budget": 0,
-      "compatible_engines": ["blender", "threejs"],
+      "compatible_engines": [
+        "blender",
+        "threejs"
+      ],
       "style_harmonized": true,
       "style_profile": {
         "exposure_ev": 0.0,
@@ -160,7 +242,12 @@
       "sha256": null,
       "cache_key": null,
       "qc_status": "verified_metadata",
-      "tags": ["hdri", "studio", "lighting", "soft"]
+      "tags": [
+        "hdri",
+        "studio",
+        "lighting",
+        "soft"
+      ]
     },
     {
       "asset_id": "font_plus_jakarta_sans_v1",
@@ -171,13 +258,21 @@
       "source_url": "https://fonts.google.com/specimen/Plus+Jakarta+Sans",
       "license_spdx": "OFL-1.1",
       "attribution_required": true,
-      "attribution_text": "Plus Jakarta Sans — Tokotype (SIL Open Font License 1.1)",
+      "attribution_text": "Plus Jakarta Sans \u2014 Tokotype (SIL Open Font License 1.1)",
       "commercial_allowed": true,
-      "formats": ["woff2", "ttf"],
+      "formats": [
+        "woff2",
+        "ttf"
+      ],
       "unit_scale_m": 1.0,
       "up_axis": "N/A",
       "polycount_budget": 0,
-      "compatible_engines": ["remotion", "threejs", "blender", "ffmpeg"],
+      "compatible_engines": [
+        "remotion",
+        "threejs",
+        "blender",
+        "ffmpeg"
+      ],
       "style_harmonized": true,
       "style_profile": {
         "stroke_px": 6,
@@ -187,7 +282,13 @@
       "sha256": null,
       "cache_key": null,
       "qc_status": "verified_metadata",
-      "tags": ["font", "caption", "subtitle", "indonesia", "title"]
+      "tags": [
+        "font",
+        "caption",
+        "subtitle",
+        "indonesia",
+        "title"
+      ]
     },
     {
       "asset_id": "prop_data_pedestal_compare_v1",
@@ -200,11 +301,16 @@
       "attribution_required": false,
       "attribution_text": null,
       "commercial_allowed": true,
-      "formats": ["gltf"],
+      "formats": [
+        "gltf"
+      ],
       "unit_scale_m": 1.0,
       "up_axis": "+Y",
       "polycount_budget": 4096,
-      "compatible_engines": ["threejs", "blender"],
+      "compatible_engines": [
+        "threejs",
+        "blender"
+      ],
       "style_harmonized": true,
       "style_profile": {
         "roughness": 0.6,
@@ -213,7 +319,13 @@
       "sha256": null,
       "cache_key": null,
       "qc_status": "procedural_ready",
-      "tags": ["explainer", "edukasi", "chart", "comparison", "3d"]
+      "tags": [
+        "explainer",
+        "edukasi",
+        "chart",
+        "comparison",
+        "3d"
+      ]
     }
   ]
 }

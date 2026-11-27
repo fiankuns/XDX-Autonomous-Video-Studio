@@ -1,0 +1,207 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio/schemas/creative_intelligence.schema.json",
+  "title": "XDX Structured AI Creative & Research Payload Schema v3.4",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project_id",
+    "topic_title",
+    "genres",
+    "target_duration_s",
+    "topic_research",
+    "blueprint",
+    "characters",
+    "narrative_beats"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "enum": ["3.4.0"] },
+    "project_id": { "type": "string", "minLength": 3 },
+    "topic_title": { "type": "string", "minLength": 5 },
+    "genres": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "explainer",
+          "edukasi",
+          "sejarah",
+          "biografi",
+          "dokumenter",
+          "storytelling",
+          "horor",
+          "komedi_absurd"
+        ]
+      }
+    },
+    "target_duration_s": { "type": "integer", "minimum": 10, "maximum": 600 },
+    "topic_research": {
+      "type": "object",
+      "required": ["epistemic_mode", "research_status", "summary", "claims"],
+      "properties": {
+        "epistemic_mode": {
+          "type": "string",
+          "enum": ["factual_verified", "historical_biographical_verified", "fictional_dramatization", "hybrid_factual_satire"]
+        },
+        "research_status": {
+          "type": "string",
+          "enum": ["VERIFIED_COMPLETE", "FICTION_DECLARED", "INCOMPLETE_BLOCKED"]
+        },
+        "summary": { "type": "string", "minLength": 20 },
+        "claims": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["claim_id", "statement", "epistemic_status", "source_title", "source_url", "publication_year"],
+            "properties": {
+              "claim_id": { "type": "string", "pattern": "^CLM_[0-9]{2,}$" },
+              "statement": { "type": "string", "minLength": 15 },
+              "epistemic_status": {
+                "type": "string",
+                "enum": [
+                  "verified_fact",
+                  "peer_reviewed_study",
+                  "archival_historical_record",
+                  "historical_reconstruction",
+                  "declared_fiction",
+                  "unverified_claim"
+                ]
+              },
+              "source_title": { "type": "string", "minLength": 3 },
+              "source_url": { "type": "string", "minLength": 8 },
+              "publication_year": { "type": ["integer", "null"], "minimum": 1500, "maximum": 2100 }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "blueprint": {
+      "type": "object",
+      "required": [
+        "premise",
+        "hook_0_3s_visual",
+        "hook_0_3s_spoken",
+        "story_arc",
+        "explainer_mechanism",
+        "humor_strategy",
+        "historical_biography_notes",
+        "payoff_callback"
+      ],
+      "properties": {
+        "premise": { "type": "string", "minLength": 20 },
+        "hook_0_3s_visual": { "type": "string", "minLength": 15 },
+        "hook_0_3s_spoken": { "type": "string", "minLength": 10 },
+        "story_arc": {
+          "type": "object",
+          "required": ["act_1_setup", "act_2_escalation", "act_3_resolution"],
+          "properties": {
+            "act_1_setup": { "type": "string", "minLength": 10 },
+            "act_2_escalation": { "type": "string", "minLength": 10 },
+            "act_3_resolution": { "type": "string", "minLength": 10 }
+          },
+          "additionalProperties": false
+        },
+        "explainer_mechanism": { "type": "string", "minLength": 10 },
+        "humor_strategy": { "type": "string", "minLength": 10 },
+        "historical_biography_notes": { "type": "string", "minLength": 10 },
+        "payoff_callback": { "type": "string", "minLength": 10 }
+      },
+      "additionalProperties": false
+    },
+    "characters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["character_id", "name", "role", "silhouette_and_proportions", "wardrobe", "palette", "rig_spec", "biography_disclaimer"],
+        "properties": {
+          "character_id": { "type": "string", "pattern": "^char_[a-z0-9_]+$" },
+          "name": { "type": "string", "minLength": 2 },
+          "role": { "type": "string", "enum": ["hero", "supporting", "crowd", "narrator_avatar"] },
+          "silhouette_and_proportions": { "type": "string", "minLength": 10 },
+          "wardrobe": { "type": "string", "minLength": 5 },
+          "palette": { "type": "array", "minItems": 2, "items": { "type": "string" } },
+          "rig_spec": { "type": "string" },
+          "facial_controls": { "type": "array", "items": { "type": "string" } },
+          "biography_disclaimer": { "type": "string", "minLength": 10 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "narrative_beats": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": [
+          "beat_id",
+          "act",
+          "sequence_id",
+          "scene_id",
+          "environment_id",
+          "beat_role",
+          "target_duration_s",
+          "narration_vo",
+          "dialogue_lines",
+          "shot_blueprints"
+        ],
+        "properties": {
+          "beat_id": { "type": "string", "pattern": "^B[0-9]{2,}$" },
+          "act": { "type": "string", "enum": ["ACT_1", "ACT_2", "ACT_3"] },
+          "sequence_id": { "type": "string", "pattern": "^SEQ_[0-9]{2,}$" },
+          "scene_id": { "type": "string", "pattern": "^SCN_[0-9]{2,}$" },
+          "environment_id": { "type": "string", "minLength": 3 },
+          "beat_role": { "type": "string", "minLength": 3 },
+          "target_duration_s": { "type": "number", "exclusiveMinimum": 1.5, "maximum": 90.0 },
+          "narration_vo": { "type": "string", "minLength": 12 },
+          "claim_refs": { "type": "array", "items": { "type": "string" } },
+          "humor_beat": { "type": ["string", "null"] },
+          "emotion": { "type": "string" },
+          "dialogue_lines": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["speaker_id", "line", "delivery", "onscreen_speaking"],
+              "properties": {
+                "speaker_id": { "type": "string" },
+                "line": { "type": "string", "minLength": 2 },
+                "delivery": { "type": "string" },
+                "onscreen_speaking": { "type": "boolean" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "shot_blueprints": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["visual_subject", "concrete_action", "props", "preferred_engine", "shot_size"],
+              "properties": {
+                "duration_weight": { "type": "number", "exclusiveMinimum": 0 },
+                "visual_subject": { "type": "string", "minLength": 5 },
+                "concrete_action": { "type": "string", "minLength": 12 },
+                "props": { "type": "array", "items": { "type": "string" } },
+                "preferred_engine": { "type": "string", "enum": ["blender", "threejs", "remotion"] },
+                "shot_size": {
+                  "type": "string",
+                  "enum": ["establishing", "wide", "medium", "close_up", "insert", "reaction", "cutaway"]
+                },
+                "is_cutaway": { "type": "boolean" },
+                "cutaway_purpose": { "type": "string" },
+                "transition_in": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

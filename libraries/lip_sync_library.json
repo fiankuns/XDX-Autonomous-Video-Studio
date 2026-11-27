@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "library_id": "lip_sync_library",
   "library_name": "Lip Sync Library",
   "category": "viseme_and_speech_sync",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Preston Blair / Rhubarb A-H + X viseme mappings and off-screen VO lock policy.",
   "presets": [
     {
@@ -22,7 +22,8 @@
         "threejs",
         "remotion"
       ],
-      "test_status": "tested"
+      "test_status": "UNIT_TESTED",
+      "executor_binding": "RhubarbLipSyncAdapter.extract_visemes_or_fallback"
     },
     {
       "id": "lip_rhubarb_preston_blair_9",
@@ -50,7 +51,8 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested"
+      "test_status": "SPECIFICATION_ONLY",
+      "executor_binding": "RhubarbLipSyncAdapter.extract_visemes_or_fallback"
     },
     {
       "id": "lip_indonesian_syllable_cadence",
@@ -74,7 +76,8 @@
         "blender",
         "threejs"
       ],
-      "test_status": "specification_only"
+      "test_status": "SPECIFICATION_ONLY",
+      "executor_binding": "RhubarbLipSyncAdapter.extract_visemes_or_fallback"
     }
   ]
 }

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""v3.3 Approval Gate CLI (100% backward-compatible with v3.1 `scripts/approval_gate.py`).
+"""v3.4 Fail-Closed Approval Gate CLI (compatible with v3.1/v3.3 CLI flags).
 
-Detects plan edits, validates JSON schemas & 13-item manifest, and checks approval_record.json.
-NOT proof of identity, quality, or self-authorization.
+Enforces structured explicit approval verification, actor_role=='human_user', TTL,
+revocation checks, and live SHA-256 package digest validation.
 """
 
 from __future__ import annotations
@@ -29,39 +29,15 @@ def digest(p: Path) -> str:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("package", type=Path)
-    parser.add_argument("--check", action="store_true", help="Verify approval_record.json against current SHA-256 digest.")
-    parser.add_argument("--strict-schema", action="store_true", help="Also run full v3.3 JSON Schema validation.")
+    parser.add_argument("--check", action="store_true", help="Verify approval_record.json fail-closed against live SHA-256.")
+    parser.add_argument("--strict-schema", action="store_true", help="Validate all JSON schemas (enabled by default in v3.4).")
     args = parser.parse_args()
 
     try:
-        if args.strict_schema:
-            gate = ApprovalGate()
-            res = gate.inspect_package(args.package, check_record=args.check)
-            print(json.dumps(res))
-            return 0 if res["status"] in {"WAITING_APPROVAL", "RECORD_MATCH_ONLY"} else 2
-
-        d = digest(args.package)
-        if not args.check:
-            print(json.dumps({"digest": d, "status": "WAITING_APPROVAL", "note": "No authorization granted"}))
-            return 0
-
-        f = args.package / "approval_record.json"
-        r = json.loads(f.read_text(encoding="utf-8")) if f.is_file() else {}
-        ok = (
-            r.get("digest") == d
-            and r.get("decision") == "approved"
-            and all(isinstance(r.get(k), str) and r[k].strip() for k in ("user_message", "recorded_at", "package_version"))
-        )
-        print(
-            json.dumps(
-                {
-                    "digest": d,
-                    "status": "RECORD_MATCH_ONLY" if ok else "BLOCKED",
-                    "note": "Agent must verify actual explicit user approval separately; this is not authorization.",
-                }
-            )
-        )
-        return 0 if ok else 2
+        gate = ApprovalGate()
+        res = gate.inspect_package(args.package, check_record=args.check)
+        print(json.dumps(res))
+        return 0 if res["status"] in {"WAITING_APPROVAL", "RECORD_MATCH_ONLY"} else 2
     except Exception as exc:
         print(json.dumps({"status": "BLOCKED", "error": str(exc)}))
         return 2

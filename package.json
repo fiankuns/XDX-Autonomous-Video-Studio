@@ -1,25 +1,25 @@
 {
   "name": "xdx-autonomous-video-studio-web",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "private": true,
   "type": "module",
-  "description": "Deterministic Three.js procedural 3D, Remotion master timeline, and motion graphics foundation for XDX Autonomous Video Studio v3.3",
+  "description": "Deterministic Three.js procedural 3D, Remotion master timeline, and motion graphics foundation for XDX Autonomous Video Studio v3.4",
   "license": "MIT",
   "scripts": {
     "verify:three": "node engines/web/three_deterministic_scene.mjs --self-test",
     "verify:remotion": "node engines/web/remotion_timeline_spec.mjs --self-test"
   },
   "dependencies": {
-    "@remotion/captions": "^4.0.0",
-    "@remotion/transitions": "^4.0.0",
-    "animejs": "^4.0.0",
-    "d3-interpolate": "^3.0.1",
-    "d3-scale": "^4.0.2",
-    "d3-shape": "^3.2.0",
-    "lottie-web": "^5.12.2",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "remotion": "^4.0.0",
-    "three": "^0.187.0"
+    "@remotion/captions": "4.0.547",
+    "@remotion/transitions": "4.0.547",
+    "animejs": "4.5.0",
+    "d3-interpolate": "3.0.2",
+    "d3-scale": "4.0.3",
+    "d3-shape": "3.2.1",
+    "lottie-web": "5.13.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.547",
+    "three": "0.187.0"
   }
 }

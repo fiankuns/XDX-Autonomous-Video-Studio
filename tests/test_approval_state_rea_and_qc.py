@@ -57,10 +57,17 @@ def test_13_item_approval_gate_and_state_machine_across_hybrid_genres(tmp_path: 
     with pytest.raises(PermissionError):
         state_mgr.record_explicit_user_approval(package_dir=pkg_dir, user_message="ok")
 
-    # Explicit versioned approval transitions cleanly to APPROVED -> MCP_PREFLIGHT
+    # Unbound natural-language sentence without project_id/digest/scope MUST also be rejected in v3.4
+    with pytest.raises(PermissionError):
+        state_mgr.record_explicit_user_approval(
+            package_dir=pkg_dir,
+            user_message="Saya setujui paket v1 dan izinkan render",
+        )
+
+    # Structured explicit versioned + digest-bound approval transitions cleanly to APPROVED -> MCP_PREFLIGHT
     approved_state = state_mgr.record_explicit_user_approval(
         package_dir=pkg_dir,
-        user_message="Saya setujui paket v1 dan izinkan render",
+        user_message=result["approval_command_example"],
     )
     assert approved_state["current_state"] == "APPROVED"
 
@@ -79,7 +86,7 @@ def test_13_item_approval_gate_and_state_machine_across_hybrid_genres(tmp_path: 
     # Mutating any file after approval MUST invalidate approval and revert to WAITING_APPROVAL
     (pkg_dir / "script.md").write_text((pkg_dir / "script.md").read_text(encoding="utf-8") + "\nEdit tanpa izin\n", encoding="utf-8")
     with pytest.raises(PermissionError):
-        state_mgr.transition("SHOT_RENDER", reason="Render tampered package", package_dir=pkg_dir)
+        state_mgr.transition("STYLE_FRAME", reason="Render tampered package", package_dir=pkg_dir)
     assert state_mgr.load()["current_state"] == "WAITING_APPROVAL"
 
 

@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "library_id": "environment_library",
   "library_name": "Environment Library",
   "category": "modular_3d_sets",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Modular 3D miniature diorama stage presets across domestic, civic, historical, abstract data, and horror genres.",
   "presets": [
     {
@@ -35,7 +35,8 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested"
+      "test_status": "UNIT_TESTED",
+      "executor_binding": "BlenderXDXEngine.compile_shot_plan"
     },
     {
       "id": "env_preset_jalan_layanan_publik",
@@ -62,13 +63,14 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested",
+      "test_status": "UNIT_TESTED",
       "genres": [
         "explainer",
         "edukasi",
         "komedi_absurd",
         "dokumenter"
-      ]
+      ],
+      "executor_binding": "BlenderXDXEngine.compile_shot_plan"
     },
     {
       "id": "env_preset_ruang_sejarah_arsip",
@@ -94,12 +96,13 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested",
+      "test_status": "UNIT_TESTED",
       "genres": [
         "sejarah",
         "biografi",
         "dokumenter"
-      ]
+      ],
+      "executor_binding": "BlenderXDXEngine.compile_shot_plan"
     },
     {
       "id": "env_preset_lorong_horor",
@@ -125,11 +128,12 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested",
+      "test_status": "UNIT_TESTED",
       "genres": [
         "horor",
         "storytelling"
-      ]
+      ],
+      "executor_binding": "BlenderXDXEngine.compile_shot_plan"
     }
   ]
 }

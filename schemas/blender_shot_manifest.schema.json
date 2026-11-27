@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio/schemas/blender_shot_manifest.schema.json",
+  "title": "XDX Approved Shot-to-Blender Compiler Manifest Schema v3.4",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "shot_id",
+    "engine",
+    "execution_mode",
+    "scene_spec",
+    "collections",
+    "asset_loading_plan",
+    "environment_setup",
+    "character_setups",
+    "camera_rig",
+    "lighting_rig",
+    "material_bindings",
+    "render_settings",
+    "output_manifest",
+    "bpy_script_ast_valid",
+    "bpy_setup_script_preview"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "3.4.0" },
+    "shot_id": { "type": "string", "pattern": "^S[0-9]{3,}$" },
+    "engine": { "type": "string", "const": "blender" },
+    "execution_mode": { "type": "string", "const": "OFFLINE_COMPILED_NOT_EXECUTED_ON_DEVICE" },
+    "scene_spec": {
+      "type": "object",
+      "required": ["scene_name", "fps", "frame_start", "frame_end", "global_frame_range", "unit_system", "scale_length", "color_management"],
+      "properties": {
+        "scene_name": { "type": "string" },
+        "fps": { "type": "integer", "minimum": 1 },
+        "frame_start": { "type": "integer", "minimum": 0 },
+        "frame_end": { "type": "integer", "minimum": 0 },
+        "global_frame_range": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2 },
+        "unit_system": { "type": "string", "const": "METRIC" },
+        "scale_length": { "type": "number", "const": 1.0 },
+        "color_management": { "type": "object" }
+      },
+      "additionalProperties": false
+    },
+    "collections": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["name", "purpose"],
+        "properties": {
+          "name": { "type": "string" },
+          "purpose": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    },
+    "asset_loading_plan": { "type": "array", "items": { "type": "object" } },
+    "environment_setup": {
+      "type": "object",
+      "required": ["environment_id", "collection", "footprint_m", "cutaway_walls"],
+      "properties": {
+        "environment_id": { "type": "string" },
+        "collection": { "type": "string" },
+        "footprint_m": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+        "cutaway_walls": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "character_setups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["character_id", "armature_name", "action_name", "ik_constraints", "keyframes"],
+        "properties": {
+          "character_id": { "type": "string" },
+          "armature_name": { "type": "string" },
+          "action_name": { "type": "string" },
+          "ik_constraints": { "type": "array", "items": { "type": "string" } },
+          "facial_shape_keys": { "type": "object" },
+          "keyframes": { "type": "array", "minItems": 2, "items": { "type": "object" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "camera_rig": {
+      "type": "object",
+      "required": ["camera_name", "sensor_width_mm", "focal_length_mm", "dof_fstop", "keyframes"],
+      "properties": {
+        "camera_name": { "type": "string" },
+        "sensor_width_mm": { "type": "number" },
+        "focal_length_mm": { "type": "number" },
+        "dof_fstop": { "type": "number" },
+        "track_target": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+        "keyframes": { "type": "array", "minItems": 2, "items": { "type": "object" } }
+      },
+      "additionalProperties": false
+    },
+    "lighting_rig": {
+      "type": "object",
+      "required": ["preset_id", "lights"],
+      "properties": {
+        "preset_id": { "type": "string" },
+        "lights": { "type": "array", "minItems": 2, "items": { "type": "object" } }
+      },
+      "additionalProperties": false
+    },
+    "material_bindings": { "type": "array", "minItems": 1, "items": { "type": "object" } },
+    "render_settings": {
+      "type": "object",
+      "required": ["engine", "resolution_x", "resolution_y", "file_format", "mobile_guard_policy"],
+      "properties": {
+        "engine": { "type": "string" },
+        "resolution_x": { "type": "integer" },
+        "resolution_y": { "type": "integer" },
+        "samples": { "type": "integer" },
+        "file_format": { "type": "string", "const": "PNG" },
+        "mobile_guard_policy": {
+          "type": "object",
+          "required": ["max_cycles_threads", "preview_max_resolution", "forbid_tmp_path", "output_base_expr"],
+          "properties": {
+            "max_cycles_threads": { "type": "integer", "maximum": 8 },
+            "preview_max_resolution": { "type": "integer", "maximum": 1024 },
+            "forbid_tmp_path": { "type": "boolean", "const": true },
+            "output_base_expr": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "output_manifest": {
+      "type": "object",
+      "required": ["frame_count", "handle_frames_head", "handle_frames_tail", "frame_pattern", "verification_rules"],
+      "properties": {
+        "frame_count": { "type": "integer", "minimum": 1 },
+        "handle_frames_head": { "type": "integer", "minimum": 0 },
+        "handle_frames_tail": { "type": "integer", "minimum": 0 },
+        "frame_pattern": { "type": "string" },
+        "verification_rules": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "mcp_preflight_sequence": { "type": "array", "items": { "type": "object" } },
+    "bpy_script_ast_valid": { "type": "boolean", "const": true },
+    "bpy_setup_script_preview": { "type": "string", "minLength": 40 }
+  },
+  "additionalProperties": false
+}

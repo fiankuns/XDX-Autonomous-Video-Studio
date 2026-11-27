@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "library_id": "character_animation_library",
   "library_name": "Character Animation Library",
   "category": "character_body_acting",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Humanoid diorama body acting presets with IK foot-lock, anticipation, and root-motion rules.",
   "presets": [
     {
@@ -23,13 +23,14 @@
         "blender",
         "threejs"
       ],
-      "test_status": "specification_only",
+      "test_status": "SPECIFICATION_ONLY",
       "genres": [
         "explainer",
         "edukasi",
         "dokumenter",
         "biografi"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_body_animation"
     },
     {
       "id": "anim_explainer_gesture_present",
@@ -49,12 +50,13 @@
         "blender",
         "threejs"
       ],
-      "test_status": "specification_only",
+      "test_status": "SPECIFICATION_ONLY",
       "genres": [
         "explainer",
         "edukasi",
         "sejarah"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_body_animation"
     },
     {
       "id": "anim_comedic_double_take",
@@ -72,11 +74,12 @@
       "engine_compatibility": [
         "blender"
       ],
-      "test_status": "specification_only",
+      "test_status": "SPECIFICATION_ONLY",
       "genres": [
         "komedi_absurd",
         "storytelling"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_body_animation"
     },
     {
       "id": "anim_horror_cautious_step",
@@ -94,11 +97,12 @@
       "engine_compatibility": [
         "blender"
       ],
-      "test_status": "specification_only",
+      "test_status": "SPECIFICATION_ONLY",
       "genres": [
         "horor",
         "storytelling"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_body_animation"
     }
   ]
 }

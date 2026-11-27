@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "library_id": "particle_library",
   "library_name": "Particle Library",
   "category": "deterministic_particles",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Seeded frame-deterministic 3D and 2D particle emitters (zero non-deterministic wall-clock drift).",
   "presets": [
     {
@@ -30,7 +30,8 @@
         "blender",
         "remotion"
       ],
-      "test_status": "tested"
+      "test_status": "RUNTIME_TESTED",
+      "executor_binding": "PresetExecutorEngine.evaluate_particle_state"
     },
     {
       "id": "part_absurd_confetti_burst",
@@ -54,11 +55,12 @@
         "threejs",
         "remotion"
       ],
-      "test_status": "tested",
+      "test_status": "RUNTIME_TESTED",
       "genres": [
         "komedi_absurd",
         "explainer"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_particle_state"
     },
     {
       "id": "part_horror_ash_mist",
@@ -82,11 +84,12 @@
         "threejs",
         "blender"
       ],
-      "test_status": "tested",
+      "test_status": "RUNTIME_TESTED",
       "genres": [
         "horor",
         "sejarah"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_particle_state"
     }
   ]
 }

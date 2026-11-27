@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "library_id": "typography_library",
   "library_name": "Typography Library",
   "category": "fonts_and_type_scales",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "SIL Open Font License 1.1 (OFL-1.1) Google Fonts pairings across Indonesian explainer, history, horror, and data shots.",
   "presets": [
     {
@@ -25,7 +25,8 @@
         "blender",
         "ffmpeg"
       ],
-      "test_status": "tested"
+      "test_status": "UNIT_TESTED",
+      "executor_binding": "PresetExecutorEngine.evaluate_kinetic_typography"
     },
     {
       "id": "typo_historical_archival_serif",
@@ -44,12 +45,13 @@
         "remotion",
         "ffmpeg"
       ],
-      "test_status": "tested",
+      "test_status": "UNIT_TESTED",
       "genres": [
         "sejarah",
         "biografi",
         "dokumenter"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_kinetic_typography"
     },
     {
       "id": "typo_horror_cinzel_tension",
@@ -67,11 +69,12 @@
         "remotion",
         "ffmpeg"
       ],
-      "test_status": "tested",
+      "test_status": "UNIT_TESTED",
       "genres": [
         "horor",
         "storytelling"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_kinetic_typography"
     }
   ]
 }

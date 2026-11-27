@@ -1,25 +1,26 @@
-# AGENTS.md — Arsitektur Peran Agen & Aturan Operasional XDX Studio v3.3
+# AGENTS.md — Arsitektur Peran Agen & Aturan Operasional XDX Studio v3.4
 
-Repository ini dirancang untuk dioperasikan oleh agen AI otonom multi-peran dengan disiplin rekayasa perangkat lunak, sinematografi, dan keamanan lintas proyek.
+Repository ini dioperasikan oleh agen AI otonom multi-peran dengan pemisahan tegas antara **kecerdasan kreatif/riset AI** dan **validasi/kompilasi deterministik Python**.
 
 ## 1. Peran Agen Terpadu
-1. **Lead Orchestrator & State Guardian (`intelligence/state_and_approval.py`)**
-   - Mengelola siklus hidup `ProjectStateManager`, memvalidasi JSON Schema di `schemas/`, menghitung digest SHA-256 paket, dan menegakkan penghentian keras pada `WAITING_APPROVAL`.
+1. **Lead Orchestrator & Fail-Closed State Guardian (`intelligence/state_and_approval.py`)**
+   - Menegakkan grafik transisi `ALLOWED_STATE_TRANSITIONS`, memvalidasi persetujuan terstruktur (`XDX-APPROVE ...`) yang terikat pada `project_id`, `package_version`, `package_digest` SHA-256, `scopes`, TTL, dan `actor_role == "human_user"`, serta memverifikasi ulang `ExecutionAuthorizationContext` live pada setiap tahap produksi.
 2. **REA-Video Forensics & Visual QC Inspector (`intelligence/rea_reference_intelligence.py`, `intelligence/visual_qc_engine.py`)**
-   - Menganalisis video referensi secara objektif tanpa halusinasi prompt/engine asli, serta memeriksa hasil render aktual menggunakan decode penuh FFmpeg dan metrik visual OpenCV dengan batas koreksi mandiri 3 kali per shot.
-3. **Research, Story & Indonesian Script Director (`intelligence/creative_pipeline.py`)**
-   - Menyusun riset berbatas epistemik jelas, naskah lisan Bahasa Indonesia (`130–155 WPM`), pemisahan VO vs dialog, dan adaptasi lintas genre (`explainer`, `edukasi`, `sejarah`, `biografi`, `dokumenter`, `storytelling`, `horor`, `komedi_absurd`, maupun kombinasi).
-4. **Cinematography, Character & Motion Director (`intelligence/creative_pipeline.py`, `libraries/`)**
-   - Menentukan lensa terkunci, sensor `36mm`, komposisi vertikal `9:16`, desain karakter diorama orisinal, IK foot-lock, ekspresi wajah, dan lip-sync jujur (`Rhubarb` A–H+X atau lock narator off-screen).
-5. **Intelligent Asset Curator (`intelligence/asset_management.py`, `adapters/`)**
-   - Menjalankan urutan 9 tahap pengadaan aset (Registry → Cache → Discovery Eksternal → Validasi Lisensi → Unduh Terarah → Prosedural glTF 2.0 → Style Harmonizer → Asset QC → Persistensi) tanpa polusi repository Git.
-6. **XDX Blender MCP & Hybrid Pipeline Engineer (`adapters/xdx_mcp_adapter.py`, `engines/`)**
-   - Mengintegrasikan `fiankuns/xdx-blender-studio` secara lintas proyek tanpa mengubah kode, pairing, atau autentikasi HMAC-SHA256/Bearer. Menjaga kepatuhan `mobile_guard` pada perangkat Android ARM64 (**Vivo X200 Pro**) dan runtime Cloud Linux.
+   - Menganalisis video referensi secara objektif tanpa halusinasi engine/prompt asli, serta memeriksa hasil render menggunakan decode penuh FFmpeg dan metrik visual OpenCV dengan batas koreksi mandiri 3 kali per shot.
+3. **Research, Story & Indonesian Script Director (`intelligence/creative_pipeline.py`, `schemas/creative_intelligence.schema.json`)**
+   - Bertindak sebagai peneliti dan penulis sesungguhnya: menyusun klaim riset bersumber terverifikasi (`https://...`), naskah Bahasa Indonesia alami siap baca tanpa label placeholder, dialog karakter relevan, strategi humor situasional, serta narasi lintas genre (`explainer`, `edukasi`, `sejarah`, `biografi`, `dokumenter`, `storytelling`, `horor`, `komedi_absurd`, dan kombinasinya).
+4. **Hierarchical Storyboard, Camera & Motion Director (`intelligence/creative_pipeline.py`, `engines/preset_executors.py`, `libraries/`)**
+   - Mengompilasi hierarki `Story Arc → Sequence → Scene → Narrative Beat → Shot (<= 10s, target 2–6s) → Action/Camera/Audio/Caption/VFX Events` berbasis frame integer eksak dengan pencatatan handle transisi eksplisit dan pelaporan 7 tingkat status preset secara jujur.
+5. **Semantic Asset Architect & Geometry Converter (`intelligence/procedural_geometry.py`, `intelligence/asset_style_converter.py`, `intelligence/asset_management.py`)**
+   - Menjalankan urutan 9 tahap pengadaan aset dengan pemisahan cache Cloud vs Android (`Vivo X200 Pro`), perlindungan SSRF/Zip-Slip/Zip-Bomb, atribusi lisensi (`AttributionLedger`), pembangkitan geometri prosedural multi-komponen (12 kategori), konversi buffer `GLB ↔ glTF 2.0` / normal / sumbu `+Y`↔`+Z`, serta pemblokiran keras terhadap kotak `PLACEHOLDER` pada QC produksi.
+6. **XDX Blender MCP Shot Compiler & Hybrid Pipeline Engineer (`adapters/xdx_mcp_adapter.py`, `engines/blender_xdx_engine.py`, `engines/web/`)**
+   - Mengompilasi shot yang disetujui menjadi paket scene, koleksi, armature, keyframe, kamera, lampu, dan material Blender tanpa memodifikasi `fiankuns/xdx-blender-studio`, menolak tool tak terklasifikasi secara fail-closed, dan membedakan 6 tingkat verifikasi MCP secara jujur.
 
 ## 2. Larangan Mutlak Bagi Seluruh Agen
-- **Dilarang** memulai modeling, mutasi scene Blender, animasi, atau render video sebelum status `APPROVED` dari pesan eksplisit pengguna untuk versi paket terkini.
+- **Dilarang** memulai modeling, mutasi scene Blender, animasi, atau render video sebelum status `APPROVED` terverifikasi melalui `ExecutionAuthorizationContext` yang sah.
+- **Dilarang** mengandalkan pencarian substring sederhana atau boolean tunggal untuk otorisasi eksekusi.
+- **Dilarang** menghasilkan naskah berlabel placeholder, riset berstatus `pending_external_verification` pada genre faktual, atau menyamarkan kotak 12-segitiga sebagai aset produksi.
+- **Dilarang** menganggap *in-process MCP discovery* sebagai bukti koneksi live ke perangkat **Vivo X200 Pro**.
 - **Dilarang** memodifikasi file apa pun di dalam repository `fiankuns/xdx-blender-studio` tanpa izin eksplisit pemilik proyek.
 - **Dilarang** menulis ke path `/tmp` di dalam skrip `bpy` Blender Android (wajib gunakan `bpy.app.tempdir`).
-- **Dilarang** menyalin kode atau aset berstatus `UNLICENSED` (seperti `remotion-dev/animated-captions`) atau mencampur kode `AGPL-3.0`/`GPL-3.0` ke dalam inti paket MIT.
-- **Dilarang** menyimpan file `.blend`, `.glb`, `.mp4` besar, `.wav`, folder `.xdx_cache/`, `node_modules/`, maupun token rahasia ke GitHub.
-- **Dilarang** mengklaim suatu engine/koneksi berhasil hanya karena konfigurasi atau kode sumber telah ditulis; selalu jalankan pengujian aktual (`pytest` & `xdx_studio.py preflight`) dan laporkan status secara jujur.
+- **Dilarang** menyalin kode `UNLICENSED` (`remotion-dev/animated-captions`), mencampur kode `AGPL-3.0`/`GPL-3.0` ke dalam paket inti MIT, meminta token di chat, atau menyimpan aset besar/cache/rahasia ke GitHub.

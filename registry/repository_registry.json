@@ -1,5 +1,5 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "registry_type": "repository_registry",
   "updated_at": "2026-11-26T14:49:00Z",
   "notes": "Complete live technical, license, dependency, and ARM64/Cloud compatibility audit of all 33 external GitHub repositories, 5 asset provider portals, and 2 XDX project repositories.",

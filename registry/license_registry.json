@@ -1,5 +1,5 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "registry_type": "license_registry",
   "updated_at": "2026-11-26T14:47:00Z",
   "notes": "Governs license validation for code dependencies, external repositories, 3D/PBR/HDRI assets, fonts, and audio/SFX in XDX Autonomous Video Studio v3.3.",

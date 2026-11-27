@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "library_id": "camera_library",
   "library_name": "Camera Library",
   "category": "cinematography_and_lenses",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Vertical 9:16 & 16:9 locked-sensor camera rigs, focal lengths, and deterministic motion paths.",
   "presets": [
     {
@@ -24,7 +24,8 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested"
+      "test_status": "RUNTIME_TESTED",
+      "executor_binding": "PresetExecutorEngine.evaluate_camera_motion"
     },
     {
       "id": "cam_medium_storyteller_40mm",
@@ -44,7 +45,8 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested"
+      "test_status": "RUNTIME_TESTED",
+      "executor_binding": "PresetExecutorEngine.evaluate_camera_motion"
     },
     {
       "id": "cam_insert_evidence_macro_70mm",
@@ -65,7 +67,8 @@
         "threejs",
         "remotion"
       ],
-      "test_status": "tested"
+      "test_status": "RUNTIME_TESTED",
+      "executor_binding": "PresetExecutorEngine.evaluate_camera_motion"
     },
     {
       "id": "cam_horror_dutch_corridor_32mm",
@@ -86,11 +89,12 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested",
+      "test_status": "RUNTIME_TESTED",
       "genres": [
         "horor",
         "storytelling"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_camera_motion"
     }
   ]
 }

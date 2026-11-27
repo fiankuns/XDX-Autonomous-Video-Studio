@@ -45,10 +45,10 @@ class CrossProjectMCPDiscoveryTests(unittest.IsolatedAsyncioTestCase):
 
         for tool_name in SCENE_OR_CONFIG_MUTATING_TOOLS:
             with self.assertRaises(MCPSceneMutationBlockedError):
-                adapter.call_tool(tool_name, {}, project_approved=False)
+                adapter.call_tool(tool_name, {}, auth_context=None)
 
         with self.assertRaises(MCPSceneMutationBlockedError):
-            adapter.call_tool("look", {"shading": "rendered"}, project_approved=False)
+            adapter.call_tool("look", {"shading": "rendered"}, auth_context=None)
 
     async def test_live_streamable_http_cross_project_discovery_without_touching_repo(self) -> None:
         src_dir = BLENDER_STUDIO_REPO / "src"
@@ -90,7 +90,10 @@ class CrossProjectMCPDiscoveryTests(unittest.IsolatedAsyncioTestCase):
                 report = await adapter.discover_capabilities_readonly()
                 self.assertTrue(report.server_reachable_live)
                 self.assertFalse(report.relay_device_connected)
-                self.assertEqual(report.discovery_source, "live_streamable_http_mcp")
+                self.assertEqual(report.discovery_source, "local_http_mcp")
+                self.assertTrue(report.verification_tiers.local_http_integration_test)
+                self.assertFalse(report.verification_tiers.live_remote_relay_reachable)
+                self.assertFalse(report.verification_tiers.live_android_blender_connected)
                 self.assertEqual({t["name"] for t in report.tools}, EXPECTED_8_TOOLS)
                 self.assertFalse(report.scene_mutated)
             finally:

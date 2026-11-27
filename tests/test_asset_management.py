@@ -79,7 +79,7 @@ def test_9_step_asset_procurement_procedural_and_external_and_retargeting(tmp_pa
         qc=AssetQualityControl(),
     )
 
-    # 1. Unknown asset falls through to Step 6 Procedural glTF 2.0 -> Harmonize -> QC -> Cache
+    # 1. Lamp asset generates genuine 5-component procedural glTF 2.0 (>200 tris, never a 12-tri box)
     res_proc = pipeline.procure_asset("prop_custom_lamp_v1", category="prop_3d", target_engine="threejs", persist_registry=True)
     assert res_proc.resolution_source == "procedural_generated"
     assert res_proc.steps_executed == [
@@ -87,13 +87,14 @@ def test_9_step_asset_procurement_procedural_and_external_and_retargeting(tmp_pa
         "2_check_cache",
         "3_discover_external_asset",
         "4_validate_license_and_compatibility",
-        "6_generate_procedural_fallback",
+        "6_generate_semantic_procedural_asset",
         "7_harmonize_global_style_bible",
         "8_validate_asset_quality",
         "9_persist_for_reuse",
     ]
     assert res_proc.qc_report["passed"] is True
-    assert res_proc.qc_report["triangle_count_measured"] == 12
+    assert res_proc.qc_report["triangle_count_measured"] >= 200
+    assert res_proc.qc_report["component_count"] == 5
     assert res_proc.cached_path is not None
     gltf_doc = json.loads(Path(res_proc.cached_path).read_text(encoding="utf-8"))
     assert gltf_doc["asset"]["version"] == "2.0"

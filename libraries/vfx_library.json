@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "library_id": "vfx_library",
   "library_name": "VFX Library",
   "category": "color_grading_and_postfx",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Cross-engine color management, vignette, bloom, archival grain, and atmospheric post-processing.",
   "presets": [
     {
@@ -26,7 +26,8 @@
         "remotion",
         "ffmpeg"
       ],
-      "test_status": "tested"
+      "test_status": "RUNTIME_TESTED",
+      "executor_binding": "PresetExecutorEngine.apply_vfx_grade_to_image"
     },
     {
       "id": "vfx_historical_warm_sepia_grain",
@@ -47,12 +48,13 @@
         "threejs",
         "ffmpeg"
       ],
-      "test_status": "tested",
+      "test_status": "RUNTIME_TESTED",
       "genres": [
         "sejarah",
         "biografi",
         "dokumenter"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.apply_vfx_grade_to_image"
     },
     {
       "id": "vfx_horror_desat_fog",
@@ -73,10 +75,11 @@
         "threejs",
         "remotion"
       ],
-      "test_status": "tested",
+      "test_status": "RUNTIME_TESTED",
       "genres": [
         "horor"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.apply_vfx_grade_to_image"
     }
   ]
 }

@@ -1,4 +1,4 @@
-"""Reusable Production Preset Libraries Loader & Validator for XDX Studio v3.3."""
+"""Reusable Production Preset Libraries Loader & Validator for XDX Studio v3.4."""
 
 from __future__ import annotations
 
@@ -28,6 +28,18 @@ REQUIRED_16_LIBRARIES: tuple[str, ...] = (
     "audio_sfx_library",
     "asset_3d_library",
     "visual_explainer_library",
+)
+
+VALID_7_TIER_STATUSES: frozenset[str] = frozenset(
+    {
+        "SCHEMA_VALIDATED",
+        "UNIT_TESTED",
+        "RUNTIME_TESTED",
+        "RENDER_TESTED",
+        "VISUAL_QC_PASSED",
+        "SPECIFICATION_ONLY",
+        "BLOCKED",
+    }
 )
 
 
@@ -79,13 +91,14 @@ class PresetLibraryRegistry:
             self.load_all(validate=True)
         libs = [self._libraries[library_id]] if library_id else list(self._libraries.values())
         matches: list[dict[str, Any]] = []
+        tested_tiers = {"UNIT_TESTED", "RUNTIME_TESTED", "RENDER_TESTED", "VISUAL_QC_PASSED"}
         for lib in libs:
             for preset in lib["presets"]:
                 if engine and engine not in preset["engine_compatibility"]:
                     continue
                 if genre and preset.get("genres") and genre not in preset["genres"]:
                     continue
-                if only_tested and preset["test_status"] != "tested":
+                if only_tested and preset["test_status"] not in tested_tiers:
                     continue
                 matches.append({**preset, "_library_id": lib["library_id"]})
         return matches

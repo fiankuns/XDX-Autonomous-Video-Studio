@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio/schemas/asset_registry.schema.json",
-  "title": "XDX Intelligent Asset Registry Schema v3.3",
+  "title": "XDX Intelligent Asset Registry Schema v3.4",
   "type": "object",
   "required": [
     "schema_version",
@@ -10,7 +10,7 @@
     "assets"
   ],
   "properties": {
-    "schema_version": { "type": "string", "const": "3.3.0" },
+    "schema_version": { "type": "string", "enum": ["3.3.0", "3.4.0"] },
     "updated_at": { "type": "string" },
     "style_bible_default": { "type": "string" },
     "assets": {
@@ -50,9 +50,16 @@
               "audio_sfx"
             ]
           },
+          "semantic_type": { "type": ["string", "null"] },
+          "is_placeholder": { "type": "boolean" },
           "origin_type": {
             "type": "string",
-            "enum": ["curated_registry", "external_downloaded", "procedural_generated"]
+            "enum": [
+              "curated_registry",
+              "external_downloaded",
+              "procedural_generated",
+              "primitive_placeholder"
+            ]
           },
           "source_provider": { "type": "string", "minLength": 2 },
           "source_url": { "type": "string", "minLength": 4 },
@@ -64,6 +71,8 @@
           "unit_scale_m": { "type": "number", "exclusiveMinimum": 0 },
           "up_axis": { "type": "string", "enum": ["+Y", "+Z", "N/A"] },
           "polycount_budget": { "type": ["integer", "null"], "minimum": 0 },
+          "measured_triangles": { "type": ["integer", "null"], "minimum": 0 },
+          "component_count": { "type": ["integer", "null"], "minimum": 0 },
           "compatible_engines": {
             "type": "array",
             "minItems": 1,
@@ -73,9 +82,18 @@
           "style_profile": { "type": "object" },
           "sha256": { "type": ["string", "null"], "pattern": "^[a-f0-9]{64}$" },
           "cache_key": { "type": ["string", "null"] },
+          "cache_tier": { "type": ["string", "null"], "enum": ["cloud", "android_mobile", null] },
           "qc_status": {
             "type": "string",
-            "enum": ["tested", "verified_metadata", "procedural_ready", "failed", "not_tested"]
+            "enum": [
+              "tested",
+              "verified_metadata",
+              "procedural_ready",
+              "PLACEHOLDER",
+              "BLOCKED",
+              "failed",
+              "not_tested"
+            ]
           },
           "tags": { "type": "array", "items": { "type": "string" } }
         },

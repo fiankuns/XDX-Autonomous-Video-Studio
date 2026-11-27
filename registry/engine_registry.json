@@ -1,5 +1,5 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "registry_type": "engine_registry",
   "updated_at": "2026-11-26T14:47:00Z",
   "notes": "Hybrid Production Pipeline Engine Registry for XDX Autonomous Video Studio v3.3. Reflects honest runtime availability and live verification status.",
@@ -38,7 +38,10 @@
       "runtime_available_in_cloud_vm": true,
       "android_arm64_supported": true,
       "deterministic_timeline_mode": "explicit_frame_over_fps_with_mulberry32_seed_and_load_barrier",
-      "output_formats": ["png_sequence_rgba", "gltf_2_0"],
+      "output_formats": [
+        "png_sequence_rgba",
+        "gltf_2_0"
+      ],
       "limitations": "Never use requestAnimationFrame wall-clock deltas for production export; step strictly by frame / fps."
     },
     {
@@ -50,7 +53,9 @@
       "android_arm64_supported": false,
       "cloud_render_supported": true,
       "deterministic_timeline_mode": "zero_based_integer_frames_30fps_default",
-      "output_formats": ["mp4_h264_yuv420p_aac"],
+      "output_formats": [
+        "mp4_h264_yuv420p_aac"
+      ],
       "limitations": "Chromium headless rendering runs in Cloud Linux VM (recommended for Android-only users without a PC); Remotion License applies to entities >3 people."
     },
     {

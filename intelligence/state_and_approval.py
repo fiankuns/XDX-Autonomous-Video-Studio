@@ -1,15 +1,24 @@
-"""Project State Manager & 13-Item Mandatory Approval Gate (v3.3).
+"""Fail-Closed Project State Manager, Structured Approval Gate & Live Execution Authorization (v3.4).
 
-Maintains 100% compatibility with v3.1 `approval_gate.py` 11-file SHA-256 package
-digest while enforcing all 13 pre-production deliverables required in v3.3 and
-blocking any scene mutation or render transition prior to explicit user approval.
+Fixes Phase 01.5 Critical Audit Findings:
+- Replaces naive substring matching with a fail-closed structured approval parser + lexical negation,
+  conditional, quote/meta-example, and ambiguity rejection.
+- Binds every approval to `project_id`, `package_version`, `package_digest` (SHA-256), `approved_scopes`,
+  `actor_role == "human_user"`, `approved_at`, `expires_at`, `revoked`, and `project_state_at_approval`.
+- Enforces strict directed graph state transitions (`ALLOWED_STATE_TRANSITIONS`).
+- Re-verifies live disk SHA-256 digest and authorization scope on every production transition or MCP mutation.
 """
 
 from __future__ import annotations
 
 import hashlib
 import json
-from datetime import datetime, timezone
+import os
+import re
+import tempfile
+import uuid
+from dataclasses import dataclass
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -18,7 +27,6 @@ import jsonschema
 ROOT_DIR = Path(__file__).resolve().parent.parent
 SCHEMAS_DIR = ROOT_DIR / "schemas"
 
-# Exact v3.1 11 core package files preserved for backward compatibility
 REQUIRED_PACKAGE_FILES: tuple[str, ...] = (
     "blueprint.md",
     "script.md",
@@ -33,11 +41,16 @@ REQUIRED_PACKAGE_FILES: tuple[str, ...] = (
     "reference_analysis.md",
 )
 
-# Additional v3.3 structured artifacts backing the 13-item Approval Gate
-V3_3_EXTENDED_FILES: tuple[str, ...] = (
-    "narration_dialogue.json",
-    "caption_audio_plan.json",
-    "approval_package_manifest.json",
+VALID_APPROVAL_SCOPES: frozenset[str] = frozenset(
+    {
+        "mcp_preflight",
+        "asset_procurement",
+        "blender_scene_mutation",
+        "style_frame",
+        "animatic",
+        "render_production",
+        "all_production",
+    }
 )
 
 PRODUCTION_MUTATING_STATES: frozenset[str] = frozenset(
@@ -55,20 +68,92 @@ PRODUCTION_MUTATING_STATES: frozenset[str] = frozenset(
     }
 )
 
-AMBIGUOUS_NON_APPROVAL_PHRASES: frozenset[str] = frozenset(
-    {
-        "lanjut",
-        "lanjutkan",
-        "ok",
-        "oke",
-        "ya",
-        "yes",
-        "sip",
-        "go",
-        "buat otomatis",
-        "analisis referensi",
-    }
+# Strict directed state transition graph (WAITING_APPROVAL -> APPROVED is exclusively via record_explicit_user_approval)
+ALLOWED_STATE_TRANSITIONS: dict[str, frozenset[str]] = {
+    "INIT": frozenset({"REFERENCE_REVIEW", "TOPIC_RESEARCH", "BLUEPRINT", "PREPRODUCTION", "WAITING_APPROVAL", "BLOCKED"}),
+    "REFERENCE_REVIEW": frozenset({"TOPIC_RESEARCH", "BLUEPRINT", "BLOCKED"}),
+    "TOPIC_RESEARCH": frozenset({"BLUEPRINT", "PREPRODUCTION", "BLOCKED"}),
+    "BLUEPRINT": frozenset({"PREPRODUCTION", "WAITING_APPROVAL", "BLOCKED"}),
+    "PREPRODUCTION": frozenset({"WAITING_APPROVAL", "BLOCKED"}),
+    "WAITING_APPROVAL": frozenset({"PREPRODUCTION", "BLOCKED"}),
+    "APPROVED": frozenset({"MCP_PREFLIGHT", "ASSET_PROCUREMENT", "WAITING_APPROVAL", "BLOCKED"}),
+    "MCP_PREFLIGHT": frozenset({"ASSET_PROCUREMENT", "STYLE_FRAME", "WAITING_APPROVAL", "BLOCKED"}),
+    "ASSET_PROCUREMENT": frozenset({"STYLE_FRAME", "ANIMATIC", "SHOT_RENDER", "WAITING_APPROVAL", "BLOCKED"}),
+    "STYLE_FRAME": frozenset({"ANIMATIC", "SHOT_RENDER", "WAITING_APPROVAL", "BLOCKED"}),
+    "ANIMATIC": frozenset({"SHOT_RENDER", "WAITING_APPROVAL", "BLOCKED"}),
+    "SHOT_RENDER": frozenset({"COMPOSITE", "QC", "SELF_CORRECTION", "WAITING_APPROVAL", "BLOCKED"}),
+    "COMPOSITE": frozenset({"QC", "WAITING_APPROVAL", "BLOCKED"}),
+    "QC": frozenset({"DELIVERED", "SELF_CORRECTION", "WAITING_APPROVAL", "BLOCKED"}),
+    "SELF_CORRECTION": frozenset({"SHOT_RENDER", "COMPOSITE", "QC", "WAITING_APPROVAL", "BLOCKED"}),
+    "DELIVERED": frozenset({"WAITING_APPROVAL"}),
+    "BLOCKED": frozenset({"INIT", "TOPIC_RESEARCH", "PREPRODUCTION", "WAITING_APPROVAL"}),
+}
+
+STATE_REQUIRED_SCOPE: dict[str, str] = {
+    "MCP_PREFLIGHT": "mcp_preflight",
+    "ASSET_PROCUREMENT": "asset_procurement",
+    "STYLE_FRAME": "style_frame",
+    "ANIMATIC": "animatic",
+    "SHOT_RENDER": "render_production",
+    "COMPOSITE": "render_production",
+    "QC": "render_production",
+    "SELF_CORRECTION": "render_production",
+    "DELIVERED": "render_production",
+}
+
+NEGATION_WORDS_REGEX = re.compile(
+    r"\b("
+    r"tidak|tak|bukan|jangan|belum|batal|batalkan|tolak|ditolak|menolak|kurang|tunda|hentikan|stop|cabut|"
+    r"no|not|never|dont|don't|do\s+not|reject|rejected|deny|denied|cancel|abort|refuse|hold|revoke"
+    r")\b",
+    re.IGNORECASE,
 )
+
+CONDITIONAL_WORDS_REGEX = re.compile(
+    r"\b("
+    r"jika|kalau|bila|apabila|asalkan|asal|tapi|tetapi|namun|kecuali|sebelum|nanti|mungkin|syarat|revisi|ubah|"
+    r"if|unless|but|however|except|maybe|later|wait|condition|pending|change\s+first"
+    r")\b",
+    re.IGNORECASE,
+)
+
+META_OR_EXAMPLE_REGEX = re.compile(
+    r"\b(contoh|misalnya|misal|seperti|umpama|format|ketik|tuliskan|example|sample|template|e\.g\.)\b",
+    re.IGNORECASE,
+)
+
+STRUCTURED_KV_REGEX = re.compile(
+    r"^XDX-APPROVE\s+"
+    r"project=(?P<project>[A-Za-z0-9_\-]+)\s+"
+    r"version=(?P<version>v[0-9]+(?:\.[0-9]+)*)\s+"
+    r"digest=(?P<digest>[a-f0-9]{12,64})\s+"
+    r"scopes=(?P<scopes>[a-z_,]+)$"
+)
+
+
+class InvalidStateTransitionError(PermissionError):
+    """Raised when attempting a state transition outside ALLOWED_STATE_TRANSITIONS."""
+
+
+class ApprovalAuthorizationError(PermissionError):
+    """Raised when approval validation or execution authorization fails (fail-closed)."""
+
+
+def atomic_write_json(path: Path, data: Any) -> None:
+    """Write JSON atomically via same-directory temp file + os.replace."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = (json.dumps(data, indent=2) + "\n").encode("utf-8")
+    fd, tmp_name = tempfile.mkstemp(prefix=f".{path.name}.", suffix=".tmp", dir=str(path.parent))
+    try:
+        with os.fdopen(fd, "wb") as fh:
+            fh.write(payload)
+            fh.flush()
+            os.fsync(fh.fileno())
+        os.replace(tmp_name, path)
+    except Exception:
+        if os.path.exists(tmp_name):
+            os.unlink(tmp_name)
+        raise
 
 
 def compute_package_digest(package_dir: Path) -> tuple[str, dict[str, str]]:
@@ -87,19 +172,157 @@ def compute_package_digest(package_dir: Path) -> tuple[str, dict[str, str]]:
     return hashlib.sha256(canonical).hexdigest(), file_hashes
 
 
-def is_explicit_approval_message(user_message: str, package_version: str) -> bool:
-    """Verify that user_message is an explicit approval of the current package version,
-    never a vague 'lanjutkan', 'ok', or topic prompt."""
-    cleaned = user_message.strip().lower()
-    if not cleaned or cleaned in AMBIGUOUS_NON_APPROVAL_PHRASES:
+def format_structured_approval_command(
+    *,
+    project_id: str,
+    package_version: str,
+    package_digest: str,
+    scopes: list[str] | None = None,
+) -> str:
+    """Return the exact canonical approval command string to present to the user at WAITING_APPROVAL."""
+    scope_list = scopes or ["all_production"]
+    return (
+        f"XDX-APPROVE project={project_id} version={package_version} "
+        f"digest={package_digest[:16]} scopes={','.join(scope_list)}"
+    )
+
+
+def parse_and_validate_approval_message(
+    user_message: str,
+    *,
+    expected_version: str,
+    expected_project_id: str | None = None,
+    expected_digest: str | None = None,
+) -> dict[str, Any]:
+    """Fail-closed parser for explicit user approval messages.
+
+    Rejects:
+    - Empty, multi-line, quoted, backticked, or blockquoted text
+    - Any negation/refusal word ('tidak', 'jangan', 'tolak', 'batal', 'no', 'not', etc.)
+    - Any conditional/hedging word ('jika', 'kalau', 'tapi', 'namun', 'kecuali', 'if', 'unless', etc.)
+    - Any example/meta framing ('contoh', 'misalnya', 'example', etc.)
+    - Missing or mismatched project_id, package_version, digest prefix (>=12 hex), or scope.
+    """
+    if not isinstance(user_message, str):
+        raise ApprovalAuthorizationError("Approval message must be a string.")
+    raw = user_message.strip()
+    if not raw or "\n" in raw or "\r" in raw:
+        raise ApprovalAuthorizationError("Approval message must be a non-empty single-line statement.")
+
+    if any(ch in raw for ch in ('"', "'", "`", "“", "”", "‘", "’")) or raw.startswith(">"):
+        raise ApprovalAuthorizationError("Quoted, backticked, or blockquoted approval messages are rejected.")
+
+    if "?" in raw:
+        raise ApprovalAuthorizationError("Interrogative/question messages cannot grant approval.")
+
+    if NEGATION_WORDS_REGEX.search(raw):
+        raise ApprovalAuthorizationError("Negative or refusal terms detected in message; approval rejected.")
+
+    if CONDITIONAL_WORDS_REGEX.search(raw):
+        raise ApprovalAuthorizationError("Conditional or hedging terms detected in message; approval rejected.")
+
+    if META_OR_EXAMPLE_REGEX.search(raw):
+        raise ApprovalAuthorizationError("Example/meta phrasing detected in message; approval rejected.")
+
+    # Format 1 (Primary Canonical): XDX-APPROVE project=<id> version=<vX> digest=<hex12..64> scopes=<s1,s2>
+    m = STRUCTURED_KV_REGEX.match(raw)
+    if m:
+        proj = m.group("project")
+        ver = m.group("version")
+        dig = m.group("digest").lower()
+        scopes = [s for s in m.group("scopes").split(",") if s]
+
+        if ver != expected_version:
+            raise ApprovalAuthorizationError(f"Version mismatch: message approved '{ver}', expected '{expected_version}'.")
+        if expected_project_id is not None and proj != expected_project_id:
+            raise ApprovalAuthorizationError(
+                f"Project ID mismatch: message approved '{proj}', expected '{expected_project_id}'."
+            )
+        if expected_digest is not None and not expected_digest.lower().startswith(dig):
+            raise ApprovalAuthorizationError("Package SHA-256 digest mismatch in approval message.")
+        if not scopes or any(s not in VALID_APPROVAL_SCOPES for s in scopes):
+            raise ApprovalAuthorizationError(f"Invalid approval scopes: {scopes}")
+
+        return {
+            "valid": True,
+            "format": "canonical_xdx_approve",
+            "project_id": proj,
+            "package_version": ver,
+            "digest_prefix": dig,
+            "scopes": scopes,
+        }
+
+    # Format 2 (Strict Explicit Bound Indonesian Statement — only when project/digest aren't omitted if required)
+    # Example: "SAYA SETUJUI PAKET proyek=demo_01 versi=v1 digest=abcdef012345 scope=all_production"
+    id_match = re.match(
+        r"^SAYA\s+SETUJUI\s+PAKET\s+"
+        r"proyek=(?P<project>[A-Za-z0-9_\-]+)\s+"
+        r"versi=(?P<version>v[0-9]+(?:\.[0-9]+)*)\s+"
+        r"digest=(?P<digest>[a-f0-9]{12,64})\s+"
+        r"scope=(?P<scopes>[a-z_,]+)$",
+        raw,
+    )
+    if id_match:
+        proj = id_match.group("project")
+        ver = id_match.group("version")
+        dig = id_match.group("digest").lower()
+        scopes = [s for s in id_match.group("scopes").split(",") if s]
+        if ver != expected_version:
+            raise ApprovalAuthorizationError("Version mismatch in approval statement.")
+        if expected_project_id is not None and proj != expected_project_id:
+            raise ApprovalAuthorizationError("Project ID mismatch in approval statement.")
+        if expected_digest is not None and not expected_digest.lower().startswith(dig):
+            raise ApprovalAuthorizationError("Digest mismatch in approval statement.")
+        if not scopes or any(s not in VALID_APPROVAL_SCOPES for s in scopes):
+            raise ApprovalAuthorizationError(f"Invalid scopes: {scopes}")
+        return {
+            "valid": True,
+            "format": "structured_indonesian_approve",
+            "project_id": proj,
+            "package_version": ver,
+            "digest_prefix": dig,
+            "scopes": scopes,
+        }
+
+    raise ApprovalAuthorizationError(
+        "Approval message rejected: must use structured fail-closed format "
+        "'XDX-APPROVE project=<id> version=<vX> digest=<sha256_prefix12+> scopes=<scopes>'."
+    )
+
+
+def is_explicit_approval_message(
+    user_message: str,
+    package_version: str,
+    *,
+    project_id: str | None = None,
+    package_digest: str | None = None,
+) -> bool:
+    """Boolean wrapper around fail-closed `parse_and_validate_approval_message`."""
+    try:
+        parse_and_validate_approval_message(
+            user_message,
+            expected_version=package_version,
+            expected_project_id=project_id,
+            expected_digest=package_digest,
+        )
+        return True
+    except ApprovalAuthorizationError:
         return False
-    has_approval_verb = any(tok in cleaned for tok in ("setuju", "setujui", "approve", "izinkan render", "acc paket"))
-    has_version = package_version.lower() in cleaned
-    return has_approval_verb and has_version
+
+
+@dataclass(frozen=True)
+class ExecutionAuthorizationContext:
+    """Live execution authorization context verified against disk state & SHA-256 on every mutating call."""
+
+    package_dir: Path
+    state_file: Path
+    project_id: str
+    package_version: str
+    expected_digest: str
 
 
 class ApprovalGate:
-    """Validates the 13-item pre-production package and enforces WAITING_APPROVAL."""
+    """Validates the 13-item pre-production package, approval records, and live execution contexts."""
 
     def __init__(self, schemas_dir: Path | None = None) -> None:
         sdir = schemas_dir or SCHEMAS_DIR
@@ -107,11 +330,89 @@ class ApprovalGate:
         self._storyboard_schema = json.loads((sdir / "storyboard.schema.json").read_text(encoding="utf-8"))
         self._engine_schema = json.loads((sdir / "engine_plan.schema.json").read_text(encoding="utf-8"))
 
+    @staticmethod
+    def _parse_iso_utc(ts: str) -> datetime:
+        dt = datetime.fromisoformat(ts)
+        if dt.tzinfo is None:
+            return dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc)
+
+    def verify_approval_record_dict(
+        self,
+        rec: dict[str, Any],
+        *,
+        live_digest: str,
+        expected_project_id: str | None = None,
+        required_scope: str | None = None,
+        now: datetime | None = None,
+    ) -> dict[str, Any]:
+        """Fail-closed validation of an approval_record.json dictionary against live package SHA-256."""
+        if not isinstance(rec, dict) or not rec:
+            raise ApprovalAuthorizationError("Missing or empty approval_record.json")
+
+        if rec.get("decision") != "approved":
+            raise ApprovalAuthorizationError("Approval decision is not 'approved'")
+        if rec.get("revoked") is True:
+            raise ApprovalAuthorizationError("Approval has been explicitly revoked")
+        if rec.get("actor_role") != "human_user":
+            raise ApprovalAuthorizationError(
+                f"Self-approval by '{rec.get('actor_role')}' is forbidden; actor_role must be 'human_user'."
+            )
+        if rec.get("project_state_at_approval") != "WAITING_APPROVAL":
+            raise ApprovalAuthorizationError(
+                f"Approval was recorded in invalid state '{rec.get('project_state_at_approval')}' (must be WAITING_APPROVAL)."
+            )
+
+        rec_proj = str(rec.get("project_id", "")).strip()
+        rec_ver = str(rec.get("package_version", "")).strip()
+        rec_digest = str(rec.get("digest", "")).strip()
+        user_msg = str(rec.get("user_message", "")).strip()
+        recorded_at_s = str(rec.get("recorded_at", "")).strip()
+        expires_at_s = str(rec.get("expires_at", "")).strip()
+        scopes = rec.get("approved_scopes")
+
+        if not (rec_proj and rec_ver and rec_digest and user_msg and recorded_at_s and expires_at_s):
+            raise ApprovalAuthorizationError("Incomplete required fields in approval_record.json")
+        if expected_project_id is not None and rec_proj != expected_project_id:
+            raise ApprovalAuthorizationError(f"Project ID mismatch: '{rec_proj}' != '{expected_project_id}'")
+        if rec_digest != live_digest:
+            raise ApprovalAuthorizationError("Live package SHA-256 digest does not match approved digest (tampered/modified)")
+
+        if not isinstance(scopes, list) or not scopes or any(s not in VALID_APPROVAL_SCOPES for s in scopes):
+            raise ApprovalAuthorizationError("Missing or invalid approved_scopes in approval_record.json")
+
+        current_now = now or datetime.now(timezone.utc)
+        recorded_dt = self._parse_iso_utc(recorded_at_s)
+        expires_dt = self._parse_iso_utc(expires_at_s)
+        if current_now >= expires_dt:
+            raise ApprovalAuthorizationError("Approval record has expired")
+        if recorded_dt > current_now + timedelta(seconds=60):
+            raise ApprovalAuthorizationError("Approval timestamp is in the future")
+
+        parsed = parse_and_validate_approval_message(
+            user_msg,
+            expected_version=rec_ver,
+            expected_project_id=rec_proj,
+            expected_digest=live_digest,
+        )
+
+        if required_scope is not None:
+            if required_scope not in scopes and "all_production" not in scopes:
+                raise ApprovalAuthorizationError(
+                    f"Required scope '{required_scope}' is not covered by approved_scopes {scopes}"
+                )
+
+        return parsed
+
     def inspect_package(self, package_dir: Path, *, check_record: bool = False) -> dict[str, Any]:
         digest, file_hashes = compute_package_digest(package_dir)
 
         storyboard = json.loads((package_dir / "storyboard.json").read_text(encoding="utf-8"))
         engine_plan = json.loads((package_dir / "engine_plan.json").read_text(encoding="utf-8"))
+        prod_cfg = json.loads((package_dir / "production_config.json").read_text(encoding="utf-8"))
+        project_id = str(prod_cfg.get("project_id") or storyboard.get("project_id") or "unknown")
+        pkg_ver = str(prod_cfg.get("package_version", "v1"))
+
         jsonschema.validate(instance=storyboard, schema=self._storyboard_schema)
         jsonschema.validate(instance=engine_plan, schema=self._engine_schema)
 
@@ -123,42 +424,101 @@ class ApprovalGate:
         if not check_record:
             return {
                 "digest": digest,
+                "project_id": project_id,
+                "package_version": pkg_ver,
                 "status": "WAITING_APPROVAL",
                 "files_verified": len(file_hashes),
-                "note": "No authorization granted. Stop at WAITING_APPROVAL until explicit user approval.",
+                "approval_command_template": format_structured_approval_command(
+                    project_id=project_id,
+                    package_version=pkg_ver,
+                    package_digest=digest,
+                ),
+                "note": "No authorization granted. Stop at WAITING_APPROVAL until explicit structured user approval.",
             }
 
         rec_path = package_dir / "approval_record.json"
         rec = json.loads(rec_path.read_text(encoding="utf-8")) if rec_path.is_file() else {}
-        pkg_ver = str(rec.get("package_version", "")).strip()
-        msg = str(rec.get("user_message", "")).strip()
-        recorded_at = str(rec.get("recorded_at", "")).strip()
+        try:
+            self.verify_approval_record_dict(rec, live_digest=digest, expected_project_id=project_id)
+            return {
+                "digest": digest,
+                "project_id": project_id,
+                "package_version": pkg_ver,
+                "status": "RECORD_MATCH_ONLY",
+                "explicit_phrase_verified": True,
+                "note": "Structured approval verified against live SHA-256, project_id, version, actor_role, and TTL.",
+            }
+        except ApprovalAuthorizationError as exc:
+            return {
+                "digest": digest,
+                "project_id": project_id,
+                "package_version": pkg_ver,
+                "status": "BLOCKED",
+                "explicit_phrase_verified": False,
+                "error": str(exc),
+                "note": "Fail-closed rejection.",
+            }
 
-        ok = (
-            rec.get("digest") == digest
-            and rec.get("decision") == "approved"
-            and bool(pkg_ver and msg and recorded_at)
-            and is_explicit_approval_message(msg, pkg_ver)
+    def verify_live_execution_context(
+        self,
+        ctx: ExecutionAuthorizationContext,
+        *,
+        required_scope: str,
+        now: datetime | None = None,
+    ) -> dict[str, Any]:
+        """Verify live authorization context before ANY scene mutation or render step."""
+        if not isinstance(ctx, ExecutionAuthorizationContext):
+            raise ApprovalAuthorizationError("Missing valid ExecutionAuthorizationContext object.")
+
+        live_digest, _ = compute_package_digest(ctx.package_dir)
+        if live_digest != ctx.expected_digest:
+            raise ApprovalAuthorizationError("Package files modified on disk since authorization context was created.")
+
+        if not ctx.state_file.is_file():
+            raise ApprovalAuthorizationError("Missing project_state.json for authorization verification.")
+        state = json.loads(ctx.state_file.read_text(encoding="utf-8"))
+
+        if state.get("project_id") != ctx.project_id or state.get("package_version") != ctx.package_version:
+            raise ApprovalAuthorizationError("State project_id or package_version mismatch.")
+
+        allowed_exec_states = {"APPROVED", "MCP_PREFLIGHT", "ASSET_PROCUREMENT", "STYLE_FRAME", "ANIMATIC", "SHOT_RENDER"}
+        if state.get("current_state") not in allowed_exec_states:
+            raise ApprovalAuthorizationError(
+                f"Project state '{state.get('current_state')}' is not authorized for execution (allowed: {sorted(allowed_exec_states)})."
+            )
+
+        app_status = state.get("approval_status") or {}
+        if not app_status.get("approved") or app_status.get("revoked") is True:
+            raise ApprovalAuthorizationError("Project state approval_status is inactive or revoked.")
+        if app_status.get("approved_digest") != live_digest:
+            raise ApprovalAuthorizationError("State approved_digest does not match live package SHA-256.")
+
+        rec_path = ctx.package_dir / "approval_record.json"
+        if not rec_path.is_file():
+            raise ApprovalAuthorizationError("Missing approval_record.json on disk.")
+        rec = json.loads(rec_path.read_text(encoding="utf-8"))
+
+        return self.verify_approval_record_dict(
+            rec,
+            live_digest=live_digest,
+            expected_project_id=ctx.project_id,
+            required_scope=required_scope,
+            now=now,
         )
-        return {
-            "digest": digest,
-            "status": "RECORD_MATCH_ONLY" if ok else "BLOCKED",
-            "explicit_phrase_verified": ok,
-            "note": "Agent must verify actual explicit user approval separately; this is not self-authorization.",
-        }
 
 
 class ProjectStateManager:
-    """Deterministic project state machine preventing unapproved production execution."""
+    """Deterministic project state machine with strict transition graph and live tamper invalidation."""
 
     def __init__(self, state_file: Path, schemas_dir: Path | None = None) -> None:
         self.state_file = state_file
         sdir = schemas_dir or SCHEMAS_DIR
         self._schema = json.loads((sdir / "project_state.schema.json").read_text(encoding="utf-8"))
+        self._gate = ApprovalGate(schemas_dir=sdir)
 
     @staticmethod
-    def _now_iso() -> str:
-        return datetime.now(timezone.utc).isoformat()
+    def _now_utc() -> datetime:
+        return datetime.now(timezone.utc)
 
     def initialize(
         self,
@@ -173,9 +533,9 @@ class ProjectStateManager:
         aspect_ratio: str = "9:16",
         total_frames: int = 450,
     ) -> dict[str, Any]:
-        now = self._now_iso()
+        now_s = self._now_utc().isoformat()
         state: dict[str, Any] = {
-            "schema_version": "3.3.0",
+            "schema_version": "3.4.0",
             "project_id": project_id,
             "project_title": project_title,
             "mode": mode,
@@ -192,21 +552,26 @@ class ProjectStateManager:
             },
             "approval_status": {
                 "approved": False,
+                "approval_id": None,
+                "actor_role": None,
                 "approved_digest": None,
                 "approved_version": None,
+                "approved_scopes": [],
                 "explicit_user_message": None,
                 "recorded_at": None,
+                "expires_at": None,
+                "revoked": False,
             },
             "blocked_reason": None,
             "history": [
                 {
                     "from_state": None,
                     "to_state": "INIT",
-                    "timestamp": now,
+                    "timestamp": now_s,
                     "reason": "Project initialized",
                 }
             ],
-            "updated_at": now,
+            "updated_at": now_s,
         }
         self._save(state)
         return state
@@ -218,34 +583,40 @@ class ProjectStateManager:
 
     def _save(self, state: dict[str, Any]) -> None:
         jsonschema.validate(instance=state, schema=self._schema)
-        self.state_file.parent.mkdir(parents=True, exist_ok=True)
-        self.state_file.write_text(json.dumps(state, indent=2) + "\n", encoding="utf-8")
+        atomic_write_json(self.state_file, state)
 
     def mark_waiting_approval(self, package_digest: str, *, package_version: str | None = None) -> dict[str, Any]:
         state = self.load()
         prev = state["current_state"]
-        now = self._now_iso()
+        if prev != "WAITING_APPROVAL" and "WAITING_APPROVAL" not in ALLOWED_STATE_TRANSITIONS.get(prev, frozenset()):
+            raise InvalidStateTransitionError(f"Transition '{prev}' -> 'WAITING_APPROVAL' is not allowed.")
+
+        now_s = self._now_utc().isoformat()
         if package_version:
             state["package_version"] = package_version
         state["package_digest"] = package_digest
-        # Any new/updated preproduction digest invalidates prior approval
         state["approval_status"] = {
             "approved": False,
+            "approval_id": None,
+            "actor_role": None,
             "approved_digest": None,
             "approved_version": None,
+            "approved_scopes": [],
             "explicit_user_message": None,
             "recorded_at": None,
+            "expires_at": None,
+            "revoked": False,
         }
         state["current_state"] = "WAITING_APPROVAL"
         state["history"].append(
             {
                 "from_state": prev,
                 "to_state": "WAITING_APPROVAL",
-                "timestamp": now,
-                "reason": f"Pre-production package {state['package_version']} ready ({package_digest[:12]})",
+                "timestamp": now_s,
+                "reason": f"Pre-production package {state['package_version']} locked ({package_digest[:12]})",
             }
         )
-        state["updated_at"] = now
+        state["updated_at"] = now_s
         self._save(state)
         return state
 
@@ -254,82 +625,167 @@ class ProjectStateManager:
         *,
         package_dir: Path,
         user_message: str,
+        actor_role: str = "human_user",
+        ttl_hours: float = 24.0,
     ) -> dict[str, Any]:
         state = self.load()
-        pkg_ver = state["package_version"]
-        if not is_explicit_approval_message(user_message, pkg_ver):
-            raise PermissionError(
-                f"Rejected ambiguous or version-mismatched approval message: '{user_message}'. "
-                f"Must explicitly approve version '{pkg_ver}'."
+        if state["current_state"] != "WAITING_APPROVAL":
+            raise InvalidStateTransitionError(
+                f"Approval can only be recorded when project is in WAITING_APPROVAL (current={state['current_state']})."
             )
+        if actor_role != "human_user":
+            raise ApprovalAuthorizationError(
+                f"AI/system self-approval rejected (actor_role='{actor_role}'). Only 'human_user' is permitted."
+            )
+        if ttl_hours <= 0:
+            raise ApprovalAuthorizationError("Approval TTL must be positive.")
+
         digest, _ = compute_package_digest(package_dir)
         if state["package_digest"] != digest:
-            raise PermissionError("Package digest changed since WAITING_APPROVAL; re-submit updated package first.")
+            raise ApprovalAuthorizationError("Package digest changed since WAITING_APPROVAL; re-submit updated package first.")
 
-        now = self._now_iso()
-        approval_rec = {
-            "package_version": pkg_ver,
-            "digest": digest,
-            "decision": "approved",
-            "user_message": user_message,
-            "recorded_at": now,
-        }
-        (package_dir / "approval_record.json").write_text(
-            json.dumps(approval_rec, indent=2) + "\n", encoding="utf-8"
+        parsed = parse_and_validate_approval_message(
+            user_message,
+            expected_version=state["package_version"],
+            expected_project_id=state["project_id"],
+            expected_digest=digest,
         )
 
-        prev = state["current_state"]
+        now_dt = self._now_utc()
+        expires_dt = now_dt + timedelta(hours=ttl_hours)
+        approval_id = f"app-{uuid.uuid4().hex[:16]}"
+
+        approval_rec = {
+            "approval_id": approval_id,
+            "project_id": state["project_id"],
+            "package_version": state["package_version"],
+            "digest": digest,
+            "decision": "approved",
+            "actor_role": "human_user",
+            "approved_scopes": parsed["scopes"],
+            "project_state_at_approval": "WAITING_APPROVAL",
+            "user_message": user_message.strip(),
+            "recorded_at": now_dt.isoformat(),
+            "expires_at": expires_dt.isoformat(),
+            "revoked": False,
+        }
+        atomic_write_json(package_dir / "approval_record.json", approval_rec)
+
         state["current_state"] = "APPROVED"
         state["approval_status"] = {
             "approved": True,
+            "approval_id": approval_id,
+            "actor_role": "human_user",
             "approved_digest": digest,
-            "approved_version": pkg_ver,
-            "explicit_user_message": user_message,
-            "recorded_at": now,
+            "approved_version": state["package_version"],
+            "approved_scopes": parsed["scopes"],
+            "explicit_user_message": user_message.strip(),
+            "recorded_at": now_dt.isoformat(),
+            "expires_at": expires_dt.isoformat(),
+            "revoked": False,
         }
         state["history"].append(
             {
-                "from_state": prev,
+                "from_state": "WAITING_APPROVAL",
                 "to_state": "APPROVED",
-                "timestamp": now,
-                "reason": f"Explicit user approval verified for {pkg_ver}",
+                "timestamp": now_dt.isoformat(),
+                "reason": f"Explicit structured human approval verified ({approval_id})",
             }
         )
-        state["updated_at"] = now
+        state["updated_at"] = now_dt.isoformat()
         self._save(state)
         return state
 
+    def revoke_approval(self, *, package_dir: Path, reason: str = "User revoked approval") -> dict[str, Any]:
+        state = self.load()
+        now_s = self._now_utc().isoformat()
+        rec_path = package_dir / "approval_record.json"
+        if rec_path.is_file():
+            rec = json.loads(rec_path.read_text(encoding="utf-8"))
+            rec["revoked"] = True
+            rec["revoked_at"] = now_s
+            atomic_write_json(rec_path, rec)
+
+        prev = state["current_state"]
+        state["current_state"] = "WAITING_APPROVAL"
+        state["approval_status"]["approved"] = False
+        state["approval_status"]["revoked"] = True
+        state["history"].append(
+            {"from_state": prev, "to_state": "WAITING_APPROVAL", "timestamp": now_s, "reason": reason}
+        )
+        state["updated_at"] = now_s
+        self._save(state)
+        return state
+
+    def build_authorization_context(self, package_dir: Path) -> ExecutionAuthorizationContext:
+        state = self.load()
+        digest, _ = compute_package_digest(package_dir)
+        ctx = ExecutionAuthorizationContext(
+            package_dir=package_dir,
+            state_file=self.state_file,
+            project_id=state["project_id"],
+            package_version=state["package_version"],
+            expected_digest=digest,
+        )
+        self._gate.verify_live_execution_context(ctx, required_scope="mcp_preflight" if "mcp_preflight" in state["approval_status"].get("approved_scopes", []) else "render_production")
+        return ctx
+
     def transition(self, next_state: str, *, reason: str, package_dir: Path | None = None) -> dict[str, Any]:
         state = self.load()
-        if next_state in PRODUCTION_MUTATING_STATES:
-            app = state["approval_status"]
-            if not app["approved"] or not app["approved_digest"]:
-                raise PermissionError(
-                    f"Cannot enter production state '{next_state}' while unapproved (current={state['current_state']})."
-                )
-            if package_dir is not None:
-                live_digest, _ = compute_package_digest(package_dir)
-                if live_digest != app["approved_digest"]:
-                    state["current_state"] = "WAITING_APPROVAL"
-                    state["approval_status"]["approved"] = False
-                    self._save(state)
-                    raise PermissionError(
-                        "Package files modified after approval! Invalidated approval and reverted to WAITING_APPROVAL."
-                    )
-
-        now = self._now_iso()
         prev = state["current_state"]
+
+        if next_state == "APPROVED":
+            raise InvalidStateTransitionError(
+                "Direct transition to 'APPROVED' via transition() is forbidden; use record_explicit_user_approval()."
+            )
+
+        allowed_targets = ALLOWED_STATE_TRANSITIONS.get(prev, frozenset())
+        if next_state not in allowed_targets:
+            raise InvalidStateTransitionError(
+                f"Illegal state transition '{prev}' -> '{next_state}'. Allowed from '{prev}': {sorted(allowed_targets)}"
+            )
+
+        if next_state in PRODUCTION_MUTATING_STATES:
+            if package_dir is None:
+                raise ApprovalAuthorizationError(
+                    f"package_dir is mandatory when entering production state '{next_state}' to verify live SHA-256."
+                )
+            try:
+                live_digest, _ = compute_package_digest(package_dir)
+                rec_path = package_dir / "approval_record.json"
+                rec = json.loads(rec_path.read_text(encoding="utf-8")) if rec_path.is_file() else {}
+                req_scope = STATE_REQUIRED_SCOPE.get(next_state, "render_production")
+                self._gate.verify_approval_record_dict(
+                    rec,
+                    live_digest=live_digest,
+                    expected_project_id=state["project_id"],
+                    required_scope=req_scope,
+                )
+                if state["approval_status"].get("approved_digest") != live_digest or not state["approval_status"].get("approved"):
+                    raise ApprovalAuthorizationError("State approval_status mismatch against live package SHA-256.")
+            except (ApprovalAuthorizationError, ValueError) as exc:
+                now_s = self._now_utc().isoformat()
+                state["current_state"] = "WAITING_APPROVAL"
+                state["approval_status"]["approved"] = False
+                state["history"].append(
+                    {
+                        "from_state": prev,
+                        "to_state": "WAITING_APPROVAL",
+                        "timestamp": now_s,
+                        "reason": f"Authorization/tamper failure blocked '{next_state}': {exc}",
+                    }
+                )
+                state["updated_at"] = now_s
+                self._save(state)
+                raise ApprovalAuthorizationError(str(exc)) from exc
+
+        now_s = self._now_utc().isoformat()
         state["current_state"] = next_state
         if next_state == "BLOCKED":
             state["blocked_reason"] = reason
         state["history"].append(
-            {
-                "from_state": prev,
-                "to_state": next_state,
-                "timestamp": now,
-                "reason": reason,
-            }
+            {"from_state": prev, "to_state": next_state, "timestamp": now_s, "reason": reason}
         )
-        state["updated_at"] = now
+        state["updated_at"] = now_s
         self._save(state)
         return state

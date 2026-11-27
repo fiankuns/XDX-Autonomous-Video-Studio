@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "library_id": "material_library",
   "library_name": "Material Library",
   "category": "pbr_materials",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Harmonized stylized PBR materials matching Blender Principled BSDF and Three.js MeshStandardMaterial.",
   "presets": [
     {
@@ -22,7 +22,8 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested"
+      "test_status": "RUNTIME_TESTED",
+      "executor_binding": "RealAssetStyleHarmonizer.harmonize_gltf_document"
     },
     {
       "id": "mat_warm_teak_wood",
@@ -40,7 +41,8 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested"
+      "test_status": "RUNTIME_TESTED",
+      "executor_binding": "RealAssetStyleHarmonizer.harmonize_gltf_document"
     },
     {
       "id": "mat_painted_diecast_metal",
@@ -58,7 +60,8 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested"
+      "test_status": "RUNTIME_TESTED",
+      "executor_binding": "RealAssetStyleHarmonizer.harmonize_gltf_document"
     }
   ]
 }

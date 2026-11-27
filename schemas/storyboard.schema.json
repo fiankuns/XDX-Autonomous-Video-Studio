@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio/schemas/storyboard.schema.json",
-  "title": "XDX Deterministic Master Storyboard Schema v3.3",
+  "title": "XDX Hierarchical Deterministic Master Storyboard Schema v3.4",
   "type": "object",
   "required": [
     "schema_version",
@@ -13,10 +13,14 @@
     "total_frames",
     "duration_s",
     "style_bible_id",
+    "story_arc",
+    "sequences",
+    "scenes",
+    "narrative_beats",
     "shots"
   ],
   "properties": {
-    "schema_version": { "type": "string", "const": "3.3.0" },
+    "schema_version": { "type": "string", "enum": ["3.3.0", "3.4.0"] },
     "project_id": { "type": "string", "minLength": 1 },
     "fps": { "type": "integer", "minimum": 1, "maximum": 120 },
     "width": { "type": "integer", "minimum": 128 },
@@ -25,6 +29,67 @@
     "total_frames": { "type": "integer", "minimum": 1 },
     "duration_s": { "type": "number", "exclusiveMinimum": 0 },
     "style_bible_id": { "type": "string", "minLength": 1 },
+    "story_arc": {
+      "type": "object",
+      "required": ["act_1_setup", "act_2_escalation", "act_3_resolution"],
+      "properties": {
+        "act_1_setup": { "type": "string", "minLength": 5 },
+        "act_2_escalation": { "type": "string", "minLength": 5 },
+        "act_3_resolution": { "type": "string", "minLength": 5 }
+      },
+      "additionalProperties": false
+    },
+    "sequences": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["sequence_id", "act", "start_frame", "end_frame", "scene_ids"],
+        "properties": {
+          "sequence_id": { "type": "string", "pattern": "^SEQ_[0-9]{2,}$" },
+          "act": { "type": "string" },
+          "start_frame": { "type": "integer", "minimum": 0 },
+          "end_frame": { "type": "integer", "minimum": 1 },
+          "scene_ids": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["scene_id", "sequence_id", "environment_id", "start_frame", "end_frame", "beat_ids"],
+        "properties": {
+          "scene_id": { "type": "string", "pattern": "^SCN_[0-9]{2,}$" },
+          "sequence_id": { "type": "string" },
+          "environment_id": { "type": "string" },
+          "start_frame": { "type": "integer", "minimum": 0 },
+          "end_frame": { "type": "integer", "minimum": 1 },
+          "beat_ids": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
+    "narrative_beats": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["beat_id", "scene_id", "beat_role", "start_frame", "end_frame", "duration_s", "shot_ids"],
+        "properties": {
+          "beat_id": { "type": "string", "pattern": "^B[0-9]{2,}$" },
+          "scene_id": { "type": "string" },
+          "beat_role": { "type": "string" },
+          "start_frame": { "type": "integer", "minimum": 0 },
+          "end_frame": { "type": "integer", "minimum": 1 },
+          "duration_s": { "type": "number", "exclusiveMinimum": 0 },
+          "shot_ids": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+        },
+        "additionalProperties": false
+      }
+    },
     "shots": {
       "type": "array",
       "minItems": 1,
@@ -32,6 +97,7 @@
         "type": "object",
         "required": [
           "shot_id",
+          "sequence_id",
           "scene_id",
           "beat_id",
           "start_frame",
@@ -46,10 +112,16 @@
           "action_start",
           "action_mid",
           "action_end",
+          "action_events",
           "camera",
+          "camera_event",
+          "audio_events",
+          "caption_events",
+          "vfx_events",
           "cutaway",
           "transition_in",
           "transition_out",
+          "transition_spec",
           "character_ids",
           "environment_id",
           "asset_ids",
@@ -61,8 +133,9 @@
         ],
         "properties": {
           "shot_id": { "type": "string", "pattern": "^S[0-9]{3,}$" },
-          "scene_id": { "type": "string", "minLength": 1 },
-          "beat_id": { "type": "string", "minLength": 1 },
+          "sequence_id": { "type": "string", "pattern": "^SEQ_[0-9]{2,}$" },
+          "scene_id": { "type": "string", "pattern": "^SCN_[0-9]{2,}$" },
+          "beat_id": { "type": "string", "pattern": "^B[0-9]{2,}$" },
           "start_frame": { "type": "integer", "minimum": 0 },
           "end_frame": { "type": "integer", "minimum": 1 },
           "duration_frames": { "type": "integer", "minimum": 1, "maximum": 300 },
@@ -80,43 +153,81 @@
               "properties": {
                 "speaker_id": { "type": "string" },
                 "line": { "type": "string" },
-                "delivery": { "type": "string" }
+                "delivery": { "type": "string" },
+                "onscreen_speaking": { "type": "boolean" }
               },
               "additionalProperties": false
             }
           },
-          "action_start": { "type": "string", "minLength": 1 },
-          "action_mid": { "type": "string", "minLength": 1 },
-          "action_end": { "type": "string", "minLength": 1 },
-          "camera": {
-            "type": "object",
-            "required": [
-              "preset_id",
-              "shot_size",
-              "angle",
-              "focal_length_mm",
-              "sensor_width_mm",
-              "position_start",
-              "position_end",
-              "target",
-              "motion_curve"
-            ],
-            "properties": {
-              "preset_id": { "type": "string" },
-              "shot_size": {
-                "type": "string",
-                "enum": ["establishing", "wide", "medium", "close_up", "insert", "reaction", "cutaway"]
+          "action_start": { "type": "string", "minLength": 8 },
+          "action_mid": { "type": "string", "minLength": 8 },
+          "action_end": { "type": "string", "minLength": 8 },
+          "action_events": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["event_id", "start_frame", "end_frame", "subject_id", "concrete_action"],
+              "properties": {
+                "event_id": { "type": "string" },
+                "start_frame": { "type": "integer", "minimum": 0 },
+                "end_frame": { "type": "integer", "minimum": 1 },
+                "subject_id": { "type": "string" },
+                "concrete_action": { "type": "string", "minLength": 10 },
+                "ik_or_contact": { "type": "string" }
               },
-              "angle": { "type": "string" },
-              "focal_length_mm": { "type": "number", "minimum": 10, "maximum": 200 },
-              "sensor_width_mm": { "type": "number", "minimum": 10, "maximum": 70 },
-              "position_start": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
-              "position_end": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
-              "target": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
-              "motion_curve": { "type": "string" },
-              "dof_fstop": { "type": "number" }
-            },
-            "additionalProperties": false
+              "additionalProperties": false
+            }
+          },
+          "camera": { "$ref": "#/$defs/cameraSpec" },
+          "camera_event": { "$ref": "#/$defs/cameraSpec" },
+          "audio_events": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["event_id", "kind", "start_frame", "end_frame", "ref_id", "gain_db"],
+              "properties": {
+                "event_id": { "type": "string" },
+                "kind": { "type": "string", "enum": ["vo", "dialogue", "bgm_duck", "sfx"] },
+                "start_frame": { "type": "integer", "minimum": 0 },
+                "end_frame": { "type": "integer", "minimum": 1 },
+                "ref_id": { "type": "string" },
+                "gain_db": { "type": "number" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "caption_events": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["cue_id", "start_frame", "end_frame", "text", "preset_id"],
+              "properties": {
+                "cue_id": { "type": "string" },
+                "start_frame": { "type": "integer", "minimum": 0 },
+                "end_frame": { "type": "integer", "minimum": 1 },
+                "text": { "type": "string" },
+                "preset_id": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "vfx_events": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["event_id", "kind", "preset_id", "start_frame", "end_frame"],
+              "properties": {
+                "event_id": { "type": "string" },
+                "kind": { "type": "string", "enum": ["grade", "particle", "lighting", "explainer_overlay"] },
+                "preset_id": { "type": "string" },
+                "start_frame": { "type": "integer", "minimum": 0 },
+                "end_frame": { "type": "integer", "minimum": 1 }
+              },
+              "additionalProperties": false
+            }
           },
           "cutaway": {
             "type": "object",
@@ -129,6 +240,26 @@
           },
           "transition_in": { "type": "string" },
           "transition_out": { "type": "string" },
+          "transition_spec": {
+            "type": "object",
+            "required": [
+              "transition_in_id",
+              "transition_out_id",
+              "overlap_frames_in",
+              "overlap_frames_out",
+              "render_handle_frames_head",
+              "render_handle_frames_tail"
+            ],
+            "properties": {
+              "transition_in_id": { "type": "string" },
+              "transition_out_id": { "type": "string" },
+              "overlap_frames_in": { "type": "integer", "minimum": 0, "maximum": 45 },
+              "overlap_frames_out": { "type": "integer", "minimum": 0, "maximum": 45 },
+              "render_handle_frames_head": { "type": "integer", "minimum": 0, "maximum": 45 },
+              "render_handle_frames_tail": { "type": "integer", "minimum": 0, "maximum": 45 }
+            },
+            "additionalProperties": false
+          },
           "character_ids": { "type": "array", "items": { "type": "string" } },
           "environment_id": { "type": "string" },
           "asset_ids": { "type": "array", "items": { "type": "string" } },
@@ -142,6 +273,39 @@
         },
         "additionalProperties": false
       }
+    }
+  },
+  "$defs": {
+    "cameraSpec": {
+      "type": "object",
+      "required": [
+        "preset_id",
+        "shot_size",
+        "angle",
+        "focal_length_mm",
+        "sensor_width_mm",
+        "position_start",
+        "position_end",
+        "target",
+        "motion_curve"
+      ],
+      "properties": {
+        "preset_id": { "type": "string" },
+        "shot_size": {
+          "type": "string",
+          "enum": ["establishing", "wide", "medium", "close_up", "insert", "reaction", "cutaway"]
+        },
+        "angle": { "type": "string" },
+        "focal_length_mm": { "type": "number", "minimum": 10, "maximum": 200 },
+        "sensor_width_mm": { "type": "number", "minimum": 10, "maximum": 70 },
+        "position_start": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+        "position_end": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+        "target": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+        "motion_curve": { "type": "string" },
+        "dof_fstop": { "type": "number" },
+        "roll_deg": { "type": "number" }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false

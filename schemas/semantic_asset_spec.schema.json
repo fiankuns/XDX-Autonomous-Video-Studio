@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio/schemas/semantic_asset_spec.schema.json",
+  "title": "XDX Semantic Asset Specification Schema v3.4",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "asset_id",
+    "asset_type",
+    "is_placeholder",
+    "shape_description",
+    "functional_geometry",
+    "dimensions_m",
+    "components",
+    "material_assignments",
+    "visual_style",
+    "rig_requirements",
+    "source_and_license",
+    "geometry_budget",
+    "engine_compatibility"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "enum": ["3.4.0"] },
+    "asset_id": { "type": "string", "pattern": "^[a-z0-9_\\-]+$" },
+    "asset_type": {
+      "type": "string",
+      "enum": [
+        "lamp",
+        "table",
+        "chair",
+        "bed",
+        "door",
+        "window",
+        "wardrobe",
+        "book",
+        "clock",
+        "tree",
+        "modular_building",
+        "simple_vehicle",
+        "character_rig",
+        "environment_modular",
+        "pedestal_chart",
+        "primitive_placeholder"
+      ]
+    },
+    "is_placeholder": { "type": "boolean" },
+    "shape_description": { "type": "string", "minLength": 10 },
+    "functional_geometry": { "type": "string", "minLength": 10 },
+    "dimensions_m": {
+      "type": "object",
+      "required": ["width", "height", "depth"],
+      "properties": {
+        "width": { "type": "number", "exclusiveMinimum": 0 },
+        "height": { "type": "number", "exclusiveMinimum": 0 },
+        "depth": { "type": "number", "exclusiveMinimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "components": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["component_id", "role", "primitive_kind", "material_slot", "local_offset_m"],
+        "properties": {
+          "component_id": { "type": "string", "minLength": 2 },
+          "role": { "type": "string", "minLength": 3 },
+          "primitive_kind": {
+            "type": "string",
+            "enum": ["box", "cylinder", "frustum_cone", "uv_sphere", "ring_bezel"]
+          },
+          "material_slot": { "type": "string" },
+          "local_offset_m": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
+          "dimensions_m": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "material_assignments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["slot_name", "base_color_rgba", "roughness", "metallic"],
+        "properties": {
+          "slot_name": { "type": "string" },
+          "base_color_rgba": { "type": "array", "items": { "type": "number" }, "minItems": 4, "maxItems": 4 },
+          "roughness": { "type": "number", "minimum": 0, "maximum": 1 },
+          "metallic": { "type": "number", "minimum": 0, "maximum": 1 },
+          "alpha_mode": { "type": "string", "enum": ["OPAQUE", "BLEND"] },
+          "emissive_rgb": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "visual_style": { "type": "string", "minLength": 3 },
+    "rig_requirements": {
+      "type": "object",
+      "required": ["requires_armature", "articulated_parts"],
+      "properties": {
+        "requires_armature": { "type": "boolean" },
+        "articulated_parts": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "source_and_license": {
+      "type": "object",
+      "required": ["source_provider", "source_url", "license_spdx", "attribution_required"],
+      "properties": {
+        "source_provider": { "type": "string" },
+        "source_url": { "type": "string" },
+        "license_spdx": { "type": "string" },
+        "attribution_required": { "type": "boolean" },
+        "attribution_text": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "geometry_budget": {
+      "type": "object",
+      "required": ["min_triangles", "max_triangles"],
+      "properties": {
+        "min_triangles": { "type": "integer", "minimum": 4 },
+        "max_triangles": { "type": "integer", "minimum": 12 }
+      },
+      "additionalProperties": false
+    },
+    "engine_compatibility": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "enum": ["blender", "threejs", "remotion"] }
+    }
+  },
+  "additionalProperties": false
+}

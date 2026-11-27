@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "library_id": "asset_3d_library",
   "library_name": "3D Asset Library",
   "category": "reusable_3d_kits",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Modular 3D prop, furniture, and character kit specifications with meter scale and polycount budgets.",
   "presets": [
     {
@@ -23,7 +23,8 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested"
+      "test_status": "RUNTIME_TESTED",
+      "executor_binding": "SemanticProceduralAssetGenerator.generate_semantic_asset"
     },
     {
       "id": "kit3d_civic_street_props",
@@ -41,7 +42,8 @@
         "blender",
         "threejs"
       ],
-      "test_status": "tested"
+      "test_status": "RUNTIME_TESTED",
+      "executor_binding": "SemanticProceduralAssetGenerator.generate_semantic_asset"
     },
     {
       "id": "kit3d_procedural_chart_blocks",
@@ -59,7 +61,8 @@
         "threejs",
         "blender"
       ],
-      "test_status": "tested"
+      "test_status": "RUNTIME_TESTED",
+      "executor_binding": "SemanticProceduralAssetGenerator.generate_semantic_asset"
     }
   ]
 }

@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "library_id": "caption_library",
   "library_name": "Caption Library",
   "category": "subtitles_and_kinetic_captions",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Original MIT-licensed 9:16 safe-zone animated caption presets (zero unlicensed external code).",
   "presets": [
     {
@@ -28,7 +28,8 @@
         "remotion",
         "ffmpeg"
       ],
-      "test_status": "tested"
+      "test_status": "RUNTIME_TESTED",
+      "executor_binding": "PresetExecutorEngine.evaluate_caption_event"
     },
     {
       "id": "cap_documentary_clean_box",
@@ -54,12 +55,13 @@
         "remotion",
         "ffmpeg"
       ],
-      "test_status": "tested",
+      "test_status": "RUNTIME_TESTED",
       "genres": [
         "sejarah",
         "biografi",
         "dokumenter"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_caption_event"
     },
     {
       "id": "cap_horror_minimal_serif",
@@ -81,11 +83,12 @@
         "remotion",
         "ffmpeg"
       ],
-      "test_status": "tested",
+      "test_status": "RUNTIME_TESTED",
       "genres": [
         "horor",
         "storytelling"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_caption_event"
     }
   ]
 }

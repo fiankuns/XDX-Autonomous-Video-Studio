@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "library_id": "transition_library",
   "library_name": "Transition Library",
   "category": "editorial_transitions",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Zero-gap deterministic transitions with explicit internal handle frame accounting.",
   "presets": [
     {
@@ -21,7 +21,8 @@
         "remotion",
         "ffmpeg"
       ],
-      "test_status": "tested"
+      "test_status": "RUNTIME_TESTED",
+      "executor_binding": "PresetExecutorEngine.evaluate_transition_state"
     },
     {
       "id": "trans_whip_pan_cutaway_6f",
@@ -38,12 +39,13 @@
       "engine_compatibility": [
         "remotion"
       ],
-      "test_status": "tested",
+      "test_status": "RUNTIME_TESTED",
       "genres": [
         "explainer",
         "komedi_absurd",
         "edukasi"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_transition_state"
     },
     {
       "id": "trans_cross_dissolve_12f",
@@ -60,13 +62,14 @@
         "remotion",
         "ffmpeg"
       ],
-      "test_status": "tested",
+      "test_status": "RUNTIME_TESTED",
       "genres": [
         "sejarah",
         "biografi",
         "dokumenter",
         "horor"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_transition_state"
     }
   ]
 }

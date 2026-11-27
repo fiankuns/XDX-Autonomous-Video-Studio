@@ -1,9 +1,9 @@
 {
-  "schema_version": "3.3.0",
+  "schema_version": "3.4.0",
   "library_id": "motion_library",
   "library_name": "Motion Library",
   "category": "motion_curves_and_kinematics",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "description": "Deterministic frame-based easing curves, spring physics, anticipation-overshoot, and kinetic interpolators.",
   "presets": [
     {
@@ -25,12 +25,13 @@
         "threejs",
         "blender"
       ],
-      "test_status": "tested",
+      "test_status": "RUNTIME_TESTED",
       "genres": [
         "explainer",
         "edukasi",
         "komedi_absurd"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_object_motion"
     },
     {
       "id": "mot_cinematic_ease_inout",
@@ -54,13 +55,14 @@
         "threejs",
         "remotion"
       ],
-      "test_status": "tested",
+      "test_status": "RUNTIME_TESTED",
       "genres": [
         "sejarah",
         "biografi",
         "dokumenter",
         "storytelling"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_object_motion"
     },
     {
       "id": "mot_horror_creeping_tension",
@@ -84,11 +86,12 @@
         "threejs",
         "remotion"
       ],
-      "test_status": "tested",
+      "test_status": "RUNTIME_TESTED",
       "genres": [
         "horor",
         "storytelling"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_object_motion"
     },
     {
       "id": "mot_absurd_elastic_whip",
@@ -107,11 +110,12 @@
         "threejs",
         "remotion"
       ],
-      "test_status": "tested",
+      "test_status": "RUNTIME_TESTED",
       "genres": [
         "komedi_absurd",
         "explainer"
-      ]
+      ],
+      "executor_binding": "PresetExecutorEngine.evaluate_object_motion"
     }
   ]
 }
