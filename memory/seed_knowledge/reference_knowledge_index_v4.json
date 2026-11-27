@@ -1,0 +1,103 @@
+{
+  "schema_version": "4.0.0-phase01.6b",
+  "storage_tier": "GITHUB_PERSISTENT_KNOWLEDGE",
+  "survives_vm_deletion": true,
+  "references": {
+    "REF-001": [
+      {
+        "entry_id": "ref_index:REF-001",
+        "version_tag": "prior_v1",
+        "category": "reference_index",
+        "payload": {
+          "analysis_version": "prior_v1",
+          "analyzer_config_hash": "f300d4bf1709b020a1f204829e2e2a25e1e2599eedc2fb6625310f414e8f03c0",
+          "analyzer_fingerprint": "legacy-prior-reference-analysis-v1",
+          "evidence_manifest": {
+            "prior_analysis_relpath": "reference_database/references/social_satire/REF-001/prior_analysis.md",
+            "prior_analysis_sha256": "3610a314576f8aebba38c79431616862fda19e095548683373ed00cfae4a11f2",
+            "profile_id": "satirical_3d_vignette_storytelling_v1",
+            "video_bytes": 27026130
+          },
+          "reference_id": "REF-001",
+          "review_status": "PRIOR_CONTEXT_PRESERVED",
+          "video_sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d"
+        },
+        "record_sha256": "61a8457a1f7b5988f5b002adb96a6a71fa0ef290c0673ed1b4c1e14cd3c698cf",
+        "created_at": "2026-11-27T14:24:57.139044+00:00"
+      },
+      {
+        "entry_id": "ref_index:REF-001",
+        "version_tag": "rea_v3.4",
+        "category": "reference_index",
+        "payload": {
+          "analysis_version": "rea_v3.4",
+          "analyzer_config_hash": "f300d4bf1709b020a1f204829e2e2a25e1e2599eedc2fb6625310f414e8f03c0",
+          "analyzer_fingerprint": "xdx-rea-video-multimodal-forensics-v3.4",
+          "evidence_manifest": {
+            "genre": "social_satire",
+            "prior_analysis_preserved_sha256": "3610a314576f8aebba38c79431616862fda19e095548683373ed00cfae4a11f2",
+            "profile_id": "satirical_3d_vignette_storytelling_v1",
+            "rea_v3_4_json_relpath": "reference_database/references/social_satire/REF-001/rea_analysis_v3_4.json",
+            "rea_v3_4_json_sha256": "82266ad01c5072368753a86553949207d52b69572098d0ec4dde848eae02f8cf",
+            "rea_v3_4_md_relpath": "reference_database/references/social_satire/REF-001/rea_analysis_v3_4.md",
+            "rea_v3_4_md_sha256": "9a12e1e29b010bd73e88130a92f5b9aa0f43a3da1677082a46427571373bae06",
+            "video_bytes": 27026130
+          },
+          "reference_id": "REF-001",
+          "review_status": "VERIFIED_MULTIMODAL",
+          "video_sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d"
+        },
+        "record_sha256": "dd112bfda2b52e4fb3cf45a9c4188782da78c5c1fa269dc27306ce99f12a248b",
+        "created_at": "2026-11-27T14:24:57.154025+00:00"
+      }
+    ],
+    "REF-002": [
+      {
+        "entry_id": "ref_index:REF-002",
+        "version_tag": "prior_v1",
+        "category": "reference_index",
+        "payload": {
+          "analysis_version": "prior_v1",
+          "analyzer_config_hash": "f300d4bf1709b020a1f204829e2e2a25e1e2599eedc2fb6625310f414e8f03c0",
+          "analyzer_fingerprint": "legacy-prior-reference-analysis-v1",
+          "evidence_manifest": {
+            "prior_analysis_relpath": "reference_database/references/explainer/REF-002-Yakhchal/prior_analysis.json",
+            "prior_analysis_sha256": "f2c6333781f6b44c040323159b6b6223942f8327303e6c113a7fe1e177acc19a",
+            "profile_id": "hosted_3d_explainer_cutaway_v1",
+            "video_bytes": 38669358
+          },
+          "reference_id": "REF-002",
+          "review_status": "PRIOR_CONTEXT_PRESERVED",
+          "video_sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01"
+        },
+        "record_sha256": "5f6b4f92e1e97e83b4707c8ccaec2f1980daf6d22e9b978a5d01bea6003a845e",
+        "created_at": "2026-11-27T14:24:57.293325+00:00"
+      },
+      {
+        "entry_id": "ref_index:REF-002",
+        "version_tag": "rea_v3.4",
+        "category": "reference_index",
+        "payload": {
+          "analysis_version": "rea_v3.4",
+          "analyzer_config_hash": "f300d4bf1709b020a1f204829e2e2a25e1e2599eedc2fb6625310f414e8f03c0",
+          "analyzer_fingerprint": "xdx-rea-video-multimodal-forensics-v3.4",
+          "evidence_manifest": {
+            "genre": "explainer",
+            "prior_analysis_preserved_sha256": "f2c6333781f6b44c040323159b6b6223942f8327303e6c113a7fe1e177acc19a",
+            "profile_id": "hosted_3d_explainer_cutaway_v1",
+            "rea_v3_4_json_relpath": "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json",
+            "rea_v3_4_json_sha256": "77d5dfc35b57d3928c62e021606f64b44b947af36f9849f4b6b222bdbbe8f61b",
+            "rea_v3_4_md_relpath": "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.md",
+            "rea_v3_4_md_sha256": "31a738f52a0a1d017727aab8fbf23f2cf46abf6989ab191d7b408cfe179efa8b",
+            "video_bytes": 38669358
+          },
+          "reference_id": "REF-002",
+          "review_status": "VERIFIED_MULTIMODAL",
+          "video_sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01"
+        },
+        "record_sha256": "8d15e9ce45b0e24127b8a864b73aa3e191a25de4c274a7e19ec28bf4fb4d2305",
+        "created_at": "2026-11-27T14:24:57.306623+00:00"
+      }
+    ]
+  }
+}

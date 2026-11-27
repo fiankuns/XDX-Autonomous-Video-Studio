@@ -29,3 +29,11 @@ Repository ini dioperasikan oleh agen AI otonom multi-peran dengan pemisahan teg
 - **Dilarang** meminta pengguna mengunggah ulang video referensi yang sudah terverifikasi di `reference_database/`, menghapus `prior_analysis.*`, atau menyalin karakter, dialog, merek/UI perekam layar, maupun musik dari video referensi.
 - **Dilarang** bagi `master_director` bertindak sebagai satu-satunya pemeriksa atas hasil kerjanya sendiri, mengaktifkan lebih dari batas specialist tanpa kebutuhan (`3–6` specialist awal), atau mengubah status langsung ke `APPROVED` / `COMPLETED`.
 - **Dilarang** bagi agen Independent Verification (`preproduction_verifier`, `visual_critic`, `technical_auditor`, `success_auditor`) mengedit diam-diam artefak milik *Producer* atau meluluskan produksi video hanya dari unit/schema test tanpa bukti render aktual (lihat piagam lengkap pada `TEAM.md` dan kontrak 20 specialist pada `orchestration/agent_registry.py`).
+
+## Phase 01.6B — Persistent Agent Intelligence, DAG Execution & Checkpoint Recovery (v4.0-alpha.2, aditif)
+- Kepemilikan artefak wajib divalidasi secara kanonik (realpath, symlink, batas workspace/project, pola role) dan dikunci lintas proses melalui `ArtifactOwnershipLockManager`; perbandingan string path tidak boleh dipakai sebagai single-writer lock.
+- `expected_output.output_artifacts` harus merupakan subset `owned_artifacts`; konflik input/output/ownership/role ditolak ulang saat eksekusi.
+- Independent verifier hanya lulus bila laporan valid terhadap `schemas/review_report.schema.json`, reviewer ≠ producer, hash artefak producer tidak berubah, dan receipt memiliki `invocation_id`.
+- Capability discovery memakai 7 status berbasis bukti ber-TTL (`schemas/capability_evidence.schema.json`); in-process discovery bukan bukti koneksi live Vivo X200 Pro.
+- Eksekusi DAG lewat `orchestration/dependency_scheduler.py`; `blender_specialist` tetap diblokir sampai `ExecutionAuthorizationContext` APPROVED. Checkpoint/revisi via `orchestration/checkpoint_manager.py` & `orchestration/revision_manager.py`; memori SQLite 6 partisi (`.xdx_memory/`, tidak di-commit) dengan redaksi rahasia.
+- `master_director` tetap dilarang menyetel `APPROVED`/`COMPLETED`.

@@ -1,0 +1,68 @@
+{
+  "schema_version": "4.0.0-phase01.6b",
+  "project_id": "phase_01_6b_workflow_test",
+  "overall_status": "SUCCEEDED",
+  "completed_tasks": [
+    "TASK-P016B-EXP-02",
+    "TASK-P016B-REF-01",
+    "TASK-P016B-VER-03"
+  ],
+  "native_subagents_invoked": {
+    "TASK-P016B-REF-01": {
+      "subagent_type": "xdx-rea-reference-analyst",
+      "conversation_id": "da609aaf922107b8f659c4ec5d199b1f",
+      "workspace_mode": "inherit"
+    },
+    "TASK-P016B-EXP-02": {
+      "subagent_type": "research",
+      "conversation_id": "9bc3376e79d42e73bdd041fbb67e9ce9",
+      "workspace_mode": "inherit"
+    },
+    "TASK-P016B-VER-03": {
+      "subagent_type": "xdx-preproduction-verifier",
+      "conversation_id": "3000627e8e86efb4196e72fb2c2bd86b",
+      "workspace_mode": "inherit"
+    }
+  },
+  "verifier_review_verification": {
+    "verified": true,
+    "review_id": "REV-P016B-LIVE-001",
+    "reviewed_task_id": "TASK-P016B-REF-01",
+    "producer_agent": "rea_video_reference_analyst",
+    "verifier_agent": "preproduction_verifier",
+    "verdict": "PASS",
+    "defect_count": 0,
+    "criteria_verified_count": 4,
+    "artifacts_unchanged": 2,
+    "execution_mode": "native_subagent"
+  },
+  "memory_integrity_snapshot": {
+    "schema_version": "4.0.0-phase01.6b",
+    "sqlite_integrity": "ok",
+    "partition_row_counts": {
+      "knowledge_memory": 8,
+      "production_memory": 0,
+      "project_memory": 2,
+      "execution_memory": 11,
+      "error_memory": 0,
+      "quality_memory": 1
+    },
+    "all_rows_sha256_verified": true
+  },
+  "subprocess_resume_verification": {
+    "worker_calls_on_resume": 0,
+    "completed_tasks": [
+      "TASK-P016B-EXP-02",
+      "TASK-P016B-REF-01",
+      "TASK-P016B-VER-03"
+    ],
+    "approved": false,
+    "skip_list": [
+      "TASK-P016B-EXP-02",
+      "TASK-P016B-REF-01",
+      "TASK-P016B-VER-03"
+    ],
+    "zero_duplicate_execution_confirmed": true
+  },
+  "blender_or_renderer_executed": false
+}

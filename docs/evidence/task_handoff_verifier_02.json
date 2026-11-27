@@ -28,7 +28,7 @@
   ],
   "input_artifact_hashes": {
     "docs/evidence/producer_reference_dna_v4.json": "c519c0ac09654d04e13ded09e41189dcc774d3efcc83ac2275b020da52680c28",
-    "docs/evidence/task_handoff_producer_01.json": "8b1fa96ce8dc9c056b600612849240d1c1237a5ed0845e18101cddedc38c512b",
+    "docs/evidence/task_handoff_producer_01.json": "8dfb5bac10bc3355f692a3df1a1c3381f8d0943dcc8ed200f715e00c8ddf9e19",
     "TEAM.md": "9d4b2b9d42ce5f8981a10a83ebfdf740527f8e865d7df12cdd0360046b96764d",
     "schemas/task_handoff.schema.json": "c585bf402e59c4e9f85ab79a7ed192c0909726aa65826aa8ffba3a8fed741df0",
     "registry/agent_registry_v4.json": "5645715637164637f25cc65bca4e376ab157584344fd134d34ef92a104a41c3e",

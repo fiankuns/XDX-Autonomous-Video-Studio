@@ -1,0 +1,248 @@
+{
+  "schema_version": "4.0.0-phase01.6b",
+  "checkpoint_id": "CKPT-phase_01_6b_workflow_test-0002",
+  "created_at_utc": "2026-11-27T14:24:57.535834+00:00",
+  "project_id": "phase_01_6b_workflow_test",
+  "task_graph_version": 1,
+  "completed_tasks": [],
+  "pending_tasks": [
+    "TASK-P016B-REF-01",
+    "TASK-P016B-VER-03"
+  ],
+  "running_tasks": [
+    "TASK-P016B-EXP-02"
+  ],
+  "failed_tasks": [],
+  "blocked_tasks": [],
+  "cancelled_tasks": [],
+  "artifact_manifest": {},
+  "artifact_sha256": {},
+  "agent_invocation_receipts": {},
+  "retry_budget": {
+    "TASK-P016B-EXP-02": {
+      "max_attempts": 2,
+      "attempts_used": 0,
+      "timeout_seconds": 180
+    },
+    "TASK-P016B-REF-01": {
+      "max_attempts": 2,
+      "attempts_used": 0,
+      "timeout_seconds": 180
+    },
+    "TASK-P016B-VER-03": {
+      "max_attempts": 1,
+      "attempts_used": 0,
+      "timeout_seconds": 180
+    }
+  },
+  "approval_status": {
+    "approved": false,
+    "approved_digest": null,
+    "approved_version": null,
+    "revoked": false
+  },
+  "state_version": 1,
+  "task_definitions": {
+    "TASK-P016B-REF-01": {
+      "task_id": "TASK-P016B-REF-01",
+      "project_id": "phase_01_6b_workflow_test",
+      "parent_task_id": null,
+      "assigned_agent": "rea_video_reference_analyst",
+      "goal": "Extract reusable quantitative pacing and cutaway rules from verified REF-001 and REF-002 with prior_analysis preservation proof.",
+      "context": {
+        "project_state": "REFERENCE_ANALYSIS",
+        "genre_ids": [
+          "explainer",
+          "social_satire"
+        ],
+        "reference_ids": [
+          "REF-001",
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "allow_audit_evidence_output": true,
+        "notes": "Live Phase 01.6B native subagent TASK-P016B-REF-01."
+      },
+      "input_artifacts": [
+        "reference_database/reference_registry.json",
+        "reference_database/references/social_satire/REF-001/rea_analysis_v3_4.json",
+        "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json"
+      ],
+      "input_artifact_hashes": {
+        "reference_database/reference_registry.json": "f300d4bf1709b020a1f204829e2e2a25e1e2599eedc2fb6625310f414e8f03c0",
+        "reference_database/references/social_satire/REF-001/rea_analysis_v3_4.json": "82266ad01c5072368753a86553949207d52b69572098d0ec4dde848eae02f8cf",
+        "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json": "77d5dfc35b57d3928c62e021606f64b44b947af36f9849f4b6b222bdbbe8f61b"
+      },
+      "dependencies": [],
+      "owned_artifacts": [
+        "docs/evidence/phase01_6b_workflow/producer_ref_rules_v4.json"
+      ],
+      "allowed_tools": [
+        "view_file"
+      ],
+      "forbidden_actions": [
+        "Mutate reference_database",
+        "Copy copyrighted source assets"
+      ],
+      "expected_output": {
+        "summary": "JSON rules manifest for REF-001 and REF-002.",
+        "output_artifacts": [
+          "docs/evidence/phase01_6b_workflow/producer_ref_rules_v4.json"
+        ],
+        "output_format": "json"
+      },
+      "return_schema": "xdx.phase01_6b.reference_rules.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "file_exists_nonempty",
+          "target": "docs/evidence/phase01_6b_workflow/producer_ref_rules_v4.json",
+          "description": "Reference rules JSON exists and parses cleanly."
+        }
+      ],
+      "required_evidence": [
+        "Verified SHA-256 and timestamps for REF-001 and REF-002"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 0,
+        "timeout_seconds": 180
+      },
+      "status": "PENDING"
+    },
+    "TASK-P016B-EXP-02": {
+      "task_id": "TASK-P016B-EXP-02",
+      "project_id": "phase_01_6b_workflow_test",
+      "parent_task_id": null,
+      "assigned_agent": "topic_research_agent",
+      "goal": "Explore Phase 01.6B orchestration, locking, SQLite WAL memory, and checkpoint security invariants in read-only sandbox.",
+      "context": {
+        "project_state": "RESEARCHING",
+        "genre_ids": [
+          "explainer"
+        ],
+        "reference_ids": [
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "allow_audit_evidence_output": true,
+        "notes": "Live Phase 01.6B built-in research subagent TASK-P016B-EXP-02."
+      },
+      "input_artifacts": [
+        "orchestration/handoff_manager.py",
+        "orchestration/dependency_scheduler.py",
+        "memory/persistent_memory.py",
+        "orchestration/checkpoint_manager.py"
+      ],
+      "input_artifact_hashes": {
+        "orchestration/handoff_manager.py": "3d04fca3d1b6725ffbd13406bd4e68e3a48e061d615ccbfbb1d47e2cba8721aa",
+        "orchestration/dependency_scheduler.py": "7067ebc680b77db65b75d4a50d6f949edfa608d023e8a0e7117ea97f7366a12e",
+        "memory/persistent_memory.py": "1421a577cbeea4b221f350147aa11d07cb2676db1e65e025c2cf3f4422ea6e56",
+        "orchestration/checkpoint_manager.py": "67903c6fd7ad297e91d414bd81017d375854bd4483c9cb5fbb1a471506d2214d"
+      },
+      "dependencies": [],
+      "owned_artifacts": [
+        "docs/evidence/phase01_6b_workflow/research_architecture_report_v4.json"
+      ],
+      "allowed_tools": [
+        "view_file"
+      ],
+      "forbidden_actions": [
+        "Mutate source files",
+        "Modify xdx-blender-studio"
+      ],
+      "expected_output": {
+        "summary": "Structured security invariant exploration JSON.",
+        "output_artifacts": [
+          "docs/evidence/phase01_6b_workflow/research_architecture_report_v4.json"
+        ],
+        "output_format": "json"
+      },
+      "return_schema": "xdx.phase01_6b.architecture_exploration.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "file_exists_nonempty",
+          "target": "docs/evidence/phase01_6b_workflow/research_architecture_report_v4.json",
+          "description": "Architecture report JSON exists and parses cleanly."
+        }
+      ],
+      "required_evidence": [
+        "Exact line-level verification of Phase 01.6B security invariants"
+      ],
+      "retry_budget": {
+        "max_attempts": 2,
+        "attempts_used": 0,
+        "timeout_seconds": 180
+      },
+      "status": "RUNNING"
+    },
+    "TASK-P016B-VER-03": {
+      "task_id": "TASK-P016B-VER-03",
+      "project_id": "phase_01_6b_workflow_test",
+      "parent_task_id": "TASK-P016B-REF-01",
+      "assigned_agent": "preproduction_verifier",
+      "goal": "Independently audit producer_ref_rules_v4.json and research_architecture_report_v4.json in a fresh read-only context.",
+      "context": {
+        "project_state": "PREPRODUCTION_QC",
+        "genre_ids": [
+          "explainer",
+          "social_satire"
+        ],
+        "reference_ids": [
+          "REF-001",
+          "REF-002"
+        ],
+        "workspace_mode": "inherit",
+        "notes": "Live Phase 01.6B fresh-context Independent Verifier TASK-P016B-VER-03."
+      },
+      "input_artifacts": [
+        "docs/evidence/phase01_6b_workflow/producer_ref_rules_v4.json",
+        "docs/evidence/phase01_6b_workflow/research_architecture_report_v4.json",
+        "memory/seed_knowledge/reference_knowledge_index_v4.json"
+      ],
+      "input_artifact_hashes": {
+        "docs/evidence/phase01_6b_workflow/producer_ref_rules_v4.json": "731ad7c8acbe023e7023259dea87ac29050bdbf0dd55eb0c3a24c82c10b8fb37",
+        "docs/evidence/phase01_6b_workflow/research_architecture_report_v4.json": "a95816c2c35e36718f2d60a594967ec2fff31fd9694cc48705611e2c69018464",
+        "memory/seed_knowledge/reference_knowledge_index_v4.json": "166f95a3cd42336f042de23c3bbd2048419fce792802a7493bf9f631a2306bab"
+      },
+      "dependencies": [
+        "TASK-P016B-REF-01",
+        "TASK-P016B-EXP-02"
+      ],
+      "owned_artifacts": [],
+      "allowed_tools": [
+        "view_file",
+        "lookup_skill"
+      ],
+      "forbidden_actions": [
+        "Silently edit producer or repository files"
+      ],
+      "expected_output": {
+        "summary": "Schema-validated independent review report.",
+        "output_artifacts": [],
+        "output_format": "json"
+      },
+      "return_schema": "xdx.independent-review.v4.0",
+      "done_when": [
+        {
+          "criterion_id": "DONE_01",
+          "check_type": "independent_review_verdict",
+          "target": "TASK-P016B-REF-01",
+          "description": "Independent verifier confirms PASS with zero file mutations."
+        }
+      ],
+      "required_evidence": [
+        "Cross-verification of SHA-256s, timestamps, and security invariants"
+      ],
+      "retry_budget": {
+        "max_attempts": 1,
+        "attempts_used": 0,
+        "timeout_seconds": 180
+      },
+      "status": "PENDING"
+    }
+  },
+  "idempotency_ledger": {},
+  "checkpoint_sha256": "4b7291991c59d483765fbcbb55464119e5499f225861266c6ec12d3fcbaf2728"
+}

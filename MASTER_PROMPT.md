@@ -98,3 +98,11 @@ Jangan pernah mengklaim *in-process discovery* sebagai koneksi aktif ke perangka
    - Aktifkan hanya **3–6 specialist** sesuai kebutuhan mode perintah pengguna (`CARI TOPIK`, `BUAT VIDEO`, `BUAT OTOMATIS`, `ANALISIS REFERENSI`, `GUNAKAN REF`, `GABUNGKAN REFERENSI`, `REVISI`, `SETUJUI PAKET`, `LANJUTKAN PROJECT`, `AUDIT PROJECT`).
    - `master_director` dilarang menilai sendiri artefaknya tanpa verifier independen pada konteks bersih (*fresh context*), dan verifier dilarang memodifikasi artefak *Producer* secara diam-diam (`SilentArtifactMutationError`).
    - `success_auditor` dilarang memberikan status `PASS` akhir untuk produksi video hanya karena unit test atau validasi skema lulus tanpa bukti render dan evaluasi visual aktual.
+
+## Phase 01.6B — Persistent Agent Intelligence, DAG Execution & Checkpoint Recovery (v4.0-alpha.2, aditif)
+- Kepemilikan artefak wajib divalidasi secara kanonik (realpath, symlink, batas workspace/project, pola role) dan dikunci lintas proses melalui `ArtifactOwnershipLockManager`; perbandingan string path tidak boleh dipakai sebagai single-writer lock.
+- `expected_output.output_artifacts` harus merupakan subset `owned_artifacts`; konflik input/output/ownership/role ditolak ulang saat eksekusi.
+- Independent verifier hanya lulus bila laporan valid terhadap `schemas/review_report.schema.json`, reviewer ≠ producer, hash artefak producer tidak berubah, dan receipt memiliki `invocation_id`.
+- Capability discovery memakai 7 status berbasis bukti ber-TTL (`schemas/capability_evidence.schema.json`); in-process discovery bukan bukti koneksi live Vivo X200 Pro.
+- Eksekusi DAG lewat `orchestration/dependency_scheduler.py`; `blender_specialist` tetap diblokir sampai `ExecutionAuthorizationContext` APPROVED. Checkpoint/revisi via `orchestration/checkpoint_manager.py` & `orchestration/revision_manager.py`; memori SQLite 6 partisi (`.xdx_memory/`, tidak di-commit) dengan redaksi rahasia.
+- `master_director` tetap dilarang menyetel `APPROVED`/`COMPLETED`.

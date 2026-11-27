@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/fiankuns/XDX-Autonomous-Video-Studio/schemas/capability_evidence.schema.json",
+  "title": "XDX v4.0 Runtime Capability Evidence Ledger Schema (Phase 01.6B)",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "generated_at_utc",
+    "ttl_seconds",
+    "runtime_identity",
+    "records"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "enum": ["4.0.0-phase01.6b"] },
+    "generated_at_utc": { "type": "string", "minLength": 10 },
+    "ttl_seconds": { "type": "integer", "minimum": 1, "maximum": 604800 },
+    "runtime_identity": {
+      "type": "object",
+      "required": ["adapter_type", "hostname", "platform", "python_version", "workspace_root"],
+      "properties": {
+        "adapter_type": { "type": "string", "enum": ["antigravity", "codex", "python_standalone"] },
+        "hostname": { "type": "string", "minLength": 1 },
+        "platform": { "type": "string", "minLength": 1 },
+        "python_version": { "type": "string", "minLength": 3 },
+        "workspace_root": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": true
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "capability_id",
+          "status",
+          "timestamp_utc",
+          "invocation_id",
+          "workspace_mode",
+          "verification_method",
+          "evidence_summary"
+        ],
+        "properties": {
+          "capability_id": { "type": "string", "minLength": 2 },
+          "status": {
+            "type": "string",
+            "enum": [
+              "DOCUMENTED_CAPABILITY",
+              "CONFIGURED_CAPABILITY",
+              "DETECTED_CAPABILITY",
+              "LIVE_INVOCATION_VERIFIED",
+              "UNAVAILABLE",
+              "UNKNOWN",
+              "BLOCKED"
+            ]
+          },
+          "timestamp_utc": { "type": "string", "minLength": 10 },
+          "invocation_id": { "type": ["string", "null"] },
+          "conversation_id": { "type": ["string", "null"] },
+          "workspace_mode": { "type": "string", "enum": ["inherit", "branch", "share", "not_applicable"] },
+          "verification_method": { "type": "string", "minLength": 5 },
+          "evidence_summary": { "type": "string", "minLength": 5 }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

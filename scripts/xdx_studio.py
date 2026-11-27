@@ -25,6 +25,11 @@ from libraries.loader import PresetLibraryRegistry
 from orchestration.agent_registry import AgentRegistry
 from orchestration.capability_discovery import RuntimeCapabilityDiscovery
 from orchestration.task_router import MasterDirectorTaskRouter
+from memory.persistence_probe import (
+    StoragePersistenceProbe,
+    sync_reference_database_into_knowledge_memory,
+)
+from memory.persistent_memory import SixPartitionMemoryStore
 
 
 def cmd_preflight() -> int:
@@ -36,7 +41,7 @@ def cmd_preflight() -> int:
     refs_by_id, _, profiles_by_id = ref_bridge.load_registries()
 
     payload = {
-        "studio_version": "4.0.0-alpha.1",
+        "studio_version": "4.0.0-alpha.2",
         "runtimes": {
             "python": sys.version.split()[0],
             "node": shutil.which("node"),
@@ -100,7 +105,7 @@ def cmd_validate_all() -> int:
         json.dumps(
             {
                 "status": "VALIDATED",
-                "studio_version": "4.0.0-alpha.1",
+                "studio_version": "4.0.0-alpha.2",
                 "schemas_checked": len(list(schemas_dir.glob("*.schema.json"))),
                 "registries_checked": 6 if agent_reg_file.is_file() else 5,
                 "preset_libraries": libs.summary_stats(),
@@ -115,6 +120,19 @@ def cmd_validate_all() -> int:
 
 def cmd_capabilities() -> int:
     print(json.dumps(RuntimeCapabilityDiscovery().discover(), indent=2))
+    return 0
+
+
+def cmd_memory_status() -> int:
+    store = SixPartitionMemoryStore()
+    sync_info = sync_reference_database_into_knowledge_memory(store)
+    integ = store.verify_database_integrity()
+    print(json.dumps({"memory_integrity": integ, "reference_index_sync": sync_info}, indent=2))
+    return 0
+
+
+def cmd_persistence_probe() -> int:
+    print(json.dumps(StoragePersistenceProbe().generate_tier_report(), indent=2))
     return 0
 
 
@@ -180,7 +198,9 @@ def main() -> int:
 
     sub.add_parser("preflight", help="Inspect runtime availability, Reference Database, and 6-tier XDX MCP status.")
     sub.add_parser("validate-all", help="Validate all schemas, registries, 16 preset libraries, Reference DB, and .agents/ customizations.")
-    sub.add_parser("capabilities", help="Inspect native Antigravity multi-agent, model routing, and workspace capabilities.")
+    sub.add_parser("capabilities", help="Inspect 7-tier native multi-agent, model routing, and workspace capabilities.")
+    sub.add_parser("memory-status", help="Sync Reference DB KnowledgeMemory index and verify 6-partition SQLite WAL integrity.")
+    sub.add_parser("persistence-probe", help="Run live 5-tier storage durability classification & cross-process SQLite proof.")
 
     p_agents = sub.add_parser("agents", help="Inspect Master Director + 20 specialist contracts or simulate command-mode dispatch.")
     p_agents.add_argument("--mode", default=None, help="Optional user command mode (e.g. BUAT_VIDEO, CARI_TOPIK, AUDIT_PROJECT).")
@@ -212,6 +232,10 @@ def main() -> int:
         return cmd_validate_all()
     if args.command == "capabilities":
         return cmd_capabilities()
+    if args.command == "memory-status":
+        return cmd_memory_status()
+    if args.command == "persistence-probe":
+        return cmd_persistence_probe()
     if args.command == "agents":
         return cmd_agents(args)
     if args.command == "references":

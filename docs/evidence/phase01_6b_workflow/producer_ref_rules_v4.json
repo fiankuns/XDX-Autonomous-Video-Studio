@@ -1,0 +1,86 @@
+{
+  "schema": "xdx.phase01_6b.reference_rules.v4.0",
+  "task_id": "TASK-P016B-REF-01",
+  "project_id": "phase_01_6b_workflow_test",
+  "producer_agent": "rea_video_reference_analyst",
+  "subagent_conversation_id": "da609aaf922107b8f659c4ec5d199b1f",
+  "read_only_confirmed": true,
+  "reference_id_summary": {
+    "REF-001": {
+      "reference_id": "REF-001",
+      "genre": "social_satire",
+      "reusable_production_profile_id": "satirical_3d_vignette_storytelling_v1",
+      "video_sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
+      "bytes": 27026130,
+      "duration_s": 154.618821,
+      "estimated_visual_shots": 48,
+      "prior_analysis_preserved": {
+        "prior_analysis_path": "reference_database/references/social_satire/REF-001/prior_analysis.md",
+        "prior_analysis_sha256": "3610a314576f8aebba38c79431616862fda19e095548683373ed00cfae4a11f2",
+        "rea_v3_4_json_path": "reference_database/references/social_satire/REF-001/rea_analysis_v3_4.json",
+        "rea_v3_4_json_sha256": "82266ad01c5072368753a86553949207d52b69572098d0ec4dde848eae02f8cf"
+      }
+    },
+    "REF-002": {
+      "reference_id": "REF-002",
+      "genre": "explainer",
+      "reusable_production_profile_id": "hosted_3d_explainer_cutaway_v1",
+      "video_sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+      "bytes": 38669358,
+      "duration_s": 105.543,
+      "candidate_shot_segments": 46,
+      "prior_analysis_preserved": {
+        "prior_analysis_path": "reference_database/references/explainer/REF-002-Yakhchal/prior_analysis.json",
+        "prior_analysis_sha256": "f2c6333781f6b44c040323159b6b6223942f8327303e6c113a7fe1e177acc19a",
+        "rea_v3_4_json_path": "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json",
+        "rea_v3_4_json_sha256": "77d5dfc35b57d3928c62e021606f64b44b947af36f9849f4b6b222bdbbe8f61b"
+      }
+    }
+  },
+  "reusable_pacing_and_cutaway_rules": [
+    {
+      "rule_id": "RULE-DNA-EXP-01",
+      "source_reference_id": "REF-002",
+      "rule_name": "clause_synced_hard_cut_explainer_pacing",
+      "evidence_timestamps_s": [[0.0, 8.0], [2.0, 4.0], [10.0, 10.6], [30.0, 31.5], [58.0, 59.5], [101.0, 105.543]],
+      "quantitative_parameters": {
+        "target_median_shot_s": 2.26,
+        "target_shot_range_s": [1.5, 4.5],
+        "hard_max_shot_s": 6.0,
+        "vocal_micro_pause_threshold_ms": 250
+      }
+    },
+    {
+      "rule_id": "RULE-DNA-EXP-02",
+      "source_reference_id": "REF-002",
+      "rule_name": "topdown_insert_to_orthographic_cross_section_cutaway",
+      "evidence_timestamps_s": [[2.0, 4.0], [10.0, 12.0], [24.0, 28.0], [36.0, 38.0], [48.0, 50.0], [72.0, 80.0]],
+      "quantitative_parameters": {
+        "camera_angle_cycle": ["host_eye_level_medium", "locked_topdown_90deg_insert", "locked_orthographic_cross_section_cutaway", "low_angle_scale_reveal"],
+        "functional_shadow_proof_window_s": 2.0
+      }
+    },
+    {
+      "rule_id": "RULE-DNA-SAT-01",
+      "source_reference_id": "REF-001",
+      "rule_name": "hybrid_hard_cut_and_cross_dissolve_vignette_montage",
+      "evidence_timestamps_s": [[5.5, 20.8], [6.0, 6.5], [21.0, 21.5], [36.0, 36.5], [135.0, 135.5]],
+      "quantitative_parameters": {
+        "typical_vignette_shot_range_s": [2.0, 4.5],
+        "inter_location_cross_dissolve_frames_at_30fps": [10, 15],
+        "target_integrated_loudness_lufs": -14.8
+      }
+    },
+    {
+      "rule_id": "RULE-DNA-SAT-02",
+      "source_reference_id": "REF-001",
+      "rule_name": "diegetic_3d_statistical_prop_and_crowd_ratio_staging",
+      "evidence_timestamps_s": [[20.8, 35.5], [48.0, 51.0], [78.0, 79.0], [96.0, 99.0], [105.0, 108.5]],
+      "quantitative_parameters": {
+        "surface_roughness_range": [0.45, 0.85],
+        "caption_vertical_anchor_pct": 78,
+        "caption_tokens_per_cue": [1, 2]
+      }
+    }
+  ]
+}

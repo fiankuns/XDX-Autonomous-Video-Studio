@@ -1,14 +1,37 @@
-"""XDX Studio v4.0 Shared Persistent Memory Package Marker (Scheduled for Phase 01.6B).
+"""XDX Studio v4.0 Six-Partition Persistent Memory & 5-Tier Durability Package."""
 
-Intentionally contains no fake stub logic in Phase 01.6A; full atomic/locked implementations of
-Knowledge, Production, Project, Execution, Error, and Quality memory arrive in Phase 01.6B.
-"""
-
-MEMORY_PARTITIONS_PLANNED_PHASE_01_6B: tuple[str, ...] = (
-    "knowledge_memory",
-    "production_memory",
-    "project_memory",
-    "execution_memory",
-    "error_memory",
-    "quality_memory",
+from memory.persistence_probe import (
+    STORAGE_TIERS,
+    StoragePersistenceProbe,
+    sync_reference_database_into_knowledge_memory,
 )
+from memory.persistent_memory import (
+    MEMORY_SCHEMA_VERSION,
+    CorruptedMemoryRecordError,
+    ErrorMemory,
+    ExecutionMemory,
+    KnowledgeMemory,
+    MemoryIntegrityError,
+    ProductionMemory,
+    ProjectMemory,
+    QualityMemory,
+    SecretLeakBlockedError,
+    SixPartitionMemoryStore,
+)
+
+__all__ = [
+    "MEMORY_SCHEMA_VERSION",
+    "STORAGE_TIERS",
+    "CorruptedMemoryRecordError",
+    "ErrorMemory",
+    "ExecutionMemory",
+    "KnowledgeMemory",
+    "MemoryIntegrityError",
+    "ProductionMemory",
+    "ProjectMemory",
+    "QualityMemory",
+    "SecretLeakBlockedError",
+    "SixPartitionMemoryStore",
+    "StoragePersistenceProbe",
+    "sync_reference_database_into_knowledge_memory",
+]

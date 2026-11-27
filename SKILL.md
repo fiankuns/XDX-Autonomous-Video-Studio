@@ -38,3 +38,11 @@ description: Hardened universal multi-genre autonomous video production studio (
      python3 scripts/xdx_studio.py capabilities
      python3 scripts/xdx_studio.py agents --mode BUAT_VIDEO
      ```
+
+## Phase 01.6B — Persistent Agent Intelligence, DAG Execution & Checkpoint Recovery (v4.0-alpha.2, aditif)
+- Kepemilikan artefak wajib divalidasi secara kanonik (realpath, symlink, batas workspace/project, pola role) dan dikunci lintas proses melalui `ArtifactOwnershipLockManager`; perbandingan string path tidak boleh dipakai sebagai single-writer lock.
+- `expected_output.output_artifacts` harus merupakan subset `owned_artifacts`; konflik input/output/ownership/role ditolak ulang saat eksekusi.
+- Independent verifier hanya lulus bila laporan valid terhadap `schemas/review_report.schema.json`, reviewer ≠ producer, hash artefak producer tidak berubah, dan receipt memiliki `invocation_id`.
+- Capability discovery memakai 7 status berbasis bukti ber-TTL (`schemas/capability_evidence.schema.json`); in-process discovery bukan bukti koneksi live Vivo X200 Pro.
+- Eksekusi DAG lewat `orchestration/dependency_scheduler.py`; `blender_specialist` tetap diblokir sampai `ExecutionAuthorizationContext` APPROVED. Checkpoint/revisi via `orchestration/checkpoint_manager.py` & `orchestration/revision_manager.py`; memori SQLite 6 partisi (`.xdx_memory/`, tidak di-commit) dengan redaksi rahasia.
+- `master_director` tetap dilarang menyetel `APPROVED`/`COMPLETED`.

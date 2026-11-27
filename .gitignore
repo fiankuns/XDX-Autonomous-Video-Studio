@@ -15,8 +15,10 @@ node_modules/
 dist/
 build/
 
-# XDX Studio local asset cache, renders, and large media (NEVER commit large assets or caches)
+# XDX Studio local asset cache, runtime memory/locks, renders, and large media (NEVER commit caches)
 .xdx_cache/
+.xdx_memory/
+.xdx_locks/
 cache/
 projects/*/renders/
 projects/*/output/
