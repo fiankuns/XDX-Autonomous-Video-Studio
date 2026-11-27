@@ -1,0 +1,38 @@
+{
+  "id": "REF-001",
+  "original_filename": "1001952045.mp4",
+  "genre": "social_satire",
+  "tags": [
+    "storytelling",
+    "satir_sosial",
+    "social_satire"
+  ],
+  "path": "references/social_satire/REF-001/original.mp4",
+  "sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
+  "bytes": 27026130,
+  "metadata": "references/social_satire/REF-001/metadata.json",
+  "analysis_status": "PRIOR_PARTIAL_ANALYSIS",
+  "rights_status": "USER_SUPPLIED_PRIVATE_REFERENCE_RIGHTS_NOT_VERIFIED",
+  "ffprobe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 720,
+        "height": 1280,
+        "avg_frame_rate": "30/1"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "avg_frame_rate": "0/0"
+      }
+    ],
+    "format": {
+      "duration": "154.618821",
+      "size": "27026130"
+    }
+  }
+}
