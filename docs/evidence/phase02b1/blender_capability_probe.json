@@ -1,0 +1,125 @@
+{
+  "schema": "xdx.blender-capability-probe.v1",
+  "phase": "02B.1",
+  "date": "2026-11-28",
+  "mode": "READ_ONLY",
+  "production_authorized": false,
+  "connection": {
+    "status": "LIVE_VERIFIED",
+    "transport": "XDX MCP tools available in this session (mcp__XDX_MCP__*)",
+    "credentials_stored": false,
+    "pairing_auth_relay_repo_changed": false,
+    "session_note": "First get_scene_info returned scene 'XDX_Badgir_20s_Diorama' (79 objects, 540x960); later calls returned the default 'Scene' (3 objects, 1920x1080, is_dirty false, unsaved). The Blender session/state changed between calls (restart or reconnect). Earlier Badgir work is NOT in the live session."
+  },
+  "device": {
+    "name": "Vivo X200 Pro (Android)",
+    "soc": "MediaTek Dimensity 9400",
+    "gpu": "ARM Immortalis-G925",
+    "arch": "aarch64",
+    "cpu_cores": 8,
+    "blender": "5.3.0",
+    "python": "3.13.13",
+    "tempdir": "app cache (bpy.app.tempdir)"
+  },
+  "mobile_guard": {
+    "anr_budget_ms": 3500,
+    "max_cycles_threads": 4,
+    "max_render_resolution": 640,
+    "max_render_samples": 32,
+    "prefer_material_viewport": true
+  },
+  "tools_discovered": [
+    "execute_blender_code",
+    "create_primitive",
+    "get_mobile_device_profile",
+    "get_scene_info",
+    "look",
+    "modify_object",
+    "set_material",
+    "configure_mobile_guard"
+  ],
+  "tested": {
+    "get_mobile_device_profile": "OK",
+    "get_scene_info": "OK (but session changed between calls)",
+    "execute_blender_code_read_only_introspection": "OK (scene hash identical before/after)",
+    "look_viewport_material_256px": "OK (≈0.5 s, returns PNG)"
+  },
+  "detected_only_not_exercised": {
+    "render_engines": [
+      "BLENDER_EEVEE"
+    ],
+    "cycles": "NOT_AVAILABLE (engine list has only EEVEE)",
+    "operators_registered": [
+      "mesh.primitive_cube_add",
+      "object.armature_add",
+      "object.mode_set",
+      "armature.bone_primitive_add",
+      "pose.ik_add",
+      "pose.constraint_add",
+      "object.parent_set",
+      "object.modifier_add",
+      "anim.keyframe_insert",
+      "nla.bake",
+      "export_scene.gltf",
+      "import_scene.gltf",
+      "export_scene.fbx",
+      "render.render"
+    ],
+    "constraint_types_include": [
+      "IK",
+      "SPLINE_IK",
+      "DAMPED_TRACK",
+      "TRACK_TO",
+      "COPY_ROTATION",
+      "COPY_LOCATION",
+      "LIMIT_ROTATION",
+      "STRETCH_TO",
+      "ACTION",
+      "ARMATURE",
+      "CHILD_OF",
+      "FLOOR"
+    ],
+    "modifiers": {
+      "ARMATURE": true,
+      "SUBSURF": true,
+      "SOLIDIFY": true,
+      "BEVEL": true,
+      "MIRROR": true
+    },
+    "addons_enabled": [
+      "io_scene_gltf2",
+      "io_scene_fbx",
+      "io_anim_bvh",
+      "pose_library",
+      "xdx_blender_vivo_x200_pro"
+    ],
+    "scene_defaults": {
+      "fps": 24,
+      "frame_range": [
+        1,
+        250
+      ],
+      "resolution": [
+        1920,
+        1080
+      ]
+    },
+    "note": "'Registered/detected' means the API exists; it does NOT mean it works on this device. Nothing below was executed."
+  },
+  "not_determined": [
+    "Armature.collections_all API (hasattr on RNA class is unreliable)",
+    "whether max_render_resolution=640 is per side or on width only",
+    "IK solve and keyframe insertion behaviour on this build",
+    "GLB export size/time and Three.js re-import fidelity",
+    "render time per frame at 640px/32 samples EEVEE",
+    "memory ceiling for rigged character + diorama"
+  ],
+  "not_done_by_design": [
+    "modeling",
+    "scene mutation",
+    "rendering",
+    "configure_mobile_guard",
+    "GLB export",
+    "armature creation"
+  ]
+}

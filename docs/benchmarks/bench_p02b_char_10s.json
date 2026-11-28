@@ -1,0 +1,98 @@
+{
+  "schema": "xdx.phase02b-benchmark.v1",
+  "benchmark_id": "bench_p02b_char_10s",
+  "status": "PLANNED_NOT_EXECUTED",
+  "phase_targets": [
+    "02B.2 asset+rig",
+    "02B.3 animation",
+    "02B.4 render+QC"
+  ],
+  "requires_user_approval_before_execution": true,
+  "audio": "DEFERRED_PHASE_04 (captions represent narration)",
+  "style": "Global Style Bible unchanged (no new genre/style)",
+  "duration_s": 10,
+  "fps": 30,
+  "total_frames": 300,
+  "orientation": "9:16",
+  "topic_note": "Same AC topic and hero (Bima) as the Three.js v9 benchmark so Blender acting can be compared like-for-like; asset must come from character_bible, not a new design.",
+  "shots": [
+    {
+      "shot_id": "B001",
+      "frames": [
+        0,
+        105
+      ],
+      "purpose": "Heat acting: sweat, wrist-driven fan with rigid prop follow, elbow-out wipe",
+      "references": {
+        "REF-001": "anticipation-settle, deadpan reaction hold, double take",
+        "REF-003": "environmental lighting: harsh warm key"
+      },
+      "engine": "blender (rig, acting, EEVEE render)"
+    },
+    {
+      "shot_id": "B002",
+      "frames": [
+        105,
+        195
+      ],
+      "purpose": "Head turns to the AC then holds; then hard cut on action",
+      "references": {
+        "REF-001": "reaction hold before cut",
+        "REF-002": "level camera cut on action"
+      },
+      "engine": "blender"
+    },
+    {
+      "shot_id": "B003",
+      "frames": [
+        195,
+        300
+      ],
+      "purpose": "Macro remote press, button glow with callout leader+ring, relief face, light shifts warm to cool",
+      "references": {
+        "REF-002": "macro mechanism insert + annotated callout",
+        "REF-003": "object highlight, mood lighting shift"
+      },
+      "engine": "blender render + remotion callout/caption compositing"
+    }
+  ],
+  "captions_original_text": [
+    "Panas banget di sini...",
+    "Coba nyalakan AC-nya.",
+    "Nah, mulai adem."
+  ],
+  "acceptance": {
+    "visual": "same as 02A: shot mean >= 3.5, dimension >= 3.0; placeholders and debug overlays are critical; no banner text on frames",
+    "actions": "each key action verified geometrically from exported bone/anchor positions using the existing action_events contract (fan rigid follow, elbow-out, head facing, thumb press)",
+    "callouts": "existing callout contract (leader length, off-frame, over-caption)",
+    "determinism": "same file + same frame index -> same pixels (EEVEE seed fixed)",
+    "timeline": "canonical timeline/retime_package; durations content-driven, 10 s is a target"
+  },
+  "mobile_constraints": {
+    "render_cap": "<=640 px, <=32 samples, EEVEE only (Cycles unavailable)",
+    "anr": "each MCP call <= 3.5 s: render one frame per call, chunk heavy edits",
+    "open_question": "verify whether 640 is per side; plan 360x640 portrait render + upscale if per side",
+    "fps_mutation": "scene fps is 24; set to 30 in 02B.2 (a mutation, needs approval)",
+    "tempdir": "use bpy.app.tempdir only"
+  },
+  "stages": {
+    "02B.2": [
+      "import/create Bima mesh from character bible",
+      "armature: spine/neck/head, 2 arm chains with IK + pole, wrist, thumb, prop sockets",
+      "fan + remote props parented to sockets",
+      "vertex weights, material binding from Style Bible",
+      "tested checks: pose each rig limit, export GLB round-trip"
+    ],
+    "02B.3": [
+      "keyframe from shot_spec events",
+      "IK targets + Track To/Damped Track for head",
+      "export anchors per frame for geometric verification"
+    ],
+    "02B.4": [
+      "EEVEE render per frame at guard limits",
+      "assemble in Remotion with captions/callouts",
+      "independent visual QC (reviewer != producer)"
+    ]
+  },
+  "agents": "max 2 active; token plan per docs/LEAN_PRODUCTION_PROFILE.md"
+}

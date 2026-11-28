@@ -106,3 +106,18 @@ def test_ref003_08_fusion_picks_ref003_for_geo_documentary_and_keeps_ref002_mech
     assert plan["dimensions"]["technical_visualization"]["primary_reference_id"] == "REF-003"
     plan2 = MultiReferenceFusionEngine().fuse(recs, genres=["explainer"], chosen_style_profile="stylized_3d")
     assert plan2["dimensions"]["technical_visualization"]["primary_reference_id"] == "REF-002"
+
+
+# ---------------------------------------------------------------- Phase 02B.1 evidence honesty
+def test_p02b1_evidence_separates_tested_from_detected_and_stores_no_secret():
+    ev = _j(ROOT / "docs/evidence/phase02b1/blender_capability_probe.json")
+    assert ev["mode"] == "READ_ONLY" and ev["production_authorized"] is False and ev["connection"]["credentials_stored"] is False
+    assert ev["tested"] and ev["detected_only_not_exercised"] and ev["not_determined"] and ev["not_done_by_design"]
+    assert "CYCLES" not in ev["detected_only_not_exercised"]["render_engines"]
+    bench = _j(ROOT / "docs/benchmarks/bench_p02b_char_10s.json")
+    assert bench["status"] == "PLANNED_NOT_EXECUTED" and bench["requires_user_approval_before_execution"] is True
+    assert bench["total_frames"] == 300 == bench["duration_s"] * bench["fps"] and bench["audio"].startswith("DEFERRED_PHASE_04")
+    spans = [s["frames"] for s in bench["shots"]]
+    assert spans[0][0] == 0 and spans[-1][1] == 300 and all(a[1] == b[0] for a, b in zip(spans, spans[1:]))
+    blob = "".join((ROOT / p).read_text(encoding="utf-8") for p in ("docs/evidence/phase02b1/blender_capability_probe.json", "docs/benchmarks/bench_p02b_char_10s.json", "docs/PHASE_02B1_BLENDER_CAPABILITY_REPORT.md"))
+    assert "Bearer" not in blob and "trycloudflare" not in blob
