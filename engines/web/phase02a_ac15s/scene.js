@@ -591,10 +591,10 @@ const xsParts = {};
     g.fillStyle = sg; g.fillRect(0, 0, w, h);
   });
   mesh(new THREE.PlaneGeometry(6, 7), new THREE.MeshBasicMaterial({ map: skyTex2 }), v3(3.1, 2.8, -1.6), xs, { cast: false, receive: false });
-  mesh(new THREE.PlaneGeometry(6.2, 5), std("#8DBB6E", 0.95), v3(3.26, 0.0, 0.9), xs, { cast: false }).rotation.x = -Math.PI / 2;
+  mesh(new THREE.PlaneGeometry(6.36, 14), std("#8DBB6E", 0.95), v3(3.18, 0.0, 4.0), xs, { cast: false }).rotation.x = -Math.PI / 2;
   const inTex = canvasTex(512, 512, (g, w, h) => noiseFill(g, w, h, "#EAD9C1", 0.06, 6000, 12));
   mesh(new THREE.PlaneGeometry(4, 7), std("#ffffff", 0.9, 0, { map: inTex }), v3(-2.15, 2.8, -1.6), xs, { cast: false, receive: false });
-  mesh(new THREE.PlaneGeometry(4.2, 5), std("#B98552", 0.65), v3(-2.26, 0.0, 0.9), xs, { cast: false, receive: false }).rotation.x = -Math.PI / 2;
+  mesh(new THREE.PlaneGeometry(4.36, 14), std("#B98552", 0.65), v3(-2.18, 0.0, 4.0), xs, { cast: false, receive: false }).rotation.x = -Math.PI / 2;
   const brickTex = canvasTex(256, 1024, (g, w, h) => {
     g.fillStyle = "#D9CFC2"; g.fillRect(0, 0, w, h);
     const bh = 36;
@@ -835,27 +835,28 @@ function renderFrame(f) {
     remoteFace.getWorldPosition(tmpB);
     const faceN = v3(0, 0, 1).applyQuaternion(remoteFace.getWorldQuaternion(new THREE.Quaternion()));
     // camera: medium on Bima -> close insert on the thumb/remote -> follow the IR ray to the AC -> hold on the louver
-    const ins = ease(seg(f, insA, insB)) * (1 - ease(seg(f, pressB + 2, irB)));
-    const toAC = ease(seg(f, pressB + 2, irB));
-    const mediumPos = v3(-0.95, 1.6, 1.55), mediumTgt = v3(-0.7, 1.78, -0.25);
+    const ins = ease(seg(f, insA, insB));
+    const toAC = f >= pressB + 4 ? 1 : 0; // clean cut from the remote insert to the AC as the IR fires
+    const mediumPos = v3(-1.05, 1.62, 1.75), mediumTgt = v3(-0.5, 1.75, -0.25);
     const remoteC = tmpB.clone();
     const insertPos = remoteC.clone().addScaledVector(faceN, 0.42).add(v3(0, -0.05, 0));
-    const acPos = v3(-0.55, 1.95, 1.35), acTgt = acCenterW.clone().add(v3(0.15, -0.2, 0.0));
+    const acPush = ease(seg(f, pressB + 4, c1.b));
+    const acPos = v3(lerp(-0.45, -0.62, acPush), lerp(1.9, 1.98, acPush), lerp(1.55, 1.3, acPush)), acTgt = acCenterW.clone().add(v3(0.15, -0.2, 0.0));
     const beamHead = tmpA.clone().lerp(acSensorW, seg(f, irA, irB));
     // orbit around the remote while closing in (no straight line through the set dressing)
     const dirMed = mediumPos.clone().sub(remoteC); const dMed = dirMed.length(); dirMed.normalize();
     const orbitDir = dirMed.clone().lerp(faceN, ins).normalize();
     const orbitPos = remoteC.clone().addScaledVector(orbitDir, lerp(dMed, 0.42, ins)).add(v3(0, -0.05 * ins, 0));
     camPos.copy(orbitPos).lerp(acPos, toAC);
-    camTgt.copy(mediumTgt).lerp(remoteC, ins).lerp(beamHead, toAC * (1 - seg(f, irB - 6, irB + 6))).lerp(acTgt, seg(f, irB - 6, irB + 6));
+    camTgt.copy(mediumTgt).lerp(remoteC, ins).lerp(acTgt, toAC);
     // during the insert the camera's up follows the remote's long axis (tip at the top of the frame)
     const tipUp = tmpA.clone().sub(remoteC).normalize();
-    const camUp = WORLD_UP.clone().lerp(tipUp, ins).normalize();
-    look(lerp(56, 40, ins) * (1 - toAC) + 54 * toAC, camPos.x, camPos.y, camPos.z, camTgt.x, camTgt.y, camTgt.z, camUp);
+    const camUp = WORLD_UP; // keep the horizon level (no roll); tipUp kept for reference only
+    look(lerp(56, 42, ins) * (1 - toAC) + 54 * toAC, camPos.x, camPos.y, camPos.z, camTgt.x, camTgt.y, camTgt.z, camUp);
     // IR ray grows from the remote tip to the receiver
     const ir = seg(f, irA, irB);
     if (ir > 0 && f < c1.a + 6) {
-      irBeam.visible = ins < 0.35; // inside the macro insert the IR is shown by the LED flash, not a cylinder
+      irBeam.visible = toAC > 0.5; // inside the macro insert the IR is shown by the LED flash, not a cylinder
       const dir = acSensorW.clone().sub(tmpA); const len = dir.length();
       irBeam.position.copy(tmpA); irBeam.quaternion.setFromUnitVectors(v3(0, 1, 0), dir.normalize());
       irBeam.scale.set(1, len * ir, 1);

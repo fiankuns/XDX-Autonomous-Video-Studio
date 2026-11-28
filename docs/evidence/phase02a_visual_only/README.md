@@ -27,3 +27,7 @@ Tes: core 130 passed; `full_integration` 130 passed.
 ## v3 (timing map + caption sync)
 
 Review independen v3: **HARD_FAIL** — rata-rata shot {'S001': 2.857, 'S002': 3.429, 'S003': 3.286, 'S004': 3.143}, vs REF-002 2.333; 1 critical (S001), semua 8 caption sinkron (`independent_visual_qc_result_v3.json`).
+
+## v4 / v5
+
+Review independen v4: **HARD_FAIL**, 0 critical — semua aksi wajib & 8 caption tampil sinkron; rata-rata shot 3,14 / 3,29 / 3,21 / 3,21, vs REF-002 2,83 (`independent_visual_qc_result_v4.json`). Temuan: kamera ke remot masih berguling/menyentak, celah hitam lantai S004. v5 memperbaiki keduanya (belum direview independen).
