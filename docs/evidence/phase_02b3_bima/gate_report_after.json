@@ -1,0 +1,99 @@
+{
+ "silhouette": {
+  "iou": 0.9706,
+  "aspect_error": 0.0041,
+  "align": "bbox",
+  "threshold": 0.8,
+  "verdict": "PASS_GEOMETRY_ONLY",
+  "note": "Geometry-only diagnostic; production PASS needs Independent Visual QC on real renders."
+ },
+ "body_volume_profile_error": 0.0111,
+ "framing": {
+  "ok": true,
+  "min_margin": 0.074,
+  "fill_ratio": 0.812,
+  "center_offset": 0.0
+ },
+ "material": {
+  "match_share": 0.8484,
+  "used": [
+   "#DFA021",
+   "#E7DEC9",
+   "#C68A5E",
+   "#1d1f22",
+   "#3D444A"
+  ]
+ },
+ "hair": {
+  "ok": true,
+  "error": 0.0078,
+  "tolerance": 0.1
+ },
+ "proportions": {
+  "errors": {
+   "leg_len": 0.0011,
+   "torso_len": 0.0538
+  }
+ },
+ "landmarks": {
+  "mean_error": 0.0565,
+  "per_landmark": {
+   "eye_L": 0.0564,
+   "eye_R": 0.0565
+  },
+  "missing": []
+ },
+ "other_views": {
+  "side": {
+   "framing": {
+    "ok": true,
+    "min_margin": 0.078,
+    "fill_ratio": 0.809,
+    "center_offset": 0.004
+   },
+   "silhouette": {
+    "iou": 0.9132,
+    "aspect_error": 0.0081,
+    "align": "bbox",
+    "threshold": 0.8,
+    "verdict": "PASS_GEOMETRY_ONLY",
+    "note": "Geometry-only diagnostic; production PASS needs Independent Visual QC on real renders."
+   }
+  },
+  "back": {
+   "framing": {
+    "ok": true,
+    "min_margin": 0.086,
+    "fill_ratio": 0.801,
+    "center_offset": 0.0
+   },
+   "silhouette": {
+    "iou": 0.9673,
+    "aspect_error": 0.0027,
+    "align": "bbox",
+    "threshold": 0.8,
+    "verdict": "PASS_GEOMETRY_ONLY",
+    "note": "Geometry-only diagnostic; production PASS needs Independent Visual QC on real renders."
+   }
+  }
+ },
+ "geometry": {
+  "within_budget": true,
+  "needs_attention": []
+ },
+ "criteria": {
+  "silhouette": true,
+  "body_volume_profile": true,
+  "technical_framing": true,
+  "palette": true,
+  "hair": true,
+  "proportions": "True",
+  "landmarks": true,
+  "view_side_silhouette": true,
+  "view_back_silhouette": true,
+  "geometry_integrity": true
+ },
+ "missing_evidence": [],
+ "verdict": "PASS_AUTOMATED_CHECKS",
+ "note": "Automated checks only. Acceptance also requires Independent Visual Critic on real renders and user approval."
+}
