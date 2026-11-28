@@ -364,7 +364,7 @@ const room = new THREE.Group(); scene.add(room);
   const sk = mesh(new THREE.BoxGeometry(8, 0.12, 0.03), std("#F2ECE2", 0.6), v3(-2.385, 0.06, 1.0), room); sk.rotation.y = Math.PI / 2;
 
   // window (closed, sunny outside)
-  const win = new THREE.Group(); win.position.set(0.55, 1.65, -1.99); room.add(win);
+  const win = new THREE.Group(); win.position.set(0.3, 1.65, -1.99); room.add(win);
   const skyTex = canvasTex(512, 512, (g, w, h) => {
     const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, "#7FC4F2"); gr.addColorStop(0.7, "#CDEBFA"); gr.addColorStop(1, "#F7E6B8");
     g.fillStyle = gr; g.fillRect(0, 0, w, h);
@@ -422,6 +422,32 @@ const room = new THREE.Group(); scene.add(room);
   mesh(rbox(1.36, 0.9, 0.08, 0.03), std("#7C5236", 0.6), v3(0, 0.55, -1.0), bed);
 }
 
+// large wall thermometer (readable in S001/S002) + set dressing (rug, frame, clock)
+const wallThermo = new THREE.Group(); wallThermo.position.set(-1.05, 1.9, -1.975); room.add(wallThermo);
+{
+  mesh(rbox(0.42, 0.27, 0.04, 0.03), std("#F7F7F5", 0.35), v3(0, 0, 0.02), wallThermo);
+  const tt = canvasTex(512, 320, (g) => {
+    g.fillStyle = "#101418"; g.beginPath(); g.roundRect(0, 0, 512, 320, 28); g.fill();
+    g.fillStyle = "#8C98A4"; g.font = "700 44px PJS, sans-serif"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("SUHU KAMAR", 256, 52);
+    g.fillStyle = "#FF5A3C"; g.font = "800 176px PJS, sans-serif"; g.fillText("32°C", 256, 190);
+  });
+  mesh(new THREE.PlaneGeometry(0.36, 0.225), new THREE.MeshBasicMaterial({ map: tt }), v3(0, 0, 0.042), wallThermo, { cast: false });
+  const rugTex = canvasTex(512, 512, (g, w, h) => {
+    g.fillStyle = "#C9B79A"; g.fillRect(0, 0, w, h);
+    g.strokeStyle = "#A3876A"; g.lineWidth = 18; g.strokeRect(30, 30, w - 60, h - 60);
+    g.strokeStyle = "#D98C6A"; g.lineWidth = 8; g.strokeRect(70, 70, w - 140, h - 140);
+  });
+  mesh(new THREE.PlaneGeometry(1.9, 1.3), std("#ffffff", 0.95, 0, { map: rugTex }), v3(0.0, 0.004, 0.35), room, { cast: false }).rotation.x = -Math.PI / 2;
+  const art = canvasTex(256, 320, (g) => {
+    g.fillStyle = "#F2E9DA"; g.fillRect(0, 0, 256, 320);
+    g.fillStyle = "#7FB3D5"; g.fillRect(28, 28, 200, 160);
+    g.fillStyle = "#F2C14E"; g.beginPath(); g.arc(170, 80, 26, 0, Math.PI * 2); g.fill();
+    g.fillStyle = "#5E8C61"; g.beginPath(); g.moveTo(28, 188); g.lineTo(100, 110); g.lineTo(160, 188); g.fill();
+  });
+  const frame = new THREE.Group(); frame.position.set(-2.385, 1.55, 0.75); frame.rotation.y = Math.PI / 2; room.add(frame);
+  mesh(rbox(0.5, 0.62, 0.03, 0.01), std("#6B4A2E", 0.6), v3(0, 0, 0), frame);
+  mesh(new THREE.PlaneGeometry(0.44, 0.55), new THREE.MeshStandardMaterial({ map: art, roughness: 0.8 }), v3(0, 0, 0.017), frame, { cast: false });
+}
 const AC = makeIndoorAC();
 AC.g.position.set(-2.24, 2.55, -0.25);
 AC.g.rotation.y = Math.PI / 2; // front faces +x (into the room)
@@ -440,7 +466,7 @@ const fanTex = canvasTex(512, 256, (g, w, h) => {
 });
 const fan = new THREE.Group(); rightArm.wr.add(fan);
 {
-  const fg = new THREE.CircleGeometry(0.2, 32, Math.PI / 2 - 0.95, 1.9);
+  const fg = new THREE.CircleGeometry(0.25, 40, Math.PI / 2 - 0.95, 1.9);
   const fm = mesh(fg, new THREE.MeshStandardMaterial({ map: fanTex, side: THREE.DoubleSide, roughness: 0.9 }), v3(0, -0.02, 0), fan);
   fm.rotation.x = Math.PI / 2; fm.rotation.z = Math.PI;
   mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.1, 8), std("#6B4A2E", 0.6), v3(0, -0.05, 0), fan);
@@ -474,6 +500,11 @@ let remoteTip, remoteBtn, remoteFace, pressThumb;
   const nail = mesh(new THREE.SphereGeometry(0.009, 12, 8), std("#E8C3A8", 0.3), v3(0, -0.058, 0.007), pressThumb, { cast: false });
   nail.scale.set(1, 1.3, 0.4);
   pressThumb.rotation.z = 0.75;
+  for (let k = 0; k < 4; k++) {
+    const tip = mesh(capsule(0.0105, 0.026), thumbSkin, v3(0.04, -0.07 - k * 0.026, 0.03), remote);
+    tip.rotation.z = Math.PI / 2 - 0.15; tip.scale.set(1, 1, 0.9);
+  }
+  mesh(new THREE.SphereGeometry(0.05, 20, 14), thumbSkin, v3(0.005, 0.0, 0.0), remote).scale.set(1.1, 0.7, 0.75); // palm heel at the bottom end
   mesh(new THREE.SphereGeometry(0.008, 12, 8), std("#7A1F2B", 0.2, 0, { emissive: new THREE.Color("#FF2D55"), emissiveIntensity: 0.3 }), v3(0, -0.191, 0.03), remote, { cast: false });
   remote.position.set(0.0, -0.02, 0.0);
 }
@@ -486,7 +517,7 @@ key.castShadow = true; key.shadow.mapSize.set(2048, 2048); key.shadow.camera.lef
 key.shadow.bias = -0.0004; key.shadow.normalBias = 0.02; key.shadow.radius = 4;
 roomLights.add(key); roomLights.add(key.target);
 const sun = new THREE.PointLight("#FFE2B0", 6, 6, 1.6); sun.position.set(0.55, 1.9, -1.6); roomLights.add(sun);
-const coolLight = new THREE.PointLight("#7FCBFF", 0, 3.5, 1.8); coolLight.position.set(-1.9, 2.2, -0.25); roomLights.add(coolLight);
+const coolLight = new THREE.PointLight("#7FCBFF", 0, 3.0, 1.8); coolLight.position.set(-1.3, 1.4, -0.25); roomLights.add(coolLight);
 const acInner = new THREE.PointLight("#BFE6FF", 0, 1.2, 2); acInner.position.set(-2.05, 2.55, -0.25); roomLights.add(acInner);
 
 // heat flow in the room (S001): warm comets rising from the room toward the AC intake
@@ -515,8 +546,9 @@ for (let i = 0; i < 9; i++) {
   const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color: "#FF3D6E", transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
   irGroup.add(s); irDots.push(s);
 }
+const ledFlash = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color: "#FF3D6E", transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
 const sensorFlash = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, color: "#FF6F91", transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
-room.add(sensorFlash);
+room.add(sensorFlash); room.add(ledFlash);
 
 // cool air from the louver (S002 end, S003)
 // IR beam (S002): a glowing ray that grows from the remote to the AC receiver
@@ -540,7 +572,7 @@ for (let i = 0; i < 22; i++) {
   const x = lerp(-0.48, 0.48, (i + er() * 0.6) / 22);
   // AC local: +z = front (room), +y = up. Warm room air -> over the top -> down through fins/coil -> out the louver.
   evapFlowCurves.push(new THREE.CatmullRomCurve3([
-    v3(x, -0.55, 0.75), v3(x, 0.05, 0.55), v3(x, 0.32, 0.12), v3(x, 0.12, 0.0), v3(x, -0.06, 0.02), v3(x, -0.2, 0.16), v3(x, -0.5, 0.55),
+    v3(x, 0.62, 0.62), v3(x, 0.45, 0.3), v3(x, 0.24, 0.06), v3(x, 0.06, 0.0), v3(x, -0.1, 0.03), v3(x, -0.24, 0.2), v3(x, -0.55, 0.6),
   ]));
 }
 const warm = new THREE.Color("#FF6A2B"), cool = new THREE.Color("#4FC3FF");
@@ -559,10 +591,10 @@ const xsParts = {};
     g.fillStyle = sg; g.fillRect(0, 0, w, h);
   });
   mesh(new THREE.PlaneGeometry(6, 7), new THREE.MeshBasicMaterial({ map: skyTex2 }), v3(3.1, 2.8, -1.6), xs, { cast: false, receive: false });
-  mesh(new THREE.PlaneGeometry(6.4, 5), std("#8DBB6E", 0.95), v3(2.9, 0.0, 0.9), xs, { cast: false }).rotation.x = -Math.PI / 2;
+  mesh(new THREE.PlaneGeometry(6.2, 5), std("#8DBB6E", 0.95), v3(3.26, 0.0, 0.9), xs, { cast: false }).rotation.x = -Math.PI / 2;
   const inTex = canvasTex(512, 512, (g, w, h) => noiseFill(g, w, h, "#EAD9C1", 0.06, 6000, 12));
   mesh(new THREE.PlaneGeometry(4, 7), std("#ffffff", 0.9, 0, { map: inTex }), v3(-2.15, 2.8, -1.6), xs, { cast: false, receive: false });
-  mesh(new THREE.PlaneGeometry(4.4, 5), std("#B98552", 0.65), v3(-2.0, 0.0, 0.9), xs, { cast: false, receive: false }).rotation.x = -Math.PI / 2;
+  mesh(new THREE.PlaneGeometry(4.2, 5), std("#B98552", 0.65), v3(-2.26, 0.0, 0.9), xs, { cast: false, receive: false }).rotation.x = -Math.PI / 2;
   const brickTex = canvasTex(256, 1024, (g, w, h) => {
     g.fillStyle = "#D9CFC2"; g.fillRect(0, 0, w, h);
     const bh = 36;
@@ -581,26 +613,14 @@ const xsParts = {};
   mesh(rbox(0.34, 0.012, 0.012, 0.004), std("#8E8A84", 0.6), v3(0, 2.3, 1.004), xs, { cast: false });
 
   // indoor unit as a technical section (cut at the same plane as the wall)
-  const iu = new THREE.Group(); iu.position.set(-0.16, 2.55, 0.0); iu.scale.setScalar(1.25); xs.add(iu);
-  const prof = new THREE.Shape();
-  prof.moveTo(0, -0.17); prof.lineTo(0, 0.18); prof.lineTo(-0.24, 0.18); prof.quadraticCurveTo(-0.3, 0.18, -0.3, 0.12);
-  prof.lineTo(-0.3, -0.08); prof.lineTo(-0.24, -0.17); prof.lineTo(0, -0.17);
-  const body = mesh(new THREE.ExtrudeGeometry(prof, { depth: 0.85, bevelEnabled: false }), std("#F4F6F8", 0.32), v3(0, 0, 0.15), iu);
-  const secTex = canvasTex(600, 700, (g, w, h) => {
-    const sx = (x) => ((x + 0.3) / 0.3) * w, sy = (y) => ((0.18 - y) / 0.35) * h;
-    g.fillStyle = "#F4F6F8"; g.fillRect(0, 0, w, h);
-    g.fillStyle = "#1B2733"; g.beginPath(); g.roundRect(sx(-0.285), sy(0.165), sx(-0.015) - sx(-0.285), sy(-0.155) - sy(0.165), 18); g.fill();
-    g.strokeStyle = "#9FB0BF"; g.lineWidth = 3;
-    for (let i = 0; i < 18; i++) { const x = sx(-0.2 + i * 0.0095); g.beginPath(); g.moveTo(x, sy(0.15)); g.lineTo(x + 40, sy(0.0)); g.stroke(); }
-    g.fillStyle = "#C47A45";
-    for (let i = 0; i < 9; i++) { g.beginPath(); g.arc(sx(-0.22 + i * 0.022), sy(0.14 - i * 0.016), 12, 0, Math.PI * 2); g.fill(); g.strokeStyle = "#7A4424"; g.lineWidth = 3; g.stroke(); }
-    g.strokeStyle = "#5B636B"; g.lineWidth = 6; g.beginPath(); g.arc(sx(-0.17), sy(-0.085), 46, 0, Math.PI * 2); g.stroke();
-    for (let i = 0; i < 12; i++) { const a = (i / 12) * Math.PI * 2; g.beginPath(); g.moveTo(sx(-0.17) + Math.cos(a) * 20, sy(-0.085) + Math.sin(a) * 20); g.lineTo(sx(-0.17) + Math.cos(a + 0.5) * 44, sy(-0.085) + Math.sin(a + 0.5) * 44); g.stroke(); }
-    g.fillStyle = "#F4F6F8"; g.save(); g.translate(sx(-0.27), sy(-0.15)); g.rotate(-0.7); g.fillRect(-60, -8, 120, 16); g.restore();
-    g.fillStyle = "#6FD3FF"; g.beginPath(); g.arc(sx(-0.29), sy(0.05), 7, 0, Math.PI * 2); g.fill();
-  });
-  mesh(new THREE.PlaneGeometry(0.3, 0.35), new THREE.MeshBasicMaterial({ map: secTex }), v3(-0.15, 0.005, 1.002), iu, { cast: false, receive: false });
-  xsParts.iu = iu;
+  const ac2 = makeIndoorAC();
+  ac2.g.position.set(-0.64, 2.55, 0.7); ac2.g.scale.setScalar(0.6); xs.add(ac2.g);
+  ac2.louverPivot.rotation.x = -1.05; ac2.setDisplay("24°", true);
+  xsParts.ac2 = ac2;
+  mesh(new THREE.PlaneGeometry(2.3, 4.2), std("#ffffff", 0.9, 0, { map: inTex, color: "#E9D3B8" }), v3(-1.31, 2.1, 0.5), xs, { cast: false }); // interior wall behind the unit
+  mesh(rbox(0.5, 0.32, 3.4, 0.02), std("#9A9690", 0.9), v3(0, -0.12, -0.6), xs); // foundation under the wall
+  const shadowTex = canvasTex(256, 128, (g) => { const gr = g.createRadialGradient(128, 64, 4, 128, 64, 120); gr.addColorStop(0, "rgba(0,0,0,0.45)"); gr.addColorStop(1, "rgba(0,0,0,0)"); g.fillStyle = gr; g.fillRect(0, 0, 256, 128); });
+  mesh(new THREE.PlaneGeometry(1.4, 0.7), new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false }), v3(0.8, 0.004, 0.8), xs, { cast: false, receive: false }).rotation.x = -Math.PI / 2;
 
   // outdoor unit
   const od = new THREE.Group(); od.position.set(0.8, 1.25, 0.9); xs.add(od); xsParts.od = od;
@@ -638,8 +658,8 @@ const xsParts = {};
     mesh(rbox(0.03, 0.4, 0.03, 0.006), std("#6E757B", 0.4, 0.7), v3(s2 * 0.3, -0.5, -0.27), od);
   }
   // refrigerant lines: out of the indoor section, through the wall sleeve, down to the outdoor unit
-  const pipeTop = new THREE.CatmullRomCurve3([v3(-0.2, 2.45, 0.98), v3(-0.12, 2.45, 1.03), v3(0.12, 2.45, 1.03), v3(0.27, 2.38, 1.03), v3(0.34, 2.0, 1.03), v3(0.38, 1.72, 1.03), v3(0.55, 1.64, 1.02), v3(0.98, 1.64, 0.98), v3(1.05, 1.42, 0.94), v3(1.05, 1.27, 0.9)]);
-  const pipeBot = new THREE.CatmullRomCurve3([v3(0.45, 1.0, 0.9), v3(0.3, 1.25, 1.03), v3(0.24, 2.0, 1.03), v3(0.2, 2.33, 1.03), v3(0.12, 2.36, 1.03), v3(-0.12, 2.36, 1.03), v3(-0.2, 2.36, 0.98)]);
+  const pipeTop = new THREE.CatmullRomCurve3([v3(-0.32, 2.5, 0.68), v3(-0.2, 2.47, 0.88), v3(-0.12, 2.45, 1.03), v3(0.12, 2.45, 1.03), v3(0.27, 2.38, 1.03), v3(0.34, 2.0, 1.03), v3(0.38, 1.72, 1.03), v3(0.55, 1.64, 1.02), v3(0.98, 1.64, 0.98), v3(1.05, 1.42, 0.94), v3(1.05, 1.27, 0.9)]);
+  const pipeBot = new THREE.CatmullRomCurve3([v3(0.45, 1.0, 0.9), v3(0.3, 1.25, 1.03), v3(0.24, 2.0, 1.03), v3(0.2, 2.33, 1.03), v3(0.12, 2.36, 1.03), v3(-0.12, 2.38, 1.03), v3(-0.2, 2.4, 0.88), v3(-0.32, 2.44, 0.68)]);
   xsParts.pipeTop = pipeTop; xsParts.pipeBot = pipeBot;
   mesh(new THREE.TubeGeometry(pipeTop, 240, 0.028, 14, false), std("#EDEDE8", 0.85, 0, { transparent: true, opacity: 0.38, depthWrite: false }), null, xs, { cast: false });
   mesh(new THREE.TubeGeometry(pipeTop, 240, 0.013, 10, false), std("#C47A45", 0.32, 0.9), null, xs);
@@ -663,7 +683,7 @@ for (let i = 0; i < 24; i++) {
   heatOutCurves.push(new THREE.CatmullRomCurve3([a, b, c]));
 }
 const heatOut = new Comets(xs, 24, 7, (i) => heatOutCurves[i], (i, t) => hot.clone().lerp(hotPale, t), 0.09, 0.38, { alpha: 0.9, gap: 0.02, grow: true, arrows: true });
-const coolIn = new Comets(xs, 12, 6, (i) => new THREE.CatmullRomCurve3([v3(-0.45, 2.38, 0.95 + (i - 6) * 0.02), v3(-0.85, 2.05, 1.05), v3(-1.4, 1.65, 1.15 + (i % 3) * 0.08)]), () => new THREE.Color("#5CC8FF"), 0.07, 0.4, { alpha: 0.85, gap: 0.022, arrows: true });
+const coolIn = new Comets(xs, 12, 6, (i) => new THREE.CatmullRomCurve3([v3(-0.92 + i * 0.05, 2.42, 0.82), v3(-1.0 + i * 0.04, 2.05, 1.05), v3(-1.3 + i * 0.03, 1.6, 1.2)]), () => new THREE.Color("#5CC8FF"), 0.07, 0.4, { alpha: 0.85, gap: 0.022, arrows: true });
 
 // ------------------------------------------------------------------ labels (content callouts grounded in the script, not debug)
 const labelsEl = document.getElementById("labels");
@@ -745,7 +765,7 @@ function renderFrame(f) {
   AC.copper.transparent = false; AC.copper.opacity = 1;
   fan.visible = false; remote.visible = false;
   route.visible = false; routeHead.visible = false;
-  irGroup.visible = false; sensorFlash.visible = false; irBeam.visible = false;
+  irGroup.visible = false; sensorFlash.visible = false; irBeam.visible = false; ledFlash.visible = false;
   coolLight.intensity = 0; acInner.intensity = 0; key.intensity = 2.4; hemi.intensity = 0.85; sun.intensity = 6;
   heatComets.group.visible = false; coolComets.group.visible = false; evapComets.group.visible = false; refComets.group.visible = false;
   bima.root.visible = true;
@@ -757,15 +777,15 @@ function renderFrame(f) {
   if (shot === 0) {
     const c0 = cue("S001", 0), c1 = cue("S001", 1);
     const tt = ease(seg(f, c0.a, c1.b));
-    look(60, lerp(1.75, 1.5, tt), lerp(2.55, 2.35, tt), lerp(3.9, 3.35, tt), -1.25, 1.5, -0.4);
+    look(62, lerp(1.55, 1.3, tt), lerp(2.25, 2.1, tt), lerp(4.1, 3.6, tt), -0.95, 1.2, -0.6);
     bima.root.rotation.y = 0.5;
     // c0: overheated, fanning; c1 (lead 0.3 s): glances up at the AC while the heat route draws to it
     const glance = ease(seg(f, c1.a - SYNC_LEAD, c1.a + 10));
     const w = Math.sin(t * 2 * Math.PI * 2.4) * (1 - 0.6 * glance);
     const ra = rightArm;
-    ra.sh.rotation.set(-1.15, 0.25, 0.35);
-    ra.el.rotation.set(-1.55 + 0.12 * w, 0, 0);
-    ra.wr.rotation.set(0.25, 0.55 * w, 0.2);
+    ra.sh.rotation.set(-0.75, 0.55, 0.15);
+    ra.el.rotation.set(-2.15 + 0.18 * w, 0, 0);
+    ra.wr.rotation.set(0.1, 0.0, 0.9 * w);
     grip(ra, 0.8);
     fan.visible = true;
     leftArm.sh.rotation.set(0.05, 0, -0.18); leftArm.el.rotation.set(-0.35, 0, 0);
@@ -774,22 +794,19 @@ function renderFrame(f) {
     bima.torso.rotation.y = 0.04 * w;
     face(1, 0, f % 70 > 66 ? 0.9 : 0);
     bima.sweat.forEach((s, i) => { s.d.position.y = s.y0 - ((t * 0.08 + i * 0.37) % 1) * 0.07; });
-    heatComets.group.visible = true; heatComets.update(t, 1);
-    const rt = ease(seg(f, c1.a - SYNC_LEAD, c1.a + 24));
-    if (rt > 0) {
-      route.visible = routeHead.visible = true;
-      routeGeo.setDrawRange(0, Math.floor(routeGeo.index.count * rt / 6) * 6);
-      routeCurve.getPoint(rt, tmpA); routeCurve.getTangent(rt, tmpB);
-      routeHead.position.copy(tmpA); routeHead.quaternion.setFromUnitVectors(v3(0, 1, 0), tmpB.normalize());
-    }
+    heatComets.group.visible = true;
+    // c1 "memindahkan panas": the room heat visibly streams into the AC intake (denser, larger arrows)
+    const rt = ease(seg(f, c1.a - SYNC_LEAD, c1.a + 12));
+    heatComets.update(t, 1, 1 + 0.45 * rt);
     scene.updateMatrixWorld(true);
-    placeScreen(L.heat, 720, 560, seg(f, c0.a + 10, c0.a + 20) * (1 - seg(f, c1.a - 8, c1.a)));
+    placeScreen(L.heat, 760, 700, seg(f, c0.a + 10, c0.a + 20) * (1 - seg(f, c1.a - 8, c1.a)));
   } else if (shot === 1) {
     const c0 = cue("S002", 0), c1 = cue("S002", 1);
     const L0 = c0.b - c0.a;
-    const raiseEnd = c0.a + Math.round(L0 * 0.17);
-    const pressA = c0.a + Math.round(L0 * 0.4), pressB = c0.a + Math.round(L0 * 0.5);
-    const irA = pressA + 2, irB = c0.a + Math.round(L0 * 0.8);
+    const raiseEnd = c0.a + Math.round(L0 * 0.14);
+    const insA = c0.a + Math.round(L0 * 0.12), insB = c0.a + Math.round(L0 * 0.5); // ~0.9 s ease into the insert (was 0.5 s)
+    const pressA = c0.a + Math.round(L0 * 0.54), pressB = c0.a + Math.round(L0 * 0.62);
+    const irA = pressA + 2, irB = c1.a - SYNC_LEAD - 2;
     const openA = c1.a - SYNC_LEAD, openB = c1.a + 12;
     bima.root.rotation.y = -0.7;
     const raise = easeOut(seg(f, c0.a, raiseEnd));
@@ -812,20 +829,24 @@ function renderFrame(f) {
     if (f >= irB) AC.setDisplay("24°", true);
     const open = ease(seg(f, openA, openB));
     AC.louverPivot.rotation.x = -1.05 * open;
-    coolLight.intensity = 2.2 * open;
+    coolLight.intensity = 1.2 * open;
     scene.updateMatrixWorld(true);
     remoteTip.getWorldPosition(tmpA);
     remoteFace.getWorldPosition(tmpB);
     const faceN = v3(0, 0, 1).applyQuaternion(remoteFace.getWorldQuaternion(new THREE.Quaternion()));
     // camera: medium on Bima -> close insert on the thumb/remote -> follow the IR ray to the AC -> hold on the louver
-    const ins = ease(seg(f, raiseEnd, pressA - 2)) * (1 - ease(seg(f, irA + 4, irB)));
-    const toAC = ease(seg(f, irA + 4, irB));
+    const ins = ease(seg(f, insA, insB)) * (1 - ease(seg(f, pressB + 2, irB)));
+    const toAC = ease(seg(f, pressB + 2, irB));
     const mediumPos = v3(-0.95, 1.6, 1.55), mediumTgt = v3(-0.7, 1.78, -0.25);
     const remoteC = tmpB.clone();
     const insertPos = remoteC.clone().addScaledVector(faceN, 0.42).add(v3(0, -0.05, 0));
     const acPos = v3(-0.55, 1.95, 1.35), acTgt = acCenterW.clone().add(v3(0.15, -0.2, 0.0));
     const beamHead = tmpA.clone().lerp(acSensorW, seg(f, irA, irB));
-    camPos.copy(mediumPos).lerp(insertPos, ins).lerp(acPos, toAC);
+    // orbit around the remote while closing in (no straight line through the set dressing)
+    const dirMed = mediumPos.clone().sub(remoteC); const dMed = dirMed.length(); dirMed.normalize();
+    const orbitDir = dirMed.clone().lerp(faceN, ins).normalize();
+    const orbitPos = remoteC.clone().addScaledVector(orbitDir, lerp(dMed, 0.42, ins)).add(v3(0, -0.05 * ins, 0));
+    camPos.copy(orbitPos).lerp(acPos, toAC);
     camTgt.copy(mediumTgt).lerp(remoteC, ins).lerp(beamHead, toAC * (1 - seg(f, irB - 6, irB + 6))).lerp(acTgt, seg(f, irB - 6, irB + 6));
     // during the insert the camera's up follows the remote's long axis (tip at the top of the frame)
     const tipUp = tmpA.clone().sub(remoteC).normalize();
@@ -834,7 +855,7 @@ function renderFrame(f) {
     // IR ray grows from the remote tip to the receiver
     const ir = seg(f, irA, irB);
     if (ir > 0 && f < c1.a + 6) {
-      irBeam.visible = true;
+      irBeam.visible = ins < 0.35; // inside the macro insert the IR is shown by the LED flash, not a cylinder
       const dir = acSensorW.clone().sub(tmpA); const len = dir.length();
       irBeam.position.copy(tmpA); irBeam.quaternion.setFromUnitVectors(v3(0, 1, 0), dir.normalize());
       irBeam.scale.set(1, len * ir, 1);
@@ -843,6 +864,8 @@ function renderFrame(f) {
       irDots.forEach((d, i) => { const u = ((f - irA) / 14 - i * 0.12) % 1; d.visible = u > 0 && u < ir; d.position.lerpVectors(tmpA, acSensorW, clamp(u)); d.scale.setScalar(0.045); d.material.opacity = 0.95; });
       placeLabel(L.ir, tmpA.clone().lerp(acSensorW, 0.55).add(v3(0, 0.12, 0)), seg(f, irA + 6, irA + 12) * (1 - seg(f, c1.a - 6, c1.a)));
     }
+    const led = seg(f, pressA + 1, pressA + 3) * (1 - seg(f, irA + 10, irA + 16));
+    if (led > 0) { ledFlash.visible = true; ledFlash.position.copy(tmpA); ledFlash.scale.setScalar(0.05 + 0.03 * Math.sin(f * 1.7) ** 2); ledFlash.material.opacity = led; }
     const flash = seg(f, irB - 2, irB) * (1 - seg(f, irB + 2, irB + 10));
     if (flash > 0) { sensorFlash.visible = true; sensorFlash.position.copy(acSensorW); sensorFlash.scale.setScalar(0.25 * flash + 0.02); sensorFlash.material.opacity = flash; }
     if (open > 0.15) { coolComets.group.visible = true; coolComets.update(t, clamp((open - 0.15) * 2)); }
@@ -850,7 +873,7 @@ function renderFrame(f) {
   } else if (shot === 2) {
     const c0 = cue("S003", 0), c1 = cue("S003", 1);
     const tt = ease(seg(f, c0.a, c1.b));
-    look(lerp(60, 54, tt), lerp(-0.6, -0.85, tt), lerp(2.15, 2.25, tt), lerp(1.3, 1.0, tt), -2.2, 2.42, -0.25);
+    look(lerp(60, 56, tt), lerp(-0.55, -0.72, tt), lerp(2.15, 2.2, tt), lerp(1.3, 1.12, tt), -2.2, 2.4, -0.25);
     bima.root.visible = false;
     AC.setDisplay("24°", true);
     AC.louverPivot.rotation.x = -1.05;
@@ -875,9 +898,9 @@ function renderFrame(f) {
   } else {
     const c0 = cue("S004", 0), c1 = cue("S004", 1);
     const tt = ease(seg(f, c0.a, c1.b));
-    look(58, 40 + lerp(0.05, 0.32, tt), lerp(2.2, 1.95, tt), lerp(5.0, 4.75, tt), 40 + lerp(0.2, 0.38, tt), lerp(2.1, 1.85, tt), 0.9);
+    look(64, 40 + lerp(0.0, 0.35, tt), lerp(2.15, 1.95, tt), lerp(5.4, 5.1, tt), 40 + lerp(0.1, 0.42, tt), lerp(2.0, 1.8, tt), 0.9);
     xsParts.fanHub.rotation.z = -t * 18;
-    const pulse = 1 + 0.04 * Math.sin(t * 2 * Math.PI * 4);
+    const pulse = 1 + 0.08 * Math.sin(t * 2 * Math.PI * 4);
     xsParts.comp.scale.set(pulse, 1 / pulse, pulse);
     suction.update(t, 1); liquid.update(t, 1); condFlow.update(t, 1);
     heatOut.update(t, ease(seg(f, c1.a - SYNC_LEAD, c1.a + 10)) * 0.9 + 0.1, 1 + 0.3 * seg(f, c1.a, c1.b));
@@ -885,8 +908,8 @@ function renderFrame(f) {
     scene.updateMatrixWorld(true);
     const o = (x, y, z) => xsParts.od.localToWorld(v3(x, y, z));
     placeLabel(L.vapor, v3(40.05, 2.62, 1.1), seg(f, c0.a + 4, c0.a + 12) * (1 - seg(f, c0.a + 46, c0.a + 52)));
-    placeLabel(L.comp, o(0.25, -0.2, 0.25), seg(f, c0.a + 30, c0.a + 40));
-    placeLabel(L.cond, o(0.1, 0.4, -0.1), seg(f, c1.a - SYNC_LEAD, c1.a + 2));
+    placeLabel(L.comp, o(0.62, -0.08, 0.2), seg(f, c0.a + 30, c0.a + 40));
+    placeLabel(L.cond, o(-0.2, -0.5, 0.3), seg(f, c1.a - SYNC_LEAD, c1.a + 2));
     placeLabel(L.release, v3(41.25, 2.55, 1.4), seg(f, c1.a, c1.a + 8));
   }
   setCaption(t);
