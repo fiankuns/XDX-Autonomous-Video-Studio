@@ -125,42 +125,95 @@ def landmark_error(measured: dict[str, tuple[float, float]], ref: dict[str, tupl
     return {"mean_error": round(float(np.mean(list(errs.values()))), 4), "per_landmark": errs, "missing": [k for k in ref if k not in measured]}
 
 
+def hair_region_report(mr: np.ndarray, mq: np.ndarray, *, top_frac: float = 0.22, tol: float = 0.10) -> dict[str, Any]:
+    """Hair is judged on its own (top band of the silhouette), never folded into the body outline."""
+    def band(m):
+        sub, box = _crop_to_box(m)
+        if box is None:
+            return None
+        h = max(1, int(sub.shape[0] * top_frac))
+        top = sub[:h]
+        return {"w": top.any(axis=0).sum() / max(1, sub.shape[1]), "area": top.sum() / max(1, h * sub.shape[1])}
+    a, b = band(mr), band(mq)
+    if a is None or b is None:
+        return {"ok": None, "reason": "empty mask"}
+    err = max(abs(a["w"] - b["w"]), abs(a["area"] - b["area"]))
+    return {"ok": bool(err <= tol), "error": round(float(err), 4), "tolerance": tol}
+
+
 def evaluate_design(ref_path, front_render, *, palette, other_views: dict[str, str] | None = None,
+                    ref_views: dict[str, str] | None = None,
                     part_ratios: dict[str, float] | None = None, ref_part_ratios: dict[str, float] | None = None,
                     landmarks: dict | None = None, ref_landmarks: dict | None = None,
                     geometry: dict | None = None, thresholds: dict | None = None) -> dict[str, Any]:
-    """Multi-criteria verdict. IoU is ONE input; failing any hard criterion fails the design.
-    `geometry` = output of geometry_quality.validate_prefix (collected inside Blender)."""
-    th = {"iou": 0.80, "profile_err": 0.12, "part_ratio_err": 0.06, "landmark_err": 0.08, "palette_share": 0.80, **(thresholds or {})}
+    """Multi-criteria verdict: PASS_AUTOMATED_CHECKS | FAIL | INSUFFICIENT_EVIDENCE.
+    - Any failed criterion -> FAIL.
+    - Mandatory evidence missing/empty (proportions, landmarks, geometry, each non-front view
+      vs a real reference view) -> never PASS; INSUFFICIENT_EVIDENCE.
+    - Framing is a technical check only and is NOT similarity evidence.
+    - Hair is checked separately from the body silhouette."""
+    th = {"iou": 0.80, "profile_err": 0.12, "part_ratio_err": 0.06, "landmark_err": 0.08,
+          "palette_share": 0.80, "hair_tol": 0.10, **(thresholds or {})}
     with Image.open(ref_path) as r, Image.open(front_render) as q:
         ref, ren = r.copy(), q.copy()
     mr, mq = foreground_mask(ref), foreground_mask(ren)
     sil = silhouette_report(ref_path, front_render, iou_pass=th["iou"])
     prof = profile_error(row_width_profile(mr), row_width_profile(mq))
-    res: dict[str, Any] = {"silhouette": sil, "hair_volume_profile_error": round(prof, 4), "framing": framing_report(mq),
-                           "material": palette_consistency(ren, palette, mq)}
-    hard = {"silhouette": sil["verdict"] == "PASS_GEOMETRY_ONLY", "volume_profile": prof <= th["profile_err"],
-            "framing": res["framing"]["ok"], "palette": res["material"]["match_share"] >= th["palette_share"]}
+    res: dict[str, Any] = {"silhouette": sil, "body_volume_profile_error": round(prof, 4),
+                           "framing": framing_report(mq), "material": palette_consistency(ren, palette, mq),
+                           "hair": hair_region_report(mr, mq, tol=th["hair_tol"])}
+    hard = {"silhouette": sil["verdict"] == "PASS_GEOMETRY_ONLY", "body_volume_profile": prof <= th["profile_err"],
+            "technical_framing": res["framing"]["ok"], "palette": res["material"]["match_share"] >= th["palette_share"]}
+    missing: list[str] = []
+    if res["hair"]["ok"] is None:
+        missing.append("hair_region")
+    else:
+        hard["hair"] = res["hair"]["ok"]
     if part_ratios and ref_part_ratios:
         errs = {k: round(abs(part_ratios[k] - v), 4) for k, v in ref_part_ratios.items() if k in part_ratios}
         res["proportions"] = {"errors": errs}
-        hard["proportions"] = bool(errs) and max(errs.values()) <= th["part_ratio_err"]
+        if errs:
+            hard["proportions"] = max(errs.values()) <= th["part_ratio_err"]
+        else:
+            missing.append("proportions")
+    else:
+        missing.append("proportions")
     if landmarks and ref_landmarks:
         res["landmarks"] = landmark_error(landmarks, ref_landmarks)
-        hard["landmarks"] = res["landmarks"]["mean_error"] is not None and res["landmarks"]["mean_error"] <= th["landmark_err"]
-    if other_views:
-        views = {}
-        for name, path in other_views.items():
-            with Image.open(path) as v:
-                m = foreground_mask(v.copy())
-            views[name] = {"framing": framing_report(m), "width_profile": row_width_profile(m)}
-        res["other_views"] = views
-        hard["other_views_framed"] = all(v["framing"]["ok"] for v in views.values())
-    if geometry:
-        ok = geometry.get("within_budget", True) and not geometry.get("needs_attention")
+        if res["landmarks"]["mean_error"] is None or res["landmarks"]["missing"]:
+            missing.append("landmarks")
+        else:
+            hard["landmarks"] = res["landmarks"]["mean_error"] <= th["landmark_err"]
+    else:
+        missing.append("landmarks")
+    views = {}
+    for name, path in (other_views or {}).items():
+        refp = (ref_views or {}).get(name)
+        with Image.open(path) as v:
+            m = foreground_mask(v.copy())
+        entry: dict[str, Any] = {"framing": framing_report(m)}
+        if refp:
+            with Image.open(refp) as rv:
+                rm = foreground_mask(rv.copy())
+            iou = silhouette_report(refp, path, iou_pass=th["iou"])
+            entry["silhouette"] = iou
+            hard[f"view_{name}_silhouette"] = iou["verdict"] == "PASS_GEOMETRY_ONLY"
+        else:
+            missing.append(f"view_{name}_reference")
+        views[name] = entry
+    res["other_views"] = views
+    if geometry and geometry.get("objects") != 0 and ("within_budget" in geometry):
         res["geometry"] = {"within_budget": geometry.get("within_budget"), "needs_attention": geometry.get("needs_attention")}
-        hard["geometry_integrity"] = bool(ok)
+        hard["geometry_integrity"] = bool(geometry["within_budget"]) and not geometry.get("needs_attention")
+    else:
+        missing.append("geometry")
     res["criteria"] = hard
-    res["verdict"] = "PASS_AUTOMATED_CHECKS" if all(hard.values()) else "FAIL"
+    res["missing_evidence"] = sorted(set(missing))
+    if not all(hard.values()):
+        res["verdict"] = "FAIL"
+    elif missing:
+        res["verdict"] = "INSUFFICIENT_EVIDENCE"
+    else:
+        res["verdict"] = "PASS_AUTOMATED_CHECKS"
     res["note"] = "Automated checks only. Acceptance also requires Independent Visual Critic on real renders and user approval."
     return res

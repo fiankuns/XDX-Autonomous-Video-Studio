@@ -44,9 +44,46 @@ def test_multicriteria_passes_matching_render(tmp_path):
     from intelligence.design_fidelity_gate import evaluate_design
     a = tmp_path / "a.png"; _disc(a, 100)
     r = evaluate_design(a, a, palette=["#C86464"], landmarks={"eye": (0.3, 0.4)}, ref_landmarks={"eye": (0.31, 0.41)})
-    assert r["verdict"] == "PASS_AUTOMATED_CHECKS", r
+    # landmarks alone are NOT enough evidence: proportions + geometry missing -> never PASS
+    assert r["verdict"] == "INSUFFICIENT_EVIDENCE", r
+    assert r["criteria"]["landmarks"] is True
 
 
 def test_landmark_error_detects_misplaced_features():
     from intelligence.design_fidelity_gate import landmark_error
     assert landmark_error({"eye": (0.9, 0.9)}, {"eye": (0.3, 0.4)})["mean_error"] > 0.5
+
+
+def test_missing_evidence_is_insufficient_not_pass(tmp_path):
+    from intelligence.design_fidelity_gate import evaluate_design
+    a = tmp_path / "a.png"; _disc(a, 100)
+    r = evaluate_design(a, a, palette=["#C86464"])
+    assert r["verdict"] != "PASS_AUTOMATED_CHECKS"
+    assert {"proportions", "landmarks", "geometry"} <= set(r["missing_evidence"])
+
+
+def test_empty_geometry_data_is_not_skipped(tmp_path):
+    from intelligence.design_fidelity_gate import evaluate_design
+    a = tmp_path / "a.png"; _disc(a, 100)
+    r = evaluate_design(a, a, palette=["#C86464"], geometry={})
+    assert "geometry" in r["missing_evidence"] and r["verdict"] == "INSUFFICIENT_EVIDENCE"
+
+
+def test_other_view_without_reference_is_insufficient_and_framing_is_not_similarity(tmp_path):
+    from intelligence.design_fidelity_gate import evaluate_design
+    a = tmp_path / "a.png"; _disc(a, 100)
+    r = evaluate_design(a, a, palette=["#C86464"], other_views={"side": str(a)},
+                        part_ratios={"leg": .4}, ref_part_ratios={"leg": .4},
+                        landmarks={"eye": (.3, .4)}, ref_landmarks={"eye": (.3, .4)},
+                        geometry={"within_budget": True, "needs_attention": []})
+    assert r["missing_evidence"] == ["view_side_reference"] and r["verdict"] == "INSUFFICIENT_EVIDENCE"
+
+
+def test_full_evidence_can_pass_and_hair_has_own_criterion(tmp_path):
+    from intelligence.design_fidelity_gate import evaluate_design
+    a = tmp_path / "a.png"; _disc(a, 100)
+    r = evaluate_design(a, a, palette=["#C86464"], other_views={"side": str(a)}, ref_views={"side": str(a)},
+                        part_ratios={"leg": .4}, ref_part_ratios={"leg": .4},
+                        landmarks={"eye": (.3, .4)}, ref_landmarks={"eye": (.3, .4)},
+                        geometry={"within_budget": True, "needs_attention": []})
+    assert "hair" in r["criteria"] and r["verdict"] == "PASS_AUTOMATED_CHECKS"

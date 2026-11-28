@@ -145,7 +145,9 @@ def test_agent_registry_20_specialists_and_frontmatter_validation(tmp_path: Path
     cust = reg.validate_workspace_customizations()
     assert cust["roles_validated"] == 21
     assert len(cust["custom_agent_files_validated"]) == 10
-    assert len(cust["workspace_skills_validated"]) == 4
+    assert set(cust["workspace_skills_validated"]) == {
+        "xdx-blender-production", "xdx-independent-audit", "xdx-master-orchestration",
+        "xdx-preproduction-planning", "xdx-reference-intelligence"}
     assert len(cust["workspace_rules_validated"]) == 3
 
     fake_root = tmp_path / "workspace"

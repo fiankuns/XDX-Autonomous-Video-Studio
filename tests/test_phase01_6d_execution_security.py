@@ -44,43 +44,49 @@ def _build_pkg(tmp_path: Path, project_id: str = "sec16d_proj") -> tuple[Path, d
 
 
 # ----------------------------------------------------------------------------- trusted channel
+def _verify(guard, msg: str):
+    return guard.verify_token(msg, expected_project_id="sec16d_proj", expected_package_version="v1",
+                              live_manifest_digest="a" * 64)
+
+
 def test_repo_trust_registry_is_fail_closed() -> None:
-    """Empty/dirty registry -> BLOCKED. Owner-committed key (fian-termux-1, 9f87677) -> approval possible,
-    but production execution stays behind the Phase 02 boundary."""
+    """Latest policy (owner commit 7d09cf1): trusted channel = direct human chat approval; the key registry is no
+    longer a trust root (git state NOT_REQUIRED). Fail-closed behaviour is kept: anything that is not an explicit,
+    un-negated, non-question approval is refused, and the Phase boundary still governs execution scopes."""
     st = ta.default_guard().channel_status()
     cli = subprocess.run(
         [sys.executable, str(ROOT_DIR / "scripts" / "trusted_approval.py"), "status"],
         cwd=ROOT_DIR, capture_output=True, text=True,
     )
-    if st["status"] == "UNAVAILABLE":
-        assert st["production_status"] == "BLOCKED"
-        assert cli.returncode == 3 and json.loads(cli.stdout)["production_status"] == "BLOCKED"
+    assert st["status"] == "AVAILABLE" and st["channel"] == "direct_chat_approval"
+    assert st["registry_git_state"] == "NOT_REQUIRED" and st["approver_key_ids"] == ["direct_human_chat"] and not st["reasons"]
+    assert cli.returncode == 0 and json.loads(cli.stdout)["status"] == "AVAILABLE"
+    guard = ta.default_guard()
+    for bad in ("", "   ", "mungkin", "Setuju?", "Jangan lanjutkan", "tidak setuju", "random text"):
+        with pytest.raises(ta.UnsignedApprovalError):
+            _verify(guard, bad)
+    if ta.PHASE02_EXECUTION_ENABLED:
+        ta.assert_phase_boundary("render_production", action="render")  # owner enabled Phase 02 execution
     else:
-        assert st["registry_git_state"] == "CLEAN" and st["approver_key_ids"] and not st["reasons"]
-        assert cli.returncode == 0 and json.loads(cli.stdout)["status"] == "AVAILABLE"
         with pytest.raises(ta.PhaseBoundaryBlockedError):
             ta.assert_phase_boundary("render_production", action="render")
 
 
 def test_uncommitted_trust_registry_change_makes_channel_unavailable(tmp_path: Path, monkeypatch) -> None:
-    """A key added to the in-repo registry without a reviewed commit must not open the channel."""
-    if not (ROOT_DIR / ".git").exists():
-        pytest.skip("not a git checkout")
-    reg = ROOT_DIR / "registry" / "trusted_approvers.json"
-    original = reg.read_bytes()
-    _, pub = ta.generate_approver_keypair()
-    doc = json.loads(original)
-    doc["approvers"].append(
+    """Latest policy: an injected key in a (copied) registry must neither open nor alter the channel, and must not
+    turn an unrecognised message into an approval. Uses an ISOLATED throw-away keypair, never a production key."""
+    reg = tmp_path / "trusted_approvers.json"
+    _, pub = ta.generate_approver_keypair()          # isolated test key
+    reg.write_text(json.dumps({"schema_version": "4.0.0-phase01.6d", "approvers": [
         {"key_id": "agent-injected", "algorithm": "ed25519", "public_key_b64url": pub,
-         "owner": "agent", "added_at": "2026-11-28T00:00:00+00:00", "revoked": False}
-    )
-    try:
-        reg.write_text(json.dumps(doc), encoding="utf-8")
-        st = ta.TrustedApprovalGuard(reg).channel_status()
-        assert st["registry_git_state"] in {"MODIFIED", "UNTRACKED"}
-        assert st["status"] == "UNAVAILABLE" and st["production_status"] == "BLOCKED"
-    finally:
-        reg.write_bytes(original)
+         "owner": "agent", "added_at": "2026-11-28T00:00:00+00:00", "revoked": False}]}), encoding="utf-8")
+    guard = ta.TrustedApprovalGuard(reg)
+    st = guard.channel_status()
+    assert st["approver_key_ids"] == ["direct_human_chat"] and "agent-injected" not in json.dumps(st)
+    with pytest.raises(ta.UnsignedApprovalError):
+        _verify(guard, "agent-injected says yes")
+    with pytest.raises(ta.UnsignedApprovalError):
+        _verify(guard, "Setuju?")
 
 
 # ----------------------------------------------------------------------------- token forgery

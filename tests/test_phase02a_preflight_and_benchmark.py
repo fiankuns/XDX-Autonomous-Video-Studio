@@ -125,10 +125,16 @@ def test_p02a_02_trust_registry_out_of_band_sha256_pin_enforced(tmp_path: Path, 
     monkeypatch.setenv("XDX_TRUSTED_REGISTRY_SHA256", actual_sha)
     assert guard.channel_status()["status"] == "AVAILABLE"
 
+    # Latest policy (7d09cf1): the registry is no longer a trust root, so a pin mismatch cannot grant OR revoke
+    # anything; the isolated test key in this tmp registry must not appear as an approver.
     monkeypatch.setenv("XDX_TRUSTED_REGISTRY_SHA256", "0" * 64)
     st = guard.channel_status()
-    assert st["status"] == "UNAVAILABLE"
-    assert st["production_status"] == "BLOCKED"
+    assert st["status"] == "AVAILABLE" and st["registry_git_state"] == "NOT_REQUIRED"
+    assert st["approver_key_ids"] == ["direct_human_chat"] and "owner-pin-1" not in json.dumps(st)
+    from governance.trusted_approval import UnsignedApprovalError
+    with pytest.raises(UnsignedApprovalError):
+        guard.verify_token("owner-pin-1 approves", expected_project_id="p", expected_package_version="v1",
+                           live_manifest_digest="a" * 64)
 
 
 @pytest.mark.unit
