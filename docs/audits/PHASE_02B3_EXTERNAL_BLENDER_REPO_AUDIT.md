@@ -23,6 +23,6 @@ Method: read GitHub pages, `git ls-remote` for HEAD SHAs, shallow clones into `/
 - **Need external dependency:** mesh-workbench (NumPy inside Blender), MPFB (Blender add-on), CloudRig.
 
 ## Report: integrated vs not
-- Integrated (code): `design_fidelity_gate.py` (original, 3 tests). Integrated (knowledge): Blender Production Skill, 5 Production Memory techniques tagged `RESEARCHED`.
+- Integrated (code): `design_fidelity_gate.py` (original, 3 tests). Integrated (knowledge): Blender Production Skill, the same 5 techniques recorded in the Skill only, tagged `RESEARCHED` (Production Memory rejects unverified techniques by design).
 - Executed from upstream: **none**. Android limits: none of the 8 repos documents Android ARM64; all Blender-add-on claims remain unverified on the Vivo X200 Pro.
 - Stopped before any scene mutation or render that was not approved.
