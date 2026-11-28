@@ -125,6 +125,8 @@ def main() -> int:
     ap.add_argument("--prototype", action="store_true", help="non-production visual iteration (output outside the repo)")
     ap.add_argument("--out", help="output directory (required with --prototype; must be outside the repository)")
     ap.add_argument("--frames", help="comma-separated frame list for previews (prototype only)")
+    ap.add_argument("--preview", action="store_true",
+                    help="storyboard-first style frames: one keyframe per caption cue + contact sheet for owner review (prototype only)")
     a = ap.parse_args()
 
     pkg = Path(a.package_dir).resolve()
@@ -139,8 +141,8 @@ def main() -> int:
         status = "NON_PRODUCTION_PROTOTYPE"
         auth = None
     else:
-        if a.frames:
-            raise SystemExit("--frames is only allowed with --prototype")
+        if a.frames or a.preview:
+            raise SystemExit("--frames/--preview are only allowed with --prototype")
         from engines.web_engines import assert_render_authorized
 
         auth = assert_render_authorized(pkg, required_scope="render_production")  # fail closed
@@ -148,10 +150,42 @@ def main() -> int:
         status = "PRODUCTION_RENDER_AUTHORIZED"
 
     out_dir.mkdir(parents=True, exist_ok=True)
-    frames = [int(x) for x in a.frames.split(",")] if a.frames else list(range(data["total_frames"]))
+    preview_cues = []
+    if a.preview:
+        from intelligence.visual_semantic_qc import build_visual_review_checklist
+
+        chk = build_visual_review_checklist(pkg)
+        preview_cues = [(c["cue_id"], c["inspect_frame"], c["text"]) for sh in chk["shots"] for c in sh["caption_sync"]]
+        frames = [f for _, f, _ in preview_cues]
+    else:
+        frames = [int(x) for x in a.frames.split(",")] if a.frames else list(range(data["total_frames"]))
     with tempfile.TemporaryDirectory(prefix="xdx_p02a_frames_") as tmp:
         tdir = Path(tmp)
         render_frames(data, tdir, frames)
+        if a.preview:
+            names = []
+            for cid, f, _ in preview_cues:
+                dst = out_dir / f"style_{cid}_f{f:04d}.png"
+                shutil.copy2(tdir / f"f{f:04d}.png", dst)
+                names.append(dst)
+            sheet = out_dir / "style_frames_contact_sheet.png"
+            subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-y", "-pattern_type", "glob", "-i", str(out_dir / "style_CAP_*.png"),
+                            "-vf", "scale=360:-1,tile=4x2:padding=6", "-frames:v", "1", str(sheet)], check=True)
+            state = json.loads((pkg / "project_state.json").read_text(encoding="utf-8"))
+            man = {
+                "schema": "xdx.style-frames.v1",
+                "status": "STYLE_FRAMES_FOR_OWNER_REVIEW",
+                "purpose": "Storyboard-first gate: the owner approves the look of every caption beat before the full render.",
+                "project_id": data["project_id"],
+                "package_digest": state.get("package_digest"),
+                "scene_sha256": {p.name: _sha256(p) for p in sorted(SCENE_DIR.glob("*")) if p.is_file()},
+                "frames": [{"cue_id": cid, "frame": f, "caption": txt, "file": f"style_{cid}_f{f:04d}.png"} for cid, f, txt in preview_cues],
+                "contact_sheet": sheet.name,
+                "contact_sheet_sha256": _sha256(sheet),
+            }
+            (out_dir / "style_frames_manifest.json").write_text(json.dumps(man, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+            print(json.dumps({"status": status, "style_frames": len(names), "contact_sheet": str(sheet)}, indent=2))
+            return 0
         if a.frames:
             for f in frames:
                 shutil.copy2(tdir / f"f{f:04d}.png", out_dir / f"{BENCH_ID}_f{f:04d}.png")

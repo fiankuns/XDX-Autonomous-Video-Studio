@@ -23,9 +23,10 @@ from typing import Any
 
 from governance.phase_scope import PHASE02A_DELIVERY_PROFILE, VISUAL_FOCUS_AREAS
 
-CHECKLIST_SCHEMA = "xdx.visual-review-checklist.v1"
+CHECKLIST_SCHEMA = "xdx.visual-review-checklist.v2"
 REVIEW_SCHEMA = "xdx.independent-visual-review.v1"
 REFERENCE_ID = "REF-002"
+SYNC_LEAD_S = 0.3  # a visual may lead its caption by at most 0.3 s (and must appear before the caption ends)
 
 # Scored 0–5 by the reviewer for every shot.
 SHOT_DIMENSIONS = (
@@ -82,9 +83,12 @@ def build_visual_review_checklist(package_dir: Path) -> dict[str, Any]:
     svp = _load(package_dir, "semantic_visual_plan.json")
     cap = _load(package_dir, "caption_audio_plan.json")
 
+    fps = int(sb["fps"])
     cues_by_shot: dict[str, list[str]] = {}
+    cue_windows: dict[str, list[dict[str, Any]]] = {}
     for cue in cap.get("cues", []):
         cues_by_shot.setdefault(cue["shot_id"], []).append(cue["text"])
+        cue_windows.setdefault(cue["shot_id"], []).append(cue)
     actions_by_shot: dict[str, list[dict[str, Any]]] = {}
     for m in svp.get("clause_to_shot_mappings", []):
         actions_by_shot.setdefault(m["03_shot_id"], []).append(
@@ -115,6 +119,18 @@ def build_visual_review_checklist(package_dir: Path) -> dict[str, Any]:
                 "semantic_visual_purpose": s.get("semantic_visual_purpose"),
                 "transition_in": s.get("transition_in"),
                 "frames_to_inspect": _sample_frames(int(s["start_frame"]), int(s["end_frame"])),
+                "caption_sync": [
+                    {
+                        "cue_id": c["cue_id"],
+                        "text": c["text"],
+                        "frame_window": [
+                            max(int(s["start_frame"]), round((float(c["start_s"]) - SYNC_LEAD_S) * fps)),
+                            min(int(s["end_frame"]), round(float(c["end_s"]) * fps)),
+                        ],
+                        "inspect_frame": min(int(s["end_frame"]) - 1, round((float(c["start_s"]) + float(c["end_s"])) / 2 * fps)),
+                    }
+                    for c in cue_windows.get(sid, [])
+                ],
             }
         )
 
@@ -135,6 +151,7 @@ def build_visual_review_checklist(package_dir: Path) -> dict[str, Any]:
         },
         "hard_rules": [
             "Every required action must be visibly shown in the inspected frames (caption ↔ visual match).",
+            "Caption sync: what each caption says must be on screen inside its window (lead <= 0.3 s, before the caption ends).",
             "No placeholder / primitive stand-in for a required asset or character.",
             "No debug overlay, shot label, frame counter or engine watermark in the final frames.",
             "No render artifacts (stray planes, z-fighting, missing textures, clipping through geometry).",
@@ -219,6 +236,24 @@ def evaluate_visual_review(
             else:
                 defects.append(_defect("DEF_VQC_SEMANTIC_MISMATCH", "critical", sid,
                                        f"Required action not visible: {act['action']}"))
+
+        sync_ev = {e.get("cue_id"): e for e in r.get("caption_sync_evidence", []) if isinstance(e, dict)}
+        for cs in shot.get("caption_sync", []):
+            e = sync_ev.get(cs["cue_id"])
+            if e is None:
+                gaps.append(f"{sid}: no caption_sync_evidence for {cs['cue_id']}")
+                continue
+            if e.get("visible") is not True:
+                defects.append(_defect("DEF_VQC_CAPTION_VISUAL_MISMATCH", "critical", sid,
+                                       f"{cs['cue_id']} '{cs['text']}' is not shown on screen while it is captioned"))
+                continue
+            fr = e.get("frame")
+            wa, wb = cs["frame_window"]
+            if not isinstance(fr, int):
+                gaps.append(f"{sid}: {cs['cue_id']} evidence frame missing")
+            elif not (wa <= fr < wb):
+                defects.append(_defect("DEF_VQC_CAPTION_SYNC_WINDOW", "high", sid,
+                                       f"{cs['cue_id']} shown at frame {fr}, outside its window [{wa},{wb})"))
 
         for asset in r.get("placeholder_assets", []) or []:
             defects.append(_defect("DEF_VQC_PLACEHOLDER_ASSET", "critical", sid,

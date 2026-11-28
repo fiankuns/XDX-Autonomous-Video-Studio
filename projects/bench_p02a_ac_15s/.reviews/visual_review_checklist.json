@@ -1,5 +1,5 @@
 {
-  "schema": "xdx.visual-review-checklist.v1",
+  "schema": "xdx.visual-review-checklist.v2",
   "project_id": "bench_p02a_ac_15s",
   "delivery_profile": "VISUAL_ONLY_BENCHMARK",
   "audio_in_scope": false,
@@ -36,6 +36,7 @@
   },
   "hard_rules": [
     "Every required action must be visibly shown in the inspected frames (caption ↔ visual match).",
+    "Caption sync: what each caption says must be on screen inside its window (lead <= 0.3 s, before the caption ends).",
     "No placeholder / primitive stand-in for a required asset or character.",
     "No debug overlay, shot label, frame counter or engine watermark in the final frames.",
     "No render artifacts (stray planes, z-fighting, missing textures, clipping through geometry).",
@@ -111,6 +112,26 @@
         10,
         52,
         94
+      ],
+      "caption_sync": [
+        {
+          "cue_id": "CAP_001",
+          "text": "AC tidak menciptakan dingin melainkan",
+          "frame_window": [
+            0,
+            66
+          ],
+          "inspect_frame": 33
+        },
+        {
+          "cue_id": "CAP_002",
+          "text": "memindahkan panas kamarmu.",
+          "frame_window": [
+            57,
+            105
+          ],
+          "inspect_frame": 85
+        }
       ]
     },
     {
@@ -181,6 +202,26 @@
         115,
         157,
         199
+      ],
+      "caption_sync": [
+        {
+          "cue_id": "CAP_003",
+          "text": "Saat tombol remot ditekan, kisi",
+          "frame_window": [
+            105,
+            180
+          ],
+          "inspect_frame": 142
+        },
+        {
+          "cue_id": "CAP_004",
+          "text": "AC terbuka.",
+          "frame_window": [
+            171,
+            210
+          ],
+          "inspect_frame": 195
+        }
       ]
     },
     {
@@ -251,6 +292,26 @@
         222,
         270,
         317
+      ],
+      "caption_sync": [
+        {
+          "cue_id": "CAP_005",
+          "text": "Di evaporator, refrigeran cair menyerap",
+          "frame_window": [
+            210,
+            296
+          ],
+          "inspect_frame": 253
+        },
+        {
+          "cue_id": "CAP_006",
+          "text": "panas kamar.",
+          "frame_window": [
+            287,
+            330
+          ],
+          "inspect_frame": 313
+        }
       ]
     },
     {
@@ -321,6 +382,26 @@
         342,
         390,
         437
+      ],
+      "caption_sync": [
+        {
+          "cue_id": "CAP_007",
+          "text": "Kompresor memompa uap panas ke",
+          "frame_window": [
+            330,
+            416
+          ],
+          "inspect_frame": 373
+        },
+        {
+          "cue_id": "CAP_008",
+          "text": "kondensor luar.",
+          "frame_window": [
+            407,
+            450
+          ],
+          "inspect_frame": 433
+        }
       ]
     }
   ]

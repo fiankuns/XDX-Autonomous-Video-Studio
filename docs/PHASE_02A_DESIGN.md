@@ -108,3 +108,11 @@ Phase 02 tetap berlaku untuk setiap render (render muted pun tetap butuh approva
   di-pin di `production_dependencies.json` paket benchmark.
 - Bukti prototipe v2: `docs/evidence/phase02a_visual_only/prototype_v2_*`. Review visual independen masih wajib sebelum PASS.
 
+### 5.1 Timing map, sinkron caption & gerbang pratinjau (v3)
+- **Timing map**: semua beat scene diturunkan dari cue caption paket (`CUEF`), dengan lead visual maksimal 0,3 dtk (`SYNC_LEAD`).
+  Jika caption digeser, koreografi ikut bergeser; tidak ada nomor frame bebas untuk aksi.
+- **Sinkron caption ↔ visual** (checklist v2): tiap cue punya `frame_window` = [awal − 0,3 dtk, akhir). Reviewer wajib memberi
+  `caption_sync_evidence`; isi caption tidak tampak = critical, tampak di luar jendela = high.
+- **Storyboard-first**: `render_phase02a_visual.py --prototype --preview --out <dir>` merender satu frame kunci per caption +
+  contact sheet + `style_frames_manifest.json` (terikat digest paket & hash scene) untuk disetujui pemilik sebelum render penuh.
+

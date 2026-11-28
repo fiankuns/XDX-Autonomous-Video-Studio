@@ -49,8 +49,9 @@ def cmd_frames(a: argparse.Namespace) -> int:
     fps = chk["fps"]
     written = []
     for shot in chk["shots"]:
-        for f in shot["frames_to_inspect"]:
-            dst = out / f"{shot['shot_id']}_f{f:04d}.png"
+        sync = [(f"{shot['shot_id']}_{c['cue_id']}_f{c['inspect_frame']:04d}.png", c["inspect_frame"]) for c in shot.get("caption_sync", [])]
+        for name, f in [(f"{shot['shot_id']}_f{f:04d}.png", f) for f in shot["frames_to_inspect"]] + sync:
+            dst = out / name
             subprocess.run(
                 ["ffmpeg", "-nostdin", "-v", "error", "-y", "-ss", f"{f / fps:.6f}", "-i", str(a.render),
                  "-frames:v", "1", str(dst)],
@@ -58,7 +59,7 @@ def cmd_frames(a: argparse.Namespace) -> int:
             )
             written.append(str(dst))
     sheet = out / "contact_sheet.png"
-    cols = 3
+    cols = 3 + max((len(sh.get("caption_sync", [])) for sh in chk["shots"]), default=0)
     rows = len(chk["shots"])
     subprocess.run(
         ["ffmpeg", "-nostdin", "-v", "error", "-y", "-pattern_type", "glob", "-i", str(out / "S*_f*.png"),

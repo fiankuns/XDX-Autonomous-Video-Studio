@@ -38,6 +38,8 @@ def test_p02a_ve_02_prototype_output_must_stay_outside_repo(tmp_path: Path) -> N
     assert res.returncode != 0 and "--out" in res.stderr
     res = _run(str(BENCH), "--frames", "1,2")
     assert res.returncode != 0 and "--prototype" in res.stderr
+    res = _run(str(BENCH), "--preview")
+    assert res.returncode != 0 and "--prototype" in res.stderr
 
 
 def test_p02a_ve_03_guard_hook_treats_renderer_as_production_render() -> None:
@@ -53,6 +55,8 @@ def test_p02a_ve_04_scene_reads_captions_from_package_and_is_pinned() -> None:
     for cue in cap["cues"]:
         assert cue["text"] not in scene, "caption text must come from the signed package, not the scene"
     assert "window.__XDX_PACKAGE" in scene and "EXPECTED_SHOTS" in scene
+    # timing map: beats are anchored to caption cues with a bounded sync lead, not to free-floating frame numbers
+    assert "SYNC_LEAD = Math.round(0.3 * PKG.fps)" in scene and scene.count('cue("S00') >= 4
     for banned in ("Math.random", "Date.now", "performance.now", "requestAnimationFrame"):
         assert banned not in scene, f"non-deterministic API {banned} in scene"
     for debug in ("SHOT 0", "f0", "Phase 02A •", "XDX Phase"):
@@ -86,3 +90,16 @@ def test_p02a_ve_05_prototype_preview_renders_real_frames(tmp_path: Path) -> Non
         assert img is not None and img.shape[:2] == (1920, 1080)
         assert float(np.std(img)) > 20  # real content, not a blank frame
     assert float(np.mean(np.abs(imgs[0].astype(int) - imgs[1].astype(int)))) > 10  # different shots
+
+
+@pytest.mark.skipif(not _can_render(), reason="headless Chrome / playwright / node_modules not available")
+def test_p02a_ve_06_preview_style_frames_one_per_caption(tmp_path: Path) -> None:
+    res = _run(str(BENCH), "--prototype", "--preview", "--out", str(tmp_path))
+    assert res.returncode == 0, res.stderr
+    man = json.loads((tmp_path / "style_frames_manifest.json").read_text(encoding="utf-8"))
+    cap = json.loads((BENCH / "caption_audio_plan.json").read_text(encoding="utf-8"))
+    assert man["status"] == "STYLE_FRAMES_FOR_OWNER_REVIEW"
+    assert [x["cue_id"] for x in man["frames"]] == [c["cue_id"] for c in cap["cues"]]
+    state = json.loads((BENCH / "project_state.json").read_text(encoding="utf-8"))
+    assert man["package_digest"] == state["package_digest"]
+    assert (tmp_path / man["contact_sheet"]).is_file()

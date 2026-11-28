@@ -1,7 +1,7 @@
 {
   "schema_version": "4.0.0-phase01.6d",
   "registry_id": "xdx_master_audit_defect_registry",
-  "updated_at_utc": "2026-11-28T01:50:00+00:00",
+  "updated_at_utc": "2026-11-28T02:30:00+00:00",
   "append_only_policy": "Append-only ledger of all internal and external audit defects from Phase 01 onward. Historical entries must never be deleted, and VERIFIED requires an executed regression test.",
   "defects": [
     {
@@ -667,6 +667,23 @@
       "regression_test": "tests/test_phase02a_visual_only_scope.py::test_p02a_vo_07_recorded_review_of_first_test_render_is_hard_fail",
       "evidence": "Independent review HARD_FAIL recorded in docs/evidence/phase02a_visual_only/. Prototype v2 (NON_PRODUCTION_PROTOTYPE, 450 frames, no audio track): technical QC PASS, docs/evidence/phase02a_visual_only/prototype_v2_contact_sheet.jpg; owner reviewed and approved the visual direction in chat. Independent visual review (reviewer != producer) still pending, so the defect stays open. Independent review of prototype v2 (fresh-context agent, reviewer != producer): HARD_FAIL — shot means S001 2.857, S002 2.429, S003 3.214, S004 3.0; REF-002 mean 2.583; 5 critical (remote press/IR not legible, S001/S002 end actions, remote and S004 indoor unit read as placeholders). docs/evidence/phase02a_visual_only/independent_visual_qc_result_proto_v2.json",
       "current_status": "IN_PROGRESS"
+    },
+    {
+      "defect_id": "DEF-P02A-040",
+      "source_phase": "Phase 02A (independent review of prototype v2)",
+      "severity": "HIGH",
+      "affected_module": "intelligence/visual_semantic_qc.py, engines/web/phase02a_ac15s/scene.js",
+      "reproduction_steps": [
+        "Render a shot whose camera leaves the subject while its caption is on screen (v2 S002: 'AC terbuka.' while the camera shows Bima at the window)."
+      ],
+      "observed_result": "Visual QC only checked that each required action was visible somewhere in the shot, not that it was on screen while its caption runs; scene beats were hard-coded frame numbers, so caption retiming silently broke sync.",
+      "expected_result": "Every caption cue has a frame window [start - 0.3 s, end) and the independent reviewer must show the captioned content inside it; scene beats are anchored to caption cues (timing map) with a bounded 0.3 s lead.",
+      "root_cause": "No single timing source shared by scene and QC.",
+      "correction_plan": "Checklist v2 caption_sync windows + caption_sync_evidence (DEF_VQC_CAPTION_VISUAL_MISMATCH critical, DEF_VQC_CAPTION_SYNC_WINDOW high); scene timing map (CUEF, SYNC_LEAD) driven by the signed caption plan; storyboard-first --preview style frames (one per caption) with a manifest bound to the package digest and scene hashes.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_visual_only_scope.py::test_p02a_vo_06_independent_review_rules",
+      "evidence": "Mutation tests: hidden caption -> HARD_FAIL, frame after window -> HARD_FAIL, missing evidence -> INCOMPLETE; tests/test_phase02a_visual_engine.py::test_p02a_ve_06_preview_style_frames_one_per_caption renders 8 style frames matching the 8 caption cues.",
+      "current_status": "VERIFIED"
     }
   ]
 }

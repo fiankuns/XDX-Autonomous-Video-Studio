@@ -15,6 +15,11 @@ const EXPECTED_SHOTS = [["S001", 0, 105], ["S002", 105, 210], ["S003", 210, 330]
 if (!PKG || PKG.project_id !== "bench_p02a_ac_15s") throw new Error("XDX package data missing or not bench_p02a_ac_15s");
 if (JSON.stringify(PKG.shots) !== JSON.stringify(EXPECTED_SHOTS)) throw new Error("Storyboard shot ranges differ from the authored choreography");
 const CUES = PKG.cues; // [shot_id, start_s, end_s, text, highlighted_keyword]
+// Timing map: every beat below is anchored to a caption cue window (frames), never to a hard-coded frame number.
+const CUEF = {};
+for (const [sid, a, b] of CUES) (CUEF[sid] = CUEF[sid] || []).push({ a: Math.round(a * PKG.fps), b: Math.round(b * PKG.fps) });
+const SYNC_LEAD = Math.round(0.3 * PKG.fps); // visuals may lead the words by at most 0.3 s
+const cue = (sid, i) => CUEF[sid][i];
 
 // ------------------------------------------------------------------ helpers
 const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
@@ -73,6 +78,13 @@ const glowTex = canvasTex(128, 128, (g) => {
   g.fillStyle = gr; g.fillRect(0, 0, 128, 128);
 });
 
+const arrowTex = canvasTex(128, 128, (g) => {
+  g.translate(64, 64);
+  g.shadowColor = "rgba(255,255,255,0.9)"; g.shadowBlur = 10;
+  g.fillStyle = "#ffffff";
+  g.beginPath(); g.moveTo(46, 0); g.lineTo(-10, -34); g.lineTo(-2, -12); g.lineTo(-40, -12); g.lineTo(-40, 12); g.lineTo(-2, 12); g.lineTo(-10, 34); g.closePath(); g.fill();
+});
+
 // ------------------------------------------------------------------ renderer / scene / camera
 const canvas = document.getElementById("c");
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
@@ -101,15 +113,16 @@ class Comets {
       const row = [];
       for (let k = 0; k < trail; k++) {
         const s = new THREE.Sprite(new THREE.SpriteMaterial({
-          map: glowTex, transparent: true, depthWrite: false, blending: opts.additive ? THREE.AdditiveBlending : THREE.NormalBlending,
+          map: opts.arrows && k === 0 ? arrowTex : glowTex, transparent: true, depthWrite: false, blending: opts.additive ? THREE.AdditiveBlending : THREE.NormalBlending,
         }));
         this.group.add(s); row.push(s);
       }
       this.sprites.push({ row, phase: rnd(), curve: curveOf(i) });
     }
   }
-  update(time, fade = 1) {
+  update(time, fade = 1, boost = 1) {
     const col = new THREE.Color();
+    const pa = new THREE.Vector3(), pb = new THREE.Vector3();
     for (let i = 0; i < this.n; i++) {
       const p = this.sprites[i];
       const head = (time * this.speed + p.phase) % 1;
@@ -121,7 +134,14 @@ class Comets {
         s.position.copy(p.curve.getPoint(t));
         const life = Math.min(1, t / 0.08, (1 - t) / 0.08);
         const kf = 1 - k / this.trail;
-        const sz = this.size * (0.45 + 0.55 * kf) * (this.opts.grow ? lerp(0.6, 1.6, t) : 1);
+        let sz = this.size * (0.45 + 0.55 * kf) * (this.opts.grow ? lerp(0.6, 1.6, t) : 1) * boost;
+        if (this.opts.arrows && k === 0) {
+          sz *= 1.6;
+          // orient the arrow head along the on-screen direction of travel
+          this.group.localToWorld(pa.copy(p.curve.getPoint(Math.max(0, t - 0.02)))).project(camera);
+          this.group.localToWorld(pb.copy(p.curve.getPoint(Math.min(1, t + 0.02)))).project(camera);
+          s.material.rotation = Math.atan2((pb.y - pa.y), (pb.x - pa.x) * (W / H));
+        }
         s.scale.set(sz, sz, sz);
         col.copy(this.colorOf(i, t));
         s.material.color.copy(col);
@@ -166,7 +186,7 @@ function makeBima() {
     .map(([r, y]) => new THREE.Vector2(r, y));
   const torso = mesh(new THREE.LatheGeometry(prof, 40), shirt, v3(0, 0.86, 0), root);
   torso.scale.set(1, 1, 0.72);
-  mesh(new THREE.CylinderGeometry(0.168, 0.17, 0.07, 32), std("#CFC5AE", 0.9), v3(0, 0.88, 0), root).scale.set(1, 1, 0.73);
+  mesh(new THREE.TorusGeometry(0.163, 0.012, 10, 40), std("#C98E14", 0.85), v3(0, 0.865, 0), root).rotation.x = Math.PI / 2;
   mesh(new THREE.TorusGeometry(0.065, 0.018, 10, 28), std("#C98E14", 0.8), v3(0, 1.43, 0.0), root).rotation.x = Math.PI / 2;
   mesh(new THREE.CylinderGeometry(0.052, 0.058, 0.12, 20), skin, v3(0, 1.47, 0), root);
 
@@ -236,7 +256,13 @@ function makeBima() {
     mesh(new THREE.SphereGeometry(0.04, 14, 10), skin, v3(0, 0.0, 0), wr);
     mesh(rbox(0.075, 0.085, 0.036, 0.016), skin, v3(0, -0.045, 0), wr);
     const fingers = new THREE.Group(); fingers.position.set(0, -0.085, 0); wr.add(fingers);
-    for (let k = 0; k < 4; k++) mesh(capsule(0.0095, 0.04), skin, v3(-0.027 + k * 0.018, -0.026, 0), fingers);
+    for (let k = 0; k < 4; k++) {
+      const fg = new THREE.Group(); fg.position.set(-0.0285 + k * 0.019, -0.004, 0); fingers.add(fg);
+      mesh(capsule(0.0082, 0.022), skin, v3(0, -0.014, 0), fg);
+      const tip = new THREE.Group(); tip.position.set(0, -0.03, 0); fg.add(tip);
+      mesh(capsule(0.0078, 0.016), skin, v3(0, -0.01, 0), tip);
+      fg.userData.tip = tip;
+    }
     const thumb = new THREE.Group(); thumb.position.set(-s * 0.04, -0.035, 0.012); wr.add(thumb);
     const tm = mesh(capsule(0.012, 0.035), skin, v3(0, -0.022, 0), thumb);
     thumb.rotation.z = -s * 0.5;
@@ -272,12 +298,12 @@ function makeIndoorAC({ coilParticles = true } = {}) {
   }
   const coilCurve = new THREE.CatmullRomCurve3(pts, false, "catmullrom", 0.2);
   const copper = std("#C47A45", 0.32, 0.9);
-  const coil = mesh(new THREE.TubeGeometry(coilCurve, 400, 0.011, 12, false), copper, null, g);
+  const coil = mesh(new THREE.TubeGeometry(coilCurve, 400, 0.011, 12, false), copper, null, g, { receive: false });
   const finGeo = new THREE.BoxGeometry(0.004, 0.24, 0.085);
   const fins = new THREE.InstancedMesh(finGeo, std("#C9D2DA", 0.35, 0.8), 44);
   const m4 = new THREE.Matrix4();
   for (let i = 0; i < 44; i++) { m4.makeTranslation(-0.5 + i * (1.0 / 43), 0.01, 0.0); fins.setMatrixAt(i, m4); }
-  fins.castShadow = true; g.add(fins);
+  fins.castShadow = false; fins.receiveShadow = false; g.add(fins);
   const blower = new THREE.Group(); blower.position.set(0, -0.12, 0.02); g.add(blower);
   mesh(new THREE.CylinderGeometry(0.012, 0.012, 1.0, 12), std("#5B636B", 0.4, 0.6), null, blower).rotation.z = Math.PI / 2;
   for (let i = 0; i < 14; i++) {
@@ -309,7 +335,8 @@ function makeIndoorAC({ coilParticles = true } = {}) {
   const louver = mesh(rbox(1.0, 0.11, 0.014, 0.006), white, v3(0, -0.0, 0.0), louverPivot);
   louver.geometry.translate(0, -0.055, 0);
   const louverStripe = mesh(rbox(0.98, 0.006, 0.004, 0.002), std("#9FD8F5", 0.4), v3(0, -0.09, 0.009), louverPivot, { cast: false });
-  return { g, front, panelMat, louverPivot, coilCurve, setDisplay, sensor, blower, Wd, Hd, Dd };
+  panelMat.depthWrite = true;
+  return { g, front, panelMat, louverPivot, coilCurve, setDisplay, sensor, blower, Wd, Hd, Dd, copper };
 }
 
 // ------------------------------------------------------------------ ROOM SET (S001–S003)
@@ -401,7 +428,7 @@ AC.g.rotation.y = Math.PI / 2; // front faces +x (into the room)
 room.add(AC.g);
 
 const bima = makeBima();
-bima.root.position.set(0.05, 0, -0.35);
+bima.root.position.set(-0.45, 0, -0.2);
 room.add(bima.root);
 
 // handheld paper fan (S001) and remote (S002) attached to the right wrist
@@ -420,16 +447,34 @@ const fan = new THREE.Group(); rightArm.wr.add(fan);
   fan.position.set(0, -0.08, 0.02);
 }
 const remote = new THREE.Group(); leftArm.wr.add(remote);
-let remoteTip, remoteBtn;
+let remoteTip, remoteBtn, remoteFace, pressThumb;
 {
-  mesh(rbox(0.055, 0.17, 0.024, 0.01), std("#EEF1F4", 0.3), v3(0, -0.075, 0.026), remote);
-  const scrT = canvasTex(128, 96, (g) => { g.fillStyle = "#14202B"; g.fillRect(0, 0, 128, 96); g.fillStyle = "#7FD8FF"; g.font = "800 56px PJS, sans-serif"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("24°", 64, 52); });
-  mesh(new THREE.PlaneGeometry(0.04, 0.03), new THREE.MeshBasicMaterial({ map: scrT }), v3(0, -0.13, 0.0385), remote, { cast: false });
-  remoteBtn = mesh(new THREE.CylinderGeometry(0.009, 0.009, 0.006, 16), std(ACCENT, 0.4, 0, { emissive: new THREE.Color(ACCENT), emissiveIntensity: 0 }), v3(0, -0.07, 0.039), remote, { cast: false });
+  mesh(rbox(0.07, 0.2, 0.028, 0.013), std("#EEF1F4", 0.3), v3(0, -0.09, 0.03), remote);
+  const scrT = canvasTex(256, 160, (g) => {
+    g.fillStyle = "#14202B"; g.beginPath(); g.roundRect(0, 0, 256, 160, 20); g.fill();
+    g.fillStyle = "#7FD8FF"; g.font = "800 104px PJS, sans-serif"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("24°", 128, 86);
+    g.fillStyle = "#5C7A90"; g.font = "700 26px PJS, sans-serif"; g.fillText("COOL", 128, 22);
+  });
+  mesh(new THREE.PlaneGeometry(0.056, 0.035), new THREE.MeshBasicMaterial({ map: scrT }), v3(0, -0.155, 0.0445), remote, { cast: false }).rotation.z = Math.PI; // text reads with the IR tip up
+  remoteBtn = mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.007, 20), std(ACCENT, 0.4, 0, { emissive: new THREE.Color(ACCENT), emissiveIntensity: 0.15 }), v3(0, -0.105, 0.0445), remote, { cast: false });
   remoteBtn.rotation.x = Math.PI / 2;
-  for (const [x, y] of [[-0.014, -0.035], [0.014, -0.035], [-0.014, -0.01], [0.014, -0.01]]) mesh(new THREE.CylinderGeometry(0.006, 0.006, 0.005, 12), std("#B8C0C8", 0.5), v3(x, y, 0.039), remote, { cast: false }).rotation.x = Math.PI / 2;
-  remoteTip = new THREE.Object3D(); remoteTip.position.set(0, -0.16, 0.026); remote.add(remoteTip);
-  mesh(new THREE.SphereGeometry(0.006, 10, 8), std("#552222", 0.3), v3(0, -0.162, 0.026), remote, { cast: false });
+  const glyph = canvasTex(64, 64, (g) => { g.strokeStyle = "#fff"; g.lineWidth = 7; g.lineCap = "round"; g.beginPath(); g.arc(32, 34, 17, -1.1, 4.25); g.stroke(); g.beginPath(); g.moveTo(32, 10); g.lineTo(32, 32); g.stroke(); });
+  mesh(new THREE.PlaneGeometry(0.016, 0.016), new THREE.MeshBasicMaterial({ map: glyph, transparent: true }), v3(0, -0.105, 0.0485), remote, { cast: false, receive: false }).rotation.z = Math.PI;
+  const pm = (txt) => canvasTex(64, 64, (g) => { g.fillStyle = "#3A4650"; g.font = "800 50px PJS, sans-serif"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText(txt, 32, 34); });
+  for (const [x, y, t] of [[-0.018, -0.07, "+"], [0.018, -0.07, "−"], [-0.018, -0.045, "▲"], [0.018, -0.045, "▼"]]) {
+    mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.006, 16), std("#D2D8DE", 0.5), v3(x, y, 0.0445), remote, { cast: false }).rotation.x = Math.PI / 2;
+    mesh(new THREE.PlaneGeometry(0.012, 0.012), new THREE.MeshBasicMaterial({ map: pm(t), transparent: true }), v3(x, y, 0.0482), remote, { cast: false, receive: false }).rotation.z = Math.PI;
+  }
+  remoteTip = new THREE.Object3D(); remoteTip.position.set(0, -0.19, 0.03); remote.add(remoteTip);
+  remoteFace = new THREE.Object3D(); remoteFace.position.set(0, -0.12, 0.045); remote.add(remoteFace);
+  pressThumb = new THREE.Group(); pressThumb.position.set(-0.045, -0.06, 0.05); remote.add(pressThumb);
+  const thumbSkin = std(SKIN, 0.55, 0, { emissive: new THREE.Color("#3a1a0a"), emissiveIntensity: 0.12 });
+  const tb = mesh(capsule(0.0115, 0.05), thumbSkin, v3(0, -0.03, 0), pressThumb);
+  mesh(new THREE.SphereGeometry(0.022, 16, 12), thumbSkin, v3(0.004, 0.006, -0.012), pressThumb).scale.set(1, 1.3, 0.8); // thenar base joins the palm
+  const nail = mesh(new THREE.SphereGeometry(0.009, 12, 8), std("#E8C3A8", 0.3), v3(0, -0.058, 0.007), pressThumb, { cast: false });
+  nail.scale.set(1, 1.3, 0.4);
+  pressThumb.rotation.z = 0.75;
+  mesh(new THREE.SphereGeometry(0.008, 12, 8), std("#7A1F2B", 0.2, 0, { emissive: new THREE.Color("#FF2D55"), emissiveIntensity: 0.3 }), v3(0, -0.191, 0.03), remote, { cast: false });
   remote.position.set(0.0, -0.02, 0.0);
 }
 
@@ -449,14 +494,15 @@ const heatCurves = [];
 const hr2 = mulberry32(42);
 for (let i = 0; i < 26; i++) {
   const start = v3(lerp(-1.2, 1.6, hr2()), lerp(0.4, 1.4, hr2()), lerp(-1.4, 0.9, hr2()));
+  if (Math.abs(start.x + 0.45) < 0.5 && Math.abs(start.z + 0.2) < 0.6) start.x += 1.1; // keep heat paths clear of Bima's body
   const mid = v3(lerp(-1.0, 0.2, hr2()), lerp(2.0, 2.6, hr2()), lerp(-0.6, 0.4, hr2()));
   const end = v3(-2.24 + lerp(-0.05, 0.08, hr2()), 2.77, -0.25 + lerp(-0.45, 0.45, hr2()));
   heatCurves.push(new THREE.CatmullRomCurve3([start, mid, end]));
 }
-const heatComets = new Comets(room, 26, 7, (i) => heatCurves[i], () => new THREE.Color("#FF6A2B"), 0.11, 0.32, { additive: false, alpha: 0.85, gap: 0.016 });
+const heatComets = new Comets(room, 26, 7, (i) => heatCurves[i], () => new THREE.Color("#F0461E"), 0.11, 0.32, { additive: false, alpha: 0.85, gap: 0.016, arrows: true });
 
 // big "heat route" arrow for the second caption of S001: room -> AC -> out through the wall
-const routeCurve = new THREE.CatmullRomCurve3([v3(-0.3, 1.25, 0.15), v3(-0.75, 2.05, 0.3), v3(-1.45, 2.95, 0.05), v3(-2.02, 2.88, -0.25)]);
+const routeCurve = new THREE.CatmullRomCurve3([v3(-0.75, 1.3, 0.35), v3(-1.15, 2.15, 0.45), v3(-1.7, 2.95, 0.1), v3(-2.05, 2.86, -0.2)]);
 const routeGeo = new THREE.TubeGeometry(routeCurve, 160, 0.02, 12, false);
 const routeMat = new THREE.MeshStandardMaterial({ color: "#FF5A2B", emissive: new THREE.Color("#FF4A1B"), emissiveIntensity: 0.6, roughness: 0.4, transparent: true, opacity: 0.95 });
 const route = mesh(routeGeo, routeMat, null, room, { cast: false });
@@ -473,16 +519,19 @@ const sensorFlash = new THREE.Sprite(new THREE.SpriteMaterial({ map: glowTex, co
 room.add(sensorFlash);
 
 // cool air from the louver (S002 end, S003)
+// IR beam (S002): a glowing ray that grows from the remote to the AC receiver
+const irBeam = mesh(new THREE.CylinderGeometry(0.006, 0.006, 1, 10, 1, true), new THREE.MeshBasicMaterial({ color: "#FF3D6E", transparent: true, opacity: 0.85, blending: THREE.AdditiveBlending, depthWrite: false }), null, room, { cast: false, receive: false });
+irBeam.geometry.translate(0, 0.5, 0);
 const coolCurves = [];
 const cr = mulberry32(77);
 for (let i = 0; i < 24; i++) {
   const zx = -0.25 + lerp(-0.45, 0.45, cr());
   const a = v3(-2.06, 2.36, zx);
   const b = v3(-1.55 + cr() * 0.2, 2.0 - cr() * 0.25, zx * 1.1);
-  const c = v3(-0.6 + cr() * 0.9, 1.35 + cr() * 0.4, zx * 1.4 + 0.2);
+  const c = v3(-1.1 + cr() * 0.8, 1.35 + cr() * 0.4, zx * 1.4 + 0.25);
   coolCurves.push(new THREE.CatmullRomCurve3([a, b, c]));
 }
-const coolComets = new Comets(room, 24, 7, (i) => coolCurves[i], () => new THREE.Color("#5CC8FF"), 0.1, 0.45, { alpha: 0.85, gap: 0.02 });
+const coolComets = new Comets(room, 24, 7, (i) => coolCurves[i], () => new THREE.Color("#5CC8FF"), 0.1, 0.45, { alpha: 0.85, gap: 0.02, arrows: true });
 
 // S003 airflow through the evaporator (local to the AC so it follows the unit)
 const evapFlowCurves = [];
@@ -495,15 +544,14 @@ for (let i = 0; i < 22; i++) {
   ]));
 }
 const warm = new THREE.Color("#FF6A2B"), cool = new THREE.Color("#4FC3FF");
-const evapComets = new Comets(AC.g, 22, 8, (i) => evapFlowCurves[i], (i, t) => warm.clone().lerp(cool, clamp((t - 0.5) / 0.12)), 0.05, 0.42, { alpha: 0.95, gap: 0.012 });
+const evapComets = new Comets(AC.g, 22, 8, (i) => evapFlowCurves[i], (i, t) => warm.clone().lerp(cool, clamp((t - 0.5) / 0.12)), 0.05, 0.42, { alpha: 0.95, gap: 0.012, arrows: true });
 // refrigerant inside the coil: cold liquid (deep blue, small) -> vapour (pale, larger bubbles)
-const refComets = new Comets(AC.g, 18, 1, () => AC.coilCurve, (i, t) => new THREE.Color("#1E6BFF").lerp(new THREE.Color("#E6F7FF"), t), 0.026, 0.12, { alpha: 1, grow: true });
+const refComets = new Comets(AC.g, 40, 1, () => AC.coilCurve, (i, t) => new THREE.Color("#1E5BFF").lerp(new THREE.Color("#FFFFFF"), clamp(t * 1.3)), 0.045, 0.1, { alpha: 1, grow: true });
 
 // ------------------------------------------------------------------ CROSS-SECTION SET (S004)
 const xs = new THREE.Group(); xs.position.set(40, 0, 0); scene.add(xs);
 const xsParts = {};
 {
-  // sky + ground outside (x>0), warm room inside (x<0)
   const skyTex2 = canvasTex(512, 1024, (g, w, h) => {
     const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, "#5FB0EA"); gr.addColorStop(0.65, "#BFE4F8"); gr.addColorStop(1, "#F2E5C4");
     g.fillStyle = gr; g.fillRect(0, 0, w, h);
@@ -511,11 +559,10 @@ const xsParts = {};
     g.fillStyle = sg; g.fillRect(0, 0, w, h);
   });
   mesh(new THREE.PlaneGeometry(6, 7), new THREE.MeshBasicMaterial({ map: skyTex2 }), v3(3.1, 2.8, -1.6), xs, { cast: false, receive: false });
-  mesh(new THREE.PlaneGeometry(6.4, 4), std("#8DBB6E", 0.95), v3(2.9, 0.0, 0.4), xs, { cast: false }).rotation.x = -Math.PI / 2;
+  mesh(new THREE.PlaneGeometry(6.4, 5), std("#8DBB6E", 0.95), v3(2.9, 0.0, 0.9), xs, { cast: false }).rotation.x = -Math.PI / 2;
   const inTex = canvasTex(512, 512, (g, w, h) => noiseFill(g, w, h, "#EAD9C1", 0.06, 6000, 12));
-  mesh(new THREE.PlaneGeometry(4, 7), std("#ffffff", 0.9, 0, { map: inTex }), v3(-2.15, 2.8, -1.6), xs, { cast: false });
-  mesh(new THREE.PlaneGeometry(4.4, 4), std("#B98552", 0.6), v3(-2.0, 0.0, 0.4), xs, { cast: false }).rotation.x = -Math.PI / 2;
-  // wall slab with brick cross-section facing the camera
+  mesh(new THREE.PlaneGeometry(4, 7), std("#ffffff", 0.9, 0, { map: inTex }), v3(-2.15, 2.8, -1.6), xs, { cast: false, receive: false });
+  mesh(new THREE.PlaneGeometry(4.4, 5), std("#B98552", 0.65), v3(-2.0, 0.0, 0.9), xs, { cast: false, receive: false }).rotation.x = -Math.PI / 2;
   const brickTex = canvasTex(256, 1024, (g, w, h) => {
     g.fillStyle = "#D9CFC2"; g.fillRect(0, 0, w, h);
     const bh = 36;
@@ -527,126 +574,144 @@ const xsParts = {};
   });
   const wallMats = [std("#E9D8C0", 0.9), std("#E9D8C0", 0.9), std("#E9D8C0", 0.9), std("#E9D8C0", 0.9), std("#ffffff", 0.85, 0, { map: brickTex }), std("#E9D8C0", 0.9)];
   const wall = new THREE.Mesh(new THREE.BoxGeometry(0.32, 6.0, 3.2), wallMats);
-  wall.position.set(0, 3.0, -1.6 + 1.6 - 1.6); wall.castShadow = wall.receiveShadow = true; xs.add(wall);
-  wall.position.z = -0.6; // cut face at z = +1.0, just behind the refrigerant lines
-  // indoor unit on the inner face (profile), reuse articulated unit
-  const ac2 = makeIndoorAC();
-  ac2.g.position.set(-0.3, 2.55, 0.95); ac2.g.rotation.y = -Math.PI / 2; ac2.g.scale.setScalar(0.85);
-  xs.add(ac2.g); ac2.louverPivot.rotation.x = -1.0; ac2.setDisplay("24°", true);
-  xsParts.ac2 = ac2;
-  // outdoor unit on brackets outside
+  wall.position.set(0, 3.0, -0.6); wall.castShadow = wall.receiveShadow = true; xs.add(wall); // cut face at z = +1.0
+  // sleeve hole through the wall where the refrigerant lines pass
+  mesh(rbox(0.34, 0.2, 0.01, 0.006), std("#2B1E19", 0.9), v3(0, 2.405, 1.0), xs, { cast: false });
+  mesh(rbox(0.34, 0.012, 0.012, 0.004), std("#8E8A84", 0.6), v3(0, 2.51, 1.004), xs, { cast: false });
+  mesh(rbox(0.34, 0.012, 0.012, 0.004), std("#8E8A84", 0.6), v3(0, 2.3, 1.004), xs, { cast: false });
+
+  // indoor unit as a technical section (cut at the same plane as the wall)
+  const iu = new THREE.Group(); iu.position.set(-0.16, 2.55, 0.0); iu.scale.setScalar(1.25); xs.add(iu);
+  const prof = new THREE.Shape();
+  prof.moveTo(0, -0.17); prof.lineTo(0, 0.18); prof.lineTo(-0.24, 0.18); prof.quadraticCurveTo(-0.3, 0.18, -0.3, 0.12);
+  prof.lineTo(-0.3, -0.08); prof.lineTo(-0.24, -0.17); prof.lineTo(0, -0.17);
+  const body = mesh(new THREE.ExtrudeGeometry(prof, { depth: 0.85, bevelEnabled: false }), std("#F4F6F8", 0.32), v3(0, 0, 0.15), iu);
+  const secTex = canvasTex(600, 700, (g, w, h) => {
+    const sx = (x) => ((x + 0.3) / 0.3) * w, sy = (y) => ((0.18 - y) / 0.35) * h;
+    g.fillStyle = "#F4F6F8"; g.fillRect(0, 0, w, h);
+    g.fillStyle = "#1B2733"; g.beginPath(); g.roundRect(sx(-0.285), sy(0.165), sx(-0.015) - sx(-0.285), sy(-0.155) - sy(0.165), 18); g.fill();
+    g.strokeStyle = "#9FB0BF"; g.lineWidth = 3;
+    for (let i = 0; i < 18; i++) { const x = sx(-0.2 + i * 0.0095); g.beginPath(); g.moveTo(x, sy(0.15)); g.lineTo(x + 40, sy(0.0)); g.stroke(); }
+    g.fillStyle = "#C47A45";
+    for (let i = 0; i < 9; i++) { g.beginPath(); g.arc(sx(-0.22 + i * 0.022), sy(0.14 - i * 0.016), 12, 0, Math.PI * 2); g.fill(); g.strokeStyle = "#7A4424"; g.lineWidth = 3; g.stroke(); }
+    g.strokeStyle = "#5B636B"; g.lineWidth = 6; g.beginPath(); g.arc(sx(-0.17), sy(-0.085), 46, 0, Math.PI * 2); g.stroke();
+    for (let i = 0; i < 12; i++) { const a = (i / 12) * Math.PI * 2; g.beginPath(); g.moveTo(sx(-0.17) + Math.cos(a) * 20, sy(-0.085) + Math.sin(a) * 20); g.lineTo(sx(-0.17) + Math.cos(a + 0.5) * 44, sy(-0.085) + Math.sin(a + 0.5) * 44); g.stroke(); }
+    g.fillStyle = "#F4F6F8"; g.save(); g.translate(sx(-0.27), sy(-0.15)); g.rotate(-0.7); g.fillRect(-60, -8, 120, 16); g.restore();
+    g.fillStyle = "#6FD3FF"; g.beginPath(); g.arc(sx(-0.29), sy(0.05), 7, 0, Math.PI * 2); g.fill();
+  });
+  mesh(new THREE.PlaneGeometry(0.3, 0.35), new THREE.MeshBasicMaterial({ map: secTex }), v3(-0.15, 0.005, 1.002), iu, { cast: false, receive: false });
+  xsParts.iu = iu;
+
+  // outdoor unit
   const od = new THREE.Group(); od.position.set(0.8, 1.25, 0.9); xs.add(od); xsParts.od = od;
   const caseMat = std("#E8ECEF", 0.4);
-  mesh(rbox(0.9, 0.62, 0.36, 0.03), caseMat, v3(0, 0, -0.02), od).visible = false; // reference size only
-  // casing built from panels so the right part can be a cutaway
   mesh(rbox(0.9, 0.03, 0.36, 0.012), caseMat, v3(0, 0.31, 0), od);
   mesh(rbox(0.9, 0.03, 0.36, 0.012), caseMat, v3(0, -0.31, 0), od);
   mesh(rbox(0.03, 0.62, 0.36, 0.012), caseMat, v3(-0.435, 0, 0), od);
   mesh(rbox(0.03, 0.62, 0.36, 0.012), caseMat, v3(0.435, 0, 0), od);
   mesh(rbox(0.9, 0.62, 0.02, 0.008), std("#C9D0D6", 0.6), v3(0, 0, -0.17), od);
-  // front panel: left half solid with fan opening, right half removed (cutaway) with a rim
-  const frontL = mesh(rbox(0.56, 0.6, 0.02, 0.008), caseMat, v3(-0.17, 0, 0.17), od);
-  // fan guard & fan
-  const guard = mesh(new THREE.TorusGeometry(0.22, 0.012, 10, 48), std("#3A4148", 0.4, 0.5), v3(-0.17, 0, 0.19), od);
+  mesh(rbox(0.56, 0.6, 0.02, 0.008), caseMat, v3(-0.17, 0, 0.17), od);
+  mesh(new THREE.TorusGeometry(0.22, 0.012, 10, 48), std("#3A4148", 0.4, 0.5), v3(-0.17, 0, 0.19), od);
   for (let i = 0; i < 5; i++) mesh(new THREE.TorusGeometry(0.04 + i * 0.045, 0.0035, 6, 40), std("#3A4148", 0.4, 0.5), v3(-0.17, 0, 0.195), od, { cast: false });
+  for (const a of [0, Math.PI / 2]) { const sp = mesh(new THREE.BoxGeometry(0.44, 0.006, 0.004), std("#3A4148", 0.4, 0.5), v3(-0.17, 0, 0.196), od, { cast: false }); sp.rotation.z = a; }
+  mesh(new THREE.CircleGeometry(0.215, 40), std("#15191D", 0.9), v3(-0.17, 0, 0.165), od, { cast: false });
   const fanHub = new THREE.Group(); fanHub.position.set(-0.17, 0, 0.175); od.add(fanHub); xsParts.fanHub = fanHub;
-  mesh(new THREE.CylinderGeometry(0.04, 0.04, 0.03, 20), std("#2A3036", 0.4), null, fanHub).rotation.x = Math.PI / 2;
-  for (let i = 0; i < 3; i++) {
-    const bl = mesh(new THREE.SphereGeometry(0.1, 16, 10), std("#2F363C", 0.45), null, fanHub);
-    bl.scale.set(0.45, 1.0, 0.1); bl.geometry.translate(0, 0.1, 0);
-    bl.rotation.z = (i / 3) * Math.PI * 2; bl.rotation.y = 0.35;
-  }
-  // black fan opening disc behind blades
-  mesh(new THREE.CircleGeometry(0.215, 40), std("#15191D", 0.9), v3(-0.17, 0, 0.181), od, { cast: false });
-  // cutaway interior on the right: compressor + condenser coil
+  mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.03, 20), std("#2A3036", 0.4), null, fanHub).rotation.x = Math.PI / 2;
+  const blade = new THREE.Shape();
+  blade.moveTo(0.02, -0.02); blade.quadraticCurveTo(0.12, -0.07, 0.19, -0.03); blade.quadraticCurveTo(0.2, 0.04, 0.14, 0.06); blade.quadraticCurveTo(0.07, 0.05, 0.02, 0.02); blade.closePath();
+  const bladeGeo = new THREE.ExtrudeGeometry(blade, { depth: 0.006, bevelEnabled: true, bevelThickness: 0.002, bevelSize: 0.002, bevelSegments: 2 });
+  for (let i = 0; i < 3; i++) { const b = mesh(bladeGeo, std("#39424A", 0.45, 0.2), null, fanHub); b.rotation.z = (i / 3) * Math.PI * 2; }
   const comp = new THREE.Group(); comp.position.set(0.25, -0.08, 0.0); od.add(comp); xsParts.comp = comp;
   mesh(new THREE.CapsuleGeometry(0.075, 0.16, 8, 24), std("#3F5E56", 0.35, 0.4), v3(0, 0, 0), comp);
   mesh(new THREE.CylinderGeometry(0.085, 0.085, 0.03, 24), std("#2D2F33", 0.6), v3(0, -0.15, 0), comp);
   const condPts = [];
   for (let r = 0; r < 6; r++) {
     const y = 0.22 - r * 0.075;
-    const xsA = r % 2 === 0 ? [-0.38, 0.38] : [0.38, -0.38];
-    condPts.push(v3(xsA[0], y, -0.12), v3(xsA[1], y, -0.12));
-    if (r < 5) condPts.push(v3(xsA[1] + (r % 2 === 0 ? 0.03 : -0.03), y - 0.0375, -0.12));
+    const xa = r % 2 === 0 ? [-0.38, 0.38] : [0.38, -0.38];
+    condPts.push(v3(xa[0], y, -0.12), v3(xa[1], y, -0.12));
+    if (r < 5) condPts.push(v3(xa[1] + (r % 2 === 0 ? 0.03 : -0.03), y - 0.0375, -0.12));
   }
   const condCurve = new THREE.CatmullRomCurve3(condPts, false, "catmullrom", 0.15); xsParts.condCurve = condCurve;
   mesh(new THREE.TubeGeometry(condCurve, 400, 0.011, 10, false), std("#C47A45", 0.32, 0.9), null, od);
-  // brackets
-  for (const s of [-1, 1]) {
-    mesh(rbox(0.04, 0.04, 0.5, 0.008), std("#6E757B", 0.4, 0.7), v3(s * 0.3, -0.34, -0.05), od);
-    const d = mesh(rbox(0.03, 0.4, 0.03, 0.006), std("#6E757B", 0.4, 0.7), v3(s * 0.3, -0.5, -0.27), od);
+  for (const s2 of [-1, 1]) {
+    mesh(rbox(0.04, 0.04, 0.5, 0.008), std("#6E757B", 0.4, 0.7), v3(s2 * 0.3, -0.34, -0.05), od);
+    mesh(rbox(0.03, 0.4, 0.03, 0.006), std("#6E757B", 0.4, 0.7), v3(s2 * 0.3, -0.5, -0.27), od);
   }
-  // refrigerant lines through the wall (copper + insulation)
-  const odW = new THREE.Vector3();
-  const pipeTop = new THREE.CatmullRomCurve3([v3(-0.32, 2.47, 1.0), v3(-0.05, 2.38, 1.06), v3(0.26, 2.08, 1.06), v3(0.36, 1.78, 1.06), v3(0.55, 1.66, 1.06), v3(0.98, 1.66, 1.0), v3(1.05, 1.42, 0.94), v3(1.05, 1.27, 0.9)]);
-  const pipeBot = new THREE.CatmullRomCurve3([v3(0.45, 1.0, 0.9), v3(0.28, 1.3, 1.03), v3(0.2, 1.98, 1.03), v3(-0.05, 2.28, 1.03), v3(-0.32, 2.4, 0.98)]);
+  // refrigerant lines: out of the indoor section, through the wall sleeve, down to the outdoor unit
+  const pipeTop = new THREE.CatmullRomCurve3([v3(-0.2, 2.45, 0.98), v3(-0.12, 2.45, 1.03), v3(0.12, 2.45, 1.03), v3(0.27, 2.38, 1.03), v3(0.34, 2.0, 1.03), v3(0.38, 1.72, 1.03), v3(0.55, 1.64, 1.02), v3(0.98, 1.64, 0.98), v3(1.05, 1.42, 0.94), v3(1.05, 1.27, 0.9)]);
+  const pipeBot = new THREE.CatmullRomCurve3([v3(0.45, 1.0, 0.9), v3(0.3, 1.25, 1.03), v3(0.24, 2.0, 1.03), v3(0.2, 2.33, 1.03), v3(0.12, 2.36, 1.03), v3(-0.12, 2.36, 1.03), v3(-0.2, 2.36, 0.98)]);
   xsParts.pipeTop = pipeTop; xsParts.pipeBot = pipeBot;
-  mesh(new THREE.TubeGeometry(pipeTop, 200, 0.03, 14, false), std("#EDEDE8", 0.85, 0, { transparent: true, opacity: 0.4, depthWrite: false }), null, xs);
-  mesh(new THREE.TubeGeometry(pipeTop, 200, 0.013, 10, false), std("#C47A45", 0.32, 0.9), null, xs);
-  mesh(new THREE.TubeGeometry(pipeBot, 200, 0.012, 10, false), std("#C47A45", 0.32, 0.9), null, xs);
-  // lights
-  const xsHemi = new THREE.HemisphereLight("#DDF0FF", "#8a7a5a", 0.9); xs.add(xsHemi);
-  const xsSun = new THREE.DirectionalLight("#FFF1D6", 2.6); xsSun.position.set(4, 6, 5); xsSun.target.position.set(0.5, 1.5, 0.5);
+  mesh(new THREE.TubeGeometry(pipeTop, 240, 0.028, 14, false), std("#EDEDE8", 0.85, 0, { transparent: true, opacity: 0.38, depthWrite: false }), null, xs, { cast: false });
+  mesh(new THREE.TubeGeometry(pipeTop, 240, 0.013, 10, false), std("#C47A45", 0.32, 0.9), null, xs);
+  mesh(new THREE.TubeGeometry(pipeBot, 240, 0.012, 10, false), std("#C47A45", 0.32, 0.9), null, xs);
+  const xsHemi = new THREE.HemisphereLight("#DDF0FF", "#8a7a5a", 0.95); xs.add(xsHemi);
+  const xsSun = new THREE.DirectionalLight("#FFF1D6", 2.4); xsSun.position.set(4, 6, 5); xsSun.target.position.set(0.5, 1.5, 0.5);
   xsSun.castShadow = true; xsSun.shadow.mapSize.set(2048, 2048); xsSun.shadow.camera.left = -3; xsSun.shadow.camera.right = 3; xsSun.shadow.camera.top = 3; xsSun.shadow.camera.bottom = -3; xsSun.shadow.bias = -0.0004; xsSun.shadow.normalBias = 0.02;
   xs.add(xsSun); xs.add(xsSun.target);
-  const warmIn = new THREE.PointLight("#FFD3A0", 2.0, 4, 1.5); warmIn.position.set(-1.3, 2.4, 1.5); xs.add(warmIn);
-  const hotGlow = new THREE.PointLight("#FF6A2B", 0, 1.2, 2); hotGlow.position.set(1.05, 1.2, 1.25); xs.add(hotGlow); xsParts.hotGlow = hotGlow;
+  const warmIn = new THREE.PointLight("#FFD3A0", 1.6, 4, 1.5); warmIn.position.set(-1.3, 2.4, 1.6); xs.add(warmIn);
 }
-const hot = new THREE.Color("#FF5A1F"), hotPale = new THREE.Color("#FFB070");
-const suction = new Comets(xs, 14, 6, () => xsParts.pipeTop, () => hot, 0.095, 0.35, { alpha: 0.95, gap: 0.02 });
-const liquid = new Comets(xs, 12, 5, () => xsParts.pipeBot, () => new THREE.Color("#3FA9FF"), 0.055, 0.3, { alpha: 0.9, gap: 0.022 });
+const hot = new THREE.Color("#F0461E"), hotPale = new THREE.Color("#FF9A55");
+const suction = new Comets(xs, 14, 6, () => xsParts.pipeTop, () => hot, 0.09, 0.35, { alpha: 0.95, gap: 0.02, arrows: true });
+const liquid = new Comets(xs, 12, 5, () => xsParts.pipeBot, () => new THREE.Color("#2F8FFF"), 0.06, 0.3, { alpha: 0.9, gap: 0.022, arrows: true });
 const condFlow = new Comets(xsParts.od, 14, 1, () => xsParts.condCurve, (i, t) => hot.clone().lerp(new THREE.Color("#FFD9A8"), t), 0.032, 0.22, { alpha: 1 });
-// heat released to the outside air by the condenser fan
 const heatOutCurves = [];
 const ho = mulberry32(31);
-for (let i = 0; i < 26; i++) {
+for (let i = 0; i < 24; i++) {
   const a = v3(0.63 + (ho() - 0.5) * 0.3, 1.25 + (ho() - 0.5) * 0.3, 1.12);
-  const b = v3(0.9 + ho() * 0.5, 1.5 + ho() * 0.5, 1.55 + ho() * 0.2);
-  const c = v3(1.3 + ho() * 0.7, 2.1 + ho() * 1.1, 1.3 + ho() * 0.5);
+  const b = v3(0.85 + ho() * 0.4, 1.5 + ho() * 0.4, 1.5 + ho() * 0.2);
+  const c = v3(1.1 + ho() * 0.6, 2.0 + ho() * 0.9, 1.4 + ho() * 0.4);
   heatOutCurves.push(new THREE.CatmullRomCurve3([a, b, c]));
 }
-const heatOut = new Comets(xs, 26, 7, (i) => heatOutCurves[i], (i, t) => hot.clone().lerp(hotPale, t), 0.12, 0.38, { alpha: 0.8, gap: 0.02, grow: true });
-const coolIn = new Comets(xs, 12, 6, (i) => new THREE.CatmullRomCurve3([v3(-0.55, 2.33, 0.9 + (i - 6) * 0.03), v3(-0.9, 2.0, 1.0), v3(-1.5, 1.6, 1.1 + (i % 3) * 0.1)]), () => new THREE.Color("#5CC8FF"), 0.07, 0.4, { alpha: 0.8, gap: 0.022 });
+const heatOut = new Comets(xs, 24, 7, (i) => heatOutCurves[i], (i, t) => hot.clone().lerp(hotPale, t), 0.09, 0.38, { alpha: 0.9, gap: 0.02, grow: true, arrows: true });
+const coolIn = new Comets(xs, 12, 6, (i) => new THREE.CatmullRomCurve3([v3(-0.45, 2.38, 0.95 + (i - 6) * 0.02), v3(-0.85, 2.05, 1.05), v3(-1.4, 1.65, 1.15 + (i % 3) * 0.08)]), () => new THREE.Color("#5CC8FF"), 0.07, 0.4, { alpha: 0.85, gap: 0.022, arrows: true });
 
-// ------------------------------------------------------------------ labels (content callouts, not debug)
+// ------------------------------------------------------------------ labels (content callouts grounded in the script, not debug)
 const labelsEl = document.getElementById("labels");
 function makeLabel(text, kind) { const d = document.createElement("div"); d.className = "label " + kind; d.textContent = text; labelsEl.appendChild(d); return d; }
 const L = {
   heat: makeLabel("Panas kamar", "warm"),
+  ir: makeLabel("Sinyal inframerah", "warm"),
   evap: makeLabel("Evaporator", "cool"),
-  in: makeLabel("Udara panas masuk", "warm"),
-  out: makeLabel("Udara sejuk keluar", "cool"),
+  refr: makeLabel("Refrigeran cair → menguap", "cool"),
+  heat3: makeLabel("Panas kamar", "warm"),
+  vapor: makeLabel("Uap panas", "warm"),
   comp: makeLabel("Kompresor", "warm"),
-  cond: makeLabel("Kondensor", "warm"),
-  release: makeLabel("Kalor dibuang ke luar", "warm"),
-  vapor: makeLabel("Uap refrigeran panas", "warm"),
+  cond: makeLabel("Kondensor luar", "warm"),
+  release: makeLabel("Kalor ke udara luar", "warm"),
 };
 function placeLabel(el, worldPos, alpha) {
   const p = worldPos.clone().project(camera);
-  el.style.left = `${((p.x + 1) / 2) * W}px`;
-  el.style.top = `${((1 - p.y) / 2) * H}px`;
-  el.style.opacity = String(alpha);
+  const hw = (el.offsetWidth || 400) / 2 + 30;
+  const x = clamp(((p.x + 1) / 2) * W, hw, W - hw), y = clamp(((1 - p.y) / 2) * H, 120, H - 600);
+  el.style.left = `${x}px`; el.style.top = `${y}px`; el.style.opacity = String(alpha);
 }
+function placeScreen(el, x, y, alpha) { el.style.left = `${x}px`; el.style.top = `${y}px`; el.style.opacity = String(alpha); }
 
-// ------------------------------------------------------------------ caption
+// ------------------------------------------------------------------ caption (contiguous cues switch without a fade gap)
 const capbox = document.getElementById("capbox");
 function setCaption(t) {
-  const cue = CUES.find((c) => t >= c[1] && t < c[2]) || CUES[CUES.length - 1];
-  const [, a, , text, kw] = cue;
-  const k = text.indexOf(kw);
+  const idx = Math.max(0, CUES.findIndex((c) => t >= c[1] && t < c[2]));
+  const [, a, , text, kw] = CUES[idx];
+  const k = kw ? text.indexOf(kw) : -1;
   capbox.innerHTML = k >= 0 ? `${text.slice(0, k)}<b>${kw}</b>${text.slice(k + kw.length)}` : text;
-  const fi = clamp((t - a) / 0.2);
-  capbox.style.setProperty("--o", String(lerp(0.0, 1, easeOut(fi))));
+  const prevEnd = idx > 0 ? CUES[idx - 1][2] : -1;
+  const contiguous = a - prevEnd < 0.1;
+  const fi = contiguous ? 1 : clamp((t - a) / 0.2);
+  capbox.style.setProperty("--o", String(easeOut(fi)));
   capbox.style.setProperty("--ty", `${lerp(18, 0, easeOut(fi))}px`);
 }
 
 // ------------------------------------------------------------------ poses
 function poseNeutral() {
-  for (const a of bima.arms) { a.sh.rotation.set(0, 0, a.s * 0.12); a.el.rotation.set(-0.15, 0, 0); a.wr.rotation.set(0, 0, 0); a.fingers.rotation.set(0, 0, 0); a.thumb.rotation.set(0, 0, -a.s * 0.5); }
+  for (const a of bima.arms) {
+    a.sh.rotation.set(0, 0, a.s * 0.12); a.el.rotation.set(-0.15, 0, 0); a.wr.rotation.set(0, 0, 0); a.fingers.rotation.set(0, 0, 0); a.thumb.rotation.set(0, 0, -a.s * 0.5);
+    for (const fg of a.fingers.children) { fg.rotation.set(0, 0, 0); fg.userData.tip.rotation.set(0, 0, 0); }
+  }
   for (const l of bima.legs) { l.hip.rotation.set(0, 0, 0); l.knee.rotation.set(0, 0, 0); }
   bima.head.rotation.set(0, 0, 0);
   bima.torso.rotation.set(0, 0, 0);
 }
+function grip(arm, amount) { for (const fg of arm.fingers.children) { fg.rotation.x = 1.1 * amount; fg.userData.tip.rotation.x = 1.2 * amount; } }
 function face(hot01, relief01, blink01 = 0) {
   for (const e of bima.eyes) {
     const lidClose = lerp(0.35, 0.0, relief01) * hot01 + blink01;
@@ -661,162 +726,173 @@ function face(hot01, relief01, blink01 = 0) {
   bima.smile.scale.setScalar(0.5 + 0.5 * relief01);
 }
 
-// ------------------------------------------------------------------ camera rigs per shot
-function camRig(f) {
-  if (f < 105) { // S001 establishing, slow push-in
-    const t = ease(seg(f, 0, 105));
-    camera.fov = 60;
-    camera.position.set(lerp(2.45, 2.15, t), lerp(2.45, 2.25, t), lerp(4.6, 4.0, t));
-    camera.lookAt(lerp(-1.0, -0.9, t), 1.6, lerp(-0.45, -0.45, t));
-  } else if (f < 210) { // S002 medium three-quarter: Bima right, AC upper-left
-    const t = ease(seg(f, 105, 210));
-    camera.fov = 56;
-    const pan = ease(seg(f, 140, 166));
-    camera.position.set(lerp(-0.7, -0.95, t), lerp(1.5, 1.55, t), lerp(1.55, 1.25, t));
-    const back = ease(seg(f, 184, 202));
-    camera.lookAt(lerp(lerp(-0.25, -2.1, pan), -0.2, back), lerp(lerp(1.72, 2.3, pan), 1.78, back), lerp(lerp(-0.3, -0.25, pan), -0.35, back));
-  } else if (f < 330) { // S003 oblique cutaway, dolly-in on the evaporator
-    const t = ease(seg(f, 210, 330));
-    camera.fov = lerp(62, 50, t);
-    camera.position.set(lerp(-0.55, -1.1, t), lerp(2.05, 2.2, t), lerp(1.45, 0.95, t));
-    camera.lookAt(-2.2, lerp(2.42, 2.48, t), lerp(-0.25, -0.3, t));
-  } else { // S004 cross-section, slow track inside -> outside
-    const t = ease(seg(f, 330, 450));
-    camera.fov = 58;
-    camera.position.set(40 + lerp(0.2, 0.45, t), lerp(2.25, 2.0, t), lerp(5.3, 5.0, t));
-    camera.lookAt(40 + lerp(0.3, 0.4, t), lerp(2.15, 2.0, t), 0.9);
-  }
-  camera.updateProjectionMatrix();
-}
+// ------------------------------------------------------------------ frame evaluation (all beats anchored to caption cues)
+const tmpA = new THREE.Vector3(), tmpB = new THREE.Vector3(), camPos = new THREE.Vector3(), camTgt = new THREE.Vector3();
+const acSensorW = new THREE.Vector3(), acCenterW = new THREE.Vector3();
+const WORLD_UP = v3(0, 1, 0);
+function look(fov, px, py, pz, tx, ty, tz, up = WORLD_UP) { camera.up.copy(up); camera.fov = fov; camera.position.set(px, py, pz); camera.lookAt(tx, ty, tz); camera.updateProjectionMatrix(); camera.updateMatrixWorld(true); }
 
-// ------------------------------------------------------------------ frame evaluation
-const tmpA = new THREE.Vector3(), tmpB = new THREE.Vector3();
 function renderFrame(f) {
   const t = f / FPS;
-  const shot = f < 105 ? 0 : f < 210 ? 1 : f < 330 ? 2 : 3;
+  const shot = f < CUEF.S002[0].a ? 0 : f < CUEF.S003[0].a ? 1 : f < CUEF.S004[0].a ? 2 : 3;
   room.visible = shot <= 2;
   xs.visible = shot === 3;
   poseNeutral();
   for (const el of Object.values(L)) el.style.opacity = "0";
-
-  // defaults
   AC.louverPivot.rotation.x = 0;
   AC.setDisplay("", false);
-  AC.front.visible = true; AC.panelMat.opacity = 1; AC.front.position.set(0, 0, 0);
+  AC.front.visible = true; AC.panelMat.opacity = 1; AC.panelMat.transparent = false; AC.front.position.set(0, 0, 0);
+  AC.copper.transparent = false; AC.copper.opacity = 1;
   fan.visible = false; remote.visible = false;
   route.visible = false; routeHead.visible = false;
-  irGroup.visible = false; sensorFlash.visible = false;
+  irGroup.visible = false; sensorFlash.visible = false; irBeam.visible = false;
   coolLight.intensity = 0; acInner.intensity = 0; key.intensity = 2.4; hemi.intensity = 0.85; sun.intensity = 6;
   heatComets.group.visible = false; coolComets.group.visible = false; evapComets.group.visible = false; refComets.group.visible = false;
   bima.root.visible = true;
+  bima.sweat.forEach((s) => (s.d.visible = true));
+  for (const a of bima.arms) a.thumb.visible = true;
+  scene.updateMatrixWorld(true);
+  AC.sensor.getWorldPosition(acSensorW); AC.g.getWorldPosition(acCenterW);
 
   if (shot === 0) {
-    // Bima overheated, fanning his face; heat drifts toward the AC; route arrow on 2nd caption
-    bima.root.rotation.y = 0.35;
-    const w = Math.sin(t * 2 * Math.PI * 2.4);
+    const c0 = cue("S001", 0), c1 = cue("S001", 1);
+    const tt = ease(seg(f, c0.a, c1.b));
+    look(60, lerp(1.75, 1.5, tt), lerp(2.55, 2.35, tt), lerp(3.9, 3.35, tt), -1.25, 1.5, -0.4);
+    bima.root.rotation.y = 0.5;
+    // c0: overheated, fanning; c1 (lead 0.3 s): glances up at the AC while the heat route draws to it
+    const glance = ease(seg(f, c1.a - SYNC_LEAD, c1.a + 10));
+    const w = Math.sin(t * 2 * Math.PI * 2.4) * (1 - 0.6 * glance);
     const ra = rightArm;
     ra.sh.rotation.set(-1.15, 0.25, 0.35);
     ra.el.rotation.set(-1.55 + 0.12 * w, 0, 0);
     ra.wr.rotation.set(0.25, 0.55 * w, 0.2);
+    grip(ra, 0.8);
     fan.visible = true;
     leftArm.sh.rotation.set(0.05, 0, -0.18); leftArm.el.rotation.set(-0.35, 0, 0);
-    bima.head.rotation.set(0.12 + 0.02 * w, -0.1, 0.05 * w);
+    bima.head.rotation.set(lerp(0.12 + 0.02 * w, -0.42, glance), lerp(-0.1, -1.0, glance), 0.05 * w * (1 - glance));
+    for (const e of bima.eyes) e.e.children[1].position.x = lerp(0, -0.008, glance);
     bima.torso.rotation.y = 0.04 * w;
     face(1, 0, f % 70 > 66 ? 0.9 : 0);
-    bima.sweat.forEach((s, i) => { s.d.position.y = s.y0 - ((t * 0.08 + i * 0.37) % 1) * 0.07; s.d.visible = true; });
+    bima.sweat.forEach((s, i) => { s.d.position.y = s.y0 - ((t * 0.08 + i * 0.37) % 1) * 0.07; });
     heatComets.group.visible = true; heatComets.update(t, 1);
-    const rt = ease(seg(f, 70, 100));
+    const rt = ease(seg(f, c1.a - SYNC_LEAD, c1.a + 24));
     if (rt > 0) {
       route.visible = routeHead.visible = true;
       routeGeo.setDrawRange(0, Math.floor(routeGeo.index.count * rt / 6) * 6);
       routeCurve.getPoint(rt, tmpA); routeCurve.getTangent(rt, tmpB);
       routeHead.position.copy(tmpA); routeHead.quaternion.setFromUnitVectors(v3(0, 1, 0), tmpB.normalize());
     }
-    camRig(f);
     scene.updateMatrixWorld(true);
-    L.heat.style.left = "740px"; L.heat.style.top = "520px"; L.heat.style.opacity = String(seg(f, 12, 22) * (1 - seg(f, 66, 72)));
+    placeScreen(L.heat, 720, 560, seg(f, c0.a + 10, c0.a + 20) * (1 - seg(f, c1.a - 8, c1.a)));
   } else if (shot === 1) {
-    // Bima turns to the AC, presses 24° on the remote -> IR -> display on -> louver opens -> cool air
+    const c0 = cue("S002", 0), c1 = cue("S002", 1);
+    const L0 = c0.b - c0.a;
+    const raiseEnd = c0.a + Math.round(L0 * 0.17);
+    const pressA = c0.a + Math.round(L0 * 0.4), pressB = c0.a + Math.round(L0 * 0.5);
+    const irA = pressA + 2, irB = c0.a + Math.round(L0 * 0.8);
+    const openA = c1.a - SYNC_LEAD, openB = c1.a + 12;
     bima.root.rotation.y = -0.7;
-    const raise = easeOut(seg(f, 105, 122)) * (1 - ease(seg(f, 176, 194)));
+    const raise = easeOut(seg(f, c0.a, raiseEnd));
     const ra = leftArm;
     ra.sh.rotation.set(lerp(-0.2, -2.05, raise), lerp(0, -0.8, raise), lerp(-0.12, -0.05, raise));
     ra.el.rotation.set(lerp(-0.3, -0.15, raise), 0, 0);
     ra.wr.rotation.set(lerp(0, -0.25, raise), 0, 0);
+    grip(ra, raise);
     remote.visible = true;
-    const press = Math.max(seg(f, 128, 134) * (1 - seg(f, 138, 144)), 0);
-    ra.thumb.rotation.x = -0.5 * press;
-    remoteBtn.material.emissiveIntensity = 2.5 * press;
+    const press = seg(f, pressA, pressA + 4) * (1 - seg(f, pressB, pressB + 4));
+    ra.thumb.visible = false;
+    // thumb hovers over the power/24° button, then presses it (moves onto the button face)
+    pressThumb.position.set(lerp(-0.045, -0.025, press), lerp(-0.06, -0.072, press), lerp(0.072, 0.052, press));
+    remoteBtn.material.emissiveIntensity = 0.15 + 2.6 * press;
     rightArm.sh.rotation.set(0.0, 0, 0.15); rightArm.el.rotation.set(-0.3, 0, 0);
     bima.head.rotation.set(-0.3 * raise, -0.35 * raise, 0);
-    const acOn = f >= 146;
-    const relief = ease(seg(f, 180, 198));
-    face(1 - 0.6 * relief, relief, 0);
-    bima.sweat.forEach((s, i) => { s.d.visible = relief < 0.5; s.d.position.y = s.y0 - ((t * 0.08 + i * 0.37) % 1) * 0.07; });
-    if (acOn) AC.setDisplay("24°", true);
-    const open = ease(seg(f, 150, 176));
+    const relief = ease(seg(f, openB, c1.b));
+    face(1 - 0.5 * relief, relief, 0);
+    bima.sweat.forEach((s, i) => { s.d.position.y = s.y0 - ((t * 0.08 + i * 0.37) % 1) * 0.07; });
+    if (f >= irB) AC.setDisplay("24°", true);
+    const open = ease(seg(f, openA, openB));
     AC.louverPivot.rotation.x = -1.05 * open;
     coolLight.intensity = 2.2 * open;
     scene.updateMatrixWorld(true);
-    // IR pulse train from the remote tip to the AC sensor (during the press)
-    const irT = seg(f, 130, 150);
-    if (irT > 0 && irT < 1) {
+    remoteTip.getWorldPosition(tmpA);
+    remoteFace.getWorldPosition(tmpB);
+    const faceN = v3(0, 0, 1).applyQuaternion(remoteFace.getWorldQuaternion(new THREE.Quaternion()));
+    // camera: medium on Bima -> close insert on the thumb/remote -> follow the IR ray to the AC -> hold on the louver
+    const ins = ease(seg(f, raiseEnd, pressA - 2)) * (1 - ease(seg(f, irA + 4, irB)));
+    const toAC = ease(seg(f, irA + 4, irB));
+    const mediumPos = v3(-0.95, 1.6, 1.55), mediumTgt = v3(-0.7, 1.78, -0.25);
+    const remoteC = tmpB.clone();
+    const insertPos = remoteC.clone().addScaledVector(faceN, 0.42).add(v3(0, -0.05, 0));
+    const acPos = v3(-0.55, 1.95, 1.35), acTgt = acCenterW.clone().add(v3(0.15, -0.2, 0.0));
+    const beamHead = tmpA.clone().lerp(acSensorW, seg(f, irA, irB));
+    camPos.copy(mediumPos).lerp(insertPos, ins).lerp(acPos, toAC);
+    camTgt.copy(mediumTgt).lerp(remoteC, ins).lerp(beamHead, toAC * (1 - seg(f, irB - 6, irB + 6))).lerp(acTgt, seg(f, irB - 6, irB + 6));
+    // during the insert the camera's up follows the remote's long axis (tip at the top of the frame)
+    const tipUp = tmpA.clone().sub(remoteC).normalize();
+    const camUp = WORLD_UP.clone().lerp(tipUp, ins).normalize();
+    look(lerp(56, 40, ins) * (1 - toAC) + 54 * toAC, camPos.x, camPos.y, camPos.z, camTgt.x, camTgt.y, camTgt.z, camUp);
+    // IR ray grows from the remote tip to the receiver
+    const ir = seg(f, irA, irB);
+    if (ir > 0 && f < c1.a + 6) {
+      irBeam.visible = true;
+      const dir = acSensorW.clone().sub(tmpA); const len = dir.length();
+      irBeam.position.copy(tmpA); irBeam.quaternion.setFromUnitVectors(v3(0, 1, 0), dir.normalize());
+      irBeam.scale.set(1, len * ir, 1);
+      irBeam.material.opacity = 0.85 * (1 - seg(f, c1.a - 4, c1.a + 6));
       irGroup.visible = true;
-      remoteTip.getWorldPosition(tmpA); AC.sensor.getWorldPosition(tmpB);
-      irDots.forEach((d, i) => {
-        const u = (irT * 1.6 - i * 0.07);
-        d.visible = u > 0 && u < 1;
-        d.position.lerpVectors(tmpA, tmpB, clamp(u));
-        d.scale.setScalar(0.05);
-        d.material.opacity = 0.95;
-      });
+      irDots.forEach((d, i) => { const u = ((f - irA) / 14 - i * 0.12) % 1; d.visible = u > 0 && u < ir; d.position.lerpVectors(tmpA, acSensorW, clamp(u)); d.scale.setScalar(0.045); d.material.opacity = 0.95; });
+      placeLabel(L.ir, tmpA.clone().lerp(acSensorW, 0.55).add(v3(0, 0.12, 0)), seg(f, irA + 6, irA + 12) * (1 - seg(f, c1.a - 6, c1.a)));
     }
-    const flash = seg(f, 144, 147) * (1 - seg(f, 150, 158));
-    if (flash > 0) { sensorFlash.visible = true; AC.sensor.getWorldPosition(sensorFlash.position); sensorFlash.scale.setScalar(0.25 * flash + 0.02); sensorFlash.material.opacity = flash; }
-    if (open > 0.2) { coolComets.group.visible = true; coolComets.update(t, clamp((open - 0.2) * 2) * (1 - 0.6 * ease(seg(f, 184, 200)))); }
-    camRig(f);
+    const flash = seg(f, irB - 2, irB) * (1 - seg(f, irB + 2, irB + 10));
+    if (flash > 0) { sensorFlash.visible = true; sensorFlash.position.copy(acSensorW); sensorFlash.scale.setScalar(0.25 * flash + 0.02); sensorFlash.material.opacity = flash; }
+    if (open > 0.15) { coolComets.group.visible = true; coolComets.update(t, clamp((open - 0.15) * 2)); }
     scene.updateMatrixWorld(true);
   } else if (shot === 2) {
-    // Cutaway: panel lifts off, warm room air enters, crosses the cold coil, leaves cool; refrigerant boils inside
+    const c0 = cue("S003", 0), c1 = cue("S003", 1);
+    const tt = ease(seg(f, c0.a, c1.b));
+    look(lerp(60, 54, tt), lerp(-0.6, -0.85, tt), lerp(2.15, 2.25, tt), lerp(1.3, 1.0, tt), -2.2, 2.42, -0.25);
     bima.root.visible = false;
     AC.setDisplay("24°", true);
     AC.louverPivot.rotation.x = -1.05;
-    const lift = ease(seg(f, 214, 240));
+    const lift = ease(seg(f, c0.a + 2, c0.a + 16));
     AC.front.position.set(0, 0.35 * lift, 0.55 * lift);
-    AC.panelMat.opacity = 1 - lift;
-    AC.front.visible = lift < 0.99;
+    AC.panelMat.transparent = true; AC.panelMat.opacity = 1 - lift;
+    AC.front.visible = lift < 0.98;
+    // x-ray copper so the refrigerant inside the coil (liquid -> vapour) is visible
+    const xr = seg(f, c0.a + 14, c0.a + 26);
+    AC.copper.transparent = xr > 0; AC.copper.opacity = lerp(1, 0.3, xr); AC.copper.depthWrite = xr < 0.5;
     key.intensity = 1.2; hemi.intensity = 0.45; sun.intensity = 2.5;
     acInner.intensity = 1.6 * lift; coolLight.intensity = 1.5;
     AC.blower.rotation.x = -t * 14;
-    evapComets.group.visible = true; evapComets.update(t, seg(f, 232, 246));
-    refComets.group.visible = true; refComets.update(t, seg(f, 236, 250));
-    camRig(f);
+    const heatBoost = 1 + 0.6 * ease(seg(f, c1.a - SYNC_LEAD, c1.a + 8));
+    evapComets.group.visible = true; evapComets.update(t, seg(f, c0.a + 14, c0.a + 26), heatBoost);
+    refComets.group.visible = true; refComets.update(t, seg(f, c0.a + 18, c0.a + 30));
     scene.updateMatrixWorld(true);
     const a = (x, y, z) => AC.g.localToWorld(v3(x, y, z));
-    L.in.style.left = "760px"; L.in.style.top = "190px"; L.in.style.opacity = String(seg(f, 248, 258) * (1 - seg(f, 300, 306)));
-    placeLabel(L.evap, a(-0.25, 0.08, 0.32), seg(f, 262, 272));
-    placeLabel(L.out, a(0.1, -0.42, 0.55), seg(f, 280, 290));
+    placeLabel(L.evap, a(-0.3, 0.27, 0.3), seg(f, c0.a + 20, c0.a + 30));
+    placeLabel(L.refr, a(0.2, -0.36, 0.45), seg(f, c0.a + 34, c0.a + 44));
+    placeLabel(L.heat3, a(0.3, 0.45, 0.7), seg(f, c1.a - SYNC_LEAD, c1.a + 2));
   } else {
-    // Cross-section: hot vapour to the compressor, through the condenser, heat blown out by the fan
+    const c0 = cue("S004", 0), c1 = cue("S004", 1);
+    const tt = ease(seg(f, c0.a, c1.b));
+    look(58, 40 + lerp(0.05, 0.32, tt), lerp(2.2, 1.95, tt), lerp(5.0, 4.75, tt), 40 + lerp(0.2, 0.38, tt), lerp(2.1, 1.85, tt), 0.9);
     xsParts.fanHub.rotation.z = -t * 18;
-    const pulse = 1 + 0.03 * Math.sin(t * 2 * Math.PI * 4);
+    const pulse = 1 + 0.04 * Math.sin(t * 2 * Math.PI * 4);
     xsParts.comp.scale.set(pulse, 1 / pulse, pulse);
-    xsParts.ac2.blower.rotation.x = -t * 14;
-    xsParts.hotGlow.intensity = 0.5 + 0.2 * Math.sin(t * 6);
     suction.update(t, 1); liquid.update(t, 1); condFlow.update(t, 1);
-    heatOut.update(t, seg(f, 344, 362)); coolIn.update(t, 1);
-    camRig(f);
+    heatOut.update(t, ease(seg(f, c1.a - SYNC_LEAD, c1.a + 10)) * 0.9 + 0.1, 1 + 0.3 * seg(f, c1.a, c1.b));
+    coolIn.update(t, 1);
     scene.updateMatrixWorld(true);
     const o = (x, y, z) => xsParts.od.localToWorld(v3(x, y, z));
-    placeLabel(L.comp, o(0.05, 0.42, 0.25), seg(f, 360, 370));
-    placeLabel(L.vapor, v3(40.05, 2.62, 1.1), seg(f, 342, 350) * (1 - seg(f, 384, 390)));
-    placeLabel(L.cond, o(0.05, -0.36, 0.25).add(v3(0, -0.05, 0)), seg(f, 392, 402));
-    placeLabel(L.release, v3(40.72, 2.4, 1.4), seg(f, 404, 414));
+    placeLabel(L.vapor, v3(40.05, 2.62, 1.1), seg(f, c0.a + 4, c0.a + 12) * (1 - seg(f, c0.a + 46, c0.a + 52)));
+    placeLabel(L.comp, o(0.25, -0.2, 0.25), seg(f, c0.a + 30, c0.a + 40));
+    placeLabel(L.cond, o(0.1, 0.4, -0.1), seg(f, c1.a - SYNC_LEAD, c1.a + 2));
+    placeLabel(L.release, v3(41.25, 2.55, 1.4), seg(f, c1.a, c1.a + 8));
   }
   setCaption(t);
   renderer.render(scene, camera);
 }
 
-window.__ready = document.fonts.ready.then(() => { AC.setDisplay("", false); xsParts.ac2.setDisplay("24°", true); return true; });
+window.__ready = document.fonts.ready.then(() => { AC.setDisplay("", false); return true; });
 window.renderFrame = (f) => { renderFrame(f); return true; };
 window.TOTAL_FRAMES = PKG.total_frames;

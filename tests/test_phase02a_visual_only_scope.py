@@ -134,6 +134,9 @@ def _good_review(chk: dict, render_sha: str) -> dict:
                 "caption_occludes_subject": False,
                 "subject_clipped_by_frame": False,
                 "scores": {d: 4.0 for d in SHOT_DIMENSIONS},
+                "caption_sync_evidence": [
+                    {"cue_id": c["cue_id"], "visible": True, "frame": c["inspect_frame"]} for c in s["caption_sync"]
+                ],
             }
             for s in chk["shots"]
         ],
@@ -151,6 +154,10 @@ def test_p02a_vo_05_checklist_derives_caption_to_visual_contract() -> None:
         assert s["captions"] and s["required_actions"] and s["required_assets"]
         assert all(lo <= f < hi for f in s["frames_to_inspect"]) and len(s["frames_to_inspect"]) == 3
         assert any(a["clause_text"] for a in s["required_actions"])  # tied to the caption/narration clause
+        assert s["caption_sync"] and all(c["text"] in s["captions"] for c in s["caption_sync"])
+        for c in s["caption_sync"]:
+            wa, wb = c["frame_window"]
+            assert lo <= wa < wb <= hi and wa <= c["inspect_frame"] < wb
     assert any("kisi" in a["action"] for a in chk["shots"][1]["required_actions"])
 
 
@@ -187,6 +194,13 @@ def test_p02a_vo_06_independent_review_rules(tmp_path: Path) -> None:
     assert mutate(lambda r: r["shots"][0].pop("debug_overlay_visible"))["status"] == "INCOMPLETE"
     assert mutate(lambda r: r.update(reviewer_context="producer"))["status"] == "INCOMPLETE"
     assert mutate(lambda r: r["reference_comparison"].update(reference_id="REF-001"))["status"] == "INCOMPLETE"
+    # caption <-> visual sync (visual may lead its caption by <= 0.3 s and must appear before the caption ends)
+    res = mutate(lambda r: r["shots"][1]["caption_sync_evidence"][1].update(visible=False))
+    assert res["status"] == "HARD_FAIL" and any(d["defect_id"] == "DEF_VQC_CAPTION_VISUAL_MISMATCH" for d in res["defects"])
+    late = chk["shots"][1]["caption_sync"][1]["frame_window"][1] + 2
+    res = mutate(lambda r: r["shots"][1]["caption_sync_evidence"][1].update(frame=late))
+    assert res["status"] == "HARD_FAIL" and any(d["defect_id"] == "DEF_VQC_CAPTION_SYNC_WINDOW" for d in res["defects"])
+    assert mutate(lambda r: r["shots"][2].pop("caption_sync_evidence"))["status"] == "INCOMPLETE"
 
 
 def test_p02a_vo_07_recorded_review_of_first_test_render_is_hard_fail() -> None:
@@ -194,7 +208,8 @@ def test_p02a_vo_07_recorded_review_of_first_test_render_is_hard_fail() -> None:
     chk = build_visual_review_checklist(BENCH)
     review = json.loads((EVIDENCE / "independent_visual_review_ac15s.json").read_text(encoding="utf-8"))
     res = evaluate_visual_review(chk, review, producer_ids={"phase02a_render_agent"})
-    assert res["status"] == "HARD_FAIL" and not res["review_gaps"]
+    # The first review predates the v2 caption-sync rule: its only gaps may be missing caption_sync_evidence.
+    assert res["status"] == "HARD_FAIL" and all("caption_sync_evidence" in g for g in res["review_gaps"])
     ids = {d["defect_id"] for d in res["defects"]}
     assert {"DEF_VQC_SEMANTIC_MISMATCH", "DEF_VQC_PLACEHOLDER_ASSET", "DEF_VQC_DEBUG_OVERLAY", "DEF_VQC_BELOW_REFERENCE"} <= ids
     stored = json.loads((EVIDENCE / "independent_visual_qc_result_ac15s.json").read_text(encoding="utf-8"))
