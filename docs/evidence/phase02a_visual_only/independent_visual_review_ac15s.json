@@ -1,0 +1,207 @@
+{
+  "schema": "xdx.independent-visual-review.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "reviewer_id": "claude-independent-visual-qc",
+  "reviewer_context": "fresh",
+  "render_sha256": "038501127f6fb6cf7135d95219676b913e85d9f4e7729f3f4f2057a457c3e22e",
+  "render_note": "User-supplied Phase 02A test render (15s, 1080x1920, 30fps); frames from scripts/visual_review.py frames",
+  "shots": [
+    {
+      "shot_id": "S001",
+      "frames_inspected": [
+        10,
+        52,
+        94
+      ],
+      "action_evidence": [
+        {
+          "index": 0,
+          "visible": false,
+          "frame": 52,
+          "note": "Bima tidak mengipasi wajah; lengan silinder melayang terangkat, tidak ada kipas/tangan. Termometer 32°C & jendela ada; partikel panas acak, tidak mengalir."
+        },
+        {
+          "index": 1,
+          "visible": false,
+          "frame": 52,
+          "note": "Bima tidak mengipasi wajah; lengan silinder melayang terangkat, tidak ada kipas/tangan. Termometer 32°C & jendela ada; partikel panas acak, tidak mengalir."
+        },
+        {
+          "index": 2,
+          "visible": false,
+          "frame": 52,
+          "note": "Bima tidak mengipasi wajah; lengan silinder melayang terangkat, tidak ada kipas/tangan. Termometer 32°C & jendela ada; partikel panas acak, tidak mengalir."
+        }
+      ],
+      "placeholder_assets": [
+        "char_bima (kapsul+bola, lengan silinder terpisah)"
+      ],
+      "debug_overlay_visible": true,
+      "render_artifacts": [
+        "partikel oranye melayang acak tanpa arah aliran panas"
+      ],
+      "caption_occludes_subject": true,
+      "subject_clipped_by_frame": false,
+      "scores": {
+        "character_and_asset_quality": 1.5,
+        "semantic_visual_storytelling": 1.5,
+        "animation_and_object_interaction": 1.0,
+        "mechanism_visualization": 1.0,
+        "camera_and_cinematography": 2.0,
+        "lighting_shadow_material_texture": 1.5,
+        "composition_and_transitions": 2.0
+      }
+    },
+    {
+      "shot_id": "S002",
+      "frames_inspected": [
+        115,
+        157,
+        199
+      ],
+      "action_evidence": [
+        {
+          "index": 0,
+          "visible": false,
+          "frame": 157,
+          "note": "Kisi AC tidak pernah terbuka; diganti cincin & kerucut biru melayang. Ibu jari menekan tombol tidak terlihat."
+        },
+        {
+          "index": 1,
+          "visible": false,
+          "frame": 157,
+          "note": "Kisi AC tidak pernah terbuka; diganti cincin & kerucut biru melayang. Ibu jari menekan tombol tidak terlihat."
+        },
+        {
+          "index": 2,
+          "visible": false,
+          "frame": 157,
+          "note": "Kisi AC tidak pernah terbuka; diganti cincin & kerucut biru melayang. Ibu jari menekan tombol tidak terlihat."
+        }
+      ],
+      "placeholder_assets": [
+        "char_bima",
+        "prop_ac_remote_control (kotak abu-abu)",
+        "prop_ac_indoor_evaporator_cutaway (lempeng datar)"
+      ],
+      "debug_overlay_visible": true,
+      "render_artifacts": [
+        "kerucut biru melayang tanpa fungsi"
+      ],
+      "caption_occludes_subject": true,
+      "subject_clipped_by_frame": true,
+      "scores": {
+        "character_and_asset_quality": 1.5,
+        "semantic_visual_storytelling": 1.0,
+        "animation_and_object_interaction": 1.0,
+        "mechanism_visualization": 1.0,
+        "camera_and_cinematography": 2.0,
+        "lighting_shadow_material_texture": 1.5,
+        "composition_and_transitions": 2.0
+      }
+    },
+    {
+      "shot_id": "S003",
+      "frames_inspected": [
+        222,
+        270,
+        317
+      ],
+      "action_evidence": [
+        {
+          "index": 0,
+          "visible": false,
+          "frame": 270,
+          "note": "Pipa tembaga terlihat, tetapi casing tidak terbelah, tidak ada panah kalor dari udara kamar ke kumparan; bola putih/oranye tidak menjelaskan penguapan."
+        },
+        {
+          "index": 1,
+          "visible": false,
+          "frame": 270,
+          "note": "Pipa tembaga terlihat, tetapi casing tidak terbelah, tidak ada panah kalor dari udara kamar ke kumparan; bola putih/oranye tidak menjelaskan penguapan."
+        },
+        {
+          "index": 2,
+          "visible": false,
+          "frame": 270,
+          "note": "Pipa tembaga terlihat, tetapi casing tidak terbelah, tidak ada panah kalor dari udara kamar ke kumparan; bola putih/oranye tidak menjelaskan penguapan."
+        }
+      ],
+      "placeholder_assets": [],
+      "debug_overlay_visible": true,
+      "render_artifacts": [
+        "bidang abu-abu transparan menutupi frame (f222)",
+        "kerucut oranye/biru terpotong di tepi frame"
+      ],
+      "caption_occludes_subject": false,
+      "subject_clipped_by_frame": true,
+      "scores": {
+        "character_and_asset_quality": 2.0,
+        "semantic_visual_storytelling": 1.5,
+        "animation_and_object_interaction": 1.5,
+        "mechanism_visualization": 1.5,
+        "camera_and_cinematography": 1.5,
+        "lighting_shadow_material_texture": 2.5,
+        "composition_and_transitions": 2.0
+      }
+    },
+    {
+      "shot_id": "S004",
+      "frames_inspected": [
+        342,
+        390,
+        437
+      ],
+      "action_evidence": [
+        {
+          "index": 0,
+          "visible": false,
+          "frame": 390,
+          "note": "Tidak ada dinding/unit outdoor yang dapat dikenali, tidak ada gelombang kalor dilepas kondensor; kipas terpotong di tepi."
+        },
+        {
+          "index": 1,
+          "visible": false,
+          "frame": 390,
+          "note": "Tidak ada dinding/unit outdoor yang dapat dikenali, tidak ada gelombang kalor dilepas kondensor; kipas terpotong di tepi."
+        },
+        {
+          "index": 2,
+          "visible": false,
+          "frame": 390,
+          "note": "Tidak ada dinding/unit outdoor yang dapat dikenali, tidak ada gelombang kalor dilepas kondensor; kipas terpotong di tepi."
+        }
+      ],
+      "placeholder_assets": [
+        "prop_outdoor_compressor_condenser_unit (kotak biru + silinder merah)"
+      ],
+      "debug_overlay_visible": true,
+      "render_artifacts": [
+        "tiang abu-abu vertikal membelah komposisi"
+      ],
+      "caption_occludes_subject": false,
+      "subject_clipped_by_frame": true,
+      "scores": {
+        "character_and_asset_quality": 1.0,
+        "semantic_visual_storytelling": 1.5,
+        "animation_and_object_interaction": 1.0,
+        "mechanism_visualization": 1.5,
+        "camera_and_cinematography": 1.5,
+        "lighting_shadow_material_texture": 1.5,
+        "composition_and_transitions": 1.5
+      }
+    }
+  ],
+  "reference_comparison": {
+    "reference_id": "REF-002",
+    "scores": {
+      "character_and_asset_quality": 1.0,
+      "mechanism_visualization": 1.5,
+      "camera_and_cinematography": 1.5,
+      "lighting_shadow_material_texture": 1.5,
+      "composition_and_transitions": 1.5,
+      "story_clarity": 1.5
+    },
+    "notes": "REF-002 menunjukkan mekanisme fisik yang dapat dibaca (aliran panas berarah, objek dikenali). Render ini memakai primitif, tanpa bayangan/material, dan aksi kunci tidak tampak."
+  }
+}

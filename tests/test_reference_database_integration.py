@@ -250,9 +250,10 @@ def test_creative_pipeline_and_approval_gate_with_references(tmp_path: Path) -> 
         )
 
     # Phase 01.6D: no trusted approver key registered in the repo -> channel UNAVAILABLE -> BLOCKED.
-    from governance.trusted_approval import TrustedChannelUnavailableError
+    from governance.trusted_approval import TrustedChannelUnavailableError, UnsignedApprovalError
 
-    with pytest.raises(TrustedChannelUnavailableError):
+    # Channel unavailable (no key) or available (owner key) -> an unsigned command is rejected either way.
+    with pytest.raises((TrustedChannelUnavailableError, UnsignedApprovalError)):
         sm.record_explicit_user_approval(
             package_dir=pkg_sat,
             user_message=res_sat["approval_command_example"],

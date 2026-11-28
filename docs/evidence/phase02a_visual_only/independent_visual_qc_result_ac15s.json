@@ -1,0 +1,438 @@
+{
+  "schema": "xdx.independent-visual-qc-result.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "delivery_profile": "VISUAL_ONLY_BENCHMARK",
+  "status": "HARD_FAIL",
+  "reviewer_id": "claude-independent-visual-qc",
+  "shot_mean_scores": {
+    "S001": 1.5,
+    "S002": 1.429,
+    "S003": 1.786,
+    "S004": 1.357
+  },
+  "reference_mean_score": 1.417,
+  "defects": [
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S001",
+      "description": "Required action not visible: Bima mengipasi wajah di kamar pengap 32 derajat Celsius dengan jendela tertutup rapat di bawah prop_ac_indoor_evaporator_cutaway."
+    },
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S001",
+      "description": "Required action not visible: Hook karakter Bima kepanasan di kamar tertutup 32 derajat di bawah unit AC indoor berada pada posisi kontak terukur bersama prop_ac_indoor_evaporator_cutaway."
+    },
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S001",
+      "description": "Required action not visible: Gerak hook karakter bima kepanasan di kamar tertutup 32 derajat di bawah unit ac indoor mereda stabil menjaga arah pandang ke titik fokus shot berikutnya."
+    },
+    {
+      "defect_id": "DEF_VQC_PLACEHOLDER_ASSET",
+      "severity": "critical",
+      "shot_id": "S001",
+      "description": "Primitive/placeholder stand-in visible for 'char_bima (kapsul+bola, lengan silinder terpisah)'"
+    },
+    {
+      "defect_id": "DEF_VQC_DEBUG_OVERLAY",
+      "severity": "critical",
+      "shot_id": "S001",
+      "description": "Debug overlay / shot label / frame counter visible in final frames"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "Render artifact: partikel oranye melayang acak tanpa arah aliran panas"
+    },
+    {
+      "defect_id": "DEF_VQC_CAPTION_OCCLUSION",
+      "severity": "medium",
+      "shot_id": "S001",
+      "description": "caption occludes subject"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "character_and_asset_quality scored 1.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "semantic_visual_storytelling scored 1.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "animation_and_object_interaction scored 1.0 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "mechanism_visualization scored 1.0 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "camera_and_cinematography scored 2.0 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "lighting_shadow_material_texture scored 1.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "composition_and_transitions scored 2.0 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "Mean visual score 1.50 < 3.5"
+    },
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S002",
+      "description": "Required action not visible: Ibu jari kanan Bima menekan tombol daya dan setelan 24 derajat pada prop_ac_remote_control hingga sinyal inframerah membuka kisi prop_ac_indoor_evaporator_cutaway."
+    },
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S002",
+      "description": "Required action not visible: Interaksi tangan Bima menekan tombol 24 derajat pada remot AC menuju unit indoor berada pada posisi kontak terukur bersama prop_ac_remote_control."
+    },
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S002",
+      "description": "Required action not visible: Gerak interaksi tangan bima menekan tombol 24 derajat pada remot ac menuju unit indoor mereda stabil menjaga arah pandang ke titik fokus shot berikutnya."
+    },
+    {
+      "defect_id": "DEF_VQC_PLACEHOLDER_ASSET",
+      "severity": "critical",
+      "shot_id": "S002",
+      "description": "Primitive/placeholder stand-in visible for 'char_bima'"
+    },
+    {
+      "defect_id": "DEF_VQC_PLACEHOLDER_ASSET",
+      "severity": "critical",
+      "shot_id": "S002",
+      "description": "Primitive/placeholder stand-in visible for 'prop_ac_remote_control (kotak abu-abu)'"
+    },
+    {
+      "defect_id": "DEF_VQC_PLACEHOLDER_ASSET",
+      "severity": "critical",
+      "shot_id": "S002",
+      "description": "Primitive/placeholder stand-in visible for 'prop_ac_indoor_evaporator_cutaway (lempeng datar)'"
+    },
+    {
+      "defect_id": "DEF_VQC_DEBUG_OVERLAY",
+      "severity": "critical",
+      "shot_id": "S002",
+      "description": "Debug overlay / shot label / frame counter visible in final frames"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "Render artifact: kerucut biru melayang tanpa fungsi"
+    },
+    {
+      "defect_id": "DEF_VQC_CAPTION_OCCLUSION",
+      "severity": "medium",
+      "shot_id": "S002",
+      "description": "caption occludes subject"
+    },
+    {
+      "defect_id": "DEF_VQC_FRAME_EDGE_CLIP",
+      "severity": "medium",
+      "shot_id": "S002",
+      "description": "subject clipped by frame"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "character_and_asset_quality scored 1.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "semantic_visual_storytelling scored 1.0 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "animation_and_object_interaction scored 1.0 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "mechanism_visualization scored 1.0 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "camera_and_cinematography scored 2.0 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "lighting_shadow_material_texture scored 1.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "composition_and_transitions scored 2.0 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "Mean visual score 1.43 < 3.5"
+    },
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S003",
+      "description": "Required action not visible: Casing depan prop_ac_indoor_evaporator_cutaway terbelah memperlihatkan kumparan pipa tembaga dingin menyerap panah kalor merah dari udara kamar hingga refrigeran cair menguap."
+    },
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S003",
+      "description": "Required action not visible: Penampang teknis kumparan evaporator tembaga AC indoor berada pada posisi kontak terukur bersama prop_ac_indoor_evaporator_cutaway."
+    },
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S003",
+      "description": "Required action not visible: Gerak penampang teknis kumparan evaporator tembaga ac indoor mereda stabil menjaga arah pandang ke titik fokus shot berikutnya."
+    },
+    {
+      "defect_id": "DEF_VQC_DEBUG_OVERLAY",
+      "severity": "critical",
+      "shot_id": "S003",
+      "description": "Debug overlay / shot label / frame counter visible in final frames"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "Render artifact: bidang abu-abu transparan menutupi frame (f222)"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "Render artifact: kerucut oranye/biru terpotong di tepi frame"
+    },
+    {
+      "defect_id": "DEF_VQC_FRAME_EDGE_CLIP",
+      "severity": "medium",
+      "shot_id": "S003",
+      "description": "subject clipped by frame"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "character_and_asset_quality scored 2.0 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "semantic_visual_storytelling scored 1.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "animation_and_object_interaction scored 1.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "mechanism_visualization scored 1.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "camera_and_cinematography scored 1.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "lighting_shadow_material_texture scored 2.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "composition_and_transitions scored 2.0 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "Mean visual score 1.79 < 3.5"
+    },
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S004",
+      "description": "Required action not visible: Aliran refrigeran oranye panas mengalir menembus dinding dari evaporator menuju prop_outdoor_compressor_condenser_unit sementara kipas kondensor melepas gelombang kalor ke udara luar."
+    },
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S004",
+      "description": "Required action not visible: Visualisasi perpindahan panas dari pipa evaporator indoor ke kompresor dan kondensor outdoor berada pada posisi kontak terukur bersama prop_outdoor_compressor_condenser_unit."
+    },
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S004",
+      "description": "Required action not visible: Gerak visualisasi perpindahan panas dari pipa evaporator indoor ke kompresor dan kondensor outdoor mereda stabil menjaga arah pandang ke titik fokus shot berikutnya."
+    },
+    {
+      "defect_id": "DEF_VQC_PLACEHOLDER_ASSET",
+      "severity": "critical",
+      "shot_id": "S004",
+      "description": "Primitive/placeholder stand-in visible for 'prop_outdoor_compressor_condenser_unit (kotak biru + silinder merah)'"
+    },
+    {
+      "defect_id": "DEF_VQC_DEBUG_OVERLAY",
+      "severity": "critical",
+      "shot_id": "S004",
+      "description": "Debug overlay / shot label / frame counter visible in final frames"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "Render artifact: tiang abu-abu vertikal membelah komposisi"
+    },
+    {
+      "defect_id": "DEF_VQC_FRAME_EDGE_CLIP",
+      "severity": "medium",
+      "shot_id": "S004",
+      "description": "subject clipped by frame"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "character_and_asset_quality scored 1.0 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "semantic_visual_storytelling scored 1.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "animation_and_object_interaction scored 1.0 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "mechanism_visualization scored 1.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "camera_and_cinematography scored 1.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "lighting_shadow_material_texture scored 1.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "composition_and_transitions scored 1.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "Mean visual score 1.36 < 3.5"
+    },
+    {
+      "defect_id": "DEF_VQC_BELOW_REFERENCE",
+      "severity": "high",
+      "shot_id": null,
+      "description": "Render scored 1.417 vs REF-002 (< 3.0)"
+    },
+    {
+      "defect_id": "DEF_VQC_REFERENCE_GAP",
+      "severity": "medium",
+      "shot_id": null,
+      "description": "character_and_asset_quality vs REF-002 scored 1.0"
+    },
+    {
+      "defect_id": "DEF_VQC_REFERENCE_GAP",
+      "severity": "medium",
+      "shot_id": null,
+      "description": "mechanism_visualization vs REF-002 scored 1.5"
+    },
+    {
+      "defect_id": "DEF_VQC_REFERENCE_GAP",
+      "severity": "medium",
+      "shot_id": null,
+      "description": "camera_and_cinematography vs REF-002 scored 1.5"
+    },
+    {
+      "defect_id": "DEF_VQC_REFERENCE_GAP",
+      "severity": "medium",
+      "shot_id": null,
+      "description": "lighting_shadow_material_texture vs REF-002 scored 1.5"
+    },
+    {
+      "defect_id": "DEF_VQC_REFERENCE_GAP",
+      "severity": "medium",
+      "shot_id": null,
+      "description": "composition_and_transitions vs REF-002 scored 1.5"
+    },
+    {
+      "defect_id": "DEF_VQC_REFERENCE_GAP",
+      "severity": "medium",
+      "shot_id": null,
+      "description": "story_clarity vs REF-002 scored 1.5"
+    }
+  ],
+  "review_gaps": [],
+  "production_ready": false
+}

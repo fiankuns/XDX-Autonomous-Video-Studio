@@ -89,3 +89,23 @@ class FFmpegEngine:
         )
         errs = [line.strip() for line in proc.stderr.splitlines() if line.strip()]
         return {"ok": proc.returncode == 0 and len(errs) == 0, "errors": errs}
+
+    def measure_audio_peak_db(self, path: Path) -> float | None:
+        """Max volume (dBFS) of the first audio stream via ``volumedetect``; None when there is no audio stream.
+
+        Digital silence is returned as ``float('-inf')``.
+        """
+        proc = subprocess.run(
+            ["ffmpeg", "-nostdin", "-hide_banner", "-i", str(path), "-map", "0:a:0?", "-af", "volumedetect",
+             "-vn", "-f", "null", "-"],
+            capture_output=True,
+            text=True,
+        )
+        for line in proc.stderr.splitlines():
+            if "max_volume:" in line:
+                val = line.split("max_volume:", 1)[1].strip().split(" ")[0]
+                try:
+                    return float(val)
+                except ValueError:
+                    return float("-inf")
+        return None

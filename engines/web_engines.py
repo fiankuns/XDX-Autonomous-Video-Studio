@@ -8,6 +8,8 @@ import subprocess
 from pathlib import Path
 from typing import Any
 
+from governance.phase_scope import PHASE02A_DELIVERY_PROFILE, remotion_render_options
+
 WEB_DIR = Path(__file__).resolve().parent / "web"
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
@@ -92,7 +94,11 @@ class RemotionEngine:
         self,
         storyboard: dict[str, Any],
         caption_plan: dict[str, Any],
+        *,
+        delivery_profile: str = PHASE02A_DELIVERY_PROFILE,
     ) -> dict[str, Any]:
+        """Phase 02A default is VISUAL_ONLY_BENCHMARK: no <Audio> layers, renderMedia(muted:true), no audio track."""
+        render_options = remotion_render_options(delivery_profile)
         sequences = []
         for s in storyboard["shots"]:
             sequences.append(
@@ -113,7 +119,11 @@ class RemotionEngine:
             "durationInFrames": storyboard["total_frames"],
             "sequences": sequences,
             "captionCount": len(caption_plan.get("cues", [])),
-            "audioSpec": {
+            "deliveryProfile": delivery_profile,
+            "renderOptions": render_options,
+            "audioSpec": None
+            if render_options["muted"]
+            else {
                 "sampleRateHz": 48000,
                 "targetLufs": -15.0,
                 "truePeakDbtp": -1.0,

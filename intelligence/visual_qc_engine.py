@@ -16,6 +16,7 @@ import jsonschema
 import numpy as np
 
 from engines.ffmpeg_engine import FFmpegEngine
+from governance.phase_scope import PHASE02A_DELIVERY_PROFILE, audio_policy
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 QC_SCHEMA_PATH = ROOT_DIR / "schemas" / "qc_report.schema.json"
@@ -25,6 +26,7 @@ class VisualQualityControlEngine:
     """Runs technical media verification + OpenCV visual signal inspection + self-correction planning."""
 
     MAX_RETRIES_PER_SHOT = 3
+    SILENCE_PEAK_DBFS = -90.0
 
     def __init__(self, ffmpeg: FFmpegEngine | None = None, schema_path: Path | None = None) -> None:
         self.ffmpeg = ffmpeg or FFmpegEngine()
@@ -36,8 +38,20 @@ class VisualQualityControlEngine:
         *,
         require_audio: bool = False,
         current_attempt: int = 0,
+        delivery_profile: str | None = None,
     ) -> dict[str, Any]:
+        """Evaluate a rendered MP4.
+
+        ``delivery_profile="VISUAL_ONLY_BENCHMARK"`` (Phase 02A): a missing audio stream is never a defect, the
+        expected export has no audio track, and a track that is present anyway (silent or not) is only a low
+        severity WARN. ``require_audio=True`` is contradictory with that profile and is rejected.
+        """
         defects: list[dict[str, Any]] = []
+        policy = audio_policy(delivery_profile) if delivery_profile else None
+        if policy and policy["delivery_profile"] == PHASE02A_DELIVERY_PROFILE and require_audio:
+            raise ValueError("require_audio=True contradicts delivery_profile VISUAL_ONLY_BENCHMARK (audio deferred to Phase 04)")
+        if policy and policy["missing_audio_is_defect"]:
+            require_audio = True
         if not video_path.is_file() or video_path.stat().st_size == 0:
             report = {
                 "schema_version": "3.3.0",
@@ -82,6 +96,8 @@ class VisualQualityControlEngine:
                     actions=["Re-execute render job and check FFmpeg exit status."],
                 ),
             }
+            if policy:
+                report["audio_policy"] = {**policy, "audio_track_present": False, "audio_peak_dbfs": None}
             jsonschema.validate(instance=report, schema=self._schema)
             return report
 
@@ -132,6 +148,34 @@ class VisualQualityControlEngine:
                     "recommended_fix": "Mux validated 48 kHz master WAV into Remotion/FFmpeg output.",
                 }
             )
+        audio_peak: float | None = None
+        if policy and probe["has_audio"]:
+            audio_peak = self.ffmpeg.measure_audio_peak_db(video_path)
+            silent = audio_peak is None or audio_peak <= self.SILENCE_PEAK_DBFS
+            if policy["delivery_profile"] == PHASE02A_DELIVERY_PROFILE:
+                defects.append(
+                    {
+                        "defect_id": "DEF_UNNECESSARY_SILENT_AUDIO_TRACK" if silent else "DEF_AUDIO_OUT_OF_PHASE_SCOPE",
+                        "severity": "low",
+                        "shot_id": None,
+                        "description": (
+                            "Visual-only benchmark carries a silent audio track that is not needed."
+                            if silent
+                            else "Visual-only benchmark carries audible audio although audio is deferred to Phase 04."
+                        ),
+                        "recommended_fix": "Export without an audio track (Remotion renderMedia muted:true / ffmpeg -an).",
+                    }
+                )
+            elif silent:
+                defects.append(
+                    {
+                        "defect_id": "DEF_SILENT_AUDIO_TRACK",
+                        "severity": "critical",
+                        "shot_id": None,
+                        "description": "Master delivery audio stream is digitally silent.",
+                        "recommended_fix": "Mux the validated narration/music master before export.",
+                    }
+                )
         if blank_frames > 0:
             defects.append(
                 {
@@ -193,6 +237,12 @@ class VisualQualityControlEngine:
                 actions=[d["recommended_fix"] for d in defects],
             ),
         }
+        if policy:
+            report["audio_policy"] = {
+                **policy,
+                "audio_track_present": bool(probe["has_audio"]),
+                "audio_peak_dbfs": None if audio_peak is None or audio_peak == float("-inf") else round(audio_peak, 2),
+            }
         jsonschema.validate(instance=report, schema=self._schema)
         return report
 

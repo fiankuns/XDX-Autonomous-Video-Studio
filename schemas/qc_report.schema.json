@@ -219,6 +219,56 @@
         }
       },
       "additionalProperties": false
+    },
+    "audio_policy": {
+      "type": "object",
+      "required": [
+        "delivery_profile",
+        "audio_track",
+        "missing_audio_is_defect",
+        "audio_track_present"
+      ],
+      "properties": {
+        "delivery_profile": {
+          "type": "string",
+          "enum": [
+            "VISUAL_ONLY_BENCHMARK",
+            "MASTER_WITH_AUDIO"
+          ]
+        },
+        "audio_track": {
+          "type": "string",
+          "enum": [
+            "OMIT",
+            "REQUIRED"
+          ]
+        },
+        "missing_audio_is_defect": {
+          "type": "boolean"
+        },
+        "silent_audio_track": {
+          "type": "string"
+        },
+        "captions_represent_narration": {
+          "type": "boolean"
+        },
+        "audio_deferred_to_phase": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "audio_track_present": {
+          "type": "boolean"
+        },
+        "audio_peak_dbfs": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false

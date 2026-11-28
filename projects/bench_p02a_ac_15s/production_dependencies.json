@@ -2,8 +2,8 @@
   "schema": "xdx.production-dependencies.v1",
   "dependencies": {
     "engines/ffmpeg_engine.py": {
-      "sha256": "e662168270ae0108cd909fdbfc8e9f617ef70cb870edecfb69f97af66926e30f",
-      "bytes": 3748
+      "sha256": "38f1c343de65339c6676da33d0c8697701f06463253303fd05e76c93be6be0e2",
+      "bytes": 4559
     },
     "engines/web/remotion_timeline_spec.mjs": {
       "sha256": "db14afe7bba972ebc8652354e8092145b9a2036665134992a6ca58cb52e47e38",
@@ -14,16 +14,28 @@
       "bytes": 3187
     },
     "engines/web_engines.py": {
-      "sha256": "2a63924c7315a9e37054c4050e4f1b22dee5c006abbbd15ec3c312d579225cc8",
-      "bytes": 4591
+      "sha256": "263ccf25e7ce85bd5b4ffe56ad739884995b8506322900f8ffbcbb4266ffd59d",
+      "bytes": 5088
     },
     "governance/canonical_manifest.py": {
       "sha256": "6dd8f5a77158d88ff72ce353a4f72baabfc5563c2e31201740336d6bf4761429",
       "bytes": 8166
     },
+    "governance/phase_scope.py": {
+      "sha256": "a836de81ebf71ad7612fb75f0633894026ae70bdd6445dc16e4175ca8f09067d",
+      "bytes": 5687
+    },
     "governance/trusted_approval.py": {
       "sha256": "302af95abc93b7c70c6ca3e413d24917c92536c424063f2fa7572f61f8f65fe9",
       "bytes": 24473
+    },
+    "intelligence/visual_qc_engine.py": {
+      "sha256": "1fe3b2438610592c90e204b75bd1c9f6344947ba24603a23eeef9028b89b145b",
+      "bytes": 11644
+    },
+    "intelligence/visual_semantic_qc.py": {
+      "sha256": "7c8f75b57424f2200db78dd7fd4e751a322fe30f683c344b129805c9b3891b54",
+      "bytes": 13786
     },
     "package-lock.json": {
       "sha256": "89eb42a0ce5f061a26bf948d21b1970576cd1be468ec99b079f0ef5295080398",
@@ -42,8 +54,8 @@
       "bytes": 8376
     },
     "scripts/execution_guard_hook.py": {
-      "sha256": "540698146305ed49e9291282d74bb8314812cecda35ed5977077c0b4001e828c",
-      "bytes": 4103
+      "sha256": "0d66ac0f2e13a030183ffea46d893e9488a97054d4842cf0ad7068cae41936be",
+      "bytes": 4736
     }
   }
 }

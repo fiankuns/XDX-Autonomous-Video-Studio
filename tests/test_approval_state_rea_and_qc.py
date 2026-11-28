@@ -74,9 +74,10 @@ def test_13_item_approval_gate_and_state_machine_across_hybrid_genres(tmp_path: 
 
     # Phase 01.6D: without a registered trusted approver key the channel is UNAVAILABLE -> BLOCKED,
     # so even the well-formed (unsigned) XDX-APPROVE command cannot approve. Nothing is written.
-    from governance.trusted_approval import TrustedChannelUnavailableError
+    from governance.trusted_approval import TrustedChannelUnavailableError, UnsignedApprovalError
 
-    with pytest.raises(TrustedChannelUnavailableError):
+    # Channel unavailable (no key) or available (owner key) -> an unsigned command is rejected either way.
+    with pytest.raises((TrustedChannelUnavailableError, UnsignedApprovalError)):
         state_mgr.record_explicit_user_approval(
             package_dir=pkg_dir,
             user_message=result["approval_command_example"],

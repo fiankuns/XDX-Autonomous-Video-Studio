@@ -3,7 +3,7 @@
   "project_id": "bench_p02a_ac_15s",
   "package_version": "v1",
   "status": "WAITING_APPROVAL",
-  "package_digest": "da5da947063567b3e22639241c219acb430a8f2f84b375c2f71878f3b3ded378",
+  "package_digest": "33222254c715227acd7fe8299cb46e6176dae48d5159aefc5c0ab3f0a80428c7",
   "mandatory_13_items": {
     "01_topic_and_concept": {
       "present": true,
@@ -80,12 +80,13 @@
     "character_bible.json": "d572057b3576c79c7ffc6e9a8b6992fd00989dc9f54609fb9fcc6644ea0ecaf1",
     "character_bible.md": "9e422a6865c67e22de324ea080418bcb26362c3bb00ba28dfc3c2c25cbf85b21",
     "creative_concept.json": "32452b6e502c1edb937f961e234d46fcc293dc59885e267955b51dec837d16bc",
+    "delivery_scope.json": "6580e8c90e4a8ffeab0af1714189ce6d93d960abbba936ffa5a95b4339029c99",
     "engine_plan.json": "fc7a33cd8f61cc06b98e75c1a2cf43566a093ac1a391ee60aa9cde8b6072bd63",
     "execution_plan.md": "117c265bccb31e47b2d8d6293fcc344620d8535f994a64feddba0cc3f4057cc1",
     "motion_plan.json": "4e0a98ab48e8d84e17816c525bf5ed6251ea5da72d005722a98241cebb0ca3fa",
     "narration_dialogue.json": "9c4e83760d9289992dfbffaf5e867e2098caabef9705a991b64ab95d4e710e49",
     "production_config.json": "a0e0389b136e1443690a02cdf76a14b22bbb2060673936c24ace0abe163bea3d",
-    "production_dependencies.json": "0c80a6dfeb1b7ecbd872500799d005ae5a05359256286f5a89879c3dd08bf130",
+    "production_dependencies.json": "f4a18d23cfe3e593dbab457d9ef7bf98cfc96d71a3cf3bc14a9686685d306285",
     "reference_adaptation.json": "1406222f7beadc471034efd6eb2c1cdc9969a51d1aa693cc2b6bb378a1074fb6",
     "reference_analysis.md": "08368067a4e7b539bb4eda93cd90dafedd3681b977d56cba7ee04174cadd554d",
     "research.md": "5a4a7c37e271325c7fc03dd644638f4ed67889d259c7b52f098cf1bfc127d404",

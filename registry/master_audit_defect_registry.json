@@ -1,7 +1,7 @@
 {
   "schema_version": "4.0.0-phase01.6d",
   "registry_id": "xdx_master_audit_defect_registry",
-  "updated_at_utc": "2026-11-27T21:30:00+00:00",
+  "updated_at_utc": "2026-11-28T01:00:00+00:00",
   "append_only_policy": "Append-only ledger of all internal and external audit defects from Phase 01 onward. Historical entries must never be deleted, and VERIFIED requires an executed regression test.",
   "defects": [
     {
@@ -599,6 +599,74 @@
       "regression_test": "tests/test_phase02a_preflight_and_benchmark.py::test_p02a_04_production_dependencies_pinned_and_drift_detected",
       "evidence": "Verified 11 external dependencies pinned in bench_p02a_ac_15s canonical manifest and post-pinning file mutation raises CanonicalManifestError.",
       "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-036",
+      "source_phase": "Phase 02A (scope revision 2026-11-28)",
+      "severity": "HIGH",
+      "affected_module": "engines/web_engines.py, intelligence/visual_qc_engine.py, engines/ffmpeg_engine.py",
+      "reproduction_steps": [
+        "Render the AC 15s benchmark through RemotionEngine.compile_master_composition() and probe the MP4 with ffprobe/volumedetect."
+      ],
+      "observed_result": "Composition always carried an AAC audioSpec (-15 LUFS) although no audio stage exists, so the first test render shipped a 15s digitally silent track (max_volume -91 dB); QC had no notion of a visual-only delivery.",
+      "expected_result": "Phase 02A exports VISUAL_ONLY_BENCHMARK renders without an audio track (renderMedia muted:true); a missing track is not a defect, a silent track is a low WARN, the MASTER_WITH_AUDIO profile keeps strict audio rules for Phase 04.",
+      "root_cause": "Phase 02A design bundled audio mixing into the visual milestone.",
+      "correction_plan": "governance/phase_scope.py delivery profiles + audio_policy; Remotion composition defaults to muted with audioSpec None; VisualQualityControlEngine(delivery_profile=...) with measure_audio_peak_db(); qc_report.schema.json audio_policy block.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_visual_only_scope.py::test_p02a_vo_04_technical_qc_audio_policy",
+      "evidence": "Synthetic no-audio MP4 -> PASS, silent AAC -> WARN DEF_UNNECESSARY_SILENT_AUDIO_TRACK, MASTER profile -> HARD_FAIL; user test render -> WARN (peak -91.0 dBFS) instead of a fail.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-037",
+      "source_phase": "Phase 02A (first test render review)",
+      "severity": "CRITICAL",
+      "affected_module": "intelligence/visual_qc_engine.py (QC coverage), intelligence/visual_semantic_qc.py (new)",
+      "reproduction_steps": [
+        "Run VisualQualityControlEngine on the first AC 15s test render (primitive props, debug overlays, louvers never open)."
+      ],
+      "observed_result": "Technical QC only measures decode, luma, contrast and blank frames, so a render whose shots do not show what the captions say, with placeholder primitives and burned-in debug labels, is not rejected.",
+      "expected_result": "An independent fresh-context reviewer must confirm, per shot and per required action derived from the signed storyboard/semantic plan/captions, that the action is visible; placeholder assets, debug overlays, render artifacts, low dimension scores or a weak REF-002 comparison block PASS.",
+      "root_cause": "No semantic caption-to-visual gate between technical QC and acceptance.",
+      "correction_plan": "build_visual_review_checklist() + evaluate_visual_review() (reviewer != producer, render SHA-256 binding, 3 frames per shot, 7 visual dimensions, REF-002 comparison) and scripts/visual_review.py checklist|frames|evaluate.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_visual_only_scope.py::test_p02a_vo_06_independent_review_rules",
+      "evidence": "docs/evidence/phase02a_visual_only/independent_visual_qc_result_ac15s.json: first test render HARD_FAIL (12 semantic mismatches, 5 placeholder assets, 4 debug overlays, REF-002 mean 1.417/5). Reviewer precision/recall is still tracked by DEF-P016D-030.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-038",
+      "source_phase": "Phase 02A (scope revision 2026-11-28)",
+      "severity": "MEDIUM",
+      "affected_module": "scripts/execution_guard_hook.py, governance/phase_scope.py",
+      "reproduction_steps": [
+        "Send creative_generate_speech or 'rhubarb ... vo.wav' to the execution guard hook during Phase 02A."
+      ],
+      "observed_result": "Nothing prevented agents from spending quota on TTS, music, SFX, lip sync or audio mixing during the visual milestone.",
+      "expected_result": "Audio tools and audio shell tooling are blocked with PhaseScopeDeferredError until Phase 04; the render approval gate is unchanged.",
+      "root_cause": "Scope existed only as prose.",
+      "correction_plan": "classify_audio_tool()/classify_audio_command() checked in the hook before the render gate.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_visual_only_scope.py::test_p02a_vo_02_guard_hook_blocks_audio_work_and_keeps_render_gate",
+      "evidence": "Hook exit 2 for audio tool/command, exit 0 for 'ls', exit 2 (trusted approval missing) for a muted Remotion render.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-039",
+      "source_phase": "Phase 02A (first test render review)",
+      "severity": "HIGH",
+      "affected_module": "engines/web/ (Three.js scenes), asset pipeline, render composition",
+      "reproduction_steps": [
+        "Inspect frames listed by scripts/visual_review.py checklist projects/bench_p02a_ac_15s on the first AC 15s render."
+      ],
+      "observed_result": "Character and props are primitives (floating cylinder arm, box remote, box compressor, cylinder condenser); louvers never open; no directed heat flow; stray grey plane in S003; debug labels burned in; flat lighting without shadows; static cameras and hard cuts; no 24 C payoff.",
+      "expected_result": "Re-render passes evaluate_visual_review() with PASS: all required actions visible, no placeholders/overlays/artifacts, every dimension >= 3.0, shot mean >= 3.5, REF-002 mean >= 3.0.",
+      "root_cause": "Visual production quality not yet built; previously undetected by QC (DEF-P02A-037).",
+      "correction_plan": "Phase 02A visual work: production-grade low-poly character with rig, articulated AC with animated louvers, readable mechanism cutaways, lighting/shadows/materials, camera moves and transitions, overlays off in final render.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_visual_only_scope.py::test_p02a_vo_07_recorded_review_of_first_test_render_is_hard_fail",
+      "evidence": "Independent review HARD_FAIL recorded in docs/evidence/phase02a_visual_only/.",
+      "current_status": "OPEN"
     }
   ]
 }

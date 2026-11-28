@@ -1,0 +1,26 @@
+{
+  "schema": "xdx.delivery-scope.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "phase": "02A",
+  "delivery_profile": "VISUAL_ONLY_BENCHMARK",
+  "audio": {
+    "in_scope": false,
+    "deferred_to_phase": "04",
+    "export_audio_track": false,
+    "missing_audio_is_qc_failure": false,
+    "planning_fields_ignored_in_02A": [
+      "audio_events",
+      "sfx_cues",
+      "audio_master_preset_id",
+      "target_lufs",
+      "music_direction",
+      "ambience"
+    ]
+  },
+  "captions_represent_narration": true,
+  "visual_qc": {
+    "technical": "intelligence/visual_qc_engine.py (delivery_profile=VISUAL_ONLY_BENCHMARK)",
+    "independent_semantic": "intelligence/visual_semantic_qc.py via scripts/visual_review.py",
+    "reference_comparison": "REF-002"
+  }
+}

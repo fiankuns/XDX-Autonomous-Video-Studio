@@ -39,13 +39,68 @@ PRODUCTION_DEPENDENCY_FILES = [
     "governance/canonical_manifest.py",
     "governance/trusted_approval.py",
     "scripts/execution_guard_hook.py",
+    "governance/phase_scope.py",
+    "intelligence/visual_qc_engine.py",
+    "intelligence/visual_semantic_qc.py",
     "reference_database/profiles/reference_pattern_registry.json",
     "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json",
 ]
 
 
+DELIVERY_SCOPE = {
+    "schema": "xdx.delivery-scope.v1",
+    "project_id": BENCH_ID,
+    "phase": "02A",
+    "delivery_profile": "VISUAL_ONLY_BENCHMARK",
+    "audio": {
+        "in_scope": False,
+        "deferred_to_phase": "04",
+        "export_audio_track": False,
+        "missing_audio_is_qc_failure": False,
+        "planning_fields_ignored_in_02A": ["audio_events", "sfx_cues", "audio_master_preset_id", "target_lufs",
+                                           "music_direction", "ambience"],
+    },
+    "captions_represent_narration": True,
+    "visual_qc": {
+        "technical": "intelligence/visual_qc_engine.py (delivery_profile=VISUAL_ONLY_BENCHMARK)",
+        "independent_semantic": "intelligence/visual_semantic_qc.py via scripts/visual_review.py",
+        "reference_comparison": "REF-002",
+    },
+}
+
+
+def repin(pkg_dir: Path) -> dict:
+    """Re-pin dependencies + delivery scope and resync the canonical digest WITHOUT re-running the workflow."""
+    (pkg_dir / "delivery_scope.json").write_text(json.dumps(DELIVERY_SCOPE, indent=2, ensure_ascii=False) + "\n",
+                                                 encoding="utf-8")
+    dep_manifest = build_production_dependencies_manifest(ROOT_DIR, PRODUCTION_DEPENDENCY_FILES)
+    (pkg_dir / "production_dependencies.json").write_text(
+        json.dumps(dep_manifest, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
+    )
+    canon_man = build_canonical_manifest(pkg_dir)
+    canon_digest = manifest_digest(canon_man)
+    app_man_path = pkg_dir / "approval_package_manifest.json"
+    app_man = json.loads(app_man_path.read_text(encoding="utf-8"))
+    app_man["package_digest"] = canon_digest
+    app_man["required_files_sha256"] = {k: v["sha256"] for k, v in canon_man["files"].items()}
+    app_man_path.write_text(json.dumps(app_man, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    state_path = pkg_dir / "project_state.json"
+    state = json.loads(state_path.read_text(encoding="utf-8"))
+    if state.get("current_state") != "WAITING_APPROVAL" or state.get("approval_status", {}).get("approved"):
+        raise SystemExit("Refusing to re-pin: package is not in an unapproved WAITING_APPROVAL state")
+    ProjectStateManager(state_path).mark_waiting_approval(canon_digest, package_version=app_man.get("package_version", "v1"))
+    return {"project_id": BENCH_ID, "canonical_manifest_digest": canon_digest,
+            "canonical_files_covered": len(canon_man["files"]),
+            "external_dependencies_pinned": len(dep_manifest["dependencies"])}
+
+
 def main() -> int:
     pkg_dir = ROOT_DIR / "projects" / BENCH_ID
+    if "--repin-only" in sys.argv[1:]:
+        print(json.dumps(repin(pkg_dir), indent=2))
+        return 0
+    (pkg_dir / "delivery_scope.json").write_text(json.dumps(DELIVERY_SCOPE, indent=2, ensure_ascii=False) + "\n",
+                                                 encoding="utf-8")
     payload_path = pkg_dir / "authored_creative_payload.json"
     payload = json.loads(payload_path.read_text(encoding="utf-8"))
 

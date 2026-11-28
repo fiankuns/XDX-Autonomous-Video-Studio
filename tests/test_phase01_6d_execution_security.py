@@ -44,15 +44,22 @@ def _build_pkg(tmp_path: Path, project_id: str = "sec16d_proj") -> tuple[Path, d
 
 
 # ----------------------------------------------------------------------------- trusted channel
-def test_repo_trust_registry_has_no_keys_so_production_is_blocked() -> None:
+def test_repo_trust_registry_is_fail_closed() -> None:
+    """Empty/dirty registry -> BLOCKED. Owner-committed key (fian-termux-1, 9f87677) -> approval possible,
+    but production execution stays behind the Phase 02 boundary."""
     st = ta.default_guard().channel_status()
-    assert st["status"] == "UNAVAILABLE"
-    assert st["production_status"] == "BLOCKED"
     cli = subprocess.run(
         [sys.executable, str(ROOT_DIR / "scripts" / "trusted_approval.py"), "status"],
         cwd=ROOT_DIR, capture_output=True, text=True,
     )
-    assert cli.returncode == 3 and json.loads(cli.stdout)["production_status"] == "BLOCKED"
+    if st["status"] == "UNAVAILABLE":
+        assert st["production_status"] == "BLOCKED"
+        assert cli.returncode == 3 and json.loads(cli.stdout)["production_status"] == "BLOCKED"
+    else:
+        assert st["registry_git_state"] == "CLEAN" and st["approver_key_ids"] and not st["reasons"]
+        assert cli.returncode == 0 and json.loads(cli.stdout)["status"] == "AVAILABLE"
+        with pytest.raises(ta.PhaseBoundaryBlockedError):
+            ta.assert_phase_boundary("render_production", action="render")
 
 
 def test_uncommitted_trust_registry_change_makes_channel_unavailable(tmp_path: Path, monkeypatch) -> None:
@@ -226,12 +233,12 @@ def test_ledger_tamper_and_cli_cannot_bypass(tmp_path: Path, trusted_approver) -
     gate = ApprovalGate()
     assert gate.inspect_package(pkg, check_record=True)["status"] == "RECORD_MATCH_ONLY"
 
-    # CLI runs in a fresh process with the REPO trust registry (no keys) -> BLOCKED even for a genuine record.
+    # CLI runs in a fresh process with the REPO trust registry, which does not trust the test key -> fail closed.
     cli = subprocess.run(
         [sys.executable, str(ROOT_DIR / "scripts" / "approval_gate.py"), str(pkg), "--check"],
         cwd=ROOT_DIR, capture_output=True, text=True,
     )
-    assert cli.returncode == 2 and "TRUSTED_CHANNEL_UNAVAILABLE" in cli.stdout
+    assert cli.returncode == 2 and ("TRUSTED_CHANNEL_UNAVAILABLE" in cli.stdout or "not a registered, unrevoked trusted key" in cli.stdout)
 
     # Editing the hash-chained ledger is detected.
     led = ta.TrustedApprovalGuard.ledger_path(pkg)

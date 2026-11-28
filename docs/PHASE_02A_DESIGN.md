@@ -1,5 +1,9 @@
 # Desain Arsitektur Phase 02A — Headless Three.js WebGL & Remotion Master Render (v3.4)
 
+> **Revisi scope 2026-11-28 — VISUAL ONLY.** Phase 02A sekarang menghasilkan `VISUAL_ONLY_BENCHMARK`. Seluruh audio
+> (TTS, voice-over, musik, SFX, lip sync, mixing, forced alignment) ditunda ke **Phase 04**. Bagian 3.3 dan `audioCodec`
+> pada 3.4 di bawah hanya berlaku untuk profil `MASTER_WITH_AUDIO` di Phase 04. Lihat **Bagian 4**.
+
 Dokumen ini merinci hasil audit kompatibilitas `package-lock.json` aktual serta cetak biru teknis **Phase 02A** untuk eksekusi render WebGL & Remotion secara deterministik di Cloud Runtime.
 
 ---
@@ -46,3 +50,42 @@ Dokumen ini merinci hasil audit kompatibilitas `package-lock.json` aktual serta 
    - Kurva sidechain ducking dari `PresetExecutorEngine.evaluate_audio_ducking_envelope` diterapkan sebagai fungsi `volume={(f) => dbToLinear(duckCurve[f])}` pada komponen `<Audio>` musik latar, sementara track VO dan dialog dijaga pada `-15 LUFS` / true peak `<= -1.0 dBTP`.
 4. **Bundling, Rendering & Validasi Akhir**:
    - `@remotion/bundler` (`bundle()`) → `@remotion/renderer` (`renderMedia({ codec: "h264", pixelFormat: "yuv420p", audioCodec: "aac" })`) → diverifikasi wajib oleh `FFmpegEngine.verify_full_decode()` dan `VisualQualityControlEngine`.
+
+---
+
+## 4. Revisi Scope Phase 02A — `VISUAL_ONLY_BENCHMARK` (2026-11-28)
+
+**Ditunda ke Phase 04:** TTS, voice-over, musik, sound effect, lip sync, audio mixing/ducking, forced alignment.
+Tidak ada kuota agent untuk audio di Phase 02A; guard hook menolak tool/perintah audio dengan `PhaseScopeDeferredError`
+(`governance/phase_scope.py`).
+
+**Aturan render & QC**
+- Render tanpa audio sah sebagai `VISUAL_ONLY_BENCHMARK`. Ekspor **tanpa track audio**: `renderMedia({codec:"h264", pixelFormat:"yuv420p", muted:true})`
+  (`RemotionEngine.compile_master_composition` default: `audioSpec: null`).
+- `VisualQualityControlEngine.evaluate_video(..., delivery_profile="VISUAL_ONLY_BENCHMARK")`: audio hilang **bukan** defect;
+  track senyap yang ikut terekspor = `DEF_UNNECESSARY_SILENT_AUDIO_TRACK` (low, WARN).
+- Caption tetap menjadi representasi narasi dan tolok ukur kecocokan visual dengan cerita.
+- Field audio pada paket (`audio_events`, `sfx_cues`, `target_lufs`, `music_direction`, …) tetap tersimpan sebagai rencana
+  Phase 04 dan diabaikan di 02A (`projects/<id>/delivery_scope.json`).
+
+**Fokus sumber daya:** kualitas karakter & aset · semantic visual storytelling · animasi & interaksi objek · visualisasi
+mekanisme · kamera & sinematografi · lighting, shadow, material & tekstur · komposisi & transisi · Independent Visual QC ·
+perbandingan render aktual dengan REF-002.
+
+**Independent Visual QC** (`intelligence/visual_semantic_qc.py`, `scripts/visual_review.py`)
+1. `checklist` — dari storyboard + semantic visual plan + caption yang ditandatangani: per shot caption, aksi wajib,
+   aset wajib, kamera, dan 3 frame yang wajib diperiksa.
+2. `frames` — ekstrak frame wajib + contact sheet dari MP4 aktual (analisis, bukan render).
+3. `evaluate` — review reviewer independen (`reviewer_context: "fresh"`, reviewer ≠ producer, terikat SHA-256 render):
+   - HARD_FAIL: aksi wajib tidak terlihat, aset placeholder/primitif, overlay debug, artefak render, skor dimensi < 3.0,
+     rata-rata shot < 3.5, rata-rata vs REF-002 < 3.0.
+   - WARN: caption menutupi subjek, subjek terpotong tepi frame.
+   - INCOMPLETE: shot/aksi/frame/dimensi tidak tercakup.
+   - Hanya `PASS` yang boleh disebut lulus visual.
+
+**Bukti awal:** render uji AC 15 dtk pertama → `HARD_FAIL` (12 ketidaksesuaian semantik, 5 aset placeholder, overlay debug
+di 4 shot, skor vs REF-002 1,42/5) — `docs/evidence/phase02a_visual_only/`.
+
+**Keamanan tidak berubah:** trusted approval Ed25519, canonical manifest, pin dependensi produksi, dan batas eksekusi
+Phase 02 tetap berlaku untuk setiap render (render muted pun tetap butuh approval terverifikasi).
+
