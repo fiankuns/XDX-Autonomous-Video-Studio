@@ -12,39 +12,121 @@
   },
   "rules": {
     "anatomy": {
-      "head_to_height_ratio": [0.2, 0.25],
+      "head_to_height_ratio": [
+        0.2,
+        0.25
+      ],
       "single_unified_body_mesh": true,
       "no_visible_mannequin_joints": true,
       "clean_silhouette": true,
       "smooth_shading": true
     },
     "materials": {
-      "skin": {"subsurface_weight": 0.25, "subsurface_radius": [1.0, 0.45, 0.25], "subsurface_scale": 0.02, "roughness": 0.45, "warm": true},
-      "hair": {"form": "sculpted_clumps", "roughness": 0.35, "coat_weight": 0.3, "specular_tint": "soft"},
-      "cotton": {"roughness": 0.85, "sheen_weight": 0.35, "weave_bump": 0.15},
-      "denim_twill": {"roughness": 0.8, "sheen_weight": 0.25, "weave_bump": 0.2},
-      "shirt_graphic": {"technique": "raised_embroidery_decal", "bump_strength": 0.3},
-      "footwear": {"rubber_roughness": 0.65, "canvas_roughness": 0.9}
+      "skin": {
+        "subsurface_weight": 0.25,
+        "subsurface_radius": [
+          1.0,
+          0.45,
+          0.25
+        ],
+        "subsurface_scale": 0.02,
+        "roughness": 0.45,
+        "warm": true
+      },
+      "hair": {
+        "form": "sculpted_clumps",
+        "roughness": 0.35,
+        "coat_weight": 0.3,
+        "specular_tint": "soft"
+      },
+      "cotton": {
+        "roughness": 0.85,
+        "sheen_weight": 0.35,
+        "weave_bump": 0.15
+      },
+      "denim_twill": {
+        "roughness": 0.8,
+        "sheen_weight": 0.25,
+        "weave_bump": 0.2
+      },
+      "shirt_graphic": {
+        "technique": "raised_embroidery_decal",
+        "bump_strength": 0.3
+      },
+      "footwear": {
+        "rubber_roughness": 0.65,
+        "canvas_roughness": 0.9
+      }
     },
     "lighting": {
-      "key": {"type": "AREA", "size_m": 2.0, "color_k": 5200, "role": "large softbox, front-left high"},
-      "fill": {"type": "AREA", "size_m": 2.5, "color_k": 3800, "ratio_to_key": 0.45, "role": "gentle warm fill, front-right low"},
-      "rim": {"type": "AREA", "size_m": 1.5, "color_k": 6000, "ratio_to_key": 0.35, "role": "soft separation from behind"},
+      "key": {
+        "type": "AREA",
+        "size_m": 2.0,
+        "color_k": 6200,
+        "role": "large softbox, front-left high"
+      },
+      "fill": {
+        "type": "AREA",
+        "size_m": 2.5,
+        "color_k": 4800,
+        "ratio_to_key": 0.45,
+        "role": "gentle warm fill, front-right low"
+      },
+      "rim": {
+        "type": "AREA",
+        "size_m": 1.5,
+        "color_k": 6500,
+        "ratio_to_key": 0.35,
+        "role": "soft separation from behind"
+      },
       "contrast": "low",
       "ambient_occlusion": true,
-      "backdrop_rgb_linear": [0.6, 0.6, 0.62]
+      "backdrop_rgb_linear": [
+        0.6,
+        0.6,
+        0.62
+      ]
     },
-    "color_management": {"view_transform": "AgX", "look_preference": ["AgX - Medium Low Contrast", "AgX - Base Contrast", "None"]},
-    "camera": {"lens_mm": 85, "orthographic_option": true, "depth_of_field": false},
+    "color_management": {
+      "view_transform": "Standard",
+      "look": "None",
+      "exposure": -1.05,
+      "tested_note": "On Vivo X200 Pro EEVEE, AgX (all looks) desaturated the saturated yellow shirt to pastel; Standard at -1.05 EV with the soft 3-light rig matched the blueprint palette (gate palette share 0.91)."
+    },
+    "camera": {
+      "lens_mm": 85,
+      "orthographic_option": true,
+      "depth_of_field": false
+    },
     "quality": {
       "target_cgi": "8k offline intent",
       "android_mobile_cap": "render <=512px under the mobile guard; style kept, detail reduced",
-      "no_grain": true, "no_blur": true
+      "no_grain": true,
+      "no_blur": true
     },
-    "forbidden": ["flat cel shading", "ink outlines", "mannequin ball joints", "harsh contrast", "dark or colored backdrop", "motion blur"]
+    "forbidden": [
+      "flat cel shading",
+      "ink outlines",
+      "mannequin ball joints",
+      "harsh contrast",
+      "dark or colored backdrop",
+      "motion blur"
+    ],
+    "mobile_render": {
+      "eevee_raytracing": false,
+      "taa_render_samples": 16,
+      "tested_render_s": "0.9-2.0 s at 512 px (raytracing on: 8.3 s)"
+    }
   },
   "gate": {
-    "requires_reference_views": ["front", "back", "left", "right", "three_quarter", "face"],
+    "requires_reference_views": [
+      "front",
+      "back",
+      "left",
+      "right",
+      "three_quarter",
+      "face"
+    ],
     "palette_must_match_character_blueprint": true,
     "independent_visual_critic_required": true
   }

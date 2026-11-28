@@ -32,16 +32,11 @@ def kelvin_rgb(k: float) -> tuple[float, float, float]:
 def apply_scene_look(scene=None, *, backdrop=(0.6, 0.6, 0.62)) -> dict:
     scene = scene or bpy.context.scene
     vs = scene.view_settings
-    vs.view_transform = "AgX"
-    look_used = "None"
-    for look in ("AgX - Medium Low Contrast", "AgX - Base Contrast", "None"):
-        try:
-            vs.look = look
-            look_used = look
-            break
-        except TypeError:
-            continue
-    vs.exposure = 0.0
+    # Tested on device: AgX desaturates saturated yellows to pastel; Standard at -1.05 EV matches the blueprint.
+    vs.view_transform = "Standard"
+    vs.look = "None"
+    look_used = "Standard"
+    vs.exposure = -1.05
     scene.render.film_transparent = False
     world = scene.world or bpy.data.worlds.new("XDX_StudioWorld")
     scene.world = world
@@ -53,7 +48,7 @@ def apply_scene_look(scene=None, *, backdrop=(0.6, 0.6, 0.62)) -> dict:
     ee = getattr(scene, "eevee", None)
     if ee is not None:
         for attr, val in (("use_gtao", True), ("gtao_distance", 0.25), ("use_shadows", True),
-                          ("shadow_ray_count", 2), ("use_raytracing", True)):
+                          ("shadow_ray_count", 2), ("use_raytracing", False), ("taa_render_samples", 16)):
             if hasattr(ee, attr):
                 try:
                     setattr(ee, attr, val)
@@ -81,9 +76,9 @@ def _area(name, loc, target, energy, size, kelvin):
 def apply_studio_lights(prefix: str, *, target=(0.0, 0.0, 0.85), key_energy=260.0) -> list[str]:
     """Front faces -Y. Key front-left high, warm fill front-right low, soft rim behind."""
     made = [
-        _area(f"{prefix}Key", (-1.6, -2.2, 2.4), target, key_energy, 2.0, 5200),
-        _area(f"{prefix}Fill", (1.9, -1.8, 1.0), target, key_energy * 0.45, 2.5, 3800),
-        _area(f"{prefix}Rim", (0.4, 2.3, 2.2), target, key_energy * 0.35, 1.5, 6000),
+        _area(f"{prefix}Key", (-1.6, -2.2, 2.4), target, key_energy, 2.0, 6200),
+        _area(f"{prefix}Fill", (1.9, -1.8, 1.0), target, key_energy * 0.45, 2.5, 4800),
+        _area(f"{prefix}Rim", (0.4, 2.3, 2.2), target, key_energy * 0.35, 1.5, 6500),
     ]
     return [o.name for o in made]
 

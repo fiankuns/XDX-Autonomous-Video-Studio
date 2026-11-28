@@ -1,0 +1,151 @@
+{
+ "silhouette": {
+  "iou": 0.8481,
+  "aspect_error": 0.0152,
+  "align": "bbox",
+  "threshold": 0.8,
+  "verdict": "PASS_GEOMETRY_ONLY",
+  "note": "Geometry-only diagnostic; production PASS needs Independent Visual QC on real renders."
+ },
+ "body_volume_profile_error": 0.0784,
+ "framing": {
+  "ok": true,
+  "min_margin": 0.079,
+  "fill_ratio": 0.839,
+  "center_offset": 0.0
+ },
+ "material": {
+  "match_share": 0.9086,
+  "used": [
+   "#F0A20E",
+   "#E4DED6",
+   "#B97650",
+   "#15100E",
+   "#5B6478"
+  ]
+ },
+ "hair": {
+  "ok": true,
+  "error": 0.0419,
+  "tolerance": 0.1
+ },
+ "proportions": {
+  "errors": {
+   "head_ratio": 0.051,
+   "leg_ratio": 0.0004,
+   "shoulder_ratio": 0.0199
+  }
+ },
+ "landmarks": {
+  "mean_error": 0.0545,
+  "per_landmark": {
+   "eye_L": 0.0612,
+   "eye_R": 0.0478
+  },
+  "missing": []
+ },
+ "other_views": {
+  "back": {
+   "framing": {
+    "ok": false,
+    "min_margin": 0.035,
+    "fill_ratio": 0.927,
+    "center_offset": 0.0
+   },
+   "silhouette": {
+    "iou": 0.847,
+    "aspect_error": 0.0173,
+    "align": "bbox",
+    "threshold": 0.8,
+    "verdict": "PASS_GEOMETRY_ONLY",
+    "note": "Geometry-only diagnostic; production PASS needs Independent Visual QC on real renders."
+   }
+  },
+  "left": {
+   "framing": {
+    "ok": false,
+    "min_margin": 0.035,
+    "fill_ratio": 0.927,
+    "center_offset": 0.007
+   },
+   "silhouette": {
+    "iou": 0.8093,
+    "aspect_error": 0.0148,
+    "align": "bbox",
+    "threshold": 0.8,
+    "verdict": "PASS_GEOMETRY_ONLY",
+    "note": "Geometry-only diagnostic; production PASS needs Independent Visual QC on real renders."
+   }
+  },
+  "right": {
+   "framing": {
+    "ok": false,
+    "min_margin": 0.035,
+    "fill_ratio": 0.927,
+    "center_offset": 0.007
+   },
+   "silhouette": {
+    "iou": 0.8091,
+    "aspect_error": 0.0148,
+    "align": "bbox",
+    "threshold": 0.8,
+    "verdict": "PASS_GEOMETRY_ONLY",
+    "note": "Geometry-only diagnostic; production PASS needs Independent Visual QC on real renders."
+   }
+  },
+  "three_quarter": {
+   "framing": {
+    "ok": false,
+    "min_margin": 0.035,
+    "fill_ratio": 0.927,
+    "center_offset": 0.0
+   },
+   "silhouette": {
+    "iou": 0.872,
+    "aspect_error": 0.0539,
+    "align": "bbox",
+    "threshold": 0.8,
+    "verdict": "PASS_GEOMETRY_ONLY",
+    "note": "Geometry-only diagnostic; production PASS needs Independent Visual QC on real renders."
+   }
+  },
+  "face": {
+   "framing": {
+    "ok": false,
+    "min_margin": 0.0,
+    "fill_ratio": 0.951,
+    "center_offset": 0.0
+   },
+   "silhouette": {
+    "iou": 0.9152,
+    "aspect_error": 0.0723,
+    "align": "bbox",
+    "threshold": 0.8,
+    "verdict": "PASS_GEOMETRY_ONLY",
+    "note": "Geometry-only diagnostic; production PASS needs Independent Visual QC on real renders."
+   }
+  }
+ },
+ "geometry": {
+  "within_budget": true,
+  "needs_attention": []
+ },
+ "criteria": {
+  "silhouette": true,
+  "body_volume_profile": true,
+  "technical_framing": true,
+  "palette": true,
+  "hair": true,
+  "proportions": "True",
+  "landmarks": true,
+  "view_back_silhouette": true,
+  "view_left_silhouette": true,
+  "view_right_silhouette": true,
+  "view_three_quarter_silhouette": true,
+  "view_face_silhouette": true,
+  "geometry_integrity": true
+ },
+ "missing_evidence": [],
+ "verdict": "PASS_AUTOMATED_CHECKS",
+ "note": "Automated checks only. Acceptance also requires Independent Visual Critic on real renders and user approval."
+}
