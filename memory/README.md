@@ -9,3 +9,6 @@ Implementasi penuh keenam partisi penyimpanan terstruktur berbasis *atomic write
 4. `execution_memory` — Status DAG task, checkpoint, percobaan (*attempt*), dan manifest artefak.
 5. `error_memory` — Riwayat *defect*, log kegagalan, akar masalah, solusi, dan regression test terkait.
 6. `quality_memory` — Bukti frame, hasil render, contact sheet, dan evaluasi yang telah ditinjau independen.
+
+## Seed produksi (Phase 02A)
+`memory/seed_knowledge/production_techniques_v4.json` (teknik teruji, `RENDER_TESTED`) dan `error_lessons_v4.json` (kegagalan → akar masalah → perbaikan → pencegahan) adalah sumber kebenaran yang di-commit; `memory/seed_loader.py::load_production_seed(store)` memuatnya ke `ProductionMemory` / `ErrorMemory` (`project_id="xdx_global"`). Database SQLite tetap tidak di-commit.

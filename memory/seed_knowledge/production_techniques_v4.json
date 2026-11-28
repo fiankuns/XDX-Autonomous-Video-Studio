@@ -1,0 +1,183 @@
+{
+  "schema": "xdx.production-seed.v1",
+  "version": "v4.0",
+  "techniques": [
+    {
+      "technique_id": "frame_pure_deterministic_render",
+      "domain": "engine",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Every frame is a pure function of the integer frame index.",
+      "how": "renderFrame(f) only; seeded mulberry32; no wall clock/requestAnimationFrame/Math.random; headless Chrome+SwiftShader; PNG sequence -> H.264 yuv420p -an.",
+      "evidence": "Two renders gave identical SHA-256 for 12/12 sampled frames; full MP4 hash stable across the refactor.",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_10_pixel_regression_against_v5_benchmark",
+        "tests/test_phase02a_visual_engine.py::test_p02a_ve_04_scene_reads_captions_from_package_and_is_pinned"
+      ]
+    },
+    {
+      "technique_id": "caption_anchored_timing_map",
+      "domain": "timeline",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Scene beats are anchored to caption cue windows, never to hard-coded frame numbers.",
+      "how": "buildTimeline(PKG) -> CUEF/cue(sid,i); visuals may lead words by SYNC_LEAD = round(0.3*fps); QC uses the same windows [cue start-0.3 s, cue end).",
+      "evidence": "Caption retiming no longer breaks sync; checklist v2 + caption_sync_evidence.",
+      "tests": [
+        "tests/test_phase02a_visual_only_scope.py::test_p02a_vo_06_independent_review_rules"
+      ]
+    },
+    {
+      "technique_id": "canonical_integer_frame_timeline",
+      "domain": "timeline",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "One integer-frame master timeline; shots contiguous; cues inside shots; chapters are a view of the same timeline.",
+      "how": "intelligence/visual_workflow.canonical_timeline + plan_chapters/verify_chapters (partition check, no second clock).",
+      "evidence": "Gap/overlap mutations raise ValueError.",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_04_canonical_timeline_and_chapters"
+      ]
+    },
+    {
+      "technique_id": "storyboard_first_style_frames",
+      "domain": "preview",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "One style frame per caption cue from the SAME engine, with a contact sheet bound to the package digest and scene hashes, before the full render.",
+      "how": "render_phase02a_visual.py --prototype --preview.",
+      "evidence": "8 style frames for 8 cues.",
+      "tests": [
+        "tests/test_phase02a_visual_engine.py::test_p02a_ve_06_preview_style_frames_one_per_caption"
+      ]
+    },
+    {
+      "technique_id": "same_engine_animatic_and_shot_motion_preview",
+      "domain": "preview",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Whole-video animatic (every 3rd frame, 10 fps) and per-shot motion preview use the production scene, not a separate mock.",
+      "how": "--prototype --animatic / --shot S00N (output outside the repo; behind the execution guard).",
+      "evidence": "Per-shot S002 preview rendered (105 frames).",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_09_guard_covers_preview_modes"
+      ]
+    },
+    {
+      "technique_id": "directional_flow_particles",
+      "domain": "visual_language",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Heat/air/refrigerant flow reads as direction: comet trails with arrow-head sprites oriented along the on-screen path; colour encodes state.",
+      "how": "Comets(createCometsClass) with curveOf/colorOf/arrows; red=warm, blue=cool; in-situ colour ramp for phase change.",
+      "evidence": "Reviewer first render: 'particles float without flow direction' -> fixed from v2.",
+      "tests": []
+    },
+    {
+      "technique_id": "articulated_cutaway_props",
+      "domain": "assets",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Mechanism props are articulated and cutaway-ready (pivoting louver, removable panel, visible coil/fins/blower) instead of boxes.",
+      "how": "Reusable factories in engines/web/xdx_core/assets (character_bima.js, indoor_ac.js) with explicit parts returned for animation.",
+      "evidence": "Registered in registry/asset_registry.json (procedural_ready, is_placeholder=false).",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_02_asset_registry_and_bindings"
+      ]
+    },
+    {
+      "technique_id": "level_camera_cut_on_action",
+      "domain": "cinematography",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Keep the horizon level (camera.up = world up); move into an insert with a slow eased orbit (~0.9 s); cut on the action instead of whipping between targets.",
+      "how": "look(...) with WORLD_UP; no lerp of the up vector; clean cut to the target when the IR fires, then slow push-in.",
+      "evidence": "v4 showed 30-40 degree roll and a whip; fixed in v5; owner accepted pacing.",
+      "tests": []
+    },
+    {
+      "technique_id": "subject_above_caption_safe_area",
+      "domain": "composition",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Render a taller virtual frustum and show its lower 80% (setViewOffset) so subjects sit above the caption band; verify the caption rect against the safe area.",
+      "how": "camera.setViewOffset(W, H*1.25, 0, H*0.25, W, H); check_caption_safe_area on measured #capbox rects.",
+      "evidence": "446 frames checked, 0 issues.",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_07_caption_safe_area"
+      ]
+    },
+    {
+      "technique_id": "style_binding_from_bibles",
+      "domain": "style",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Locked character/style colours come from the signed character and style bibles; scenes never hard-code them; missing palette fails closed.",
+      "how": "load_package_data injects character_palette; bindCharacterPalette validates #RRGGBB x4.",
+      "evidence": "No locked hex in scene.js.",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_01_scene_uses_core_modules_and_bible_palette"
+      ]
+    },
+    {
+      "technique_id": "asset_load_barrier",
+      "domain": "engine",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Frame 0 renders only after fonts/textures/models have settled; failures abort.",
+      "how": "createAssetLoadBarrier().require(label,promise); settle(); failed() throws.",
+      "evidence": "Scene loads under the barrier with identical output.",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_01_scene_uses_core_modules_and_bible_palette"
+      ]
+    },
+    {
+      "technique_id": "hash_dependency_selective_rerender",
+      "domain": "pipeline",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Re-render only shots whose input hash changed (storyboard entry, cues, semantic mappings, global files, assets used by that shot).",
+      "how": "render_dependencies.json + shot_input_hashes + plan_selective_rerender. Limit: scene.js choreography is global until beats are split per shot (Phase 02B).",
+      "evidence": "Cue edit -> only S003; Bima edit -> S001,S002; global edit -> all.",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_06_selective_rerender"
+      ]
+    },
+    {
+      "technique_id": "independent_semantic_visual_qc",
+      "domain": "qc",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Fresh-context reviewer scores every shot on 7 dimensions + REF-002 comparison, with actual frame evidence per action and caption window; placeholders/debug overlays are critical.",
+      "how": "visual_semantic_qc.build_visual_review_checklist/evaluate_visual_review; shot evidence hash-bound to the render.",
+      "evidence": "4 review rounds drove HARD_FAIL critical defects 21 -> 0.",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_05_semantic_contract_and_shot_evidence"
+      ]
+    },
+    {
+      "technique_id": "delivery_gate_visual_only",
+      "domain": "qc",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Final delivery requires: hash/profile match, resolution/fps/frame count on the canonical timeline, no placeholder assets, shot evidence, safe-area report and an independent PASS review.",
+      "how": "validate_delivery() / scripts/visual_workflow.py delivery.",
+      "evidence": "v5 correctly BLOCKED (no PASS review yet).",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_08_delivery_blocks_placeholder_and_missing_evidence"
+      ]
+    },
+    {
+      "technique_id": "pixel_regression_benchmark",
+      "domain": "qc",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Accepted renders become pixel-hash regression benchmarks; refactors must keep them byte-identical.",
+      "how": "docs/evidence/phase02a_visual_only/regression_benchmark_v5.json.",
+      "evidence": "12/12 identical after moving Bima/AC/comets into modules.",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_10_pixel_regression_against_v5_benchmark"
+      ]
+    }
+  ]
+}

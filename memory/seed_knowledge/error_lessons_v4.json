@@ -1,0 +1,170 @@
+{
+  "schema": "xdx.error-seed.v1",
+  "version": "v4.0",
+  "project_id": "xdx_global",
+  "errors": [
+    {
+      "error_id": "p02a_first_render_primitive_assets",
+      "error_category": "asset_quality",
+      "symptom": "Characters/props were capsules, boxes and cylinders (floating arm, grey box remote, flat plate AC).",
+      "root_cause": "Visual production was started before reusable articulated assets existed; QC did not read semantics.",
+      "fix": "Jointed rig + articulated cutaway props as reusable modules; registry entries; delivery gate blocks PLACEHOLDER.",
+      "prevention": "Asset bindings must be FINAL status; reviewer flags placeholder as critical.",
+      "defect_ids": [
+        "DEF-P02A-039",
+        "DEF-P02A-041"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_debug_overlay_burned_in",
+      "error_category": "qc",
+      "symptom": "Shot labels/frame counters visible in final frames.",
+      "root_cause": "Debug text drawn in the page used for rendering.",
+      "fix": "No debug DOM in index.html; test bans debug strings.",
+      "prevention": "DEF_VQC_DEBUG_OVERLAY is critical.",
+      "defect_ids": [
+        "DEF-P02A-039",
+        "DEF-P02A-042"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_undirected_particles",
+      "error_category": "visual_language",
+      "symptom": "Orange particles drifting at random; no readable heat/air flow.",
+      "root_cause": "Particles had no path, direction or colour semantics.",
+      "fix": "Comets on explicit curves with arrow heads and state colours.",
+      "prevention": "Every flow needs an origin, path and direction cue.",
+      "defect_ids": [
+        "DEF-P02A-039"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_caption_occludes_or_edge_clips",
+      "error_category": "composition",
+      "symptom": "Caption covered the subject; subject clipped by the frame edge.",
+      "root_cause": "Fixed camera framing ignored the caption band.",
+      "fix": "setViewOffset taller frustum; measured caption rect check.",
+      "prevention": "check_caption_safe_area on every render; reviewer inspects caption windows.",
+      "defect_ids": [
+        "DEF-P02A-039",
+        "DEF-P02A-040"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_hardcoded_frame_beats",
+      "error_category": "timeline",
+      "symptom": "Retiming captions silently broke visual sync.",
+      "root_cause": "Beats used literal frame numbers.",
+      "fix": "Timing map from caption cues + 0.3 s lead; QC uses same windows.",
+      "prevention": "Never write frame literals in choreography.",
+      "defect_ids": [
+        "DEF-P02A-040"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_camera_roll_from_up_lerp",
+      "error_category": "cinematography",
+      "symptom": "30-40 degree horizon roll during the insert move.",
+      "root_cause": "camera.up was lerped toward the prop axis.",
+      "fix": "Level camera, orbit position only, cut on the action.",
+      "prevention": "Never interpolate the up vector; keep camera.up = world up.",
+      "defect_ids": [
+        "DEF-P02A-039",
+        "DEF-P02A-043"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_whip_between_targets",
+      "error_category": "cinematography",
+      "symptom": "Whip pan when following the signal from remote to AC.",
+      "root_cause": "Continuous camera interpolation across two distant targets.",
+      "fix": "Clean cut when the signal fires, then slow push-in.",
+      "prevention": "Cut on action for distant target changes; owner feedback: camera moves must not be too fast.",
+      "defect_ids": [
+        "DEF-P02A-039",
+        "DEF-P02A-043"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_set_swap_void_and_cropped_head",
+      "error_category": "composition",
+      "symptom": "Black gap at the edge of the cross-section set; subject head cut at the start of a shot.",
+      "root_cause": "Ground planes too small; start camera too tight.",
+      "fix": "Larger ground planes meeting at the wall line; wider start camera.",
+      "prevention": "Review first and last frame of every shot for voids and crops.",
+      "defect_ids": [
+        "DEF-P02A-039",
+        "DEF-P02A-044"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_qc_blind_to_semantics",
+      "error_category": "qc",
+      "symptom": "Technical QC passed a render that did not show the narrated actions.",
+      "root_cause": "QC measured pixels, not meaning.",
+      "fix": "Independent semantic review with per-action frame evidence and caption windows.",
+      "prevention": "Technical PASS is never final; reviewer != producer.",
+      "defect_ids": [
+        "DEF-P02A-037",
+        "DEF-P02A-040"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_state_change_not_shown",
+      "error_category": "storytelling",
+      "symptom": "Setting change (e.g. 32 -> 24) not visible; state already final at first close-up.",
+      "root_cause": "Payload value rendered statically.",
+      "fix": "Show before/after of the changing value on screen inside the caption window.",
+      "prevention": "Every 'change' in a caption needs a visible before and after.",
+      "defect_ids": [
+        "DEF-P02A-039"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_continuity_break_across_cut",
+      "error_category": "continuity",
+      "symptom": "A prop was open at the end of a shot and closed at the start of the next.",
+      "root_cause": "Per-shot state reset.",
+      "fix": "Carry state across the cut (same value at both ends).",
+      "prevention": "Check prop state on the last frame of shot N and first of N+1.",
+      "defect_ids": [
+        "DEF-P02A-039"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_pinned_file_drift_after_edit",
+      "error_category": "governance",
+      "symptom": "Production dependency drift check failed after editing a pinned file.",
+      "root_cause": "Pinned hashes are part of the signed package.",
+      "fix": "prepare_phase02a_ac_benchmark.py --repin-only (only while unapproved).",
+      "prevention": "Repin after any pinned-file change; new engine files must be in the pinned list.",
+      "defect_ids": [
+        "DEF-P02A-036"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_refactor_without_pixel_baseline",
+      "error_category": "engine",
+      "symptom": "Risk that moving code into modules changes the look the owner liked.",
+      "root_cause": "No pixel baseline.",
+      "fix": "Baseline hashes before the refactor; compare after; stored as regression benchmark.",
+      "prevention": "Refactors must keep benchmark frames byte-identical.",
+      "defect_ids": [
+        "DEF-P02A-046"
+      ],
+      "topic_agnostic": true
+    }
+  ]
+}

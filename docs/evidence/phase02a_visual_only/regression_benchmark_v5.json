@@ -1,0 +1,39 @@
+{
+  "schema": "xdx.regression-benchmark.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "version": "v5",
+  "purpose": "Regression benchmark for Phase 02A: pixel hashes of sampled frames and the full MP4 of the v5 render (user-liked look). Refactors and engine changes must not change them unless the change is a deliberate, reviewed visual improvement (then re-baseline with evidence).",
+  "renderer": "headless Chrome + SwiftShader (CHROME_ARGS in scripts/render_phase02a_visual.py), 1080x1920, 30 fps",
+  "frame_sha256": {
+    "10": "1bbe3797a40a22b858e81b3913ba5432976371bb24a429ff86c3f52ef49bca83",
+    "60": "17af6f3e53417ec55de81e160cb848323dd164bd19d459baa3273bec08162dd6",
+    "100": "6ac4f555ca8b06be6026a61144b7f64dda76b01375a02bb7b00304730e495d67",
+    "120": "41c28c7aa64b0325601598f54754f6f37c00523889e7d7d5122e837bbce5b60f",
+    "140": "4fffcc51e98f5ba59933b678ed348dffdca99a5b53601d8a8cccd34dd739ba42",
+    "180": "a239b3b3cfcf2aa04fb4cfd65fb21c09a7a9c9523764272263f76ea4ba32d00a",
+    "215": "c7c6d759bd23cd7e57b6be61a6438c3d03d35d011bfa873d9fb4588735c25bac",
+    "260": "ba19df6daa68cd163f6b4f0d50783e1878a36804dd1db2e6cf9df98c7f6576c0",
+    "320": "ee08abfb785b3410a191b0824db13fdbc612050d2160e554b2dbddd44bada0e9",
+    "340": "a9418e8149fd2451f36d029f0e52e55c10fef7e9c4380d80bb2a35833c8a7c05",
+    "400": "ae13affadbc398e72b4725e7d58a25993296df5773f886c64b918f2afa74a12d",
+    "440": "9f1648afff516c05c0ccef890cfd42b82b61e765686ee6b0d65efc8f6900dc38"
+  },
+  "full_video_sha256": "6840a3e9e72a1545e32e68569f2533e7c1e9d398e8887a857c9ba3fd9d76146f",
+  "package_digest_at_baseline": null,
+  "quality_floor_from_independent_review_v4": {
+    "status": "HARD_FAIL",
+    "shot_mean_scores": {
+      "S001": 3.143,
+      "S002": 3.286,
+      "S003": 3.214,
+      "S004": 3.214
+    },
+    "reference_mean_score": 2.833,
+    "critical_defects": 0
+  },
+  "caption_safe_area": {
+    "frames_checked": 446,
+    "issues": 0
+  },
+  "note": "v5 has NOT passed independent semantic review; this baseline protects against regressions, it is not a quality approval."
+}

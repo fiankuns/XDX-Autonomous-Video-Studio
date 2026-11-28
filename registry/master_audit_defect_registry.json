@@ -1,7 +1,7 @@
 {
   "schema_version": "4.0.0-phase01.6d",
   "registry_id": "xdx_master_audit_defect_registry",
-  "updated_at_utc": "2026-11-28T02:30:00+00:00",
+  "updated_at_utc": "2026-11-28T03:30:00+00:00",
   "append_only_policy": "Append-only ledger of all internal and external audit defects from Phase 01 onward. Historical entries must never be deleted, and VERIFIED requires an executed regression test.",
   "defects": [
     {
@@ -683,6 +683,108 @@
       "target_phase": "Phase 02A",
       "regression_test": "tests/test_phase02a_visual_only_scope.py::test_p02a_vo_06_independent_review_rules",
       "evidence": "Mutation tests: hidden caption -> HARD_FAIL, frame after window -> HARD_FAIL, missing evidence -> INCOMPLETE; tests/test_phase02a_visual_engine.py::test_p02a_ve_06_preview_style_frames_one_per_caption renders 8 style frames matching the 8 caption cues.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-041",
+      "source_phase": "Phase 02A (first render and v2-v5 reviews)",
+      "severity": "HIGH",
+      "affected_module": "engines/web/xdx_core/assets, registry/asset_registry.json, intelligence/visual_workflow.py",
+      "reproduction_steps": [
+        "Open the first AC 15s render (independent review ac15s): character capsule+sphere, box remote, flat plate AC."
+      ],
+      "observed_result": "5 DEF_VQC_PLACEHOLDER_ASSET criticals in the first render; assets existed only inside one scene file, unregistered.",
+      "expected_result": "Assets drawn in a delivery are real articulated geometry, registered and bound to the bibles; PLACEHOLDER/PLANNED statuses block final QC.",
+      "root_cause": "Visual production started before reusable asset modules, registry entries and a delivery gate existed.",
+      "correction_plan": "Bima and indoor AC moved to xdx_core/assets with registry entries (procedural_ready, is_placeholder=false); asset_bindings.json per project; validate_delivery blocks PLACEHOLDER/PLANNED/MISSING.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_consolidation.py::test_p02a_cons_08_delivery_blocks_placeholder_and_missing_evidence",
+      "evidence": "tests/test_phase02a_consolidation.py::test_p02a_cons_02_asset_registry_and_bindings also passes; v4 review: 0 placeholder defects.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-042",
+      "source_phase": "Phase 02A (first render and v2-v5 reviews)",
+      "severity": "HIGH",
+      "affected_module": "engines/web/phase02a_ac15s/index.html",
+      "reproduction_steps": [
+        "Inspect frames of the first render."
+      ],
+      "observed_result": "Debug shot labels/frame counters burned into the final frames (4 DEF_VQC_DEBUG_OVERLAY).",
+      "expected_result": "No debug overlay in any deliverable frame.",
+      "root_cause": "Debug text rendered in the same page used for production.",
+      "correction_plan": "Debug DOM removed; labels are script-grounded content callouts only; a test bans debug strings in index.html; reviewer treats overlays as critical.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_visual_engine.py::test_p02a_ve_04_scene_reads_captions_from_package_and_is_pinned",
+      "evidence": "v2-v4 reviews: 0 debug overlay defects.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-043",
+      "source_phase": "Phase 02A (first render and v2-v5 reviews)",
+      "severity": "MEDIUM",
+      "affected_module": "engines/web/phase02a_ac15s/scene.js (camera)",
+      "reproduction_steps": [
+        "Render S002 of v4 and inspect frames 118-165."
+      ],
+      "observed_result": "30-40 degree horizon roll while moving into the remote insert and a whip pan following the IR signal; owner: camera move to the remote too fast.",
+      "expected_result": "Level horizon, slow eased insert (~0.9 s), clean cut on the action.",
+      "root_cause": "camera.up was interpolated toward the prop axis; continuous interpolation across two distant targets.",
+      "correction_plan": "v5: camera.up = world up, orbit position only, cut to the AC when the IR fires then slow push-in. Recorded as production technique level_camera_cut_on_action.",
+      "target_phase": "Phase 02A/02B",
+      "regression_test": "No automated camera-roll gate yet (planned for Phase 02B animatic QC).",
+      "evidence": "v5 built and pushed; independent review of v5 pending.",
+      "current_status": "IN_PROGRESS"
+    },
+    {
+      "defect_id": "DEF-P02A-044",
+      "source_phase": "Phase 02A (first render and v2-v5 reviews)",
+      "severity": "MEDIUM",
+      "affected_module": "engines/web/phase02a_ac15s/scene.js (framing)",
+      "reproduction_steps": [
+        "Render v4 S004 and the start of S002."
+      ],
+      "observed_result": "Black gap at the lower left of the cross-section set; Bima's head cut at the start of S002; indoor unit cut at the left edge near f410.",
+      "expected_result": "No voids, no unintended crops, first/last frame of every shot checked.",
+      "root_cause": "Ground planes too small; start camera too tight.",
+      "correction_plan": "v5 enlarged ground planes meeting at the wall line and a wider S002 start camera; indoor-unit edge crop remains in the reviewer notes.",
+      "target_phase": "Phase 02A/02B",
+      "regression_test": "Reviewer-based (DEF_VQC_FRAME_EDGE_CLIP); no automated edge-clip gate yet.",
+      "evidence": "Open reviewer notes after v4: indoor unit cut at left from ~f410.",
+      "current_status": "IN_PROGRESS"
+    },
+    {
+      "defect_id": "DEF-P02A-045",
+      "source_phase": "Phase 02A (first render and v2-v5 reviews)",
+      "severity": "HIGH",
+      "affected_module": "intelligence/visual_workflow.py, scripts/visual_workflow.py, scripts/render_phase02a_visual.py",
+      "reproduction_steps": [
+        "Search the repo for input validation, selective re-render, shot evidence, safe-area check, delivery validation before this change."
+      ],
+      "observed_result": "Capabilities were missing or manual: no input/environment validation, no hash-based selective re-render, no hash-bound shot evidence, no measured caption safe-area check, no final delivery gate, no animatic/per-shot preview.",
+      "expected_result": "All of them exist, reuse existing QC/guard modules, and keep the execution guard on every render mode.",
+      "root_cause": "Workflow built incrementally per phase without a consolidation pass.",
+      "correction_plan": "Added visual_workflow.py + CLI + --animatic/--shot; wraps (does not duplicate) visual_semantic_qc and VisualQualityControlEngine; Remotion master timeline, Three.js visual engine and Blender engine roles unchanged.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_consolidation.py::test_p02a_cons_06_selective_rerender",
+      "evidence": "tests cons_03..cons_09 pass; delivery gate BLOCKED v5 correctly (no PASS review).",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-046",
+      "source_phase": "Phase 02A (first render and v2-v5 reviews)",
+      "severity": "MEDIUM",
+      "affected_module": "engines/web/xdx_core, docs/evidence/phase02a_visual_only/regression_benchmark_v5.json",
+      "reproduction_steps": [
+        "Move makeBima/makeIndoorAC/Comets out of scene.js and compare frames."
+      ],
+      "observed_result": "Risk of silently changing the owner-accepted look during refactors.",
+      "expected_result": "Accepted renders are pixel-hash regression benchmarks.",
+      "root_cause": "No baseline existed.",
+      "correction_plan": "12 sampled frames and the full-MP4 SHA-256 of v5 stored; refactor produced 12/12 identical frames and an identical MP4 hash; test re-renders 4 frames and compares.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_consolidation.py::test_p02a_cons_10_pixel_regression_against_v5_benchmark",
+      "evidence": "regression_benchmark_v5.json",
       "current_status": "VERIFIED"
     }
   ]

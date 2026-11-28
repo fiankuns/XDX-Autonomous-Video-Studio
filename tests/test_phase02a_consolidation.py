@@ -149,3 +149,44 @@ def test_p02a_cons_09_guard_covers_preview_modes() -> None:
         assert ok is False, f"{flag} must stay behind the execution guard ({reason})"
     ok, _ = decide({"tool_name": "bash", "arguments": {"command": "python3 scripts/visual_workflow.py validate-inputs projects/bench_p02a_ac_15s"}})
     assert ok is True  # read-only checks are not render commands
+
+
+def _can_render() -> bool:
+    try:
+        import playwright  # noqa: F401
+    except ImportError:
+        return False
+    return bool((shutil.which("google-chrome") or shutil.which("chromium")) and shutil.which("ffmpeg")
+                and (ROOT / "node_modules" / "three").is_dir() and (ROOT / "node_modules" / "@fontsource" / "plus-jakarta-sans").is_dir())
+
+
+@pytest.mark.skipif(not _can_render(), reason="headless Chrome/Playwright not available")
+def test_p02a_cons_10_pixel_regression_against_v5_benchmark(tmp_path: Path) -> None:
+    bench = json.loads((ROOT / "docs/evidence/phase02a_visual_only/regression_benchmark_v5.json").read_text(encoding="utf-8"))
+    frames = [10, 140, 260, 400]
+    out = tmp_path / "frames"
+    res = subprocess.run(["python3", str(ROOT / "scripts/render_phase02a_visual.py"), str(PKG), "--prototype", "--out", str(out),
+                          "--frames", ",".join(map(str, frames))], capture_output=True, text=True, cwd=ROOT)
+    assert res.returncode == 0, res.stderr[-500:]
+    for f in frames:
+        assert vw._sha256_file(out / f"bench_p02a_ac_15s_f{f:04d}.png") == bench["frame_sha256"][str(f)], f"frame {f} drifted from the v5 benchmark"
+
+
+def test_p02a_cons_11_production_and_error_memory_seed(tmp_path: Path) -> None:
+    from memory.persistent_memory import SixPartitionMemoryStore
+    from memory.seed_loader import load_production_seed
+
+    store = SixPartitionMemoryStore(tmp_path / "m.sqlite3")
+    n = load_production_seed(store)
+    assert n["techniques"] >= 15 and n["errors"] >= 12
+    t = store.production.get_technique("level_camera_cut_on_action", "v4.0")
+    assert t and t["test_status"] == "RENDER_TESTED" and t["payload"]["topic_agnostic"] is True
+    errs = store.error.list_errors("xdx_global")
+    assert {"p02a_camera_roll_from_up_lerp", "p02a_first_render_primitive_assets"} <= {e["error_id"] for e in errs}
+    seeds = (ROOT / "memory/seed_knowledge")
+    text = (seeds / "production_techniques_v4.json").read_text(encoding="utf-8") + (seeds / "error_lessons_v4.json").read_text(encoding="utf-8")
+    assert "topic_agnostic" in text
+    for t_ in json.loads((seeds / "production_techniques_v4.json").read_text(encoding="utf-8"))["techniques"]:
+        for ref in t_["tests"]:
+            f, _, fn = ref.partition("::")
+            assert fn in (ROOT / f).read_text(encoding="utf-8"), f"technique {t_['technique_id']} cites a missing test {ref}"
