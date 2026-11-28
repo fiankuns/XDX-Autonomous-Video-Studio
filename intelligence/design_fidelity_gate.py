@@ -62,3 +62,105 @@ def silhouette_report(ref_path: str | Path, render_path: str | Path, *, iou_pass
         "threshold": iou_pass, "verdict": "PASS_GEOMETRY_ONLY" if iou >= iou_pass and aspect_err < 0.08 else "FAIL",
         "note": "Geometry-only diagnostic; production PASS needs Independent Visual QC on real renders.",
     }
+
+
+# ---------------------------------------------------------------- multi-criteria design gate (02B.3)
+def row_width_profile(mask: np.ndarray, bands: int = 12) -> list[float]:
+    """Silhouette width per horizontal band, normalised by bbox width (shape/volume independent of framing)."""
+    box = _crop_to_box(mask)[1]
+    if box is None:
+        return [0.0] * bands
+    x0, y0, x1, y1 = box
+    sub = mask[y0:y1, x0:x1]
+    w = max(1, x1 - x0)
+    edges = np.linspace(0, sub.shape[0], bands + 1).astype(int)
+    out = []
+    for i in range(bands):
+        band = sub[edges[i]:max(edges[i + 1], edges[i] + 1)]
+        cols = band.any(axis=0)
+        out.append(round(float(cols.sum()) / w, 4))
+    return out
+
+
+def profile_error(ref_profile: list[float], ren_profile: list[float]) -> float:
+    return float(np.mean(np.abs(np.array(ref_profile) - np.array(ren_profile))))
+
+
+def framing_report(mask: np.ndarray, *, min_margin: float = 0.03, fill: tuple[float, float] = (0.35, 0.92)) -> dict[str, Any]:
+    box = _crop_to_box(mask)[1]
+    if box is None:
+        return {"ok": False, "reason": "empty"}
+    h, w = mask.shape
+    x0, y0, x1, y1 = box
+    margins = {"left": x0 / w, "right": (w - x1) / w, "top": y0 / h, "bottom": (h - y1) / h}
+    fill_ratio = max((x1 - x0) / w, (y1 - y0) / h)
+    cx_off = abs(((x0 + x1) / 2) / w - 0.5)
+    ok = min(margins.values()) >= min_margin and fill[0] <= fill_ratio <= fill[1] and cx_off < 0.2
+    return {"ok": bool(ok), "min_margin": round(min(margins.values()), 3), "fill_ratio": round(fill_ratio, 3), "center_offset": round(cx_off, 3)}
+
+
+def _hex_rgb(h: str) -> np.ndarray:
+    h = h.lstrip("#")
+    return np.array([int(h[i:i + 2], 16) for i in (0, 2, 4)], dtype=float)
+
+
+def palette_consistency(im: Image.Image, palette: list[str], mask: np.ndarray, *, tol: float = 70.0) -> dict[str, Any]:
+    """Share of foreground pixels within `tol` (RGB distance) of any palette colour + which colours are used."""
+    rgb = np.asarray(im.convert("RGB")).astype(float)[mask]
+    if rgb.size == 0:
+        return {"match_share": 0.0, "used": []}
+    pal = np.stack([_hex_rgb(p) for p in palette])
+    d = np.linalg.norm(rgb[:, None, :] - pal[None, :, :], axis=2)
+    near = d.min(axis=1) <= tol
+    used = [palette[i] for i in range(len(palette)) if (d.argmin(axis=1)[near] == i).mean() > 0.01]
+    return {"match_share": round(float(near.mean()), 4), "used": used}
+
+
+def landmark_error(measured: dict[str, tuple[float, float]], ref: dict[str, tuple[float, float]]) -> dict[str, Any]:
+    """Landmarks must be given in head-frame coordinates (0..1 across head bbox). Mean Euclidean error."""
+    keys = [k for k in ref if k in measured]
+    if not keys:
+        return {"mean_error": None, "missing": list(ref)}
+    errs = {k: round(float(np.hypot(measured[k][0] - ref[k][0], measured[k][1] - ref[k][1])), 4) for k in keys}
+    return {"mean_error": round(float(np.mean(list(errs.values()))), 4), "per_landmark": errs, "missing": [k for k in ref if k not in measured]}
+
+
+def evaluate_design(ref_path, front_render, *, palette, other_views: dict[str, str] | None = None,
+                    part_ratios: dict[str, float] | None = None, ref_part_ratios: dict[str, float] | None = None,
+                    landmarks: dict | None = None, ref_landmarks: dict | None = None,
+                    geometry: dict | None = None, thresholds: dict | None = None) -> dict[str, Any]:
+    """Multi-criteria verdict. IoU is ONE input; failing any hard criterion fails the design.
+    `geometry` = output of geometry_quality.validate_prefix (collected inside Blender)."""
+    th = {"iou": 0.80, "profile_err": 0.12, "part_ratio_err": 0.06, "landmark_err": 0.08, "palette_share": 0.80, **(thresholds or {})}
+    with Image.open(ref_path) as r, Image.open(front_render) as q:
+        ref, ren = r.copy(), q.copy()
+    mr, mq = foreground_mask(ref), foreground_mask(ren)
+    sil = silhouette_report(ref_path, front_render, iou_pass=th["iou"])
+    prof = profile_error(row_width_profile(mr), row_width_profile(mq))
+    res: dict[str, Any] = {"silhouette": sil, "hair_volume_profile_error": round(prof, 4), "framing": framing_report(mq),
+                           "material": palette_consistency(ren, palette, mq)}
+    hard = {"silhouette": sil["verdict"] == "PASS_GEOMETRY_ONLY", "volume_profile": prof <= th["profile_err"],
+            "framing": res["framing"]["ok"], "palette": res["material"]["match_share"] >= th["palette_share"]}
+    if part_ratios and ref_part_ratios:
+        errs = {k: round(abs(part_ratios[k] - v), 4) for k, v in ref_part_ratios.items() if k in part_ratios}
+        res["proportions"] = {"errors": errs}
+        hard["proportions"] = bool(errs) and max(errs.values()) <= th["part_ratio_err"]
+    if landmarks and ref_landmarks:
+        res["landmarks"] = landmark_error(landmarks, ref_landmarks)
+        hard["landmarks"] = res["landmarks"]["mean_error"] is not None and res["landmarks"]["mean_error"] <= th["landmark_err"]
+    if other_views:
+        views = {}
+        for name, path in other_views.items():
+            with Image.open(path) as v:
+                m = foreground_mask(v.copy())
+            views[name] = {"framing": framing_report(m), "width_profile": row_width_profile(m)}
+        res["other_views"] = views
+        hard["other_views_framed"] = all(v["framing"]["ok"] for v in views.values())
+    if geometry:
+        ok = geometry.get("within_budget", True) and not geometry.get("needs_attention")
+        res["geometry"] = {"within_budget": geometry.get("within_budget"), "needs_attention": geometry.get("needs_attention")}
+        hard["geometry_integrity"] = bool(ok)
+    res["criteria"] = hard
+    res["verdict"] = "PASS_AUTOMATED_CHECKS" if all(hard.values()) else "FAIL"
+    res["note"] = "Automated checks only. Acceptance also requires Independent Visual Critic on real renders and user approval."
+    return res
