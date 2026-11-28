@@ -326,6 +326,92 @@
         "comparison",
         "3d"
       ]
+    },
+    {
+      "origin_type": "procedural_generated",
+      "source_provider": "XDX Studio Original (procedural Three.js)",
+      "source_url": "repo://engines/web/xdx_core/assets/character_bima.js",
+      "license_spdx": "LicenseRef-XDX-Original",
+      "attribution_required": false,
+      "attribution_text": null,
+      "commercial_allowed": true,
+      "formats": [
+        "threejs_module"
+      ],
+      "unit_scale_m": 1.0,
+      "up_axis": "+Y",
+      "compatible_engines": [
+        "threejs"
+      ],
+      "style_harmonized": true,
+      "sha256": null,
+      "cache_key": null,
+      "qc_status": "procedural_ready",
+      "asset_id": "char_bima_stylized_v1",
+      "name": "Bima \u2014 stylized jointed character (procedural)",
+      "category": "character_rig",
+      "polycount_budget": 40000,
+      "style_profile": {
+        "detail_tier": "medium_sculpted_beveled_forms",
+        "palette_source": "character_bible.color_palette (locked, 4 roles)",
+        "roughness_range": [
+          0.5,
+          0.9
+        ]
+      },
+      "tags": [
+        "hero",
+        "character",
+        "jointed_arms",
+        "fingers",
+        "face",
+        "three.js",
+        "topic_agnostic"
+      ],
+      "is_placeholder": false,
+      "semantic_type": "character_hero_stylized"
+    },
+    {
+      "origin_type": "procedural_generated",
+      "source_provider": "XDX Studio Original (procedural Three.js)",
+      "source_url": "repo://engines/web/xdx_core/assets/indoor_ac.js",
+      "license_spdx": "LicenseRef-XDX-Original",
+      "attribution_required": false,
+      "attribution_text": null,
+      "commercial_allowed": true,
+      "formats": [
+        "threejs_module"
+      ],
+      "unit_scale_m": 1.0,
+      "up_axis": "+Y",
+      "compatible_engines": [
+        "threejs"
+      ],
+      "style_harmonized": true,
+      "sha256": null,
+      "cache_key": null,
+      "qc_status": "procedural_ready",
+      "asset_id": "prop_indoor_ac_articulated_v1",
+      "name": "Indoor split AC \u2014 articulated, cutaway-ready (procedural)",
+      "category": "prop_3d",
+      "polycount_budget": 60000,
+      "style_profile": {
+        "detail_tier": "medium_sculpted_beveled_forms",
+        "roughness_range": [
+          0.3,
+          0.8
+        ]
+      },
+      "tags": [
+        "prop",
+        "appliance",
+        "louver_pivot",
+        "removable_panel",
+        "coil",
+        "three.js"
+      ],
+      "is_placeholder": false,
+      "semantic_type": "appliance_indoor_ac"
     }
   ]
 }

@@ -1,0 +1,24 @@
+{
+  "schema": "xdx.render-dependencies.v1",
+  "scene_id": "phase02a_ac15s",
+  "note": "Declares what each shot's pixels depend on. Selective re-render recomputes a shot only when one of these (or the shot's storyboard/caption/semantic entry) changes. scene.js holds all shot choreography, so editing it invalidates every shot until the beats are split per shot (Phase 02B).",
+  "global": [
+    "engines/web/phase02a_ac15s/index.html",
+    "engines/web/phase02a_ac15s/scene.js",
+    "engines/web/xdx_core/kit.js",
+    "engines/web/xdx_core/comets.js",
+    "engines/web/xdx_core/timeline.js",
+    "engines/web/xdx_core/barrier.js",
+    "engines/web/xdx_core/style_binding.js",
+    "node_modules/three/build/three.module.js",
+    "node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-800-normal.woff2",
+    "node_modules/@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-700-normal.woff2",
+    "projects/bench_p02a_ac_15s/style_bible.json",
+    "projects/bench_p02a_ac_15s/character_bible.json"
+  ],
+  "assets": {
+    "char_bima_stylized_v1": {"file": "engines/web/xdx_core/assets/character_bima.js", "shots": ["S001", "S002"]},
+    "prop_indoor_ac_articulated_v1": {"file": "engines/web/xdx_core/assets/indoor_ac.js", "shots": ["S001", "S002", "S003", "S004"]}
+  },
+  "shot_files": {}
+}

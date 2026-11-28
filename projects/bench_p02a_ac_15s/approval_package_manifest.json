@@ -3,7 +3,7 @@
   "project_id": "bench_p02a_ac_15s",
   "package_version": "v1",
   "status": "WAITING_APPROVAL",
-  "package_digest": "c6460f4b0774c8d80dfe00e4bad2540ad922decd5ae0db6066736b6a65a84b1c",
+  "package_digest": "e2b1e06812ab2098d0765681044e9e10d954c286268cbfede4a753555ba0fc67",
   "mandatory_13_items": {
     "01_topic_and_concept": {
       "present": true,
@@ -72,6 +72,7 @@
     }
   },
   "required_files_sha256": {
+    "asset_bindings.json": "bf5039adf7f63d6154a957fb6a2bbacf7eb59066c7a8bfe139d644ac5e921081",
     "asset_manifest.json": "a991f4d919544269a8f441faf763212fc1ca78d6bd296afe9132c9a0ba33a873",
     "authored_creative_payload.json": "ce2edfdcab38c71f4ff4f5d4486d71e37aed433b0123dac5ed49f7d583345b7f",
     "blueprint.md": "5c6888adc4f00a5ddbeb196749f8882fec498406f0bcdfa2cdfb0dff4df20b39",
@@ -86,7 +87,7 @@
     "motion_plan.json": "4e0a98ab48e8d84e17816c525bf5ed6251ea5da72d005722a98241cebb0ca3fa",
     "narration_dialogue.json": "9c4e83760d9289992dfbffaf5e867e2098caabef9705a991b64ab95d4e710e49",
     "production_config.json": "a0e0389b136e1443690a02cdf76a14b22bbb2060673936c24ace0abe163bea3d",
-    "production_dependencies.json": "7dc20cba972a3622299b096a02034a8826aa276a21c00c969ee85b394b08f78e",
+    "production_dependencies.json": "d409748778e2b61cb772bc8641a26ca85fb298adaeb2c4df1f1e6d128037d79e",
     "reference_adaptation.json": "1406222f7beadc471034efd6eb2c1cdc9969a51d1aa693cc2b6bb378a1074fb6",
     "reference_analysis.md": "08368067a4e7b539bb4eda93cd90dafedd3681b977d56cba7ee04174cadd554d",
     "research.md": "5a4a7c37e271325c7fc03dd644638f4ed67889d259c7b52f098cf1bfc127d404",

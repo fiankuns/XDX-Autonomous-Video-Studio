@@ -1,0 +1,13 @@
+{
+  "schema": "xdx.asset-bindings.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "purpose": "Binds the assets actually drawn in the Phase 02A visual-only render to the asset registry and to the signed style/character bibles. Status PLACEHOLDER/PLANNED blocks final delivery.",
+  "bindings": [
+    {"asset_id": "char_bima_stylized_v1", "registry": "registry/asset_registry.json", "module": "engines/web/xdx_core/assets/character_bima.js", "bound_to": "character_bible.json#char_bima_penghuni", "palette_source": "character_bible.json#color_palette", "shots": ["S001", "S002"], "status": "PROCEDURAL_IMPLEMENTED"},
+    {"asset_id": "prop_indoor_ac_articulated_v1", "registry": "registry/asset_registry.json", "module": "engines/web/xdx_core/assets/indoor_ac.js", "bound_to": "asset_manifest.json#prop_ac_indoor_evaporator_cutaway", "shots": ["S001", "S002", "S003", "S004"], "status": "PROCEDURAL_IMPLEMENTED"},
+    {"asset_id": "prop_ac_remote_control", "registry": null, "module": "engines/web/phase02a_ac15s/scene.js", "bound_to": "asset_manifest.json#prop_ac_remote_control", "shots": ["S002"], "status": "PROCEDURAL_INLINE"},
+    {"asset_id": "prop_outdoor_compressor_condenser_unit", "registry": null, "module": "engines/web/phase02a_ac15s/scene.js", "bound_to": "asset_manifest.json#prop_outdoor_compressor_condenser_unit", "shots": ["S004"], "status": "PROCEDURAL_INLINE"},
+    {"asset_id": "env_kamar_set", "registry": null, "module": "engines/web/phase02a_ac15s/scene.js", "bound_to": "semantic_visual_plan.json", "shots": ["S001", "S002", "S003"], "status": "PROCEDURAL_INLINE"}
+  ],
+  "inline_extraction_plan": "PROCEDURAL_INLINE assets move to xdx_core/assets/ in Phase 02B; they are real geometry, never placeholders."
+}

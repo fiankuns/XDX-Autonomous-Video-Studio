@@ -53,12 +53,23 @@ def _sha256(p: Path) -> str:
     return h.hexdigest()
 
 
+def _scene_hashes() -> dict:
+    """Hashes of the topic scene plus the generic xdx_core modules/assets it imports (all pixels depend on them)."""
+    files = [p for p in sorted(SCENE_DIR.glob("*")) if p.is_file()]
+    files += [p for p in sorted((ROOT_DIR / "engines" / "web" / "xdx_core").rglob("*.js")) if p.is_file()]
+    return {p.relative_to(ROOT_DIR / "engines" / "web").as_posix(): _sha256(p) for p in files}
+
+
 def load_package_data(pkg: Path) -> dict:
     sb = json.loads((pkg / "storyboard.json").read_text(encoding="utf-8"))
     cap = json.loads((pkg / "caption_audio_plan.json").read_text(encoding="utf-8"))
     if sb["project_id"] != BENCH_ID:
         raise SystemExit(f"This scene is authored for {BENCH_ID}, not {sb['project_id']}")
+    cb = json.loads((pkg / "character_bible.json").read_text(encoding="utf-8"))
+    hero = next(c for c in cb["characters"] if c.get("role") == "hero")
     return {
+        "style_bible_id": cb["style_bible_id"],
+        "character_palette": list(hero["color_palette"]),
         "project_id": sb["project_id"],
         "total_frames": sb["total_frames"],
         "fps": sb["fps"],
@@ -75,7 +86,8 @@ def _inside(path: Path, parent: Path) -> bool:
         return False
 
 
-def render_frames(data: dict, frames_dir: Path, frames: list[int]) -> None:
+def render_frames(data: dict, frames_dir: Path, frames: list[int]) -> list[dict]:
+    rects: list[dict] = []
     from playwright.sync_api import sync_playwright
 
     chrome = shutil.which("google-chrome") or shutil.which("chromium") or shutil.which("chromium-browser")
@@ -102,12 +114,16 @@ def render_frames(data: dict, frames_dir: Path, frames: list[int]) -> None:
             page.evaluate("window.__ready")
             for f in frames:
                 page.evaluate(f"window.renderFrame({int(f)})")
+                r = page.evaluate("(() => { const b = document.getElementById('capbox'); const r = b.getBoundingClientRect(); return {x: r.x, y: r.y, w: r.width, h: r.height, o: parseFloat(getComputedStyle(b).getPropertyValue('--o') || '1'), t: b.textContent.length}; })()")
+                if r["t"] and r["o"] > 0.95 and r["w"] > 0:
+                    rects.append({"frame": int(f), "x": r["x"], "y": r["y"], "w": r["w"], "h": r["h"]})
                 page.screenshot(path=str(frames_dir / f"f{f:04d}.png"), clip={"x": 0, "y": 0, "width": 1080, "height": 1920})
             browser.close()
     finally:
         srv.shutdown()
     if errors:
         raise RuntimeError(f"Scene errors during render: {errors[:2]}")
+    return rects
 
 
 def encode(frames_dir: Path, fps: int, out_mp4: Path) -> None:
@@ -125,6 +141,9 @@ def main() -> int:
     ap.add_argument("--prototype", action="store_true", help="non-production visual iteration (output outside the repo)")
     ap.add_argument("--out", help="output directory (required with --prototype; must be outside the repository)")
     ap.add_argument("--frames", help="comma-separated frame list for previews (prototype only)")
+    ap.add_argument("--animatic", action="store_true",
+                    help="whole-video motion preview: every 3rd frame (10 fps) from the SAME engine (prototype only)")
+    ap.add_argument("--shot", help="per-shot motion preview: all frames of one shot, e.g. S002 (prototype only)")
     ap.add_argument("--preview", action="store_true",
                     help="storyboard-first style frames: one keyframe per caption cue + contact sheet for owner review (prototype only)")
     a = ap.parse_args()
@@ -141,8 +160,8 @@ def main() -> int:
         status = "NON_PRODUCTION_PROTOTYPE"
         auth = None
     else:
-        if a.frames or a.preview:
-            raise SystemExit("--frames/--preview are only allowed with --prototype")
+        if a.frames or a.preview or a.animatic or a.shot:
+            raise SystemExit("--frames/--preview/--animatic/--shot are only allowed with --prototype")
         from engines.web_engines import assert_render_authorized
 
         auth = assert_render_authorized(pkg, required_scope="render_production")  # fail closed
@@ -157,11 +176,30 @@ def main() -> int:
         chk = build_visual_review_checklist(pkg)
         preview_cues = [(c["cue_id"], c["inspect_frame"], c["text"]) for sh in chk["shots"] for c in sh["caption_sync"]]
         frames = [f for _, f, _ in preview_cues]
+    elif a.animatic:
+        frames = list(range(0, data["total_frames"], 3))
+    elif a.shot:
+        rng = next((s for s in data["shots"] if s[0] == a.shot), None)
+        if rng is None:
+            raise SystemExit(f"unknown shot {a.shot}")
+        frames = list(range(rng[1], rng[2]))
     else:
         frames = [int(x) for x in a.frames.split(",")] if a.frames else list(range(data["total_frames"]))
     with tempfile.TemporaryDirectory(prefix="xdx_p02a_frames_") as tmp:
         tdir = Path(tmp)
-        render_frames(data, tdir, frames)
+        rects = render_frames(data, tdir, frames)
+        if a.animatic or a.shot:
+            import shutil as _sh
+            seq = out_dir / "_seq"
+            seq.mkdir(exist_ok=True)
+            for i, f in enumerate(frames):
+                _sh.copy2(tdir / f"f{f:04d}.png", seq / f"f{i:04d}.png")
+            name = f"{BENCH_ID}_{'animatic' if a.animatic else 'shot_' + a.shot}.mp4"
+            rate = data["fps"] // 3 if a.animatic else data["fps"]
+            encode(seq, rate, out_dir / name)
+            _sh.rmtree(seq)
+            print(json.dumps({"status": status, "motion_preview": name, "frames": len(frames), "sha256": _sha256(out_dir / name)}, indent=2))
+            return 0
         if a.preview:
             names = []
             for cid, f, _ in preview_cues:
@@ -178,7 +216,7 @@ def main() -> int:
                 "purpose": "Storyboard-first gate: the owner approves the look of every caption beat before the full render.",
                 "project_id": data["project_id"],
                 "package_digest": state.get("package_digest"),
-                "scene_sha256": {p.name: _sha256(p) for p in sorted(SCENE_DIR.glob("*")) if p.is_file()},
+                "scene_sha256": _scene_hashes(),
                 "frames": [{"cue_id": cid, "frame": f, "caption": txt, "file": f"style_{cid}_f{f:04d}.png"} for cid, f, txt in preview_cues],
                 "contact_sheet": sheet.name,
                 "contact_sheet_sha256": _sha256(sheet),
@@ -193,6 +231,18 @@ def main() -> int:
             return 0
         mp4 = out_dir / f"{BENCH_ID}_visual_only.mp4"
         encode(tdir, data["fps"], mp4)
+        from intelligence.visual_workflow import build_shot_evidence, check_caption_safe_area, semantic_contract
+
+        safe_issues = check_caption_safe_area(rects)
+        (out_dir / f"{BENCH_ID}_caption_safe_area.json").write_text(json.dumps({"frames_checked": len(rects), "issues": safe_issues}, indent=2) + "\n", encoding="utf-8")
+        contract = semantic_contract(pkg)
+        ev_dir = out_dir / "shot_evidence"
+        ev_dir.mkdir(exist_ok=True)
+        for b in contract["beats"]:
+            for f in set(b["evidence_frames"]):
+                shutil.copy2(tdir / f"f{f:04d}.png", ev_dir / f"f{f:04d}.png")
+        (out_dir / f"{BENCH_ID}_shot_evidence.json").write_text(
+            json.dumps(build_shot_evidence(contract, ev_dir, _sha256(mp4)), indent=2) + "\n", encoding="utf-8")
 
     from intelligence.visual_qc_engine import VisualQualityControlEngine
 
@@ -205,7 +255,7 @@ def main() -> int:
         "rendered_at": datetime.now(timezone.utc).isoformat(),
         "output": mp4.name,
         "output_sha256": _sha256(mp4),
-        "scene_sha256": {p.name: _sha256(p) for p in sorted(SCENE_DIR.glob("*")) if p.is_file()},
+        "scene_sha256": _scene_hashes(),
         "authorization": auth,
         "technical_qc_status": qc["overall_status"],
         "technical_qc_defects": qc["defects"],

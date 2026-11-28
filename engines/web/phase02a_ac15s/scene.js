@@ -1,10 +1,21 @@
 // XDX Phase 02A visual engine (VISUAL_ONLY_BENCHMARK) for bench_p02a_ac_15s — Three.js 0.187.0, SwiftShader-safe.
 // Deterministic: every frame is a pure function of the frame index (seeded PRNG only, no wall clock).
+// Generic machinery lives in ../xdx_core (kit, comets, timeline, barrier, style binding, assets); this file is only
+// the topic choreography (room set, cross-section set, shot beats).
 import * as THREE from "three";
-import { RoundedBoxGeometry } from "three/addons/geometries/RoundedBoxGeometry.js";
+import { clamp, lerp, seg, ease, easeOut, mulberry32, v3, canvasTex, noiseFill, std, mesh, rbox, capsule, glowTex, arrowTex } from "../xdx_core/kit.js";
+import { createCometsClass } from "../xdx_core/comets.js";
+import { buildTimeline } from "../xdx_core/timeline.js";
+import { createAssetLoadBarrier } from "../xdx_core/barrier.js";
+import { bindCharacterPalette } from "../xdx_core/style_binding.js";
+import { createBimaFactory } from "../xdx_core/assets/character_bima.js";
+import { createIndoorACFactory } from "../xdx_core/assets/indoor_ac.js";
 
-await document.fonts.load("800 60px PJS");
-await document.fonts.load("700 26px PJS");
+const barrier = createAssetLoadBarrier();
+barrier.require("font:PJS-800", document.fonts.load("800 60px PJS"));
+barrier.require("font:PJS-700", document.fonts.load("700 26px PJS"));
+await barrier.settle();
+if (barrier.failed()) throw new Error("Asset load barrier failed: " + JSON.stringify(barrier.report()));
 
 const W = 1080, H = 1920, FPS = 30;
 // Shot ranges and caption cues come from the signed package (storyboard.json + caption_audio_plan.json),
@@ -14,76 +25,13 @@ const PKG = window.__XDX_PACKAGE;
 const EXPECTED_SHOTS = [["S001", 0, 105], ["S002", 105, 210], ["S003", 210, 330], ["S004", 330, 450]];
 if (!PKG || PKG.project_id !== "bench_p02a_ac_15s") throw new Error("XDX package data missing or not bench_p02a_ac_15s");
 if (JSON.stringify(PKG.shots) !== JSON.stringify(EXPECTED_SHOTS)) throw new Error("Storyboard shot ranges differ from the authored choreography");
-const CUES = PKG.cues; // [shot_id, start_s, end_s, text, highlighted_keyword]
 // Timing map: every beat below is anchored to a caption cue window (frames), never to a hard-coded frame number.
-const CUEF = {};
-for (const [sid, a, b] of CUES) (CUEF[sid] = CUEF[sid] || []).push({ a: Math.round(a * PKG.fps), b: Math.round(b * PKG.fps) });
-const SYNC_LEAD = Math.round(0.3 * PKG.fps); // visuals may lead the words by at most 0.3 s
-const cue = (sid, i) => CUEF[sid][i];
-
-// ------------------------------------------------------------------ helpers
-const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
-const lerp = (a, b, t) => a + (b - a) * t;
-const seg = (f, a, b) => clamp((f - a) / (b - a));
-const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
-const easeOut = (t) => 1 - Math.pow(1 - t, 3);
-function mulberry32(a) {
-  return function () {
-    a |= 0; a = (a + 0x6d2b79f5) | 0;
-    let t = Math.imul(a ^ (a >>> 15), 1 | a);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
+const { CUEF, SYNC_LEAD, cue } = buildTimeline(PKG);
+const CUES = PKG.cues; // [shot_id, start_s, end_s, text, highlighted_keyword]
+const { SHIRT, PANTS, HAIR, ACCENT } = bindCharacterPalette(PKG);
+const SKIN = "#C68A5E";
 const rnd = mulberry32(202611);
-const v3 = (x, y, z) => new THREE.Vector3(x, y, z);
 
-function canvasTex(w, h, draw, repeat) {
-  const c = document.createElement("canvas");
-  c.width = w; c.height = h;
-  draw(c.getContext("2d"), w, h);
-  const t = new THREE.CanvasTexture(c);
-  t.colorSpace = THREE.SRGBColorSpace;
-  t.anisotropy = 8;
-  if (repeat) { t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(repeat[0], repeat[1]); }
-  return t;
-}
-function noiseFill(g, w, h, base, amp, n, seed) {
-  const r = mulberry32(seed);
-  g.fillStyle = base; g.fillRect(0, 0, w, h);
-  for (let i = 0; i < n; i++) {
-    const a = (r() - 0.5) * amp;
-    g.fillStyle = a > 0 ? `rgba(255,255,255,${a})` : `rgba(0,0,0,${-a})`;
-    g.fillRect(r() * w, r() * h, 1 + r() * 3, 1 + r() * 3);
-  }
-}
-const std = (color, roughness = 0.6, metalness = 0, extra = {}) =>
-  new THREE.MeshStandardMaterial({ color, roughness, metalness, ...extra });
-function mesh(geo, mat, pos, parent, opts = {}) {
-  const m = new THREE.Mesh(geo, mat);
-  if (pos) m.position.copy(pos);
-  m.castShadow = opts.cast !== false;
-  m.receiveShadow = opts.receive !== false;
-  if (parent) parent.add(m);
-  return m;
-}
-const rbox = (w, h, d, r = 0.02, s = 3) => new RoundedBoxGeometry(w, h, d, s, Math.min(r, w / 2 - 1e-4, h / 2 - 1e-4, d / 2 - 1e-4));
-const capsule = (r, len) => new THREE.CapsuleGeometry(r, len, 6, 16);
-
-const glowTex = canvasTex(128, 128, (g) => {
-  const gr = g.createRadialGradient(64, 64, 0, 64, 64, 64);
-  gr.addColorStop(0, "rgba(255,255,255,1)");
-  gr.addColorStop(0.35, "rgba(255,255,255,0.75)");
-  gr.addColorStop(1, "rgba(255,255,255,0)");
-  g.fillStyle = gr; g.fillRect(0, 0, 128, 128);
-});
-
-const arrowTex = canvasTex(128, 128, (g) => {
-  g.translate(64, 64);
-  g.shadowColor = "rgba(255,255,255,0.9)"; g.shadowBlur = 10;
-  g.fillStyle = "#ffffff";
-  g.beginPath(); g.moveTo(46, 0); g.lineTo(-10, -34); g.lineTo(-2, -12); g.lineTo(-40, -12); g.lineTo(-40, 12); g.lineTo(-2, 12); g.lineTo(-10, 34); g.closePath(); g.fill();
-});
 
 // ------------------------------------------------------------------ renderer / scene / camera
 const canvas = document.getElementById("c");
@@ -102,242 +50,10 @@ const camera = new THREE.PerspectiveCamera(50, W / H, 0.05, 80);
 // keeping the subject above the caption safe area.
 camera.setViewOffset(W, H * 1.25, 0, H * 0.25, W, H);
 
-// ------------------------------------------------------------------ comet particle system (directional flow)
-class Comets {
-  constructor(parent, n, trail, curveOf, colorOf, size, speed, opts = {}) {
-    this.n = n; this.trail = trail; this.curveOf = curveOf; this.colorOf = colorOf;
-    this.size = size; this.speed = speed; this.opts = opts;
-    this.sprites = [];
-    this.group = new THREE.Group(); parent.add(this.group);
-    for (let i = 0; i < n; i++) {
-      const row = [];
-      for (let k = 0; k < trail; k++) {
-        const s = new THREE.Sprite(new THREE.SpriteMaterial({
-          map: opts.arrows && k === 0 ? arrowTex : glowTex, transparent: true, depthWrite: false, blending: opts.additive ? THREE.AdditiveBlending : THREE.NormalBlending,
-        }));
-        this.group.add(s); row.push(s);
-      }
-      this.sprites.push({ row, phase: rnd(), curve: curveOf(i) });
-    }
-  }
-  update(time, fade = 1, boost = 1) {
-    const col = new THREE.Color();
-    const pa = new THREE.Vector3(), pb = new THREE.Vector3();
-    for (let i = 0; i < this.n; i++) {
-      const p = this.sprites[i];
-      const head = (time * this.speed + p.phase) % 1;
-      for (let k = 0; k < this.trail; k++) {
-        const t = head - k * (this.opts.gap || 0.018);
-        const s = p.row[k];
-        if (t < 0) { s.visible = false; continue; }
-        s.visible = fade > 0.001;
-        s.position.copy(p.curve.getPoint(t));
-        const life = Math.min(1, t / 0.08, (1 - t) / 0.08);
-        const kf = 1 - k / this.trail;
-        let sz = this.size * (0.45 + 0.55 * kf) * (this.opts.grow ? lerp(0.6, 1.6, t) : 1) * boost;
-        if (this.opts.arrows && k === 0) {
-          sz *= 1.6;
-          // orient the arrow head along the on-screen direction of travel
-          this.group.localToWorld(pa.copy(p.curve.getPoint(Math.max(0, t - 0.02)))).project(camera);
-          this.group.localToWorld(pb.copy(p.curve.getPoint(Math.min(1, t + 0.02)))).project(camera);
-          s.material.rotation = Math.atan2((pb.y - pa.y), (pb.x - pa.x) * (W / H));
-        }
-        s.scale.set(sz, sz, sz);
-        col.copy(this.colorOf(i, t));
-        s.material.color.copy(col);
-        s.material.opacity = clamp(life) * kf * fade * (this.opts.alpha || 0.9);
-      }
-    }
-  }
-}
+const Comets = createCometsClass({ camera, rnd, W, H });
 
-// ------------------------------------------------------------------ character: Bima (rigged)
-const SKIN = "#C68A5E", SHIRT = "#E0A11B", PANTS = "#E8DFCA", HAIR = "#2C3539", ACCENT = "#FF6B4A";
-function makeBima() {
-  const root = new THREE.Group();
-  const skin = std(SKIN, 0.55, 0, { emissive: new THREE.Color("#3a1a0a"), emissiveIntensity: 0.12 });
-  const shirtTex = canvasTex(256, 256, (g, w, h) => {
-    noiseFill(g, w, h, SHIRT, 0.12, 3000, 7);
-    g.strokeStyle = "rgba(0,0,0,0.05)";
-    for (let y = 0; y < h; y += 4) { g.beginPath(); g.moveTo(0, y); g.lineTo(w, y); g.stroke(); }
-  });
-  const shirt = std("#ffffff", 0.85, 0, { map: shirtTex });
-  const pants = std(PANTS, 0.9);
-  const hair = std(HAIR, 0.7);
-  const shoe = std("#3B4248", 0.5);
-  const sole = std("#F2F2F2", 0.6);
-  const dark = std("#1E2226", 0.4);
-
-  // legs
-  const legs = [];
-  for (const s of [-1, 1]) {
-    const hip = new THREE.Group(); hip.position.set(s * 0.095, 0.92, 0); root.add(hip);
-    mesh(capsule(0.082, 0.3), pants, v3(0, -0.2, 0), hip);
-    const knee = new THREE.Group(); knee.position.set(0, -0.43, 0); hip.add(knee);
-    mesh(new THREE.SphereGeometry(0.077, 16, 12), pants, v3(0, 0, 0), knee);
-    mesh(capsule(0.072, 0.3), pants, v3(0, -0.19, 0), knee);
-    mesh(capsule(0.05, 0.06), skin, v3(0, -0.4, 0), knee);
-    mesh(rbox(0.13, 0.085, 0.27, 0.035), shoe, v3(0, -0.445, 0.045), knee);
-    mesh(rbox(0.135, 0.025, 0.275, 0.01), sole, v3(0, -0.485, 0.045), knee);
-    legs.push({ hip, knee });
-  }
-  // torso (lathe)
-  const prof = [[0.0, 0], [0.165, 0], [0.175, 0.08], [0.19, 0.24], [0.205, 0.4], [0.2, 0.48], [0.15, 0.545], [0.07, 0.57], [0, 0.575]]
-    .map(([r, y]) => new THREE.Vector2(r, y));
-  const torso = mesh(new THREE.LatheGeometry(prof, 40), shirt, v3(0, 0.86, 0), root);
-  torso.scale.set(1, 1, 0.72);
-  mesh(new THREE.TorusGeometry(0.163, 0.012, 10, 40), std("#C98E14", 0.85), v3(0, 0.865, 0), root).rotation.x = Math.PI / 2;
-  mesh(new THREE.TorusGeometry(0.065, 0.018, 10, 28), std("#C98E14", 0.8), v3(0, 1.43, 0.0), root).rotation.x = Math.PI / 2;
-  mesh(new THREE.CylinderGeometry(0.052, 0.058, 0.12, 20), skin, v3(0, 1.47, 0), root);
-
-  // head
-  const head = new THREE.Group(); head.position.set(0, 1.64, 0.0); root.add(head);
-  const skull = mesh(new THREE.SphereGeometry(0.165, 48, 36), skin, v3(0, 0, 0), head);
-  skull.scale.set(1, 1.05, 0.97);
-  mesh(new THREE.SphereGeometry(0.075, 24, 16), skin, v3(0, -0.07, 0.065), head).scale.set(1.25, 0.8, 1); // jaw/cheeks
-  for (const s of [-1, 1]) {
-    mesh(new THREE.SphereGeometry(0.034, 16, 12), skin, v3(s * 0.163, -0.005, 0.0), head).scale.set(0.6, 1, 1);
-  }
-  // curly hair: deterministic clumps on the upper skull, fringe above the brows
-  const hr = mulberry32(99);
-  for (let i = 0; i < 70; i++) {
-    const u = hr(), w = hr();
-    const theta = u * Math.PI * 2;
-    const phi = Math.acos(lerp(1, 0.05, w));
-    const p = v3(Math.sin(phi) * Math.cos(theta), Math.cos(phi), Math.sin(phi) * Math.sin(theta));
-    if (p.z > 0.55 && p.y < 0.62) continue; // keep forehead/face clear
-    if (p.y < 0.15 && p.z > -0.2) continue;
-    const r = 0.042 + hr() * 0.02;
-    mesh(new THREE.SphereGeometry(r, 14, 10), hair, p.multiplyScalar(0.162).add(v3(0, 0.012, -0.004)), head);
-  }
-  // face
-  const eyeW = std("#FAFAF7", 0.25), iris = std("#2A1C14", 0.3), hl = new THREE.MeshBasicMaterial({ color: "#ffffff" });
-  const eyes = [];
-  for (const s of [-1, 1]) {
-    const e = new THREE.Group(); e.position.set(s * 0.058, 0.018, 0.143); head.add(e);
-    mesh(new THREE.SphereGeometry(0.032, 24, 16), eyeW, v3(0, 0, 0), e, { cast: false }).scale.set(1, 1.15, 0.55);
-    const pupil = mesh(new THREE.SphereGeometry(0.019, 20, 14), iris, v3(0, -0.002, 0.012), e, { cast: false });
-    pupil.scale.set(1, 1.1, 0.6);
-    mesh(new THREE.SphereGeometry(0.006, 10, 8), hl, v3(0.007, 0.01, 0.024), e, { cast: false });
-    const lid = mesh(new THREE.SphereGeometry(0.035, 24, 12, 0, Math.PI * 2, 0, Math.PI / 2), skin, v3(0, 0, 0), e, { cast: false });
-    lid.scale.set(1.04, 1.2, 0.62);
-    const brow = mesh(capsule(0.009, 0.045), hair, v3(0, 0.058, 0.008), e, { cast: false });
-    brow.rotation.z = Math.PI / 2;
-    eyes.push({ e, lid, brow, s });
-  }
-  mesh(new THREE.SphereGeometry(0.022, 16, 12), skin, v3(0, -0.025, 0.163), head);
-  const blush = new THREE.MeshBasicMaterial({ color: "#E8786A", transparent: true, opacity: 0.35, depthWrite: false });
-  for (const s of [-1, 1]) mesh(new THREE.CircleGeometry(0.026, 20), blush, v3(s * 0.095, -0.045, 0.142), head, { cast: false }).rotation.y = s * 0.55;
-  const mouthOpen = mesh(new THREE.SphereGeometry(0.026, 20, 14), std("#5A1E1E", 0.6), v3(0, -0.085, 0.142), head, { cast: false });
-  mouthOpen.scale.set(1.1, 0.75, 0.35);
-  const smile = mesh(new THREE.TorusGeometry(0.03, 0.0075, 8, 20, Math.PI), std("#5A1E1E", 0.6), v3(0, -0.07, 0.152), head, { cast: false });
-  smile.rotation.z = Math.PI;
-  // sweat drops
-  const sweatMat = new THREE.MeshStandardMaterial({ color: "#9ADBFF", roughness: 0.05, metalness: 0, transparent: true, opacity: 0.85 });
-  const sweat = [];
-  for (const [x, y, z] of [[0.14, 0.07, 0.085], [-0.15, 0.03, 0.07]]) {
-    const d = new THREE.Group(); d.position.set(x, y, z); head.add(d);
-    mesh(new THREE.SphereGeometry(0.014, 14, 10), sweatMat, v3(0, 0, 0), d, { cast: false });
-    const c = mesh(new THREE.ConeGeometry(0.0135, 0.026, 14), sweatMat, v3(0, 0.017, 0), d, { cast: false });
-    sweat.push({ d, y0: y });
-  }
-
-  // arms
-  const arms = [];
-  for (const s of [-1, 1]) {
-    const sh = new THREE.Group(); sh.position.set(s * 0.215, 1.375, 0); root.add(sh);
-    mesh(new THREE.CylinderGeometry(0.07, 0.064, 0.15, 20), shirt, v3(0, -0.055, 0), sh);
-    mesh(new THREE.SphereGeometry(0.07, 20, 14), shirt, v3(0, 0.005, 0), sh);
-    mesh(capsule(0.048, 0.2), skin, v3(0, -0.15, 0), sh);
-    const el = new THREE.Group(); el.position.set(0, -0.29, 0); sh.add(el);
-    mesh(new THREE.SphereGeometry(0.047, 16, 12), skin, v3(0, 0, 0), el);
-    mesh(capsule(0.043, 0.19), skin, v3(0, -0.12, 0), el);
-    const wr = new THREE.Group(); wr.position.set(0, -0.255, 0); el.add(wr);
-    mesh(new THREE.SphereGeometry(0.04, 14, 10), skin, v3(0, 0.0, 0), wr);
-    mesh(rbox(0.075, 0.085, 0.036, 0.016), skin, v3(0, -0.045, 0), wr);
-    const fingers = new THREE.Group(); fingers.position.set(0, -0.085, 0); wr.add(fingers);
-    for (let k = 0; k < 4; k++) {
-      const fg = new THREE.Group(); fg.position.set(-0.0285 + k * 0.019, -0.004, 0); fingers.add(fg);
-      mesh(capsule(0.0082, 0.022), skin, v3(0, -0.014, 0), fg);
-      const tip = new THREE.Group(); tip.position.set(0, -0.03, 0); fg.add(tip);
-      mesh(capsule(0.0078, 0.016), skin, v3(0, -0.01, 0), tip);
-      fg.userData.tip = tip;
-    }
-    const thumb = new THREE.Group(); thumb.position.set(-s * 0.04, -0.035, 0.012); wr.add(thumb);
-    const tm = mesh(capsule(0.012, 0.035), skin, v3(0, -0.022, 0), thumb);
-    thumb.rotation.z = -s * 0.5;
-    arms.push({ sh, el, wr, fingers, thumb, s });
-  }
-  return { root, head, eyes, mouthOpen, smile, sweat, arms, legs, torso };
-}
-
-// ------------------------------------------------------------------ AC indoor unit (articulated, cutaway-ready)
-function makeIndoorAC({ coilParticles = true } = {}) {
-  const g = new THREE.Group();
-  const white = std("#F4F6F8", 0.32);
-  const panelMat = std("#FBFCFD", 0.25, 0, { transparent: true });
-  const dark = std("#2A3036", 0.6);
-  const Wd = 1.15, Hd = 0.36, Dd = 0.27;
-  // shell parts (open front so the interior can be revealed)
-  mesh(rbox(Wd, 0.03, Dd, 0.012), white, v3(0, Hd / 2 - 0.015, 0), g);
-  mesh(rbox(Wd, 0.03, Dd, 0.012), white, v3(0, -Hd / 2 + 0.015, 0), g);
-  for (const s of [-1, 1]) mesh(rbox(0.035, Hd, Dd, 0.014), white, v3(s * (Wd / 2 - 0.0175), 0, 0), g);
-  mesh(rbox(Wd, Hd, 0.02, 0.008), std("#D7DCE1", 0.6), v3(0, 0, -Dd / 2 + 0.01), g);
-  // top intake grille slats
-  for (let i = 0; i < 14; i++) mesh(rbox(0.035, 0.008, Dd * 0.7, 0.003), dark, v3(-0.45 + i * 0.07, Hd / 2 + 0.002, -0.02), g, { cast: false });
-  // interior: copper coil (serpentine) + aluminium fins + cross-flow blower
-  const pts = [];
-  const rows = 5;
-  for (let r = 0; r < rows; r++) {
-    const y = 0.1 - r * 0.045;
-    const dir = r % 2 === 0 ? 1 : -1;
-    const xs = [-0.47, -0.2, 0.2, 0.47];
-    const order = dir > 0 ? xs : [...xs].reverse();
-    for (const x of order) pts.push(v3(x, y, 0.035));
-    if (r < rows - 1) pts.push(v3(0.51 * dir, y - 0.0225, 0.035));
-  }
-  const coilCurve = new THREE.CatmullRomCurve3(pts, false, "catmullrom", 0.2);
-  const copper = std("#C47A45", 0.32, 0.9);
-  const coil = mesh(new THREE.TubeGeometry(coilCurve, 400, 0.011, 12, false), copper, null, g, { receive: false });
-  const finGeo = new THREE.BoxGeometry(0.004, 0.24, 0.085);
-  const fins = new THREE.InstancedMesh(finGeo, std("#C9D2DA", 0.35, 0.8), 44);
-  const m4 = new THREE.Matrix4();
-  for (let i = 0; i < 44; i++) { m4.makeTranslation(-0.5 + i * (1.0 / 43), 0.01, 0.0); fins.setMatrixAt(i, m4); }
-  fins.castShadow = false; fins.receiveShadow = false; g.add(fins);
-  const blower = new THREE.Group(); blower.position.set(0, -0.12, 0.02); g.add(blower);
-  mesh(new THREE.CylinderGeometry(0.012, 0.012, 1.0, 12), std("#5B636B", 0.4, 0.6), null, blower).rotation.z = Math.PI / 2;
-  for (let i = 0; i < 14; i++) {
-    const b = mesh(new THREE.BoxGeometry(1.0, 0.004, 0.035), std("#4A5259", 0.5), null, blower);
-    const a = (i / 14) * Math.PI * 2;
-    b.position.set(0, Math.cos(a) * 0.04, Math.sin(a) * 0.04);
-    b.rotation.x = a + 0.6;
-  }
-  // front panel (removable)
-  const front = new THREE.Group(); g.add(front);
-  const fp = mesh(rbox(Wd - 0.02, Hd - 0.05, 0.03, 0.012), panelMat, v3(0, 0.02, Dd / 2 - 0.005), front);
-  mesh(rbox(0.22, 0.012, 0.004, 0.003), std("#AEB6BE", 0.4), v3(-0.38, 0.11, Dd / 2 + 0.012), front, { cast: false });
-  const dispCanvas = document.createElement("canvas"); dispCanvas.width = 256; dispCanvas.height = 96;
-  const dispTex = new THREE.CanvasTexture(dispCanvas); dispTex.colorSpace = THREE.SRGBColorSpace;
-  const disp = mesh(new THREE.PlaneGeometry(0.13, 0.05), new THREE.MeshBasicMaterial({ map: dispTex, transparent: true }), v3(0.38, 0.02, Dd / 2 + 0.012), front, { cast: false, receive: false });
-  const setDisplay = (txt, on) => {
-    const c = dispCanvas.getContext("2d");
-    c.clearRect(0, 0, 256, 96);
-    c.fillStyle = on ? "rgba(10,25,40,0.9)" : "rgba(30,34,38,0.55)";
-    c.beginPath(); c.roundRect(0, 0, 256, 96, 22); c.fill();
-    if (on) { c.fillStyle = "#6FD3FF"; c.font = "800 66px PJS, sans-serif"; c.textAlign = "center"; c.textBaseline = "middle"; c.fillText(txt, 128, 52); }
-    dispTex.needsUpdate = true;
-  };
-  setDisplay("", false);
-  const sensor = mesh(new THREE.SphereGeometry(0.014, 14, 10), std("#1B2026", 0.2), v3(0.25, 0.0, Dd / 2 + 0.012), front, { cast: false });
-  // outlet slot + louver
-  mesh(rbox(1.0, 0.03, 0.08, 0.008), dark, v3(0, -Hd / 2 + 0.03, Dd / 2 - 0.06), g, { cast: false });
-  const louverPivot = new THREE.Group(); louverPivot.position.set(0, -Hd / 2 + 0.005, Dd / 2 - 0.01); g.add(louverPivot);
-  const louver = mesh(rbox(1.0, 0.11, 0.014, 0.006), white, v3(0, -0.0, 0.0), louverPivot);
-  louver.geometry.translate(0, -0.055, 0);
-  const louverStripe = mesh(rbox(0.98, 0.006, 0.004, 0.002), std("#9FD8F5", 0.4), v3(0, -0.09, 0.009), louverPivot, { cast: false });
-  panelMat.depthWrite = true;
-  return { g, front, panelMat, louverPivot, coilCurve, setDisplay, sensor, blower, Wd, Hd, Dd, copper };
-}
+const makeBima = createBimaFactory({ SKIN, SHIRT, PANTS, HAIR });
+const makeIndoorAC = createIndoorACFactory();
 
 // ------------------------------------------------------------------ ROOM SET (S001–S003)
 const room = new THREE.Group(); scene.add(room);
