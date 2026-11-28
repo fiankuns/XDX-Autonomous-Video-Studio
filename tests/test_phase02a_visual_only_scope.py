@@ -203,9 +203,16 @@ def test_p02a_vo_06_independent_review_rules(tmp_path: Path) -> None:
     assert mutate(lambda r: r["shots"][2].pop("caption_sync_evidence"))["status"] == "INCOMPLETE"
 
 
-def test_p02a_vo_07_recorded_review_of_first_test_render_is_hard_fail() -> None:
+def test_p02a_vo_07_recorded_review_of_first_test_render_is_hard_fail(tmp_path: Path) -> None:
     """Evidence: the first Phase 02A AC test render (user-supplied) fails the semantic gate, not only by opinion."""
-    chk = build_visual_review_checklist(BENCH)
+    import shutil
+
+    from intelligence.visual_workflow import retime_package
+
+    old = tmp_path / "bench_p02a_ac_15s_original_timing"            # the review was recorded against the original 15 s timeline
+    shutil.copytree(BENCH, old)
+    retime_package(old, {"S001": 3.5, "S002": 3.5})
+    chk = build_visual_review_checklist(old)
     review = json.loads((EVIDENCE / "independent_visual_review_ac15s.json").read_text(encoding="utf-8"))
     res = evaluate_visual_review(chk, review, producer_ids={"phase02a_render_agent"})
     # The first review predates the v2 caption-sync rule: its only gaps may be missing caption_sync_evidence.

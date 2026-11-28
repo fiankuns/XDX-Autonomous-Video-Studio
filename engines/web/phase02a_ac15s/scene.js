@@ -8,6 +8,7 @@ import { createCometsClass } from "../xdx_core/comets.js";
 import { buildTimeline } from "../xdx_core/timeline.js";
 import { createAssetLoadBarrier } from "../xdx_core/barrier.js";
 import { bindCharacterPalette } from "../xdx_core/style_binding.js";
+import { createCallouts } from "../xdx_core/callouts.js";
 import { solveArm, aimTwo, lookHead, anchor } from "../xdx_core/rig_ik.js";
 import { createBimaFactory } from "../xdx_core/assets/character_bima.js";
 import { createIndoorACFactory } from "../xdx_core/assets/indoor_ac.js";
@@ -23,9 +24,9 @@ const W = 1080, H = 1920, FPS = 30;
 // injected by scripts/render_phase02a_visual.py as window.__XDX_PACKAGE. The choreography below is authored for
 // bench_p02a_ac_15s, so the shot ranges must match exactly or the scene refuses to render.
 const PKG = window.__XDX_PACKAGE;
-const EXPECTED_SHOTS = [["S001", 0, 105], ["S002", 105, 210], ["S003", 210, 330], ["S004", 330, 450]];
+const EXPECTED_SHOT_IDS = ["S001", "S002", "S003", "S004"]; // durations are content-driven (retime_package); beats are anchored to caption cues, not to frame numbers
 if (!PKG || PKG.project_id !== "bench_p02a_ac_15s") throw new Error("XDX package data missing or not bench_p02a_ac_15s");
-if (JSON.stringify(PKG.shots) !== JSON.stringify(EXPECTED_SHOTS)) throw new Error("Storyboard shot ranges differ from the authored choreography");
+if (JSON.stringify(PKG.shots.map((s) => s[0])) !== JSON.stringify(EXPECTED_SHOT_IDS)) throw new Error("Storyboard shot ids differ from the authored choreography");
 // Timing map: every beat below is anchored to a caption cue window (frames), never to a hard-coded frame number.
 const { CUEF, SYNC_LEAD, cue } = buildTimeline(PKG);
 const CUES = PKG.cues; // [shot_id, start_s, end_s, text, highlighted_keyword]
@@ -207,13 +208,12 @@ let remoteTip, remoteBtn, remoteFace, pressThumb, setRemoteTemp;
   }
   remoteTip = new THREE.Object3D(); remoteTip.position.set(0, -0.19, 0.03); remote.add(remoteTip);
   remoteFace = new THREE.Object3D(); remoteFace.position.set(0, -0.12, 0.045); remote.add(remoteFace);
-  pressThumb = new THREE.Group(); pressThumb.position.set(-0.045, -0.06, 0.05); remote.add(pressThumb);
+  pressThumb = new THREE.Group(); pressThumb.position.set(-0.075, 0.012, 0.035); remote.add(pressThumb);
   const thumbSkin = std(SKIN, 0.55, 0, { emissive: new THREE.Color("#3a1a0a"), emissiveIntensity: 0.12 });
-  const tb = mesh(new THREE.CapsuleGeometry(0.0115, 0.05, 12, 32), thumbSkin, v3(0, -0.03, 0), pressThumb);
-  mesh(new THREE.SphereGeometry(0.022, 32, 24), thumbSkin, v3(0.004, 0.006, -0.012), pressThumb).scale.set(1, 1.3, 0.8); // thenar base joins the palm
-  const nail = mesh(new THREE.SphereGeometry(0.009, 20, 14), std("#E8C3A8", 0.3), v3(0, -0.058, 0.007), pressThumb, { cast: false });
+  mesh(new THREE.CapsuleGeometry(0.0115, 0.1, 12, 32), thumbSkin, v3(0, -0.07, 0), pressThumb);            // long thumb along the group's -Y (aimed at the button each frame)
+  mesh(new THREE.SphereGeometry(0.019, 32, 24), thumbSkin, v3(0.002, 0.004, -0.008), pressThumb).scale.set(1, 1.35, 0.8); // thenar base joins the palm
+  const nail = mesh(new THREE.SphereGeometry(0.009, 20, 14), std("#E8C3A8", 0.3), v3(0, -0.127, 0.006), pressThumb, { cast: false });
   nail.scale.set(1, 1.3, 0.4);
-  pressThumb.rotation.z = 0.75;
   for (let k = 0; k < 4; k++) {
     const tip = mesh(new THREE.CapsuleGeometry(0.0105, 0.026, 10, 24), thumbSkin, v3(0.04, -0.07 - k * 0.026, 0.03), remote);
     tip.rotation.z = Math.PI / 2 - 0.15; tip.scale.set(1, 1, 0.9);
@@ -308,7 +308,10 @@ const xsParts = {};
   mesh(new THREE.PlaneGeometry(6.36, 14), std("#8DBB6E", 0.95), v3(3.18, 0.0, 4.0), xs, { cast: false }).rotation.x = -Math.PI / 2;
   const inTex = canvasTex(512, 512, (g, w, h) => noiseFill(g, w, h, "#EAD9C1", 0.06, 6000, 12));
   mesh(new THREE.PlaneGeometry(4, 7), std("#ffffff", 0.9, 0, { map: inTex }), v3(-2.15, 2.8, -1.6), xs, { cast: false, receive: false });
-  mesh(new THREE.PlaneGeometry(4.36, 14), std("#B98552", 0.65), v3(-2.18, 0.0, 4.0), xs, { cast: false, receive: false }).rotation.x = -Math.PI / 2;
+  // indoor floor is a SECTION: it ends at the same cut plane as the wall (z = +1.0); the ground in front of the cut is continuous grass (no ground seam running to the lens)
+  mesh(new THREE.PlaneGeometry(4.36, 4.0), std("#B98552", 0.65), v3(-2.18, 0.0, -1.0), xs, { cast: false, receive: false }).rotation.x = -Math.PI / 2;
+  mesh(new THREE.PlaneGeometry(4.36, 0.14), std("#8A5E37", 0.7), v3(-2.18, -0.07, 1.0), xs, { cast: false, receive: false });
+  mesh(new THREE.PlaneGeometry(4.36, 10), std("#8DBB6E", 0.95), v3(-2.18, -0.001, 6.0), xs, { cast: false }).rotation.x = -Math.PI / 2;
   const brickTex = canvasTex(256, 1024, (g, w, h) => {
     g.fillStyle = "#D9CFC2"; g.fillRect(0, 0, w, h);
     const bh = 36;
@@ -320,7 +323,7 @@ const xsParts = {};
   });
   const wallMats = [std("#E9D8C0", 0.9), std("#E9D8C0", 0.9), std("#E9D8C0", 0.9), std("#E9D8C0", 0.9), std("#ffffff", 0.85, 0, { map: brickTex }), std("#E9D8C0", 0.9)];
   const wall = new THREE.Mesh(new THREE.BoxGeometry(0.32, 6.0, 3.2), wallMats);
-  wall.position.set(0, 3.0, -0.6); wall.castShadow = wall.receiveShadow = true; xs.add(wall); // cut face at z = +1.0
+  wall.position.set(0, 3.0, -0.6); wall.castShadow = false; wall.receiveShadow = true; xs.add(wall); // cut face at z = +1.0
   // sleeve hole through the wall where the refrigerant lines pass
   mesh(rbox(0.34, 0.2, 0.01, 0.006), std("#2B1E19", 0.9), v3(0, 2.405, 1.0), xs, { cast: false });
   mesh(rbox(0.34, 0.012, 0.012, 0.004), std("#8E8A84", 0.6), v3(0, 2.51, 1.004), xs, { cast: false });
@@ -332,7 +335,7 @@ const xsParts = {};
   ac2.louverPivot.rotation.x = -1.05; ac2.setDisplay("24°", true);
   xsParts.ac2 = ac2;
   mesh(new THREE.PlaneGeometry(2.3, 4.2), std("#ffffff", 0.9, 0, { map: inTex, color: "#E9D3B8" }), v3(-1.31, 2.1, 0.5), xs, { cast: false }); // interior wall behind the unit
-  mesh(rbox(0.5, 0.32, 3.4, 0.02), std("#9A9690", 0.9), v3(0, -0.12, -0.6), xs); // foundation under the wall
+  mesh(rbox(0.5, 0.3, 3.2, 0.02), std("#B9B2A6", 0.9), v3(0, -0.13, -0.6), xs, { cast: false }); // foundation under the wall, flush with the cut plane (z=+1.0) so it no longer reads as a grey wedge
   const shadowTex = canvasTex(256, 128, (g) => { const gr = g.createRadialGradient(128, 64, 4, 128, 64, 120); gr.addColorStop(0, "rgba(0,0,0,0.45)"); gr.addColorStop(1, "rgba(0,0,0,0)"); g.fillStyle = gr; g.fillRect(0, 0, 256, 128); });
   mesh(new THREE.PlaneGeometry(1.4, 0.7), new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false }), v3(0.8, 0.004, 0.8), xs, { cast: false, receive: false }).rotation.x = -Math.PI / 2;
 
@@ -403,26 +406,20 @@ const heatOut = new Comets(xs, 24, 7, (i) => heatOutCurves[i], (i, t) => hot.clo
 const coolIn = new Comets(xs, 12, 6, (i) => new THREE.CatmullRomCurve3([v3(-0.92 + i * 0.05, 2.42, 0.82), v3(-1.0 + i * 0.04, 2.05, 1.05), v3(-1.3 + i * 0.03, 1.6, 1.2)]), () => new THREE.Color("#5CC8FF"), 0.07, 0.4, { alpha: 0.85, gap: 0.022, arrows: true });
 
 // ------------------------------------------------------------------ labels (content callouts grounded in the script, not debug)
-const labelsEl = document.getElementById("labels");
-function makeLabel(text, kind) { const d = document.createElement("div"); d.className = "label " + kind; d.textContent = text; labelsEl.appendChild(d); return d; }
+const callouts = createCallouts({ labelsEl: document.getElementById("labels"), svgEl: document.getElementById("leaders"), camera, W, H, safe: { top: 150, bottom: 1385, side: 30 } });
 const L = {
-  heat: makeLabel("Panas kamar", "warm"),
-  ir: makeLabel("Sinyal inframerah", "warm"),
-  evap: makeLabel("Evaporator", "cool"),
-  refr: makeLabel("Refrigeran cair → menguap", "cool"),
-  heat3: makeLabel("Panas kamar", "warm"),
-  vapor: makeLabel("Uap panas", "warm"),
-  comp: makeLabel("Kompresor", "warm"),
-  cond: makeLabel("Kondensor luar", "warm"),
-  release: makeLabel("Kalor ke udara luar", "warm"),
+  heat: callouts.make("Panas kamar", "warm"),
+  ir: callouts.make("Sinyal inframerah", "warm"),
+  evap: callouts.make("Evaporator", "cool"),
+  refr: callouts.make("Refrigeran cair → menguap", "cool"),
+  heat3: callouts.make("Panas kamar", "warm"),
+  vapor: callouts.make("Uap panas", "warm"),
+  comp: callouts.make("Kompresor", "warm"),
+  cond: callouts.make("Kondensor luar", "warm"),
+  release: callouts.make("Kalor ke udara luar", "warm"),
 };
-function placeLabel(el, worldPos, alpha) {
-  const p = worldPos.clone().project(camera);
-  const hw = (el.offsetWidth || 400) / 2 + 30;
-  const x = clamp(((p.x + 1) / 2) * W, hw, W - hw), y = clamp(((1 - p.y) / 2) * H, 120, H - 600);
-  el.style.left = `${x}px`; el.style.top = `${y}px`; el.style.opacity = String(alpha);
-}
-function placeScreen(el, x, y, alpha) { el.style.left = `${x}px`; el.style.top = `${y}px`; el.style.opacity = String(alpha); }
+// callout(label, anchor on the named part, pill offset in px AWAY from the subject, alpha)
+const callout = (it, anchorWorld, dx, dy, alpha) => callouts.place(it, anchorWorld, { dx, dy }, alpha);
 
 // ------------------------------------------------------------------ caption (contiguous cues switch without a fade gap)
 const capbox = document.getElementById("capbox");
@@ -475,7 +472,7 @@ function renderFrame(f) {
   room.visible = shot <= 2;
   xs.visible = shot === 3;
   poseNeutral();
-  for (const el of Object.values(L)) el.style.opacity = "0";
+  callouts.reset();
   AC.louverPivot.rotation.x = 0;
   AC.setDisplay("", false);
   AC.front.visible = true; AC.panelMat.opacity = 1; AC.panelMat.transparent = false; AC.front.position.set(0, 0, 0);
@@ -506,26 +503,27 @@ function renderFrame(f) {
     const hq = bima.head.getWorldQuaternion(new THREE.Quaternion());
     const fwd = v3(0, 0, 1).applyQuaternion(hq), side = v3(1, 0, 0).applyQuaternion(hq), upv = v3(0, 1, 0).applyQuaternion(hq);
     const faceC = headP.clone().addScaledVector(fwd, 0.1).addScaledVector(upv, -0.03);
-    // fan hand: the blade is held in front of the face with its flat side toward the face and waved side to side
-    const fanC = faceC.clone().addScaledVector(fwd, 0.3 + 0.04 * w2).addScaledVector(side, 0.03 + 0.09 * w).addScaledVector(upv, -0.03);
+    // fan hand: the forearm holds the fist in front of the face; the WRIST rocks forward/back and the fan (child of the wrist) follows it.
+    const fanC = faceC.clone().addScaledVector(fwd, 0.3).addScaledVector(side, 0.03).addScaledVector(upv, -0.05);
     const toFace = faceC.clone().sub(fanC).normalize();
     const bladeDir = upv.clone().multiplyScalar(0.8).addScaledVector(toFace, 0.5).normalize(); // blade extends up-and-in from the fist
-    const wristR = fanC.clone().addScaledVector(bladeDir, -0.23);
+    const wristR = fanC.clone().addScaledVector(bladeDir, -0.23).addScaledVector(fwd, 0.035 * w2).addScaledVector(upv, 0.012 * w); // small forearm drive
     const shR = rightArm.sh.getWorldPosition(new THREE.Vector3());
     solveArm(rightArm, wristR, shR.clone().add(v3(0.25, -0.9, 0.0)));
     scene.updateMatrixWorld(true);
-    aimTwo(rightArm.wr, v3(0, -1, 0), bladeDir, v3(0, 0, 1), toFace.clone().applyAxisAngle(bladeDir, 0.55 * w));
-    grip(rightArm, 0.8);
+    aimTwo(rightArm.wr, v3(0, -1, 0), bladeDir, v3(0, 0, 1), toFace);
+    rightArm.wr.rotateX(0.4 + 0.45 * w);                 // wrist flexion: the blade sweeps toward the face and back, flat side always roughly toward him
+        grip(rightArm, 0.8);
     fan.visible = true;
     // other hand wipes the forehead during the first part of caption 1, then drops
-    const wipe = ease(seg(f, c0.a + 4, c0.a + 14)) * (1 - ease(seg(f, c0.a + Math.round(L0 * 0.6), c0.a + Math.round(L0 * 0.6) + 12)));
+    const wipe = ease(seg(f, c0.a + 4, c0.a + 14)) * (1 - ease(seg(f, c0.a + Math.round(L0 * 0.75), c0.a + Math.round(L0 * 0.75) + 12)));
     const foreheadC = headP.clone().addScaledVector(upv, 0.09).addScaledVector(fwd, 0.17);
-    const swipe = Math.sin(t * 2 * Math.PI * 2.4);
-    const wipeT = foreheadC.clone().addScaledVector(side, -0.11 * swipe);
+    const swipe = Math.sin(t * 2 * Math.PI * 1.7);
+    const wipeT = foreheadC.clone().addScaledVector(side, -0.15 * swipe).addScaledVector(upv, 0.02 * Math.cos(t * 2 * Math.PI * 3.4));
     const hangT = bima.root.localToWorld(v3(-0.25, 0.83, 0.03));
     const wristL = hangT.clone().lerp(wipeT, wipe);
     const shL = leftArm.sh.getWorldPosition(new THREE.Vector3());
-    solveArm(leftArm, wristL, shL.clone().add(v3(-0.3, -0.9, -0.1)));
+    solveArm(leftArm, wristL, shL.clone().add(side.clone().multiplyScalar(-0.9 * wipe)).add(v3(0, -0.9 * (1 - 0.75 * wipe), -0.1))); // elbow swings OUT to the side while wiping
     scene.updateMatrixWorld(true);
     const aL = v3(0, -1, 0).lerp(upv.clone().multiplyScalar(0.7).addScaledVector(side, -0.4), wipe).normalize();
     const bL = v3(0, 0, 1).lerp(foreheadC.clone().sub(wristL).normalize(), wipe).normalize();
@@ -537,7 +535,7 @@ function renderFrame(f) {
     const rt = ease(seg(f, c1.a - SYNC_LEAD, c1.a + 12));
     heatComets.update(t, 1, 1 + 0.45 * rt);
     scene.updateMatrixWorld(true);
-    placeScreen(L.heat, 250, 560, seg(f, c0.a + 10, c0.a + 20) * (1 - seg(f, c1.a - 8, c1.a)));
+    callout(L.heat, v3(-1.1, 2.54, -0.1), -230, 260, seg(f, c0.a + 10, c0.a + 24) * (1 - seg(f, c1.a - 8, c1.a)));
   } else if (shot === 1) {
     const c0 = cue("S002", 0), c1 = cue("S002", 1);
     const L0 = c0.b - c0.a;
@@ -570,7 +568,7 @@ function renderFrame(f) {
     leftArm.thumb.visible = false;
     const press = seg(f, pressA, pressA + 4) * (1 - seg(f, pressB, pressB + 4));
     // thumb hovers over the power/24° button, then presses it (moves onto the button face)
-    pressThumb.position.set(lerp(-0.045, -0.025, press), lerp(-0.06, -0.072, press), lerp(0.072, 0.052, press));
+    pressThumb.quaternion.setFromUnitVectors(v3(0, -1, 0), v3(lerp(-0.02, 0, press), lerp(-0.085, -0.105, press), lerp(0.09, 0.054, press)).sub(pressThumb.position).normalize());
     remoteBtn.material.emissiveIntensity = 0.15 + 2.6 * press;
     setRemoteTemp(f >= pressB ? "24°" : "28°"); // the setting visibly changes when the button is pressed
     rightArm.sh.rotation.set(0.0, 0, 0.15); rightArm.el.rotation.set(-0.3, 0, 0);
@@ -591,12 +589,14 @@ function renderFrame(f) {
     if (inInsert) { bima.head.visible = false; bima.torso.visible = false; } // macro cutaway: nothing between the lens and the remote
     const remoteC = tmpB.clone();
     const mediumPos = v3(-1.05, 1.62, 1.75).lerp(v3(-0.95, 1.66, 1.6), seg(f, c0.a, cutIn)), mediumTgt = v3(-0.5, 1.75, -0.25);
-    const insertPos = remoteC.clone().addScaledVector(faceN, lerp(0.5, 0.4, seg(f, cutIn, pressB + 4))).add(v3(0, -0.04, 0));
+    const remoteMid = remote.localToWorld(v3(0, -0.085, 0.04));
+    const remoteUp = remote.localToWorld(v3(0, -0.19, 0)).sub(remote.localToWorld(v3(0, 0, 0))).normalize(); // IR tip up on screen
+    const insertPos = remoteMid.clone().addScaledVector(faceN, lerp(0.56, 0.47, seg(f, cutIn, pressB + 4)));
     const acPush = ease(seg(f, pressB + 4, c1.b));
     const acPos = v3(lerp(-0.45, -0.62, acPush), lerp(1.9, 1.98, acPush), lerp(1.55, 1.3, acPush)), acTgt = acCenterW.clone().add(v3(0.15, -0.2, 0.0));
     const camP = toAC ? acPos : inInsert ? insertPos : mediumPos;
-    const camT = toAC ? acTgt : inInsert ? remoteC : mediumTgt;
-    look(toAC ? 54 : inInsert ? 42 : 56, camP.x, camP.y, camP.z, camT.x, camT.y, camT.z, WORLD_UP);
+    const camT = toAC ? acTgt : inInsert ? remoteMid : mediumTgt;
+    look(toAC ? 54 : inInsert ? 42 : 56, camP.x, camP.y, camP.z, camT.x, camT.y, camT.z, inInsert ? remoteUp : WORLD_UP);
     // IR ray grows from the remote tip to the receiver
     const ir = seg(f, irA, irB);
     if (ir > 0 && f < c1.a + 6) {
@@ -607,7 +607,7 @@ function renderFrame(f) {
       irBeam.material.opacity = 0.85 * (1 - seg(f, c1.a - 4, c1.a + 6));
       irGroup.visible = true;
       irDots.forEach((d, i) => { const u = ((f - irA) / 14 - i * 0.12) % 1; d.visible = u > 0 && u < ir; d.position.lerpVectors(tmpA, acSensorW, clamp(u)); d.scale.setScalar(0.045); d.material.opacity = 0.95; });
-      placeLabel(L.ir, tmpA.clone().lerp(acSensorW, 0.55).add(v3(0, 0.12, 0)), seg(f, irA + 6, irA + 12) * (1 - seg(f, c1.a - 6, c1.a)));
+      callout(L.ir, tmpA.clone().lerp(acSensorW, 0.55), -330, 150, seg(f, pressB + 6, pressB + 20) * (1 - seg(f, c1.a - 6, c1.a)));
     }
     const led = seg(f, pressA + 1, pressA + 3) * (1 - seg(f, irA + 10, irA + 16));
     if (led > 0) { ledFlash.visible = true; ledFlash.position.copy(tmpA); ledFlash.scale.setScalar(0.05 + 0.03 * Math.sin(f * 1.7) ** 2); ledFlash.material.opacity = led; }
@@ -639,9 +639,9 @@ function renderFrame(f) {
     refComets.group.visible = true; refComets.update(t, seg(f, c0.a + 18, c0.a + 30));
     scene.updateMatrixWorld(true);
     const a = (x, y, z) => AC.g.localToWorld(v3(x, y, z));
-    placeLabel(L.evap, a(-0.3, 0.27, 0.3), seg(f, c0.a + 20, c0.a + 30));
-    placeLabel(L.refr, a(0.2, -0.36, 0.45), seg(f, c0.a + 34, c0.a + 44));
-    placeLabel(L.heat3, a(0.3, 0.45, 0.7), seg(f, c1.a - SYNC_LEAD, c1.a + 2));
+    callout(L.evap, a(-0.37, 0.04, 0.3), -20, -250, seg(f, c0.a + 20, c0.a + 34));
+    callout(L.refr, a(-0.07, -0.05, 0.3), 120, 250, seg(f, c0.a + 34, c0.a + 48));
+    callout(L.heat3, a(-0.45, 0.06, 0.7), 0, -300, seg(f, c1.a - SYNC_LEAD, c1.a + 8));
   } else {
     const c0 = cue("S004", 0), c1 = cue("S004", 1);
     const tt = ease(seg(f, c0.a, c1.b));
@@ -656,10 +656,10 @@ function renderFrame(f) {
     coolIn.update(t, 1);
     scene.updateMatrixWorld(true);
     const o = (x, y, z) => xsParts.od.localToWorld(v3(x, y, z));
-    placeLabel(L.vapor, v3(40.05, 2.62, 1.1), seg(f, c0.a + 4, c0.a + 12) * (1 - seg(f, c0.a + 46, c0.a + 52)));
-    placeLabel(L.comp, o(0.62, -0.08, 0.2), seg(f, c0.a + 30, c0.a + 40));
-    placeLabel(L.cond, o(-0.2, -0.5, 0.3), seg(f, c1.a - SYNC_LEAD, c1.a + 2));
-    placeLabel(L.release, v3(41.25, 2.55, 1.4), seg(f, c1.a, c1.a + 8));
+    callout(L.vapor, v3(40.05, 2.62, 1.1), -120, -230, seg(f, c0.a + 4, c0.a + 18) * (1 - seg(f, c0.a + 46, c0.a + 52)));
+    callout(L.comp, xsParts.od.localToWorld(compBase.clone()), -10, 330, seg(f, c0.a + 30, c0.a + 44));
+    callout(L.cond, o(-0.18, -0.26, 0.3), -230, 240, seg(f, c1.a - SYNC_LEAD, c1.a + 8));
+    callout(L.release, v3(41.15, 2.02, 1.4), -100, -300, seg(f, c1.a, c1.a + 12));
   }
   setCaption(t);
   updateProbe();
@@ -677,14 +677,34 @@ function updateProbe() {
     fan_center: anchor(fan, v3(0, -0.23, 0), v3(0, 0, 1)),
     fan_hand: anchor(rightArm.wr),
     left_wrist: anchor(leftArm.wr),
+    left_elbow: anchor(leftArm.el),
+    torso_mid: anchor(bima.torso, v3(0, 0.1, 0)),
     remote_tip: anchor(remote, v3(0, -0.19, 0.03), v3(0, -1, 0)),
     remote_button: anchor(remoteBtn),
-    thumb_tip: anchor(pressThumb, v3(0, -0.06, 0)),
+    thumb_tip: anchor(pressThumb, v3(0, -0.13, 0)),
     ac_sensor: anchor(AC.sensor),
+    callouts: callouts.report(),
+    caption_rect: (() => { const r = capbox.getBoundingClientRect(); return [r.left, r.top, r.right, r.bottom]; })(),
   };
 }
 
 window.__ready = document.fonts.ready.then(() => { AC.setDisplay("", false); return true; });
 window.renderFrame = (f) => { renderFrame(f); return true; };
 window.__xdxProbe = (f) => { renderFrame(f); return JSON.parse(JSON.stringify(probe)); };
+// authoring aid: screen pixel -> point on the plane z=zc of a space ("world" | "ac" | "od"), so callout rings can be put exactly where a part is
+window.__xdxScreenToLocal = (f, space, sx, sy, zc) => {
+  renderFrame(f);
+  const obj = space === "ac" ? AC.g : space === "od" ? xsParts.od : scene;
+  const inv = obj.matrixWorld.clone().invert();
+  const o = camera.position.clone().applyMatrix4(inv);
+  const p = new THREE.Vector3((sx / W) * 2 - 1, 1 - (sy / H) * 2, 0.5).unproject(camera).applyMatrix4(inv);
+  const d = p.sub(o).normalize(), k = (zc - o.z) / d.z, q = o.addScaledVector(d, k);
+  return [q.x, q.y, q.z];
+};
+// authoring aid: which object is under a pixel (find stray geometry / wrong planes)
+window.__xdxPick = (f, sx, sy) => {
+  renderFrame(f);
+  const rc = new THREE.Raycaster(); rc.setFromCamera(new THREE.Vector2((sx / W) * 2 - 1, 1 - (sy / H) * 2), camera);
+  return rc.intersectObjects(scene.children, true).slice(0, 3).map((h) => ({ type: h.object.geometry.type, pos: h.object.getWorldPosition(new THREE.Vector3()).toArray().map((v) => +v.toFixed(2)), params: h.object.geometry.parameters || null, dist: +h.distance.toFixed(2) }));
+};
 window.TOTAL_FRAMES = PKG.total_frames;

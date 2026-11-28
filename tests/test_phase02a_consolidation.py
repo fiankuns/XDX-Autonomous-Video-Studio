@@ -68,11 +68,11 @@ def test_p02a_cons_03_input_validation(tmp_path: Path) -> None:
 
 def test_p02a_cons_04_canonical_timeline_and_chapters(tmp_path: Path) -> None:
     tl = vw.canonical_timeline(PKG)
-    assert tl["total_frames"] == 450 and tl["shots"][-1]["end_frame"] == 450 and len(tl["cues"]) == 8
+    assert tl["total_frames"] == 585 and tl["shots"][-1]["end_frame"] == 585 and len(tl["cues"]) == 8  # content-driven duration (retimed: S001 5.5 s, S002 6 s)
     ch = vw.plan_chapters(tl, max_chapter_seconds=8)
     assert len(ch["chapters"]) >= 2 and ch["total_frames"] == tl["total_frames"] and "timeline_2" not in ch
     with pytest.raises(ValueError):
-        vw.verify_chapters(tl, [{"chapter_id": "X", "start_frame": 0, "end_frame": 100}, {"chapter_id": "Y", "start_frame": 120, "end_frame": 450}])
+        vw.verify_chapters(tl, [{"chapter_id": "X", "start_frame": 0, "end_frame": 100}, {"chapter_id": "Y", "start_frame": 120, "end_frame": 585}])
     bad = _copy_pkg(tmp_path)
     sb = json.loads((bad / "storyboard.json").read_text(encoding="utf-8"))
     sb["shots"][1]["start_frame"] += 3
@@ -162,7 +162,7 @@ def _can_render() -> bool:
 
 @pytest.mark.skipif(not _can_render(), reason="headless Chrome/Playwright not available")
 def test_p02a_cons_10_pixel_regression_against_latest_benchmark(tmp_path: Path) -> None:
-    bench = json.loads((ROOT / "docs/evidence/phase02a_visual_only/regression_benchmark_v7.json").read_text(encoding="utf-8"))
+    bench = json.loads((ROOT / "docs/evidence/phase02a_visual_only/regression_benchmark_v8.json").read_text(encoding="utf-8"))
     frames = [10, 140, 260, 400]
     out = tmp_path / "frames"
     res = subprocess.run(["python3", str(ROOT / "scripts/render_phase02a_visual.py"), str(PKG), "--prototype", "--out", str(out),
@@ -199,6 +199,7 @@ def test_p02a_cons_12_action_choreography_constraints_catch_wrong_acting() -> No
     jsonschema.validate(spec, json.loads((ROOT / "schemas/action_events.schema.json").read_text(encoding="utf-8")))
     cues = vw.canonical_timeline(PKG)["cues"]
     fan = next(e for e in spec["events"] if e["event_id"] == "AE-S001-FAN")
+    fan = {**fan, "min_seconds": 0, "constraints": [c for c in fan["constraints"] if c["type"] in ("distance_lt", "facing", "not_facing")]}  # per-frame constraints only (mutation probes are static)
     frames = ac.event_frames(fan, cues)
 
     def probe(fan_dir, fan_pos=(0.0, 0.0, 0.3), head_dir=(0.0, 0.0, 1.0)):
@@ -224,3 +225,47 @@ def test_p02a_cons_13_actions_verified_on_the_real_scene() -> None:
     tl = vw.canonical_timeline(PKG)
     rep = ac.evaluate_events(spec, tl["cues"], probe_frames(load_package_data(PKG), ac.needed_frames(spec, tl["cues"])))
     assert rep["status"] == "OK", rep["issues"]
+
+
+def test_p02a_cons_14_retime_package_keeps_one_consistent_timeline(tmp_path: Path) -> None:
+    c = _copy_pkg(tmp_path)
+    r = vw.retime_package(c, {"S003": 5.0})            # stretch a shot: everything after it shifts, nothing else drifts
+    assert r["total_frames"] == 585 + 30
+    tl = vw.canonical_timeline(c)                      # contiguous, integer frames, cues inside their shot
+    assert tl["total_frames"] == 615 and [s["end_frame"] for s in tl["shots"]][-1] == 615
+    cue = [x for x in tl["cues"] if x["shot_id"] == "S004"][0]
+    assert cue["start_frame"] == tl["shots"][3]["start_frame"]
+    mp = json.loads((c / "motion_plan.json").read_text(encoding="utf-8"))
+    assert mp["total_frames"] == 615
+
+
+def test_p02a_cons_15_callout_contract_catches_bad_layout() -> None:
+    from intelligence import callout_contract as cc
+
+    ok = {"caption_rect": [90, 1394, 990, 1580], "callouts": [{"text": "A", "alpha": 1, "anchor": [300, 400], "rect": [100, 600, 400, 680]}]}
+    assert cc.evaluate_callouts({0: ok})["status"] == "OK"
+    on_caption = {"caption_rect": [90, 1394, 990, 1580], "callouts": [{"text": "A", "alpha": 1, "anchor": [300, 1100], "rect": [100, 1380, 400, 1460]}]}
+    covers = {"caption_rect": [90, 1394, 990, 1580], "callouts": [{"text": "A", "alpha": 1, "anchor": [250, 640], "rect": [100, 600, 400, 680]}]}
+    short = {"caption_rect": [90, 1394, 990, 1580], "callouts": [{"text": "A", "alpha": 1, "anchor": [250, 720], "rect": [100, 600, 400, 680]}]}
+    pair = {"caption_rect": [90, 1394, 990, 1580], "callouts": [{"text": "A", "alpha": 1, "anchor": [300, 300], "rect": [100, 600, 400, 680]}, {"text": "B", "alpha": 1, "anchor": [700, 300], "rect": [350, 640, 650, 720]}]}
+    off = {"caption_rect": [90, 1394, 990, 1580], "callouts": [{"text": "A", "alpha": 1, "anchor": [300, 300], "rect": [900, 600, 1200, 680]}]}
+    for bad, code in [(on_caption, "CALLOUT_OVER_CAPTION"), (covers, "CALLOUT_COVERS_PART"), (short, "CALLOUT_LEADER_TOO_SHORT"), (pair, "CALLOUT_OVERLAP"), (off, "CALLOUT_OFF_FRAME")]:
+        rep = cc.evaluate_callouts({0: bad})
+        assert rep["status"] == "BLOCKED" and code in {i["code"] for i in rep["issues"]}, code
+
+
+def test_p02a_cons_16_motion_constraints_rigid_travel_and_min_seconds() -> None:
+    from intelligence import action_choreography as ac
+
+    cues = vw.canonical_timeline(PKG)["cues"]
+    ev = {"event_id": "E", "shot_id": "S001", "action": "x", "window": {"cue": 0, "from": 0.1, "to": 0.2}, "min_seconds": 3.0,
+          "constraints": [{"type": "rigid", "a": "w", "b": "f", "tol": 0.02}, {"type": "travel_gt", "anchor": "f", "value": 0.5}]}
+    frames = ac.event_frames(ev, cues)
+    still = {f: {"w": {"p": [0, 0, 0]}, "f": {"p": [0, 0, 0.2]}} for f in frames}
+    moving = {f: {"w": {"p": [0, 0, 0]}, "f": {"p": [0.3 * (i % 2), 0, 0.2]}} for i, f in enumerate(frames)}   # prop moves but is NOT attached to the wrist
+    rep = ac.evaluate_events({"events": [ev]}, cues, still)
+    assert {i["code"] for i in rep["issues"]} == {"ACTION_GEOMETRY_FAIL", "ACTION_TOO_SHORT"}   # static prop + window too short
+    assert any("rigid" in i["message"] for i in ac.evaluate_events({"events": [ev]}, cues, moving)["issues"])  # detaches from the wrist
+    attached = {f: {"w": {"p": [0.3 * (i % 2), 0, 0]}, "f": {"p": [0.3 * (i % 2), 0, 0.2]}} for i, f in enumerate(frames)}
+    ev["min_seconds"] = 0.1
+    assert ac.evaluate_events({"events": [ev]}, cues, attached)["status"] == "OK"                # wrist moves and the prop follows

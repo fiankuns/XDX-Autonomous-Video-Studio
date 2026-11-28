@@ -276,8 +276,12 @@ def main() -> int:
         spec = _ac.load_action_events(pkg)
         if spec is not None:
             tl = canonical_timeline(pkg)
-            rep = _ac.evaluate_events(spec, tl["cues"], probe_frames(data, _ac.needed_frames(spec, tl["cues"])))
+            from intelligence import callout_contract as _cc
+
+            pr = probe_frames(data, sorted(set(_ac.needed_frames(spec, tl["cues"])) | set(range(0, tl["total_frames"], 5))))
+            rep = _ac.evaluate_events(spec, tl["cues"], pr)
             (out_dir / f"{BENCH_ID}_action_verification.json").write_text(json.dumps(rep, indent=2) + "\n", encoding="utf-8")
+            (out_dir / f"{BENCH_ID}_callout_verification.json").write_text(json.dumps(_cc.evaluate_callouts(pr), indent=2) + "\n", encoding="utf-8")
         ev_dir = out_dir / "shot_evidence"
         ev_dir.mkdir(exist_ok=True)
         for b in contract["beats"]:

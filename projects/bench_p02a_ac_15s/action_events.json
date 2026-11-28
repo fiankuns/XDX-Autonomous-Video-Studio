@@ -5,7 +5,7 @@
     {
       "event_id": "AE-S001-FAN",
       "shot_id": "S001",
-      "action": "Bima waves the hand fan in front of his own face: fan centre near the face, flat side of the blade toward the face; his head does NOT look at the AC yet.",
+      "action": "Bima holds the hand fan in his right hand in front of his face and waves it by rocking the WRIST forward/back; the fan is rigidly attached to the wrist and follows it; the flat side faces his face; his head does NOT look at the AC yet.",
       "window": {
         "cue": 0,
         "from": 0.15,
@@ -32,17 +32,34 @@
           "from": "head_pos",
           "to": "ac_sensor",
           "max_dot": 0.7
+        },
+        {
+          "type": "rigid",
+          "a": "fan_hand",
+          "b": "fan_center",
+          "tol": 0.02
+        },
+        {
+          "type": "travel_gt",
+          "anchor": "fan_center",
+          "value": 1.0
+        },
+        {
+          "type": "travel_gt",
+          "anchor": "fan_hand",
+          "value": 0.15
         }
-      ]
+      ],
+      "min_seconds": 2.0
     },
     {
       "event_id": "AE-S001-WIPE",
       "shot_id": "S001",
-      "action": "Bima's other hand wipes his forehead (hand at the forehead) while he is overheated.",
+      "action": "Bima's left arm swings the elbow OUT to the side and the hand sweeps across his forehead (wipe back and forth), not just resting on it.",
       "window": {
         "cue": 0,
-        "from": 0.12,
-        "to": 0.5
+        "from": 0.1,
+        "to": 0.72
       },
       "hold_ratio": 0.8,
       "constraints": [
@@ -51,8 +68,20 @@
           "a": "left_wrist",
           "b": "forehead",
           "value": 0.22
+        },
+        {
+          "type": "travel_gt",
+          "anchor": "left_wrist",
+          "value": 0.5
+        },
+        {
+          "type": "distance_gt",
+          "a": "left_elbow",
+          "b": "torso_mid",
+          "value": 0.5
         }
-      ]
+      ],
+      "min_seconds": 1.5
     },
     {
       "event_id": "AE-S002-TURN-AIM",
@@ -79,7 +108,8 @@
           "to": "ac_sensor",
           "min_dot": 0.85
         }
-      ]
+      ],
+      "min_seconds": 0.3
     },
     {
       "event_id": "AE-S002-PRESS",
@@ -105,7 +135,8 @@
           "to": "ac_sensor",
           "min_dot": 0.85
         }
-      ]
+      ],
+      "min_seconds": 0.2
     }
   ]
 }

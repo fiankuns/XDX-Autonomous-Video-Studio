@@ -37,13 +37,13 @@
     {
       "shot_id": "S001",
       "beat_id": "B01",
-      "label": "Suhu Kamar: 32\u00b0C",
+      "label": "Suhu Kamar: 32°C",
       "timing_status": "ESTIMATED"
     },
     {
       "shot_id": "S002",
       "beat_id": "B02",
-      "label": "Setelan Target: 24\u00b0C",
+      "label": "Setelan Target: 24°C",
       "timing_status": "ESTIMATED"
     },
     {
@@ -55,7 +55,7 @@
     {
       "shot_id": "S003",
       "beat_id": "B03",
-      "label": "Refrigeran Cair \u2192 Uap",
+      "label": "Refrigeran Cair → Uap",
       "timing_status": "ESTIMATED"
     },
     {
@@ -119,7 +119,7 @@
       "cue_id": "CAP_001",
       "shot_id": "S001",
       "start_s": 0.0,
-      "end_s": 2.188,
+      "end_s": 3.438,
       "text": "AC tidak menciptakan dingin melainkan",
       "alignment_source": "script_estimated_pre_tts",
       "timestamp_status": "ESTIMATED",
@@ -129,8 +129,8 @@
     {
       "cue_id": "CAP_002",
       "shot_id": "S001",
-      "start_s": 2.188,
-      "end_s": 3.5,
+      "start_s": 3.438,
+      "end_s": 5.5,
       "text": "memindahkan panas kamarmu.",
       "alignment_source": "script_estimated_pre_tts",
       "timestamp_status": "ESTIMATED",
@@ -140,8 +140,8 @@
     {
       "cue_id": "CAP_003",
       "shot_id": "S002",
-      "start_s": 3.5,
-      "end_s": 6.0,
+      "start_s": 5.5,
+      "end_s": 9.786,
       "text": "Saat tombol remot ditekan, kisi",
       "alignment_source": "script_estimated_pre_tts",
       "timestamp_status": "ESTIMATED",
@@ -151,8 +151,8 @@
     {
       "cue_id": "CAP_004",
       "shot_id": "S002",
-      "start_s": 6.0,
-      "end_s": 7.0,
+      "start_s": 9.786,
+      "end_s": 11.5,
       "text": "AC terbuka.",
       "alignment_source": "script_estimated_pre_tts",
       "timestamp_status": "ESTIMATED",
@@ -162,8 +162,8 @@
     {
       "cue_id": "CAP_005",
       "shot_id": "S003",
-      "start_s": 7.0,
-      "end_s": 9.857,
+      "start_s": 11.5,
+      "end_s": 14.357,
       "text": "Di evaporator, refrigeran cair menyerap",
       "alignment_source": "script_estimated_pre_tts",
       "timestamp_status": "ESTIMATED",
@@ -173,8 +173,8 @@
     {
       "cue_id": "CAP_006",
       "shot_id": "S003",
-      "start_s": 9.857,
-      "end_s": 11.0,
+      "start_s": 14.357,
+      "end_s": 15.5,
       "text": "panas kamar.",
       "alignment_source": "script_estimated_pre_tts",
       "timestamp_status": "ESTIMATED",
@@ -184,8 +184,8 @@
     {
       "cue_id": "CAP_007",
       "shot_id": "S004",
-      "start_s": 11.0,
-      "end_s": 13.857,
+      "start_s": 15.5,
+      "end_s": 18.357,
       "text": "Kompresor memompa uap panas ke",
       "alignment_source": "script_estimated_pre_tts",
       "timestamp_status": "ESTIMATED",
@@ -195,8 +195,8 @@
     {
       "cue_id": "CAP_008",
       "shot_id": "S004",
-      "start_s": 13.857,
-      "end_s": 15.0,
+      "start_s": 18.357,
+      "end_s": 19.5,
       "text": "kondensor luar.",
       "alignment_source": "script_estimated_pre_tts",
       "timestamp_status": "ESTIMATED",

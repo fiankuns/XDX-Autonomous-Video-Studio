@@ -29,7 +29,7 @@
     {
       "shot_id": "S001",
       "start_frame": 0,
-      "end_frame": 105,
+      "end_frame": 165,
       "primary_engine": "threejs",
       "overlay_engine": "remotion",
       "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_ac_indoor_evaporator_cutaway, prop_room_thermometer_digital) berbasis frame/fps.",
@@ -50,8 +50,8 @@
     },
     {
       "shot_id": "S002",
-      "start_frame": 105,
-      "end_frame": 210,
+      "start_frame": 165,
+      "end_frame": 345,
       "primary_engine": "threejs",
       "overlay_engine": "remotion",
       "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_ac_remote_control, prop_ac_indoor_evaporator_cutaway) berbasis frame/fps.",
@@ -71,8 +71,8 @@
     },
     {
       "shot_id": "S003",
-      "start_frame": 210,
-      "end_frame": 330,
+      "start_frame": 345,
+      "end_frame": 465,
       "primary_engine": "threejs",
       "overlay_engine": "remotion",
       "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_ac_indoor_evaporator_cutaway, prop_heat_arrows_red_blue) berbasis frame/fps.",
@@ -92,8 +92,8 @@
     },
     {
       "shot_id": "S004",
-      "start_frame": 330,
-      "end_frame": 450,
+      "start_frame": 465,
+      "end_frame": 585,
       "primary_engine": "threejs",
       "overlay_engine": "remotion",
       "rationale": "Visualisasi mekanisme/properti 3D deterministik (prop_outdoor_compressor_condenser_unit, prop_heat_arrows_red_blue) berbasis frame/fps.",

@@ -47,6 +47,7 @@ PRODUCTION_DEPENDENCY_FILES = [
     "engines/web/phase02a_ac15s/render_dependencies.json",
     "engines/web/xdx_core/kit.js",
     "engines/web/xdx_core/rig_ik.js",
+    "engines/web/xdx_core/callouts.js",
     "intelligence/action_choreography.py",
     "engines/web/xdx_core/comets.js",
     "engines/web/xdx_core/timeline.js",

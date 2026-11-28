@@ -54,7 +54,7 @@ def test_p02a_ve_04_scene_reads_captions_from_package_and_is_pinned() -> None:
     cap = json.loads((BENCH / "caption_audio_plan.json").read_text(encoding="utf-8"))
     for cue in cap["cues"]:
         assert cue["text"] not in scene, "caption text must come from the signed package, not the scene"
-    assert "window.__XDX_PACKAGE" in scene and "EXPECTED_SHOTS" in scene
+    assert "window.__XDX_PACKAGE" in scene and "EXPECTED_SHOT_IDS" in scene
     # timing map: beats are anchored to caption cues with a bounded sync lead, not to free-floating frame numbers
     timeline = (ROOT_DIR / "engines/web/xdx_core/timeline.js").read_text(encoding="utf-8")
     assert "syncLeadSeconds = 0.3" in timeline and "buildTimeline(PKG)" in scene and scene.count('cue("S00') >= 4

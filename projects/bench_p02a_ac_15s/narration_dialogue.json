@@ -32,7 +32,7 @@
       "event_id": "FOL_S001",
       "shot_id": "S001",
       "start_frame": 0,
-      "end_frame": 105,
+      "end_frame": 165,
       "foley_description": "Subtle tactile foley for prop_ac_indoor_evaporator_cutaway (establishing_shot)",
       "gain_db": -16.0,
       "timing_status": "ESTIMATED"
@@ -40,8 +40,8 @@
     {
       "event_id": "FOL_S002",
       "shot_id": "S002",
-      "start_frame": 105,
-      "end_frame": 210,
+      "start_frame": 165,
+      "end_frame": 345,
       "foley_description": "Subtle tactile foley for prop_ac_remote_control (character_acting)",
       "gain_db": -16.0,
       "timing_status": "ESTIMATED"
@@ -49,8 +49,8 @@
     {
       "event_id": "FOL_S003",
       "shot_id": "S003",
-      "start_frame": 210,
-      "end_frame": 330,
+      "start_frame": 345,
+      "end_frame": 465,
       "foley_description": "Subtle tactile foley for prop_ac_indoor_evaporator_cutaway (technical_cutaway)",
       "gain_db": -16.0,
       "timing_status": "ESTIMATED"
@@ -58,8 +58,8 @@
     {
       "event_id": "FOL_S004",
       "shot_id": "S004",
-      "start_frame": 330,
-      "end_frame": 450,
+      "start_frame": 465,
+      "end_frame": 585,
       "foley_description": "Subtle tactile foley for prop_outdoor_compressor_condenser_unit (scientific_mechanism)",
       "gain_db": -16.0,
       "timing_status": "ESTIMATED"
@@ -70,7 +70,7 @@
       "event_id": "SFX_S001",
       "shot_id": "S001",
       "start_frame": 0,
-      "end_frame": 18,
+      "end_frame": 28,
       "sfx_preset": "sfx_cutaway_soft_whoosh",
       "purpose": "establishing_shot",
       "gain_db": -12.0,
@@ -79,8 +79,8 @@
     {
       "event_id": "SFX_S002",
       "shot_id": "S002",
-      "start_frame": 105,
-      "end_frame": 123,
+      "start_frame": 165,
+      "end_frame": 196,
       "sfx_preset": "sfx_cutaway_soft_whoosh",
       "purpose": "character_acting",
       "gain_db": -12.0,
@@ -89,8 +89,8 @@
     {
       "event_id": "SFX_S003",
       "shot_id": "S003",
-      "start_frame": 210,
-      "end_frame": 228,
+      "start_frame": 345,
+      "end_frame": 363,
       "sfx_preset": "sfx_cutaway_soft_whoosh",
       "purpose": "technical_cutaway",
       "gain_db": -12.0,
@@ -99,8 +99,8 @@
     {
       "event_id": "SFX_S004",
       "shot_id": "S004",
-      "start_frame": 330,
-      "end_frame": 348,
+      "start_frame": 465,
+      "end_frame": 483,
       "sfx_preset": "sfx_cutaway_soft_whoosh",
       "purpose": "scientific_mechanism",
       "gain_db": -12.0,
@@ -119,7 +119,7 @@
       "text": "AC tidak menciptakan dingin melainkan memindahkan panas kamarmu.",
       "word_count": 8,
       "start_time_s": 0.0,
-      "end_time_s": 3.5,
+      "end_time_s": 5.5,
       "timing_status": "ESTIMATED",
       "voice_direction": "Tegas dan hangat untuk hook 3.5 detik pertama.",
       "breath_pause_ms": 220
@@ -134,8 +134,8 @@
       "speaker": "narrator_id_offscreen",
       "text": "Saat tombol remot ditekan, kisi AC terbuka.",
       "word_count": 7,
-      "start_time_s": 3.5,
-      "end_time_s": 7.0,
+      "start_time_s": 5.5,
+      "end_time_s": 11.5,
       "timing_status": "ESTIMATED",
       "voice_direction": "Jelas, sinkron dengan klik tombol remot AC.",
       "breath_pause_ms": 220
@@ -150,8 +150,8 @@
       "speaker": "narrator_id_offscreen",
       "text": "Di evaporator, refrigeran cair menyerap panas kamar.",
       "word_count": 7,
-      "start_time_s": 7.0,
-      "end_time_s": 11.0,
+      "start_time_s": 11.5,
+      "end_time_s": 15.5,
       "timing_status": "ESTIMATED",
       "voice_direction": "Artikulatif saat menjelaskan kumparan evaporator dan penguapan refrigeran.",
       "breath_pause_ms": 220
@@ -166,8 +166,8 @@
       "speaker": "narrator_id_offscreen",
       "text": "Kompresor memompa uap panas ke kondensor luar.",
       "word_count": 7,
-      "start_time_s": 11.0,
-      "end_time_s": 15.0,
+      "start_time_s": 15.5,
+      "end_time_s": 19.5,
       "timing_status": "ESTIMATED",
       "voice_direction": "Tuntas dan meyakinkan sebagai penutup perpindahan panas keluar ruangan.",
       "breath_pause_ms": 220

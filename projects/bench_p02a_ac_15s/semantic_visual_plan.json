@@ -27,7 +27,7 @@
   ],
   "master_timeline_unit": "integer_frames",
   "fps": 30,
-  "total_frames": 450,
+  "total_frames": 585,
   "non_uniform_semantic_frame_allocation": true,
   "shots_in_2_to_6s_target_ratio": 1.0,
   "max_shot_duration_s": 4.0,

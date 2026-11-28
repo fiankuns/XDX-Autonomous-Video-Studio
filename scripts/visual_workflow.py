@@ -5,6 +5,7 @@
   timeline <package> [--chapter-seconds N]       canonical integer-frame timeline (+ logical chapters)
   contract <package>                             semantic visual contract per beat
   rerender-plan <package> --deps FILE [--cache FILE] [--update]   shots to re-render (hash + dependency based)
+  retime <package> S001=5.5 S002=6                content-driven shot durations (only while the package is unapproved)
   verify-actions <package>                        geometric verification of action_events.json (real scene probes, no pixels)
   delivery <package> --render-dir DIR [--review RESULT.json]      production delivery validation
 
@@ -30,11 +31,13 @@ def _out(obj) -> None:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
-    for n in ("validate-inputs", "timeline", "contract", "rerender-plan", "verify-actions", "delivery"):
+    for n in ("validate-inputs", "timeline", "contract", "rerender-plan", "verify-actions", "retime", "delivery"):
         s = sub.add_parser(n)
         s.add_argument("package")
         if n == "timeline":
             s.add_argument("--chapter-seconds", type=float)
+        if n == "retime":
+            s.add_argument("durations", nargs="+", help="SHOT=seconds")
         if n == "rerender-plan":
             s.add_argument("--deps", required=True)
             s.add_argument("--cache")
@@ -60,6 +63,8 @@ def main() -> int:
         r = {**vw.plan_selective_rerender(cur, prev), "shot_hashes": cur}
         if a.update and cache:
             cache.write_text(json.dumps(cur, indent=2) + "\n", encoding="utf-8")
+    elif a.cmd == "retime":
+        r = vw.retime_package(pkg, {k: float(v) for k, v in (x.split("=") for x in a.durations)})
     elif a.cmd == "verify-actions":
         from intelligence import action_choreography as ac
         from scripts.render_phase02a_visual import load_package_data, probe_frames
@@ -68,7 +73,13 @@ def main() -> int:
         if spec is None:
             raise SystemExit("package has no action_events.json")
         tl = vw.canonical_timeline(pkg)
-        r = ac.evaluate_events(spec, tl["cues"], probe_frames(load_package_data(pkg), ac.needed_frames(spec, tl["cues"])))
+        from intelligence import callout_contract as cc
+
+        pr = probe_frames(load_package_data(pkg), sorted(set(ac.needed_frames(spec, tl["cues"])) | set(range(0, tl["total_frames"], 5))))
+        r = ac.evaluate_events(spec, tl["cues"], pr)
+        r["callouts"] = cc.evaluate_callouts(pr)
+        if r["callouts"]["status"] != "OK":
+            r["status"] = "BLOCKED"
     else:
         rd = Path(a.render_dir)
         bid = json.loads((pkg / "storyboard.json").read_text(encoding="utf-8"))["project_id"]
@@ -83,6 +94,7 @@ def main() -> int:
             review_result=load(Path(a.review)) if a.review else None,
             safe_area_report=sa["issues"] if sa else None,
             action_report=load(rd / f"{bid}_action_verification.json"),
+            callout_report=load(rd / f"{bid}_callout_verification.json"),
         )
     _out(r)
     return 2 if r.get("status") == "BLOCKED" else 0

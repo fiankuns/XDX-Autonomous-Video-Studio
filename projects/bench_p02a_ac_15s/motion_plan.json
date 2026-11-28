@@ -2,7 +2,7 @@
   "schema_version": "4.0.0-phase01.6c",
   "project_id": "bench_p02a_ac_15s",
   "fps": 30,
-  "total_frames": 450,
+  "total_frames": 585,
   "blender_executor_status": "PLANNED_ONLY_SCHEDULED_PHASE_02B_AND_PHASE_03",
   "generic_idle_actions_used": false,
   "planned_actions": [
@@ -13,15 +13,15 @@
       "action_type": "character_grounded_establishing_shot",
       "object_target": "prop_ac_indoor_evaporator_cutaway",
       "start_frame": 0,
-      "end_frame": 105,
+      "end_frame": 165,
       "start_pose": "prop_ac_indoor_evaporator_cutaway_anticipation_ready_at_0f (Hook karakter Bima kepanasan di kamar tertutup 32 derajat di bawah uni)",
       "key_poses": [
         {
-          "frame": 26,
+          "frame": 41,
           "pose": "anticipation_and_reach_toward_prop_ac_indoor_evaporator_cutaway"
         },
         {
-          "frame": 52,
+          "frame": 82,
           "pose": "apex_interaction_Bima mengipasi wajah di kamar pengap 32 derajat Celsius dengan je"
         }
       ],
@@ -43,16 +43,16 @@
       "actor_id": "prop_ac_remote_control",
       "action_type": "character_grounded_character_acting",
       "object_target": "prop_ac_remote_control",
-      "start_frame": 105,
-      "end_frame": 210,
+      "start_frame": 165,
+      "end_frame": 345,
       "start_pose": "prop_ac_remote_control_anticipation_ready_at_105f (Interaksi tangan Bima menekan tombol 24 derajat pada remot AC menuju u)",
       "key_poses": [
         {
-          "frame": 131,
+          "frame": 210,
           "pose": "anticipation_and_reach_toward_prop_ac_remote_control"
         },
         {
-          "frame": 157,
+          "frame": 254,
           "pose": "apex_interaction_Ibu jari kanan Bima menekan tombol daya dan setelan 24 derajat pa"
         }
       ],
@@ -74,16 +74,16 @@
       "actor_id": "prop_ac_indoor_evaporator_cutaway",
       "action_type": "mechanism_technical_cutaway",
       "object_target": "prop_ac_indoor_evaporator_cutaway",
-      "start_frame": 210,
-      "end_frame": 330,
+      "start_frame": 345,
+      "end_frame": 465,
       "start_pose": "prop_ac_indoor_evaporator_cutaway_anticipation_ready_at_210f (Penampang teknis kumparan evaporator tembaga AC indoor berada pada pos)",
       "key_poses": [
         {
-          "frame": 240,
+          "frame": 375,
           "pose": "anticipation_and_reach_toward_prop_ac_indoor_evaporator_cutaway"
         },
         {
-          "frame": 270,
+          "frame": 405,
           "pose": "apex_interaction_Casing depan prop_ac_indoor_evaporator_cutaway terbelah memperlih"
         }
       ],
@@ -105,16 +105,16 @@
       "actor_id": "prop_outdoor_compressor_condenser_unit",
       "action_type": "mechanism_scientific_mechanism",
       "object_target": "prop_outdoor_compressor_condenser_unit",
-      "start_frame": 330,
-      "end_frame": 450,
+      "start_frame": 465,
+      "end_frame": 585,
       "start_pose": "prop_outdoor_compressor_condenser_unit_anticipation_ready_at_330f (Visualisasi perpindahan panas dari pipa evaporator indoor ke kompresor)",
       "key_poses": [
         {
-          "frame": 360,
+          "frame": 495,
           "pose": "anticipation_and_reach_toward_prop_outdoor_compressor_condenser_unit"
         },
         {
-          "frame": 390,
+          "frame": 525,
           "pose": "apex_interaction_Aliran refrigeran oranye panas mengalir menembus dinding dari eva"
         }
       ],
@@ -135,14 +135,14 @@
     {
       "shot_id": "S001",
       "start_frame": 0,
-      "end_frame": 105,
+      "end_frame": 165,
       "primary_engine": "threejs",
       "motion_curve": "mot_snappy_spring_pop",
       "action_events": [
         {
           "event_id": "ACT_S001_01",
           "start_frame": 0,
-          "end_frame": 105,
+          "end_frame": 165,
           "subject_id": "prop_ac_indoor_evaporator_cutaway",
           "concrete_action": "Bima mengipasi wajah di kamar pengap 32 derajat Celsius dengan jendela tertutup rapat di bawah prop_ac_indoor_evaporator_cutaway.",
           "ik_or_contact": "ik_foot_and_prop_contact_locked"
@@ -156,15 +156,15 @@
           "action_type": "character_grounded_establishing_shot",
           "object_target": "prop_ac_indoor_evaporator_cutaway",
           "start_frame": 0,
-          "end_frame": 105,
+          "end_frame": 165,
           "start_pose": "prop_ac_indoor_evaporator_cutaway_anticipation_ready_at_0f (Hook karakter Bima kepanasan di kamar tertutup 32 derajat di bawah uni)",
           "key_poses": [
             {
-              "frame": 26,
+              "frame": 41,
               "pose": "anticipation_and_reach_toward_prop_ac_indoor_evaporator_cutaway"
             },
             {
-              "frame": 52,
+              "frame": 82,
               "pose": "apex_interaction_Bima mengipasi wajah di kamar pengap 32 derajat Celsius dengan je"
             }
           ],
@@ -185,15 +185,15 @@
     },
     {
       "shot_id": "S002",
-      "start_frame": 105,
-      "end_frame": 210,
+      "start_frame": 165,
+      "end_frame": 345,
       "primary_engine": "threejs",
       "motion_curve": "mot_cinematic_ease_inout",
       "action_events": [
         {
           "event_id": "ACT_S002_01",
-          "start_frame": 105,
-          "end_frame": 210,
+          "start_frame": 165,
+          "end_frame": 345,
           "subject_id": "prop_ac_remote_control",
           "concrete_action": "Ibu jari kanan Bima menekan tombol daya dan setelan 24 derajat pada prop_ac_remote_control hingga sinyal inframerah membuka kisi prop_ac_indoor_evaporator_cutaway.",
           "ik_or_contact": "ik_foot_and_prop_contact_locked"
@@ -206,16 +206,16 @@
           "actor_id": "prop_ac_remote_control",
           "action_type": "character_grounded_character_acting",
           "object_target": "prop_ac_remote_control",
-          "start_frame": 105,
-          "end_frame": 210,
+          "start_frame": 165,
+          "end_frame": 345,
           "start_pose": "prop_ac_remote_control_anticipation_ready_at_105f (Interaksi tangan Bima menekan tombol 24 derajat pada remot AC menuju u)",
           "key_poses": [
             {
-              "frame": 131,
+              "frame": 210,
               "pose": "anticipation_and_reach_toward_prop_ac_remote_control"
             },
             {
-              "frame": 157,
+              "frame": 254,
               "pose": "apex_interaction_Ibu jari kanan Bima menekan tombol daya dan setelan 24 derajat pa"
             }
           ],
@@ -236,15 +236,15 @@
     },
     {
       "shot_id": "S003",
-      "start_frame": 210,
-      "end_frame": 330,
+      "start_frame": 345,
+      "end_frame": 465,
       "primary_engine": "threejs",
       "motion_curve": "mot_cinematic_ease_inout",
       "action_events": [
         {
           "event_id": "ACT_S003_01",
-          "start_frame": 210,
-          "end_frame": 330,
+          "start_frame": 345,
+          "end_frame": 465,
           "subject_id": "prop_ac_indoor_evaporator_cutaway",
           "concrete_action": "Casing depan prop_ac_indoor_evaporator_cutaway terbelah memperlihatkan kumparan pipa tembaga dingin menyerap panah kalor merah dari udara kamar hingga refrigeran cair menguap.",
           "ik_or_contact": "ik_foot_and_prop_contact_locked"
@@ -257,16 +257,16 @@
           "actor_id": "prop_ac_indoor_evaporator_cutaway",
           "action_type": "mechanism_technical_cutaway",
           "object_target": "prop_ac_indoor_evaporator_cutaway",
-          "start_frame": 210,
-          "end_frame": 330,
+          "start_frame": 345,
+          "end_frame": 465,
           "start_pose": "prop_ac_indoor_evaporator_cutaway_anticipation_ready_at_210f (Penampang teknis kumparan evaporator tembaga AC indoor berada pada pos)",
           "key_poses": [
             {
-              "frame": 240,
+              "frame": 375,
               "pose": "anticipation_and_reach_toward_prop_ac_indoor_evaporator_cutaway"
             },
             {
-              "frame": 270,
+              "frame": 405,
               "pose": "apex_interaction_Casing depan prop_ac_indoor_evaporator_cutaway terbelah memperlih"
             }
           ],
@@ -287,15 +287,15 @@
     },
     {
       "shot_id": "S004",
-      "start_frame": 330,
-      "end_frame": 450,
+      "start_frame": 465,
+      "end_frame": 585,
       "primary_engine": "threejs",
       "motion_curve": "mot_cinematic_ease_inout",
       "action_events": [
         {
           "event_id": "ACT_S004_01",
-          "start_frame": 330,
-          "end_frame": 450,
+          "start_frame": 465,
+          "end_frame": 585,
           "subject_id": "prop_outdoor_compressor_condenser_unit",
           "concrete_action": "Aliran refrigeran oranye panas mengalir menembus dinding dari evaporator menuju prop_outdoor_compressor_condenser_unit sementara kipas kondensor melepas gelombang kalor ke udara luar.",
           "ik_or_contact": "ik_foot_and_prop_contact_locked"
@@ -308,16 +308,16 @@
           "actor_id": "prop_outdoor_compressor_condenser_unit",
           "action_type": "mechanism_scientific_mechanism",
           "object_target": "prop_outdoor_compressor_condenser_unit",
-          "start_frame": 330,
-          "end_frame": 450,
+          "start_frame": 465,
+          "end_frame": 585,
           "start_pose": "prop_outdoor_compressor_condenser_unit_anticipation_ready_at_330f (Visualisasi perpindahan panas dari pipa evaporator indoor ke kompresor)",
           "key_poses": [
             {
-              "frame": 360,
+              "frame": 495,
               "pose": "anticipation_and_reach_toward_prop_outdoor_compressor_condenser_unit"
             },
             {
-              "frame": 390,
+              "frame": 525,
               "pose": "apex_interaction_Aliran refrigeran oranye panas mengalir menembus dinding dari eva"
             }
           ],

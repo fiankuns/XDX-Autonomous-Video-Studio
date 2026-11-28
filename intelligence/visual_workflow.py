@@ -292,6 +292,7 @@ def validate_delivery(
     review_result: dict[str, Any] | None,
     safe_area_report: list[dict[str, Any]] | None,
     action_report: dict[str, Any] | None = None,
+    callout_report: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Final gate for a VISUAL_ONLY_BENCHMARK delivery. Every check is evidence-based; nothing is assumed."""
     mp4 = Path(mp4)
@@ -342,8 +343,79 @@ def validate_delivery(
             issues.append(_issue("DELIVERY_NO_ACTION_VERIFICATION", "high", "package declares action events but no geometric verification report was provided"))
         elif action_report.get("status") != "OK":
             issues += [_issue(i["code"], "critical", i["message"]) for i in action_report.get("issues", [])] or [_issue("DELIVERY_ACTION_VERIFICATION", "critical", "action verification not OK")]
+    if callout_report is None:
+        issues.append(_issue("DELIVERY_NO_CALLOUT_VERIFICATION", "high", "no callout layout verification report (leader lines, overlaps)"))
+    elif callout_report.get("status") != "OK":
+        issues += [_issue(i["code"], "critical", i["message"]) for i in callout_report.get("issues", [])] or [_issue("DELIVERY_CALLOUT_VERIFICATION", "critical", "callout verification not OK")]
     if review_result is None:
         issues.append(_issue("DELIVERY_NO_INDEPENDENT_REVIEW", "critical", "independent semantic visual review missing"))
     elif review_result.get("overall_status") != "PASS":
         issues.append(_issue("DELIVERY_REVIEW_NOT_PASS", "critical", f"independent visual review is {review_result.get('overall_status')}"))
     return {"schema": "xdx.delivery-validation.v1", "mp4_sha256": actual, "status": _status(issues), "issues": issues}
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+# Content-driven duration: a script action may need more time than the nominal target (a 15 s brief is a default, not a law).
+# ``retime_package`` stretches individual shots and rewrites every frame/second field consistently (piecewise-linear map on
+# the shot boundaries), so storyboard, camera, motion, engine, narration and caption cues keep describing ONE timeline.
+# ----------------------------------------------------------------------------------------------------------------------
+_RETIME_FILES = ("storyboard.json", "camera_plan.json", "motion_plan.json", "engine_plan.json", "narration_dialogue.json",
+                 "caption_audio_plan.json", "semantic_visual_plan.json", "production_config.json", "project_state.json")
+_FRAME_KEYS = {"start_frame", "end_frame", "frame"}
+_SEC_KEYS = {"start_s", "end_s", "start_time_s", "end_time_s"}
+
+
+def retime_package(package_dir: Path, shot_seconds: dict[str, float]) -> dict[str, Any]:
+    """Set new durations (seconds) for named shots; later shots shift. Only valid while the package is unapproved."""
+    package_dir = Path(package_dir)
+    sb = json.loads((package_dir / "storyboard.json").read_text(encoding="utf-8"))
+    fps = int(sb["fps"])
+    old = [(s["shot_id"], int(s["start_frame"]), int(s["end_frame"])) for s in sb["shots"]]
+    new_bounds, cur = [], 0
+    for sid, a, b in old:
+        n = round(shot_seconds[sid] * fps) if sid in shot_seconds else b - a
+        new_bounds.append((sid, cur, cur + n))
+        cur += n
+    total_new = cur
+    segs = [(a, b, na, nb) for (_, a, b), (_, na, nb) in zip(old, new_bounds)]
+
+    def mf(x: float) -> float:
+        for a, b, na, nb in segs:
+            if a <= x <= b:
+                return na + (x - a) * (nb - na) / (b - a)
+        return x + (total_new - segs[-1][1])
+
+    def walk(o: Any, fname: str) -> None:
+        if isinstance(o, dict):
+            for k, v in list(o.items()):
+                if isinstance(v, (int, float)) and not isinstance(v, bool):
+                    if k in _FRAME_KEYS:
+                        o[k] = int(round(mf(v)))
+                    elif k in _SEC_KEYS:
+                        o[k] = round(mf(v * fps) / fps, 3)
+                    elif k == "total_frames" and fname != "production_config.json" or (k == "total_frames" and v == segs[-1][1]):
+                        o[k] = total_new
+                else:
+                    walk(v, fname)
+            if "start_frame" in o and "end_frame" in o:
+                n = o["end_frame"] - o["start_frame"]
+                if "frame_count" in o: o["frame_count"] = n
+                if "duration_frames" in o: o["duration_frames"] = n
+                if "duration_s" in o: o["duration_s"] = round(n / fps, 3)
+            elif "start_s" in o and "end_s" in o and "duration_s" in o:
+                o["duration_s"] = round(o["end_s"] - o["start_s"], 3)
+        elif isinstance(o, list):
+            for x in o:
+                walk(x, fname)
+
+    for fn in _RETIME_FILES:
+        p = package_dir / fn
+        if not p.is_file():
+            continue
+        d = json.loads(p.read_text(encoding="utf-8"))
+        walk(d, fn)
+        if fn == "storyboard.json":
+            d["total_frames"] = total_new
+            d["duration_s"] = round(total_new / fps, 3)
+        p.write_text(json.dumps(d, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return {"fps": fps, "total_frames": total_new, "duration_s": round(total_new / fps, 3), "shots": [{"shot_id": s, "start_frame": a, "end_frame": b} for s, a, b in new_bounds]}

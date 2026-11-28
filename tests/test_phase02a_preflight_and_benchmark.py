@@ -179,8 +179,8 @@ def test_p02a_05_ac_15s_4shot_benchmark_package_waiting_approval_and_canonical_v
     assert pkg.is_dir(), "projects/bench_p02a_ac_15s must be prepared"
 
     sb = json.loads((pkg / "storyboard.json").read_text(encoding="utf-8"))
-    assert sb["duration_s"] == 15.0
-    assert sb["total_frames"] == 450
+    assert sb["duration_s"] == 19.5  # content-driven duration (retime_package): actions get the time they need
+    assert sb["total_frames"] == 585
     assert len(sb["shots"]) == 4
 
     nar = json.loads((pkg / "narration_dialogue.json").read_text(encoding="utf-8"))

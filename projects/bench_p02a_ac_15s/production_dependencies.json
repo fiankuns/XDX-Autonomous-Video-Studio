@@ -6,16 +6,16 @@
       "bytes": 4559
     },
     "engines/web/phase02a_ac15s/index.html": {
-      "sha256": "7a5ad2e0ca820091a10c72002a06154159f701332e9364e4d8b1cba7ca0d6cd7",
-      "bytes": 1904
+      "sha256": "58039e31dfac08110c330ffee07073c7cb60ee7804e146c53afe1646bdb05614",
+      "bytes": 2041
     },
     "engines/web/phase02a_ac15s/render_dependencies.json": {
-      "sha256": "4cb9688be03692c4cdcc4eb75cec047b612dfc04dc5f30551de3000241c7a6db",
-      "bytes": 1353
+      "sha256": "6c119880104a6af01cb27c73f4ba7200a96a3608c7f2595397fb3a4d3e54ecbb",
+      "bytes": 1393
     },
     "engines/web/phase02a_ac15s/scene.js": {
-      "sha256": "d9cf1b9692aacc3b8fbd3781de9e65dab112f80d05badc658f4618c07ee53f25",
-      "bytes": 49518
+      "sha256": "01bea80b151e00e7b7be90eb051ff3339f3bf86bc38a1f532d83e8e6159c72dd",
+      "bytes": 52070
     },
     "engines/web/remotion_timeline_spec.mjs": {
       "sha256": "db14afe7bba972ebc8652354e8092145b9a2036665134992a6ca58cb52e47e38",
@@ -36,6 +36,10 @@
     "engines/web/xdx_core/barrier.js": {
       "sha256": "b680e56286e25ea722f2c8fca70709119b136fe783d2f08dca895e43637652ac",
       "bytes": 772
+    },
+    "engines/web/xdx_core/callouts.js": {
+      "sha256": "de8c9c862f4dfdd86c7a84aeda26e175ea5ab6f0f07c0a9347912dbd251ee2f5",
+      "bytes": 4051
     },
     "engines/web/xdx_core/comets.js": {
       "sha256": "fa4e7c74edcd5e8232e5e7f2aa1d0d31e4565dec9eb69ac7141fa03eef7b7f58",
@@ -74,8 +78,8 @@
       "bytes": 24473
     },
     "intelligence/action_choreography.py": {
-      "sha256": "7f24c05726fd2d8a7fc8d3bd0566ed78389b0018a64773b79d1668ca0a0c4eb4",
-      "bytes": 4576
+      "sha256": "00d3df2376b34199c2446647ca27182768caacf527579db63ba5147a02b667dd",
+      "bytes": 6647
     },
     "intelligence/visual_qc_engine.py": {
       "sha256": "1fe3b2438610592c90e204b75bd1c9f6344947ba24603a23eeef9028b89b145b",
@@ -86,8 +90,8 @@
       "bytes": 15833
     },
     "intelligence/visual_workflow.py": {
-      "sha256": "3bbacd609b90824b7e69ab0db0775cca37940e8eec7b80d98de0c51e7920ddb0",
-      "bytes": 20326
+      "sha256": "21a4b914c5606f9ca21846620bf1d87e9ba3889ad0fd7b1d00e12fcaa6551300",
+      "bytes": 24436
     },
     "package-lock.json": {
       "sha256": "59ffbd8ad3070f8320540ef11e9ae7f25a84704cf718c4d0e1696ed4c3ed47fe",
@@ -110,8 +114,8 @@
       "bytes": 4767
     },
     "scripts/render_phase02a_visual.py": {
-      "sha256": "5c48962391f36265ca337cd12bcf89fe7a34faf98689925cbc047a4a679cab6b",
-      "bytes": 15912
+      "sha256": "d815df87a24c24116c5eb6add08cf9ff0b2ada06ce47daa041e754825a9c7beb",
+      "bytes": 16195
     }
   }
 }
