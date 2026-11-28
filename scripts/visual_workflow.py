@@ -5,6 +5,7 @@
   timeline <package> [--chapter-seconds N]       canonical integer-frame timeline (+ logical chapters)
   contract <package>                             semantic visual contract per beat
   rerender-plan <package> --deps FILE [--cache FILE] [--update]   shots to re-render (hash + dependency based)
+  verify-actions <package>                        geometric verification of action_events.json (real scene probes, no pixels)
   delivery <package> --render-dir DIR [--review RESULT.json]      production delivery validation
 
 Exit codes: 0 OK/WARN, 2 BLOCKED. Audio, TTS, music, SFX and lip sync are out of scope until Phase 04.
@@ -29,7 +30,7 @@ def _out(obj) -> None:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
-    for n in ("validate-inputs", "timeline", "contract", "rerender-plan", "delivery"):
+    for n in ("validate-inputs", "timeline", "contract", "rerender-plan", "verify-actions", "delivery"):
         s = sub.add_parser(n)
         s.add_argument("package")
         if n == "timeline":
@@ -59,6 +60,15 @@ def main() -> int:
         r = {**vw.plan_selective_rerender(cur, prev), "shot_hashes": cur}
         if a.update and cache:
             cache.write_text(json.dumps(cur, indent=2) + "\n", encoding="utf-8")
+    elif a.cmd == "verify-actions":
+        from intelligence import action_choreography as ac
+        from scripts.render_phase02a_visual import load_package_data, probe_frames
+
+        spec = ac.load_action_events(pkg)
+        if spec is None:
+            raise SystemExit("package has no action_events.json")
+        tl = vw.canonical_timeline(pkg)
+        r = ac.evaluate_events(spec, tl["cues"], probe_frames(load_package_data(pkg), ac.needed_frames(spec, tl["cues"])))
     else:
         rd = Path(a.render_dir)
         bid = json.loads((pkg / "storyboard.json").read_text(encoding="utf-8"))["project_id"]
@@ -72,6 +82,7 @@ def main() -> int:
             evidence=load(rd / f"{bid}_shot_evidence.json"),
             review_result=load(Path(a.review)) if a.review else None,
             safe_area_report=sa["issues"] if sa else None,
+            action_report=load(rd / f"{bid}_action_verification.json"),
         )
     _out(r)
     return 2 if r.get("status") == "BLOCKED" else 0

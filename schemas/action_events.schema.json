@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "XDX action events (geometric verification of important actions)",
+  "type": "object",
+  "required": ["schema", "project_id", "events"],
+  "properties": {
+    "schema": {"const": "xdx.action-events.v1"},
+    "project_id": {"type": "string"},
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["event_id", "shot_id", "action", "window", "constraints"],
+        "properties": {
+          "event_id": {"type": "string"},
+          "shot_id": {"type": "string"},
+          "action": {"type": "string", "description": "Plain-language action: actor, body part, object, target, direction, contact."},
+          "window": {
+            "type": "object",
+            "required": ["cue", "from", "to"],
+            "properties": {"cue": {"type": "integer", "minimum": 0}, "from": {"type": "number", "minimum": 0, "maximum": 1}, "to": {"type": "number", "minimum": 0, "maximum": 1}}
+          },
+          "hold_ratio": {"type": "number", "minimum": 0.5, "maximum": 1},
+          "constraints": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["type"],
+              "properties": {
+                "type": {"enum": ["distance_lt", "distance_gt", "facing", "not_facing"]},
+                "a": {"type": "string"}, "b": {"type": "string"}, "value": {"type": "number"},
+                "dir": {"type": "string"}, "from": {"type": "string"}, "to": {"type": "string"},
+                "min_dot": {"type": "number"}, "max_dot": {"type": "number"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -8,6 +8,7 @@ import { createCometsClass } from "../xdx_core/comets.js";
 import { buildTimeline } from "../xdx_core/timeline.js";
 import { createAssetLoadBarrier } from "../xdx_core/barrier.js";
 import { bindCharacterPalette } from "../xdx_core/style_binding.js";
+import { solveArm, aimTwo, lookHead, anchor } from "../xdx_core/rig_ik.js";
 import { createBimaFactory } from "../xdx_core/assets/character_bima.js";
 import { createIndoorACFactory } from "../xdx_core/assets/indoor_ac.js";
 
@@ -174,11 +175,10 @@ const fanTex = canvasTex(512, 256, (g, w, h) => {
 });
 const fan = new THREE.Group(); rightArm.wr.add(fan);
 {
-  const fg = new THREE.CircleGeometry(0.25, 40, Math.PI / 2 - 0.95, 1.9);
-  const fm = mesh(fg, new THREE.MeshStandardMaterial({ map: fanTex, side: THREE.DoubleSide, roughness: 0.9 }), v3(0, -0.02, 0), fan);
-  fm.rotation.x = Math.PI / 2; fm.rotation.z = Math.PI;
-  mesh(new THREE.CylinderGeometry(0.008, 0.008, 0.1, 8), std("#6B4A2E", 0.6), v3(0, -0.05, 0), fan);
-  fan.position.set(0, -0.08, 0.02);
+  // hand fan: handle runs through the fist along the hand axis (-Y); the paper blade opens beyond the fist; its flat face is the wrist's +Z
+  const L = 1.9;
+  mesh(new THREE.CircleGeometry(0.27, 48, -Math.PI / 2 - L / 2, L), new THREE.MeshStandardMaterial({ map: fanTex, side: THREE.DoubleSide, roughness: 0.9 }), v3(0, -0.07, 0), fan);
+  mesh(new THREE.CylinderGeometry(0.01, 0.012, 0.13, 12), std("#6B4A2E", 0.6), v3(0, -0.045, 0), fan);
 }
 const remote = new THREE.Group(); leftArm.wr.add(remote);
 let remoteTip, remoteBtn, remoteFace, pressThumb, setRemoteTemp;
@@ -209,13 +209,13 @@ let remoteTip, remoteBtn, remoteFace, pressThumb, setRemoteTemp;
   remoteFace = new THREE.Object3D(); remoteFace.position.set(0, -0.12, 0.045); remote.add(remoteFace);
   pressThumb = new THREE.Group(); pressThumb.position.set(-0.045, -0.06, 0.05); remote.add(pressThumb);
   const thumbSkin = std(SKIN, 0.55, 0, { emissive: new THREE.Color("#3a1a0a"), emissiveIntensity: 0.12 });
-  const tb = mesh(capsule(0.0115, 0.05), thumbSkin, v3(0, -0.03, 0), pressThumb);
-  mesh(new THREE.SphereGeometry(0.022, 16, 12), thumbSkin, v3(0.004, 0.006, -0.012), pressThumb).scale.set(1, 1.3, 0.8); // thenar base joins the palm
-  const nail = mesh(new THREE.SphereGeometry(0.009, 12, 8), std("#E8C3A8", 0.3), v3(0, -0.058, 0.007), pressThumb, { cast: false });
+  const tb = mesh(new THREE.CapsuleGeometry(0.0115, 0.05, 12, 32), thumbSkin, v3(0, -0.03, 0), pressThumb);
+  mesh(new THREE.SphereGeometry(0.022, 32, 24), thumbSkin, v3(0.004, 0.006, -0.012), pressThumb).scale.set(1, 1.3, 0.8); // thenar base joins the palm
+  const nail = mesh(new THREE.SphereGeometry(0.009, 20, 14), std("#E8C3A8", 0.3), v3(0, -0.058, 0.007), pressThumb, { cast: false });
   nail.scale.set(1, 1.3, 0.4);
   pressThumb.rotation.z = 0.75;
   for (let k = 0; k < 4; k++) {
-    const tip = mesh(capsule(0.0105, 0.026), thumbSkin, v3(0.04, -0.07 - k * 0.026, 0.03), remote);
+    const tip = mesh(new THREE.CapsuleGeometry(0.0105, 0.026, 10, 24), thumbSkin, v3(0.04, -0.07 - k * 0.026, 0.03), remote);
     tip.rotation.z = Math.PI / 2 - 0.15; tip.scale.set(1, 1, 0.9);
   }
   mesh(new THREE.SphereGeometry(0.05, 20, 14), thumbSkin, v3(0.005, 0.0, 0.0), remote).scale.set(1.1, 0.7, 0.75); // palm heel at the bottom end
@@ -485,7 +485,7 @@ function renderFrame(f) {
   irGroup.visible = false; sensorFlash.visible = false; irBeam.visible = false; ledFlash.visible = false;
   coolLight.intensity = 0; acInner.intensity = 0; key.intensity = 2.4; hemi.intensity = 0.85; sun.intensity = 6;
   heatComets.group.visible = false; coolComets.group.visible = false; evapComets.group.visible = false; refComets.group.visible = false;
-  bima.root.visible = true;
+  bima.root.visible = true; bima.head.visible = true; bima.torso.visible = true;
   bima.sweat.forEach((s) => (s.d.visible = true));
   for (const a of bima.arms) a.thumb.visible = true;
   scene.updateMatrixWorld(true);
@@ -493,26 +493,44 @@ function renderFrame(f) {
 
   if (shot === 0) {
     const c0 = cue("S001", 0), c1 = cue("S001", 1);
+    const L0 = c0.b - c0.a;
     const tt = ease(seg(f, c0.a, c1.b));
     look(62, lerp(0.85, 0.65, tt), lerp(2.3, 2.15, tt), lerp(4.1, 3.6, tt), -1.15, 1.55, -0.6);
     bima.root.rotation.y = 0.5;
-    // c0: overheated, fanning; c1 (lead 0.3 s): glances up at the AC while the heat route draws to it
-    const glance = ease(seg(f, c1.a - SYNC_LEAD, c1.a + 10));
-    const w = Math.sin(t * 2 * Math.PI * 2.4) * (1 - 0.6 * glance);
-    const ra = rightArm;
-    ra.sh.rotation.set(-0.75, 0.55, 0.15);
-    ra.el.rotation.set(-2.35 + 0.3 * w, 0, 0);
-    ra.sh.rotation.set(-0.8 + 0.12 * w, 0.55, 0.15);
-    ra.wr.rotation.set(0.1, 0.0, 1.5 * w);
-    grip(ra, 0.8);
-    fan.visible = true;
-    // left hand wipes the forehead (tired, overheated) instead of hanging limp
-    leftArm.sh.rotation.set(-0.55 - 0.08 * w, -0.25, -0.3); leftArm.el.rotation.set(-1.9 + 0.1 * w, 0, 0);
-    bima.head.rotation.set(lerp(0.12 + 0.02 * w, -0.42, glance), lerp(-0.1, -1.0, glance), 0.05 * w * (1 - glance));
-    for (const e of bima.eyes) e.e.children[1].position.x = lerp(0, -0.008, glance);
-    bima.torso.rotation.y = 0.04 * w;
-    bima.torso.rotation.x = 0.1 * (1 - glance); // slumped, tired posture
+    const w = Math.sin(t * 2 * Math.PI * 2.6), w2 = Math.cos(t * 2 * Math.PI * 2.6); // fanning rhythm
+    bima.torso.rotation.x = 0.1;                          // slumped, tired
+    bima.head.rotation.set(0.2 + 0.03 * w, -0.1, 0.06);   // chin slightly down; no glance at the AC in this shot
     face(1, 0, f % 70 > 66 ? 0.9 : 0);
+    scene.updateMatrixWorld(true);
+    const headP = bima.head.getWorldPosition(new THREE.Vector3());
+    const hq = bima.head.getWorldQuaternion(new THREE.Quaternion());
+    const fwd = v3(0, 0, 1).applyQuaternion(hq), side = v3(1, 0, 0).applyQuaternion(hq), upv = v3(0, 1, 0).applyQuaternion(hq);
+    const faceC = headP.clone().addScaledVector(fwd, 0.1).addScaledVector(upv, -0.03);
+    // fan hand: the blade is held in front of the face with its flat side toward the face and waved side to side
+    const fanC = faceC.clone().addScaledVector(fwd, 0.3 + 0.04 * w2).addScaledVector(side, 0.03 + 0.09 * w).addScaledVector(upv, -0.03);
+    const toFace = faceC.clone().sub(fanC).normalize();
+    const bladeDir = upv.clone().multiplyScalar(0.8).addScaledVector(toFace, 0.5).normalize(); // blade extends up-and-in from the fist
+    const wristR = fanC.clone().addScaledVector(bladeDir, -0.23);
+    const shR = rightArm.sh.getWorldPosition(new THREE.Vector3());
+    solveArm(rightArm, wristR, shR.clone().add(v3(0.25, -0.9, 0.0)));
+    scene.updateMatrixWorld(true);
+    aimTwo(rightArm.wr, v3(0, -1, 0), bladeDir, v3(0, 0, 1), toFace.clone().applyAxisAngle(bladeDir, 0.55 * w));
+    grip(rightArm, 0.8);
+    fan.visible = true;
+    // other hand wipes the forehead during the first part of caption 1, then drops
+    const wipe = ease(seg(f, c0.a + 4, c0.a + 14)) * (1 - ease(seg(f, c0.a + Math.round(L0 * 0.6), c0.a + Math.round(L0 * 0.6) + 12)));
+    const foreheadC = headP.clone().addScaledVector(upv, 0.09).addScaledVector(fwd, 0.17);
+    const swipe = Math.sin(t * 2 * Math.PI * 2.4);
+    const wipeT = foreheadC.clone().addScaledVector(side, -0.11 * swipe);
+    const hangT = bima.root.localToWorld(v3(-0.25, 0.83, 0.03));
+    const wristL = hangT.clone().lerp(wipeT, wipe);
+    const shL = leftArm.sh.getWorldPosition(new THREE.Vector3());
+    solveArm(leftArm, wristL, shL.clone().add(v3(-0.3, -0.9, -0.1)));
+    scene.updateMatrixWorld(true);
+    const aL = v3(0, -1, 0).lerp(upv.clone().multiplyScalar(0.7).addScaledVector(side, -0.4), wipe).normalize();
+    const bL = v3(0, 0, 1).lerp(foreheadC.clone().sub(wristL).normalize(), wipe).normalize();
+    aimTwo(leftArm.wr, v3(0, -1, 0), aL, v3(0, 0, 1), bL);
+    grip(leftArm, 0.5 * wipe);
     bima.sweat.forEach((s, i) => { s.d.position.y = s.y0 - ((t * 0.08 + i * 0.37) % 1) * 0.07; });
     heatComets.group.visible = true;
     // c1 "memindahkan panas": the room heat visibly streams into the AC intake (denser, larger arrows)
@@ -523,27 +541,39 @@ function renderFrame(f) {
   } else if (shot === 1) {
     const c0 = cue("S002", 0), c1 = cue("S002", 1);
     const L0 = c0.b - c0.a;
-    const raiseEnd = c0.a + Math.round(L0 * 0.14);
-    const insA = c0.a + Math.round(L0 * 0.12), insB = c0.a + Math.round(L0 * 0.5); // ~0.9 s ease into the insert (was 0.5 s)
-    const pressA = c0.a + Math.round(L0 * 0.54), pressB = c0.a + Math.round(L0 * 0.62);
+    const raiseA = c0.a, raiseB = c0.a + Math.round(L0 * 0.22);
+    const turnA = c0.a + Math.round(L0 * 0.06), turnB = c0.a + Math.round(L0 * 0.3);
+    const cutIn = c0.a + Math.round(L0 * 0.46);               // cutaway to the remote once Bima has turned to the AC
+    const pressA = c0.a + Math.round(L0 * 0.54), pressB = c0.a + Math.round(L0 * 0.64);
     const irA = pressA + 2, irB = c1.a - SYNC_LEAD - 2;
     const openA = c1.a - SYNC_LEAD, openB = c1.a + 12;
     bima.root.rotation.y = -0.7;
-    const raise = easeOut(seg(f, c0.a, raiseEnd));
-    const ra = leftArm;
-    ra.sh.rotation.set(lerp(-0.2, -2.05, raise), lerp(0, -0.8, raise), lerp(-0.12, -0.05, raise));
-    ra.el.rotation.set(lerp(-0.3, -0.15, raise), 0, 0);
-    ra.wr.rotation.set(lerp(0, -0.25, raise), 0, 0);
-    grip(ra, raise);
+    const raise = easeOut(seg(f, raiseA, raiseB));
+    const turn = ease(seg(f, turnA, turnB));
+    bima.torso.rotation.x = 0.04;
+    scene.updateMatrixWorld(true);
+    lookHead(bima.head, acSensorW, turn);                      // the head turns to the AC BEFORE the press
+    scene.updateMatrixWorld(true);
+    const headP = bima.head.getWorldPosition(new THREE.Vector3());
+    const rq = bima.root.getWorldQuaternion(new THREE.Quaternion());
+    const rFwd = v3(0, 0, 1).applyQuaternion(rq), rLeft = v3(-1, 0, 0).applyQuaternion(rq);
+    const holdT = headP.clone().addScaledVector(rFwd, 0.3).addScaledVector(rLeft, 0.1).add(v3(0, -0.24, 0));
+    const hangT = bima.root.localToWorld(v3(-0.25, 0.83, 0.03));
+    const wristL = hangT.clone().lerp(holdT, raise);
+    const shL = leftArm.sh.getWorldPosition(new THREE.Vector3());
+    solveArm(leftArm, wristL, shL.clone().add(v3(-0.4, -0.9, -0.3)));
+    scene.updateMatrixWorld(true);
+    const toACdir = acSensorW.clone().sub(wristL).normalize();
+    aimTwo(leftArm.wr, v3(0, -1, 0), v3(0, -1, 0).lerp(toACdir, raise).normalize(), v3(0, 0, 1), rFwd.clone().lerp(headP.clone().sub(wristL).normalize(), raise).normalize()); // IR tip at the AC, screen toward his face
+    grip(leftArm, raise);
     remote.visible = true;
+    leftArm.thumb.visible = false;
     const press = seg(f, pressA, pressA + 4) * (1 - seg(f, pressB, pressB + 4));
-    ra.thumb.visible = false;
     // thumb hovers over the power/24° button, then presses it (moves onto the button face)
     pressThumb.position.set(lerp(-0.045, -0.025, press), lerp(-0.06, -0.072, press), lerp(0.072, 0.052, press));
     remoteBtn.material.emissiveIntensity = 0.15 + 2.6 * press;
     setRemoteTemp(f >= pressB ? "24°" : "28°"); // the setting visibly changes when the button is pressed
     rightArm.sh.rotation.set(0.0, 0, 0.15); rightArm.el.rotation.set(-0.3, 0, 0);
-    bima.head.rotation.set(-0.3 * raise, -0.35 * raise, 0);
     const relief = ease(seg(f, openB, c1.b));
     face(1 - 0.5 * relief, relief, 0);
     bima.sweat.forEach((s, i) => { s.d.position.y = s.y0 - ((t * 0.08 + i * 0.37) % 1) * 0.07; });
@@ -555,25 +585,18 @@ function renderFrame(f) {
     remoteTip.getWorldPosition(tmpA);
     remoteFace.getWorldPosition(tmpB);
     const faceN = v3(0, 0, 1).applyQuaternion(remoteFace.getWorldQuaternion(new THREE.Quaternion()));
-    // camera: medium on Bima -> close insert on the thumb/remote -> follow the IR ray to the AC -> hold on the louver
-    const ins = ease(seg(f, insA, insB));
-    const toAC = f >= pressB + 4 ? 1 : 0; // clean cut from the remote insert to the AC as the IR fires
-    const mediumPos = v3(-1.05, 1.62, 1.75), mediumTgt = v3(-0.5, 1.75, -0.25);
+    // camera: medium on Bima (raise + head turn) -> CUT to the remote (thumb presses) -> CUT to the AC as the IR fires. Level horizon always.
+    const toAC = f >= pressB + 4 ? 1 : 0;
+    const inInsert = f >= cutIn && !toAC;
+    if (inInsert) { bima.head.visible = false; bima.torso.visible = false; } // macro cutaway: nothing between the lens and the remote
     const remoteC = tmpB.clone();
-    const insertPos = remoteC.clone().addScaledVector(faceN, 0.42).add(v3(0, -0.05, 0));
+    const mediumPos = v3(-1.05, 1.62, 1.75).lerp(v3(-0.95, 1.66, 1.6), seg(f, c0.a, cutIn)), mediumTgt = v3(-0.5, 1.75, -0.25);
+    const insertPos = remoteC.clone().addScaledVector(faceN, lerp(0.5, 0.4, seg(f, cutIn, pressB + 4))).add(v3(0, -0.04, 0));
     const acPush = ease(seg(f, pressB + 4, c1.b));
     const acPos = v3(lerp(-0.45, -0.62, acPush), lerp(1.9, 1.98, acPush), lerp(1.55, 1.3, acPush)), acTgt = acCenterW.clone().add(v3(0.15, -0.2, 0.0));
-    const beamHead = tmpA.clone().lerp(acSensorW, seg(f, irA, irB));
-    // orbit around the remote while closing in (no straight line through the set dressing)
-    const dirMed = mediumPos.clone().sub(remoteC); const dMed = dirMed.length(); dirMed.normalize();
-    const orbitDir = dirMed.clone().lerp(faceN, ins).normalize();
-    const orbitPos = remoteC.clone().addScaledVector(orbitDir, lerp(dMed, 0.42, ins)).add(v3(0, -0.05 * ins, 0));
-    camPos.copy(orbitPos).lerp(acPos, toAC);
-    camTgt.copy(mediumTgt).lerp(remoteC, ins).lerp(acTgt, toAC);
-    // during the insert the camera's up follows the remote's long axis (tip at the top of the frame)
-    const tipUp = tmpA.clone().sub(remoteC).normalize();
-    const camUp = WORLD_UP; // keep the horizon level (no roll); tipUp kept for reference only
-    look(lerp(56, 42, ins) * (1 - toAC) + 54 * toAC, camPos.x, camPos.y, camPos.z, camTgt.x, camTgt.y, camTgt.z, camUp);
+    const camP = toAC ? acPos : inInsert ? insertPos : mediumPos;
+    const camT = toAC ? acTgt : inInsert ? remoteC : mediumTgt;
+    look(toAC ? 54 : inInsert ? 42 : 56, camP.x, camP.y, camP.z, camT.x, camT.y, camT.z, WORLD_UP);
     // IR ray grows from the remote tip to the receiver
     const ir = seg(f, irA, irB);
     if (ir > 0 && f < c1.a + 6) {
@@ -639,9 +662,29 @@ function renderFrame(f) {
     placeLabel(L.release, v3(41.25, 2.55, 1.4), seg(f, c1.a, c1.a + 8));
   }
   setCaption(t);
+  updateProbe();
   renderer.render(scene, camera);
+}
+
+// Geometric probes: named world-space anchors that action_events.json constraints are verified against (no pixels involved).
+let probe = {};
+function updateProbe() {
+  scene.updateMatrixWorld(true);
+  probe = {
+    head_pos: anchor(bima.head, null, v3(0, 0, 1)),
+    face_center: anchor(bima.head, v3(0, -0.02, 0.15)),
+    forehead: anchor(bima.head, v3(0, 0.09, 0.15)),
+    fan_center: anchor(fan, v3(0, -0.23, 0), v3(0, 0, 1)),
+    fan_hand: anchor(rightArm.wr),
+    left_wrist: anchor(leftArm.wr),
+    remote_tip: anchor(remote, v3(0, -0.19, 0.03), v3(0, -1, 0)),
+    remote_button: anchor(remoteBtn),
+    thumb_tip: anchor(pressThumb, v3(0, -0.06, 0)),
+    ac_sensor: anchor(AC.sensor),
+  };
 }
 
 window.__ready = document.fonts.ready.then(() => { AC.setDisplay("", false); return true; });
 window.renderFrame = (f) => { renderFrame(f); return true; };
+window.__xdxProbe = (f) => { renderFrame(f); return JSON.parse(JSON.stringify(probe)); };
 window.TOTAL_FRAMES = PKG.total_frames;

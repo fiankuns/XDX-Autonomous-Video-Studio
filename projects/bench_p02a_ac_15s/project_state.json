@@ -5,7 +5,7 @@
   "mode": "topik",
   "current_state": "WAITING_APPROVAL",
   "package_version": "v1",
-  "package_digest": "7ad0f2fd7e940095f1bd1dc5a01f1be6d6bfd3967b1435a94ce120ff8007778d",
+  "package_digest": "6457da233d1cd2382b7eb54478a86374092e7c5df6db7d9de69cb78bf39102a4",
   "genres": [
     "explainer",
     "edukasi"
@@ -90,7 +90,13 @@
       "to_state": "WAITING_APPROVAL",
       "timestamp": "2026-11-28T03:22:52.415675+00:00",
       "reason": "Pre-production package v1 locked (7ad0f2fd7e94)"
+    },
+    {
+      "from_state": "WAITING_APPROVAL",
+      "to_state": "WAITING_APPROVAL",
+      "timestamp": "2026-11-28T03:57:17.240599+00:00",
+      "reason": "Pre-production package v1 locked (6457da233d1c)"
     }
   ],
-  "updated_at": "2026-11-28T03:22:52.415675+00:00"
+  "updated_at": "2026-11-28T03:57:17.240599+00:00"
 }

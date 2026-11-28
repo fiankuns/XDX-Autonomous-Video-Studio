@@ -1,0 +1,89 @@
+"""Action choreography contract — geometric proof that an action is performed the way the script says (topic-agnostic).
+
+Every important action in a script is authored as an *action event*: who (actor/part), what (object), toward what
+(target), when (a window relative to a caption cue) and how to verify it (constraints on named world-space anchors
+that the scene exposes through ``window.__xdxProbe``). Examples of constraint types:
+
+* ``distance_lt`` / ``distance_gt``   a hand is (not) near a target
+* ``facing``                          an object's direction vector points at a target (fan face -> face, remote tip -> AC)
+* ``not_facing``                      something must NOT point at a target yet (head must not look at the AC before the press)
+
+This replaces guessed joint angles by checks the render pipeline can run in seconds, before any pixel review, and gives the
+independent reviewer hard evidence. See schemas/action_events.schema.json.
+"""
+
+from __future__ import annotations
+
+import json
+import math
+from pathlib import Path
+from typing import Any
+
+SCHEMA = "xdx.action-events.v1"
+CONSTRAINT_TYPES = frozenset({"distance_lt", "distance_gt", "facing", "not_facing"})
+
+
+def load_action_events(package_dir: Path) -> dict[str, Any] | None:
+    p = Path(package_dir) / "action_events.json"
+    return json.loads(p.read_text(encoding="utf-8")) if p.is_file() else None
+
+
+def _vec_to(a: dict[str, Any], b: dict[str, Any]) -> list[float]:
+    return [b["p"][i] - a["p"][i] for i in range(3)]
+
+
+def _norm(v: list[float]) -> list[float]:
+    n = math.sqrt(sum(x * x for x in v)) or 1.0
+    return [x / n for x in v]
+
+
+def evaluate_constraint(c: dict[str, Any], probe: dict[str, Any]) -> tuple[bool, float]:
+    t = c["type"]
+    if t in {"distance_lt", "distance_gt"}:
+        d = math.dist(probe[c["a"]]["p"], probe[c["b"]]["p"])
+        return (d < c["value"] if t == "distance_lt" else d > c["value"]), d
+    if t in {"facing", "not_facing"}:
+        d = _norm(probe[c["dir"]]["d"])
+        to = _norm(_vec_to(probe[c["from"]], probe[c["to"]]))
+        dot = sum(d[i] * to[i] for i in range(3))
+        return (dot >= c["min_dot"] if t == "facing" else dot <= c["max_dot"]), dot
+    raise ValueError(f"unknown constraint type {t}")
+
+
+def event_frames(event: dict[str, Any], cues: list[dict[str, Any]], step: int = 3) -> list[int]:
+    """Frames of an event window: a fraction range of the n-th caption cue of the event's shot (integer frames)."""
+    shot_cues = [c for c in cues if c["shot_id"] == event["shot_id"]]
+    w = event["window"]
+    cue = shot_cues[w["cue"]]
+    a = cue["start_frame"] + round((cue["end_frame"] - cue["start_frame"]) * w["from"])
+    b = cue["start_frame"] + round((cue["end_frame"] - cue["start_frame"]) * w["to"])
+    return list(range(a, max(a + 1, b), step))
+
+
+def needed_frames(spec: dict[str, Any], cues: list[dict[str, Any]]) -> list[int]:
+    return sorted({f for e in spec["events"] for f in event_frames(e, cues)})
+
+
+def evaluate_events(spec: dict[str, Any], cues: list[dict[str, Any]], probes: dict[int, dict[str, Any]]) -> dict[str, Any]:
+    results, issues = [], []
+    for e in spec["events"]:
+        frames = event_frames(e, cues)
+        per_constraint = []
+        for c in e["constraints"]:
+            if c["type"] not in CONSTRAINT_TYPES:
+                raise ValueError(f"unknown constraint type {c['type']}")
+            ok_frames = 0
+            worst = None
+            for f in frames:
+                ok, val = evaluate_constraint(c, probes[f])
+                ok_frames += ok
+                worst = val if worst is None else (max(worst, val) if c["type"] in {"distance_lt"} else min(worst, val) if c["type"] in {"facing", "distance_gt"} else max(worst, val))
+            ratio = ok_frames / len(frames)
+            passed = ratio >= e.get("hold_ratio", 0.9)
+            per_constraint.append({"constraint": c, "hold": round(ratio, 3), "worst_value": round(worst, 3), "passed": passed})
+            if not passed:
+                issues.append({"code": "ACTION_GEOMETRY_FAIL", "severity": "critical", "event_id": e["event_id"],
+                               "message": f"{e['event_id']}: {c['type']} held on {ratio:.0%} of frames (worst {worst:.3f})"})
+        results.append({"event_id": e["event_id"], "shot_id": e["shot_id"], "frames": [frames[0], frames[-1]], "constraints": per_constraint,
+                        "passed": all(x["passed"] for x in per_constraint)})
+    return {"schema": "xdx.action-verification.v1", "status": "BLOCKED" if issues else "OK", "events": results, "issues": issues}

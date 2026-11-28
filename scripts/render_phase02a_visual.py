@@ -126,6 +126,40 @@ def render_frames(data: dict, frames_dir: Path, frames: list[int]) -> list[dict]
     return rects
 
 
+def probe_frames(data: dict, frames: list[int]) -> dict[int, dict]:
+    """Geometric anchors per frame from the SAME scene (no screenshots) for action_events verification."""
+    from playwright.sync_api import sync_playwright
+
+    chrome = shutil.which("google-chrome") or shutil.which("chromium") or shutil.which("chromium-browser")
+
+    class Quiet(http.server.SimpleHTTPRequestHandler):
+        def log_message(self, *a):  # noqa: D401
+            pass
+
+    srv = http.server.ThreadingHTTPServer(("127.0.0.1", 0), functools.partial(Quiet, directory=str(ROOT_DIR)))
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+    out: dict[int, dict] = {}
+    errors: list[str] = []
+    try:
+        with sync_playwright() as pw:
+            kw = {"executable_path": chrome} if chrome else {}
+            browser = pw.chromium.launch(headless=True, args=CHROME_ARGS, **kw)
+            page = browser.new_page(viewport={"width": 1080, "height": 1920}, device_scale_factor=1)
+            page.on("pageerror", lambda e: errors.append(str(e)))
+            page.add_init_script(f"window.__XDX_PACKAGE = {json.dumps(data, ensure_ascii=False)};")
+            page.goto(f"http://127.0.0.1:{srv.server_address[1]}/engines/web/phase02a_ac15s/index.html")
+            page.wait_for_function("window.__ready !== undefined || window.__xdxError", timeout=120000)
+            page.evaluate("window.__ready")
+            for f in frames:
+                out[int(f)] = page.evaluate(f"window.__xdxProbe({int(f)})")
+            browser.close()
+    finally:
+        srv.shutdown()
+    if errors:
+        raise RuntimeError(f"Scene errors during probing: {errors[:2]}")
+    return out
+
+
 def encode(frames_dir: Path, fps: int, out_mp4: Path) -> None:
     subprocess.run(
         ["ffmpeg", "-nostdin", "-v", "error", "-y", "-framerate", str(fps), "-i", str(frames_dir / "f%04d.png"),
@@ -236,6 +270,14 @@ def main() -> int:
         safe_issues = check_caption_safe_area(rects)
         (out_dir / f"{BENCH_ID}_caption_safe_area.json").write_text(json.dumps({"frames_checked": len(rects), "issues": safe_issues}, indent=2) + "\n", encoding="utf-8")
         contract = semantic_contract(pkg)
+        from intelligence import action_choreography as _ac
+        from intelligence.visual_workflow import canonical_timeline
+
+        spec = _ac.load_action_events(pkg)
+        if spec is not None:
+            tl = canonical_timeline(pkg)
+            rep = _ac.evaluate_events(spec, tl["cues"], probe_frames(data, _ac.needed_frames(spec, tl["cues"])))
+            (out_dir / f"{BENCH_ID}_action_verification.json").write_text(json.dumps(rep, indent=2) + "\n", encoding="utf-8")
         ev_dir = out_dir / "shot_evidence"
         ev_dir.mkdir(exist_ok=True)
         for b in contract["beats"]:

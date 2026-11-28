@@ -1,0 +1,111 @@
+{
+  "schema": "xdx.action-events.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "events": [
+    {
+      "event_id": "AE-S001-FAN",
+      "shot_id": "S001",
+      "action": "Bima waves the hand fan in front of his own face: fan centre near the face, flat side of the blade toward the face; his head does NOT look at the AC yet.",
+      "window": {
+        "cue": 0,
+        "from": 0.15,
+        "to": 1.0
+      },
+      "hold_ratio": 0.9,
+      "constraints": [
+        {
+          "type": "distance_lt",
+          "a": "fan_center",
+          "b": "face_center",
+          "value": 0.45
+        },
+        {
+          "type": "facing",
+          "dir": "fan_center",
+          "from": "fan_center",
+          "to": "face_center",
+          "min_dot": 0.5
+        },
+        {
+          "type": "not_facing",
+          "dir": "head_pos",
+          "from": "head_pos",
+          "to": "ac_sensor",
+          "max_dot": 0.7
+        }
+      ]
+    },
+    {
+      "event_id": "AE-S001-WIPE",
+      "shot_id": "S001",
+      "action": "Bima's other hand wipes his forehead (hand at the forehead) while he is overheated.",
+      "window": {
+        "cue": 0,
+        "from": 0.12,
+        "to": 0.5
+      },
+      "hold_ratio": 0.8,
+      "constraints": [
+        {
+          "type": "distance_lt",
+          "a": "left_wrist",
+          "b": "forehead",
+          "value": 0.22
+        }
+      ]
+    },
+    {
+      "event_id": "AE-S002-TURN-AIM",
+      "shot_id": "S002",
+      "action": "Just before pressing, Bima turns his head to the AC and aims the remote's IR tip at it.",
+      "window": {
+        "cue": 0,
+        "from": 0.36,
+        "to": 0.46
+      },
+      "hold_ratio": 0.9,
+      "constraints": [
+        {
+          "type": "facing",
+          "dir": "head_pos",
+          "from": "head_pos",
+          "to": "ac_sensor",
+          "min_dot": 0.85
+        },
+        {
+          "type": "facing",
+          "dir": "remote_tip",
+          "from": "remote_tip",
+          "to": "ac_sensor",
+          "min_dot": 0.85
+        }
+      ]
+    },
+    {
+      "event_id": "AE-S002-PRESS",
+      "shot_id": "S002",
+      "action": "The thumb presses the power/24 button of the remote (contact), remote still aimed at the AC.",
+      "window": {
+        "cue": 0,
+        "from": 0.58,
+        "to": 0.64
+      },
+      "hold_ratio": 0.8,
+      "constraints": [
+        {
+          "type": "distance_lt",
+          "a": "thumb_tip",
+          "b": "remote_button",
+          "value": 0.035
+        },
+        {
+          "type": "facing",
+          "dir": "remote_tip",
+          "from": "remote_tip",
+          "to": "ac_sensor",
+          "min_dot": 0.85
+        }
+      ]
+    }
+  ]
+}

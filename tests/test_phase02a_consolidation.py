@@ -162,14 +162,14 @@ def _can_render() -> bool:
 
 @pytest.mark.skipif(not _can_render(), reason="headless Chrome/Playwright not available")
 def test_p02a_cons_10_pixel_regression_against_latest_benchmark(tmp_path: Path) -> None:
-    bench = json.loads((ROOT / "docs/evidence/phase02a_visual_only/regression_benchmark_v6.json").read_text(encoding="utf-8"))
+    bench = json.loads((ROOT / "docs/evidence/phase02a_visual_only/regression_benchmark_v7.json").read_text(encoding="utf-8"))
     frames = [10, 140, 260, 400]
     out = tmp_path / "frames"
     res = subprocess.run(["python3", str(ROOT / "scripts/render_phase02a_visual.py"), str(PKG), "--prototype", "--out", str(out),
                           "--frames", ",".join(map(str, frames))], capture_output=True, text=True, cwd=ROOT)
     assert res.returncode == 0, res.stderr[-500:]
     for f in frames:
-        assert vw._sha256_file(out / f"bench_p02a_ac_15s_f{f:04d}.png") == bench["frame_sha256"][str(f)], f"frame {f} drifted from the v5 benchmark"
+        assert vw._sha256_file(out / f"bench_p02a_ac_15s_f{f:04d}.png") == bench["frame_sha256"][str(f)], f"frame {f} drifted from the latest benchmark"
 
 
 def test_p02a_cons_11_production_and_error_memory_seed(tmp_path: Path) -> None:
@@ -190,3 +190,37 @@ def test_p02a_cons_11_production_and_error_memory_seed(tmp_path: Path) -> None:
         for ref in t_["tests"]:
             f, _, fn = ref.partition("::")
             assert fn in (ROOT / f).read_text(encoding="utf-8"), f"technique {t_['technique_id']} cites a missing test {ref}"
+
+
+def test_p02a_cons_12_action_choreography_constraints_catch_wrong_acting() -> None:
+    from intelligence import action_choreography as ac
+
+    spec = ac.load_action_events(PKG)
+    jsonschema.validate(spec, json.loads((ROOT / "schemas/action_events.schema.json").read_text(encoding="utf-8")))
+    cues = vw.canonical_timeline(PKG)["cues"]
+    fan = next(e for e in spec["events"] if e["event_id"] == "AE-S001-FAN")
+    frames = ac.event_frames(fan, cues)
+
+    def probe(fan_dir, fan_pos=(0.0, 0.0, 0.3), head_dir=(0.0, 0.0, 1.0)):
+        return {"fan_center": {"p": list(fan_pos), "d": list(fan_dir)}, "face_center": {"p": [0.0, 0.0, 0.0]},
+                "head_pos": {"p": [0.0, 0.0, 0.0], "d": list(head_dir)}, "ac_sensor": {"p": [-2.0, 0.0, 0.0]}}
+
+    good = {f: probe((0.0, 0.0, -1.0)) for f in frames}                      # blade face points back at the face
+    assert ac.evaluate_events({"events": [fan]}, cues, good)["status"] == "OK"
+    wrong_dir = {f: probe((0.0, 0.0, 1.0)) for f in frames}                   # blade face points away from the face (the v6 bug)
+    assert ac.evaluate_events({"events": [fan]}, cues, wrong_dir)["status"] == "BLOCKED"
+    far = {f: probe((0.0, 0.0, -1.0), fan_pos=(0.0, 0.0, 1.5)) for f in frames}  # fan nowhere near the face
+    assert ac.evaluate_events({"events": [fan]}, cues, far)["status"] == "BLOCKED"
+    early_turn = {f: probe((0.0, 0.0, -1.0), head_dir=(-1.0, 0.0, 0.0)) for f in frames}  # head already looks at the AC in S001
+    assert ac.evaluate_events({"events": [fan]}, cues, early_turn)["status"] == "BLOCKED"
+
+
+@pytest.mark.skipif(not _can_render(), reason="headless Chrome/Playwright not available")
+def test_p02a_cons_13_actions_verified_on_the_real_scene() -> None:
+    from intelligence import action_choreography as ac
+    from scripts.render_phase02a_visual import load_package_data, probe_frames
+
+    spec = ac.load_action_events(PKG)
+    tl = vw.canonical_timeline(PKG)
+    rep = ac.evaluate_events(spec, tl["cues"], probe_frames(load_package_data(PKG), ac.needed_frames(spec, tl["cues"])))
+    assert rep["status"] == "OK", rep["issues"]

@@ -92,6 +92,8 @@ def validate_inputs(package_dir: Path, *, root: Path = ROOT_DIR, check_environme
         pal = ch.get("color_palette") or []
         if not pal or not all(isinstance(c, str) and len(c) == 7 and c.startswith("#") for c in pal):
             issues.append(_issue("INPUT_CHARACTER_PALETTE", "high", f"character {ch.get('character_id')} has no valid locked palette"))
+    if not (package_dir / "action_events.json").is_file():
+        issues.append(_issue("INPUT_NO_ACTION_EVENTS", "medium", "no action_events.json: important actions cannot be verified geometrically (author one per key action)"))
     if check_environment:
         for tool in ("ffmpeg", "ffprobe"):
             if not shutil.which(tool):
@@ -289,6 +291,7 @@ def validate_delivery(
     evidence: dict[str, Any] | None,
     review_result: dict[str, Any] | None,
     safe_area_report: list[dict[str, Any]] | None,
+    action_report: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Final gate for a VISUAL_ONLY_BENCHMARK delivery. Every check is evidence-based; nothing is assumed."""
     mp4 = Path(mp4)
@@ -334,6 +337,11 @@ def validate_delivery(
         issues.append(_issue("DELIVERY_NO_SAFE_AREA_REPORT", "high", "caption safe-area report missing"))
     else:
         issues += safe_area_report
+    if (Path(package_dir) / "action_events.json").is_file():
+        if action_report is None:
+            issues.append(_issue("DELIVERY_NO_ACTION_VERIFICATION", "high", "package declares action events but no geometric verification report was provided"))
+        elif action_report.get("status") != "OK":
+            issues += [_issue(i["code"], "critical", i["message"]) for i in action_report.get("issues", [])] or [_issue("DELIVERY_ACTION_VERIFICATION", "critical", "action verification not OK")]
     if review_result is None:
         issues.append(_issue("DELIVERY_NO_INDEPENDENT_REVIEW", "critical", "independent semantic visual review missing"))
     elif review_result.get("overall_status") != "PASS":
