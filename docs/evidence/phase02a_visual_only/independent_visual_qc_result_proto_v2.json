@@ -1,0 +1,258 @@
+{
+  "schema": "xdx.independent-visual-qc-result.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "delivery_profile": "VISUAL_ONLY_BENCHMARK",
+  "status": "HARD_FAIL",
+  "reviewer_id": "independent-visual-critic-agent",
+  "shot_mean_scores": {
+    "S001": 2.857,
+    "S002": 2.429,
+    "S003": 3.214,
+    "S004": 3.0
+  },
+  "reference_mean_score": 2.583,
+  "defects": [
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S001",
+      "description": "Required action not visible: Gerak hook karakter bima kepanasan di kamar tertutup 32 derajat di bawah unit ac indoor mereda stabil menjaga arah pandang ke titik fokus shot berikutnya."
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "Render artifact: shirt hem ends in a jagged pale fringe band (f10-f94)"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "Render artifact: thin orange tube/line pops in from table to AC at f94 reading as a stray spline"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "Render artifact: heat wisps pass through the character's torso (f52)"
+    },
+    {
+      "defect_id": "DEF_VQC_CAPTION_OCCLUSION",
+      "severity": "medium",
+      "shot_id": "S001",
+      "description": "caption occludes subject"
+    },
+    {
+      "defect_id": "DEF_VQC_FRAME_EDGE_CLIP",
+      "severity": "medium",
+      "shot_id": "S001",
+      "description": "subject clipped by frame"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "animation_and_object_interaction scored 2.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "mechanism_visualization scored 2.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "composition_and_transitions scored 2.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "Mean visual score 2.86 < 3.5"
+    },
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S002",
+      "description": "Required action not visible: Ibu jari kanan Bima menekan tombol daya dan setelan 24 derajat pada prop_ac_remote_control hingga sinyal inframerah membuka kisi prop_ac_indoor_evaporator_cutaway."
+    },
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S002",
+      "description": "Required action not visible: Gerak interaksi tangan bima menekan tombol 24 derajat pada remot ac menuju unit indoor mereda stabil menjaga arah pandang ke titik fokus shot berikutnya."
+    },
+    {
+      "defect_id": "DEF_VQC_PLACEHOLDER_ASSET",
+      "severity": "critical",
+      "shot_id": "S002",
+      "description": "Primitive/placeholder stand-in visible for 'prop_ac_remote_control (plain capsule with no buttons/display)'"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "Render artifact: jagged pale shirt hem fringe (f115)"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "Render artifact: large defocused orange/blue blobs smeared over left curtain (f199)"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "Render artifact: no caption on screen around f170-f190 while action happens"
+    },
+    {
+      "defect_id": "DEF_VQC_FRAME_EDGE_CLIP",
+      "severity": "medium",
+      "shot_id": "S002",
+      "description": "subject clipped by frame"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "character_and_asset_quality scored 2.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "semantic_visual_storytelling scored 2 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "animation_and_object_interaction scored 2 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "mechanism_visualization scored 2.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "camera_and_cinematography scored 2.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "composition_and_transitions scored 2 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "Mean visual score 2.43 < 3.5"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "Render artifact: fin shading discontinuity: left half of fin stack renders dark, right half bright, with hard seam (f270, f317)"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "Render artifact: translucent front panel ghosting over coil (f222)"
+    },
+    {
+      "defect_id": "DEF_VQC_FRAME_EDGE_CLIP",
+      "severity": "medium",
+      "shot_id": "S003",
+      "description": "subject clipped by frame"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "Mean visual score 3.21 < 3.5"
+    },
+    {
+      "defect_id": "DEF_VQC_PLACEHOLDER_ASSET",
+      "severity": "critical",
+      "shot_id": "S004",
+      "description": "Primitive/placeholder stand-in visible for 'indoor AC unit rendered as plain white box primitive'"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "Render artifact: 'Kondensor' label points at legs/grass below the unit instead of the condenser coil (f437)"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "Render artifact: pipes lie on the brick wall section surface instead of penetrating it"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "Render artifact: floor/ground colour split and hard shadow wedge at lower left reads as broken geometry"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "Render artifact: fan has single lumpy blade"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "character_and_asset_quality scored 2.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "Mean visual score 3.00 < 3.5"
+    },
+    {
+      "defect_id": "DEF_VQC_BELOW_REFERENCE",
+      "severity": "high",
+      "shot_id": null,
+      "description": "Render scored 2.583 vs REF-002 (< 3.0)"
+    },
+    {
+      "defect_id": "DEF_VQC_REFERENCE_GAP",
+      "severity": "medium",
+      "shot_id": null,
+      "description": "character_and_asset_quality vs REF-002 scored 2"
+    },
+    {
+      "defect_id": "DEF_VQC_REFERENCE_GAP",
+      "severity": "medium",
+      "shot_id": null,
+      "description": "camera_and_cinematography vs REF-002 scored 2.5"
+    },
+    {
+      "defect_id": "DEF_VQC_REFERENCE_GAP",
+      "severity": "medium",
+      "shot_id": null,
+      "description": "lighting_shadow_material_texture vs REF-002 scored 2.5"
+    },
+    {
+      "defect_id": "DEF_VQC_REFERENCE_GAP",
+      "severity": "medium",
+      "shot_id": null,
+      "description": "composition_and_transitions vs REF-002 scored 2.5"
+    }
+  ],
+  "review_gaps": [],
+  "production_ready": false
+}

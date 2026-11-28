@@ -19,6 +19,7 @@ Tes: core 125 passed; `XDX_TEST_PROFILE=full_integration` 125 passed (REF-001/RE
 | `prototype_v2_contact_sheet.jpg` | 12 frame wajib dari render prototipe v2 |
 | `prototype_v2_technical_qc.json` | QC teknis visual-only: **PASS** (450 frame, tanpa track audio, 0 frame kosong) |
 
-Status: `NON_PRODUCTION_PROTOTYPE`; arah visual disetujui pemilik proyek di chat; review visual independen masih **PENDING**.
-Tes: core 130 passed; `full_integration` 130 passed.
+Status: `NON_PRODUCTION_PROTOTYPE`; arah visual disetujui pemilik proyek di chat.
 
+Review independen (agent konteks bersih, reviewer ≠ producer): **HARD_FAIL** — rata-rata shot 2,86 / 2,43 / 3,21 / 3,00, vs REF-002 2,58; 5 critical, 27 high, 8 medium (`independent_visual_review_proto_v2.json`, `independent_visual_qc_result_proto_v2.json`).
+Tes: core 130 passed; `full_integration` 130 passed.

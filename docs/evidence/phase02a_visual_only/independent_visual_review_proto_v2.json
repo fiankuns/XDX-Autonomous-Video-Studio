@@ -1,0 +1,227 @@
+{
+ "schema": "xdx.independent-visual-review.v1",
+ "project_id": "bench_p02a_ac_15s",
+ "reviewer_id": "independent-visual-critic-agent",
+ "reviewer_context": "fresh",
+ "render_sha256": "11a571127111f67adaf8fc85c76de006b042e7fee8b7b82a60bfd1197d74aee3",
+ "shots": [
+  {
+   "shot_id": "S001",
+   "frames_inspected": [
+    10,
+    30,
+    52,
+    75,
+    94
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "visible": true,
+     "frame": 10,
+     "note": "Bima waves a small striped hand fan near his face, sweating; thermometer reads 32°C; orange heat wisps fill room. But window is only a sliver at right edge (sealed state not legible) and the AC is on the far wall, not above Bima; AC is not shown as cutaway here."
+    },
+    {
+     "index": 1,
+     "visible": true,
+     "frame": 10,
+     "note": "Hot Bima in closed room is clear; however he is not positioned under the AC unit (AC is across the room, clipped at left edge), so the 'under the AC' contact relation is not shown."
+    },
+    {
+     "index": 2,
+     "visible": false,
+     "frame": 94,
+     "note": "End pose: Bima keeps looking at camera, not toward the AC (next shot's focus). An abrupt thin orange tube from the table to the AC acts as the only lead; gaze direction toward next focus not shown."
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [
+    "shirt hem ends in a jagged pale fringe band (f10-f94)",
+    "thin orange tube/line pops in from table to AC at f94 reading as a stray spline",
+    "heat wisps pass through the character's torso (f52)"
+   ],
+   "caption_occludes_subject": true,
+   "subject_clipped_by_frame": true,
+   "scores": {
+    "character_and_asset_quality": 3,
+    "semantic_visual_storytelling": 3,
+    "animation_and_object_interaction": 2.5,
+    "mechanism_visualization": 2.5,
+    "camera_and_cinematography": 3,
+    "lighting_shadow_material_texture": 3.5,
+    "composition_and_transitions": 2.5
+   },
+   "notes": "Readable hook (32°C, sweat, fan) but AC unit cut off by left frame edge in all frames, window barely visible, caption box covers Bima's shoes at f94, bottom third is empty floor. Mannequin-like segmented limbs and stubby hand feel unfinished. Fanning motion is small."
+  },
+  {
+   "shot_id": "S002",
+   "frames_inspected": [
+    115,
+    125,
+    135,
+    140,
+    145,
+    157,
+    170,
+    180,
+    190,
+    199
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "visible": false,
+     "frame": 140,
+     "note": "Bima holds a featureless capsule remote with a 3-finger mitten hand, arm outstretched; remote is partly cut by the left frame edge at f115. No thumb press, no visible buttons/24° setting on remote, no IR beam. Louver opening with 24° display and blue air is visible at f157-f190, so only the result is shown, not the press."
+    },
+    {
+     "index": 1,
+     "visible": true,
+     "frame": 140,
+     "note": "Hand is in contact with remote, pointing toward unit off-screen; but no pressing of a 24° button is shown."
+    },
+    {
+     "index": 2,
+     "visible": false,
+     "frame": 199,
+     "note": "Shot ends on Bima smiling at camera in front of the window under caption 'AC terbuka.' — the AC/louver is not in frame; gaze is not toward next focus (evaporator)."
+    }
+   ],
+   "placeholder_assets": [
+    "prop_ac_remote_control (plain capsule with no buttons/display)"
+   ],
+   "debug_overlay_visible": false,
+   "render_artifacts": [
+    "jagged pale shirt hem fringe (f115)",
+    "large defocused orange/blue blobs smeared over left curtain (f199)",
+    "no caption on screen around f170-f190 while action happens"
+   ],
+   "caption_occludes_subject": false,
+   "subject_clipped_by_frame": true,
+   "scores": {
+    "character_and_asset_quality": 2.5,
+    "semantic_visual_storytelling": 2,
+    "animation_and_object_interaction": 2,
+    "mechanism_visualization": 2.5,
+    "camera_and_cinematography": 2.5,
+    "lighting_shadow_material_texture": 3.5,
+    "composition_and_transitions": 2
+   },
+   "notes": "Weakest shot. The key 'press' beat is missing: remote is a capsule cut by frame edge, hand is a mitten. AC louver opening reads ok (f170-f190) but caption 'AC terbuka' lands on a shot of Bima+window without the AC. Character crop at f199 cuts head/arm at right edge. Three cuts in 3.5 s feel choppy."
+  },
+  {
+   "shot_id": "S003",
+   "frames_inspected": [
+    222,
+    240,
+    270,
+    300,
+    317
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "visible": true,
+     "frame": 270,
+     "note": "Front casing lifts away (translucent, f222), revealing copper serpentine coil with fins; orange heat particles enter from top, blue cool particles exit below. Missing: heat shown as soft blobs not red arrows; liquid refrigerant evaporating inside the tube is not visualized."
+    },
+    {
+     "index": 1,
+     "visible": true,
+     "frame": 270,
+     "note": "Cross-section of copper evaporator coil framed with 'Evaporator' label."
+    },
+    {
+     "index": 2,
+     "visible": true,
+     "frame": 317,
+     "note": "Camera settles into a close push on the coil; motion stable. Unit is clipped by both frame edges."
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [
+    "fin shading discontinuity: left half of fin stack renders dark, right half bright, with hard seam (f270, f317)",
+    "translucent front panel ghosting over coil (f222)"
+   ],
+   "caption_occludes_subject": false,
+   "subject_clipped_by_frame": true,
+   "scores": {
+    "character_and_asset_quality": 3.5,
+    "semantic_visual_storytelling": 3.5,
+    "animation_and_object_interaction": 3,
+    "mechanism_visualization": 3,
+    "camera_and_cinematography": 3,
+    "lighting_shadow_material_texture": 3.5,
+    "composition_and_transitions": 3
+   },
+   "notes": "Best shot. Clear coil cutaway and in/out air colour coding. Lower half of frame is empty wall; 'Udara panas masuk' label far from the coil inlet. No refrigerant-state change visual (liquid->vapor) which is the caption's science point."
+  },
+  {
+   "shot_id": "S004",
+   "frames_inspected": [
+    342,
+    360,
+    390,
+    415,
+    437
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "visible": true,
+     "frame": 390,
+     "note": "Orange glow travels along copper pipe from indoor unit to outdoor unit; fan spins (blur) and orange heat plumes rise outside. But pipe runs over the face of the wall section rather than visibly through it, and the indoor unit is a plain box."
+    },
+    {
+     "index": 1,
+     "visible": true,
+     "frame": 360,
+     "note": "Pipe connects indoor box to compressor in outdoor unit; 'Uap refrigeran panas' label."
+    },
+    {
+     "index": 2,
+     "visible": true,
+     "frame": 437,
+     "note": "Slow dolly settles; labels Kompresor/Kondensor/Kalor dibuang ke luar appear."
+    }
+   ],
+   "placeholder_assets": [
+    "indoor AC unit rendered as plain white box primitive"
+   ],
+   "debug_overlay_visible": false,
+   "render_artifacts": [
+    "'Kondensor' label points at legs/grass below the unit instead of the condenser coil (f437)",
+    "pipes lie on the brick wall section surface instead of penetrating it",
+    "floor/ground colour split and hard shadow wedge at lower left reads as broken geometry",
+    "fan has single lumpy blade"
+   ],
+   "caption_occludes_subject": false,
+   "subject_clipped_by_frame": false,
+   "scores": {
+    "character_and_asset_quality": 2.5,
+    "semantic_visual_storytelling": 3.5,
+    "animation_and_object_interaction": 3,
+    "mechanism_visualization": 3,
+    "camera_and_cinematography": 3,
+    "lighting_shadow_material_texture": 3,
+    "composition_and_transitions": 3
+   },
+   "notes": "Mechanism story is legible (hot pipe -> compressor -> heat released) but indoor unit is a primitive box, wall cross-section is crude, mislabeled condenser, low-detail flat sky/grass. Caption bar sits over unit legs."
+  }
+ ],
+ "reference_comparison": {
+  "reference_id": "REF-002",
+  "reference_sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+  "scores": {
+   "character_and_asset_quality": 2,
+   "mechanism_visualization": 3,
+   "camera_and_cinematography": 2.5,
+   "lighting_shadow_material_texture": 2.5,
+   "composition_and_transitions": 2.5,
+   "story_clarity": 3
+  },
+  "notes": "REF-002 uses detailed, textured characters/props (clothing folds, boots, scarves), rich environment set dressing, sunlit HDR lighting with soft GI and depth. Render is clean and coherent stylized 3D but sparse: bare walls, mannequin-jointed character with mitten hands, primitive indoor box in S004, flat sky/grass. Mechanism labeling is a strength vs REF. Framing repeatedly clips key subjects; REF keeps subject centred with full silhouettes."
+ }
+}
