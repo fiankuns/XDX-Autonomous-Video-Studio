@@ -42,6 +42,9 @@ PRODUCTION_DEPENDENCY_FILES = [
     "governance/phase_scope.py",
     "intelligence/visual_qc_engine.py",
     "intelligence/visual_semantic_qc.py",
+    "engines/web/phase02a_ac15s/index.html",
+    "engines/web/phase02a_ac15s/scene.js",
+    "scripts/render_phase02a_visual.py",
     "reference_database/profiles/reference_pattern_registry.json",
     "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json",
 ]

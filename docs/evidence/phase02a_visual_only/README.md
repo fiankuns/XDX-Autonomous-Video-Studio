@@ -11,3 +11,14 @@ Ringkasan hasil render uji pertama:
 - Independent Visual QC: **HARD_FAIL** — 12 aksi wajib tidak terlihat, 5 aset placeholder, overlay debug di 4 shot, 5 artefak render, rata-rata shot 1,36–1,79/5, vs REF-002 1,42/5.
 
 Tes: core 125 passed; `XDX_TEST_PROFILE=full_integration` 125 passed (REF-001/REF-002 MP4 asli terhidrasi).
+
+## Prototipe v2 (engine `engines/web/phase02a_ac15s`)
+
+| File | Isi |
+|---|---|
+| `prototype_v2_contact_sheet.jpg` | 12 frame wajib dari render prototipe v2 |
+| `prototype_v2_technical_qc.json` | QC teknis visual-only: **PASS** (450 frame, tanpa track audio, 0 frame kosong) |
+
+Status: `NON_PRODUCTION_PROTOTYPE`; arah visual disetujui pemilik proyek di chat; review visual independen masih **PENDING**.
+Tes: core 130 passed; `full_integration` 130 passed.
+

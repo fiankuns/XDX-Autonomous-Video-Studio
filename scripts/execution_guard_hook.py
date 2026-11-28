@@ -37,6 +37,7 @@ _RENDER_CMD = re.compile(
     r"("
     r"\bblender\b.*(\s-b\b|--background\b|--python\b)"
     r"|\b(npx\s+)?remotion\s+(render|still|benchmark)\b"
+    r"|render_phase02a_visual"
     r"|\bnode\b.*(remotion|three_deterministic|render_threejs|phase02a_render)"
     r"|\b(puppeteer|playwright|chromium|google-chrome)\b.*\b(render|screenshot|mp4|png)\b"
     r"|\bffmpeg\b.*\.(mp4|mov|mkv|webm|png)\b"

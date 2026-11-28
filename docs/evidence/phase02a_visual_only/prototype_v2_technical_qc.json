@@ -1,0 +1,52 @@
+{
+  "schema_version": "3.3.0",
+  "target_file": "xdx_p02a_ac15s_visual_proto_v2.mp4 (NON_PRODUCTION_PROTOTYPE, not committed)",
+  "overall_status": "PASS",
+  "technical_qc": {
+    "exists": true,
+    "non_empty": true,
+    "size_bytes": 7513678,
+    "full_decode_ok": true,
+    "decode_errors": [],
+    "has_video_stream": true,
+    "has_audio_stream": false,
+    "codec_video": "h264",
+    "codec_audio": null,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30.0,
+    "duration_s": 15.0,
+    "decoded_frames": 450
+  },
+  "visual_qc": {
+    "sampled_frames": 150,
+    "mean_luma": 155.284,
+    "contrast_std": 52.218,
+    "sharpness_laplacian": 260.684,
+    "blank_or_corrupt_frames": 0,
+    "dimension_scores": {
+      "technical_integrity": 5.0,
+      "exposure_balance": 4.5,
+      "contrast_separation": 4.5
+    }
+  },
+  "defects": [],
+  "self_correction_plan": {
+    "max_retries_per_shot": 3,
+    "current_attempt": 0,
+    "requires_re_render": false,
+    "requires_new_approval": false,
+    "actions": []
+  },
+  "audio_policy": {
+    "delivery_profile": "VISUAL_ONLY_BENCHMARK",
+    "audio_track": "OMIT",
+    "missing_audio_is_defect": false,
+    "silent_audio_track": "WARN_UNNECESSARY_TRACK",
+    "captions_represent_narration": true,
+    "audio_deferred_to_phase": "04",
+    "audio_track_present": false,
+    "audio_peak_dbfs": null
+  },
+  "render_sha256": "11a571127111f67adaf8fc85c76de006b042e7fee8b7b82a60bfd1197d74aee3"
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": "4.0.0-phase01.6d",
   "registry_id": "xdx_master_audit_defect_registry",
-  "updated_at_utc": "2026-11-28T01:00:00+00:00",
+  "updated_at_utc": "2026-11-28T01:50:00+00:00",
   "append_only_policy": "Append-only ledger of all internal and external audit defects from Phase 01 onward. Historical entries must never be deleted, and VERIFIED requires an executed regression test.",
   "defects": [
     {
@@ -662,11 +662,11 @@
       "observed_result": "Character and props are primitives (floating cylinder arm, box remote, box compressor, cylinder condenser); louvers never open; no directed heat flow; stray grey plane in S003; debug labels burned in; flat lighting without shadows; static cameras and hard cuts; no 24 C payoff.",
       "expected_result": "Re-render passes evaluate_visual_review() with PASS: all required actions visible, no placeholders/overlays/artifacts, every dimension >= 3.0, shot mean >= 3.5, REF-002 mean >= 3.0.",
       "root_cause": "Visual production quality not yet built; previously undetected by QC (DEF-P02A-037).",
-      "correction_plan": "Phase 02A visual work: production-grade low-poly character with rig, articulated AC with animated louvers, readable mechanism cutaways, lighting/shadows/materials, camera moves and transitions, overlays off in final render.",
+      "correction_plan": "Phase 02A visual work: production-grade low-poly character with rig, articulated AC with animated louvers, readable mechanism cutaways, lighting/shadows/materials, camera moves and transitions, overlays off in final render. Progress 2026-11-28: engines/web/phase02a_ac15s (rigged stylized Bima with hands/face/expressions, articulated AC with rotating louver and display, evaporator cutaway with copper coil/fins/blower and refrigerant phase change, wall cross-section with compressor/condenser/fan, directed heat and cool airflow, PCF soft shadows, textured materials, per-shot camera moves, content callouts, no debug overlays) rendered via scripts/render_phase02a_visual.py.",
       "target_phase": "Phase 02A",
       "regression_test": "tests/test_phase02a_visual_only_scope.py::test_p02a_vo_07_recorded_review_of_first_test_render_is_hard_fail",
-      "evidence": "Independent review HARD_FAIL recorded in docs/evidence/phase02a_visual_only/.",
-      "current_status": "OPEN"
+      "evidence": "Independent review HARD_FAIL recorded in docs/evidence/phase02a_visual_only/. Prototype v2 (NON_PRODUCTION_PROTOTYPE, 450 frames, no audio track): technical QC PASS, docs/evidence/phase02a_visual_only/prototype_v2_contact_sheet.jpg; owner reviewed and approved the visual direction in chat. Independent visual review (reviewer != producer) still pending, so the defect stays open.",
+      "current_status": "IN_PROGRESS"
     }
   ]
 }

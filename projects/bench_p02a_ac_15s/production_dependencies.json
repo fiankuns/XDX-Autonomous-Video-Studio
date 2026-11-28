@@ -5,6 +5,14 @@
       "sha256": "38f1c343de65339c6676da33d0c8697701f06463253303fd05e76c93be6be0e2",
       "bytes": 4559
     },
+    "engines/web/phase02a_ac15s/index.html": {
+      "sha256": "7a5ad2e0ca820091a10c72002a06154159f701332e9364e4d8b1cba7ca0d6cd7",
+      "bytes": 1904
+    },
+    "engines/web/phase02a_ac15s/scene.js": {
+      "sha256": "81c57c8083340fa8373e730040561ae4eb90ccb434790fc8cdbd7b92079676ab",
+      "bytes": 49928
+    },
     "engines/web/remotion_timeline_spec.mjs": {
       "sha256": "db14afe7bba972ebc8652354e8092145b9a2036665134992a6ca58cb52e47e38",
       "bytes": 2032
@@ -38,12 +46,12 @@
       "bytes": 13786
     },
     "package-lock.json": {
-      "sha256": "89eb42a0ce5f061a26bf948d21b1970576cd1be468ec99b079f0ef5295080398",
-      "bytes": 9452
+      "sha256": "59ffbd8ad3070f8320540ef11e9ae7f25a84704cf718c4d0e1696ed4c3ed47fe",
+      "bytes": 9921
     },
     "package.json": {
-      "sha256": "e43688fdd0786a9d3d98a959c5d55efb67bb6e1b6516ffd0339a00016f233d61",
-      "bytes": 799
+      "sha256": "20dfbf9098fd1fd69caccf38c250cfaf9e5ec135d8ac29693a7de1b53906557f",
+      "bytes": 845
     },
     "reference_database/profiles/reference_pattern_registry.json": {
       "sha256": "57a0171bbfddd11f02daadb1b42bd187a347ffb3914e9f7b5ed8e8e2dc4bb3e1",
@@ -54,8 +62,12 @@
       "bytes": 8376
     },
     "scripts/execution_guard_hook.py": {
-      "sha256": "0d66ac0f2e13a030183ffea46d893e9488a97054d4842cf0ad7068cae41936be",
-      "bytes": 4736
+      "sha256": "668d41d5a888d0d1eecb0a3e1c0223023c7da4420dc9dddf62ee2844190f37aa",
+      "bytes": 4767
+    },
+    "scripts/render_phase02a_visual.py": {
+      "sha256": "0047813034f5b26691c6b39eea0171c9526a971af99c43162775490c5de997a3",
+      "bytes": 8414
     }
   }
 }

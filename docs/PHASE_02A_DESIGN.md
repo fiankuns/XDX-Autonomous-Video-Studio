@@ -89,3 +89,22 @@ di 4 shot, skor vs REF-002 1,42/5) — `docs/evidence/phase02a_visual_only/`.
 **Keamanan tidak berubah:** trusted approval Ed25519, canonical manifest, pin dependensi produksi, dan batas eksekusi
 Phase 02 tetap berlaku untuk setiap render (render muted pun tetap butuh approval terverifikasi).
 
+---
+
+## 5. Engine Visual Phase 02A — `engines/web/phase02a_ac15s` (2026-11-28)
+
+- Scene Three.js `0.187.0` deterministik (frame = fungsi murni dari indeks frame, PRNG ber-seed), dirender oleh Chrome headless
+  + SwiftShader lewat `scripts/render_phase02a_visual.py`, lalu di-encode H.264 `yuv420p` **tanpa audio** (`-an`).
+- Caption dan rentang shot dibaca dari paket bertanda tangan (`caption_audio_plan.json`, `storyboard.json`). Scene menolak
+  render jika rentang shot berbeda dari koreografi yang dibuat untuk `bench_p02a_ac_15s`.
+- Isi visual: karakter Bima stylized ber-rig (tangan, jari, mata, alis, mulut, keringat, ekspresi), AC dengan kisi berputar dan
+  display, cutaway evaporator (kumparan tembaga, sirip, blower, perubahan fase refrigeran), potongan dinding dengan kompresor,
+  kondensor dan kipas, aliran panas/sejuk berarah, soft shadow, material bertekstur, gerak kamera per shot, label konten.
+- **Produksi**: `python scripts/render_phase02a_visual.py projects/bench_p02a_ac_15s` → wajib lolos `assert_render_authorized`
+  (batas Phase 02, token Ed25519, canonical manifest, ledger, dependensi ter-pin). Saat ini diblokir batas fase.
+- **Prototipe** (iterasi visual oleh manusia): `--prototype --out <dir di luar repo>`; berlabel `NON_PRODUCTION_PROTOTYPE`,
+  tidak pernah menjadi deliverable. Guard hook memperlakukan skrip ini sebagai render produksi untuk agent.
+- Scene, `index.html`, renderer, `package.json` dan `package-lock.json` (termasuk font OFL `@fontsource/plus-jakarta-sans@5.3.0`)
+  di-pin di `production_dependencies.json` paket benchmark.
+- Bukti prototipe v2: `docs/evidence/phase02a_visual_only/prototype_v2_*`. Review visual independen masih wajib sebelum PASS.
+

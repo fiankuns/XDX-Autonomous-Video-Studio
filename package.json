@@ -10,6 +10,7 @@
     "verify:remotion": "node engines/web/remotion_timeline_spec.mjs --self-test"
   },
   "dependencies": {
+    "@fontsource/plus-jakarta-sans": "5.3.0",
     "@remotion/captions": "4.0.547",
     "@remotion/transitions": "4.0.547",
     "animejs": "4.5.0",
