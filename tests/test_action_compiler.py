@@ -69,7 +69,7 @@ def test_continuity_contact_and_attach_detach():
         assert a["final_pose"] == b["initial_pose"]
     ev = {e["type"]: e for e in out["events"]}
     assert ev["attach"]["frame"] < ev["detach"]["frame"] and ev["attach"]["object"] == "prop_glass"
-    grip = (0.08, -1.31, 0.68 + 0.055)
+    grip = (0.08 + 0.045, -1.31, 0.68 + 0.1)
     hand = dict((f, v) for f, v, _ in out["channels"]["ik_hand.R|loc"])
     assert max(abs(x - y) for x, y in zip(hand[ev["attach"]["frame"]], grip)) < 1e-9   # hand on the grip at contact
 

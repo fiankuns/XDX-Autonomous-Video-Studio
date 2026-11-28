@@ -11,7 +11,8 @@ anticipation (counter-move before the main move), weight transfer (hips over the
 body by a few frames), follow-through/overshoot, secondary motion (breathing, head bob), continuity (each action
 starts exactly from the previous action's final pose) and balance (hips stay between the feet).
 
-Coordinates: world metres, Z up. Angles in degrees. Face values 0..1.
+Coordinates: world metres, Z up. Angles in degrees as (pitch, roll, yaw) in the body frame: pitch > 0 = bend /
+nod FORWARD (look down), yaw > 0 = turn towards +X when facing -Y. Face values 0..1.
 """
 from __future__ import annotations
 
@@ -161,8 +162,8 @@ def recipe_look_at(rig, scene, req, pose, b: _Builder):
     # eyes lead (overlap), head follows 3-4 f later with a small overshoot, then settles; blink on the turn.
     b.key(s + 2, "anticipation_blink", face__blink=1.0)
     b.key(s + 4, "eyes_lead", eye_target__loc=tgt, face__blink=0.0)
-    b.key(s + 10, "head_follows_overlap", "EASE_OUT", head__rot=(-8.0, 0.0, head_yaw * 1.08), neck__rot=(-3.0, 0.0, head_yaw * 0.25))
-    b.key(s + 16, "settle_follow_through", head__rot=(-7.0, 0.0, head_yaw), chest__rot=(0.0, 0.0, head_yaw * 0.12))
+    b.key(s + 10, "head_follows_overlap", "EASE_OUT", head__rot=(10.0, 0.0, head_yaw * 1.08), neck__rot=(4.0, 0.0, head_yaw * 0.25))
+    b.key(s + 16, "settle_follow_through", head__rot=(8.0, 0.0, head_yaw), chest__rot=(0.0, 0.0, head_yaw * 0.12))
     b.key(s + int(d * 0.75), "breathing_secondary", "EASE_IN_OUT", chest__rot=(1.2, 0.0, head_yaw * 0.12))
     b.key(e, "breathing_secondary", chest__rot=(0.0, 0.0, head_yaw * 0.12))
     return {"contact_point": f"gaze:{req['target_object']}:{req.get('socket', 'look')}", "ik_target": rig.ctl("eye_target")}
@@ -234,7 +235,7 @@ def recipe_reach_grasp(rig, scene, req, pose, b: _Builder):
           **{f"hand_ik_dot_{side}__loc": _add(pose[hand]["loc"], (0.0, 0.03, 0.02)), "chest__rot": (-2.0, 0.0, 0.0)})
     b.key(s + int(d * 0.5), "reach_arc_lean_hips_back_balance", "EASE_IN_OUT",
           **{f"hand_ik_dot_{side}__loc": approach, "spine__rot": (14.0, 0.0, 0.0), "chest__rot": (10.0, 0.0, 0.0),
-             "hips__loc": (0.0, 0.03, -0.02), "head__rot": (-12.0, 0.0, head_yaw * 0.5)})
+             "hips__loc": (0.0, 0.03, -0.02), "head__rot": (14.0, 0.0, head_yaw * 0.5)})
     b.key(contact, "contact_ease_in", "EASE_IN", **{f"hand_ik_dot_{side}__loc": grip, f"hand_ik_dot_{side}__rot": (0.0, 0.0, 0.0)})
     b.pose["attach"][side] = req["target_object"]
     b.keys[-1]["pose"]["attach"] = dict(b.pose["attach"])
@@ -254,23 +255,25 @@ def recipe_lift_drink(rig, scene, req, pose, b: _Builder):
     mouth = _add(root, _rot(rig.mouth_offset, yaw))
     obj = scene[req["target_object"]]
     rim_to_grip = _sub(obj.sockets[req.get("socket", "grip")], obj.sockets.get("rim", obj.sockets[req.get("socket", "grip")]))
-    hand_at_mouth = _add(mouth, rim_to_grip)
+    # the rim front edge meets the lips: glass centre sits one glass radius in front of the mouth (never inside the face)
+    radius = obj.sockets.get("radius", (0.035, 0.0, 0.0))[0]
+    hand_at_mouth = _add(_add(mouth, _rot((0.0, -radius - 0.008, 0.0), yaw)), rim_to_grip)
     d = e - s
     lifted = _add(pose[hand]["loc"], (0.0, 0.06, 0.16))
     b.key(s + int(d * 0.08), "anticipation_dip_before_lift", "EASE_OUT",
           **{f"hand_ik_dot_{side}__loc": _add(pose[hand]["loc"], (0.0, 0.0, -0.012)), "hips__loc": (0.0, 0.03, -0.028)})
     b.key(s + int(d * 0.2), "lift_weight_back_onto_heels", "EASE_OUT",
           **{f"hand_ik_dot_{side}__loc": lifted, "spine__rot": (0.0, 0.0, 0.0), "chest__rot": (0.0, 0.0, 0.0),
-             "hips__loc": (0.0, 0.0, 0.0), "head__rot": (-4.0, 0.0, 0.0)})
+             "hips__loc": (0.0, 0.0, 0.0), "head__rot": (4.0, 0.0, 0.0), "neck__rot": (0.0, 0.0, 0.0)})
     b.key(s + int(d * 0.4), "rim_to_mouth_contact", "EASE_IN_OUT",
           **{f"hand_ik_dot_{side}__loc": hand_at_mouth, f"hand_ik_dot_{side}__rot": (35.0, 0.0, 0.0),
-             "head__rot": (12.0, 0.0, 0.0), "face__mouth_open": 0.2})
+             "head__rot": (-8.0, 0.0, 0.0), "face__mouth_open": 0.2})
     b.key(s + int(d * 0.55), "drink_tilt_eyes_close", "EASE_IN_OUT",
           **{f"hand_ik_dot_{side}__loc": _add(hand_at_mouth, (0.0, 0.0, 0.015)), f"hand_ik_dot_{side}__rot": (60.0, 0.0, 0.0),
-             "head__rot": (20.0, 0.0, 0.0), "neck__rot": (6.0, 0.0, 0.0), "face__blink": 1.0, "chest__rot": (-3.0, 0.0, 0.0)})
-    b.key(s + int(d * 0.75), "swallow_secondary", **{"face__blink": 1.0, "neck__rot": (4.0, 0.0, 0.0)})
+             "head__rot": (-18.0, 0.0, 0.0), "neck__rot": (-6.0, 0.0, 0.0), "face__blink": 1.0, "chest__rot": (-3.0, 0.0, 0.0)})
+    b.key(s + int(d * 0.75), "swallow_secondary", **{"face__blink": 1.0, "neck__rot": (-4.0, 0.0, 0.0)})
     b.key(e, "lower_follow_through", "EASE_OUT",
-          **{f"hand_ik_dot_{side}__loc": lifted, f"hand_ik_dot_{side}__rot": (0.0, 0.0, 0.0), "head__rot": (-3.0, 0.0, 0.0),
+          **{f"hand_ik_dot_{side}__loc": lifted, f"hand_ik_dot_{side}__rot": (0.0, 0.0, 0.0), "head__rot": (6.0, 0.0, 0.0),
              "neck__rot": (0.0, 0.0, 0.0), "chest__rot": (0.0, 0.0, 0.0), "face__blink": 0.0, "face__mouth_open": 0.0})
     return {"contact_point": f"{req['target_object']}:rim->mouth", "ik_target": rig.ctl(hand)}
 

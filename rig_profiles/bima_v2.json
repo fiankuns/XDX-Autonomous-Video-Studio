@@ -2,11 +2,47 @@
   "actor": "char_bima_v2",
   "asset_id": "char_bima_v2_blender",
   "controls": {
-    "root": "root", "hips": "hips", "spine": "spine", "chest": "chest", "neck": "neck", "head": "head",
-    "hand_ik.L": "ik_hand.L", "hand_ik.R": "ik_hand.R", "foot_ik.L": "ik_foot.L", "foot_ik.R": "ik_foot.R",
-    "eye_target": "eye_target", "face": "face"
+    "root": "root",
+    "hips": "hips",
+    "spine": "spine",
+    "chest": "chest",
+    "neck": "neck",
+    "head": "head",
+    "hand_ik.L": "ik_hand.L",
+    "hand_ik.R": "ik_hand.R",
+    "foot_ik.L": "ik_foot.L",
+    "foot_ik.R": "ik_foot.R",
+    "eye_target": "eye_target",
+    "face": "face"
   },
-  "shoulder_height": 1.15, "hip_height": 0.70, "arm_reach": 0.47, "hip_width": 0.086, "eye_height": 1.405,
-  "mouth_offset": [0.0, -0.11, 1.293], "stride": 0.33,
-  "hand_rest_offset": {"L": [-0.212, -0.005, 0.725], "R": [0.212, -0.005, 0.725]}
+  "shoulder_height": 1.15,
+  "hip_height": 0.7,
+  "arm_reach": 0.47,
+  "hip_width": 0.086,
+  "eye_height": 1.405,
+  "mouth_offset": [
+    0.0,
+    -0.11,
+    1.293
+  ],
+  "stride": 0.33,
+  "hand_rest_offset": {
+    "L": [
+      -0.212,
+      -0.005,
+      0.725
+    ],
+    "R": [
+      0.212,
+      -0.005,
+      0.725
+    ]
+  },
+  "foot_target_offset_z": 0.09,
+  "face_controls": {
+    "blink": "bones:lid.L,lid.R (rot X 0..-1)",
+    "smile": "shape_key:Bima_Face/smile",
+    "brow_up": "bones:brow.L,brow.R (loc Z 0..0.012)",
+    "mouth_open": "shape_key:Bima_Face/mouth_open"
+  }
 }
