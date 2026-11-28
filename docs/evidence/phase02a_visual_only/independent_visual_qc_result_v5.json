@@ -1,0 +1,108 @@
+{
+  "schema": "xdx.independent-visual-qc-result.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "delivery_profile": "VISUAL_ONLY_BENCHMARK",
+  "status": "HARD_FAIL",
+  "reviewer_id": "independent-visual-critic-agent-v5",
+  "shot_mean_scores": {
+    "S001": 3.143,
+    "S002": 3.357,
+    "S003": 3.214,
+    "S004": 3.214
+  },
+  "reference_mean_score": 3.25,
+  "defects": [
+    {
+      "defect_id": "DEF_VQC_FRAME_EDGE_CLIP",
+      "severity": "medium",
+      "shot_id": "S001",
+      "description": "subject clipped by frame"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "animation_and_object_interaction scored 2.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "Mean visual score 3.14 < 3.5"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "Render artifact: Thumb tip at f142 is a faceted polygonal patch with a hard-edged cut (low-poly artifact)"
+    },
+    {
+      "defect_id": "DEF_VQC_CAPTION_OCCLUSION",
+      "severity": "medium",
+      "shot_id": "S002",
+      "description": "caption occludes subject"
+    },
+    {
+      "defect_id": "DEF_VQC_FRAME_EDGE_CLIP",
+      "severity": "medium",
+      "shot_id": "S002",
+      "description": "subject clipped by frame"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "Mean visual score 3.36 < 3.5"
+    },
+    {
+      "defect_id": "DEF_VQC_FRAME_EDGE_CLIP",
+      "severity": "medium",
+      "shot_id": "S003",
+      "description": "subject clipped by frame"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "composition_and_transitions scored 2.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "Mean visual score 3.21 < 3.5"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "Render artifact: Incoherent base geometry bottom-left: flat orange floor, grey slab and green ground meet at a hard diagonal with no wall/floor continuity (f342-f437)"
+    },
+    {
+      "defect_id": "DEF_VQC_CAPTION_OCCLUSION",
+      "severity": "medium",
+      "shot_id": "S004",
+      "description": "caption occludes subject"
+    },
+    {
+      "defect_id": "DEF_VQC_FRAME_EDGE_CLIP",
+      "severity": "medium",
+      "shot_id": "S004",
+      "description": "subject clipped by frame"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "lighting_shadow_material_texture scored 2.5 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "Mean visual score 3.21 < 3.5"
+    }
+  ],
+  "review_gaps": [],
+  "production_ready": false
+}

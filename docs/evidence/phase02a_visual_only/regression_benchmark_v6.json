@@ -1,0 +1,41 @@
+{
+  "schema": "xdx.regression-benchmark.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "version": "v6",
+  "purpose": "Regression benchmark for Phase 02A: pixel hashes of sampled frames and the full MP4 of the v5 render (user-liked look). Refactors and engine changes must not change them unless the change is a deliberate, reviewed visual improvement (then re-baseline with evidence).",
+  "renderer": "headless Chrome + SwiftShader (CHROME_ARGS in scripts/render_phase02a_visual.py), 1080x1920, 30 fps",
+  "frame_sha256": {
+    "10": "204e7d2e7c992179729739507fde2763ec8f8b24af9053276687284e2408dec4",
+    "60": "20fc267d86c5ece338adc5b6e4e33205e006af21a8d7d2f53054331438bd90b2",
+    "100": "93717ce7a0dcf34da33ce08582b0ed37fcbd2df6bb0a87ee97c129477d0c95b5",
+    "120": "1af65a9617dd45419574198b9282bc897ad7e2df0a3ce4c4d0f5af9ca7955e69",
+    "140": "2264162c18bdd2a9831cce9a2838070161644dd86434fcd0e03a89460f055b0c",
+    "180": "a239b3b3cfcf2aa04fb4cfd65fb21c09a7a9c9523764272263f76ea4ba32d00a",
+    "215": "35e19e2e1eb0c9670c2d2ef461e3f14a13d349ae6916984a424f63cfba525ccb",
+    "260": "85e5fa5e9571b6ea2ef053aca06a979452f39f54490a0cb841216a3e93809daa",
+    "320": "a320f8b4566e8733b36b9129241549fe44c405a556b7f36e8cb44213c3d08977",
+    "340": "7508c67a6f4e33b6b499698cc903c6ee536fc5f589138fa0192cf816225c5bb3",
+    "400": "75f7cf2e7520a99d73146c036025e495a6fc9274264574f76b8c81643fc89152",
+    "440": "0b3f4f287d6c1d2e35fccb29db1a1bf77e19456467e4e071fd94536e4525a357"
+  },
+  "full_video_sha256": "6ba0c5ca41c54ef4d2586f86ef16b2fd96145dacc79a6b007da992708b90a231",
+  "package_digest_at_baseline": null,
+  "caption_safe_area": {
+    "frames_checked": 446,
+    "issues": 0
+  },
+  "note": "v6 has NOT passed independent semantic review; the benchmark protects the look, it is not a quality approval.",
+  "supersedes": "regression_benchmark_v5.json (kept as history)",
+  "rebaseline_reason": "Deliberate visual improvements after the independent review of v5 (HARD_FAIL): AC fully framed and slumped/wiping Bima in S001, remote screen shows 28 -> 24, single thermometer, icy coil and lower framing in S003, compressor pumping, plume through the fan and indoor unit kept in frame in S004.",
+  "independent_review_of_v5": {
+    "status": "HARD_FAIL",
+    "shot_mean_scores": {
+      "S001": 3.14,
+      "S002": 3.36,
+      "S003": 3.21,
+      "S004": 3.21
+    },
+    "reference_mean_score": 3.25,
+    "evidence": "docs/evidence/phase02a_visual_only/independent_visual_review_v5.json"
+  }
+}

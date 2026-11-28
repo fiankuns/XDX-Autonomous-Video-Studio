@@ -1,0 +1,262 @@
+{
+ "schema": "xdx.independent-visual-review.v1",
+ "project_id": "bench_p02a_ac_15s",
+ "reviewer_id": "independent-visual-critic-agent-v5",
+ "reviewer_context": "fresh",
+ "render_sha256": "6840a3e9e72a1545e32e68569f2533e7c1e9d398e8887a857c9ba3fd9d76146f",
+ "shots": [
+  {
+   "shot_id": "S001",
+   "frames_inspected": [
+    10,
+    33,
+    52,
+    85,
+    94
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "visible": true,
+     "frame": 10,
+     "note": "Bima holds a striped hand fan at shoulder height beside his head, sweat drop and worried face; wall thermometer reads 32C; curtained closed window at right. The fan is small and held away from the face, and the AC is only a plain closed unit (no cutaway read), cropped by the left frame edge."
+    },
+    {
+     "index": 1,
+     "visible": true,
+     "frame": 33,
+     "note": "Bima, thermometer and AC share one frame with red heat arrows flowing toward the AC. The AC is a plain closed split unit, not a visible cutaway, and is cut by the left edge."
+    },
+    {
+     "index": 2,
+     "visible": true,
+     "frame": 94,
+     "note": "Head has turned up-left toward the AC and the fan is lowered; end state is stable, but the head turn reads as a snap and the left arm hangs limp throughout."
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_001",
+     "visible": true,
+     "frame": 33,
+     "note": "Hot 32C room with red arrows moving toward the AC; no cold is created, consistent with the negation."
+    },
+    {
+     "cue_id": "CAP_002",
+     "visible": true,
+     "frame": 85,
+     "note": "Dense red arrows streaming from room/window to the AC while Bima looks up at it: heat being moved."
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [],
+   "caption_occludes_subject": false,
+   "subject_clipped_by_frame": true,
+   "scores": {
+    "character_and_asset_quality": 3.5,
+    "semantic_visual_storytelling": 3.5,
+    "animation_and_object_interaction": 2.5,
+    "mechanism_visualization": 3.0,
+    "camera_and_cinematography": 3.0,
+    "lighting_shadow_material_texture": 3.5,
+    "composition_and_transitions": 3.0
+   },
+   "notes": "Clean warm room, readable wooden-doll character. Weak: stiff acting (limp left arm, tiny fan motion), the 'Panas kamar' pill sits on the hand/fan at f52 (but not at f33), AC (key prop) cropped by the left edge and not a cutaway, heat arrows are busy and blurry in the top third, bottom ~35 percent is empty floor/rug."
+  },
+  {
+   "shot_id": "S002",
+   "frames_inspected": [
+    115,
+    142,
+    157,
+    195,
+    199
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "visible": true,
+     "frame": 142,
+     "note": "Close-up: thumb presses the orange power button on the remote; red IR LED on top; display already reads COOL 24. No separate 24-degree press is shown."
+    },
+    {
+     "index": 1,
+     "visible": true,
+     "frame": 157,
+     "note": "Camera has moved to the AC; louver still closed and a 'Sinyal inframerah' pill sits near the sensor with a small IR spark at the right edge, i.e. the signal travelling to the unit. Cut/whip from the remote is abrupt."
+    },
+    {
+     "index": 2,
+     "visible": true,
+     "frame": 199,
+     "note": "Louver open, display shows 24, steady blue cool-air arrows; shot settles."
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_003",
+     "visible": true,
+     "frame": 142,
+     "note": "Thumb pressing the remote button while 'Saat tombol remot ditekan, kisi' is on screen."
+    },
+    {
+     "cue_id": "CAP_004",
+     "visible": true,
+     "frame": 195,
+     "note": "Louver flap open with blue air arrows under 'AC terbuka.'"
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [
+    "Thumb tip at f142 is a faceted polygonal patch with a hard-edged cut (low-poly artifact)"
+   ],
+   "caption_occludes_subject": true,
+   "subject_clipped_by_frame": true,
+   "scores": {
+    "character_and_asset_quality": 3.5,
+    "semantic_visual_storytelling": 4.0,
+    "animation_and_object_interaction": 3.0,
+    "mechanism_visualization": 3.5,
+    "camera_and_cinematography": 3.0,
+    "lighting_shadow_material_texture": 3.5,
+    "composition_and_transitions": 3.0
+   },
+   "notes": "Good cause-effect chain: press, IR, louver, cool air. Problems: f115 camera is tilted/extreme close on Bima's face with caption covering his torso and the arm reaching to the thermometer rather than the AC; f142 caption covers the lower remote body and the thumb root; faceted thumbnail; 24 already pre-displayed; AC is not a cutaway here; the AC is clipped on the left edge in f195/f199; large empty wall in the lower half."
+  },
+  {
+   "shot_id": "S003",
+   "frames_inspected": [
+    222,
+    253,
+    270,
+    313,
+    317
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "visible": true,
+     "frame": 253,
+     "note": "Front casing lifted off exposing a finned copper coil; orange arrows fall toward the unit; white wisps in the coil plus 'Refrigeran cair -> menguap' pill suggest evaporation. Arrows are small/faint and the coil does not read as cold."
+    },
+    {
+     "index": 1,
+     "visible": true,
+     "frame": 270,
+     "note": "Cutaway coil model with Evaporator pill and orange heat arrows reaching the housing."
+    },
+    {
+     "index": 2,
+     "visible": true,
+     "frame": 317,
+     "note": "Camera drift has settled; coil, three labels and blue outflow stable."
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_005",
+     "visible": true,
+     "frame": 253,
+     "note": "Evaporator labelled, coil exposed, orange heat arrows entering, refrigerant 'cair -> menguap' pill."
+    },
+    {
+     "cue_id": "CAP_006",
+     "visible": true,
+     "frame": 313,
+     "note": "'Panas kamar' pill with orange arrows into the coil; blue cooled air leaves below."
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [],
+   "caption_occludes_subject": false,
+   "subject_clipped_by_frame": true,
+   "scores": {
+    "character_and_asset_quality": 3.5,
+    "semantic_visual_storytelling": 3.5,
+    "animation_and_object_interaction": 3.0,
+    "mechanism_visualization": 3.5,
+    "camera_and_cinematography": 3.0,
+    "lighting_shadow_material_texture": 3.5,
+    "composition_and_transitions": 2.5
+   },
+   "notes": "Nice coil/fin modelling and soft glow. Composition weak: lower ~45 percent of the frame is empty wall; unit pinned top with left end cropped; pills crowd the top and overlap blue arrows ('Refrigeran' pill over outflow). f222 shows the panel leaving at top-right with no heat arrows yet, and the previous shot's open louver/airflow is not carried over (continuity). Heat arrows are small and faint; the liquid-to-vapour change is abstract."
+  },
+  {
+   "shot_id": "S004",
+   "frames_inspected": [
+    342,
+    373,
+    390,
+    433,
+    437
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "visible": true,
+     "frame": 433,
+     "note": "Hot orange pipe with chevrons runs from the indoor unit through a wall sleeve to the outdoor unit; blue return line; orange heat plume rises from the outdoor unit over the fan ('Kalor ke udara luar'). The plume emerges from the compressor side and crosses the fan, not clearly exhausted by it."
+    },
+    {
+     "index": 1,
+     "visible": true,
+     "frame": 373,
+     "note": "Hot vapour pipe reaches the outdoor unit's compressor; 'Uap panas' pill at the wall sleeve; the compressor is unlabelled until f390."
+    },
+    {
+     "index": 2,
+     "visible": true,
+     "frame": 437,
+     "note": "Camera settled on the wall cross-section with a steady plume and four stable labels."
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_007",
+     "visible": true,
+     "frame": 373,
+     "note": "Hot vapour flows toward the outdoor unit with 'Uap panas' label; the compressor is not labelled/animated at this frame and shows no pumping motion."
+    },
+    {
+     "cue_id": "CAP_008",
+     "visible": true,
+     "frame": 433,
+     "note": "'Kondensor luar' pill and heat plume off the outdoor unit; pill sits under the unit near the legs, mildly ambiguous."
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [
+    "Incoherent base geometry bottom-left: flat orange floor, grey slab and green ground meet at a hard diagonal with no wall/floor continuity (f342-f437)"
+   ],
+   "caption_occludes_subject": true,
+   "subject_clipped_by_frame": true,
+   "scores": {
+    "character_and_asset_quality": 3.0,
+    "semantic_visual_storytelling": 4.0,
+    "animation_and_object_interaction": 3.0,
+    "mechanism_visualization": 4.0,
+    "camera_and_cinematography": 3.0,
+    "lighting_shadow_material_texture": 2.5,
+    "composition_and_transitions": 3.0
+   },
+   "notes": "Best mechanism read: indoor to wall to outdoor with hot and cold lines. Weak: flat sky/grass lighting and weak contact shadow under the outdoor unit; the indoor unit is cut by the left edge from f390 on; 'Kompresor' pill overlaps the fan and compressor; caption pill sits on the wall base/slab; no compressor pumping animation; the 'Kondensor luar' pill overlaps a leg."
+  }
+ ],
+ "reference_comparison": {
+  "reference_id": "REF-002",
+  "reference_sha256": "unknown_frames_only_reviewed",
+  "scores": {
+   "character_and_asset_quality": 3.0,
+   "mechanism_visualization": 3.0,
+   "camera_and_cinematography": 3.0,
+   "lighting_shadow_material_texture": 3.5,
+   "composition_and_transitions": 3.5,
+   "story_clarity": 3.5
+  },
+  "notes": "REF-002 (t5/t20/t40/t60/t90) has richer dressed environments (sky with clouds, palms, terrain, adobe), textured characters, naturalistic sun with long contact shadows and calm centered framing, with a minimal single-line caption mid-frame. This render is cleaner and more explicit as an explainer (labels, arrows, cutaway), so mechanism and story clarity are near par, but its assets are plainer and toy-like, lighting flatter (S004 exterior), and compositions emptier (S003, S001 floor)."
+ }
+}

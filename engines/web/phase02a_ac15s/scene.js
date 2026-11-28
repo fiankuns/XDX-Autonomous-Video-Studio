@@ -105,20 +105,11 @@ const room = new THREE.Group(); scene.add(room);
   }
   mesh(new THREE.CylinderGeometry(0.018, 0.018, 2.2, 12), std("#6B5440", 0.5, 0.3), v3(0, 1.04, 0.16), win).rotation.z = Math.PI / 2;
 
-  // desk + digital thermometer + plant + books (left-back)
+  // desk + plant + books (left-back); the room temperature is read from the single wall thermometer
   const desk = new THREE.Group(); desk.position.set(-1.25, 0, -1.6); room.add(desk);
   const wood = std("#8A5A36", 0.55);
   mesh(rbox(1.15, 0.06, 0.62, 0.02), wood, v3(0, 0.76, 0), desk);
   for (const [x, z] of [[-0.52, -0.25], [0.52, -0.25], [-0.52, 0.25], [0.52, 0.25]]) mesh(rbox(0.05, 0.74, 0.05, 0.012), wood, v3(x, 0.37, z), desk);
-  const thermo = new THREE.Group(); thermo.position.set(0.18, 0.79, 0.08); thermo.rotation.y = 0.55; desk.add(thermo);
-  mesh(rbox(0.26, 0.19, 0.07, 0.025), std("#F7F7F5", 0.35), v3(0, 0.11, 0), thermo);
-  mesh(rbox(0.18, 0.03, 0.12, 0.01), std("#F7F7F5", 0.35), v3(0, 0.015, 0.0), thermo);
-  const thermoTex = canvasTex(256, 160, (g) => {
-    g.fillStyle = "#101418"; g.beginPath(); g.roundRect(0, 0, 256, 160, 18); g.fill();
-    g.fillStyle = "#FF5A3C"; g.font = "800 92px PJS, sans-serif"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("32°C", 128, 88);
-    g.fillStyle = "#8C98A4"; g.font = "700 26px PJS, sans-serif"; g.fillText("SUHU KAMAR", 128, 26);
-  });
-  mesh(new THREE.PlaneGeometry(0.21, 0.13), new THREE.MeshBasicMaterial({ map: thermoTex }), v3(0, 0.115, 0.0365), thermo, { cast: false });
   const pot = mesh(new THREE.CylinderGeometry(0.08, 0.06, 0.15, 24), std("#C9643F", 0.7), v3(-0.38, 0.865, -0.12), desk);
   const leafMat = std("#4E9A55", 0.6);
   const lr = mulberry32(3);
@@ -165,6 +156,7 @@ const wallThermo = new THREE.Group(); wallThermo.position.set(-1.05, 1.9, -1.975
   mesh(new THREE.PlaneGeometry(0.44, 0.55), new THREE.MeshStandardMaterial({ map: art, roughness: 0.8 }), v3(0, 0, 0.017), frame, { cast: false });
 }
 const AC = makeIndoorAC();
+const copperBase = AC.copper.color.clone(), icyCoil = new THREE.Color("#9FD8FF");
 AC.g.position.set(-2.24, 2.55, -0.25);
 AC.g.rotation.y = Math.PI / 2; // front faces +x (into the room)
 room.add(AC.g);
@@ -189,14 +181,20 @@ const fan = new THREE.Group(); rightArm.wr.add(fan);
   fan.position.set(0, -0.08, 0.02);
 }
 const remote = new THREE.Group(); leftArm.wr.add(remote);
-let remoteTip, remoteBtn, remoteFace, pressThumb;
+let remoteTip, remoteBtn, remoteFace, pressThumb, setRemoteTemp;
 {
   mesh(rbox(0.07, 0.2, 0.028, 0.013), std("#EEF1F4", 0.3), v3(0, -0.09, 0.03), remote);
-  const scrT = canvasTex(256, 160, (g) => {
+  const drawRemoteScreen = (g, txt, col) => {
     g.fillStyle = "#14202B"; g.beginPath(); g.roundRect(0, 0, 256, 160, 20); g.fill();
-    g.fillStyle = "#7FD8FF"; g.font = "800 104px PJS, sans-serif"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText("24°", 128, 86);
+    g.fillStyle = col; g.font = "800 104px PJS, sans-serif"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText(txt, 128, 86);
     g.fillStyle = "#5C7A90"; g.font = "700 26px PJS, sans-serif"; g.fillText("COOL", 128, 22);
-  });
+  };
+  const scrT = canvasTex(256, 160, (g) => drawRemoteScreen(g, "28°", "#FFB27A"));
+  let remoteTemp = "28°";
+  setRemoteTemp = (txt) => { // pure function of the requested value: redraw only when it changes
+    if (txt === remoteTemp) return;
+    remoteTemp = txt; drawRemoteScreen(scrT.image.getContext("2d"), txt, txt === "24°" ? "#7FD8FF" : "#FFB27A"); scrT.needsUpdate = true;
+  };
   mesh(new THREE.PlaneGeometry(0.056, 0.035), new THREE.MeshBasicMaterial({ map: scrT }), v3(0, -0.155, 0.0445), remote, { cast: false }).rotation.z = Math.PI; // text reads with the IR tip up
   remoteBtn = mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.007, 20), std(ACCENT, 0.4, 0, { emissive: new THREE.Color(ACCENT), emissiveIntensity: 0.15 }), v3(0, -0.105, 0.0445), remote, { cast: false });
   remoteBtn.rotation.x = Math.PI / 2;
@@ -386,6 +384,7 @@ const xsParts = {};
   xs.add(xsSun); xs.add(xsSun.target);
   const warmIn = new THREE.PointLight("#FFD3A0", 1.6, 4, 1.5); warmIn.position.set(-1.3, 2.4, 1.6); xs.add(warmIn);
 }
+const compBase = xsParts.comp.position.clone();
 const hot = new THREE.Color("#F0461E"), hotPale = new THREE.Color("#FF9A55");
 const suction = new Comets(xs, 14, 6, () => xsParts.pipeTop, () => hot, 0.09, 0.35, { alpha: 0.95, gap: 0.02, arrows: true });
 const liquid = new Comets(xs, 12, 5, () => xsParts.pipeBot, () => new THREE.Color("#2F8FFF"), 0.06, 0.3, { alpha: 0.9, gap: 0.022, arrows: true });
@@ -393,9 +392,11 @@ const condFlow = new Comets(xsParts.od, 14, 1, () => xsParts.condCurve, (i, t) =
 const heatOutCurves = [];
 const ho = mulberry32(31);
 for (let i = 0; i < 24; i++) {
-  const a = v3(0.63 + (ho() - 0.5) * 0.3, 1.25 + (ho() - 0.5) * 0.3, 1.12);
-  const b = v3(0.85 + ho() * 0.4, 1.5 + ho() * 0.4, 1.5 + ho() * 0.2);
-  const c = v3(1.1 + ho() * 0.6, 2.0 + ho() * 0.9, 1.4 + ho() * 0.4);
+  // the hot air leaves THROUGH the spinning fan disc (centre 0.63,1.25), pushed out toward the viewer, then rises
+  const ang = ho() * Math.PI * 2, rad = Math.sqrt(ho()) * 0.15;
+  const a = v3(0.63 + Math.cos(ang) * rad, 1.25 + Math.sin(ang) * rad, 1.12);
+  const b = v3(a.x + 0.05 + ho() * 0.15, a.y + 0.05 + ho() * 0.15, 1.55 + ho() * 0.15);
+  const c = v3(a.x + 0.45 + ho() * 0.5, 1.9 + ho() * 0.8, 1.5 + ho() * 0.3);
   heatOutCurves.push(new THREE.CatmullRomCurve3([a, b, c]));
 }
 const heatOut = new Comets(xs, 24, 7, (i) => heatOutCurves[i], (i, t) => hot.clone().lerp(hotPale, t), 0.09, 0.38, { alpha: 0.9, gap: 0.02, grow: true, arrows: true });
@@ -478,7 +479,7 @@ function renderFrame(f) {
   AC.louverPivot.rotation.x = 0;
   AC.setDisplay("", false);
   AC.front.visible = true; AC.panelMat.opacity = 1; AC.panelMat.transparent = false; AC.front.position.set(0, 0, 0);
-  AC.copper.transparent = false; AC.copper.opacity = 1;
+  AC.copper.transparent = false; AC.copper.opacity = 1; AC.copper.color.copy(copperBase); AC.copper.emissive.set("#000000"); AC.copper.emissiveIntensity = 0;
   fan.visible = false; remote.visible = false;
   route.visible = false; routeHead.visible = false;
   irGroup.visible = false; sensorFlash.visible = false; irBeam.visible = false; ledFlash.visible = false;
@@ -493,21 +494,24 @@ function renderFrame(f) {
   if (shot === 0) {
     const c0 = cue("S001", 0), c1 = cue("S001", 1);
     const tt = ease(seg(f, c0.a, c1.b));
-    look(62, lerp(1.55, 1.3, tt), lerp(2.25, 2.1, tt), lerp(4.1, 3.6, tt), -0.95, 1.2, -0.6);
+    look(62, lerp(0.85, 0.65, tt), lerp(2.3, 2.15, tt), lerp(4.1, 3.6, tt), -1.15, 1.55, -0.6);
     bima.root.rotation.y = 0.5;
     // c0: overheated, fanning; c1 (lead 0.3 s): glances up at the AC while the heat route draws to it
     const glance = ease(seg(f, c1.a - SYNC_LEAD, c1.a + 10));
     const w = Math.sin(t * 2 * Math.PI * 2.4) * (1 - 0.6 * glance);
     const ra = rightArm;
     ra.sh.rotation.set(-0.75, 0.55, 0.15);
-    ra.el.rotation.set(-2.15 + 0.18 * w, 0, 0);
-    ra.wr.rotation.set(0.1, 0.0, 0.9 * w);
+    ra.el.rotation.set(-2.35 + 0.3 * w, 0, 0);
+    ra.sh.rotation.set(-0.8 + 0.12 * w, 0.55, 0.15);
+    ra.wr.rotation.set(0.1, 0.0, 1.5 * w);
     grip(ra, 0.8);
     fan.visible = true;
-    leftArm.sh.rotation.set(0.05, 0, -0.18); leftArm.el.rotation.set(-0.35, 0, 0);
+    // left hand wipes the forehead (tired, overheated) instead of hanging limp
+    leftArm.sh.rotation.set(-0.55 - 0.08 * w, -0.25, -0.3); leftArm.el.rotation.set(-1.9 + 0.1 * w, 0, 0);
     bima.head.rotation.set(lerp(0.12 + 0.02 * w, -0.42, glance), lerp(-0.1, -1.0, glance), 0.05 * w * (1 - glance));
     for (const e of bima.eyes) e.e.children[1].position.x = lerp(0, -0.008, glance);
     bima.torso.rotation.y = 0.04 * w;
+    bima.torso.rotation.x = 0.1 * (1 - glance); // slumped, tired posture
     face(1, 0, f % 70 > 66 ? 0.9 : 0);
     bima.sweat.forEach((s, i) => { s.d.position.y = s.y0 - ((t * 0.08 + i * 0.37) % 1) * 0.07; });
     heatComets.group.visible = true;
@@ -515,7 +519,7 @@ function renderFrame(f) {
     const rt = ease(seg(f, c1.a - SYNC_LEAD, c1.a + 12));
     heatComets.update(t, 1, 1 + 0.45 * rt);
     scene.updateMatrixWorld(true);
-    placeScreen(L.heat, 760, 700, seg(f, c0.a + 10, c0.a + 20) * (1 - seg(f, c1.a - 8, c1.a)));
+    placeScreen(L.heat, 250, 560, seg(f, c0.a + 10, c0.a + 20) * (1 - seg(f, c1.a - 8, c1.a)));
   } else if (shot === 1) {
     const c0 = cue("S002", 0), c1 = cue("S002", 1);
     const L0 = c0.b - c0.a;
@@ -537,6 +541,7 @@ function renderFrame(f) {
     // thumb hovers over the power/24° button, then presses it (moves onto the button face)
     pressThumb.position.set(lerp(-0.045, -0.025, press), lerp(-0.06, -0.072, press), lerp(0.072, 0.052, press));
     remoteBtn.material.emissiveIntensity = 0.15 + 2.6 * press;
+    setRemoteTemp(f >= pressB ? "24°" : "28°"); // the setting visibly changes when the button is pressed
     rightArm.sh.rotation.set(0.0, 0, 0.15); rightArm.el.rotation.set(-0.3, 0, 0);
     bima.head.rotation.set(-0.3 * raise, -0.35 * raise, 0);
     const relief = ease(seg(f, openB, c1.b));
@@ -590,7 +595,7 @@ function renderFrame(f) {
   } else if (shot === 2) {
     const c0 = cue("S003", 0), c1 = cue("S003", 1);
     const tt = ease(seg(f, c0.a, c1.b));
-    look(lerp(60, 56, tt), lerp(-0.55, -0.72, tt), lerp(2.15, 2.2, tt), lerp(1.3, 1.12, tt), -2.2, 2.4, -0.25);
+    look(lerp(54, 50, tt), lerp(-0.62, -0.78, tt), lerp(2.3, 2.3, tt), lerp(1.25, 1.1, tt), -2.2, 2.75, -0.25);
     bima.root.visible = false;
     AC.setDisplay("24°", true);
     AC.louverPivot.rotation.x = -1.05;
@@ -601,6 +606,8 @@ function renderFrame(f) {
     // x-ray copper so the refrigerant inside the coil (liquid -> vapour) is visible
     const xr = seg(f, c0.a + 14, c0.a + 26);
     AC.copper.transparent = xr > 0; AC.copper.opacity = lerp(1, 0.3, xr); AC.copper.depthWrite = xr < 0.5;
+    const chill = ease(seg(f, c0.a + 20, c0.a + 70)); // the coil turns icy as the refrigerant absorbs the room heat
+    AC.copper.color.lerp(icyCoil, chill); AC.copper.emissive.set("#3AA0FF"); AC.copper.emissiveIntensity = 0.55 * chill;
     key.intensity = 1.2; hemi.intensity = 0.45; sun.intensity = 2.5;
     acInner.intensity = 1.6 * lift; coolLight.intensity = 1.5;
     AC.blower.rotation.x = -t * 14;
@@ -615,10 +622,12 @@ function renderFrame(f) {
   } else {
     const c0 = cue("S004", 0), c1 = cue("S004", 1);
     const tt = ease(seg(f, c0.a, c1.b));
-    look(64, 40 + lerp(0.0, 0.35, tt), lerp(2.15, 1.95, tt), lerp(5.4, 5.1, tt), 40 + lerp(0.1, 0.42, tt), lerp(2.0, 1.8, tt), 0.9);
+    look(67, 39.9 + lerp(0.0, 0.15, tt), lerp(2.15, 1.95, tt), lerp(5.5, 5.2, tt), 39.95 + lerp(0.1, 0.25, tt), lerp(2.0, 1.8, tt), 0.9);
     xsParts.fanHub.rotation.z = -t * 18;
-    const pulse = 1 + 0.08 * Math.sin(t * 2 * Math.PI * 4);
+    const beat = Math.sin(t * 2 * Math.PI * 4);
+    const pulse = 1 + 0.15 * beat;
     xsParts.comp.scale.set(pulse, 1 / pulse, pulse);
+    xsParts.comp.position.set(compBase.x + 0.006 * Math.sin(t * 2 * Math.PI * 8), compBase.y + 0.01 * beat, compBase.z); // pumping stroke + vibration
     suction.update(t, 1); liquid.update(t, 1); condFlow.update(t, 1);
     heatOut.update(t, ease(seg(f, c1.a - SYNC_LEAD, c1.a + 10)) * 0.9 + 0.1, 1 + 0.3 * seg(f, c1.a, c1.b));
     coolIn.update(t, 1);

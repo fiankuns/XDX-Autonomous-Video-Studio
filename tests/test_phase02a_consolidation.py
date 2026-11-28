@@ -161,8 +161,8 @@ def _can_render() -> bool:
 
 
 @pytest.mark.skipif(not _can_render(), reason="headless Chrome/Playwright not available")
-def test_p02a_cons_10_pixel_regression_against_v5_benchmark(tmp_path: Path) -> None:
-    bench = json.loads((ROOT / "docs/evidence/phase02a_visual_only/regression_benchmark_v5.json").read_text(encoding="utf-8"))
+def test_p02a_cons_10_pixel_regression_against_latest_benchmark(tmp_path: Path) -> None:
+    bench = json.loads((ROOT / "docs/evidence/phase02a_visual_only/regression_benchmark_v6.json").read_text(encoding="utf-8"))
     frames = [10, 140, 260, 400]
     out = tmp_path / "frames"
     res = subprocess.run(["python3", str(ROOT / "scripts/render_phase02a_visual.py"), str(PKG), "--prototype", "--out", str(out),
