@@ -1,0 +1,51 @@
+{
+  "schema_version": "4.0.0-phase02b3",
+  "style_bible_id": "xdx_pixar_stylized_3d_v1",
+  "style_profile": "stylized_3d",
+  "display_name": "Modern 3D Pixar-like stylized CGI",
+  "owner_prompt": {
+    "art_style": "Modern 3D Pixar animated movie style, high end stylized CGI character design, studio quality 3D render, smooth stylized anatomy with charming slightly enlarged head proportions and clean silhouette.",
+    "subject": "[GANTI BAGIAN INI DENGAN DESKRIPSI KARAKTER, RAMBUT, EKSPRESI, DAN PAKAIAN YANG DIINGINKAN]",
+    "materials_and_textures": "Realistic subsurface scattering on warm soft skin, sculpted clump hair with fine strand details and gentle specular highlights, detailed tactile cotton and denim fabric weave, raised 3D embroidery stitching texture for any shirt graphics, matte rubber and canvas materials on footwear.",
+    "lighting_and_atmosphere": "Clean softbox studio lighting, even neutral illumination with gentle warm fill light, soft shadows, crisp ambient occlusion in clothing folds, zero harsh contrast, clean neutral light gray studio backdrop.",
+    "camera_and_quality": "Sharp focus, telephoto orthographic look, ultra clean 8k CGI render, production ready 3D animation asset aesthetic, no grain, no blur, no artifacts."
+  },
+  "rules": {
+    "anatomy": {
+      "head_to_height_ratio": [0.2, 0.25],
+      "single_unified_body_mesh": true,
+      "no_visible_mannequin_joints": true,
+      "clean_silhouette": true,
+      "smooth_shading": true
+    },
+    "materials": {
+      "skin": {"subsurface_weight": 0.25, "subsurface_radius": [1.0, 0.45, 0.25], "subsurface_scale": 0.02, "roughness": 0.45, "warm": true},
+      "hair": {"form": "sculpted_clumps", "roughness": 0.35, "coat_weight": 0.3, "specular_tint": "soft"},
+      "cotton": {"roughness": 0.85, "sheen_weight": 0.35, "weave_bump": 0.15},
+      "denim_twill": {"roughness": 0.8, "sheen_weight": 0.25, "weave_bump": 0.2},
+      "shirt_graphic": {"technique": "raised_embroidery_decal", "bump_strength": 0.3},
+      "footwear": {"rubber_roughness": 0.65, "canvas_roughness": 0.9}
+    },
+    "lighting": {
+      "key": {"type": "AREA", "size_m": 2.0, "color_k": 5200, "role": "large softbox, front-left high"},
+      "fill": {"type": "AREA", "size_m": 2.5, "color_k": 3800, "ratio_to_key": 0.45, "role": "gentle warm fill, front-right low"},
+      "rim": {"type": "AREA", "size_m": 1.5, "color_k": 6000, "ratio_to_key": 0.35, "role": "soft separation from behind"},
+      "contrast": "low",
+      "ambient_occlusion": true,
+      "backdrop_rgb_linear": [0.6, 0.6, 0.62]
+    },
+    "color_management": {"view_transform": "AgX", "look_preference": ["AgX - Medium Low Contrast", "AgX - Base Contrast", "None"]},
+    "camera": {"lens_mm": 85, "orthographic_option": true, "depth_of_field": false},
+    "quality": {
+      "target_cgi": "8k offline intent",
+      "android_mobile_cap": "render <=512px under the mobile guard; style kept, detail reduced",
+      "no_grain": true, "no_blur": true
+    },
+    "forbidden": ["flat cel shading", "ink outlines", "mannequin ball joints", "harsh contrast", "dark or colored backdrop", "motion blur"]
+  },
+  "gate": {
+    "requires_reference_views": ["front", "back", "left", "right", "three_quarter", "face"],
+    "palette_must_match_character_blueprint": true,
+    "independent_visual_critic_required": true
+  }
+}
