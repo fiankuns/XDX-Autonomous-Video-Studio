@@ -1,0 +1,280 @@
+{
+ "schema": "xdx.independent-visual-review.v1",
+ "project_id": "bench_p02a_ac_15s",
+ "reviewer_id": "independent-visual-critic-agent-v3",
+ "reviewer_context": "fresh",
+ "render_sha256": "b5dc6032a98cbdda8ce36c168e6f90913beab1b654501db190bd8ff9605b2483",
+ "shots": [
+  {
+   "shot_id": "S001",
+   "frames_inspected": [
+    10,
+    52,
+    94,
+    33,
+    85,
+    0,
+    66,
+    100
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "visible": false,
+     "frame": 52,
+     "note": "Partial only. Bima looks hot (sweat drop, worried face) and holds a striped hand fan, but the fan stays at shoulder height at the right frame edge and never fans his face (f10/33/52/85/94 identical pose). No 32 C thermometer anywhere in S001; the sealed glass window is not shown (only a curtain sliver at the right edge). Heat arrows flowing into the AC carry the 'moving heat' idea."
+    },
+    {
+     "index": 1,
+     "visible": true,
+     "frame": 10,
+     "note": "Bima stands in the room below/beside the wall AC unit, looking hot. Closed-room / 32 C specifics are not readable."
+    },
+    {
+     "index": 2,
+     "visible": true,
+     "frame": 94,
+     "note": "Pose settles; Bima's head turns up toward the AC unit (the next shot's focus)."
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_001",
+     "visible": true,
+     "frame": 33,
+     "note": "Red heat arrows plus a 'Panas kamar' tag stream from the room into the AC. This reads as the AC taking in heat rather than making cold. Acceptable but abstract."
+    },
+    {
+     "cue_id": "CAP_002",
+     "visible": true,
+     "frame": 85,
+     "note": "Heat arrows keep converging into the indoor unit, so 'memindahkan panas' is shown as heat moving to the AC. Where the heat goes (outside) is not hinted."
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [
+    "f85-f100: long stray orange tube/curve with a hook loop hangs from the ceiling across the AC, unexplained; reads as a broken heat-path line or stray geometry"
+   ],
+   "caption_occludes_subject": true,
+   "subject_clipped_by_frame": true,
+   "scores": {
+    "character_and_asset_quality": 3,
+    "semantic_visual_storytelling": 3,
+    "animation_and_object_interaction": 2,
+    "mechanism_visualization": 3,
+    "camera_and_cinematography": 3,
+    "lighting_shadow_material_texture": 4,
+    "composition_and_transitions": 2
+   },
+   "notes": "Warm, coherent room with pleasant lighting and soft shadows. Bima's face is appealing, but his limbs are jointed wooden-mannequin segments that clash with the head. He is almost static for 3.5 s. The hook action (fanning the face) is missing, and 2 required assets (thermometer, sealed window) do not appear. The caption box covers Bima's feet (f85/f94). The AC unit is cut by the left edge, and the bottom ~35% of frame is empty floor. The orange curve from f85 on is distracting. The fan prop is partly cut by the right frame edge and merges with the curtain."
+  },
+  {
+   "shot_id": "S002",
+   "frames_inspected": [
+    115,
+    157,
+    199,
+    142,
+    195,
+    108,
+    130,
+    170,
+    178,
+    186
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "visible": true,
+     "frame": 130,
+     "note": "Close-up: a finger presses the orange power button on a remote showing COOL 24 deg (f130/f142). An IR beam travels to the AC receiver (f157/f178) and the louver opens (f186/f195). It is the index finger, not the right thumb, and no separate temperature-button press is shown (24 is already on the display)."
+    },
+    {
+     "index": 1,
+     "visible": true,
+     "frame": 142,
+     "note": "Finger is in contact with the remote button; 24 deg is clearly displayed."
+    },
+    {
+     "index": 2,
+     "visible": true,
+     "frame": 199,
+     "note": "Settles on the open louver with blue airflow, pointing toward the indoor unit (the next shot's focus)."
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_003",
+     "visible": true,
+     "frame": 142,
+     "note": "Remote button being pressed is shown clearly while the caption is on screen."
+    },
+    {
+     "cue_id": "CAP_004",
+     "visible": true,
+     "frame": 186,
+     "note": "Louver swings open with cool-air arrows; still open at f195."
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [
+    "f142: a pale pink cylinder sticks out of the remote's top LED; looks like a stray IR-beam mesh at the wrong scale",
+    "AC body colour/material changes from warm beige (S001, f157/f178) to cool bright white (f186-f199) inside the same shot"
+   ],
+   "caption_occludes_subject": true,
+   "subject_clipped_by_frame": true,
+   "scores": {
+    "character_and_asset_quality": 3,
+    "semantic_visual_storytelling": 4,
+    "animation_and_object_interaction": 3,
+    "mechanism_visualization": 4,
+    "camera_and_cinematography": 3,
+    "lighting_shadow_material_texture": 4,
+    "composition_and_transitions": 3
+   },
+   "notes": "Clearest shot: press, then IR signal, then louver opens, then cool air, all inside its caption windows. Weaknesses: at f108-f115 the caption box covers the 32 C thermometer (the only time it appears), and the remote and hand are cut at the left edge. Hand modelling in the macro close-up is crude. At f157 the AC and the remote are both cut by the frame. The AC changes colour mid-shot. At f142 the hand is a crude sausage finger plus a detached peach blob; finger and palm do not read as one hand (asset quality)."
+  },
+  {
+   "shot_id": "S003",
+   "frames_inspected": [
+    222,
+    270,
+    317,
+    253,
+    313,
+    212,
+    216,
+    300
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "visible": true,
+     "frame": 313,
+     "note": "Front casing slides up and away (f216), revealing a copper coil with fins (f222). Red/orange heat arrows from room air head down into the coil (f300-f313). Refrigerant evaporation is shown only by the 'Refrigeran cair -> menguap' tag and faint white wisps inside the coil; there is no clear liquid-to-vapour visual. At f270 several orange arrows point up and away from the unit, which contradicts 'absorb'."
+    },
+    {
+     "index": 1,
+     "visible": true,
+     "frame": 222,
+     "note": "Clean cross-section of the copper evaporator coil inside the indoor unit."
+    },
+    {
+     "index": 2,
+     "visible": true,
+     "frame": 317,
+     "note": "Camera push settles on the coil with heat arrows going in and cool air coming out."
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_005",
+     "visible": true,
+     "frame": 253,
+     "note": "Evaporator coil plus 'Evaporator' and 'Refrigeran cair -> menguap' labels on screen. Absorption arrows are sparse at f253, and the arrows at f270 point outward."
+    },
+    {
+     "cue_id": "CAP_006",
+     "visible": true,
+     "frame": 313,
+     "note": "'Panas kamar' tag with heat arrows flowing into the coil."
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [],
+   "caption_occludes_subject": false,
+   "subject_clipped_by_frame": true,
+   "scores": {
+    "character_and_asset_quality": 4,
+    "semantic_visual_storytelling": 3,
+    "animation_and_object_interaction": 3,
+    "mechanism_visualization": 3,
+    "camera_and_cinematography": 3,
+    "lighting_shadow_material_texture": 4,
+    "composition_and_transitions": 3
+   },
+   "notes": "Good-looking cutaway coil with believable copper and fins. The casing-split reveal works. The mechanism is under-explained: the change from liquid to vapour is not drawn (for example cold blue liquid becoming vapour bubbles along the tube), and arrow directions flip between f270 and f313. By f313 the push-in cuts the coil off at the left edge. The lower ~45% of frame is empty wall. At f222 the removed front casing shows as a large slab at the top right, which is distracting. At f270 heat-arrow direction contradicts 'absorb' (semantic, not a render artifact)."
+  },
+  {
+   "shot_id": "S004",
+   "frames_inspected": [
+    342,
+    390,
+    437,
+    373,
+    433,
+    332,
+    405,
+    420
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "visible": true,
+     "frame": 433,
+     "note": "Orange chevrons flow along the hot pipe through the brick wall to the outdoor unit (f342-f390). Orange heat waves leave the condenser/fan into the outside air, with a 'Kalor ke udara luar' tag (f420-f437). The indoor end is a flat dark schematic panel, not the evaporator established in S001-S003."
+    },
+    {
+     "index": 1,
+     "visible": true,
+     "frame": 373,
+     "note": "Pipe from indoor to the outdoor compressor shown with flow arrows; 'Kompresor' tag on the green compressor."
+    },
+    {
+     "index": 2,
+     "visible": true,
+     "frame": 437,
+     "note": "Settles on the outdoor unit releasing heat; fan has rotated between f373 and f437."
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_007",
+     "visible": true,
+     "frame": 373,
+     "note": "Hot-vapour flow chevrons run along the pipe to the labelled compressor. The compressor itself shows no pumping cue (no pulse or squeeze)."
+    },
+    {
+     "cue_id": "CAP_008",
+     "visible": true,
+     "frame": 433,
+     "note": "'Kondensor luar' tag on the outdoor unit; heat waves come out of it."
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [
+    "f342/f373/f437 bottom-left: striped aliasing / z-fighting band on the floor where the indoor floor, wall slab and grass meet",
+    "the brick wall slab ends in mid-air above the floor at the bottom; the indoor/outdoor ground seam is unresolved"
+   ],
+   "caption_occludes_subject": false,
+   "subject_clipped_by_frame": true,
+   "scores": {
+    "character_and_asset_quality": 2,
+    "semantic_visual_storytelling": 4,
+    "animation_and_object_interaction": 3,
+    "mechanism_visualization": 4,
+    "camera_and_cinematography": 3,
+    "lighting_shadow_material_texture": 3,
+    "composition_and_transitions": 3
+   },
+   "notes": "The flow concept is clear: hot vapour runs through the wall to the outdoor unit and heat leaves to outside air. But the indoor-unit asset swap breaks continuity, and lighting is flat (no contact shadows under the outdoor unit legs, uniform sky). The floor has visible aliasing. Labels overlap the parts they name. The outdoor unit is cut at the right edge in f342/f373, and the indoor panel is cut at the left in f433. The caption box covers the outdoor unit's legs. The indoor-unit dark panel is a continuity/asset defect, and the label overlap is a composition defect; both are reflected in the scores."
+  }
+ ],
+ "reference_comparison": {
+  "reference_id": "REF-002",
+  "reference_sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+  "scores": {
+   "character_and_asset_quality": 2,
+   "mechanism_visualization": 3,
+   "camera_and_cinematography": 2,
+   "lighting_shadow_material_texture": 2,
+   "composition_and_transitions": 2,
+   "story_clarity": 3
+  },
+  "notes": "REF-002 (How Come? desert video) has fully dressed, deep environments: sky, terrain, props and set dressing. It uses consistent stylized-realistic characters with costume detail, directional sun with long cast shadows, and physical props carrying the information (a dial thermometer at 40 C). Captions are minimal and float mid-frame. This render takes place against bare wall planes: S002-S004 are mostly empty wall or flat sky. The mannequin-limbed Bima and the crude macro hand are well below REF character quality. Explanation leans on UI pill labels and 2D arrow sprites rather than physical props. Lighting is soft but flat, with no strong key-light direction. Mechanism clarity in S002/S004 is reasonable and the story beats are understandable, which is why mechanism and story score 3."
+ }
+}

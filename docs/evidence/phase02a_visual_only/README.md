@@ -23,3 +23,7 @@ Status: `NON_PRODUCTION_PROTOTYPE`; arah visual disetujui pemilik proyek di chat
 
 Review independen (agent konteks bersih, reviewer ≠ producer): **HARD_FAIL** — rata-rata shot 2,86 / 2,43 / 3,21 / 3,00, vs REF-002 2,58; 5 critical, 27 high, 8 medium (`independent_visual_review_proto_v2.json`, `independent_visual_qc_result_proto_v2.json`).
 Tes: core 130 passed; `full_integration` 130 passed.
+
+## v3 (timing map + caption sync)
+
+Review independen v3: **HARD_FAIL** — rata-rata shot {'S001': 2.857, 'S002': 3.429, 'S003': 3.286, 'S004': 3.143}, vs REF-002 2.333; 1 critical (S001), semua 8 caption sinkron (`independent_visual_qc_result_v3.json`).

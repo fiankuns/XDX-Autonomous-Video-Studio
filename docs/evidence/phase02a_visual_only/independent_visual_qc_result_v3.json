@@ -1,0 +1,162 @@
+{
+  "schema": "xdx.independent-visual-qc-result.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "delivery_profile": "VISUAL_ONLY_BENCHMARK",
+  "status": "HARD_FAIL",
+  "reviewer_id": "independent-visual-critic-agent-v3",
+  "shot_mean_scores": {
+    "S001": 2.857,
+    "S002": 3.429,
+    "S003": 3.286,
+    "S004": 3.143
+  },
+  "reference_mean_score": 2.333,
+  "defects": [
+    {
+      "defect_id": "DEF_VQC_SEMANTIC_MISMATCH",
+      "severity": "critical",
+      "shot_id": "S001",
+      "description": "Required action not visible: Bima mengipasi wajah di kamar pengap 32 derajat Celsius dengan jendela tertutup rapat di bawah prop_ac_indoor_evaporator_cutaway."
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "Render artifact: f85-f100: long stray orange tube/curve with a hook loop hangs from the ceiling across the AC, unexplained; reads as a broken heat-path line or stray geometry"
+    },
+    {
+      "defect_id": "DEF_VQC_CAPTION_OCCLUSION",
+      "severity": "medium",
+      "shot_id": "S001",
+      "description": "caption occludes subject"
+    },
+    {
+      "defect_id": "DEF_VQC_FRAME_EDGE_CLIP",
+      "severity": "medium",
+      "shot_id": "S001",
+      "description": "subject clipped by frame"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "animation_and_object_interaction scored 2 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "composition_and_transitions scored 2 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S001",
+      "description": "Mean visual score 2.86 < 3.5"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "Render artifact: f142: a pale pink cylinder sticks out of the remote's top LED; looks like a stray IR-beam mesh at the wrong scale"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "Render artifact: AC body colour/material changes from warm beige (S001, f157/f178) to cool bright white (f186-f199) inside the same shot"
+    },
+    {
+      "defect_id": "DEF_VQC_CAPTION_OCCLUSION",
+      "severity": "medium",
+      "shot_id": "S002",
+      "description": "caption occludes subject"
+    },
+    {
+      "defect_id": "DEF_VQC_FRAME_EDGE_CLIP",
+      "severity": "medium",
+      "shot_id": "S002",
+      "description": "subject clipped by frame"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "Mean visual score 3.43 < 3.5"
+    },
+    {
+      "defect_id": "DEF_VQC_FRAME_EDGE_CLIP",
+      "severity": "medium",
+      "shot_id": "S003",
+      "description": "subject clipped by frame"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S003",
+      "description": "Mean visual score 3.29 < 3.5"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "Render artifact: f342/f373/f437 bottom-left: striped aliasing / z-fighting band on the floor where the indoor floor, wall slab and grass meet"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "Render artifact: the brick wall slab ends in mid-air above the floor at the bottom; the indoor/outdoor ground seam is unresolved"
+    },
+    {
+      "defect_id": "DEF_VQC_FRAME_EDGE_CLIP",
+      "severity": "medium",
+      "shot_id": "S004",
+      "description": "subject clipped by frame"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SCORE",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "character_and_asset_quality scored 2 < 3.0"
+    },
+    {
+      "defect_id": "DEF_VQC_LOW_SHOT_MEAN",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "Mean visual score 3.14 < 3.5"
+    },
+    {
+      "defect_id": "DEF_VQC_BELOW_REFERENCE",
+      "severity": "high",
+      "shot_id": null,
+      "description": "Render scored 2.333 vs REF-002 (< 3.0)"
+    },
+    {
+      "defect_id": "DEF_VQC_REFERENCE_GAP",
+      "severity": "medium",
+      "shot_id": null,
+      "description": "character_and_asset_quality vs REF-002 scored 2"
+    },
+    {
+      "defect_id": "DEF_VQC_REFERENCE_GAP",
+      "severity": "medium",
+      "shot_id": null,
+      "description": "camera_and_cinematography vs REF-002 scored 2"
+    },
+    {
+      "defect_id": "DEF_VQC_REFERENCE_GAP",
+      "severity": "medium",
+      "shot_id": null,
+      "description": "lighting_shadow_material_texture vs REF-002 scored 2"
+    },
+    {
+      "defect_id": "DEF_VQC_REFERENCE_GAP",
+      "severity": "medium",
+      "shot_id": null,
+      "description": "composition_and_transitions vs REF-002 scored 2"
+    }
+  ],
+  "review_gaps": [],
+  "production_ready": false
+}
