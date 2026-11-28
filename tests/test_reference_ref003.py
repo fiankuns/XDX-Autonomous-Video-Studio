@@ -121,3 +121,17 @@ def test_p02b1_evidence_separates_tested_from_detected_and_stores_no_secret():
     assert spans[0][0] == 0 and spans[-1][1] == 300 and all(a[1] == b[0] for a, b in zip(spans, spans[1:]))
     blob = "".join((ROOT / p).read_text(encoding="utf-8") for p in ("docs/evidence/phase02b1/blender_capability_probe.json", "docs/benchmarks/bench_p02b_char_10s.json", "docs/PHASE_02B1_BLENDER_CAPABILITY_REPORT.md"))
     assert "Bearer" not in blob and "trycloudflare" not in blob
+
+
+def test_p02b2_script_is_unexecuted_draft_and_not_wired_into_runners():
+    import py_compile
+
+    script = ROOT / "engines/blender_scripts/phase02b2_bima_rig.py"
+    py_compile.compile(str(script), doraise=True)
+    src = script.read_text(encoding="utf-8")
+    assert "UNTESTED, NOT EXECUTED" in src and "blender_scene_mutation" in src
+    for p in list((ROOT / "scripts").glob("*.py")) + list((ROOT / "engines").glob("*.py")) + list((ROOT / "orchestration").glob("*.py")):
+        assert "phase02b2_bima_rig" not in p.read_text(encoding="utf-8"), f"{p} must not call the 02B.2 draft"
+    from governance import trusted_approval as ta
+
+    assert ta.PHASE02_EXECUTION_ENABLED is False
