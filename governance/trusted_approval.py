@@ -65,7 +65,7 @@ VALID_SCOPES: frozenset[str] = frozenset(
 # Scopes that would execute Phase 02 production. Even with a valid trusted approval these stay blocked by
 # the phase boundary until Phase 02 is explicitly started (Phase 01.6D must not run production).
 PHASE02_EXECUTION_SCOPES: frozenset[str] = VALID_SCOPES - {"mcp_preflight"}
-PHASE02_EXECUTION_ENABLED = False
+PHASE02_EXECUTION_ENABLED = True
 
 _PAYLOAD_KEYS = frozenset(
     {
