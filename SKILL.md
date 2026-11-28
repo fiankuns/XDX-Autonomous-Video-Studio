@@ -67,3 +67,6 @@ description: Hardened universal multi-genre autonomous video production studio (
 - Label = pill + garis penunjuk + cincin kecil pada bagian yang disebut (`xdx_core/callouts.js`); pill digeser menjauh, tidak menutup caption/pill lain/bagian bernama; dicek `callout_contract.py`.
 - Durasi mengikuti isi: `min_seconds` per event; `retime_package`/`visual_workflow.py retime` menjaga satu timeline konsisten; target 15 dtk hanyalah default.
 - Latar tampang potong (section): lantai/dinding dipotong pada bidang yang sama, tanah di depan potongan menerus; jangan ada bentuk liar (pondasi menonjol, bayangan miring); cek dengan `__xdxPick`.
+
+## Profil Produksi Hemat Token
+Ikuti `docs/LEAN_PRODUCTION_PROFILE.md`: muat seperlunya; urutan validasi -> kontrak per beat -> retime -> bukti angka (`verify-actions`) -> satu lembar kontak -> animatic/per shot -> SATU render penuh -> gerbang kirim -> SATU review independen. Angka sebelum piksel; satu batch umpan balik = satu render penuh; shot yang disetujui adalah referensi.

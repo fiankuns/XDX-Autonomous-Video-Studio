@@ -1,0 +1,30 @@
+{
+  "schema": "xdx.independent-visual-qc-result.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "delivery_profile": "VISUAL_ONLY_BENCHMARK",
+  "status": "HARD_FAIL",
+  "reviewer_id": "phase02a_independent_reviewer_v8",
+  "shot_mean_scores": {
+    "S001": 3.571,
+    "S002": 3.571,
+    "S003": 3.929,
+    "S004": 3.714
+  },
+  "reference_mean_score": 3.667,
+  "defects": [
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S002",
+      "description": "Render artifact: IR leader ring floats at the right frame edge, far from the IR window/remote (f261-285)"
+    },
+    {
+      "defect_id": "DEF_VQC_RENDER_ARTIFACT",
+      "severity": "high",
+      "shot_id": "S004",
+      "description": "Render artifact: grey wedge at wall/brick base (x~360-560,y~1170-1480 at f525/f572) and brown wall-floor strip against grass at left"
+    }
+  ],
+  "review_gaps": [],
+  "production_ready": false
+}

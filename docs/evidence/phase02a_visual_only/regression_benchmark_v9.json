@@ -1,0 +1,33 @@
+{
+  "schema": "xdx.regression-benchmark.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "version": "v9",
+  "purpose": "Regression benchmark for Phase 02A: pixel hashes of sampled frames and the full MP4 of the v5 render (user-liked look). Refactors and engine changes must not change them unless the change is a deliberate, reviewed visual improvement (then re-baseline with evidence).",
+  "renderer": "headless Chrome + SwiftShader (CHROME_ARGS in scripts/render_phase02a_visual.py), 1080x1920, 30 fps",
+  "frame_sha256": {
+    "10": "054becafa9187a733253b6f0db62d8c3b6da75cc8ce9af60f781f03abbff6078",
+    "140": "a037bad042f70cfc7766b04a432c289fa30c415424f71ba5ce8f293c22aa9ea7",
+    "260": "00941c7f92b8f5d17e94ebb320d97c860f6d11e3efb224f303eefed42c7f5f07",
+    "400": "da24f254b09733582db16391e14455b0520f20b75656142b4942e6eab72253a6"
+  },
+  "full_video_sha256": "5bf92aeb97efb467ad1a601bcd5d2cf2a6413c7172bff7941f746c205a6ea71f",
+  "package_digest_at_baseline": null,
+  "caption_safe_area": {
+    "frames_checked": 446,
+    "issues": 0
+  },
+  "note": "v9 awaits independent re-review; the benchmark protects the look, it is not a quality approval.",
+  "supersedes": "regression_benchmark_v8.json (kept as history)",
+  "rebaseline_reason": "Fixes after the independent review of v8 (HARD_FAIL): fan handle and grip, sustained forehead wipe, head turn just before the cut, 24 shown earlier with a press ripple, IR ring on the AC window, continuous S004 ground.",
+  "independent_review_of_v5": {
+    "status": "HARD_FAIL",
+    "shot_mean_scores": {
+      "S001": 3.14,
+      "S002": 3.36,
+      "S003": 3.21,
+      "S004": 3.21
+    },
+    "reference_mean_score": 3.25,
+    "evidence": "docs/evidence/phase02a_visual_only/independent_visual_review_v5.json"
+  }
+}

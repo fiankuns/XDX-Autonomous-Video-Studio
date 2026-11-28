@@ -1,0 +1,244 @@
+{
+ "schema": "xdx.independent-visual-review.v1",
+ "reviewer_id": "phase02a_independent_reviewer_v8",
+ "reviewer_context": "fresh",
+ "project_id": "bench_p02a_ac_15s",
+ "render_sha256": "8a72f6cf9c1f08dd408491c2a09ee2620fb36360e51edf5bead132b07b1c9fce",
+ "shots": [
+  {
+   "shot_id": "S001",
+   "frames_inspected": [
+    16,
+    82,
+    148
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "frame": 16,
+     "visible": true,
+     "note": "Bima fans face in a closed 32C room under the AC; wrist rocks, left elbow-out hand sweeps forehead f16-90; fan has no visible handle, hand sits under fan, fan face points to camera not his face"
+    },
+    {
+     "index": 1,
+     "frame": 82,
+     "visible": true,
+     "note": "Bima fans face in a closed 32C room under the AC; wrist rocks, left elbow-out hand sweeps forehead f16-90; fan has no visible handle, hand sits under fan, fan face points to camera not his face"
+    },
+    {
+     "index": 2,
+     "frame": 148,
+     "visible": true,
+     "note": "Bima fans face in a closed 32C room under the AC; wrist rocks, left elbow-out hand sweeps forehead f16-90; fan has no visible handle, hand sits under fan, fan face points to camera not his face"
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_001",
+     "frame": 52,
+     "visible": true
+    },
+    {
+     "cue_id": "CAP_002",
+     "frame": 134,
+     "visible": true
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [],
+   "caption_occludes_subject": false,
+   "subject_clipped_by_frame": false,
+   "scores": {
+    "character_and_asset_quality": 3.5,
+    "semantic_visual_storytelling": 4,
+    "animation_and_object_interaction": 3.5,
+    "mechanism_visualization": 3.5,
+    "camera_and_cinematography": 3.5,
+    "lighting_shadow_material_texture": 3.5,
+    "composition_and_transitions": 3.5
+   },
+   "notes": "Bima fans face in a closed 32C room under the AC; wrist rocks, left elbow-out hand sweeps forehead f16-90; fan has no visible handle, hand sits under fan, fan face points to camera not his face"
+  },
+  {
+   "shot_id": "S002",
+   "frames_inspected": [
+    183,
+    255,
+    326
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "frame": 183,
+     "visible": true,
+     "note": "Head turns from ~f189 (too early), hard cut f229 to remote closeup, display 28->24 only at f252, cut f253 to AC with IR ray; IR ring+leader stranded at right frame edge with no pill near it (f261-277)"
+    },
+    {
+     "index": 1,
+     "frame": 255,
+     "visible": true,
+     "note": "Head turns from ~f189 (too early), hard cut f229 to remote closeup, display 28->24 only at f252, cut f253 to AC with IR ray; IR ring+leader stranded at right frame edge with no pill near it (f261-277)"
+    },
+    {
+     "index": 2,
+     "frame": 326,
+     "visible": true,
+     "note": "Head turns from ~f189 (too early), hard cut f229 to remote closeup, display 28->24 only at f252, cut f253 to AC with IR ray; IR ring+leader stranded at right frame edge with no pill near it (f261-277)"
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_003",
+     "frame": 229,
+     "visible": true
+    },
+    {
+     "cue_id": "CAP_004",
+     "frame": 319,
+     "visible": true
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [
+    "IR leader ring floats at the right frame edge, far from the IR window/remote (f261-285)"
+   ],
+   "caption_occludes_subject": false,
+   "subject_clipped_by_frame": false,
+   "scores": {
+    "character_and_asset_quality": 3.5,
+    "semantic_visual_storytelling": 3.5,
+    "animation_and_object_interaction": 3.5,
+    "mechanism_visualization": 4,
+    "camera_and_cinematography": 3.5,
+    "lighting_shadow_material_texture": 3.5,
+    "composition_and_transitions": 3.5
+   },
+   "notes": "Head turns from ~f189 (too early), hard cut f229 to remote closeup, display 28->24 only at f252, cut f253 to AC with IR ray; IR ring+leader stranded at right frame edge with no pill near it (f261-277)"
+  },
+  {
+   "shot_id": "S003",
+   "frames_inspected": [
+    357,
+    405,
+    452
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "frame": 357,
+     "visible": true,
+     "note": "Casing split, copper/blue coil, red heat arrows absorbed; leader+ring on named parts; Refrigeran pill touches louver edge and right frame edge"
+    },
+    {
+     "index": 1,
+     "frame": 405,
+     "visible": true,
+     "note": "Casing split, copper/blue coil, red heat arrows absorbed; leader+ring on named parts; Refrigeran pill touches louver edge and right frame edge"
+    },
+    {
+     "index": 2,
+     "frame": 452,
+     "visible": true,
+     "note": "Casing split, copper/blue coil, red heat arrows absorbed; leader+ring on named parts; Refrigeran pill touches louver edge and right frame edge"
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_005",
+     "frame": 388,
+     "visible": true
+    },
+    {
+     "cue_id": "CAP_006",
+     "frame": 448,
+     "visible": true
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [],
+   "caption_occludes_subject": false,
+   "subject_clipped_by_frame": false,
+   "scores": {
+    "character_and_asset_quality": 4,
+    "semantic_visual_storytelling": 4,
+    "animation_and_object_interaction": 4,
+    "mechanism_visualization": 4,
+    "camera_and_cinematography": 4,
+    "lighting_shadow_material_texture": 4,
+    "composition_and_transitions": 3.5
+   },
+   "notes": "Casing split, copper/blue coil, red heat arrows absorbed; leader+ring on named parts; Refrigeran pill touches louver edge and right frame edge"
+  },
+  {
+   "shot_id": "S004",
+   "frames_inspected": [
+    477,
+    525,
+    572
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "frame": 477,
+     "visible": true,
+     "note": "Compressor->condenser flow readable; labels have leader+ring; but grey wedge at brick base and brown wall-floor strip left of the wall (f465-585)"
+    },
+    {
+     "index": 1,
+     "frame": 525,
+     "visible": true,
+     "note": "Compressor->condenser flow readable; labels have leader+ring; but grey wedge at brick base and brown wall-floor strip left of the wall (f465-585)"
+    },
+    {
+     "index": 2,
+     "frame": 572,
+     "visible": true,
+     "note": "Compressor->condenser flow readable; labels have leader+ring; but grey wedge at brick base and brown wall-floor strip left of the wall (f465-585)"
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_007",
+     "frame": 508,
+     "visible": true
+    },
+    {
+     "cue_id": "CAP_008",
+     "frame": 568,
+     "visible": true
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [
+    "grey wedge at wall/brick base (x~360-560,y~1170-1480 at f525/f572) and brown wall-floor strip against grass at left"
+   ],
+   "caption_occludes_subject": false,
+   "subject_clipped_by_frame": false,
+   "scores": {
+    "character_and_asset_quality": 3.5,
+    "semantic_visual_storytelling": 4,
+    "animation_and_object_interaction": 4,
+    "mechanism_visualization": 4,
+    "camera_and_cinematography": 3.5,
+    "lighting_shadow_material_texture": 3.5,
+    "composition_and_transitions": 3.5
+   },
+   "notes": "Compressor->condenser flow readable; labels have leader+ring; but grey wedge at brick base and brown wall-floor strip left of the wall (f465-585)"
+  }
+ ],
+ "reference_comparison": {
+  "reference_id": "REF-002",
+  "scores": {
+   "character_and_asset_quality": 3.5,
+   "mechanism_visualization": 4,
+   "camera_and_cinematography": 3.5,
+   "lighting_shadow_material_texture": 3.5,
+   "composition_and_transitions": 3.5,
+   "story_clarity": 4
+  }
+ }
+}

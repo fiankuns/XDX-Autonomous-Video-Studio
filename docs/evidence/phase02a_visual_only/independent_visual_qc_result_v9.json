@@ -1,0 +1,17 @@
+{
+  "schema": "xdx.independent-visual-qc-result.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "delivery_profile": "VISUAL_ONLY_BENCHMARK",
+  "status": "PASS",
+  "reviewer_id": "phase02a_independent_reviewer_v9",
+  "shot_mean_scores": {
+    "S001": 3.657,
+    "S002": 3.771,
+    "S003": 3.929,
+    "S004": 3.886
+  },
+  "reference_mean_score": 3.767,
+  "defects": [],
+  "review_gaps": [],
+  "production_ready": true
+}

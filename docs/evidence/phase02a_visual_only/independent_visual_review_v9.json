@@ -1,0 +1,240 @@
+{
+ "schema": "xdx.independent-visual-review.v1",
+ "reviewer_id": "phase02a_independent_reviewer_v9",
+ "reviewer_context": "fresh",
+ "project_id": "bench_p02a_ac_15s",
+ "render_sha256": "5bf92aeb97efb467ad1a601bcd5d2cf2a6413c7172bff7941f746c205a6ea71f",
+ "shots": [
+  {
+   "shot_id": "S001",
+   "frames_inspected": [
+    16,
+    82,
+    148
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "frame": 16,
+     "visible": true,
+     "note": "Bima fans face in a closed 32C room under the AC; fan has a wooden handle gripped by fist, blade beyond fist, wrist rocks; left elbow-out hand sweeps forehead to ~f140 then drops; fan face is toward camera/him frontally"
+    },
+    {
+     "index": 1,
+     "frame": 82,
+     "visible": true,
+     "note": "Bima fans face in a closed 32C room under the AC; fan has a wooden handle gripped by fist, blade beyond fist, wrist rocks; left elbow-out hand sweeps forehead to ~f140 then drops; fan face is toward camera/him frontally"
+    },
+    {
+     "index": 2,
+     "frame": 148,
+     "visible": true,
+     "note": "Bima fans face in a closed 32C room under the AC; fan has a wooden handle gripped by fist, blade beyond fist, wrist rocks; left elbow-out hand sweeps forehead to ~f140 then drops; fan face is toward camera/him frontally"
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_001",
+     "frame": 52,
+     "visible": true
+    },
+    {
+     "cue_id": "CAP_002",
+     "frame": 134,
+     "visible": true
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [],
+   "caption_occludes_subject": false,
+   "subject_clipped_by_frame": false,
+   "scores": {
+    "character_and_asset_quality": 3.8,
+    "semantic_visual_storytelling": 4,
+    "animation_and_object_interaction": 3.8,
+    "mechanism_visualization": 3.5,
+    "camera_and_cinematography": 3.5,
+    "lighting_shadow_material_texture": 3.5,
+    "composition_and_transitions": 3.5
+   },
+   "notes": "Bima fans face in a closed 32C room under the AC; fan has a wooden handle gripped by fist, blade beyond fist, wrist rocks; left elbow-out hand sweeps forehead to ~f140 then drops; fan face is toward camera/him frontally"
+  },
+  {
+   "shot_id": "S002",
+   "frames_inspected": [
+    183,
+    255,
+    326
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "frame": 183,
+     "visible": true,
+     "note": "Head turns f~203-219, hard cut f~224 to upright remote closeup, 24 from ~f240 with press ripple, cut f~261 to AC; IR ring on AC IR window with leader; pill overlaps louver flap"
+    },
+    {
+     "index": 1,
+     "frame": 255,
+     "visible": true,
+     "note": "Head turns f~203-219, hard cut f~224 to upright remote closeup, 24 from ~f240 with press ripple, cut f~261 to AC; IR ring on AC IR window with leader; pill overlaps louver flap"
+    },
+    {
+     "index": 2,
+     "frame": 326,
+     "visible": true,
+     "note": "Head turns f~203-219, hard cut f~224 to upright remote closeup, 24 from ~f240 with press ripple, cut f~261 to AC; IR ring on AC IR window with leader; pill overlaps louver flap"
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_003",
+     "frame": 229,
+     "visible": true
+    },
+    {
+     "cue_id": "CAP_004",
+     "frame": 319,
+     "visible": true
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [],
+   "caption_occludes_subject": false,
+   "subject_clipped_by_frame": false,
+   "scores": {
+    "character_and_asset_quality": 3.8,
+    "semantic_visual_storytelling": 4,
+    "animation_and_object_interaction": 3.8,
+    "mechanism_visualization": 4,
+    "camera_and_cinematography": 3.5,
+    "lighting_shadow_material_texture": 3.5,
+    "composition_and_transitions": 3.8
+   },
+   "notes": "Head turns f~203-219, hard cut f~224 to upright remote closeup, 24 from ~f240 with press ripple, cut f~261 to AC; IR ring on AC IR window with leader; pill overlaps louver flap"
+  },
+  {
+   "shot_id": "S003",
+   "frames_inspected": [
+    357,
+    405,
+    452
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "frame": 357,
+     "visible": true,
+     "note": "Casing split, coil, heat arrows absorbed; leader+ring on named parts; Refrigeran pill touches louver/right edge"
+    },
+    {
+     "index": 1,
+     "frame": 405,
+     "visible": true,
+     "note": "Casing split, coil, heat arrows absorbed; leader+ring on named parts; Refrigeran pill touches louver/right edge"
+    },
+    {
+     "index": 2,
+     "frame": 452,
+     "visible": true,
+     "note": "Casing split, coil, heat arrows absorbed; leader+ring on named parts; Refrigeran pill touches louver/right edge"
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_005",
+     "frame": 388,
+     "visible": true
+    },
+    {
+     "cue_id": "CAP_006",
+     "frame": 448,
+     "visible": true
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [],
+   "caption_occludes_subject": false,
+   "subject_clipped_by_frame": false,
+   "scores": {
+    "character_and_asset_quality": 4,
+    "semantic_visual_storytelling": 4,
+    "animation_and_object_interaction": 4,
+    "mechanism_visualization": 4,
+    "camera_and_cinematography": 4,
+    "lighting_shadow_material_texture": 4,
+    "composition_and_transitions": 3.5
+   },
+   "notes": "Casing split, coil, heat arrows absorbed; leader+ring on named parts; Refrigeran pill touches louver/right edge"
+  },
+  {
+   "shot_id": "S004",
+   "frames_inspected": [
+    477,
+    525,
+    572
+   ],
+   "action_evidence": [
+    {
+     "index": 0,
+     "frame": 477,
+     "visible": true,
+     "note": "Continuous ground plane, no wedge/strip; compressor->condenser flow, labels with leader+ring"
+    },
+    {
+     "index": 1,
+     "frame": 525,
+     "visible": true,
+     "note": "Continuous ground plane, no wedge/strip; compressor->condenser flow, labels with leader+ring"
+    },
+    {
+     "index": 2,
+     "frame": 572,
+     "visible": true,
+     "note": "Continuous ground plane, no wedge/strip; compressor->condenser flow, labels with leader+ring"
+    }
+   ],
+   "caption_sync_evidence": [
+    {
+     "cue_id": "CAP_007",
+     "frame": 508,
+     "visible": true
+    },
+    {
+     "cue_id": "CAP_008",
+     "frame": 568,
+     "visible": true
+    }
+   ],
+   "placeholder_assets": [],
+   "debug_overlay_visible": false,
+   "render_artifacts": [],
+   "caption_occludes_subject": false,
+   "subject_clipped_by_frame": false,
+   "scores": {
+    "character_and_asset_quality": 3.8,
+    "semantic_visual_storytelling": 4,
+    "animation_and_object_interaction": 4,
+    "mechanism_visualization": 4,
+    "camera_and_cinematography": 3.8,
+    "lighting_shadow_material_texture": 3.8,
+    "composition_and_transitions": 3.8
+   },
+   "notes": "Continuous ground plane, no wedge/strip; compressor->condenser flow, labels with leader+ring"
+  }
+ ],
+ "reference_comparison": {
+  "reference_id": "REF-002",
+  "scores": {
+   "character_and_asset_quality": 3.8,
+   "mechanism_visualization": 4,
+   "camera_and_cinematography": 3.6,
+   "lighting_shadow_material_texture": 3.6,
+   "composition_and_transitions": 3.6,
+   "story_clarity": 4
+  }
+ }
+}
