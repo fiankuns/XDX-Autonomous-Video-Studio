@@ -201,6 +201,54 @@
         "DEF-P02A-048"
       ],
       "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_prop_static_while_hand_moves",
+      "error_category": "animation",
+      "symptom": "The hand moved but the fan stayed almost still; the owner expected the wrist to rock and the fan to follow.",
+      "root_cause": "Motion amplitude was put into target positions, not into the driving joint, and no constraint checked that the prop actually moves.",
+      "fix": "Wrist flexion drives the fan (child of the wrist) with bias toward the face; rigid + travel_gt + facing constraints.",
+      "prevention": "For repeated gestures name the driving joint, amplitude and frequency; verify travel and rigid attachment.",
+      "defect_ids": [
+        "DEF-P02A-049"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_label_without_leader_over_subject",
+      "error_category": "motion_graphics",
+      "symptom": "Labels floated over the subject (IR label on the AC body, compressor label on the plume) with no pointer to the part.",
+      "root_cause": "Labels were placed at a world point of the part itself; no leader/ring and no layout checks.",
+      "fix": "Leader line + ring on the part, pill offset away along the leader, layout contract verified.",
+      "prevention": "Use callouts.js for every label and run callout verification.",
+      "defect_ids": [
+        "DEF-P02A-050"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_fixed_target_duration_starves_actions",
+      "error_category": "pacing",
+      "symptom": "Actions looked rushed or got only a few frames because the shot lengths were fixed by a 15 s target.",
+      "root_cause": "Duration was an input constraint rather than a result of the actions the script needs.",
+      "fix": "min_seconds per action event, retime_package stretches the shots.",
+      "prevention": "Derive shot length from the action windows (preparation + cycles + hold).",
+      "defect_ids": [
+        "DEF-P02A-051"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_macro_cutaway_deviates_from_approved_reference",
+      "error_category": "cinematography",
+      "symptom": "The v7 remote close-up (tilted, cropped, stubby thumb) was worse than the approved v5 insert.",
+      "root_cause": "A fix for another problem changed the camera, up vector and thumb geometry of an already approved shot.",
+      "fix": "Restored the v5 composition: upright remote, whole object visible, fingers on one side, long diagonal thumb; camera up = object axis.",
+      "prevention": "Approved shots are regression references; changes to them need before/after frames.",
+      "defect_ids": [
+        "DEF-P02A-049"
+      ],
+      "topic_agnostic": true
     }
   ]
 }

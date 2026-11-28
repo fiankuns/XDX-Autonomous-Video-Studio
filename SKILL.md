@@ -60,3 +60,10 @@ description: Hardened universal multi-genre autonomous video production studio (
 - Dilarang menebak sudut sendi untuk aksi kontak/arah: gunakan `solveArm` / `aimTwo` / `lookHead` (`engines/web/xdx_core/rig_ik.js`); objek genggam dibangun dengan gagang di dalam kepalan.
 - Urutan sebab-akibat: gestur persiapan (menoleh ke target) tepat sebelum aksi, lalu cut ke macro aksi kontak (sembunyikan oklusi), lalu cut ke efek. Horizon datar. Nilai yang berubah harus terlihat sebelum dan sesudah.
 - Bukti geometris sebelum review piksel: `scripts/visual_workflow.py verify-actions`; gate delivery memblokir laporan yang hilang atau gagal.
+
+## Motion, Callout dan Durasi (generik, v4.0 lanjutan)
+- Gerak berulang (mengipas, mengusap) = `travel_gt` + `rigid` pada action event; penggerak = sendi yang benar (pergelangan untuk mengipas, lengan bawah+siku keluar untuk mengusap); sisi prop menghadap target sepanjang siklus. Sketsa pengguna pada frame disalin menjadi pole vector/lintasan/constraint, tidak ditafsirkan ulang.
+- Close-up aksi kontak meniru cutaway yang disetujui: objek tegak dan utuh, jari menggenggam di sisi, jempol diagonal menyentuh tombol, kamera memakai vektor atas objek, oklusi disembunyikan, hard cut.
+- Label = pill + garis penunjuk + cincin kecil pada bagian yang disebut (`xdx_core/callouts.js`); pill digeser menjauh, tidak menutup caption/pill lain/bagian bernama; dicek `callout_contract.py`.
+- Durasi mengikuti isi: `min_seconds` per event; `retime_package`/`visual_workflow.py retime` menjaga satu timeline konsisten; target 15 dtk hanyalah default.
+- Latar tampang potong (section): lantai/dinding dipotong pada bidang yang sama, tanah di depan potongan menerus; jangan ada bentuk liar (pondasi menonjol, bayangan miring); cek dengan `__xdxPick`.

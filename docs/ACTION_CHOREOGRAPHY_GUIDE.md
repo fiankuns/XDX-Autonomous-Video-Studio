@@ -38,3 +38,20 @@ Objek genggam harus dibangun dengan gagang **di dalam kepalan** dan bagian fungs
 
 ## 5. Templat perintah untuk agen (salin ke brief shot)
 > Aksi: [actor] menggunakan [bagian tubuh] untuk [kata kerja] [objek] ke arah [target]. Sisi/ujung [objek] yang menghadap [target] adalah [bagian]. Mulai pada cue [n] di [x%], selesai [y%]. Sebelum itu [hal yang belum boleh terjadi]. Kamera: [cut/gerak] ke [subjek]. Bukti: [constraint]. Jangan menebak sudut sendi; pakai solveArm/aimTwo/lookHead dan tulis event di action_events.json.
+
+
+## 6. Gerak berulang, prop yang mengikuti, dan durasi (ditambahkan setelah review v7)
+**Gerak bukan pose.** "Mengipas", "mengusap", "mengaduk" adalah gerak berulang: tulis `travel_gt` (anchor benar-benar berpindah sejauh X selama jendela) dan, bila ada prop, `rigid` (prop tetap menempel pada anggota tubuh dengan jarak konstan, jadi ikut bergerak bersama pergelangan). Prop tidak boleh diam sementara tangan bergerak, atau sebaliknya.
+**Tentukan penggerak.** Untuk setiap gerak tulis: sendi mana yang menggerakkan (mengipas = fleksi PERGELANGAN maju-mundur, bukan seluruh lengan; mengusap = lengan bawah menyapu dengan siku keluar), arah, amplitudo, frekuensi, dan sisi prop yang harus menghadap target di seluruh siklus (beri bias agar sisi datar tidak berbalik membelakangi wajah).
+**Pose lengan dari sketsa.** Bila pengguna menggambar garis pada frame (garis merah = lintasan siku/lengan, garis biru = lintasan lengan lain), salin sebagai: posisi siku (pole vector IK), lintasan pergelangan, dan constraint jarak/`travel_gt`. Jangan menafsirkan ulang.
+**Cutaway aksi kontak mengikuti rujukan yang sudah disetujui.** Close-up objek: objek tegak (ujung fungsional di atas), seluruh objek terlihat, jari menggenggam di satu sisi, jempol/jari penekan masuk diagonal dan menyentuh tombol; kamera memakai vektor atas objek (bukan miring acak); sembunyikan oklusi; ganti dengan cut, bukan gerak kamera.
+**Durasi mengikuti isi, bukan angka target.** Tiap event boleh punya `min_seconds`; bila jendela terlalu pendek verifikasi gagal dengan ACTION_TOO_SHORT. Perbaikan: `python scripts/visual_workflow.py retime <paket> S001=5.5 S002=6` (atau `retime_package`), yang menulis ulang storyboard, kamera, motion, engine, narasi, dan cue caption secara konsisten. Rumus awal: persiapan 0.5-1 dtk + aksi (siklus x periode, minimal 3 siklus untuk gerak berulang) + tahan 0.5 dtk.
+
+# Callout (label penunjuk) generik
+Setiap label = pill + garis penunjuk + lingkaran kecil TEPAT di bagian yang disebut (`engines/web/xdx_core/callouts.js`).
+- Cincin ada di bagian itu; pill digeser menjauh dari subjek sepanjang garis (offset piksel), tidak di atas bagian yang diberi nama.
+- Pill tidak menutup caption, tidak menimpa pill lain, tetap di dalam frame, garis minimal 70 px.
+- Animasi masuk: cincin, lalu garis tumbuh dari cincin, lalu pill.
+- Menaruh cincin: `window.__xdxScreenToLocal(frame, ruang, x, y, z)` mengubah piksel (dari sketsa pengguna) menjadi koordinat objek; `window.__xdxPick(frame, x, y)` menemukan objek liar di bawah piksel.
+- Dicek otomatis: `intelligence/callout_contract.py` (CALLOUT_OVER_CAPTION, CALLOUT_OVERLAP, CALLOUT_COVERS_PART, CALLOUT_LEADER_TOO_SHORT, CALLOUT_OFF_FRAME); render penuh menulis `<id>_callout_verification.json`; gate delivery memblokir bila hilang atau gagal.
+- Label hanya tampil di shot tempat bagian itu terlihat (jangan di cutaway objek lain).

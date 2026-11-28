@@ -214,6 +214,54 @@
       "tests": [
         "tests/test_phase02a_consolidation.py::test_p02a_cons_13_actions_verified_on_the_real_scene"
       ]
+    },
+    {
+      "technique_id": "wrist_driven_prop_motion_rigid_follow",
+      "domain": "animation",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Repeated gestures are driven by the right joint (wrist flexion for fanning) with the prop rigidly parented to it, biased so the functional face keeps pointing at the target across the cycle.",
+      "how": "solveArm for the base pose, aimTwo for the prop axes, then wrist.rotateX(bias + amp*sin); verify with rigid + travel_gt + facing constraints in action_events.json.",
+      "evidence": "v8: fan travels 3.1 m over the window while rigid to the wrist; facing >= 0.5 on all sampled frames.",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_16_motion_constraints_rigid_travel_and_min_seconds"
+      ]
+    },
+    {
+      "technique_id": "callout_leader_ring_system",
+      "domain": "motion_graphics",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Every label is a pill + leader line + small ring on the named part; the pill is offset away from the subject and never covers the caption, another pill or the part.",
+      "how": "engines/web/xdx_core/callouts.js (place with an offset in px); authoring aids __xdxScreenToLocal and __xdxPick; intelligence/callout_contract.py verifies layout per sampled frame.",
+      "evidence": "v8 callout_verification OK on all label frames; defects found by the checker were fixed (off-frame pill, short leader).",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_15_callout_contract_catches_bad_layout"
+      ]
+    },
+    {
+      "technique_id": "content_driven_duration_retime",
+      "domain": "workflow",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "The nominal target duration is a default; shots that need more time to show the action are stretched and every timing field is rewritten consistently.",
+      "how": "intelligence/visual_workflow.py retime_package (piecewise-linear frame map on shot boundaries) + min_seconds per action event; scene beats are anchored to caption cues, not frame numbers.",
+      "evidence": "AC benchmark 15 s -> 19.5 s (S001 5.5 s, S002 6 s) with one canonical timeline.",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_14_retime_package_keeps_one_consistent_timeline"
+      ]
+    },
+    {
+      "technique_id": "section_set_no_stray_geometry",
+      "domain": "environment",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Cut-away sets cut floor and wall on the same plane and keep ground continuous in front of the cut; strays (protruding foundation, long shadows) are found by raycast.",
+      "how": "__xdxPick(frame, x, y) lists the objects under a pixel; fix by flushing geometry to the cut plane or disabling the caster.",
+      "evidence": "v8 S004 ground seam and grey wedge removed.",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_13_actions_verified_on_the_real_scene"
+      ]
     }
   ]
 }

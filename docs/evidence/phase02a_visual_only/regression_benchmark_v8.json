@@ -1,0 +1,33 @@
+{
+  "schema": "xdx.regression-benchmark.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "version": "v8",
+  "purpose": "Regression benchmark for Phase 02A: pixel hashes of sampled frames and the full MP4 of the v5 render (user-liked look). Refactors and engine changes must not change them unless the change is a deliberate, reviewed visual improvement (then re-baseline with evidence).",
+  "renderer": "headless Chrome + SwiftShader (CHROME_ARGS in scripts/render_phase02a_visual.py), 1080x1920, 30 fps",
+  "frame_sha256": {
+    "10": "11df34844a2b8f2d7a679fbc9232f908b2b6be8510a2efeed7428998eeab8f07",
+    "140": "e10179500cbd09419e98ba82514a73aaf62a84a411780a050d6fdb6036152e7b",
+    "260": "a6d90b798134a48660ddf9b7c0b2f104f15dd76202cb7982a5df00a9e2c8b410",
+    "400": "da24f254b09733582db16391e14455b0520f20b75656142b4942e6eab72253a6"
+  },
+  "full_video_sha256": "8a72f6cf9c1f08dd408491c2a09ee2620fb36360e51edf5bead132b07b1c9fce",
+  "package_digest_at_baseline": null,
+  "caption_safe_area": {
+    "frames_checked": 446,
+    "issues": 0
+  },
+  "note": "v8 awaits independent semantic review; the benchmark protects the look, it is not a quality approval. Timeline is now 585 frames (S001 5.5 s, S002 6 s).",
+  "supersedes": "regression_benchmark_v7.json (kept as history)",
+  "rebaseline_reason": "Owner feedback on v7: wrist-driven fan, elbow-out forehead wipe, v5-style remote close-up, leader-line callouts, content-driven duration 19.5 s (585 frames), clean S004 section set. Verified: action_verification OK, callout_verification OK.",
+  "independent_review_of_v5": {
+    "status": "HARD_FAIL",
+    "shot_mean_scores": {
+      "S001": 3.14,
+      "S002": 3.36,
+      "S003": 3.21,
+      "S004": 3.21
+    },
+    "reference_mean_score": 3.25,
+    "evidence": "docs/evidence/phase02a_visual_only/independent_visual_review_v5.json"
+  }
+}

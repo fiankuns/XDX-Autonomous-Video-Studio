@@ -1,7 +1,7 @@
 {
   "schema_version": "4.0.0-phase01.6d",
   "registry_id": "xdx_master_audit_defect_registry",
-  "updated_at_utc": "2026-11-28T04:30:00+00:00",
+  "updated_at_utc": "2026-11-28T06:00:00+00:00",
   "append_only_policy": "Append-only ledger of all internal and external audit defects from Phase 01 onward. Historical entries must never be deleted, and VERIFIED requires an executed regression test.",
   "defects": [
     {
@@ -819,6 +819,74 @@
       "target_phase": "Phase 02A",
       "regression_test": "tests/test_phase02a_consolidation.py::test_p02a_cons_13_actions_verified_on_the_real_scene",
       "evidence": "AE-S002-TURN-AIM and AE-S002-PRESS pass on the real scene.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-049",
+      "source_phase": "Phase 02A (owner review of v7)",
+      "severity": "HIGH",
+      "affected_module": "engines/web/phase02a_ac15s/scene.js, engines/web/xdx_core/rig_ik.js, intelligence/action_choreography.py",
+      "reproduction_steps": [
+        "Render v7 and inspect the shot named in the observation."
+      ],
+      "observed_result": "Fan stayed still while the hand moved; the left hand did not wipe along the owner's red line (elbow out); the remote close-up regressed versus v5.",
+      "expected_result": "Wrist rocks and the fan follows; elbow out and hand sweeps the forehead; v5-style remote close-up.",
+      "root_cause": "Motion not driven by the right joint, no travel/rigid constraints, approved close-up altered.",
+      "correction_plan": "Wrist-driven fan, elbow-out wipe via pole vector, rigid/travel_gt/min_seconds constraints, v5 close-up restored.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_consolidation.py::test_p02a_cons_16_motion_constraints_rigid_travel_and_min_seconds",
+      "evidence": "action_verification OK on the real scene (fan travel 3.1 m, rigid 0.0, elbow 0.52 m from torso).",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-050",
+      "source_phase": "Phase 02A (owner review of v7)",
+      "severity": "MEDIUM",
+      "affected_module": "engines/web/xdx_core/callouts.js, intelligence/callout_contract.py",
+      "reproduction_steps": [
+        "Render v7 and inspect the shot named in the observation."
+      ],
+      "observed_result": "Labels had no leader line/ring and overlapped the AC body, plume and caption area.",
+      "expected_result": "Pill + leader + ring on the named part, pill offset away along the leader.",
+      "root_cause": "Labels anchored at the part with no layout contract.",
+      "correction_plan": "Callout system + layout contract + delivery gate.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_consolidation.py::test_p02a_cons_15_callout_contract_catches_bad_layout",
+      "evidence": "callout_verification OK on the v8 render.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-051",
+      "source_phase": "Phase 02A (owner review of v7)",
+      "severity": "MEDIUM",
+      "affected_module": "intelligence/visual_workflow.py (retime_package), projects/bench_p02a_ac_15s",
+      "reproduction_steps": [
+        "Render v7 and inspect the shot named in the observation."
+      ],
+      "observed_result": "Actions were rushed inside a fixed 15 s target.",
+      "expected_result": "Shots stretched to the time the actions need.",
+      "root_cause": "Duration treated as an input constraint.",
+      "correction_plan": "min_seconds per action event, retime_package (19.5 s: S001 5.5 s, S002 6 s).",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_consolidation.py::test_p02a_cons_14_retime_package_keeps_one_consistent_timeline",
+      "evidence": "Canonical timeline verified (585 frames).",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-052",
+      "source_phase": "Phase 02A (owner review of v7)",
+      "severity": "LOW",
+      "affected_module": "engines/web/phase02a_ac15s/scene.js (S004 set)",
+      "reproduction_steps": [
+        "Render v7 and inspect the shot named in the observation."
+      ],
+      "observed_result": "Ground seam ran from the wall base to the lens and a grey wedge sat at the wall base.",
+      "expected_result": "Clean section set: floor cut on the wall plane, continuous grass in front.",
+      "root_cause": "Indoor floor extended past the cut plane; foundation protruded 0.1 m; wall shadow fell on the ground.",
+      "correction_plan": "Floor cut at z=1.0 with a slab edge, grass in front, foundation flush, wall shadow off.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_consolidation.py::test_p02a_cons_13_actions_verified_on_the_real_scene",
+      "evidence": "Frames 470/584 compared before and after.",
       "current_status": "VERIFIED"
     }
   ]
