@@ -1,0 +1,33 @@
+{
+  "schema": "xdx.regression-benchmark.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "version": "v7",
+  "purpose": "Regression benchmark for Phase 02A: pixel hashes of sampled frames and the full MP4 of the v5 render (user-liked look). Refactors and engine changes must not change them unless the change is a deliberate, reviewed visual improvement (then re-baseline with evidence).",
+  "renderer": "headless Chrome + SwiftShader (CHROME_ARGS in scripts/render_phase02a_visual.py), 1080x1920, 30 fps",
+  "frame_sha256": {
+    "10": "9e4f17e0cfde579f35c3784f6ab6d30ff2500b1a72648cde4a3eb2c85416b3b9",
+    "140": "12b8dd6cf21bd6578493c7b51a3c553da54bcb95af965c2b4492cb12645f4983",
+    "260": "85e5fa5e9571b6ea2ef053aca06a979452f39f54490a0cb841216a3e93809daa",
+    "400": "75f7cf2e7520a99d73146c036025e495a6fc9274264574f76b8c81643fc89152"
+  },
+  "full_video_sha256": "d4d1ad5331524c47c9a5938b9cab976fe1718cb1f47e9b96ccf9c0a73c0b4d9e",
+  "package_digest_at_baseline": null,
+  "caption_safe_area": {
+    "frames_checked": 446,
+    "issues": 0
+  },
+  "note": "v7 awaits independent semantic review; the benchmark protects the look, it is not a quality approval.",
+  "supersedes": "regression_benchmark_v6.json (kept as history)",
+  "rebaseline_reason": "Deliberate acting fixes (owner feedback on v6): fan blown toward his face, forehead wipe via IK, head turns to the AC only right before the press, hard cut to the remote macro with the thumb pressing; verified geometrically (action_verification OK).",
+  "independent_review_of_v5": {
+    "status": "HARD_FAIL",
+    "shot_mean_scores": {
+      "S001": 3.14,
+      "S002": 3.36,
+      "S003": 3.21,
+      "S004": 3.21
+    },
+    "reference_mean_score": 3.25,
+    "evidence": "docs/evidence/phase02a_visual_only/independent_visual_review_v5.json"
+  }
+}

@@ -178,6 +178,42 @@
       "tests": [
         "tests/test_phase02a_consolidation.py::test_p02a_cons_10_pixel_regression_against_latest_benchmark"
       ]
+    },
+    {
+      "technique_id": "ik_aim_acting_primitives",
+      "domain": "animation",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Acting is computed, not guessed: two-bone arm IK puts the wrist on a world target; aimTwo points an object axis at a target with a secondary facing axis; lookHead turns the head with limits.",
+      "how": "engines/web/xdx_core/rig_ik.js (solveArm, aimTwo, lookHead, anchor). Hand-held props are built with the handle inside the fist and the functional part beyond it.",
+      "evidence": "v7: fan blade faces his face (dot 0.65-0.75), wrist at forehead during the wipe, head and remote tip aimed at the AC (dot 0.97/1.0) before the press.",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_13_actions_verified_on_the_real_scene"
+      ]
+    },
+    {
+      "technique_id": "action_events_geometric_verification",
+      "domain": "qc",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Every important action is an action event (actor, part, object, target, direction, cue-relative window, ordering) verified from scene probes before pixel review.",
+      "how": "projects/<id>/action_events.json + intelligence/action_choreography.py + window.__xdxProbe; scripts/visual_workflow.py verify-actions; delivery gate blocks missing/failed reports.",
+      "evidence": "Mutation tests: fan facing away, fan far from face, early head turn -> BLOCKED.",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_12_action_choreography_constraints_catch_wrong_acting"
+      ]
+    },
+    {
+      "technique_id": "prep_gesture_then_macro_cutaway",
+      "domain": "cinematography",
+      "test_status": "RENDER_TESTED",
+      "topic_agnostic": true,
+      "what": "Cause-and-effect order: the preparatory gesture (head turns to the target, tool aimed) happens in the medium shot, then a hard cut to the macro of the contact action (thumb presses), then a cut to the effect.",
+      "how": "Hide occluders (head, torso) during the macro so the lens is free; level horizon; no camera move between distant targets.",
+      "evidence": "Owner feedback accepted the cutaway order; v7 frames 132-160.",
+      "tests": [
+        "tests/test_phase02a_consolidation.py::test_p02a_cons_13_actions_verified_on_the_real_scene"
+      ]
     }
   ]
 }

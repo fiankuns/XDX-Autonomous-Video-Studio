@@ -165,6 +165,42 @@
         "DEF-P02A-046"
       ],
       "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_guessed_joint_angles_wrong_acting",
+      "error_category": "animation",
+      "symptom": "Hand did not wipe the forehead; fan held beside the body with the wrong side toward the face.",
+      "root_cause": "Joint angles were guessed per frame; the fan mesh had its handle perpendicular to the blade; nothing verified direction.",
+      "fix": "IK/aim primitives + fan rebuilt (handle in fist, blade beyond, flat face = wrist +Z) + action_events verified geometrically.",
+      "prevention": "Write the action contract first (actor, part, object, target, facing side, window, ordering); never hand-tune angles for a contact or aim action.",
+      "defect_ids": [
+        "DEF-P02A-047"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_head_turn_wrong_moment",
+      "error_category": "storytelling",
+      "symptom": "Head glanced at the AC in the first shot instead of just before pressing the remote.",
+      "root_cause": "Reaction animation attached to the wrong caption beat; no ordering constraint.",
+      "fix": "Head turn moved to the start of the press beat; not_facing constraint in the earlier shot; hard cut to the macro of the press.",
+      "prevention": "Every action event lists what must NOT happen before it (not_facing / distance_gt).",
+      "defect_ids": [
+        "DEF-P02A-048"
+      ],
+      "topic_agnostic": true
+    },
+    {
+      "error_id": "p02a_macro_blocked_by_own_character",
+      "error_category": "cinematography",
+      "symptom": "Macro of the remote showed a huge skin-coloured sphere over the screen.",
+      "root_cause": "The lens sat inside the character's head when the camera was placed along the remote's face normal.",
+      "fix": "Hide head and torso during the macro cutaway.",
+      "prevention": "Macro cutaways hide occluders between lens and subject; check the first macro frame.",
+      "defect_ids": [
+        "DEF-P02A-048"
+      ],
+      "topic_agnostic": true
     }
   ]
 }

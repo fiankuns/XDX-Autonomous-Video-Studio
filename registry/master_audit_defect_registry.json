@@ -1,7 +1,7 @@
 {
   "schema_version": "4.0.0-phase01.6d",
   "registry_id": "xdx_master_audit_defect_registry",
-  "updated_at_utc": "2026-11-28T04:00:00+00:00",
+  "updated_at_utc": "2026-11-28T04:30:00+00:00",
   "append_only_policy": "Append-only ledger of all internal and external audit defects from Phase 01 onward. Historical entries must never be deleted, and VERIFIED requires an executed regression test.",
   "defects": [
     {
@@ -785,6 +785,40 @@
       "target_phase": "Phase 02A",
       "regression_test": "tests/test_phase02a_consolidation.py::test_p02a_cons_10_pixel_regression_against_latest_benchmark",
       "evidence": "regression_benchmark_v5.json",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-047",
+      "source_phase": "Phase 02A (owner review of v6)",
+      "severity": "HIGH",
+      "affected_module": "engines/web/xdx_core/rig_ik.js, engines/web/phase02a_ac15s/scene.js, intelligence/action_choreography.py",
+      "reproduction_steps": [
+        "Render v6 S001 and inspect the hands."
+      ],
+      "observed_result": "Left hand did not wipe the forehead; the fan was held with the wrong side toward the face (fan mesh handle perpendicular to the blade).",
+      "expected_result": "Fanning toward the face and a forehead wipe, verified geometrically for any topic.",
+      "root_cause": "Joint angles guessed per frame; no action contract or geometric verification.",
+      "correction_plan": "IK/aim primitives, rebuilt fan, action_events.json + probes + delivery gate; guide docs/ACTION_CHOREOGRAPHY_GUIDE.md.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_consolidation.py::test_p02a_cons_12_action_choreography_constraints_catch_wrong_acting",
+      "evidence": "Real-scene verification (test cons_13) passes: fan dot 0.65, wrist-forehead within 0.22, head and remote aimed at the AC.",
+      "current_status": "VERIFIED"
+    },
+    {
+      "defect_id": "DEF-P02A-048",
+      "source_phase": "Phase 02A (owner review of v6)",
+      "severity": "MEDIUM",
+      "affected_module": "engines/web/phase02a_ac15s/scene.js (S001/S002 beats)",
+      "reproduction_steps": [
+        "Render v6 S001-S002."
+      ],
+      "observed_result": "Head glanced at the AC in S001; the press was not preceded by a head turn and the remote macro was a camera orbit.",
+      "expected_result": "Head turns to the AC just before the press, then a cut to the macro of the thumb pressing, then a cut to the AC.",
+      "root_cause": "Reaction attached to the wrong beat; no ordering constraints.",
+      "correction_plan": "Head turn moved to S002 before the press, not_facing constraint in S001, hard cuts, occluders hidden in the macro.",
+      "target_phase": "Phase 02A",
+      "regression_test": "tests/test_phase02a_consolidation.py::test_p02a_cons_13_actions_verified_on_the_real_scene",
+      "evidence": "AE-S002-TURN-AIM and AE-S002-PRESS pass on the real scene.",
       "current_status": "VERIFIED"
     }
   ]
