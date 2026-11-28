@@ -409,7 +409,7 @@ class REAReferenceLifecycleManager:
     ) -> ResolvedReferenceRecord:
         """Register a new external/custom video reference safely without modifying REF-001/REF-002."""
         clean_id = reference_id.strip().upper()
-        if clean_id in {"REF-001", "REF-002"}:
+        if clean_id in {"REF-001", "REF-002", "REF-003"}:
             raise ValueError(f"Cannot overwrite immutable Git LFS reference '{clean_id}'")
         vpath = Path(video_path).resolve()
         if not vpath.is_file() or vpath.stat().st_size == 0:
@@ -646,6 +646,18 @@ class MultiReferenceFusionEngine:
                 "strength_genres": {"explainer", "edukasi", "dokumenter"},
             },
         },
+        "REF-003": {
+            "narrative_structure": {"approach": "dated_event_hook_false_cause_reveal_and_map_callback", "strength_genres": {"documentary", "dokumenter", "sejarah", "history", "geography", "geografi", "natural_phenomenon", "fenomena_alam"}},
+            "character_acting": {"approach": "no_host_animal_idle_and_symbolic_states", "strength_genres": {"documentary", "dokumenter", "wildlife", "satwa"}},
+            "visual_style": {"approach": "user_style_applied_to_cinematic_scene_and_map_techniques", "strength_genres": {"documentary", "dokumenter", "sejarah", "geography"}},
+            "environment": {"approach": "set_and_terrain_with_time_of_day_lighting_and_state_transformation", "strength_genres": {"documentary", "dokumenter", "geography", "natural_phenomenon"}},
+            "camera": {"approach": "slow_push_and_eased_geographic_waypoint_glide", "strength_genres": {"documentary", "dokumenter", "geography", "geografi"}},
+            "motion": {"approach": "ring_expand_region_fade_dot_field_and_camera_driven_continuity", "strength_genres": {"documentary", "dokumenter", "geography", "natural_phenomenon"}},
+            "technical_visualization": {"approach": "map_overlays_boundary_population_and_radial_wave_visualization", "strength_genres": {"documentary", "dokumenter", "geography", "geografi", "natural_phenomenon"}},
+            "caption": {"approach": "small_keyword_accent_captions_with_year_cards_and_map_callouts", "strength_genres": {"documentary", "dokumenter"}},
+            "audio": {"approach": "deferred_phase_04", "strength_genres": {"documentary", "dokumenter"}},
+            "editing": {"approach": "camera_driven_continuity_with_short_dip_to_black_transitions", "strength_genres": {"documentary", "dokumenter", "geography"}},
+        },
     }
 
     def fuse(
@@ -701,6 +713,8 @@ class MultiReferenceFusionEngine:
                 dim_bonus = 0
                 if dim in {"technical_visualization", "environment", "caption"} and rid == "REF-002":
                     dim_bonus = 2
+                elif dim in {"technical_visualization", "environment", "camera", "editing", "narrative_structure"} and rid == "REF-003" and ({"documentary", "dokumenter", "geography", "geografi", "natural_phenomenon", "fenomena_alam"} & norm_genres):
+                    dim_bonus = 3
                 elif dim in {"character_acting", "motion"} and rid == "REF-001":
                     dim_bonus = 2
                 elif dim == "visual_style" and idx == 0:
@@ -760,6 +774,12 @@ class ReferenceToProductionAdapter:
             ("00:00.0-00:05.2", "counterintuitive_physical_anomaly_establishing_cut", "hook_anomaly"),
             ("00:05.2-00:18.4", "3d_architectural_cross_section_cutaway_with_flow_paths", "mechanism_explanation"),
             ("00:18.4-00:31.0", "macro_component_insert_paired_with_annotated_callout", "scientific_synthesis"),
+        ],
+        "REF-003": [
+            ("00:00.0-00:13.8", "dated_event_reconstruction_with_phenomenon_vfx", "dated_hook"),
+            ("00:13.8-00:34.9", "oblique_map_glide_with_region_highlight_population_dots_and_radial_waves", "geographic_scope"),
+            ("00:34.9-00:46.6", "lit_reveal_object_highlight_environment_transformation_and_symbolic_state", "reveal"),
+            ("00:46.6-01:04.4", "map_zoom_boundary_outline_count_callout_and_callback_pull_back", "callback"),
         ],
     }
 

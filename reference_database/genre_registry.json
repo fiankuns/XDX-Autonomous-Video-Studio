@@ -9,6 +9,9 @@
     ],
     "storytelling": [
       "REF-001"
+    ],
+    "dokumenter": [
+      "REF-003"
     ]
   },
   "related_candidates": {
@@ -19,10 +22,30 @@
       "REF-002"
     ],
     "history": [
-      "REF-002"
+      "REF-002",
+      "REF-003"
     ],
     "sejarah": [
-      "REF-002"
+      "REF-002",
+      "REF-003"
+    ],
+    "geography": [
+      "REF-003"
+    ],
+    "geografi": [
+      "REF-003"
+    ],
+    "natural_phenomenon": [
+      "REF-003"
+    ],
+    "fenomena_alam": [
+      "REF-003"
+    ],
+    "wildlife": [
+      "REF-003"
+    ],
+    "satwa": [
+      "REF-003"
     ]
   },
   "aliases": {
@@ -31,7 +54,63 @@
     "explain er": "explainer",
     "satir sosial": "social_satire",
     "satir_sosial": "social_satire",
-    "cerita": "storytelling"
+    "cerita": "storytelling",
+    "documentary": "dokumenter",
+    "dokumenter sejarah": "dokumenter",
+    "dokumenter_geografis": "dokumenter",
+    "documentary_history": "dokumenter"
   },
-  "unmapped_policy": "NO_MATCH_REQUIRE_EXPLICIT_REFERENCE_OR_EXISTING_GENRE_PROFILE"
+  "unmapped_policy": "NO_MATCH_REQUIRE_EXPLICIT_REFERENCE_OR_EXISTING_GENRE_PROFILE",
+  "primary_by_role": {
+    "storytelling_and_social_satire": "REF-001",
+    "explainer": "REF-002",
+    "history_geography_natural_phenomenon_documentary": "REF-003"
+  },
+  "shot_need_routing": {
+    "_note": "Per-shot multi-reference fusion: first id is the primary reference for that shot need; the rest are subordinate.",
+    "host_explainer": [
+      "REF-002"
+    ],
+    "mechanism_cutaway": [
+      "REF-002"
+    ],
+    "annotated_diagram": [
+      "REF-002"
+    ],
+    "social_vignette": [
+      "REF-001"
+    ],
+    "character_comedy": [
+      "REF-001"
+    ],
+    "satire_callback": [
+      "REF-001"
+    ],
+    "historical_reconstruction": [
+      "REF-003",
+      "REF-002"
+    ],
+    "geographic_map": [
+      "REF-003"
+    ],
+    "geographic_camera_navigation": [
+      "REF-003"
+    ],
+    "natural_phenomenon": [
+      "REF-003"
+    ],
+    "animal_visualization": [
+      "REF-003"
+    ],
+    "population_visualization": [
+      "REF-003"
+    ],
+    "time_typography": [
+      "REF-003"
+    ],
+    "misdirection_reveal_callback": [
+      "REF-003",
+      "REF-001"
+    ]
+  }
 }

@@ -1,0 +1,529 @@
+{
+  "schema": "xdx.reference-technique-registry.v1",
+  "note": "Animation Technique Profile only (what is done and how it is timed). Visual style is NOT stored here. Every entry is REFERENCE_OBSERVED until an actual XDX render passes QC.",
+  "source_reference_id": "REF-003",
+  "status_values": [
+    "REFERENCE_OBSERVED",
+    "RENDER_TESTED"
+  ],
+  "techniques": [
+    {
+      "technique_id": "doc_historical_reconstruction",
+      "name": "Cinematic historical reconstruction",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:00-00:08",
+          "what": "Dated event staged as a wide cinematic scene: eruption plume over a dark sea, ash shockwave, lightning, then a wall of water reaching shore"
+        },
+        {
+          "t": "00:42-00:46",
+          "what": "Second dated scene (night forest, lone animal) after a hard dip to black"
+        }
+      ],
+      "inferred_method": {
+        "text": "Layered 3D set (sky/volcano/sea/foreground) with a slow camera push; scene-level colour grade carries the era mood.",
+        "confidence": "MEDIUM",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "environment": "blender",
+        "timing": "remotion"
+      },
+      "style_independent_adaptation": "Reconstruct the era as a staged set in the chosen style; a dated title card anchors it.",
+      "maps_to_existing_capability": null,
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      }
+    },
+    {
+      "technique_id": "doc_geo_terrain_map",
+      "name": "Geographic terrain and map animation",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:14-00:24",
+          "what": "Tilted perspective terrain map of the region with coast outlines and land texture"
+        },
+        {
+          "t": "00:46-00:56",
+          "what": "Zoom into an island peninsula with raised terrain and vegetation texture"
+        }
+      ],
+      "inferred_method": {
+        "text": "Relief-textured plane/mesh viewed at an oblique angle, coastlines drawn as lines, fog toward the horizon.",
+        "confidence": "MEDIUM",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "geography": "threejs",
+        "hero_terrain": "blender_optional"
+      },
+      "style_independent_adaptation": "Same camera/overlay grammar on any map look: diorama table map, flat vector map, painted anime backdrop or satellite realism.",
+      "maps_to_existing_capability": null,
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      }
+    },
+    {
+      "technique_id": "doc_geo_camera_navigation",
+      "name": "Geographic camera navigation",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:14-00:24",
+          "what": "Camera glides Java → mainland Asia → India while the map tilts"
+        },
+        {
+          "t": "00:44-00:48",
+          "what": "Cut/dissolve from a night scene to a high oblique map and push toward a target island"
+        },
+        {
+          "t": "00:56-01:04",
+          "what": "Pull-back from the island to the whole region"
+        }
+      ],
+      "inferred_method": {
+        "text": "Keyframed camera path over the map (target, tilt, altitude) with eased moves; destination chosen by the narration clause.",
+        "confidence": "MEDIUM",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "camera": "threejs",
+        "timeline": "remotion"
+      },
+      "style_independent_adaptation": "Camera path data (waypoints + easing) is style-free; only the terrain look changes.",
+      "maps_to_existing_capability": null,
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      },
+      "candidate_new_contract": "camera_waypoints_in_shot_spec"
+    },
+    {
+      "technique_id": "doc_geo_boundary_highlight",
+      "name": "Geographic boundary highlighting",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:14-00:20",
+          "what": "Glowing filled region with soft edge over Java then over mainland Asia/India"
+        },
+        {
+          "t": "00:50-00:56",
+          "what": "Bright outline + faint fill around the protected area"
+        }
+      ],
+      "inferred_method": {
+        "text": "Region polygon rendered as emissive fill + outline sprite, fading in on the clause that names the place.",
+        "confidence": "MEDIUM",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "geography": "threejs"
+      },
+      "style_independent_adaptation": "Polygon outline/fill colours come from the style bible; shape comes from real geodata.",
+      "maps_to_existing_capability": "callout_leader_ring_system (label side only)",
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      }
+    },
+    {
+      "technique_id": "doc_population_visualization",
+      "name": "Population visualization",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:22-00:24",
+          "what": "Speckled dots fill the highlighted continental region"
+        },
+        {
+          "t": "00:56-00:57",
+          "what": "About fifty points inside a small protected area"
+        },
+        {
+          "t": "01:00-01:04",
+          "what": "Dot field across the whole region (callback)"
+        }
+      ],
+      "inferred_method": {
+        "text": "Instanced points scattered inside a polygon, count tied to the stated quantity, brightness twinkling.",
+        "confidence": "MEDIUM",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "simulation": "threejs"
+      },
+      "style_independent_adaptation": "Dot = point sprite, icon, tiny figure or pixel; count must match the fact stated in the script.",
+      "maps_to_existing_capability": null,
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      }
+    },
+    {
+      "technique_id": "doc_radial_wave",
+      "name": "Radial wave effects",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:26-00:30",
+          "what": "Concentric rings expand from a marked source point and fade as they travel across the sea"
+        }
+      ],
+      "inferred_method": {
+        "text": "Ring meshes/shader scaled and faded over time from one anchor; stroke thins with radius.",
+        "confidence": "HIGH",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "procedural": "threejs"
+      },
+      "style_independent_adaptation": "Ring colour/width from style; timing from the clause; verify as an action event (travel_gt on ring radius).",
+      "maps_to_existing_capability": "action_events_geometric_verification (verification only)",
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      }
+    },
+    {
+      "technique_id": "doc_ocean_large_wave",
+      "name": "Ocean surface and large waves",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:00-00:06",
+          "what": "Dark wavy sea with specular glints under an orange sky"
+        },
+        {
+          "t": "00:06-00:13",
+          "what": "A tall wave wall with foam crest, spray particles and streaked water body fills the frame behind the animal"
+        }
+      ],
+      "inferred_method": {
+        "text": "Displaced/normal-mapped water plane plus a hero wave mesh with foam texture and spray particles; probably an offline cinematic render.",
+        "confidence": "LOW",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "cinematic_render": "blender",
+        "stylized_or_procedural_fallback": "threejs"
+      },
+      "style_independent_adaptation": "Stylized water for stylized looks, flat shapes for cartoon, painted bands for anime, simulation for realistic.",
+      "maps_to_existing_capability": null,
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      }
+    },
+    {
+      "technique_id": "doc_volcanic_atmospheric_vfx",
+      "name": "Volcanic and atmospheric VFX",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:00-00:08",
+          "what": "Billowing eruption column with glowing core, drifting ash cloud, lightning flash at 00:06"
+        },
+        {
+          "t": "00:08-00:13",
+          "what": "Falling/airborne ash particles over the wave"
+        }
+      ],
+      "inferred_method": {
+        "text": "Volumetric or sprite-layered smoke with emissive core, a one-frame lightning bolt, particle ash.",
+        "confidence": "LOW",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "cinematic_render": "blender",
+        "stylized_particles": "threejs"
+      },
+      "style_independent_adaptation": "Smoke as volume, stacked sprites, flat shapes or painted plumes depending on style.",
+      "maps_to_existing_capability": null,
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      }
+    },
+    {
+      "technique_id": "doc_environmental_lighting",
+      "name": "Environmental lighting",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:00-00:08",
+          "what": "Orange eruption glow on the sea"
+        },
+        {
+          "t": "00:36-00:38",
+          "what": "Low backlit sunset sun with warm rim light on the animal"
+        },
+        {
+          "t": "00:42-00:44",
+          "what": "Cold blue night light with a faint rim"
+        }
+      ],
+      "inferred_method": {
+        "text": "Time-of-day lighting per scene (key colour, backlight, fog) chosen to carry the emotion of the clause.",
+        "confidence": "MEDIUM",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "lighting": "blender",
+        "map_lighting": "threejs"
+      },
+      "style_independent_adaptation": "Mood = lighting intent (hot danger / warm calm / cold loss) expressed in the chosen palette; do not reuse the exact colours.",
+      "maps_to_existing_capability": null,
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      }
+    },
+    {
+      "technique_id": "doc_animal_visualization",
+      "name": "Animal visualization",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:08-00:13",
+          "what": "Stylized quadruped on a shore, head lowered, grazing"
+        },
+        {
+          "t": "00:36-00:38",
+          "what": "Silhouette to lit reveal of the same animal"
+        },
+        {
+          "t": "00:44-00:46",
+          "what": "Translucent hologram version of the animal"
+        }
+      ],
+      "inferred_method": {
+        "text": "Rigged quadruped with a looping idle/grazing animation; the same model reused for lit, silhouette and hologram looks.",
+        "confidence": "MEDIUM",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "modeling_rigging": "blender"
+      },
+      "style_independent_adaptation": "Species anatomy must be correct for the topic; surface treatment follows the user's style (never the reference's texture).",
+      "maps_to_existing_capability": "character asset binding via style_binding_from_bibles",
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      }
+    },
+    {
+      "technique_id": "doc_object_highlight",
+      "name": "Object highlighting",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:36-00:38",
+          "what": "Glowing lens/flare on the animal's horn with a label leader line"
+        }
+      ],
+      "inferred_method": {
+        "text": "Local emissive bloom or flare on the key part, paired with a callout.",
+        "confidence": "HIGH",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "effects": "threejs",
+        "compositing": "remotion"
+      },
+      "style_independent_adaptation": "Highlight shape = glow, outline, spotlight or sparkle per style.",
+      "maps_to_existing_capability": "callout_leader_ring_system",
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      }
+    },
+    {
+      "technique_id": "doc_environment_transformation",
+      "name": "Environment transformation",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:38-00:42",
+          "what": "Forest/grass scene with large cleared areas and long shadows while the clause talks about forest becoming farmland"
+        }
+      ],
+      "inferred_method": {
+        "text": "Same set shown before/after (trees removed or replaced by cleared ground), likely a swap or dissolve between two states.",
+        "confidence": "LOW",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "environment": "blender",
+        "state_swap": "remotion"
+      },
+      "style_independent_adaptation": "Needs two authored states of one set; cut or dissolve on the clause.",
+      "maps_to_existing_capability": null,
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      }
+    },
+    {
+      "technique_id": "doc_symbolic_visualization",
+      "name": "Symbolic visualization",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:44-00:46",
+          "what": "Hologram-style glowing wireframe animal standing in the night forest while a year is named"
+        }
+      ],
+      "inferred_method": {
+        "text": "Same model with transparent emissive material to signal 'gone/last/ghost'.",
+        "confidence": "MEDIUM",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "effects": "blender_or_threejs"
+      },
+      "style_independent_adaptation": "Symbol must be consistent in meaning across the video (e.g. hologram = extinct/lost).",
+      "maps_to_existing_capability": null,
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      }
+    },
+    {
+      "technique_id": "doc_animated_callouts",
+      "name": "Animated callouts",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:10-00:12",
+          "what": "Leader line from a name label to the animal"
+        },
+        {
+          "t": "00:26-00:34",
+          "what": "Place labels with leader lines and a dot/ring on the map"
+        },
+        {
+          "t": "00:48-00:56",
+          "what": "Name and fact labels (year, count) tied to places"
+        }
+      ],
+      "inferred_method": {
+        "text": "Label + leader + marker appearing on the clause; on maps the marker is a geographic anchor.",
+        "confidence": "HIGH",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "callouts": "remotion_or_threejs"
+      },
+      "style_independent_adaptation": "Use the XDX callout system with map anchors; label typeface from the style bible.",
+      "maps_to_existing_capability": "callout_leader_ring_system",
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      }
+    },
+    {
+      "technique_id": "doc_time_typography",
+      "name": "Time typography",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:00-00:04",
+          "what": "Large year with a small place label beneath, fading out"
+        },
+        {
+          "t": "00:42-00:44",
+          "what": "Second year + country label over a night scene"
+        }
+      ],
+      "inferred_method": {
+        "text": "Serif title card composited over the scene with a slow fade.",
+        "confidence": "HIGH",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "typography": "remotion"
+      },
+      "style_independent_adaptation": "Year/place card in the style's own display face; keep it inside the safe area and out of the caption zone.",
+      "maps_to_existing_capability": "caption/safe-area gates (placement only)",
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      }
+    },
+    {
+      "technique_id": "doc_narrative_misdirection_reveal_callback",
+      "name": "Narrative misdirection, reveal and callback",
+      "status": "REFERENCE_OBSERVED",
+      "observed": [
+        {
+          "t": "00:00-00:13",
+          "what": "Opens on a disaster so it reads as the cause"
+        },
+        {
+          "t": "00:30-00:36",
+          "what": "Captions pose 'nearly extinct?' then walk the claim back ('impact small')"
+        },
+        {
+          "t": "00:36-00:42",
+          "what": "Real cause revealed: hunting (horn) and farmland"
+        },
+        {
+          "t": "00:56-01:04",
+          "what": "Returns to the opening-style regional map and ends on the human responsibility line"
+        }
+      ],
+      "inferred_method": {
+        "text": "Hook with a dramatic false cause, a pivot clause, a reveal visual, and a final map that mirrors the earlier one (callback).",
+        "confidence": "MEDIUM",
+        "basis": "INFERENCE_NOT_VERIFIED: no project files, prompts or tool logs of the original were seen"
+      },
+      "engine_routing": {
+        "writing": "script_stage",
+        "timeline": "remotion"
+      },
+      "style_independent_adaptation": "Structure only; topic, wording and visuals must be original.",
+      "maps_to_existing_capability": "storyboard_first_style_frames (planning)",
+      "promotion": {
+        "required": "actual XDX render of this technique + independent visual QC + a tests/ entry",
+        "promoted_to": null
+      }
+    }
+  ],
+  "style_adaptation_matrix": {
+    "stylized_3d": {
+      "map": "relief diorama map",
+      "animal": "stylized rigged model",
+      "vfx": "stylized volumetric/sprite",
+      "typography": "style display face"
+    },
+    "diorama": {
+      "map": "physical table-top model",
+      "animal": "miniature figure",
+      "vfx": "cotton/paper style smoke, layered cut-outs",
+      "typography": "labels on the diorama"
+    },
+    "flat_cartoon": {
+      "map": "flat vector map",
+      "animal": "flat shapes with simple rig",
+      "vfx": "shape-based plumes and waves",
+      "typography": "bold flat titles"
+    },
+    "anime_inspired": {
+      "map": "painted backdrop with line work",
+      "animal": "cel-shaded model",
+      "vfx": "hand-drawn style FX frames",
+      "typography": "title-card style"
+    },
+    "realistic": {
+      "map": "satellite/DEM look",
+      "animal": "photoreal model",
+      "vfx": "simulated volumetrics and water",
+      "typography": "restrained subtitles/titles"
+    }
+  }
+}

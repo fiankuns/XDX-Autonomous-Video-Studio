@@ -201,6 +201,110 @@
         "no automatic production before approval",
         "no render claim from schema validation"
       ]
+    },
+    {
+      "schema_version": "1.0",
+      "status": "PROPOSED_ADDITIVE_PROFILE",
+      "id": "cinematic_geo_documentary_v1",
+      "genre": "dokumenter",
+      "source_cases": [
+        "ref_1001952954"
+      ],
+      "defaults": {
+        "requires_hero_character": false,
+        "hook_formula": "dated_event_visual_hook_0_6s",
+        "fps": 30,
+        "aspect_ratio": "9:16",
+        "pacing": {
+          "typical_shot_s": [
+            4,
+            10
+          ],
+          "median_target_s": [
+            5,
+            9
+          ],
+          "micro_shot_s": [
+            1.5,
+            3
+          ],
+          "max_shot_s": 10,
+          "note": "Camera-driven continuous beats; adjust to narration. Not a forced shot count."
+        },
+        "story_beats": [
+          "dated_hook",
+          "false_or_expected_cause",
+          "geographic_scope",
+          "doubt",
+          "reveal",
+          "time_jump",
+          "remnant_or_present",
+          "callback"
+        ],
+        "visual_modes": [
+          "HISTORICAL_RECONSTRUCTION",
+          "GEOGRAPHIC_MAP",
+          "MAP_CAMERA_NAVIGATION",
+          "BOUNDARY_HIGHLIGHT",
+          "POPULATION_DOTS",
+          "RADIAL_WAVE",
+          "NATURAL_PHENOMENON_VFX",
+          "ANIMAL_VISUALIZATION",
+          "OBJECT_HIGHLIGHT",
+          "ENVIRONMENT_TRANSFORMATION",
+          "SYMBOLIC_HOLOGRAM",
+          "CALLBACK"
+        ],
+        "style": {
+          "family": "user_selected_or_global_style_bible",
+          "palette": "topic_and_style_specific",
+          "note": "No fixed palette: REF-003 colours are observation only"
+        },
+        "camera": [
+          "low_horizon_wide",
+          "ground_level_animal",
+          "oblique_map_glide",
+          "map_zoom_to_target",
+          "backlit_profile",
+          "map_pull_back"
+        ],
+        "motion": [
+          "camera_waypoint_glide",
+          "ring_expand",
+          "region_fade_in",
+          "dot_twinkle",
+          "idle_graze",
+          "glow_pulse",
+          "state_swap_dissolve"
+        ],
+        "caption": {
+          "preset": "cap_xdx_bold_stroke_9x16",
+          "timing": "actual_audio_alignment",
+          "max_lines": 2,
+          "safe_area": true
+        },
+        "engine_routing": {
+          "environment_modeling_animal_rigging_lighting_cinematic_render": "blender_xdx_mcp (Phase 02B, needs user approval)",
+          "geographic_animation_simulation_particles_procedural_effects": "threejs",
+          "master_timeline_caption_compositing_callout_editing": "remotion",
+          "encoding": "ffmpeg"
+        },
+        "quality_gates": [
+          "semantic_clause_to_visual_alignment",
+          "fact_source_verified",
+          "geodata_accuracy_verified",
+          "species_anatomy_verified",
+          "no_placeholder_final_assets",
+          "frame_determinism",
+          "actual_render_visual_review"
+        ]
+      },
+      "restrictions": [
+        "do not copy REF-003 animal model, textures, colours, fonts, wording, map styling or assets",
+        "techniques stay REFERENCE_OBSERVED until an actual XDX render passes QC",
+        "no automatic production before approval",
+        "no render claim from schema validation"
+      ]
     }
   ]
 }

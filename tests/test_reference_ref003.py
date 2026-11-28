@@ -1,0 +1,108 @@
+"""REF-003 (cinematic documentary): media integrity, registry/routing, technique vs style separation, honest status."""
+from __future__ import annotations
+
+import hashlib
+import json
+from pathlib import Path
+
+import pytest
+
+from intelligence.reference_database_bridge import ReferenceDatabaseBridge, route_references_for_shots
+from intelligence.reference_lifecycle import MultiReferenceFusionEngine
+
+ROOT = Path(__file__).resolve().parent.parent
+DB = ROOT / "reference_database"
+SHA = "6763efe27a2f312acedd15cb4f1663413fff533a99a4fd77de3686838d4bec87"
+FOLDER = DB / "references/documentary/REF-003-Javan-Rhino-Krakatau"
+
+
+def _j(p: Path):
+    return json.loads(p.read_text(encoding="utf-8"))
+
+
+def test_ref003_01_media_hash_size_and_probe_recorded():
+    mp4 = FOLDER / "original.mp4"
+    h = hashlib.sha256()
+    with mp4.open("rb") as f:
+        for c in iter(lambda: f.read(1 << 20), b""):
+            h.update(c)
+    assert h.hexdigest() == SHA and mp4.stat().st_size == 10302125
+    meta = _j(FOLDER / "metadata.json")
+    v = meta["ffprobe"]["streams"][0]
+    assert (v["width"], v["height"], v["avg_frame_rate"]) == (1280, 720, "30/1") and meta["ffprobe"]["format"]["duration"].startswith("64.36")
+    assert "filter=lfs" in (DB / ".gitattributes").read_text(encoding="utf-8")
+
+
+def test_ref003_02_registry_and_previous_references_unchanged():
+    refs = {r["id"]: r for r in _j(DB / "reference_registry.json")["references"]}
+    assert set(refs) == {"REF-001", "REF-002", "REF-003"}
+    assert refs["REF-001"]["sha256"].startswith("12f9e1d9") and refs["REF-002"]["sha256"].startswith("042ad39d")
+    assert refs["REF-003"]["sha256"] == SHA and refs["REF-003"]["profile_id"] == "cinematic_geo_documentary_v1"
+    out = ReferenceDatabaseBridge().resolve_context(genres=["documentary"], require_media=True)
+    assert out["selected_reference_ids"] == ["REF-003"] and out["all_media_verified"] and out["production_authorized"] is False
+
+
+def test_ref003_03_genre_routing_keeps_old_defaults():
+    b = ReferenceDatabaseBridge()
+    assert b.resolve_context(genres=["dokumenter"])["selected_reference_ids"] == ["REF-003"]
+    assert b.resolve_context(genres=["explainer"])["selected_reference_ids"] == ["REF-002"]
+    assert b.resolve_context(genres=["satir sosial"])["selected_reference_ids"] == ["REF-001"]
+    fused = b.resolve_context(genres=["explainer", "documentary"])
+    assert set(fused["selected_reference_ids"]) == {"REF-002", "REF-003"}
+
+
+def test_ref003_04_per_shot_multi_reference_routing():
+    r = route_references_for_shots({"A": ["geographic_map", "population_visualization"], "B": ["historical_reconstruction"], "C": ["social_vignette"], "D": ["mystery_need"]})
+    assert r["production_authorized"] is False
+    assert r["shots"]["A"] == {"primary": "REF-003", "subordinate": [], "unknown_needs": []}
+    assert r["shots"]["B"]["primary"] == "REF-003" and r["shots"]["B"]["subordinate"] == ["REF-002"]
+    assert r["shots"]["C"]["primary"] == "REF-001"
+    assert r["shots"]["D"]["primary"] is None and r["shots"]["D"]["unknown_needs"] == ["mystery_need"]
+
+
+REQUIRED = {"doc_historical_reconstruction", "doc_geo_terrain_map", "doc_geo_camera_navigation", "doc_geo_boundary_highlight", "doc_population_visualization", "doc_radial_wave", "doc_ocean_large_wave", "doc_volcanic_atmospheric_vfx", "doc_environmental_lighting", "doc_animal_visualization", "doc_object_highlight", "doc_environment_transformation", "doc_symbolic_visualization", "doc_animated_callouts", "doc_time_typography", "doc_narrative_misdirection_reveal_callback"}
+
+
+def test_ref003_05_all_16_techniques_observed_not_render_tested_and_split_observed_vs_inferred():
+    reg = _j(DB / "profiles/reference_technique_registry.json")
+    techs = {t["technique_id"]: t for t in reg["techniques"]}
+    assert set(techs) == REQUIRED
+    for t in techs.values():
+        assert t["status"] == "REFERENCE_OBSERVED" and t["promotion"]["promoted_to"] is None
+        assert t["observed"] and all(o["t"] and o["what"] for o in t["observed"])
+        assert t["inferred_method"]["basis"].startswith("INFERENCE_NOT_VERIFIED") and t["inferred_method"]["confidence"] in {"HIGH", "MEDIUM", "LOW"}
+    # reuse, not duplication: callouts/highlight map to the existing RENDER_TESTED callout system
+    assert techs["doc_animated_callouts"]["maps_to_existing_capability"].startswith("callout_leader_ring_system")
+    existing = {x["technique_id"]: x for x in _j(ROOT / "memory/seed_knowledge/production_techniques_v4.json")["techniques"]}
+    assert "callout_leader_ring_system" in existing and not (REQUIRED & set(existing))
+
+
+def test_ref003_06_technique_profile_is_style_independent():
+    reg = _j(DB / "profiles/reference_technique_registry.json")
+    assert {"stylized_3d", "diorama", "flat_cartoon", "anime_inspired", "realistic"} <= set(reg["style_adaptation_matrix"])
+    rea = _j(FOLDER / "rea_analysis_v3_4.json")
+    assert rea["animation_technique_profile"]["style_independent"] is True
+    assert rea["visual_style_profile"]["status"] == "OBSERVED_NOT_TO_BE_COPIED"
+    blob = json.dumps(reg["techniques"]).lower()
+    for banned in ("#", "font-family", "hex"):
+        assert banned not in blob, "technique entries must not carry colours/fonts of the reference"
+    prof = next(p for p in _j(DB / "profiles/reference_pattern_registry.json")["profiles"] if p["id"] == "cinematic_geo_documentary_v1")
+    assert prof["defaults"]["style"]["family"] == "user_selected_or_global_style_bible"
+    assert prof["defaults"]["engine_routing"]["geographic_animation_simulation_particles_procedural_effects"] == "threejs"
+    assert prof["defaults"]["pacing"]["max_shot_s"] <= 10
+
+
+def test_ref003_07_honest_analysis_provenance_and_scope():
+    rea = _j(FOLDER / "rea_analysis_v3_4.json")
+    assert rea["analyzer_provenance"]["asr_transcription"].startswith("NOT_PERFORMED") and rea["analyzer_provenance"]["production_authorized"] is False
+    assert rea["ten_dimension_analysis"]["09_narration_audio_and_sfx"]["deferred_to"] == "Phase 04"
+
+
+def test_ref003_08_fusion_picks_ref003_for_geo_documentary_and_keeps_ref002_mechanism():
+    b = ReferenceDatabaseBridge()
+    recs = [b.verify_and_load_reference(r, require_media=False) for r in ("REF-002", "REF-003")]
+    plan = MultiReferenceFusionEngine().fuse(recs, genres=["documentary", "geography"], chosen_style_profile="stylized_3d")
+    assert plan["dimensions"]["camera"]["primary_reference_id"] == "REF-003"
+    assert plan["dimensions"]["technical_visualization"]["primary_reference_id"] == "REF-003"
+    plan2 = MultiReferenceFusionEngine().fuse(recs, genres=["explainer"], chosen_style_profile="stylized_3d")
+    assert plan2["dimensions"]["technical_visualization"]["primary_reference_id"] == "REF-002"

@@ -1223,9 +1223,9 @@ def test_28_reference_knowledge_index_preserves_ref001_ref002_prior_and_v34_and_
     sync_res = sync_reference_database_into_knowledge_memory(
         mem, export_seed_path=tmp_path / "seed_idx.json"
     )
-    assert sync_res["references_indexed"] == ["REF-001", "REF-002"]
-    assert sync_res["versions_registered"] == 4
-    for rid in ("REF-001", "REF-002"):
+    assert sync_res["references_indexed"] == ["REF-001", "REF-002", "REF-003"]
+    assert sync_res["versions_registered"] == 6
+    for rid in ("REF-001", "REF-002", "REF-003"):
         vers = [v["version_tag"] for v in mem.knowledge.list_versions(f"ref_index:{rid}")]
         assert vers == ["prior_v1", "rea_v3.4"]
 

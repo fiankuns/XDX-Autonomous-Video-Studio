@@ -1,0 +1,214 @@
+{
+  "schema": "xdx.rea-video.deep-analysis.v3.4",
+  "reference_id": "REF-003",
+  "original_filename": "1001952954.mp4",
+  "video_sha256": "6763efe27a2f312acedd15cb4f1663413fff533a99a4fd77de3686838d4bec87",
+  "bytes": 10302125,
+  "prior_analysis_preserved": "references/documentary/REF-003-Javan-Rhino-Krakatau/prior_analysis.json",
+  "analyzer_provenance": {
+    "adapter": "ffprobe/ffmpeg scene+black detection + manual multimodal frame review",
+    "multimodal_frame_review": "33 timestamped frames (2.0s stride, 0.0s-64.0s) across 2 contact sheets plus 8 full-size detail frames inspected",
+    "ffmpeg_scene_thresholds_tested": [
+      0.1,
+      0.25
+    ],
+    "asr_transcription": "NOT_PERFORMED (caption text read from frames only)",
+    "production_authorized": false,
+    "analysis_status": "REFERENCE_OBSERVED"
+  },
+  "measurements": {
+    "container_duration_s": 64.364,
+    "video_stream_duration_s": 64.333,
+    "width": 1280,
+    "height": 720,
+    "aspect_ratio": "16:9_landscape (XDX production is 9:16: adapt framing, do not letterbox)",
+    "video_codec": "h264",
+    "fps": 30,
+    "decoded_frames": 1930,
+    "audio": {
+      "codec": "aac",
+      "mean_volume_db": -16.1,
+      "max_volume_db": 0.0,
+      "note": "Phase 04 topic; only volumedetect run"
+    },
+    "signal_candidates": {
+      "scene_gt_0_10_times_s": [
+        3.5,
+        13.567,
+        39.133,
+        39.167,
+        39.233,
+        43.4,
+        43.433,
+        43.5
+      ],
+      "scene_gt_0_25_times_s": [
+        39.167,
+        43.4,
+        43.5
+      ],
+      "black_dips_s": [
+        [
+          0,
+          0.133
+        ],
+        [
+          13.8,
+          13.933
+        ],
+        [
+          34.867,
+          35.0
+        ],
+        [
+          40.933,
+          41.1
+        ],
+        [
+          43.533,
+          43.833
+        ],
+        [
+          46.6,
+          46.733
+        ],
+        [
+          64.167,
+          64.3
+        ]
+      ],
+      "note": "Very few hard cuts: most transitions are camera moves, dissolves or short dips to black (0.13-0.3 s)."
+    }
+  },
+  "ten_dimension_analysis": {
+    "01_narrative_structure_and_hook": {
+      "pattern": "dated_disaster_hook -> false_cause -> geographic_scope -> doubt -> reveal_true_cause -> time_jump_loss -> protected_remnant -> callback_map_with_human_responsibility",
+      "hook_0_6s": "OBSERVED: year title over an erupting volcano, ash shockwave and tsunami front within 6 s",
+      "sequence_breakdown": [
+        {
+          "seq": "SEQ_01",
+          "time_s": [
+            0,
+            13.8
+          ],
+          "beat": "Dated eruption and wave reach the animal's coast"
+        },
+        {
+          "seq": "SEQ_02",
+          "time_s": [
+            13.8,
+            34.9
+          ],
+          "beat": "Map: species range across the region, population dots, source marker with radial rings, doubt callouts"
+        },
+        {
+          "seq": "SEQ_03",
+          "time_s": [
+            34.9,
+            41.0
+          ],
+          "beat": "Reveal: animal lit at sunset, horn highlighted, forest turned to farmland"
+        },
+        {
+          "seq": "SEQ_04",
+          "time_s": [
+            41.0,
+            46.6
+          ],
+          "beat": "Second dated scene at night, hologram animal"
+        },
+        {
+          "seq": "SEQ_05",
+          "time_s": [
+            46.6,
+            56.9
+          ],
+          "beat": "Map zoom to protected island, outline, count callout"
+        },
+        {
+          "seq": "SEQ_06",
+          "time_s": [
+            56.9,
+            64.4
+          ],
+          "beat": "Pull-back to the opening-style region map; final human-responsibility line"
+        }
+      ],
+      "evidence": "OBSERVED from frames and captions; narrative labels are INFERENCE"
+    },
+    "02_shots_timestamps_and_pacing": {
+      "observed": "Roughly 8-14 s continuous beats with camera motion inside each; hard cut candidates only at 3.5, 13.6, 39.1, 43.4 s; dips to black at 0, 13.8, 34.9, 40.9, 43.5, 46.6, 64.2 s",
+      "pacing_note": "Slower, longer takes than REF-001/REF-002 (2-4 s); in XDX this is a per-shot choice, not a global rule"
+    },
+    "03_characters_and_acting": {
+      "observed": "No human character; one quadruped animal appears in 3 looks (lit, silhouette, hologram); grazing idle at 8-13 s",
+      "inference": "Animal likely rigged with an idle loop (METHOD NOT VERIFIED)"
+    },
+    "04_body_motion_facial_expressions_and_objects": {
+      "observed": "Head-down grazing motion; hologram animal stands still; horn glow flare at 38 s"
+    },
+    "05_camera_and_cinematography": {
+      "framing_grammar": [
+        "low horizon wide establishing over water (00:00-00:08)",
+        "low ground-level animal shot with a tall wave behind (00:08-00:13)",
+        "oblique high-angle map (00:14-00:35, 00:46-01:04)",
+        "low sunset backlit profile (00:36-00:38)",
+        "wide night forest (00:42-00:46)"
+      ],
+      "camera_motion": "slow push-in/orbit on the set shots; eased glides and tilts over the map"
+    },
+    "06_environment_assets_materials_and_lighting": {
+      "observed": "Fiery orange sky and glow; dark ocean with glints; olive-green relief terrain with vegetation texture; golden-hour backlight; cold blue night with rim light; trees with long shadows",
+      "inference": "Terrain and animal likely 3D renders; exact tools unknown"
+    },
+    "07_technical_cutaways_and_demonstrations": {
+      "observed": "No mechanical cutaways; the explanatory device is the map with highlight/point/ring overlays"
+    },
+    "08_captions_and_typography": {
+      "observed": "Small sans-serif lower captions centred, key words in orange accent; serif year cards with small-caps place line; serif map labels with thin leader lines",
+      "copy_restriction": "Do not reuse these fonts, colours or wording; use the style bible's caption preset"
+    },
+    "09_narration_audio_and_sfx": {
+      "deferred_to": "Phase 04",
+      "observed": "Audio track present (AAC); no analysis beyond level; no ASR performed"
+    },
+    "10_editing_transitions_and_vfx": {
+      "observed": "Dip-to-black transitions, long camera-driven continuity, ring/outline/dot overlays, eruption and wave VFX, glow highlight, hologram look"
+    }
+  },
+  "animation_technique_profile": {
+    "registry": "profiles/reference_technique_registry.json",
+    "technique_ids": [
+      "doc_historical_reconstruction",
+      "doc_geo_terrain_map",
+      "doc_geo_camera_navigation",
+      "doc_geo_boundary_highlight",
+      "doc_population_visualization",
+      "doc_radial_wave",
+      "doc_ocean_large_wave",
+      "doc_volcanic_atmospheric_vfx",
+      "doc_environmental_lighting",
+      "doc_animal_visualization",
+      "doc_object_highlight",
+      "doc_environment_transformation",
+      "doc_symbolic_visualization",
+      "doc_animated_callouts",
+      "doc_time_typography",
+      "doc_narrative_misdirection_reveal_callback"
+    ],
+    "status": "REFERENCE_OBSERVED",
+    "style_independent": true
+  },
+  "visual_style_profile": {
+    "status": "OBSERVED_NOT_TO_BE_COPIED",
+    "observed": "Warm volcanic oranges, deep teal sea, olive terrain, serif titles, small orange-keyword captions, glowing pale-blue region fills",
+    "use": "Reference for mood only. XDX adapts technique to the Global Style Bible or the user's chosen style (stylized 3D, diorama, flat cartoon, anime-inspired, realistic, others)."
+  },
+  "reusable_production_profile_id": "cinematic_geo_documentary_v1",
+  "strict_copyright_and_safety_guardrails": [
+    "Do not copy REF-003 animal model, textures, colours, fonts, wording, map styling, music or any asset.",
+    "Species, places and dates for a new topic must be fact-checked; the reference's claims are not reused.",
+    "Techniques stay REFERENCE_OBSERVED until an actual XDX render passes QC.",
+    "Does NOT grant production or rendering approval."
+  ]
+}

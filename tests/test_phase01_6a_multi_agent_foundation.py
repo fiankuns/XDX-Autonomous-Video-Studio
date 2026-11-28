@@ -390,7 +390,7 @@ def test_capability_discovery_router_modes_and_cli() -> None:
         {"DOCUMENTED_CAPABILITY", "SUPPORTED_AND_VERIFIED"} if ag_detected else {"UNKNOWN"}
     )
     assert cap["antigravity_native_multi_agent"]["workspace_modes"]["inherit"] in expected_inherit_statuses
-    assert len(cap["reference_database"]["verified_references"]) == 2
+    assert len(cap["reference_database"]["verified_references"]) == 3  # REF-001, REF-002, REF-003
 
     router = MasterDirectorTaskRouter()
     for mode in (

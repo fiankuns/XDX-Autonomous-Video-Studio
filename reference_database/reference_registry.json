@@ -60,6 +60,44 @@
       "profile_id": "hosted_3d_explainer_cutaway_v1",
       "analysis_status": "MULTIMODAL_REA_V3_4_VERIFIED_PRIOR_PRESERVED",
       "rights_status": "USER_SUPPLIED_PRIVATE_REFERENCE_RIGHTS_NOT_VERIFIED"
+    },
+    {
+      "id": "REF-003",
+      "original_filename": "1001952954.mp4",
+      "genre": "dokumenter",
+      "tags": [
+        "documentary",
+        "dokumenter",
+        "history",
+        "sejarah",
+        "geography",
+        "geografi",
+        "natural_phenomenon",
+        "fenomena_alam",
+        "wildlife",
+        "krakatau",
+        "javan_rhino"
+      ],
+      "path": "references/documentary/REF-003-Javan-Rhino-Krakatau/original.mp4",
+      "sha256": "6763efe27a2f312acedd15cb4f1663413fff533a99a4fd77de3686838d4bec87",
+      "bytes": 10302125,
+      "metadata": "references/documentary/REF-003-Javan-Rhino-Krakatau/metadata.json",
+      "prior_analysis": "references/documentary/REF-003-Javan-Rhino-Krakatau/prior_analysis.json",
+      "versioned_analyses": [
+        {
+          "version": "prior_v1",
+          "path": "references/documentary/REF-003-Javan-Rhino-Krakatau/prior_analysis.json"
+        },
+        {
+          "version": "v3.4",
+          "json_path": "references/documentary/REF-003-Javan-Rhino-Krakatau/rea_analysis_v3_4.json",
+          "markdown_path": "references/documentary/REF-003-Javan-Rhino-Krakatau/rea_analysis_v3_4.md"
+        }
+      ],
+      "technique_registry": "profiles/reference_technique_registry.json",
+      "profile_id": "cinematic_geo_documentary_v1",
+      "analysis_status": "MULTIMODAL_REA_V3_4_VERIFIED_TECHNIQUES_REFERENCE_OBSERVED",
+      "rights_status": "USER_SUPPLIED_PRIVATE_REFERENCE_RIGHTS_NOT_VERIFIED"
     }
   ]
 }

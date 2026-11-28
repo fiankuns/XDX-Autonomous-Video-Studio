@@ -1,0 +1,49 @@
+{
+  "id": "REF-003",
+  "original_filename": "1001952954.mp4",
+  "genre": "dokumenter",
+  "tags": [
+    "documentary",
+    "dokumenter",
+    "history",
+    "sejarah",
+    "geography",
+    "geografi",
+    "natural_phenomenon",
+    "fenomena_alam",
+    "wildlife",
+    "krakatau",
+    "javan_rhino"
+  ],
+  "path": "references/documentary/REF-003-Javan-Rhino-Krakatau/original.mp4",
+  "sha256": "6763efe27a2f312acedd15cb4f1663413fff533a99a4fd77de3686838d4bec87",
+  "bytes": 10302125,
+  "metadata": "references/documentary/REF-003-Javan-Rhino-Krakatau/metadata.json",
+  "prior_analysis": "references/documentary/REF-003-Javan-Rhino-Krakatau/prior_analysis.json",
+  "rea_analysis_v3_4_json": "references/documentary/REF-003-Javan-Rhino-Krakatau/rea_analysis_v3_4.json",
+  "rea_analysis_v3_4_md": "references/documentary/REF-003-Javan-Rhino-Krakatau/rea_analysis_v3_4.md",
+  "technique_registry": "profiles/reference_technique_registry.json",
+  "profile_id": "cinematic_geo_documentary_v1",
+  "analysis_status": "MULTIMODAL_REA_V3_4_VERIFIED_TECHNIQUES_REFERENCE_OBSERVED",
+  "rights_status": "USER_SUPPLIED_PRIVATE_REFERENCE_RIGHTS_NOT_VERIFIED",
+  "ffprobe": {
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1280,
+        "height": 720,
+        "avg_frame_rate": "30/1",
+        "nb_frames": 1930
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio"
+      }
+    ],
+    "format": {
+      "duration": "64.364308",
+      "size": "10302125"
+    }
+  }
+}

@@ -56,7 +56,7 @@ def test_git_lfs_real_binaries_and_cli_verify() -> None:
     )
     results = json.loads(proc.stdout)
     by_id = {r["id"]: r for r in results}
-    assert set(by_id) == {"REF-001", "REF-002"}
+    assert set(by_id) == {"REF-001", "REF-002", "REF-003"}
 
     for rid, expected_bytes, expected_sha in (
         ("REF-001", 27026130, "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d"),

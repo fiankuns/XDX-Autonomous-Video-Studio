@@ -3,7 +3,7 @@
   "project_id": "bench_p02a_ac_15s",
   "package_version": "v1",
   "status": "WAITING_APPROVAL",
-  "package_digest": "41bd6d68b952665dd8b5e882bbb322d2c435daa452d47915e6909c1ab990e0ab",
+  "package_digest": "981dd1d4e68b1384d0ab7f822931ba2d63d26a2a9465ba90874c7cf6db6c2efd",
   "mandatory_13_items": {
     "01_topic_and_concept": {
       "present": true,
@@ -88,7 +88,7 @@
     "motion_plan.json": "ddd8b64fe1b522764a739ce8c831937bb4ad8fa0466c3ad4fb7d9cc6c6e874c9",
     "narration_dialogue.json": "fb3a0a6ab1cea1d07a47bb978fd810d13248f6375725f3fdd2edf4fdb760fcf2",
     "production_config.json": "c04c156624682d3ba3addb0e6e0fdb4fb10e20f1fd501ac571787b5717411bd3",
-    "production_dependencies.json": "9add715fc4e61c21af8ab389284d2ae894fdc6d24d1a42e9ada6e8edb0d7fa3b",
+    "production_dependencies.json": "a2e04de1b737475ec218c54119bec215aad6d1e28212de8d8ae76bdd7db0f72f",
     "reference_adaptation.json": "1406222f7beadc471034efd6eb2c1cdc9969a51d1aa693cc2b6bb378a1074fb6",
     "reference_analysis.md": "08368067a4e7b539bb4eda93cd90dafedd3681b977d56cba7ee04174cadd554d",
     "research.md": "5a4a7c37e271325c7fc03dd644638f4ed67889d259c7b52f098cf1bfc127d404",

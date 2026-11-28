@@ -1,13 +1,14 @@
 """Automatic Reference Intelligence Bridge for XDX Internal Reference Database (v3.4).
 
-Integrates `reference_database/` (`REF-001`, `REF-002`, future append-only entries) with
+Integrates `reference_database/` (`REF-001`, `REF-002`, `REF-003`, future append-only entries) with
 `CreativePipeline`, `UniversalMasterPromptEngine`, `StoryboardDirector`, and `PreProductionPackageBuilder`.
 
 Enforces all rules in `reference_database/integration/AGENT_REFERENCE_RULES.md`:
 1. Automatic genre routing:
    - `explainer` (including `explainair`, `explaner`, `explain er`) -> `REF-002` (`hosted_3d_explainer_cutaway_v1`)
    - `storytelling` / `social_satire` (`satir_sosial`, `satir sosial`, `cerita`) -> `REF-001` (`satirical_3d_vignette_storytelling_v1`)
-   - Multi-genre combinations of both automatically fuse `["REF-002", "REF-001"]`.
+   - `dokumenter` (alias `documentary`; history, geography, natural phenomena) -> `REF-003` (`cinematic_geo_documentary_v1`)
+   - Multi-genre combinations fuse every matching default; per-shot routing: `route_references_for_shots`.
    - Other genres preserve existing defaults and surface `related_candidates` only as non-forced suggestions unless `include_related=True`.
 2. Explicit `--ref-id` single or multi-reference selection overrides genre defaults.
 3. Simultaneous fusion of (a) verified original MP4 bytes & `ffprobe`, (b) REA-Video v3.4 multimodal analysis,
@@ -442,7 +443,7 @@ class ReferenceDatabaseBridge:
                 [
                     f"### `{rec.reference_id}` (`{rec.profile['id']}`)",
                     f"- **SHA-256 Terverifikasi**: `{rec.video_sha256}` (`{rec.bytes_size:,}` byte)",
-                    f"- **Spesifikasi Sinyal**: `{m['width']}x{m['height']}` · `{m['video_codec']}` · `{m['fps']:.2f} fps` · `{m['video_stream_duration_s']}s` · Audio `{m['audio']['integrated_loudness_lufs']} LUFS`",
+                    f"- **Spesifikasi Sinyal**: `{m['width']}x{m['height']}` · `{m['video_codec']}` · `{m['fps']:.2f} fps` · `{m['video_stream_duration_s']}s` · Audio `{m['audio'].get('integrated_loudness_lufs', 'n/a (Phase 04)')} LUFS`",
                     f"- **Data Riset/Analisis Sebelumnya**: `{rec.prior_analysis_path.name}` dipertahankan dan digabungkan sebagai konteks.",
                     f"- **Pola Narasi & Hook**: `{td['01_narrative_structure_and_hook']['pattern']}` — {td['01_narrative_structure_and_hook']['hook_0_5s' if 'hook_0_5s' in td['01_narrative_structure_and_hook'] else 'hook_0_6s']}",
                     f"- **Benchmark Pacing**: Rentang shot tipikal `{rec.profile['defaults']['pacing']['typical_shot_s'][0]}–{rec.profile['defaults']['pacing']['typical_shot_s'][1]} detik` (`<= 10s` batas mutlak).",
@@ -462,3 +463,27 @@ class ReferenceDatabaseBridge:
                 ]
             )
         return "\n".join(lines)
+
+
+def route_references_for_shots(shot_needs: dict[str, list[str]], db_root: Path | None = None) -> dict[str, Any]:
+    """Per-shot multi-reference fusion: map each shot's needs to reference ids via genre_registry.shot_need_routing.
+
+    The first id of the first matched need is the shot's primary reference; every other matched id is subordinate.
+    Unknown needs are reported (never guessed). Pure routing: authorizes nothing.
+    """
+    root = (db_root or DEFAULT_DB_ROOT).resolve()
+    table = json.loads((root / "genre_registry.json").read_text(encoding="utf-8")).get("shot_need_routing", {})
+    out: dict[str, Any] = {}
+    for shot_id, needs in shot_needs.items():
+        ids: list[str] = []
+        unknown: list[str] = []
+        for need in needs:
+            routed = table.get(need)
+            if not routed or need.startswith("_"):
+                unknown.append(need)
+                continue
+            for rid in routed:
+                if rid not in ids:
+                    ids.append(rid)
+        out[shot_id] = {"primary": ids[0] if ids else None, "subordinate": ids[1:], "unknown_needs": unknown}
+    return {"production_authorized": False, "shots": out}
