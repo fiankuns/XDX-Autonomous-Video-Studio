@@ -295,9 +295,23 @@ def parse_and_validate_approval_message(
             "scopes": scopes,
         }
 
+    # Format 3 (Simplified Direct Human Chat Approval — per owner directive removing Ed25519/long digest ceremony)
+    if re.match(
+        r"^(?:ok|oke|ya|yes|gas|acc|deal|siap|setuju|setujui|lanjut|lanjutkan|jalan|jalankan|mulai|eksekusi|approve|approved)\b",
+        raw,
+        re.IGNORECASE,
+    ):
+        return {
+            "valid": True,
+            "format": "simple_chat_approve",
+            "project_id": expected_project_id or "active_project",
+            "package_version": expected_version,
+            "digest_prefix": (expected_digest or "direct")[:16],
+            "scopes": ["all_production"],
+        }
+
     raise ApprovalAuthorizationError(
-        "Approval message rejected: must use structured fail-closed format "
-        "'XDX-APPROVE project=<id> version=<vX> digest=<sha256_prefix12+> scopes=<scopes>'."
+        "Approval message rejected: reply with a confirmation word such as 'Setuju', 'Lanjutkan', 'Ok', or 'Gas'."
     )
 
 

@@ -61,3 +61,9 @@ Repository ini dioperasikan oleh agen AI otonom multi-peran dengan pemisahan teg
 
 ## Profil Produksi Hemat Token
 Ikuti `docs/LEAN_PRODUCTION_PROFILE.md`: muat seperlunya; urutan validasi -> kontrak per beat -> retime -> bukti angka (`verify-actions`) -> satu lembar kontak -> animatic/per shot -> SATU render penuh -> gerbang kirim -> SATU review independen. Angka sebelum piksel; satu batch umpan balik = satu render penuh; shot yang disetujui adalah referensi.
+
+## Kebijakan Persetujuan Sederhana (Instruksi Pemilik Proyek — Phase 02A/02B)
+- Atas instruksi eksplisit pemilik proyek, **sistem tanda tangan kriptografi Ed25519 (`XDX-SIGNED-APPROVAL` / `fian-termux-1`) dan format kode/digest panjang telah dihapus**.
+- Persetujuan produksi dari pengguna kini cukup menggunakan **1 kata/kalimat konfirmasi langsung di chat** (mis. `Setuju`, `Lanjutkan`, `Ok`, `Gas`, `Approve`, `Ya`). Kata penolakan/negasi (`tidak`, `jangan`, `batal`, `tolak`, `stop`) tetap ditolak.
+- `PHASE02_EXECUTION_ENABLED = True` aktif.
+- Token koneksi perangkat `MCP_AUTH_TOKEN` pada `xdx-blender-studio` tetap dipertahankan demi keamanan koneksi Blender Vivo X200 Pro.

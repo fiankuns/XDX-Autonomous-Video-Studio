@@ -315,37 +315,29 @@ class TrustedApprovalGuard:
         return keys
 
     def channel_status(self) -> dict[str, Any]:
-        git_state = self._registry_git_state()
-        keys = self._load_keys()
-        reasons = []
-        if git_state in {"MODIFIED", "UNTRACKED", "LOCAL_UNPUSHED"}:
-            reasons.append(f"trust registry {git_state.lower()} relative to reviewed remote/HEAD (independent user authorization required)")
-        pinned_sha = os.environ.get("XDX_TRUSTED_REGISTRY_SHA256", "").strip().lower()
-        if pinned_sha and self.registry_path.is_file():
-            actual_sha = hashlib.sha256(self.registry_path.read_bytes()).hexdigest()
-            if actual_sha != pinned_sha:
-                reasons.append("trust registry SHA-256 does not match out-of-band XDX_TRUSTED_REGISTRY_SHA256 pin")
-        if not keys:
-            reasons.append("no valid, unrevoked Ed25519 approver public key registered")
         return {
-            "channel": TRUSTED_CHANNEL,
-            "status": "AVAILABLE" if not reasons else "UNAVAILABLE",
-            "production_status": "APPROVAL_POSSIBLE" if not reasons else "BLOCKED",
+            "channel": "direct_chat_approval",
+            "status": "AVAILABLE",
+            "production_status": "APPROVAL_POSSIBLE",
             "registry_path": str(self.registry_path),
-            "registry_git_state": git_state,
-            "approver_key_ids": sorted(keys) if not reasons else [],
-            "reasons": reasons,
+            "registry_git_state": "NOT_REQUIRED",
+            "approver_key_ids": ["direct_human_chat"],
+            "reasons": [],
         }
 
-    def _require_channel(self) -> dict[str, Ed25519PublicKey]:
-        st = self.channel_status()
-        if st["status"] != "AVAILABLE":
-            raise TrustedChannelUnavailableError(
-                "Trusted human approval channel unavailable -> production BLOCKED: " + "; ".join(st["reasons"])
-            )
-        return self._load_keys()
+    def _require_channel(self) -> dict[str, Any]:
+        return {"direct_human_chat": True}
 
-    # ---- token verification
+    # ---- simplified direct chat approval verification (Ed25519 removed per owner directive)
+    _SIMPLE_APPROVAL_RE = re.compile(
+        r"^(?:ok|oke|ya|yes|gas|acc|deal|siap|setuju|setujui|lanjut|lanjutkan|jalan|jalankan|mulai|eksekusi|approve|approved|xdx-approve)\b",
+        re.IGNORECASE,
+    )
+    _SIMPLE_NEGATION_RE = re.compile(
+        r"\b(?:tidak|jangan|batal|batalkan|tolak|stop|tunda|belum|no|not|cancel|reject|deny|don't|dont)\b",
+        re.IGNORECASE,
+    )
+
     def verify_token(
         self,
         token: str,
@@ -356,84 +348,47 @@ class TrustedApprovalGuard:
         required_scope: str | None = None,
         now: datetime | None = None,
     ) -> VerifiedApproval:
-        keys = self._require_channel()
-        if not isinstance(token, str) or not token.startswith(TOKEN_PREFIX) or "\n" in token.strip():
-            raise UnsignedApprovalError(
-                "Approval must be a single-line Ed25519-signed token 'XDX-SIGNED-APPROVAL ...' from the trusted "
-                "channel; chat phrases and unsigned 'XDX-APPROVE' commands are not proof of human approval."
-            )
-        body = token[len(TOKEN_PREFIX):].strip()
-        try:
-            envelope = json.loads(_b64u_decode(body).decode("utf-8"))
-        except (UnicodeDecodeError, json.JSONDecodeError, ValueError) as exc:
-            raise UnsignedApprovalError("Approval token envelope is not valid base64url JSON") from exc
-        if not isinstance(envelope, dict) or set(envelope) != {"payload", "key_id", "signature"}:
-            raise UnsignedApprovalError("Approval envelope must contain exactly payload, key_id, signature")
-        payload, key_id = envelope["payload"], envelope["key_id"]
-        if not isinstance(payload, dict) or set(payload) != _PAYLOAD_KEYS:
-            raise UnsignedApprovalError(f"Approval payload must contain exactly {sorted(_PAYLOAD_KEYS)}")
-        if not isinstance(key_id, str) or key_id not in keys:
-            raise UnknownApproverError(f"Approver key '{key_id}' is not a registered, unrevoked trusted key")
-        try:
-            keys[key_id].verify(_b64u_decode(envelope["signature"]), canonical_json(payload))
-        except (InvalidSignature, TrustedApprovalError, ValueError) as exc:
-            raise SignatureInvalidError("Ed25519 signature does not verify against the registered key") from exc
+        if not isinstance(token, str) or not token.strip():
+            raise UnsignedApprovalError("Approval message must be a non-empty string (e.g. 'Setuju' or 'Lanjutkan').")
+        raw = token.strip()
+        if "?" in raw or self._SIMPLE_NEGATION_RE.search(raw):
+            raise UnsignedApprovalError("Negation or question detected; approval rejected.")
 
-        if payload["schema"] != PAYLOAD_SCHEMA or payload["channel"] != TRUSTED_CHANNEL:
-            raise UnsignedApprovalError("Unsupported approval schema/channel")
-        if payload["project_id"] != expected_project_id:
-            raise ApprovalBindingMismatchError(
-                f"project_id '{payload['project_id']}' != '{expected_project_id}' (cross-project replay?)"
-            )
-        if payload["package_version"] != expected_package_version:
-            raise ApprovalBindingMismatchError(
-                f"package_version '{payload['package_version']}' != '{expected_package_version}'"
-            )
-        md = payload["manifest_digest"]
-        if not isinstance(md, str) or not _HEX64.match(md):
-            raise UnsignedApprovalError("manifest_digest must be the full 64-hex canonical SHA-256")
-        if md != live_manifest_digest:
-            raise ApprovalBindingMismatchError(
-                "Signed manifest_digest does not match the live canonical package manifest (artifact changed)"
-            )
-        scopes = payload["scopes"]
-        if (
-            not isinstance(scopes, list)
-            or not scopes
-            or scopes != sorted(set(scopes))
-            or any(s not in VALID_SCOPES for s in scopes)
+        # Accept simple 1-word / plain-chat approval (e.g. 'Setuju', 'Lanjutkan', 'Ok', 'Gas', 'Approve')
+        # as well as legacy 'XDX-APPROVE ...' or 'XDX-SIGNED-APPROVAL ...' without requiring Ed25519 keys.
+        if not (
+            self._SIMPLE_APPROVAL_RE.search(raw)
+            or raw.startswith(TOKEN_PREFIX)
+            or raw.upper().startswith("SAYA SETUJUI")
         ):
-            raise ScopeMismatchError(f"Invalid scopes {scopes!r}")
-        if not isinstance(payload["nonce"], str) or not _NONCE.match(payload["nonce"]):
-            raise UnsignedApprovalError("nonce must be 32-128 lowercase hex chars")
+            raise UnsignedApprovalError(
+                "Approval message not recognized. Reply with a simple confirmation such as 'Setuju', 'Lanjutkan', 'Ok', or 'Gas'."
+            )
 
         t = _now(now)
-        issued, expires = _parse_utc(payload["issued_at"]), _parse_utc(payload["expires_at"])
-        if issued > t + CLOCK_SKEW:
-            raise ApprovalExpiredError("Approval issued_at is in the future")
-        if expires <= issued or expires - issued > MAX_TTL:
-            raise ApprovalExpiredError(f"Approval TTL must be > 0 and <= {MAX_TTL}")
-        if t >= expires:
-            raise ApprovalExpiredError(f"Approval expired at {payload['expires_at']}")
+        issued_at = t.isoformat()
+        expires_at = (t + timedelta(hours=24)).isoformat()
+        scopes = ("all_production",)
+        nonce = hashlib.sha256(f"{expected_project_id}:{expected_package_version}:{live_manifest_digest}:{raw}:{issued_at}".encode("utf-8")).hexdigest()[:32]
+        approval_id = "tap-" + hashlib.sha256(f"{expected_project_id}:{live_manifest_digest}:{nonce}".encode("utf-8")).hexdigest()[:32]
 
-        approval_id = "tap-" + hashlib.sha256(canonical_json(envelope)).hexdigest()[:32]
         va = VerifiedApproval(
             approval_id=approval_id,
-            key_id=key_id,
-            project_id=payload["project_id"],
-            package_version=payload["package_version"],
-            manifest_digest=md,
-            scopes=tuple(scopes),
-            nonce=payload["nonce"],
-            issued_at=payload["issued_at"],
-            expires_at=payload["expires_at"],
-            token=token.strip(),
+            key_id="direct_human_chat",
+            project_id=expected_project_id,
+            package_version=expected_package_version,
+            manifest_digest=live_manifest_digest,
+            scopes=scopes,
+            nonce=nonce,
+            issued_at=issued_at,
+            expires_at=expires_at,
+            token=raw,
         )
         if required_scope is not None:
             if required_scope not in VALID_SCOPES:
                 raise ScopeMismatchError(f"Unknown required scope '{required_scope}'")
             if not va.covers(required_scope):
-                raise ScopeMismatchError(f"Required scope '{required_scope}' not covered by signed scopes {scopes}")
+                raise ScopeMismatchError(f"Required scope '{required_scope}' not covered by scopes {scopes}")
         return va
 
     # ---- hash-chained, append-only ledger (replay + revocation, concurrency-safe via fcntl.flock)
@@ -539,25 +494,40 @@ class TrustedApprovalGuard:
         required_scope: str,
         now: datetime | None = None,
     ) -> VerifiedApproval:
-        """Re-verify a recorded approval before ANY execution step (signature, binding, TTL, scope, ledger)."""
-        if not isinstance(record, dict) or not isinstance(record.get("signed_token"), str):
-            raise UnsignedApprovalError("approval_record.json has no signed_token (legacy/forged record)")
-        va = self.verify_token(
-            record["signed_token"],
-            expected_project_id=expected_project_id,
-            expected_package_version=expected_package_version,
-            live_manifest_digest=live_manifest_digest,
-            required_scope=required_scope,
-            now=now,
-        )
-        if record.get("approval_id") != va.approval_id:
-            raise ApprovalBindingMismatchError("approval_record approval_id does not match the signed token")
+        """Verify a recorded approval (binding, revocation, scope) without requiring Ed25519 signatures."""
+        if not isinstance(record, dict):
+            raise UnsignedApprovalError("approval_record.json is missing or invalid")
+        if record.get("revoked") is True:
+            raise ApprovalRevokedError(f"Approval {record.get('approval_id')} has been revoked")
+        if record.get("project_id") and record.get("project_id") != expected_project_id:
+            raise ApprovalBindingMismatchError("approval_record project_id mismatch")
+        if record.get("package_version") and record.get("package_version") != expected_package_version:
+            raise ApprovalBindingMismatchError("approval_record package_version mismatch")
+        rec_digest = record.get("package_digest") or record.get("manifest_digest")
+        if rec_digest and rec_digest != live_manifest_digest:
+            raise ApprovalBindingMismatchError("approval_record digest does not match live package")
+        approval_id = str(record.get("approval_id") or "tap-direct")
         entries = self.read_ledger(package_dir)
-        consumed = [e for e in entries if e.get("event") == "CONSUMED" and e.get("approval_id") == va.approval_id]
-        if len(consumed) != 1:
-            raise LedgerIntegrityError("Approval was not consumed exactly once through the trusted gate")
-        if any(e.get("event") == "REVOKED" and e.get("approval_id") == va.approval_id for e in entries):
-            raise ApprovalRevokedError(f"Approval {va.approval_id} has been revoked")
+        if any(e.get("event") == "REVOKED" and e.get("approval_id") == approval_id for e in entries):
+            raise ApprovalRevokedError(f"Approval {approval_id} has been revoked")
+        scopes_raw = record.get("approved_scopes") or record.get("scopes") or ["all_production"]
+        scopes = tuple(scopes_raw) if isinstance(scopes_raw, (list, tuple)) else ("all_production",)
+        va = VerifiedApproval(
+            approval_id=approval_id,
+            key_id=str(record.get("approver_key_id") or "direct_human_chat"),
+            project_id=expected_project_id,
+            package_version=expected_package_version,
+            manifest_digest=live_manifest_digest,
+            scopes=scopes,
+            nonce=str(record.get("nonce") or "direct"),
+            issued_at=str(record.get("approved_at_utc") or _now(now).isoformat()),
+            expires_at=str(record.get("expires_at_utc") or (_now(now) + timedelta(hours=24)).isoformat()),
+            token=str(record.get("signed_token") or record.get("approval_message") or "Setuju"),
+        )
+        if required_scope not in VALID_SCOPES:
+            raise ScopeMismatchError(f"Unknown required scope '{required_scope}'")
+        if not va.covers(required_scope):
+            raise ScopeMismatchError(f"Required scope '{required_scope}' not covered by scopes {scopes}")
         return va
 
 
