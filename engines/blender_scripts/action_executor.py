@@ -16,6 +16,27 @@ import math
 import bpy  # type: ignore
 from mathutils import Euler, Matrix, Vector  # type: ignore
 
+def action_fcurves(id_data):
+    """F-curves of an ID's action; Blender 5 layered actions (slots/channelbags) with a fallback for older versions."""
+    ad = getattr(id_data, "animation_data", None)
+    act = ad.action if ad else None
+    if not act:
+        return []
+    if hasattr(act, "fcurves") and not hasattr(act, "layers"):
+        return list(act.fcurves)
+    out = []
+    slot = getattr(ad, "action_slot", None)
+    for layer in act.layers:
+        for strip in layer.strips:
+            cb = strip.channelbag(slot) if slot is not None else None
+            if cb is None and hasattr(strip, "channelbags"):
+                for c in strip.channelbags:
+                    out.extend(c.fcurves)
+            elif cb is not None:
+                out.extend(cb.fcurves)
+    return out
+
+
 DEFAULT_SPACES = {"root": "root_world", "hips": "body_fk", "spine": "body_fk", "chest": "body_fk", "neck": "body_fk",
                   "head": "body_fk", "ik_hand.L": "world_target", "ik_hand.R": "world_target", "ik_foot.L": "world_target",
                   "ik_foot.R": "world_target", "eye_target": "world_target"}
@@ -26,8 +47,8 @@ def _body_euler(rot):
     return (p, y, -r)
 
 
-def apply_plan(rig_name: str, plan: dict, *, face_object: str, foot_offset_z: float = 0.0, lid_open_deg: float = -80.0,
-               lid_closed_deg: float = 90.0, brow_raise_m: float = 0.012, spaces: dict | None = None,
+def apply_plan(rig_name: str, plan: dict, *, face_object: str, foot_offset_z: float = 0.0, lid_open_deg: float = 80.0,
+               lid_closed_deg: float = -90.0, brow_raise_m: float = 0.012, spaces: dict | None = None,
                clear: bool = True) -> dict:
     rig = bpy.data.objects[rig_name]
     P = rig.pose.bones
@@ -114,8 +135,8 @@ def apply_plan(rig_name: str, plan: dict, *, face_object: str, foot_offset_z: fl
                     eases[(f'pose.bones["{ctl}"].rotation_quaternion', frame)] = ease
             nkeys += 1
     _apply_easing(rig, eases)
-    if face.data.shape_keys and face.data.shape_keys.animation_data and face.data.shape_keys.animation_data.action:
-        for fc in face.data.shape_keys.animation_data.action.fcurves:
+    if face.data.shape_keys:
+        for fc in action_fcurves(face.data.shape_keys):
             for kp in fc.keyframe_points:
                 kp.interpolation, kp.easing = "SINE", "EASE_IN_OUT"
     sc = bpy.context.scene
@@ -125,10 +146,7 @@ def apply_plan(rig_name: str, plan: dict, *, face_object: str, foot_offset_z: fl
 
 
 def _apply_easing(rig, eases):
-    act = rig.animation_data.action if rig.animation_data else None
-    if not act:
-        return
-    for fc in act.fcurves:
+    for fc in action_fcurves(rig):
         kps = sorted(fc.keyframe_points, key=lambda k: k.co.x)
         for prev, nxt in zip(kps, kps[1:]):
             ease = eases.get((fc.data_path, int(round(nxt.co.x))), "EASE_IN_OUT")

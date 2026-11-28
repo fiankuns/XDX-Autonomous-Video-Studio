@@ -74,11 +74,18 @@ def add_ik(rig_name: str, sides=("L", "R")) -> dict:
             c.target, c.subtarget, c.pole_target, c.pole_subtarget, c.chain_count = rig, tgt, rig, pole, 2
             rest_mid = rig.data.bones[ref].tail_local.copy()
             best = None
-            for a in range(-180, 180, 5):
+            # coarse-to-fine sweep (a 5-degree full sweep took 9.4 s on the phone; this needs ~1/4 of the updates)
+            for a in list(range(-180, 180, 30)):
                 c.pole_angle = math.radians(a)
                 bpy.context.view_layer.update()
                 d = (P[ref].tail - rest_mid).length
                 if best is None or d < best[0]:
+                    best = (d, a)
+            for a in range(best[1] - 25, best[1] + 26, 5):
+                c.pole_angle = math.radians(a)
+                bpy.context.view_layer.update()
+                d = (P[ref].tail - rest_mid).length
+                if d < best[0]:
                     best = (d, a)
             c.pole_angle = math.radians(best[1])
             out[chain] = {"pole_angle_deg": best[1], "rest_error_m": round(best[0], 5)}
@@ -114,8 +121,10 @@ def reparent_to_bone(obj_names, rig_name, bone):
         o.matrix_world = mw
 
 
-def make_eyelid(name, rig_name, side, center, radius, material, open_deg=-80.0):
-    """Upper-hemisphere skin cap on the lid bone. lid rotation X: open_deg (hidden behind) .. +90 (eye closed)."""
+def make_eyelid(name, rig_name, side, center, radius, material, open_deg=80.0):
+    """Upper-hemisphere skin cap on the lid bone (lid bone points -Y, so its local X is world -X):
+    rotation X = +80 deg hides the cap behind the eye (open), -90 deg covers the front (closed).
+    Radius must exceed the iris/pupil/glint protrusion (Bima: 1.15 x eyeball radius)."""
     me = bpy.data.meshes.new(name)
     bm = bmesh.new()
     bmesh.ops.create_uvsphere(bm, u_segments=24, v_segments=16, radius=radius)
@@ -127,7 +136,11 @@ def make_eyelid(name, rig_name, side, center, radius, material, open_deg=-80.0):
     o = bpy.data.objects.new(name, me)
     bpy.context.scene.collection.objects.link(o)
     me.materials.append(material)
-    o.location = center
+    rig = bpy.data.objects[rig_name]
+    rig.pose.bones[f"lid.{side}"].rotation_euler = (0, 0, 0)
+    bpy.context.view_layer.update()
+    o.matrix_world = Matrix.Translation(center)
+    bpy.context.view_layer.update()          # matrix_world must be current before re-parenting
     reparent_to_bone([name], rig_name, f"lid.{side}")
     rig = bpy.data.objects[rig_name]
     pb = rig.pose.bones[f"lid.{side}"]
@@ -199,7 +212,8 @@ def attach_child_of(obj_name, rig_name, bone, frame, detach_frame=None):
         o.rotation_euler = rot.to_euler()
         o.keyframe_insert("location", frame=detach_frame)
         o.keyframe_insert("rotation_euler", frame=detach_frame)
-    for fc in (o.animation_data.action.fcurves if o.animation_data and o.animation_data.action else []):
+    from action_executor import action_fcurves  # noqa: E402  (same folder / sys.modules)
+    for fc in action_fcurves(o):
         for kp in fc.keyframe_points:
             kp.interpolation = "CONSTANT"
     return {"object": obj_name, "attach": frame, "detach": detach_frame}
