@@ -196,14 +196,28 @@ def recipe_walk(rig, scene, req, pose, b: _Builder):
         f_pass, f_land = int(t0 + seg * (i + 0.5)), int(t0 + seg * (i + 1))
         mid = _lerp(feet[swing], land, 0.5)
         hip_x = 0.025 if support == "R" else -0.025
+        pass_root = _add(start, _scale(fwd, travelled - step * 0.5))
+        arms = {}
+        for hs in ("L", "R"):
+            if pose["attach"].get(hs) is None:
+                sx = -1 if hs == "L" else 1
+                off = rig.hand_rest_offset.get(hs, (sx * 0.26, -0.04, 0.86))
+                sw = 0.06 if hs == swing else -0.06          # arm opposite to the swinging leg swings forward
+                arms[f"hand_ik_dot_{hs}__loc"] = _add(pass_root, _rot(_add(off, (0.0, sw, 0.01)), yaw))
         # passing pose: swing foot lifted, body up (bob), arms counter-swing; support foot stays planted
         b.key(f_pass, f"passing_{swing}_support_{support}_planted", "EASE_IN_OUT",
-              **{f"foot_ik_dot_{swing}__loc": (mid[0], mid[1], 0.06), "root__loc": _add(start, _scale(fwd, travelled - step * 0.5)),
-                 "hips__loc": (hip_x, 0.0, 0.012), "chest__rot": (2.0, 0.0, 6.0 if swing == "L" else -6.0)})
+              **{f"foot_ik_dot_{swing}__loc": (mid[0], mid[1], 0.06), "root__loc": pass_root,
+                 "hips__loc": (hip_x, 0.0, 0.012), "chest__rot": (2.0, 0.0, 6.0 if swing == "L" else -6.0)}, **arms)
+        arms_land = {}
+        for hs in ("L", "R"):
+            if pose["attach"].get(hs) is None:
+                sx = -1 if hs == "L" else 1
+                off = rig.hand_rest_offset.get(hs, (sx * 0.26, -0.04, 0.86))
+                arms_land[f"hand_ik_dot_{hs}__loc"] = _add(body, _rot(off, yaw))
         feet[swing] = land
         b.key(f_land, f"contact_{swing}_heel_strike_weight_transfer", "EASE_OUT",
               **{f"foot_ik_dot_{swing}__loc": land, "root__loc": body, "hips__loc": (0.0, 0.0, -0.012),
-                 "chest__rot": (0.0, 0.0, 0.0)})
+                 "chest__rot": (0.0, 0.0, 0.0)}, **arms_land)
         swing = support
     # closing step: the trailing foot is LIFTED and placed level with the leading foot (never slid), hips recentre
     final_root = _add(start, _scale(fwd, dist))
@@ -266,10 +280,10 @@ def recipe_lift_drink(rig, scene, req, pose, b: _Builder):
           **{f"hand_ik_dot_{side}__loc": lifted, "spine__rot": (0.0, 0.0, 0.0), "chest__rot": (0.0, 0.0, 0.0),
              "hips__loc": (0.0, 0.0, 0.0), "head__rot": (4.0, 0.0, 0.0), "neck__rot": (0.0, 0.0, 0.0)})
     b.key(s + int(d * 0.4), "rim_to_mouth_contact", "EASE_IN_OUT",
-          **{f"hand_ik_dot_{side}__loc": hand_at_mouth, f"hand_ik_dot_{side}__rot": (35.0, 0.0, 0.0),
+          **{f"hand_ik_dot_{side}__loc": hand_at_mouth, f"hand_ik_dot_{side}__rot": (-35.0, 0.0, 0.0),
              "head__rot": (-8.0, 0.0, 0.0), "face__mouth_open": 0.2})
     b.key(s + int(d * 0.55), "drink_tilt_eyes_close", "EASE_IN_OUT",
-          **{f"hand_ik_dot_{side}__loc": _add(hand_at_mouth, (0.0, 0.0, 0.015)), f"hand_ik_dot_{side}__rot": (60.0, 0.0, 0.0),
+          **{f"hand_ik_dot_{side}__loc": _add(hand_at_mouth, (0.0, 0.0, 0.015)), f"hand_ik_dot_{side}__rot": (-60.0, 0.0, 0.0),
              "head__rot": (-18.0, 0.0, 0.0), "neck__rot": (-6.0, 0.0, 0.0), "face__blink": 1.0, "chest__rot": (-3.0, 0.0, 0.0)})
     b.key(s + int(d * 0.75), "swallow_secondary", **{"face__blink": 1.0, "neck__rot": (-4.0, 0.0, 0.0)})
     b.key(e, "lower_follow_through", "EASE_OUT",
@@ -291,16 +305,16 @@ def recipe_place_release(rig, scene, req, pose, b: _Builder):
     b.key(s + int(d * 0.12), "anticipation_small_rise", "EASE_OUT",
           **{f"hand_ik_dot_{side}__loc": _add(pose[hand]["loc"], (0.0, -0.02, 0.02))})
     b.key(s + int(d * 0.3), "lower_with_lean", "EASE_IN_OUT",
-          **{f"hand_ik_dot_{side}__loc": _add(hand_on, (0.0, 0.0, 0.05)), "spine__rot": (10.0, 0.0, 0.0),
-             "hips__loc": (0.0, 0.025, -0.015)})
-    b.key(contact, "set_down_contact_ease_in", "EASE_IN", **{f"hand_ik_dot_{side}__loc": hand_on})
+          **{f"hand_ik_dot_{side}__loc": _add(hand_on, (0.0, 0.0, 0.05)), "spine__rot": (16.0, 0.0, 0.0),
+             "chest__rot": (8.0, 0.0, 0.0), "hips__loc": (0.0, 0.035, -0.025)})
+    b.key(contact, "set_down_contact_ease_in", "EASE_IN", **{f"hand_ik_dot_{side}__loc": hand_on, "spine__rot": (18.0, 0.0, 0.0)})
     b.pose["attach"][side] = None
     b.keys[-1]["pose"]["attach"] = dict(b.pose["attach"])
     rest = rig.hand_rest_offset.get(side, (0.26, -0.04, 0.86))
     b.key(contact + 6, "release_lift_off", "EASE_OUT", **{f"hand_ik_dot_{side}__loc": _add(hand_on, (0.0, 0.05, 0.05))})
     b.key(e, "recover_upright_balance", "EASE_IN_OUT",
           **{f"hand_ik_dot_{side}__loc": _add(pose["root"]["loc"], _rot(rest, pose["root"]["yaw"])),
-             "spine__rot": (0.0, 0.0, 0.0), "hips__loc": (0.0, 0.0, 0.0)})
+             "spine__rot": (0.0, 0.0, 0.0), "chest__rot": (0.0, 0.0, 0.0), "hips__loc": (0.0, 0.0, 0.0)})
     return {"contact_point": f"{req['surface']}:{req.get('surface_socket', 'place_spot')}", "ik_target": rig.ctl(hand),
             "contact_frame": contact, "detach": {"frame": contact, "hand": side, "object": req["target_object"],
                                                  "world_location": surface}}

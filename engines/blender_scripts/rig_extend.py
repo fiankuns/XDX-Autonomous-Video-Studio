@@ -44,8 +44,9 @@ def add_control_bones(rig_name: str, sides=("L", "R"), eye_centers=None, brow_ce
         new(f"ik_foot.{s}", f.head.copy(), f.tail.copy(), roll=f.roll)
         el, kn = eb[f"forearm.{s}"].head.copy(), eb[f"shin.{s}"].head.copy()
         sx = 1 if el.x > 0 else -1
-        new(f"pole_arm.{s}", el + Vector((sx * 0.1, 0.4, 0)), el + Vector((sx * 0.1, 0.45, 0)))
-        new(f"pole_leg.{s}", kn + Vector((0, -0.5, 0)), kn + Vector((0, -0.55, 0)))
+        # poles are children of the root so elbows/knees keep their bend direction while the character travels
+        new(f"pole_arm.{s}", el + Vector((sx * 0.1, 0.4, 0)), el + Vector((sx * 0.1, 0.45, 0)), parent="root")
+        new(f"pole_leg.{s}", kn + Vector((0, -0.5, 0)), kn + Vector((0, -0.55, 0)), parent="root")
     new("eye_target", Vector((0, -2.0, eye_height)), Vector((0, -2.0, eye_height + 0.05)))
     for s, c in (eye_centers or {}).items():
         c = Vector(c)
@@ -182,8 +183,9 @@ def add_face_shape_keys(face_name: str, smile_material: str, mouth_center, cheek
     return [kb.name for kb in me.shape_keys.key_blocks]
 
 
-def attach_child_of(obj_name, rig_name, bone, frame, detach_frame=None):
-    """Object follows the hand from ``frame``; at ``detach_frame`` it is keyed at its world pose and released."""
+def attach_child_of(obj_name, rig_name, bone, frame, detach_frame=None, detach_world_location=None):
+    """Object follows the hand from ``frame``; at ``detach_frame`` it is released and keyed at its world pose,
+    snapped to ``detach_world_location`` (the support surface) so it never floats or sinks after the release."""
     o = bpy.data.objects[obj_name]
     rig = bpy.data.objects[rig_name]
     sc = bpy.context.scene
@@ -208,6 +210,10 @@ def attach_child_of(obj_name, rig_name, bone, frame, detach_frame=None):
         c.influence = 0.0
         c.keyframe_insert("influence", frame=detach_frame)
         loc, rot, _ = world.decompose()
+        if detach_world_location is not None:
+            loc = Vector(detach_world_location)
+            rot = rot.to_euler()
+            rot = type(rot)((0.0, 0.0, rot.z)).to_quaternion()   # upright on the surface, keep its heading
         o.location = loc
         o.rotation_euler = rot.to_euler()
         o.keyframe_insert("location", frame=detach_frame)
