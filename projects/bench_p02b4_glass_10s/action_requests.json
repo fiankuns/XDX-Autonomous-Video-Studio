@@ -1,0 +1,161 @@
+{
+  "schema_version": "4.0.0-phase02b4",
+  "project_id": "bench_p02b4_glass_10s",
+  "fps": 24,
+  "duration_s": 10,
+  "actor": "char_bima_v2",
+  "rig_profile": "rig_profiles/bima_v2.json",
+  "scene": {
+    "objects": [
+      {
+        "object_id": "prop_table",
+        "kind": "furniture",
+        "location": [
+          0.0,
+          -1.35,
+          0.0
+        ],
+        "sockets": {
+          "top": [
+            0,
+            0,
+            0.68
+          ],
+          "place_spot": [
+            0.03,
+            0.05,
+            0.68
+          ],
+          "stand_spot": [
+            0,
+            0.36,
+            0
+          ],
+          "look": [
+            0,
+            0,
+            0.68
+          ]
+        },
+        "size": [
+          0.7,
+          0.4,
+          0.68
+        ]
+      },
+      {
+        "object_id": "prop_glass",
+        "kind": "prop",
+        "location": [
+          0.08,
+          -1.31,
+          0.68
+        ],
+        "sockets": {
+          "base": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "grip": [
+            0.0,
+            0.0,
+            0.055
+          ],
+          "rim": [
+            0.0,
+            0.0,
+            0.11
+          ],
+          "look": [
+            0.0,
+            0.0,
+            0.07
+          ]
+        }
+      },
+      {
+        "object_id": "camera_main",
+        "kind": "camera",
+        "location": [
+          1.9,
+          -3.4,
+          1.05
+        ],
+        "sockets": {
+          "look": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      }
+    ]
+  },
+  "requests": [
+    {
+      "action_id": "A1_look_glass",
+      "action_type": "look_at",
+      "actor": "char_bima_v2",
+      "target_object": "prop_glass",
+      "socket": "look",
+      "start_frame": 0,
+      "end_frame": 48
+    },
+    {
+      "action_id": "A2_walk_to_table",
+      "action_type": "walk",
+      "actor": "char_bima_v2",
+      "target_object": "prop_table",
+      "socket": "stand_spot",
+      "start_frame": 48,
+      "end_frame": 96
+    },
+    {
+      "action_id": "A3_reach_grasp_glass",
+      "action_type": "grasp",
+      "actor": "char_bima_v2",
+      "target_object": "prop_glass",
+      "socket": "grip",
+      "hand": "R",
+      "start_frame": 96,
+      "end_frame": 144
+    },
+    {
+      "action_id": "A4_lift_drink",
+      "action_type": "drink",
+      "actor": "char_bima_v2",
+      "target_object": "prop_glass",
+      "socket": "grip",
+      "hand": "R",
+      "start_frame": 144,
+      "end_frame": 192
+    },
+    {
+      "action_id": "A5a_place_glass",
+      "action_type": "place",
+      "actor": "char_bima_v2",
+      "target_object": "prop_glass",
+      "surface": "prop_table",
+      "surface_socket": "place_spot",
+      "socket": "grip",
+      "hand": "R",
+      "start_frame": 192,
+      "end_frame": 222
+    },
+    {
+      "action_id": "A5b_react",
+      "action_type": "facial_reaction",
+      "actor": "char_bima_v2",
+      "target_object": "camera_main",
+      "reaction": "satisfied",
+      "look_at_camera_point": [
+        1.9,
+        -3.4,
+        1.05
+      ],
+      "start_frame": 222,
+      "end_frame": 240
+    }
+  ]
+}

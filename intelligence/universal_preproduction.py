@@ -884,11 +884,11 @@ class CharacterActionPlanner:
                 if shot.get("character_ids")
                 else (shot["asset_ids"][0] if shot.get("asset_ids") else lead_actor)
             )
-            obj_target = (
-                shot["asset_ids"][0]
-                if shot.get("asset_ids")
-                else shot["environment_id"]
-            )
+            # DEF-P016D-028: the object target must never be the actor itself. Pick the first shot asset that is not
+            # the actor; with no such asset the action has no object interaction and targets the environment anchor.
+            other_assets = [a for a in (shot.get("asset_ids") or []) if a != actor_id]
+            obj_target = other_assets[0] if other_assets else f"env_anchor:{shot['environment_id']}"
+            has_object_interaction = bool(other_assets)
 
             if v_purpose in {"technical_cutaway", "exploded_view", "scientific_mechanism", "scale_comparison", "data_visualization"}:
                 action_type = f"mechanism_{v_purpose}"
@@ -915,6 +915,7 @@ class CharacterActionPlanner:
                 "actor_id": actor_id,
                 "action_type": action_type,
                 "object_target": obj_target,
+                "object_interaction": has_object_interaction,
                 "start_frame": s_frame,
                 "end_frame": e_frame,
                 "start_pose": f"{actor_id}_anticipation_ready_at_{s_frame}f ({shot['action_start'][:70]})",
@@ -936,6 +937,7 @@ class CharacterActionPlanner:
             }
             for req_f in MANDATORY_14_ACTION_FIELDS:
                 assert req_f in action_record and action_record[req_f] not in (None, "", [])
+            assert action_record["object_target"] != action_record["actor_id"], "actor used as its own object target"
             planned_actions.append(action_record)
 
             shots_summary.append(

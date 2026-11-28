@@ -453,6 +453,55 @@
         "owner_original",
         "reference:assets/characters/sebatas_ingpoh/front_reference_636x844.png"
       ]
+    },
+    {
+      "asset_id": "char_bima_v2_blender",
+      "name": "Bima v2 — primary character (Pixar-like stylized 3D, Blender, rigged)",
+      "category": "character_rig",
+      "origin_type": "procedural_generated",
+      "source_provider": "XDX Blender build from the owner's six-view design (karakter_6_view_v2.glb blueprint)",
+      "source_url": "repo://engines/blender_scripts/bima_v2_build.py",
+      "license_spdx": "LicenseRef-XDX-Original",
+      "attribution_required": false,
+      "attribution_text": null,
+      "commercial_allowed": true,
+      "formats": [
+        "blend_recipe"
+      ],
+      "unit_scale_m": 1.0,
+      "up_axis": "+Z",
+      "polycount_budget": 60000,
+      "compatible_engines": [
+        "blender"
+      ],
+      "style_harmonized": true,
+      "style_profile": {
+        "style_bible_id": "xdx_pixar_stylized_3d_v1",
+        "height_m": 1.6,
+        "head_to_height_ratio": 0.22,
+        "palette": [
+          "#F0A20E",
+          "#E4DED6",
+          "#B97650",
+          "#15100E",
+          "#5B6478"
+        ],
+        "blueprint": "assets/characters/bima_v2/blueprint"
+      },
+      "sha256": null,
+      "cache_key": null,
+      "qc_status": "tested",
+      "tags": [
+        "hero",
+        "primary_character",
+        "owner_accepted_2026-11-28",
+        "rigged_21_bones",
+        "design_gate_pass",
+        "pixar_stylized",
+        "topic_agnostic"
+      ],
+      "is_placeholder": false,
+      "semantic_type": "character_hero_stylized"
     }
   ]
 }

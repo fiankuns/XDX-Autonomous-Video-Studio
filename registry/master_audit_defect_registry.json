@@ -472,14 +472,14 @@
       "reproduction_steps": [
         "Re-measure the reported 109/109 action-target coverage of the 01.6C semantic storyboard with criteria independent of the generator."
       ],
-      "observed_result": "01.6C reports 109/109 action targets satisfied; the external audit does not accept this self-reported figure as proof of semantic coverage.",
+      "observed_result": "Independent re-measurement: 109/109 legacy 01.6C actions (bench_a 20, bench_b 20, bench_c 57, bench_d 12) use the actor as their own object target; 50 interaction clauses had no object target.",
       "expected_result": "Action-target coverage measured by an independent checker against script clauses, with failures surfaced.",
-      "root_cause": "Coverage metric computed by the same component that produced the plan.",
-      "correction_plan": "Carried forward unchanged (out of 01.6D security scope).",
-      "target_phase": "Phase 02B",
-      "regression_test": null,
-      "evidence": "Preserved from the external 01.6C audit per owner instruction; target assigned to Phase 02B (action target).",
-      "current_status": "SCHEDULED"
+      "root_cause": "Coverage metric computed by the planner itself; planner fell back to asset_ids[0] for both actor (no character_ids) and object_target, so every legacy action targeted its own actor.",
+      "correction_plan": "Planner excludes the actor from target candidates (env_anchor when no object) and asserts actor != target; new independent checker intelligence/action_target_checker.py (actor_is_target, target_not_in_shot, character_without_action, interaction_clause_without_object_target).",
+      "target_phase": "Phase 02B.4",
+      "regression_test": "tests/test_action_target_checker.py",
+      "evidence": "Regenerated plans for all 7 benchmark projects: 0 checker failures (committed package files left untouched because their manifests are digest-pinned).",
+      "current_status": "FIXED"
     },
     {
       "defect_id": "DEF-P016D-029",
