@@ -249,6 +249,84 @@
         "DEF-P02A-049"
       ],
       "topic_agnostic": true
+    },
+    {
+      "error_id": "p02b_chibi_from_primitives",
+      "error_category": "character_design",
+      "symptom": "Chibi character from a 2D reference built as spheres/capsules rejected by the user as 'buruk, tidak sesuai'.",
+      "root_cause": "Modeling started from primitives without a visual blueprint (proportions, hair mass, face layout) or a front-silhouette check against the reference.",
+      "fix": "Blueprint with px-to-metre scale, silhouette comparison against the reference per view, hair as few large tapered locks, face features as real geometry.",
+      "prevention": "Preview approval of the blueprint and a front silhouette check before material/lighting; primitives only as sculpt base.",
+      "defect_ids": [
+        "DEF-P02B-001"
+      ],
+      "topic_agnostic": true,
+      "status": "OBSERVED_NOT_YET_FIXED"
+    },
+    {
+      "error_id": "p02b_projected_texture_is_not_3d",
+      "error_category": "character_design",
+      "symptom": "Reference image projected onto proxy volumes matched the front view but was rejected: user wanted a true 3D model resembling the art.",
+      "root_cause": "Interpreted 'match the reference' as pixel match from one view; sides/back cannot match.",
+      "fix": "Real geometry and flat/toon materials; projection only allowed for small decals (face, motifs) with user approval.",
+      "prevention": "Ask whether the target is pixel-faithful single view or true 3D when a 2D reference is given.",
+      "defect_ids": [
+        "DEF-P02B-002"
+      ],
+      "topic_agnostic": true,
+      "status": "FIXED_IN_PROCESS"
+    },
+    {
+      "error_id": "p02b_print_floating_off_garment",
+      "error_category": "material_detail",
+      "symptom": "Shirt print text floated ~16 cm off the shirt (shrinkwrap project did not conform).",
+      "root_cause": "Wrong shrinkwrap mode/offset on a low-poly text mesh.",
+      "fix": "Subdivide text, project along view axis onto the torso, small offset, then join into the garment mesh.",
+      "prevention": "Garment and print must be one asset; verify with a side-angle look.",
+      "defect_ids": [
+        "DEF-P02B-003"
+      ],
+      "topic_agnostic": true,
+      "status": "FIXED"
+    },
+    {
+      "error_id": "p02b_character_faces_wrong_axis",
+      "error_category": "coordinate_convention",
+      "symptom": "New character built facing +Y (back to camera).",
+      "root_cause": "Helper used +d as front; glTF/Blender front is -Y.",
+      "fix": "Mirror Y of geometry and flip normals, or build with front = -Y.",
+      "prevention": "Axis check (look from front) right after the first part is created.",
+      "defect_ids": [
+        "DEF-P02B-004"
+      ],
+      "topic_agnostic": true,
+      "status": "FIXED"
+    },
+    {
+      "error_id": "p02b_hair_lumpy_overlapping_locks",
+      "error_category": "geometry",
+      "symptom": "12 thin overlapping hair locks read as lumpy blobs; silhouette wider than the reference (701 vs 636 px).",
+      "root_cause": "Too many small tapered curves; no mass-and-flow planning.",
+      "fix": "Plan 6-8 large locks with flare at the ends, then smooth.",
+      "prevention": "Measure front extent against the reference with character_tools.front_view_extent_px before approval.",
+      "defect_ids": [
+        "DEF-P02B-005"
+      ],
+      "topic_agnostic": true,
+      "status": "OPEN"
+    },
+    {
+      "error_id": "p02b_mcp_call_budget",
+      "error_category": "android_guard",
+      "symptom": "A 21 s hair-building call exceeded the 3.5 s ANR budget; later 'Bad Gateway' left the outcome unknown.",
+      "root_cause": "Too many objects per execute_blender_code call.",
+      "fix": "Split into calls of ~60-80 objects; after a Bad Gateway check scene state before repeating.",
+      "prevention": "Keep each call < 3.5 s; verify with get_scene_info after any dropped call.",
+      "defect_ids": [
+        "DEF-P02B-006"
+      ],
+      "topic_agnostic": true,
+      "status": "FIXED"
     }
   ]
 }
