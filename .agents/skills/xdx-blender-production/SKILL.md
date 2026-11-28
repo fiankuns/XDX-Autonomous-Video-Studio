@@ -22,6 +22,13 @@ Split the reference by purpose: *shape* (silhouette), *proportion* (head-units),
 9. **Environment.** Procedural/instanced modules from the registry; textures from verified CC0 sources only (license check via `LicenseValidator`).
 10. **Complex characters.** Prefer a licensed base mesh (verified licence) and customise; primitives are only blockout.
 
+## Verified on device (02B.3, tags: RENDER_TESTED / RUNTIME_TESTED)
+- **RENDER_TESTED hair:** bezier curve + taper object (flare at the tip), bevel ~0.065 m, flatten depth to ~55%, sine x-offset (amp ~24 px) per lock; 4 side + 5 back locks + leaf-shaped bangs. After `Decimate` re-check the inverted-hull modifier's `material_offset` (it must point at the ink slot; joined meshes shift slot indices).
+- **RENDER_TESTED face:** eyes = dark rim + iris + pupil + two highlights, lashes as thin bevelled curves, blush placed below/outside the iris so large eyes do not cover it; face close-up at distance 0.5 m.
+- **RUNTIME_TESTED QC:** `engines/blender_scripts/geometry_quality.py` (validate/curvature/gap/part ratios) runs in 0.15 s for ~60 objects on Blender 5.3 aarch64; budget check caught a 73.6k-tri character and 45.6k after decimating print-subdivided torso.
+- **Mesh Workbench (MIT, vendored in `third_party/`):** 65/66 modules import on Android; `construction.revolve/rounded_box/strut` run; its `quality.*` need its own baked-mesh pipeline ("Edit a static baked mesh") so we use native QC instead.
+- Multi-criteria gate: `intelligence/design_fidelity_gate.evaluate_design` (IoU is not the sole criterion).
+
 ## Android (Vivo X200 Pro, Blender 5.3, EEVEE)
 Each MCP call < 3.5 s (split into batches); preview ≤ 640 px; temp files in `bpy.app.tempdir`; character ≤ 60k tris, prop ≤ 15k, environment ≤ 100k; no CUDA/heavy runtimes; no desktop add-ons assumed to run on ARM64. After a dropped MCP call (Bad Gateway) read the scene before repeating.
 

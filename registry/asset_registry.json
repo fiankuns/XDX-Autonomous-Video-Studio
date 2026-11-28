@@ -258,7 +258,7 @@
       "source_url": "https://fonts.google.com/specimen/Plus+Jakarta+Sans",
       "license_spdx": "OFL-1.1",
       "attribution_required": true,
-      "attribution_text": "Plus Jakarta Sans \u2014 Tokotype (SIL Open Font License 1.1)",
+      "attribution_text": "Plus Jakarta Sans — Tokotype (SIL Open Font License 1.1)",
       "commercial_allowed": true,
       "formats": [
         "woff2",
@@ -348,7 +348,7 @@
       "cache_key": null,
       "qc_status": "procedural_ready",
       "asset_id": "char_bima_stylized_v1",
-      "name": "Bima \u2014 stylized jointed character (procedural)",
+      "name": "Bima — stylized jointed character (procedural)",
       "category": "character_rig",
       "polycount_budget": 40000,
       "style_profile": {
@@ -392,7 +392,7 @@
       "cache_key": null,
       "qc_status": "procedural_ready",
       "asset_id": "prop_indoor_ac_articulated_v1",
-      "name": "Indoor split AC \u2014 articulated, cutaway-ready (procedural)",
+      "name": "Indoor split AC — articulated, cutaway-ready (procedural)",
       "category": "prop_3d",
       "polycount_budget": 60000,
       "style_profile": {
@@ -412,6 +412,47 @@
       ],
       "is_placeholder": false,
       "semantic_type": "appliance_indoor_ac"
+    },
+    {
+      "asset_id": "char_sebatas_ingpoh_blender_v1",
+      "name": "Sebatas Ingpoh chibi narrator (Blender 3D, design under review)",
+      "category": "character_rig",
+      "origin_type": "curated_registry",
+      "source_provider": "Project owner's original character art; 3D built in XDX Blender session",
+      "source_url": "assets/characters/sebatas_ingpoh/README.md",
+      "license_spdx": "UNLICENSED",
+      "attribution_required": false,
+      "attribution_text": null,
+      "commercial_allowed": true,
+      "formats": [
+        "blend_recipe"
+      ],
+      "unit_scale_m": 1.0,
+      "up_axis": "+Z",
+      "polycount_budget": 60000,
+      "compatible_engines": [
+        "blender"
+      ],
+      "style_harmonized": false,
+      "style_profile": {
+        "head_to_body_ratio": 0.347,
+        "outline": "inverted_hull_0.0035",
+        "palette": [
+          "#CDAEF0",
+          "#F29A84",
+          "#FBE3D0",
+          "#E04545"
+        ]
+      },
+      "sha256": null,
+      "cache_key": null,
+      "qc_status": "not_tested",
+      "tags": [
+        "narrator",
+        "chibi",
+        "owner_original",
+        "reference:assets/characters/sebatas_ingpoh/front_reference_636x844.png"
+      ]
     }
   ]
 }

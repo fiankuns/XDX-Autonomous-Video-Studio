@@ -27,3 +27,8 @@ def test_geometry_quality_module_api_and_read_only():
     assert {"validate_mesh", "validate_prefix", "curvature_stats", "gap_analysis", "part_proportions", "landmark_positions"} <= funcs
     text = src.read_text()
     assert "bpy.ops" not in text and "/tmp" not in text
+
+
+def test_blender_production_skill_records_rendered_recipes():
+    skill = (SRC.parents[2] / ".agents" / "skills" / "xdx-blender-production" / "SKILL.md").read_text()
+    assert "RENDER_TESTED" in skill and "taper" in skill.lower()
