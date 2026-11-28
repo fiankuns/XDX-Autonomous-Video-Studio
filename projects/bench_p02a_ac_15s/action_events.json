@@ -4,7 +4,6 @@
   "events": [
     {
       "event_id": "AE-S001-FAN",
-      "shot_id": "S001",
       "action": "Bima holds the hand fan in his right hand in front of his face and waves it by rocking the WRIST forward/back; the fan is rigidly attached to the wrist and follows it; the flat side faces his face; his head does NOT look at the AC yet.",
       "window": {
         "cue": 0,
@@ -50,11 +49,11 @@
           "value": 0.15
         }
       ],
-      "min_seconds": 2.0
+      "min_seconds": 2.0,
+      "shot_id": "S001"
     },
     {
       "event_id": "AE-S001-WIPE",
-      "shot_id": "S001",
       "action": "Bima's left arm swings the elbow OUT to the side and the hand sweeps across his forehead (wipe back and forth), not just resting on it.",
       "window": {
         "cue": 0,
@@ -81,11 +80,36 @@
           "value": 0.5
         }
       ],
-      "min_seconds": 1.5
+      "min_seconds": 1.5,
+      "shot_id": "S001"
+    },
+    {
+      "event_id": "AE-S001-WIPE-SUSTAINED",
+      "action": "The forehead wipe continues through the second caption (the gesture is sustained, not dropped after one second).",
+      "window": {
+        "cue": 1,
+        "from": 0.0,
+        "to": 0.5
+      },
+      "hold_ratio": 0.8,
+      "min_seconds": 0.8,
+      "constraints": [
+        {
+          "type": "distance_lt",
+          "a": "left_wrist",
+          "b": "forehead",
+          "value": 0.22
+        },
+        {
+          "type": "travel_gt",
+          "anchor": "left_wrist",
+          "value": 0.4
+        }
+      ],
+      "shot_id": "S001"
     },
     {
       "event_id": "AE-S002-TURN-AIM",
-      "shot_id": "S002",
       "action": "Just before pressing, Bima turns his head to the AC and aims the remote's IR tip at it.",
       "window": {
         "cue": 0,
@@ -109,11 +133,11 @@
           "min_dot": 0.85
         }
       ],
-      "min_seconds": 0.1
+      "min_seconds": 0.1,
+      "shot_id": "S002"
     },
     {
       "event_id": "AE-S002-PRESS",
-      "shot_id": "S002",
       "action": "The thumb presses the power/24 button of the remote (contact), remote still aimed at the AC.",
       "window": {
         "cue": 0,
@@ -136,32 +160,47 @@
           "min_dot": 0.85
         }
       ],
-      "min_seconds": 0.2
+      "min_seconds": 0.2,
+      "shot_id": "S002"
     },
     {
-      "event_id": "AE-S001-WIPE-SUSTAINED",
-      "shot_id": "S001",
-      "action": "The forehead wipe continues through the second caption (the gesture is sustained, not dropped after one second).",
+      "event_id": "AE-S003-OPEN-PANEL",
+      "action": "The indoor unit's front panel lifts away so the evaporator coil is exposed (the refrigerant action happens on the coil).",
       "window": {
-        "cue": 1,
-        "from": 0.0,
-        "to": 0.5
+        "cue": 0,
+        "from": 0.4,
+        "to": 1.0
       },
-      "hold_ratio": 0.8,
+      "hold_ratio": 0.9,
       "min_seconds": 0.8,
       "constraints": [
         {
-          "type": "distance_lt",
-          "a": "left_wrist",
-          "b": "forehead",
-          "value": 0.22
-        },
+          "type": "distance_gt",
+          "a": "ac_front",
+          "b": "ac_body",
+          "value": 0.5
+        }
+      ],
+      "shot_id": "S003"
+    },
+    {
+      "event_id": "AE-S004-COMPRESSOR-PUMPS",
+      "action": "The compressor visibly pumps (stroke + vibration) while it pushes hot vapour toward the outdoor condenser.",
+      "window": {
+        "cue": 0,
+        "from": 0.3,
+        "to": 1.0
+      },
+      "hold_ratio": 0.9,
+      "min_seconds": 1.0,
+      "constraints": [
         {
           "type": "travel_gt",
-          "anchor": "left_wrist",
-          "value": 0.4
+          "anchor": "compressor",
+          "value": 0.05
         }
-      ]
+      ],
+      "shot_id": "S004"
     }
   ]
 }

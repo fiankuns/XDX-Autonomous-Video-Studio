@@ -67,7 +67,10 @@ def load_package_data(pkg: Path) -> dict:
         raise SystemExit(f"This scene is authored for {BENCH_ID}, not {sb['project_id']}")
     cb = json.loads((pkg / "character_bible.json").read_text(encoding="utf-8"))
     hero = next(c for c in cb["characters"] if c.get("role") == "hero")
+    spec_path = pkg / "shot_spec.json"
+    spec = json.loads(spec_path.read_text(encoding="utf-8")) if spec_path.is_file() else {"shots": []}
     return {
+        "callouts": {sh["shot_id"]: sh.get("callouts", []) for sh in spec["shots"]},
         "style_bible_id": cb["style_bible_id"],
         "character_palette": list(hero["color_palette"]),
         "project_id": sb["project_id"],

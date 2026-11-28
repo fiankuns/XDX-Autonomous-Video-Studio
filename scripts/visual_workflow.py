@@ -6,6 +6,7 @@
   contract <package>                             semantic visual contract per beat
   rerender-plan <package> --deps FILE [--cache FILE] [--update]   shots to re-render (hash + dependency based)
   retime <package> S001=5.5 S002=6                content-driven shot durations (only while the package is unapproved)
+  apply-spec <package>                            validate shot_spec.json, compile action_events.json, suggest durations
   verify-actions <package>                        geometric verification of action_events.json (real scene probes, no pixels)
   delivery <package> --render-dir DIR [--review RESULT.json]      production delivery validation
 
@@ -31,7 +32,7 @@ def _out(obj) -> None:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
-    for n in ("validate-inputs", "timeline", "contract", "rerender-plan", "verify-actions", "retime", "delivery"):
+    for n in ("validate-inputs", "timeline", "contract", "rerender-plan", "verify-actions", "retime", "apply-spec", "delivery"):
         s = sub.add_parser(n)
         s.add_argument("package")
         if n == "timeline":
@@ -65,6 +66,17 @@ def main() -> int:
             cache.write_text(json.dumps(cur, indent=2) + "\n", encoding="utf-8")
     elif a.cmd == "retime":
         r = vw.retime_package(pkg, {k: float(v) for k, v in (x.split("=") for x in a.durations)})
+    elif a.cmd == "apply-spec":
+        from intelligence import shot_spec as ss
+
+        spec = ss.load_shot_spec(pkg)
+        if spec is None:
+            raise SystemExit("package has no shot_spec.json")
+        tl = vw.canonical_timeline(pkg)
+        issues = ss.validate_shot_spec(spec, tl)
+        r = {"status": "BLOCKED" if issues else "OK", "issues": issues, "suggested_shot_seconds": ss.suggest_durations(spec, tl)}
+        if not issues:
+            (pkg / "action_events.json").write_text(json.dumps(ss.compile_action_events(spec), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     elif a.cmd == "verify-actions":
         from intelligence import action_choreography as ac
         from scripts.render_phase02a_visual import load_package_data, probe_frames

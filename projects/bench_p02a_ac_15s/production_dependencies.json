@@ -10,12 +10,28 @@
       "bytes": 2041
     },
     "engines/web/phase02a_ac15s/render_dependencies.json": {
-      "sha256": "6c119880104a6af01cb27c73f4ba7200a96a3608c7f2595397fb3a4d3e54ecbb",
-      "bytes": 1393
+      "sha256": "da9f6a82c1f1f14d42b0123f75b2a527b714b0978fd9732b463197029e528e3a",
+      "bytes": 1865
     },
     "engines/web/phase02a_ac15s/scene.js": {
-      "sha256": "f8789d495dffdda90662ee1f2bf4ff0f4b7f5a5c17e34ef4e08ac913b921dec9",
-      "bytes": 52229
+      "sha256": "efac20de1480ced1125cc3460237fce1d94e2119be9ef2e60a64e681841ba4e6",
+      "bytes": 40788
+    },
+    "engines/web/phase02a_ac15s/shots/S001.js": {
+      "sha256": "bdadc7bbf2541d3ccd7720a869eb63749ad6d1c07e795d49e58eb92b3b66f2cc",
+      "bytes": 4745
+    },
+    "engines/web/phase02a_ac15s/shots/S002.js": {
+      "sha256": "227e8925e2008b45dc6dcf9839d2760cfaca52f5b59ac4a67821d524a3fd867e",
+      "bytes": 7408
+    },
+    "engines/web/phase02a_ac15s/shots/S003.js": {
+      "sha256": "69bcafd17a72ad0793ce0ed1d48a03606ead8438274f71a57244716c63ef30ed",
+      "bytes": 2686
+    },
+    "engines/web/phase02a_ac15s/shots/S004.js": {
+      "sha256": "94b3269e6946cb6f93aee790dda9d01b7fbfbd861f4b608f9cf57ae3973b80ff",
+      "bytes": 2001
     },
     "engines/web/remotion_timeline_spec.mjs": {
       "sha256": "db14afe7bba972ebc8652354e8092145b9a2036665134992a6ca58cb52e47e38",
@@ -81,6 +97,10 @@
       "sha256": "00d3df2376b34199c2446647ca27182768caacf527579db63ba5147a02b667dd",
       "bytes": 6647
     },
+    "intelligence/shot_spec.py": {
+      "sha256": "acb3cac640436e6109d82c430b9f75209ef2e1895aceafe9d03aecb6fbef32c4",
+      "bytes": 3974
+    },
     "intelligence/visual_qc_engine.py": {
       "sha256": "1fe3b2438610592c90e204b75bd1c9f6344947ba24603a23eeef9028b89b145b",
       "bytes": 11644
@@ -90,8 +110,8 @@
       "bytes": 15833
     },
     "intelligence/visual_workflow.py": {
-      "sha256": "21a4b914c5606f9ca21846620bf1d87e9ba3889ad0fd7b1d00e12fcaa6551300",
-      "bytes": 24436
+      "sha256": "c47a637447fca127e791717d4d703239add63e22066065dd853419d96eebd220",
+      "bytes": 24667
     },
     "package-lock.json": {
       "sha256": "59ffbd8ad3070f8320540ef11e9ae7f25a84704cf718c4d0e1696ed4c3ed47fe",
@@ -114,8 +134,8 @@
       "bytes": 4767
     },
     "scripts/render_phase02a_visual.py": {
-      "sha256": "d815df87a24c24116c5eb6add08cf9ff0b2ada06ce47daa041e754825a9c7beb",
-      "bytes": 16195
+      "sha256": "509c52d0d07920b0ff77e76fa864f30b02d008b24cf3587f8616a48afcc080a6",
+      "bytes": 16422
     }
   }
 }

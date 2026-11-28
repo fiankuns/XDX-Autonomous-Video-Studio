@@ -8,6 +8,10 @@ import { createCometsClass } from "../xdx_core/comets.js";
 import { buildTimeline } from "../xdx_core/timeline.js";
 import { createAssetLoadBarrier } from "../xdx_core/barrier.js";
 import { bindCharacterPalette } from "../xdx_core/style_binding.js";
+import { renderS001 } from "./shots/S001.js";
+import { renderS002 } from "./shots/S002.js";
+import { renderS003 } from "./shots/S003.js";
+import { renderS004 } from "./shots/S004.js";
 import { createCallouts } from "../xdx_core/callouts.js";
 import { solveArm, aimTwo, lookHead, anchor } from "../xdx_core/rig_ik.js";
 import { createBimaFactory } from "../xdx_core/assets/character_bima.js";
@@ -405,19 +409,24 @@ const coolIn = new Comets(xs, 12, 6, (i) => new THREE.CatmullRomCurve3([v3(-0.92
 
 // ------------------------------------------------------------------ labels (content callouts grounded in the script, not debug)
 const callouts = createCallouts({ labelsEl: document.getElementById("labels"), svgEl: document.getElementById("leaders"), camera, W, H, safe: { top: 150, bottom: 1385, side: 30 } });
-const L = {
-  heat: callouts.make("Panas kamar", "warm"),
-  ir: callouts.make("Sinyal inframerah", "warm"),
-  evap: callouts.make("Evaporator", "cool"),
-  refr: callouts.make("Refrigeran cair → menguap", "cool"),
-  heat3: callouts.make("Panas kamar", "warm"),
-  vapor: callouts.make("Uap panas", "warm"),
-  comp: callouts.make("Kompresor", "warm"),
-  cond: callouts.make("Kondensor luar", "warm"),
-  release: callouts.make("Kalor ke udara luar", "warm"),
-};
-// callout(label, anchor on the named part, pill offset in px AWAY from the subject, alpha)
-const callout = (it, anchorWorld, dx, dy, alpha) => callouts.place(it, anchorWorld, { dx, dy }, alpha);
+// callouts come from the project's shot_spec.json (compiled into PKG.callouts): no label text or placement lives in scene code
+const SPEC_CALLOUTS = PKG.callouts || {};
+const specItems = {};
+for (const [sid, list] of Object.entries(SPEC_CALLOUTS)) specItems[sid] = list.map((c) => ({ c, it: callouts.make(c.text, c.kind) }));
+const specBound = (cu, b) => (typeof b === "number" ? cu.a + b : cu.a + Math.round((cu.b - cu.a) * b.frac) + (b.plus || 0));
+const specWin = (sid, w, f) => { const cu = cue(sid, w.cue); return seg(f, specBound(cu, w.from), specBound(cu, w.to)); };
+function placeSpec(sid, f) {
+  for (const { c, it } of specItems[sid] || []) {
+    const alpha = specWin(sid, c.show.in, f) * (c.show.out ? 1 - specWin(sid, c.show.out, f) : 1);
+    if (alpha <= 0.001) continue;
+    const p = c.anchor.p;
+    const w = c.anchor.space === "world" ? v3(p[0], p[1], p[2])
+      : c.anchor.space === "ac" ? AC.g.localToWorld(v3(p[0], p[1], p[2]))
+      : c.anchor.space === "od" ? xsParts.od.localToWorld(v3(p[0], p[1], p[2]))
+      : NAMED_ANCHORS[c.anchor.name];
+    callouts.place(it, w, { dx: c.offset[0], dy: c.offset[1] }, alpha);
+  }
+}
 
 // ------------------------------------------------------------------ caption (contiguous cues switch without a fade gap)
 const capbox = document.getElementById("capbox");
@@ -461,8 +470,13 @@ function face(hot01, relief01, blink01 = 0) {
 // ------------------------------------------------------------------ frame evaluation (all beats anchored to caption cues)
 const tmpA = new THREE.Vector3(), tmpB = new THREE.Vector3(), camPos = new THREE.Vector3(), camTgt = new THREE.Vector3();
 const acSensorW = new THREE.Vector3(), acCenterW = new THREE.Vector3();
+const NAMED_ANCHORS = { ac_sensor: acSensorW };
 const WORLD_UP = v3(0, 1, 0);
 function look(fov, px, py, pz, tx, ty, tz, up = WORLD_UP) { camera.up.copy(up); camera.fov = fov; camera.position.set(px, py, pz); camera.lookAt(tx, ty, tz); camera.updateProjectionMatrix(); camera.updateMatrixWorld(true); }
+
+// objects shared with the per-shot modules (built lazily: some are assigned during asset setup)
+let ctxCache = null;
+const shotCtx = () => (ctxCache ||= { AC, SYNC_LEAD, WORLD_UP, acCenterW, acInner, acSensorW, bima, camera, compBase, condFlow, coolComets, coolIn, coolLight, cue, evapComets, face, fan, grip, heatComets, heatOut, hemi, icyCoil, irBeam, irDots, irGroup, key, ledFlash, leftArm, liquid, look, placeSpec, pressRing, pressThumb, refComets, remote, remoteBtn, remoteFace, remoteTip, rightArm, room, scene, sensorFlash, setRemoteTemp, suction, sun, tmpA, tmpB, xsParts });
 
 function renderFrame(f) {
   const t = f / FPS;
@@ -486,180 +500,10 @@ function renderFrame(f) {
   scene.updateMatrixWorld(true);
   AC.sensor.getWorldPosition(acSensorW); AC.g.getWorldPosition(acCenterW);
 
-  if (shot === 0) {
-    const c0 = cue("S001", 0), c1 = cue("S001", 1);
-    const L0 = c0.b - c0.a;
-    const tt = ease(seg(f, c0.a, c1.b));
-    look(62, lerp(0.85, 0.65, tt), lerp(2.3, 2.15, tt), lerp(4.1, 3.6, tt), -1.15, 1.55, -0.6);
-    bima.root.rotation.y = 0.5;
-    const w = Math.sin(t * 2 * Math.PI * 2.6), w2 = Math.cos(t * 2 * Math.PI * 2.6); // fanning rhythm
-    bima.torso.rotation.x = 0.1;                          // slumped, tired
-    bima.head.rotation.set(0.2 + 0.03 * w, -0.1, 0.06);   // chin slightly down; no glance at the AC in this shot
-    face(1, 0, f % 70 > 66 ? 0.9 : 0);
-    scene.updateMatrixWorld(true);
-    const headP = bima.head.getWorldPosition(new THREE.Vector3());
-    const hq = bima.head.getWorldQuaternion(new THREE.Quaternion());
-    const fwd = v3(0, 0, 1).applyQuaternion(hq), side = v3(1, 0, 0).applyQuaternion(hq), upv = v3(0, 1, 0).applyQuaternion(hq);
-    const faceC = headP.clone().addScaledVector(fwd, 0.1).addScaledVector(upv, -0.03);
-    // fan hand: the forearm holds the fist in front of the face; the WRIST rocks forward/back and the fan (child of the wrist) follows it.
-    const fanC = faceC.clone().addScaledVector(fwd, 0.22).addScaledVector(side, 0.03).addScaledVector(upv, -0.05);
-    const toFace = faceC.clone().sub(fanC).normalize();
-    const bladeDir = upv.clone().multiplyScalar(0.8).addScaledVector(toFace, 0.5).normalize(); // blade extends up-and-in from the fist
-    const wristR = fanC.clone().addScaledVector(bladeDir, -0.35).addScaledVector(fwd, 0.035 * w2).addScaledVector(upv, 0.012 * w); // small forearm drive
-    const shR = rightArm.sh.getWorldPosition(new THREE.Vector3());
-    solveArm(rightArm, wristR, shR.clone().add(v3(0.25, -0.9, 0.0)));
-    scene.updateMatrixWorld(true);
-    aimTwo(rightArm.wr, v3(0, -1, 0), bladeDir, v3(0, 0, 1), toFace);
-    rightArm.wr.rotateX(0.4 + 0.4 * w);                 // wrist flexion: the blade sweeps toward the face and back, flat side always roughly toward him
-        grip(rightArm, 0.8);
-    fan.visible = true;
-    // other hand wipes the forehead during the first part of caption 1, then drops
-    const wipe = ease(seg(f, c0.a + 4, c0.a + 14)) * (1 - ease(seg(f, c1.a + Math.round((c1.b - c1.a) * 0.6), c1.a + Math.round((c1.b - c1.a) * 0.6) + 12)));
-    const foreheadC = headP.clone().addScaledVector(upv, 0.09).addScaledVector(fwd, 0.17);
-    const swipe = Math.sin(t * 2 * Math.PI * 1.7);
-    const wipeT = foreheadC.clone().addScaledVector(side, -0.15 * swipe).addScaledVector(upv, 0.02 * Math.cos(t * 2 * Math.PI * 3.4));
-    const hangT = bima.root.localToWorld(v3(-0.25, 0.83, 0.03));
-    const wristL = hangT.clone().lerp(wipeT, wipe);
-    const shL = leftArm.sh.getWorldPosition(new THREE.Vector3());
-    solveArm(leftArm, wristL, shL.clone().add(side.clone().multiplyScalar(-0.9 * wipe)).add(v3(0, -0.9 * (1 - 0.75 * wipe), -0.1))); // elbow swings OUT to the side while wiping
-    scene.updateMatrixWorld(true);
-    const aL = v3(0, -1, 0).lerp(upv.clone().multiplyScalar(0.7).addScaledVector(side, -0.4), wipe).normalize();
-    const bL = v3(0, 0, 1).lerp(foreheadC.clone().sub(wristL).normalize(), wipe).normalize();
-    aimTwo(leftArm.wr, v3(0, -1, 0), aL, v3(0, 0, 1), bL);
-    grip(leftArm, 0.5 * wipe);
-    bima.sweat.forEach((s, i) => { s.d.position.y = s.y0 - ((t * 0.08 + i * 0.37) % 1) * 0.07; });
-    heatComets.group.visible = true;
-    // c1 "memindahkan panas": the room heat visibly streams into the AC intake (denser, larger arrows)
-    const rt = ease(seg(f, c1.a - SYNC_LEAD, c1.a + 12));
-    heatComets.update(t, 1, 1 + 0.45 * rt);
-    scene.updateMatrixWorld(true);
-    callout(L.heat, v3(-1.1, 2.54, -0.1), -230, 260, seg(f, c0.a + 10, c0.a + 24) * (1 - seg(f, c1.a - 8, c1.a)));
-  } else if (shot === 1) {
-    const c0 = cue("S002", 0), c1 = cue("S002", 1);
-    const L0 = c0.b - c0.a;
-    const raiseA = c0.a, raiseB = c0.a + Math.round(L0 * 0.22);
-    const turnA = c0.a + Math.round(L0 * 0.3), turnB = c0.a + Math.round(L0 * 0.42);
-    const cutIn = c0.a + Math.round(L0 * 0.46);               // cutaway to the remote once Bima has turned to the AC
-    const pressA = c0.a + Math.round(L0 * 0.54), pressB = c0.a + Math.round(L0 * 0.72);
-    const irA = pressA + 2, irB = c1.a - SYNC_LEAD - 2;
-    const openA = c1.a - SYNC_LEAD, openB = c1.a + 12;
-    bima.root.rotation.y = -0.7;
-    const raise = easeOut(seg(f, raiseA, raiseB));
-    const turn = ease(seg(f, turnA, turnB));
-    bima.torso.rotation.x = 0.04;
-    scene.updateMatrixWorld(true);
-    lookHead(bima.head, acSensorW, turn);                      // the head turns to the AC BEFORE the press
-    scene.updateMatrixWorld(true);
-    const headP = bima.head.getWorldPosition(new THREE.Vector3());
-    const rq = bima.root.getWorldQuaternion(new THREE.Quaternion());
-    const rFwd = v3(0, 0, 1).applyQuaternion(rq), rLeft = v3(-1, 0, 0).applyQuaternion(rq);
-    const holdT = headP.clone().addScaledVector(rFwd, 0.3).addScaledVector(rLeft, 0.1).add(v3(0, -0.24, 0));
-    const hangT = bima.root.localToWorld(v3(-0.25, 0.83, 0.03));
-    const wristL = hangT.clone().lerp(holdT, raise);
-    const shL = leftArm.sh.getWorldPosition(new THREE.Vector3());
-    solveArm(leftArm, wristL, shL.clone().add(v3(-0.4, -0.9, -0.3)));
-    scene.updateMatrixWorld(true);
-    const toACdir = acSensorW.clone().sub(wristL).normalize();
-    aimTwo(leftArm.wr, v3(0, -1, 0), v3(0, -1, 0).lerp(toACdir, raise).normalize(), v3(0, 0, 1), rFwd.clone().lerp(headP.clone().sub(wristL).normalize(), raise).normalize()); // IR tip at the AC, screen toward his face
-    grip(leftArm, raise);
-    remote.visible = true;
-    leftArm.thumb.visible = false;
-    const press = seg(f, pressA, pressA + 4) * (1 - seg(f, pressB, pressB + 4));
-    // thumb hovers over the power/24° button, then presses it (moves onto the button face)
-    pressThumb.quaternion.setFromUnitVectors(v3(0, -1, 0), v3(lerp(-0.02, 0, press), lerp(-0.085, -0.105, press), lerp(0.09, 0.054, press)).sub(pressThumb.position).normalize());
-    remoteBtn.material.emissiveIntensity = 0.15 + 2.6 * press;
-    const ripple = seg(f, pressA + 3, pressA + 14); pressRing.material.opacity = 0.9 * (1 - ripple) * (ripple > 0 ? 1 : 0); pressRing.scale.setScalar(1 + 1.8 * ripple); // visible "click" feedback
-    setRemoteTemp(f >= pressA + 6 ? "24°" : "28°"); // the setting visibly changes when the button is pressed
-    rightArm.sh.rotation.set(0.0, 0, 0.15); rightArm.el.rotation.set(-0.3, 0, 0);
-    const relief = ease(seg(f, openB, c1.b));
-    face((0.55 + 0.45 * seg(f, cutIn, c1.a)) * (1 - 0.5 * relief), relief, 0); // alert eyes while turning to the AC; discomfort returns until the AC opens
-    bima.sweat.forEach((s, i) => { s.d.position.y = s.y0 - ((t * 0.08 + i * 0.37) % 1) * 0.07; });
-    if (f >= irB) AC.setDisplay("24°", true);
-    const open = ease(seg(f, openA, openB));
-    AC.louverPivot.rotation.x = -1.05 * open;
-    coolLight.intensity = 1.2 * open;
-    scene.updateMatrixWorld(true);
-    remoteTip.getWorldPosition(tmpA);
-    remoteFace.getWorldPosition(tmpB);
-    const faceN = v3(0, 0, 1).applyQuaternion(remoteFace.getWorldQuaternion(new THREE.Quaternion()));
-    // camera: medium on Bima (raise + head turn) -> CUT to the remote (thumb presses) -> CUT to the AC as the IR fires. Level horizon always.
-    const toAC = f >= pressB + 4 ? 1 : 0;
-    const inInsert = f >= cutIn && !toAC;
-    if (inInsert) { bima.head.visible = false; bima.torso.visible = false; } // macro cutaway: nothing between the lens and the remote
-    const remoteC = tmpB.clone();
-    const mediumPos = v3(-1.05, 1.62, 1.75).lerp(v3(-0.95, 1.66, 1.6), seg(f, c0.a, cutIn)), mediumTgt = v3(-0.5, 1.75, -0.25);
-    const remoteMid = remote.localToWorld(v3(0, -0.085, 0.04));
-    const remoteUp = remote.localToWorld(v3(0, -0.19, 0)).sub(remote.localToWorld(v3(0, 0, 0))).normalize(); // IR tip up on screen
-    const insertPos = remoteMid.clone().addScaledVector(faceN, lerp(0.56, 0.47, seg(f, cutIn, pressB + 4)));
-    const acPush = ease(seg(f, pressB + 4, c1.b));
-    const acPos = v3(lerp(-0.45, -0.62, acPush), lerp(1.9, 1.98, acPush), lerp(1.55, 1.3, acPush)), acTgt = acCenterW.clone().add(v3(0.15, -0.2, 0.0));
-    const camP = toAC ? acPos : inInsert ? insertPos : mediumPos;
-    const camT = toAC ? acTgt : inInsert ? remoteMid : mediumTgt;
-    look(toAC ? 54 : inInsert ? 42 : 56, camP.x, camP.y, camP.z, camT.x, camT.y, camT.z, inInsert ? remoteUp : WORLD_UP);
-    // IR ray grows from the remote tip to the receiver
-    const ir = seg(f, irA, irB);
-    if (ir > 0 && f < c1.a + 6) {
-      irBeam.visible = toAC > 0.5; // inside the macro insert the IR is shown by the LED flash, not a cylinder
-      const dir = acSensorW.clone().sub(tmpA); const len = dir.length();
-      irBeam.position.copy(tmpA); irBeam.quaternion.setFromUnitVectors(v3(0, 1, 0), dir.normalize());
-      irBeam.scale.set(1, len * ir, 1);
-      irBeam.material.opacity = 0.85 * (1 - seg(f, c1.a - 4, c1.a + 6));
-      irGroup.visible = true;
-      irDots.forEach((d, i) => { const u = ((f - irA) / 14 - i * 0.12) % 1; d.visible = u > 0 && u < ir; d.position.lerpVectors(tmpA, acSensorW, clamp(u)); d.scale.setScalar(0.045); d.material.opacity = 0.95; });
-      callout(L.ir, acSensorW, -300, 190, seg(f, pressB + 6, pressB + 20) * (1 - seg(f, c1.a - 6, c1.a)));
-    }
-    const led = seg(f, pressA + 1, pressA + 3) * (1 - seg(f, irA + 10, irA + 16));
-    if (led > 0) { ledFlash.visible = true; ledFlash.position.copy(tmpA); ledFlash.scale.setScalar(0.05 + 0.03 * Math.sin(f * 1.7) ** 2); ledFlash.material.opacity = led; }
-    const flash = seg(f, irB - 2, irB) * (1 - seg(f, irB + 2, irB + 10));
-    if (flash > 0) { sensorFlash.visible = true; sensorFlash.position.copy(acSensorW); sensorFlash.scale.setScalar(0.25 * flash + 0.02); sensorFlash.material.opacity = flash; }
-    if (open > 0.15) { coolComets.group.visible = true; coolComets.update(t, clamp((open - 0.15) * 2)); }
-    scene.updateMatrixWorld(true);
-  } else if (shot === 2) {
-    const c0 = cue("S003", 0), c1 = cue("S003", 1);
-    const tt = ease(seg(f, c0.a, c1.b));
-    look(lerp(54, 50, tt), lerp(-0.62, -0.78, tt), lerp(2.3, 2.3, tt), lerp(1.25, 1.1, tt), -2.2, 2.75, -0.25);
-    bima.root.visible = false;
-    AC.setDisplay("24°", true);
-    AC.louverPivot.rotation.x = -1.05;
-    const lift = ease(seg(f, c0.a + 2, c0.a + 16));
-    AC.front.position.set(0, 0.35 * lift, 0.55 * lift);
-    AC.panelMat.transparent = true; AC.panelMat.opacity = 1 - lift;
-    AC.front.visible = lift < 0.98;
-    // x-ray copper so the refrigerant inside the coil (liquid -> vapour) is visible
-    const xr = seg(f, c0.a + 14, c0.a + 26);
-    AC.copper.transparent = xr > 0; AC.copper.opacity = lerp(1, 0.3, xr); AC.copper.depthWrite = xr < 0.5;
-    const chill = ease(seg(f, c0.a + 20, c0.a + 70)); // the coil turns icy as the refrigerant absorbs the room heat
-    AC.copper.color.lerp(icyCoil, chill); AC.copper.emissive.set("#3AA0FF"); AC.copper.emissiveIntensity = 0.55 * chill;
-    key.intensity = 1.2; hemi.intensity = 0.45; sun.intensity = 2.5;
-    acInner.intensity = 1.6 * lift; coolLight.intensity = 1.5;
-    AC.blower.rotation.x = -t * 14;
-    const heatBoost = 1 + 0.6 * ease(seg(f, c1.a - SYNC_LEAD, c1.a + 8));
-    evapComets.group.visible = true; evapComets.update(t, seg(f, c0.a + 14, c0.a + 26), heatBoost);
-    refComets.group.visible = true; refComets.update(t, seg(f, c0.a + 18, c0.a + 30));
-    scene.updateMatrixWorld(true);
-    const a = (x, y, z) => AC.g.localToWorld(v3(x, y, z));
-    callout(L.evap, a(-0.37, 0.04, 0.3), -20, -250, seg(f, c0.a + 20, c0.a + 34));
-    callout(L.refr, a(-0.07, -0.05, 0.3), 120, 250, seg(f, c0.a + 34, c0.a + 48));
-    callout(L.heat3, a(-0.45, 0.06, 0.7), 0, -300, seg(f, c1.a - SYNC_LEAD, c1.a + 8));
-  } else {
-    const c0 = cue("S004", 0), c1 = cue("S004", 1);
-    const tt = ease(seg(f, c0.a, c1.b));
-    look(67, 39.9 + lerp(0.0, 0.15, tt), lerp(2.15, 1.95, tt), lerp(5.5, 5.2, tt), 39.95 + lerp(0.1, 0.25, tt), lerp(2.0, 1.8, tt), 0.9);
-    xsParts.fanHub.rotation.z = -t * 18;
-    const beat = Math.sin(t * 2 * Math.PI * 4);
-    const pulse = 1 + 0.15 * beat;
-    xsParts.comp.scale.set(pulse, 1 / pulse, pulse);
-    xsParts.comp.position.set(compBase.x + 0.006 * Math.sin(t * 2 * Math.PI * 8), compBase.y + 0.01 * beat, compBase.z); // pumping stroke + vibration
-    suction.update(t, 1); liquid.update(t, 1); condFlow.update(t, 1);
-    heatOut.update(t, ease(seg(f, c1.a - SYNC_LEAD, c1.a + 10)) * 0.9 + 0.1, 1 + 0.3 * seg(f, c1.a, c1.b));
-    coolIn.update(t, 1);
-    scene.updateMatrixWorld(true);
-    const o = (x, y, z) => xsParts.od.localToWorld(v3(x, y, z));
-    callout(L.vapor, v3(40.05, 2.62, 1.1), -120, -230, seg(f, c0.a + 4, c0.a + 18) * (1 - seg(f, c0.a + 46, c0.a + 52)));
-    callout(L.comp, xsParts.od.localToWorld(compBase.clone()), -10, 330, seg(f, c0.a + 30, c0.a + 44));
-    callout(L.cond, o(-0.18, -0.26, 0.3), -230, 240, seg(f, c1.a - SYNC_LEAD, c1.a + 8));
-    callout(L.release, v3(41.15, 2.02, 1.4), -100, -300, seg(f, c1.a, c1.a + 12));
-  }
+  if (shot === 0) renderS001(shotCtx(), f, t);
+  else if (shot === 1) renderS002(shotCtx(), f, t);
+  else if (shot === 2) renderS003(shotCtx(), f, t);
+  else renderS004(shotCtx(), f, t);
   setCaption(t);
   updateProbe();
   renderer.render(scene, camera);
@@ -682,6 +526,9 @@ function updateProbe() {
     remote_button: anchor(remoteBtn),
     thumb_tip: anchor(pressThumb, v3(0, -0.13, 0)),
     ac_sensor: anchor(AC.sensor),
+    ac_front: anchor(AC.front),
+    ac_body: anchor(AC.g),
+    compressor: anchor(xsParts.comp),
     callouts: callouts.report(),
     caption_rect: (() => { const r = capbox.getBoundingClientRect(); return [r.left, r.top, r.right, r.bottom]; })(),
   };

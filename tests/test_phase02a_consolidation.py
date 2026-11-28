@@ -269,3 +269,65 @@ def test_p02a_cons_16_motion_constraints_rigid_travel_and_min_seconds() -> None:
     attached = {f: {"w": {"p": [0.3 * (i % 2), 0, 0]}, "f": {"p": [0.3 * (i % 2), 0, 0.2]}} for i, f in enumerate(frames)}
     ev["min_seconds"] = 0.1
     assert ac.evaluate_events({"events": [ev]}, cues, attached)["status"] == "OK"                # wrist moves and the prop follows
+
+
+# --------------------------------------------------------------------------- shot spec + per-shot choreography
+def test_p02a_cons_17_shot_spec_compiles_to_action_events_and_is_valid():
+    from intelligence import shot_spec as ss
+
+    pk = PKG
+    spec = ss.load_shot_spec(pk)
+    tl = vw.canonical_timeline(pk)
+    assert ss.validate_shot_spec(spec, tl) == []
+    compiled = ss.compile_action_events(spec)
+    on_disk = json.loads((pk / "action_events.json").read_text(encoding="utf-8"))
+    assert compiled == on_disk, "action_events.json must be the compiled output of shot_spec.json"
+    # every shot has a verifiable action and the spec asks for no more time than the timeline already gives
+    assert {e["shot_id"] for e in compiled["events"]} == {s["shot_id"] for s in tl["shots"]}
+    assert ss.suggest_durations(spec, tl) == {}
+
+
+def test_p02a_cons_18_shot_spec_validation_blocks_bad_references():
+    import copy
+
+    from intelligence import shot_spec as ss
+
+    pk = PKG
+    spec, tl = copy.deepcopy(ss.load_shot_spec(pk)), vw.canonical_timeline(pk)
+    spec["shots"][0]["callouts"][0]["show"]["in"]["cue"] = 9
+    spec["shots"][1]["events"] = []
+    spec["shots"].append({"shot_id": "S999", "events": [], "callouts": []})
+    codes = {i["code"] for i in ss.validate_shot_spec(spec, tl)}
+    assert {"SPEC_BAD_CALLOUT_WINDOW", "SPEC_SHOT_WITHOUT_ACTION_EVENT", "SPEC_UNKNOWN_SHOT"} <= codes
+
+
+def test_p02a_cons_19_editing_one_shot_file_rerenders_only_that_shot(tmp_path):
+    import shutil
+
+    deps = json.loads((ROOT / "engines/web/phase02a_ac15s/render_dependencies.json").read_text(encoding="utf-8"))
+    pk = PKG
+    before = vw.shot_input_hashes(pk, deps)
+    fake = tmp_path / "r"
+    for rel in set(deps["global"]) | {r for v in deps["shot_files"].values() for r in v} | {a["file"] for a in deps["assets"].values()}:
+        if rel.startswith("node_modules"):
+            continue
+        (fake / rel).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT / rel, fake / rel)
+    for rel in deps["global"]:
+        if rel.startswith("node_modules"):
+            (fake / rel).parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(ROOT / rel, fake / rel)
+    same = vw.shot_input_hashes(pk, deps, root=fake)
+    assert same == before
+    with (fake / "engines/web/phase02a_ac15s/shots/S002.js").open("a") as fh:
+        fh.write("\n// edit\n")
+    after = vw.shot_input_hashes(pk, deps, root=fake)
+    assert vw.plan_selective_rerender(after, before)["rerender"] == ["S002"]
+
+
+def test_p02a_cons_20_scene_holds_no_label_text_or_placement():
+    scene = (ROOT / "engines/web/phase02a_ac15s/scene.js").read_text(encoding="utf-8")
+    shots = "".join((ROOT / f"engines/web/phase02a_ac15s/shots/{s}.js").read_text(encoding="utf-8") for s in ("S001", "S002", "S003", "S004"))
+    for label in ("Panas kamar", "Sinyal inframerah", "Evaporator", "Kompresor"):
+        assert label not in scene and label not in shots, f"label '{label}' must live in shot_spec.json"
+    assert "callout(" not in shots.replace("placeSpec", "")

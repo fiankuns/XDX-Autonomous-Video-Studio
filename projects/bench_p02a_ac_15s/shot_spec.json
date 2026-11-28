@@ -1,0 +1,461 @@
+{
+  "schema": "xdx.shot-spec.v1",
+  "project_id": "bench_p02a_ac_15s",
+  "note": "Single authoring file per topic: per shot the action events (verified geometrically) and the callouts (leader + ring). action_events.json is COMPILED from this file (scripts/visual_workflow.py apply-spec). Bounds: number = frames from the cue start; {frac,plus} = fraction of the cue length + frames.",
+  "shots": [
+    {
+      "shot_id": "S001",
+      "events": [
+        {
+          "event_id": "AE-S001-FAN",
+          "action": "Bima holds the hand fan in his right hand in front of his face and waves it by rocking the WRIST forward/back; the fan is rigidly attached to the wrist and follows it; the flat side faces his face; his head does NOT look at the AC yet.",
+          "window": {
+            "cue": 0,
+            "from": 0.15,
+            "to": 1.0
+          },
+          "hold_ratio": 0.9,
+          "constraints": [
+            {
+              "type": "distance_lt",
+              "a": "fan_center",
+              "b": "face_center",
+              "value": 0.45
+            },
+            {
+              "type": "facing",
+              "dir": "fan_center",
+              "from": "fan_center",
+              "to": "face_center",
+              "min_dot": 0.5
+            },
+            {
+              "type": "not_facing",
+              "dir": "head_pos",
+              "from": "head_pos",
+              "to": "ac_sensor",
+              "max_dot": 0.7
+            },
+            {
+              "type": "rigid",
+              "a": "fan_hand",
+              "b": "fan_center",
+              "tol": 0.02
+            },
+            {
+              "type": "travel_gt",
+              "anchor": "fan_center",
+              "value": 1.0
+            },
+            {
+              "type": "travel_gt",
+              "anchor": "fan_hand",
+              "value": 0.15
+            }
+          ],
+          "min_seconds": 2.0
+        },
+        {
+          "event_id": "AE-S001-WIPE",
+          "action": "Bima's left arm swings the elbow OUT to the side and the hand sweeps across his forehead (wipe back and forth), not just resting on it.",
+          "window": {
+            "cue": 0,
+            "from": 0.1,
+            "to": 0.72
+          },
+          "hold_ratio": 0.8,
+          "constraints": [
+            {
+              "type": "distance_lt",
+              "a": "left_wrist",
+              "b": "forehead",
+              "value": 0.22
+            },
+            {
+              "type": "travel_gt",
+              "anchor": "left_wrist",
+              "value": 0.5
+            },
+            {
+              "type": "distance_gt",
+              "a": "left_elbow",
+              "b": "torso_mid",
+              "value": 0.5
+            }
+          ],
+          "min_seconds": 1.5
+        },
+        {
+          "event_id": "AE-S001-WIPE-SUSTAINED",
+          "action": "The forehead wipe continues through the second caption (the gesture is sustained, not dropped after one second).",
+          "window": {
+            "cue": 1,
+            "from": 0.0,
+            "to": 0.5
+          },
+          "hold_ratio": 0.8,
+          "min_seconds": 0.8,
+          "constraints": [
+            {
+              "type": "distance_lt",
+              "a": "left_wrist",
+              "b": "forehead",
+              "value": 0.22
+            },
+            {
+              "type": "travel_gt",
+              "anchor": "left_wrist",
+              "value": 0.4
+            }
+          ]
+        }
+      ],
+      "callouts": [
+        {
+          "id": "heat",
+          "text": "Panas kamar",
+          "kind": "warm",
+          "anchor": {
+            "space": "world",
+            "p": [
+              -1.1,
+              2.54,
+              -0.1
+            ]
+          },
+          "offset": [
+            -230,
+            260
+          ],
+          "show": {
+            "in": {
+              "cue": 0,
+              "from": 10,
+              "to": 24
+            },
+            "out": {
+              "cue": 1,
+              "from": -8,
+              "to": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "shot_id": "S002",
+      "events": [
+        {
+          "event_id": "AE-S002-TURN-AIM",
+          "action": "Just before pressing, Bima turns his head to the AC and aims the remote's IR tip at it.",
+          "window": {
+            "cue": 0,
+            "from": 0.42,
+            "to": 0.5
+          },
+          "hold_ratio": 0.9,
+          "constraints": [
+            {
+              "type": "facing",
+              "dir": "head_pos",
+              "from": "head_pos",
+              "to": "ac_sensor",
+              "min_dot": 0.85
+            },
+            {
+              "type": "facing",
+              "dir": "remote_tip",
+              "from": "remote_tip",
+              "to": "ac_sensor",
+              "min_dot": 0.85
+            }
+          ],
+          "min_seconds": 0.1
+        },
+        {
+          "event_id": "AE-S002-PRESS",
+          "action": "The thumb presses the power/24 button of the remote (contact), remote still aimed at the AC.",
+          "window": {
+            "cue": 0,
+            "from": 0.58,
+            "to": 0.64
+          },
+          "hold_ratio": 0.8,
+          "constraints": [
+            {
+              "type": "distance_lt",
+              "a": "thumb_tip",
+              "b": "remote_button",
+              "value": 0.035
+            },
+            {
+              "type": "facing",
+              "dir": "remote_tip",
+              "from": "remote_tip",
+              "to": "ac_sensor",
+              "min_dot": 0.85
+            }
+          ],
+          "min_seconds": 0.2
+        }
+      ],
+      "callouts": [
+        {
+          "id": "ir",
+          "text": "Sinyal inframerah",
+          "kind": "warm",
+          "anchor": {
+            "space": "named",
+            "name": "ac_sensor"
+          },
+          "offset": [
+            -300,
+            190
+          ],
+          "show": {
+            "in": {
+              "cue": 0,
+              "from": {
+                "frac": 0.72,
+                "plus": 6
+              },
+              "to": {
+                "frac": 0.72,
+                "plus": 20
+              }
+            },
+            "out": {
+              "cue": 1,
+              "from": -6,
+              "to": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "shot_id": "S003",
+      "events": [
+        {
+          "event_id": "AE-S003-OPEN-PANEL",
+          "action": "The indoor unit's front panel lifts away so the evaporator coil is exposed (the refrigerant action happens on the coil).",
+          "window": {
+            "cue": 0,
+            "from": 0.4,
+            "to": 1.0
+          },
+          "hold_ratio": 0.9,
+          "min_seconds": 0.8,
+          "constraints": [
+            {
+              "type": "distance_gt",
+              "a": "ac_front",
+              "b": "ac_body",
+              "value": 0.5
+            }
+          ]
+        }
+      ],
+      "callouts": [
+        {
+          "id": "evap",
+          "text": "Evaporator",
+          "kind": "cool",
+          "anchor": {
+            "space": "ac",
+            "p": [
+              -0.37,
+              0.04,
+              0.3
+            ]
+          },
+          "offset": [
+            -20,
+            -250
+          ],
+          "show": {
+            "in": {
+              "cue": 0,
+              "from": 20,
+              "to": 34
+            }
+          }
+        },
+        {
+          "id": "refr",
+          "text": "Refrigeran cair → menguap",
+          "kind": "cool",
+          "anchor": {
+            "space": "ac",
+            "p": [
+              -0.07,
+              -0.05,
+              0.3
+            ]
+          },
+          "offset": [
+            120,
+            250
+          ],
+          "show": {
+            "in": {
+              "cue": 0,
+              "from": 34,
+              "to": 48
+            }
+          }
+        },
+        {
+          "id": "heat3",
+          "text": "Panas kamar",
+          "kind": "warm",
+          "anchor": {
+            "space": "ac",
+            "p": [
+              -0.45,
+              0.06,
+              0.7
+            ]
+          },
+          "offset": [
+            0,
+            -300
+          ],
+          "show": {
+            "in": {
+              "cue": 1,
+              "from": -9,
+              "to": 8
+            }
+          }
+        }
+      ]
+    },
+    {
+      "shot_id": "S004",
+      "events": [
+        {
+          "event_id": "AE-S004-COMPRESSOR-PUMPS",
+          "action": "The compressor visibly pumps (stroke + vibration) while it pushes hot vapour toward the outdoor condenser.",
+          "window": {
+            "cue": 0,
+            "from": 0.3,
+            "to": 1.0
+          },
+          "hold_ratio": 0.9,
+          "min_seconds": 1.0,
+          "constraints": [
+            {
+              "type": "travel_gt",
+              "anchor": "compressor",
+              "value": 0.05
+            }
+          ]
+        }
+      ],
+      "callouts": [
+        {
+          "id": "vapor",
+          "text": "Uap panas",
+          "kind": "warm",
+          "anchor": {
+            "space": "world",
+            "p": [
+              40.05,
+              2.62,
+              1.1
+            ]
+          },
+          "offset": [
+            -120,
+            -230
+          ],
+          "show": {
+            "in": {
+              "cue": 0,
+              "from": 4,
+              "to": 18
+            },
+            "out": {
+              "cue": 0,
+              "from": 46,
+              "to": 52
+            }
+          }
+        },
+        {
+          "id": "comp",
+          "text": "Kompresor",
+          "kind": "warm",
+          "anchor": {
+            "space": "od",
+            "p": [
+              0.25,
+              -0.08,
+              0.0
+            ]
+          },
+          "offset": [
+            -10,
+            330
+          ],
+          "show": {
+            "in": {
+              "cue": 0,
+              "from": 30,
+              "to": 44
+            }
+          }
+        },
+        {
+          "id": "cond",
+          "text": "Kondensor luar",
+          "kind": "warm",
+          "anchor": {
+            "space": "od",
+            "p": [
+              -0.18,
+              -0.26,
+              0.3
+            ]
+          },
+          "offset": [
+            -230,
+            240
+          ],
+          "show": {
+            "in": {
+              "cue": 1,
+              "from": -9,
+              "to": 8
+            }
+          }
+        },
+        {
+          "id": "release",
+          "text": "Kalor ke udara luar",
+          "kind": "warm",
+          "anchor": {
+            "space": "world",
+            "p": [
+              41.15,
+              2.02,
+              1.4
+            ]
+          },
+          "offset": [
+            -100,
+            -300
+          ],
+          "show": {
+            "in": {
+              "cue": 1,
+              "from": 0,
+              "to": 12
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

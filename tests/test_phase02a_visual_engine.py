@@ -57,7 +57,7 @@ def test_p02a_ve_04_scene_reads_captions_from_package_and_is_pinned() -> None:
     assert "window.__XDX_PACKAGE" in scene and "EXPECTED_SHOT_IDS" in scene
     # timing map: beats are anchored to caption cues with a bounded sync lead, not to free-floating frame numbers
     timeline = (ROOT_DIR / "engines/web/xdx_core/timeline.js").read_text(encoding="utf-8")
-    assert "syncLeadSeconds = 0.3" in timeline and "buildTimeline(PKG)" in scene and scene.count('cue("S00') >= 4
+    assert "syncLeadSeconds = 0.3" in timeline and "buildTimeline(PKG)" in scene and (scene + "".join(q.read_text(encoding="utf-8") for q in (SCENE / "shots").glob("S00*.js"))).count('cue("S00') >= 4
     core = "\n".join(p.read_text(encoding="utf-8") for p in (ROOT_DIR / "engines/web/xdx_core").rglob("*.js"))
     for banned in ("Math.random", "Date.now", "performance.now", "requestAnimationFrame"):
         assert banned not in scene and banned not in core, f"non-deterministic API {banned} in scene/core"

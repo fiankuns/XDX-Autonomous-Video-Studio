@@ -33,3 +33,7 @@ Muat hanya: file ini, paket proyek (`projects/<id>/`), `docs/ACTION_CHOREOGRAPHY
 
 ## Estimasi biaya per putaran (urutan besar, bukan angka tetap)
 Probe dan verifikasi: detik, tanpa gambar. Lembar kontak: 1 gambar. Render per shot: menit. Render penuh: 7-10 menit. Review independen: satu agen, beberapa gambar. Pola lama (render penuh + baca banyak gambar per catatan) berkali-kali adalah penyebab utama boros.
+
+## Lapisan penulisan shot (hemat revisi)
+
+Tulis aksi dan label HANYA di `shot_spec.json`, jalankan `apply-spec`, lalu `verify-actions` (angka, tanpa piksel). Koreografi tiap shot ada di `shots/S00N.js`: revisi satu shot hanya me-render ulang shot itu (`rerender-plan`), sehingga satu putaran revisi tidak lagi mengongkos seluruh video. Lihat `docs/ACTION_CHOREOGRAPHY_GUIDE.md` bagian 7.

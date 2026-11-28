@@ -22,3 +22,6 @@ Semua dimensi ≥ 3,0; rata-rata shot ≥ 3,5; REF-002 ≥ 3,0; 0 placeholder, 0
 
 ## Batas
 Maks. 2 agen aktif; tanpa Swarm/Boost/Teamwork; tanpa audio/TTS/musik/SFX/lip sync; output prototipe di luar repo; tanpa commit checkpoint runtime, force-push, atau merge ke main.
+
+
+> Update: pemisahan `scene.js` per shot (`shots/S00N.js`) dan `shot_spec.json` sudah dikerjakan di Phase 02A (Three.js only). Sisa item 4: ekstraksi aset inline dan gate camera-roll/frame-edge (DEF-P02A-043/044). Blender tetap tidak dieksekusi.

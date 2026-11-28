@@ -55,3 +55,12 @@ Setiap label = pill + garis penunjuk + lingkaran kecil TEPAT di bagian yang dise
 - Menaruh cincin: `window.__xdxScreenToLocal(frame, ruang, x, y, z)` mengubah piksel (dari sketsa pengguna) menjadi koordinat objek; `window.__xdxPick(frame, x, y)` menemukan objek liar di bawah piksel.
 - Dicek otomatis: `intelligence/callout_contract.py` (CALLOUT_OVER_CAPTION, CALLOUT_OVERLAP, CALLOUT_COVERS_PART, CALLOUT_LEADER_TOO_SHORT, CALLOUT_OFF_FRAME); render penuh menulis `<id>_callout_verification.json`; gate delivery memblokir bila hilang atau gagal.
 - Label hanya tampil di shot tempat bagian itu terlihat (jangan di cutaway objek lain).
+
+## 7. Shot spec: satu file penulisan per topik (Three.js only, tanpa Blender)
+
+`projects/<id>/shot_spec.json` (schema `schemas/shot_spec.schema.json`) adalah SATU-SATUNYA tempat menulis, per shot: `events` (aksi yang diverifikasi geometri) dan `callouts` (teks label, jangkar `world|ac|od|named`, offset pill, jendela tampil relatif cue).
+
+- `python3 scripts/visual_workflow.py apply-spec <package>` memvalidasi spec (shot/cue valid, tiap shot punya event, anchor benar), meng-compile `action_events.json`, dan menyarankan durasi shot dari `min_seconds` (umpan ke `retime`).
+- `action_events.json` adalah hasil compile; jangan diedit tangan. Scene membaca callout dari spec (`PKG.callouts`), jadi teks/penempatan label tidak ada di kode scene.
+- Koreografi dipecah per shot: `engines/web/<scene>/shots/S00N.js` (fungsi murni `renderS00N(ctx, f, t)`). Mengubah satu file shot atau satu entri spec hanya me-render ulang shot itu (`rerender-plan`); mengubah `scene.js`/kit tetap me-render semua.
+- Topik baru: salin pola ini (spec + shots/), jangan menaruh label atau aksi langsung di scene.js.

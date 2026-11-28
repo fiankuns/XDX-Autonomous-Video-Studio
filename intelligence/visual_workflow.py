@@ -233,6 +233,8 @@ def shot_input_hashes(package_dir: Path, deps: dict[str, Any], *, root: Path = R
     package_dir, root = Path(package_dir), Path(root)
     sb, cap, svp = _load(package_dir, "storyboard.json"), _load(package_dir, "caption_audio_plan.json"), _load(package_dir, "semantic_visual_plan.json")
     glob = {rel: _sha256_file(root / rel) for rel in deps["global"]}
+    spec_file = package_dir / "shot_spec.json"
+    spec_by_shot = {x["shot_id"]: x for x in json.loads(spec_file.read_text(encoding="utf-8"))["shots"]} if spec_file.is_file() else {}
     out: dict[str, str] = {}
     for s in sb["shots"]:
         sid = s["shot_id"]
@@ -241,6 +243,7 @@ def shot_input_hashes(package_dir: Path, deps: dict[str, Any], *, root: Path = R
             "fps": sb["fps"],
             "cues": [c for c in cap.get("cues", []) if c["shot_id"] == sid],
             "semantic": [m for m in svp.get("clause_to_shot_mappings", []) if m.get("03_shot_id") == sid],
+            "shot_spec": spec_by_shot.get(sid),
             "global": glob,
             "assets": {aid: _sha256_file(root / a["file"]) for aid, a in deps.get("assets", {}).items() if sid in a["shots"]},
             "shot_files": {rel: _sha256_file(root / rel) for rel in deps.get("shot_files", {}).get(sid, [])},
