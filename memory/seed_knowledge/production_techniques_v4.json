@@ -275,6 +275,46 @@
         "tests/test_phase02a_consolidation.py::test_p02a_cons_17_shot_spec_compiles_to_action_events_and_is_valid",
         "tests/test_phase02a_consolidation.py::test_p02a_cons_19_editing_one_shot_file_rerenders_only_that_shot"
       ]
+    },
+    {
+      "technique_id": "blender_head_unit_proportions",
+      "domain": "character",
+      "test_status": "RESEARCHED_NOT_VERIFIED",
+      "topic_agnostic": true,
+      "what": "Peg every part to head height (chibi ~35% head); check total height within 2% of canon before polish.",
+      "how": "Measure with character_tools.front_view_extent_px and compare to the reference px size."
+    },
+    {
+      "technique_id": "blender_alpha_aware_silhouette_gate",
+      "domain": "qc",
+      "test_status": "RESEARCHED_NOT_VERIFIED",
+      "topic_agnostic": true,
+      "what": "Compare reference and render silhouettes with an alpha-aware mask; flattening a transparent render to RGB hides shifted silhouettes.",
+      "how": "intelligence/design_fidelity_gate.silhouette_report(ref, render, align='bbox')."
+    },
+    {
+      "technique_id": "blender_hair_few_large_locks",
+      "domain": "character",
+      "test_status": "RESEARCHED_NOT_VERIFIED",
+      "topic_agnostic": true,
+      "what": "Hair reads cleaner as 6-8 large tapered locks with end flare than 12 thin overlapping ones; never a solid ellipsoid for the back.",
+      "how": "Taper object with flare; keep total width <= reference width; smooth afterwards."
+    },
+    {
+      "technique_id": "blender_three_loop_hinge",
+      "domain": "rigging",
+      "test_status": "RESEARCHED_NOT_VERIFIED",
+      "topic_agnostic": true,
+      "what": "Three staggered edge loops at elbows/knees; avoid 3/5-valent poles on eyelids, lips and hinges.",
+      "how": "Check valence in geometry QC before rigging."
+    },
+    {
+      "technique_id": "blender_toon_flat_outline",
+      "domain": "material",
+      "test_status": "DEVICE_TESTED_PARTIAL",
+      "topic_agnostic": true,
+      "what": "Toon look = base colour + equal emission + inverted-hull outline; prints are geometry joined into the garment.",
+      "how": "character_tools.add_outline; join print with garment; verify from a side angle."
     }
   ]
 }
