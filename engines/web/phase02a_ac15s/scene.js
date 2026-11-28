@@ -178,11 +178,12 @@ const fan = new THREE.Group(); rightArm.wr.add(fan);
 {
   // hand fan: handle runs through the fist along the hand axis (-Y); the paper blade opens beyond the fist; its flat face is the wrist's +Z
   const L = 1.9;
-  mesh(new THREE.CircleGeometry(0.27, 48, -Math.PI / 2 - L / 2, L), new THREE.MeshStandardMaterial({ map: fanTex, side: THREE.DoubleSide, roughness: 0.9 }), v3(0, -0.07, 0), fan);
-  mesh(new THREE.CylinderGeometry(0.01, 0.012, 0.13, 12), std("#6B4A2E", 0.6), v3(0, -0.045, 0), fan);
+  mesh(new THREE.CircleGeometry(0.26, 48, -Math.PI / 2 - L / 2, L), new THREE.MeshStandardMaterial({ map: fanTex, side: THREE.DoubleSide, roughness: 0.9 }), v3(0, -0.2, 0), fan);
+  mesh(new THREE.CylinderGeometry(0.011, 0.013, 0.22, 14), std("#6B4A2E", 0.6), v3(0, -0.095, 0), fan);          // wooden handle: inside the fist, ~7 cm visible below it
+  mesh(new THREE.CylinderGeometry(0.02, 0.016, 0.02, 16), std("#4E3420", 0.6), v3(0, -0.19, 0), fan);              // collar where the paper starts
 }
 const remote = new THREE.Group(); leftArm.wr.add(remote);
-let remoteTip, remoteBtn, remoteFace, pressThumb, setRemoteTemp;
+let pressRing, remoteTip, remoteBtn, remoteFace, pressThumb, setRemoteTemp;
 {
   mesh(rbox(0.07, 0.2, 0.028, 0.013), std("#EEF1F4", 0.3), v3(0, -0.09, 0.03), remote);
   const drawRemoteScreen = (g, txt, col) => {
@@ -199,6 +200,7 @@ let remoteTip, remoteBtn, remoteFace, pressThumb, setRemoteTemp;
   mesh(new THREE.PlaneGeometry(0.056, 0.035), new THREE.MeshBasicMaterial({ map: scrT }), v3(0, -0.155, 0.0445), remote, { cast: false }).rotation.z = Math.PI; // text reads with the IR tip up
   remoteBtn = mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.007, 20), std(ACCENT, 0.4, 0, { emissive: new THREE.Color(ACCENT), emissiveIntensity: 0.15 }), v3(0, -0.105, 0.0445), remote, { cast: false });
   remoteBtn.rotation.x = Math.PI / 2;
+  pressRing = mesh(new THREE.RingGeometry(0.014, 0.019, 40), new THREE.MeshBasicMaterial({ color: "#FFD2B0", transparent: true, opacity: 0, depthWrite: false }), v3(0, -0.105, 0.0495), remote, { cast: false, receive: false }); // press ripple
   const glyph = canvasTex(64, 64, (g) => { g.strokeStyle = "#fff"; g.lineWidth = 7; g.lineCap = "round"; g.beginPath(); g.arc(32, 34, 17, -1.1, 4.25); g.stroke(); g.beginPath(); g.moveTo(32, 10); g.lineTo(32, 32); g.stroke(); });
   mesh(new THREE.PlaneGeometry(0.016, 0.016), new THREE.MeshBasicMaterial({ map: glyph, transparent: true }), v3(0, -0.105, 0.0485), remote, { cast: false, receive: false }).rotation.z = Math.PI;
   const pm = (txt) => canvasTex(64, 64, (g) => { g.fillStyle = "#3A4650"; g.font = "800 50px PJS, sans-serif"; g.textAlign = "center"; g.textBaseline = "middle"; g.fillText(txt, 32, 34); });
@@ -305,13 +307,10 @@ const xsParts = {};
     g.fillStyle = sg; g.fillRect(0, 0, w, h);
   });
   mesh(new THREE.PlaneGeometry(6, 7), new THREE.MeshBasicMaterial({ map: skyTex2 }), v3(3.1, 2.8, -1.6), xs, { cast: false, receive: false });
-  mesh(new THREE.PlaneGeometry(6.36, 14), std("#8DBB6E", 0.95), v3(3.18, 0.0, 4.0), xs, { cast: false }).rotation.x = -Math.PI / 2;
   const inTex = canvasTex(512, 512, (g, w, h) => noiseFill(g, w, h, "#EAD9C1", 0.06, 6000, 12));
   mesh(new THREE.PlaneGeometry(4, 7), std("#ffffff", 0.9, 0, { map: inTex }), v3(-2.15, 2.8, -1.6), xs, { cast: false, receive: false });
-  // indoor floor is a SECTION: it ends at the same cut plane as the wall (z = +1.0); the ground in front of the cut is continuous grass (no ground seam running to the lens)
-  mesh(new THREE.PlaneGeometry(4.36, 4.0), std("#B98552", 0.65), v3(-2.18, 0.0, -1.0), xs, { cast: false, receive: false }).rotation.x = -Math.PI / 2;
-  mesh(new THREE.PlaneGeometry(4.36, 0.14), std("#8A5E37", 0.7), v3(-2.18, -0.07, 1.0), xs, { cast: false, receive: false });
-  mesh(new THREE.PlaneGeometry(4.36, 10), std("#8DBB6E", 0.95), v3(-2.18, -0.001, 6.0), xs, { cast: false }).rotation.x = -Math.PI / 2;
+  // ground: ONE continuous plane across the cut (no seam, no slab strip); the cut wall and the interior wall simply stand on it
+  mesh(new THREE.PlaneGeometry(10.8, 14), std("#8DBB6E", 0.95), v3(1.0, -0.001, 4.0), xs, { cast: false }).rotation.x = -Math.PI / 2;
   const brickTex = canvasTex(256, 1024, (g, w, h) => {
     g.fillStyle = "#D9CFC2"; g.fillRect(0, 0, w, h);
     const bh = 36;
@@ -335,7 +334,6 @@ const xsParts = {};
   ac2.louverPivot.rotation.x = -1.05; ac2.setDisplay("24°", true);
   xsParts.ac2 = ac2;
   mesh(new THREE.PlaneGeometry(2.3, 4.2), std("#ffffff", 0.9, 0, { map: inTex, color: "#E9D3B8" }), v3(-1.31, 2.1, 0.5), xs, { cast: false }); // interior wall behind the unit
-  mesh(rbox(0.5, 0.3, 3.2, 0.02), std("#B9B2A6", 0.9), v3(0, -0.13, -0.6), xs, { cast: false }); // foundation under the wall, flush with the cut plane (z=+1.0) so it no longer reads as a grey wedge
   const shadowTex = canvasTex(256, 128, (g) => { const gr = g.createRadialGradient(128, 64, 4, 128, 64, 120); gr.addColorStop(0, "rgba(0,0,0,0.45)"); gr.addColorStop(1, "rgba(0,0,0,0)"); g.fillStyle = gr; g.fillRect(0, 0, 256, 128); });
   mesh(new THREE.PlaneGeometry(1.4, 0.7), new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false }), v3(0.8, 0.004, 0.8), xs, { cast: false, receive: false }).rotation.x = -Math.PI / 2;
 
@@ -477,7 +475,7 @@ function renderFrame(f) {
   AC.setDisplay("", false);
   AC.front.visible = true; AC.panelMat.opacity = 1; AC.panelMat.transparent = false; AC.front.position.set(0, 0, 0);
   AC.copper.transparent = false; AC.copper.opacity = 1; AC.copper.color.copy(copperBase); AC.copper.emissive.set("#000000"); AC.copper.emissiveIntensity = 0;
-  fan.visible = false; remote.visible = false;
+  fan.visible = false; remote.visible = false; pressRing.material.opacity = 0;
   route.visible = false; routeHead.visible = false;
   irGroup.visible = false; sensorFlash.visible = false; irBeam.visible = false; ledFlash.visible = false;
   coolLight.intensity = 0; acInner.intensity = 0; key.intensity = 2.4; hemi.intensity = 0.85; sun.intensity = 6;
@@ -504,19 +502,19 @@ function renderFrame(f) {
     const fwd = v3(0, 0, 1).applyQuaternion(hq), side = v3(1, 0, 0).applyQuaternion(hq), upv = v3(0, 1, 0).applyQuaternion(hq);
     const faceC = headP.clone().addScaledVector(fwd, 0.1).addScaledVector(upv, -0.03);
     // fan hand: the forearm holds the fist in front of the face; the WRIST rocks forward/back and the fan (child of the wrist) follows it.
-    const fanC = faceC.clone().addScaledVector(fwd, 0.3).addScaledVector(side, 0.03).addScaledVector(upv, -0.05);
+    const fanC = faceC.clone().addScaledVector(fwd, 0.22).addScaledVector(side, 0.03).addScaledVector(upv, -0.05);
     const toFace = faceC.clone().sub(fanC).normalize();
     const bladeDir = upv.clone().multiplyScalar(0.8).addScaledVector(toFace, 0.5).normalize(); // blade extends up-and-in from the fist
-    const wristR = fanC.clone().addScaledVector(bladeDir, -0.23).addScaledVector(fwd, 0.035 * w2).addScaledVector(upv, 0.012 * w); // small forearm drive
+    const wristR = fanC.clone().addScaledVector(bladeDir, -0.35).addScaledVector(fwd, 0.035 * w2).addScaledVector(upv, 0.012 * w); // small forearm drive
     const shR = rightArm.sh.getWorldPosition(new THREE.Vector3());
     solveArm(rightArm, wristR, shR.clone().add(v3(0.25, -0.9, 0.0)));
     scene.updateMatrixWorld(true);
     aimTwo(rightArm.wr, v3(0, -1, 0), bladeDir, v3(0, 0, 1), toFace);
-    rightArm.wr.rotateX(0.4 + 0.45 * w);                 // wrist flexion: the blade sweeps toward the face and back, flat side always roughly toward him
+    rightArm.wr.rotateX(0.4 + 0.4 * w);                 // wrist flexion: the blade sweeps toward the face and back, flat side always roughly toward him
         grip(rightArm, 0.8);
     fan.visible = true;
     // other hand wipes the forehead during the first part of caption 1, then drops
-    const wipe = ease(seg(f, c0.a + 4, c0.a + 14)) * (1 - ease(seg(f, c0.a + Math.round(L0 * 0.75), c0.a + Math.round(L0 * 0.75) + 12)));
+    const wipe = ease(seg(f, c0.a + 4, c0.a + 14)) * (1 - ease(seg(f, c1.a + Math.round((c1.b - c1.a) * 0.6), c1.a + Math.round((c1.b - c1.a) * 0.6) + 12)));
     const foreheadC = headP.clone().addScaledVector(upv, 0.09).addScaledVector(fwd, 0.17);
     const swipe = Math.sin(t * 2 * Math.PI * 1.7);
     const wipeT = foreheadC.clone().addScaledVector(side, -0.15 * swipe).addScaledVector(upv, 0.02 * Math.cos(t * 2 * Math.PI * 3.4));
@@ -540,9 +538,9 @@ function renderFrame(f) {
     const c0 = cue("S002", 0), c1 = cue("S002", 1);
     const L0 = c0.b - c0.a;
     const raiseA = c0.a, raiseB = c0.a + Math.round(L0 * 0.22);
-    const turnA = c0.a + Math.round(L0 * 0.06), turnB = c0.a + Math.round(L0 * 0.3);
+    const turnA = c0.a + Math.round(L0 * 0.3), turnB = c0.a + Math.round(L0 * 0.42);
     const cutIn = c0.a + Math.round(L0 * 0.46);               // cutaway to the remote once Bima has turned to the AC
-    const pressA = c0.a + Math.round(L0 * 0.54), pressB = c0.a + Math.round(L0 * 0.64);
+    const pressA = c0.a + Math.round(L0 * 0.54), pressB = c0.a + Math.round(L0 * 0.72);
     const irA = pressA + 2, irB = c1.a - SYNC_LEAD - 2;
     const openA = c1.a - SYNC_LEAD, openB = c1.a + 12;
     bima.root.rotation.y = -0.7;
@@ -570,10 +568,11 @@ function renderFrame(f) {
     // thumb hovers over the power/24° button, then presses it (moves onto the button face)
     pressThumb.quaternion.setFromUnitVectors(v3(0, -1, 0), v3(lerp(-0.02, 0, press), lerp(-0.085, -0.105, press), lerp(0.09, 0.054, press)).sub(pressThumb.position).normalize());
     remoteBtn.material.emissiveIntensity = 0.15 + 2.6 * press;
-    setRemoteTemp(f >= pressB ? "24°" : "28°"); // the setting visibly changes when the button is pressed
+    const ripple = seg(f, pressA + 3, pressA + 14); pressRing.material.opacity = 0.9 * (1 - ripple) * (ripple > 0 ? 1 : 0); pressRing.scale.setScalar(1 + 1.8 * ripple); // visible "click" feedback
+    setRemoteTemp(f >= pressA + 6 ? "24°" : "28°"); // the setting visibly changes when the button is pressed
     rightArm.sh.rotation.set(0.0, 0, 0.15); rightArm.el.rotation.set(-0.3, 0, 0);
     const relief = ease(seg(f, openB, c1.b));
-    face(1 - 0.5 * relief, relief, 0);
+    face((0.55 + 0.45 * seg(f, cutIn, c1.a)) * (1 - 0.5 * relief), relief, 0); // alert eyes while turning to the AC; discomfort returns until the AC opens
     bima.sweat.forEach((s, i) => { s.d.position.y = s.y0 - ((t * 0.08 + i * 0.37) % 1) * 0.07; });
     if (f >= irB) AC.setDisplay("24°", true);
     const open = ease(seg(f, openA, openB));
@@ -607,7 +606,7 @@ function renderFrame(f) {
       irBeam.material.opacity = 0.85 * (1 - seg(f, c1.a - 4, c1.a + 6));
       irGroup.visible = true;
       irDots.forEach((d, i) => { const u = ((f - irA) / 14 - i * 0.12) % 1; d.visible = u > 0 && u < ir; d.position.lerpVectors(tmpA, acSensorW, clamp(u)); d.scale.setScalar(0.045); d.material.opacity = 0.95; });
-      callout(L.ir, tmpA.clone().lerp(acSensorW, 0.55), -330, 150, seg(f, pressB + 6, pressB + 20) * (1 - seg(f, c1.a - 6, c1.a)));
+      callout(L.ir, acSensorW, -300, 190, seg(f, pressB + 6, pressB + 20) * (1 - seg(f, c1.a - 6, c1.a)));
     }
     const led = seg(f, pressA + 1, pressA + 3) * (1 - seg(f, irA + 10, irA + 16));
     if (led > 0) { ledFlash.visible = true; ledFlash.position.copy(tmpA); ledFlash.scale.setScalar(0.05 + 0.03 * Math.sin(f * 1.7) ** 2); ledFlash.material.opacity = led; }
@@ -674,7 +673,7 @@ function updateProbe() {
     head_pos: anchor(bima.head, null, v3(0, 0, 1)),
     face_center: anchor(bima.head, v3(0, -0.02, 0.15)),
     forehead: anchor(bima.head, v3(0, 0.09, 0.15)),
-    fan_center: anchor(fan, v3(0, -0.23, 0), v3(0, 0, 1)),
+    fan_center: anchor(fan, v3(0, -0.35, 0), v3(0, 0, 1)),
     fan_hand: anchor(rightArm.wr),
     left_wrist: anchor(leftArm.wr),
     left_elbow: anchor(leftArm.el),

@@ -89,8 +89,8 @@
       "action": "Just before pressing, Bima turns his head to the AC and aims the remote's IR tip at it.",
       "window": {
         "cue": 0,
-        "from": 0.36,
-        "to": 0.46
+        "from": 0.42,
+        "to": 0.5
       },
       "hold_ratio": 0.9,
       "constraints": [
@@ -109,7 +109,7 @@
           "min_dot": 0.85
         }
       ],
-      "min_seconds": 0.3
+      "min_seconds": 0.1
     },
     {
       "event_id": "AE-S002-PRESS",
@@ -137,6 +137,31 @@
         }
       ],
       "min_seconds": 0.2
+    },
+    {
+      "event_id": "AE-S001-WIPE-SUSTAINED",
+      "shot_id": "S001",
+      "action": "The forehead wipe continues through the second caption (the gesture is sustained, not dropped after one second).",
+      "window": {
+        "cue": 1,
+        "from": 0.0,
+        "to": 0.5
+      },
+      "hold_ratio": 0.8,
+      "min_seconds": 0.8,
+      "constraints": [
+        {
+          "type": "distance_lt",
+          "a": "left_wrist",
+          "b": "forehead",
+          "value": 0.22
+        },
+        {
+          "type": "travel_gt",
+          "anchor": "left_wrist",
+          "value": 0.4
+        }
+      ]
     }
   ]
 }

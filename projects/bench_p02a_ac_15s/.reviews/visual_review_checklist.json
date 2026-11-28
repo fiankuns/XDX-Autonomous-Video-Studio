@@ -4,7 +4,7 @@
   "delivery_profile": "VISUAL_ONLY_BENCHMARK",
   "audio_in_scope": false,
   "fps": 30,
-  "total_frames": 450,
+  "total_frames": 585,
   "resolution": [
     1080,
     1920
@@ -47,7 +47,7 @@
       "shot_id": "S001",
       "frame_range": [
         0,
-        105
+        165
       ],
       "captions": [
         "AC tidak menciptakan dingin melainkan",
@@ -109,9 +109,9 @@
       "semantic_visual_purpose": "establishing_shot",
       "transition_in": "trans_hard_cut_zero",
       "frames_to_inspect": [
-        10,
-        52,
-        94
+        16,
+        82,
+        148
       ],
       "caption_sync": [
         {
@@ -119,26 +119,26 @@
           "text": "AC tidak menciptakan dingin melainkan",
           "frame_window": [
             0,
-            66
+            103
           ],
-          "inspect_frame": 33
+          "inspect_frame": 52
         },
         {
           "cue_id": "CAP_002",
           "text": "memindahkan panas kamarmu.",
           "frame_window": [
-            57,
-            105
+            94,
+            165
           ],
-          "inspect_frame": 85
+          "inspect_frame": 134
         }
       ]
     },
     {
       "shot_id": "S002",
       "frame_range": [
-        105,
-        210
+        165,
+        345
       ],
       "captions": [
         "Saat tombol remot ditekan, kisi",
@@ -199,36 +199,36 @@
       "semantic_visual_purpose": "character_acting",
       "transition_in": "trans_hard_cut_zero",
       "frames_to_inspect": [
-        115,
-        157,
-        199
+        183,
+        255,
+        326
       ],
       "caption_sync": [
         {
           "cue_id": "CAP_003",
           "text": "Saat tombol remot ditekan, kisi",
           "frame_window": [
-            105,
-            180
+            165,
+            294
           ],
-          "inspect_frame": 142
+          "inspect_frame": 229
         },
         {
           "cue_id": "CAP_004",
           "text": "AC terbuka.",
           "frame_window": [
-            171,
-            210
+            285,
+            345
           ],
-          "inspect_frame": 195
+          "inspect_frame": 319
         }
       ]
     },
     {
       "shot_id": "S003",
       "frame_range": [
-        210,
-        330
+        345,
+        465
       ],
       "captions": [
         "Di evaporator, refrigeran cair menyerap",
@@ -289,36 +289,36 @@
       "semantic_visual_purpose": "technical_cutaway",
       "transition_in": "trans_hard_cut_zero",
       "frames_to_inspect": [
-        222,
-        270,
-        317
+        357,
+        405,
+        452
       ],
       "caption_sync": [
         {
           "cue_id": "CAP_005",
           "text": "Di evaporator, refrigeran cair menyerap",
           "frame_window": [
-            210,
-            296
+            345,
+            431
           ],
-          "inspect_frame": 253
+          "inspect_frame": 388
         },
         {
           "cue_id": "CAP_006",
           "text": "panas kamar.",
           "frame_window": [
-            287,
-            330
+            422,
+            465
           ],
-          "inspect_frame": 313
+          "inspect_frame": 448
         }
       ]
     },
     {
       "shot_id": "S004",
       "frame_range": [
-        330,
-        450
+        465,
+        585
       ],
       "captions": [
         "Kompresor memompa uap panas ke",
@@ -379,28 +379,28 @@
       "semantic_visual_purpose": "scientific_mechanism",
       "transition_in": "trans_hard_cut_zero",
       "frames_to_inspect": [
-        342,
-        390,
-        437
+        477,
+        525,
+        572
       ],
       "caption_sync": [
         {
           "cue_id": "CAP_007",
           "text": "Kompresor memompa uap panas ke",
           "frame_window": [
-            330,
-            416
+            465,
+            551
           ],
-          "inspect_frame": 373
+          "inspect_frame": 508
         },
         {
           "cue_id": "CAP_008",
           "text": "kondensor luar.",
           "frame_window": [
-            407,
-            450
+            542,
+            585
           ],
-          "inspect_frame": 433
+          "inspect_frame": 568
         }
       ]
     }
