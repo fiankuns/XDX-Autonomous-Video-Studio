@@ -207,7 +207,7 @@ def recipe_walk(rig, scene, req, pose, b: _Builder):
         # passing pose: swing foot lifted, body up (bob), arms counter-swing; support foot stays planted
         b.key(f_pass, f"passing_{swing}_support_{support}_planted", "EASE_IN_OUT",
               **{f"foot_ik_dot_{swing}__loc": (mid[0], mid[1], 0.06), "root__loc": pass_root,
-                 "hips__loc": (hip_x, 0.0, 0.012), "chest__rot": (2.0, 0.0, 6.0 if swing == "L" else -6.0)}, **arms)
+                 "hips__loc": (hip_x, 0.0, -0.006), "chest__rot": (2.0, 0.0, 6.0 if swing == "L" else -6.0)}, **arms)
         arms_land = {}
         for hs in ("L", "R"):
             if pose["attach"].get(hs) is None:
@@ -216,7 +216,8 @@ def recipe_walk(rig, scene, req, pose, b: _Builder):
                 arms_land[f"hand_ik_dot_{hs}__loc"] = _add(body, _rot(off, yaw))
         feet[swing] = land
         b.key(f_land, f"contact_{swing}_heel_strike_weight_transfer", "EASE_OUT",
-              **{f"foot_ik_dot_{swing}__loc": land, "root__loc": body, "hips__loc": (0.0, 0.0, -0.012),
+              # hips drop at heel strike so the extended leg can reach its target (leg-length aware stride)
+              **{f"foot_ik_dot_{swing}__loc": land, "root__loc": body, "hips__loc": (0.0, 0.0, -0.03),
                  "chest__rot": (0.0, 0.0, 0.0)}, **arms_land)
         swing = support
     # closing step: the trailing foot is LIFTED and placed level with the leading foot (never slid), hips recentre
