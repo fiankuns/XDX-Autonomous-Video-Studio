@@ -10,3 +10,12 @@ with full evidence (6 reference views, proportions, eye landmarks, geometry, pal
 - Critic top defects: fingers too small / mitten-like, stick arms without elbow/wrist form, bald nape, facial features
   protrude in profile + flat blush discs, shoes ~50 % too small and joggers instead of slim jeans; collar reads as turtleneck.
 - Gate consistency note (critic): non-front views have framing margin 0.035 but framing is only enforced on the front render.
+
+## Revision 2 (owner feedback 19:29)
+- Blush is now a vertex-colour gradient painted on the head skin (floating blush discs removed).
+- Mouth carved into the head (smile-shaped hole + inward lip rim), cavity/teeth/tongue behind the surface; mouth parts,
+  nose and ears joined into one `Bima_Face` object. Eyes/brows stay separate for animation.
+- Shirt print rebuilt as separate objects on the chest bone with a live shrinkwrap (follows deformation), sized inside
+  the chest (|x| <= 0.097 m vs chest 0.19 m); inner-arm sleeve hem fixed by bone ownership (orange spill removed).
+- Pose test (arm raised, spine twist, knee bend): print follows the shirt. Evidence: front_r2.png, face_r2.png, sleeve_hem_r2.png.
+- Owner: remaining items are detailing only. Static design awaiting owner review; not marked approved.

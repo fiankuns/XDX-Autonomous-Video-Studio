@@ -4,8 +4,10 @@ Blueprint: ``assets/characters/bima_v2/blueprint`` (six ortho views of the owner
 Height 1.6 m, front faces -Y, Z up. Run stage by stage over MCP (each stage < 3.5 s on Vivo X200 Pro):
 
     import bima_v2_build as B
-    B.stage_body(); B.stage_head(); B.stage_hair(proxy_npz); B.stage_shoes(); B.stage_print()
-    B.stage_materials_assign(); B.stage_rig(); B.stage_weights(); B.stage_finish()
+    M = B.materials()
+    B.stage_body(); B.stage_head(M); B.stage_face_integrate(M); B.stage_hair(M, proxy_npz); B.stage_shoes(M)
+    B.stage_materials_assign(M, with_print=False); B.stage_rig(); B.stage_weights(); B.stage_sleeve_fix()
+    B.stage_print_live(M); B.stage_finish()
 
 Requires ``style_preset_pixar`` importable (materials + kelvin colours). Only touches ``PFX`` objects.
 Techniques here were verified on device (see SKILL.md "Bima v2"):
@@ -202,11 +204,10 @@ def stage_head(M):
         _sphere(f"{PFX}Pupil_{sd}", (s * 0.05, -0.1262, 1.405), (0.01265, 0.0025, 0.0132))
         _sphere(f"{PFX}Glint_{sd}", (s * 0.05 - 0.009, -0.1285, 1.415), (0.0045, 0.002, 0.0045), 12, 8)
         _sphere(f"{PFX}Ear_{sd}", (s * 0.128, 0.012, 1.375), (0.016, 0.03, 0.04))
-        _sphere(f"{PFX}Blush_{sd}", (s * 0.085, -0.094, 1.333), (0.036, 0.006, 0.022))
         brow = _skin_obj(f"{PFX}Brow_{sd}", [(s * 0.02, -0.121, 1.447), (s * 0.05, -0.124, 1.455), (s * 0.082, -0.111, 1.448)],
                          [(0, 1), (1, 2)], [(0.012, 0.0074), (0.0125, 0.0078), (0.009, 0.0056)])
         parts.update({f"{PFX}Eye_{sd}": "eyewhite", f"{PFX}Iris_{sd}": "iris", f"{PFX}Pupil_{sd}": "pupil",
-                      f"{PFX}Glint_{sd}": "glint", f"{PFX}Ear_{sd}": "skin", f"{PFX}Blush_{sd}": "blush", brow.name: "hair"})
+                      f"{PFX}Glint_{sd}": "glint", f"{PFX}Ear_{sd}": "skin", brow.name: "hair"})
     _sphere(PFX + "Nose", (0, -0.132, 1.35), (0.023, 0.0198, 0.0187))
 
     def smile(k, flat):
@@ -329,7 +330,7 @@ def stage_print(M):
     return made
 
 
-def stage_materials_assign(M):
+def stage_materials_assign(M, with_print: bool = False):
     o = bpy.data.objects[PFX + "Body"]
     me = o.data
     for k in ("shirt", "skin", "pants"):
@@ -368,7 +369,7 @@ def stage_materials_assign(M):
     bpy.ops.object.convert(target="MESH")
     bpy.ops.object.select_all(action="DESELECT")
     for ob in bpy.data.objects:
-        if ob.name.startswith((PFX + "Print", PFX + "Collar")):
+        if ob.name.startswith((PFX + "Collar",)) or (with_print and ob.name.startswith(PFX + "Print")):
             ob.select_set(True)
     o.select_set(True)
     bpy.context.view_layer.objects.active = o
@@ -509,6 +510,8 @@ def stage_finish():
         n = o.name
         if not n.startswith(PFX) or o.type != "MESH" or n == PFX + "Body":
             continue
+        if n.startswith(PFX + "Print"):
+            continue
         bone = ("foot." + n[-1]) if n.startswith((PFX + "Shoe_", PFX + "Sole_", PFX + "Lace")) else "head"
         mw = o.matrix_world.copy()
         o.parent, o.parent_type, o.parent_bone = rig, "BONE", bone
@@ -521,3 +524,118 @@ def stage_finish():
     if hasattr(sc.eevee, "use_raytracing"):
         sc.eevee.use_raytracing = False
     sc.eevee.taa_render_samples = 16
+
+
+def stage_face_integrate(M):
+    """Owner request: blush and mouth are part of the face asset (nothing floating).
+    Blush = vertex-colour gradient painted on the head skin; mouth = smile-shaped hole carved into the head with an
+    inward lip rim, cavity/teeth/tongue behind the surface; nose, ears and mouth parts joined into ``Face``."""
+    h = bpy.data.objects[PFX + "Head"]
+    O = Vector(h.location)
+    bm = bmesh.new()
+    bm.from_mesh(h.data)
+    bmesh.ops.subdivide_edges(bm, edges=bm.edges, cuts=1, use_grid_fill=True, smooth=1.0)
+
+    def inside(c):
+        w = c + O
+        if w.y > -0.05:
+            return False
+        u = w.x / 0.042
+        if abs(u) >= 1:
+            return False
+        return 1.292 + 0.014 * u * u - 0.02 * math.sqrt(1 - u * u) < w.z < 1.2975 + 0.014 * u * u
+    bmesh.ops.delete(bm, geom=[f for f in bm.faces if inside(f.calc_center_median())], context="FACES")
+    ret = bmesh.ops.extrude_edge_only(bm, edges=[e for e in bm.edges if e.is_boundary])
+    nv = [g for g in ret["geom"] if isinstance(g, bmesh.types.BMVert)]
+    cen = sum((v.co for v in nv), Vector()) / len(nv)
+    for v in nv:
+        v.co = cen + (v.co - cen) * 0.85
+        v.co.y += 0.011
+    bm.to_mesh(h.data)
+    bm.free()
+    me = h.data
+    co = np.empty(len(me.vertices) * 3, np.float32)
+    me.vertices.foreach_get("co", co)
+    co = co.reshape(-1, 3) + np.array(O)
+    w = np.zeros(len(co))
+    for s in (-1, 1):
+        d = np.sqrt((co[:, 0] - s * 0.083) ** 2 + ((co[:, 2] - 1.335) / 0.8) ** 2)
+        t = np.clip(1 - d / 0.042, 0, 1)
+        w = np.maximum(w, t * t * (3 - 2 * t) * (co[:, 1] < -0.02))
+    ca = me.color_attributes.new("Blush", "FLOAT_COLOR", "POINT")
+    ca.data.foreach_set("color", np.repeat(w, 4).astype(np.float32))
+    face = M["skin"].copy()
+    face.name = PFX + "skin_face"
+    nt = face.node_tree
+    b = nt.nodes["Principled BSDF"]
+    at = nt.nodes.new("ShaderNodeAttribute")
+    at.attribute_name = "Blush"
+    mix = nt.nodes.new("ShaderNodeMix")
+    mix.data_type = "RGBA"
+    mix.inputs["A"].default_value = b.inputs["Base Color"].default_value[:]
+    mix.inputs["B"].default_value = (0.78, 0.24, 0.2, 1)
+    nt.links.new(at.outputs["Fac"], mix.inputs["Factor"])
+    nt.links.new(mix.outputs["Result"], b.inputs["Base Color"])
+    for name, y, z in ((PFX + "MouthIn", -0.081, None), (PFX + "Teeth", -0.0918, 1.2928), (PFX + "Tongue", -0.0885, None)):
+        o = bpy.data.objects[name]
+        o.location.y = y
+        if z:
+            o.location.z = z
+    bpy.data.objects[PFX + "MouthIn"].scale = (1.08, 1.0, 1.15)
+    bpy.data.objects[PFX + "Teeth"].scale = (0.95, 1.0, 1.25)
+    me.materials.clear()
+    me.materials.append(face)
+    bpy.ops.object.select_all(action="DESELECT")
+    for n in ("MouthIn", "Teeth", "Tongue", "Nose", "Ear_L", "Ear_R"):
+        bpy.data.objects[PFX + n].select_set(True)
+    h.select_set(True)
+    bpy.context.view_layer.objects.active = h
+    bpy.ops.object.join()
+    h.name = PFX + "Face"
+    skin_i = [m.name for m in h.data.materials].index(M["skin"].name) if M["skin"].name in h.data.materials else None
+    if skin_i is not None:
+        for p in h.data.polygons:
+            if p.material_index == skin_i:
+                p.material_index = 0
+    return h
+
+
+def stage_sleeve_fix():
+    """Sleeve hem by bone ownership, not by x: inner-arm faces below the hem become skin (fixes orange spill)."""
+    b = bpy.data.objects[PFX + "Body"]
+    me = b.data
+    armg = {g.index for g in b.vertex_groups if g.name.startswith(("upper_arm", "forearm", "hand"))}
+    aw = np.array([sum(g.weight for g in v.groups if g.group in armg) for v in me.vertices])
+    mats = [m.name for m in me.materials]
+    SH, SK = mats.index(PFX + "shirt"), mats.index(PFX + "skin")
+    for p in me.polygons:
+        if p.material_index in (SH, SK) and aw[list(p.vertices)].mean() > 0.5:
+            p.material_index = SK if p.center.z < 0.985 else SH
+
+
+def stage_print_live(M):
+    """Raised print as separate objects on the chest bone with a LIVE shrinkwrap to the deforming body, sized to stay
+    inside the chest (|x| < 0.1); fill sits 1.8 mm above its outline."""
+    vl = bpy.context.view_layer
+    body, rig = bpy.data.objects[PFX + "Body"], bpy.data.objects[PFX + "Rig"]
+    for name, text, z, size, fill, outline in (("A", "kalian", 1.045, 0.066, "print_white", "print_ink"),
+                                                ("B", "tau gak?", 0.962, 0.058, "print_coral", "print_white")):
+        for k, (mat, off, ex) in enumerate(((outline, 0.0035, 0.0012), (fill, 0.0, 0.0025))):
+            cu = bpy.data.curves.new(f"{PFX}Print{name}{k}", "FONT")
+            cu.body, cu.size, cu.align_x, cu.align_y = text, size, "CENTER", "CENTER"
+            cu.offset, cu.extrude, cu.bevel_depth, cu.resolution_u = off, ex, 0.0005, 2
+            cu.materials.append(M[mat])
+            o = _link(bpy.data.objects.new(f"{PFX}Print{name}_{'fill' if k else 'outline'}", cu))
+            o.rotation_euler = (math.pi / 2, 0, 0)
+            o.location = (0, -0.17, z)
+            _select_only(o)
+            bpy.ops.object.convert(target="MESH")
+            o = vl.objects.active
+            sw = o.modifiers.new("Wrap", "SHRINKWRAP")
+            sw.target, sw.wrap_method = body, "PROJECT"
+            sw.use_project_z, sw.use_negative_direction, sw.use_positive_direction = True, True, False
+            sw.offset = 0.0022 + (0.0018 if k else 0)
+            mw = o.matrix_world.copy()
+            o.parent, o.parent_type, o.parent_bone = rig, "BONE", "chest"
+            vl.update()
+            o.matrix_world = mw
