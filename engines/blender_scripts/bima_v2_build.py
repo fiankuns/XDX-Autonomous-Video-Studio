@@ -210,20 +210,6 @@ def stage_head(M):
                       f"{PFX}Glint_{sd}": "glint", f"{PFX}Ear_{sd}": "skin", brow.name: "hair"})
     _sphere(PFX + "Nose", (0, -0.132, 1.35), (0.023, 0.0198, 0.0187))
 
-    def smile(k, flat):
-        return lambda x, y, z: (x, y, (z * 0.3 if flat and z > 0 else z) / 1.0 + 0)
-
-    def mouth(name, loc, sc, bend, flat):
-        def fn(x, y, z):
-            if flat and z > 0:
-                z *= 0.3
-            return x, y, z + bend * x * x / sc[2]
-        return _sphere(name, loc, sc, 32, 16, fn)
-
-    mouth(PFX + "MouthIn", (0, -0.099, 1.292), (0.044, 0.012, 0.021), 0.014, True)
-    mouth(PFX + "Teeth", (0, -0.1105, 1.2975), (0.036, 0.006, 0.006), 0.012, False)
-    mouth(PFX + "Tongue", (0, -0.107, 1.279), (0.024, 0.006, 0.008), 0.004, False)
-    parts.update({PFX + "MouthIn": "mouth", PFX + "Teeth": "eyewhite", PFX + "Tongue": "tongue"})
     for n, k in parts.items():
         o = bpy.data.objects[n]
         o.data.materials.clear()
@@ -527,30 +513,14 @@ def stage_finish():
 
 
 def stage_face_integrate(M):
-    """Owner request: blush and mouth are part of the face asset (nothing floating).
-    Blush = vertex-colour gradient painted on the head skin; mouth = smile-shaped hole carved into the head with an
-    inward lip rim, cavity/teeth/tongue behind the surface; nose, ears and mouth parts joined into ``Face``."""
+    """Owner request: blush and mouth are part of the face asset (nothing floating); mouth = closed smile.
+    Blush = vertex-colour gradient painted on the head skin; smile = thin skin-modifier line placed by ray-cast on the
+    face surface (0.8 mm proud), corners turned up; nose, ears and smile joined into ``Face``. Eyes/brows stay separate."""
     h = bpy.data.objects[PFX + "Head"]
     O = Vector(h.location)
     bm = bmesh.new()
     bm.from_mesh(h.data)
     bmesh.ops.subdivide_edges(bm, edges=bm.edges, cuts=1, use_grid_fill=True, smooth=1.0)
-
-    def inside(c):
-        w = c + O
-        if w.y > -0.05:
-            return False
-        u = w.x / 0.042
-        if abs(u) >= 1:
-            return False
-        return 1.292 + 0.014 * u * u - 0.02 * math.sqrt(1 - u * u) < w.z < 1.2975 + 0.014 * u * u
-    bmesh.ops.delete(bm, geom=[f for f in bm.faces if inside(f.calc_center_median())], context="FACES")
-    ret = bmesh.ops.extrude_edge_only(bm, edges=[e for e in bm.edges if e.is_boundary])
-    nv = [g for g in ret["geom"] if isinstance(g, bmesh.types.BMVert)]
-    cen = sum((v.co for v in nv), Vector()) / len(nv)
-    for v in nv:
-        v.co = cen + (v.co - cen) * 0.85
-        v.co.y += 0.011
     bm.to_mesh(h.data)
     bm.free()
     me = h.data
@@ -576,27 +546,41 @@ def stage_face_integrate(M):
     mix.inputs["B"].default_value = (0.78, 0.24, 0.2, 1)
     nt.links.new(at.outputs["Fac"], mix.inputs["Factor"])
     nt.links.new(mix.outputs["Result"], b.inputs["Base Color"])
-    for name, y, z in ((PFX + "MouthIn", -0.081, None), (PFX + "Teeth", -0.0918, 1.2928), (PFX + "Tongue", -0.0885, None)):
-        o = bpy.data.objects[name]
-        o.location.y = y
-        if z:
-            o.location.z = z
-    bpy.data.objects[PFX + "MouthIn"].scale = (1.08, 1.0, 1.15)
-    bpy.data.objects[PFX + "Teeth"].scale = (0.95, 1.0, 1.25)
     me.materials.clear()
     me.materials.append(face)
+    # closed smile line on the surface
+    bpy.context.view_layer.update()
+    dg = bpy.context.evaluated_depsgraph_get()
+    pts = []
+    for i in range(11):
+        t = -1 + 2 * i / 10
+        z = 1.293 + 0.010 * t * t + (0.004 * (abs(t) - 0.8) / 0.2 if abs(t) > 0.8 else 0)
+        hit, loc, nrm, _, ob, _ = bpy.context.scene.ray_cast(dg, Vector((0.035 * t, -0.5, z)), Vector((0, 1, 0)))
+        if hit and ob == h:
+            pts.append(tuple(loc + nrm * 0.0008))
+    sm = bpy.data.meshes.new(PFX + "Smile")
+    sm.from_pydata(pts, [(i, i + 1) for i in range(len(pts) - 1)], [])
+    so = _link(bpy.data.objects.new(PFX + "Smile", sm))
+    so.modifiers.new("Skin", "SKIN")
+    for i in range(len(pts)):
+        t = abs(-1 + 2 * i / (len(pts) - 1))
+        r = 0.0026 * (1 - 0.55 * t * t)
+        sm.skin_vertices[0].data[i].radius = (r, r)
+    so.modifiers.new("Sub", "SUBSURF").levels = 2
+    sm.materials.append(_sp().make_material(PFX + "smile_line", "lip", _sp().srgb_hex_to_linear("#5E2418")))
+    _select_only(so)
+    bpy.ops.object.convert(target="MESH")
     bpy.ops.object.select_all(action="DESELECT")
-    for n in ("MouthIn", "Teeth", "Tongue", "Nose", "Ear_L", "Ear_R"):
+    for n in ("Smile", "Nose", "Ear_L", "Ear_R"):
         bpy.data.objects[PFX + n].select_set(True)
     h.select_set(True)
     bpy.context.view_layer.objects.active = h
     bpy.ops.object.join()
+    for p in h.data.polygons:
+        if h.data.materials[p.material_index].name == M["skin"].name:
+            p.material_index = 0
+    bpy.ops.object.material_slot_remove_unused()
     h.name = PFX + "Face"
-    skin_i = [m.name for m in h.data.materials].index(M["skin"].name) if M["skin"].name in h.data.materials else None
-    if skin_i is not None:
-        for p in h.data.polygons:
-            if p.material_index == skin_i:
-                p.material_index = 0
     return h
 
 

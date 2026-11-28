@@ -19,3 +19,6 @@ with full evidence (6 reference views, proportions, eye landmarks, geometry, pal
   the chest (|x| <= 0.097 m vs chest 0.19 m); inner-arm sleeve hem fixed by bone ownership (orange spill removed).
 - Pose test (arm raised, spine twist, knee bend): print follows the shirt. Evidence: front_r2.png, face_r2.png, sleeve_hem_r2.png.
 - Owner: remaining items are detailing only. Static design awaiting owner review; not marked approved.
+
+## Revision 3 (owner 19:34)
+- Mouth changed to a closed smile: mouth hole closed and relaxed to the head curvature, smile line ray-cast onto the face and joined into `Bima_Face` (materials: skin_face, smile_line). Evidence: face_r3_closed_smile.png.
