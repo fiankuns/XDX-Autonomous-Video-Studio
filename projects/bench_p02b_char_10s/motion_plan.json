@@ -1,0 +1,258 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_p02b_char_10s",
+  "fps": 30,
+  "total_frames": 300,
+  "blender_executor_status": "PLANNED_ONLY_SCHEDULED_PHASE_02B_AND_PHASE_03",
+  "generic_idle_actions_used": false,
+  "planned_actions": [
+    {
+      "action_id": "ACT_S001",
+      "shot_id": "S001",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "character_grounded_establishing_shot",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 0,
+      "end_frame": 105,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_0f (Hook karakter Bima kepanasan di kamar tertutup 32 derajat di bawah uni)",
+      "key_poses": [
+        {
+          "frame": 26,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 52,
+          "pose": "apex_interaction_Bima mengipasi wajah dengan kipas lipat yang bergerak mengikuti p"
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_105f (Gerak hook karakter bima kepanasan di kamar tertutup 32 derajat di baw)",
+      "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+      "ik_target": "hand_ik_contact:char_bima_penghuni",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'establishing_shot' clearly for beat B01: Bima mengipasi wajah dengan kipas lipat yang bergerak mengikuti pergelangan tangan kanan, tangan kiri menyeka dahi dengan siku terangkat, bulir keringat terlihat, di kamar tertutup 32 derajat Celsius di bawah prop_ac_indoor_evaporator_cutaway.",
+      "acceptance_criteria": [
+        "Exact frame bounds [0, 105] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S002",
+      "shot_id": "S002",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 105,
+      "end_frame": 195,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_105f (Kepala Bima menoleh ke unit AC lalu bertahan sejenak sebelum cut pada )",
+      "key_poses": [
+        {
+          "frame": 127,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 150,
+          "pose": "apex_interaction_Bima berhenti mengipasi, kepala menoleh ke prop_ac_indoor_evapora"
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_195f (Gerak kepala bima menoleh ke unit ac lalu bertahan sejenak sebelum cut)",
+      "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+      "ik_target": "hand_ik_contact:char_bima_penghuni",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B02: Bima berhenti mengipasi, kepala menoleh ke prop_ac_indoor_evaporator_cutaway dan tangan kanan mengangkat prop_ac_remote_control, lalu jeda singkat sebelum cut.",
+      "acceptance_criteria": [
+        "Exact frame bounds [105, 195] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    },
+    {
+      "action_id": "ACT_S003",
+      "shot_id": "S003",
+      "actor_id": "char_bima_penghuni",
+      "action_type": "character_grounded_character_acting",
+      "object_target": "char_bima_penghuni",
+      "start_frame": 195,
+      "end_frame": 300,
+      "start_pose": "char_bima_penghuni_anticipation_ready_at_195f (Close-up ibu jari Bima menekan tombol 24 derajat pada remot, label sin)",
+      "key_poses": [
+        {
+          "frame": 221,
+          "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+        },
+        {
+          "frame": 247,
+          "pose": "apex_interaction_Ibu jari kanan menekan tombol suhu 24 derajat pada prop_ac_remote"
+        }
+      ],
+      "end_pose": "char_bima_penghuni_settled_hold_at_300f (Gerak close-up ibu jari bima menekan tombol 24 derajat pada remot, lab)",
+      "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+      "ik_target": "hand_ik_contact:char_bima_penghuni",
+      "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+      "facial_expression": "expressive_engaged_articulation",
+      "motion_intent": "Convey 'character_acting' clearly for beat B03: Ibu jari kanan menekan tombol suhu 24 derajat pada prop_ac_remote_control, tombol menyala, label sinyal inframerah dengan garis dan cincin menunjuk sensor AC, cahaya bergeser dari hangat ke sejuk dan wajah Bima menjadi lega.",
+      "acceptance_criteria": [
+        "Exact frame bounds [195, 300] respected with zero foot sliding",
+        "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+        "Zero generic idle-loop substitution"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 105,
+      "primary_engine": "blender",
+      "motion_curve": "mot_snappy_spring_pop",
+      "action_events": [
+        {
+          "event_id": "ACT_S001_01",
+          "start_frame": 0,
+          "end_frame": 105,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Bima mengipasi wajah dengan kipas lipat yang bergerak mengikuti pergelangan tangan kanan, tangan kiri menyeka dahi dengan siku terangkat, bulir keringat terlihat, di kamar tertutup 32 derajat Celsius di bawah prop_ac_indoor_evaporator_cutaway.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S001",
+          "shot_id": "S001",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "character_grounded_establishing_shot",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 0,
+          "end_frame": 105,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_0f (Hook karakter Bima kepanasan di kamar tertutup 32 derajat di bawah uni)",
+          "key_poses": [
+            {
+              "frame": 26,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 52,
+              "pose": "apex_interaction_Bima mengipasi wajah dengan kipas lipat yang bergerak mengikuti p"
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_105f (Gerak hook karakter bima kepanasan di kamar tertutup 32 derajat di baw)",
+          "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+          "ik_target": "hand_ik_contact:char_bima_penghuni",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'establishing_shot' clearly for beat B01: Bima mengipasi wajah dengan kipas lipat yang bergerak mengikuti pergelangan tangan kanan, tangan kiri menyeka dahi dengan siku terangkat, bulir keringat terlihat, di kamar tertutup 32 derajat Celsius di bawah prop_ac_indoor_evaporator_cutaway.",
+          "acceptance_criteria": [
+            "Exact frame bounds [0, 105] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S002",
+      "start_frame": 105,
+      "end_frame": 195,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S002_01",
+          "start_frame": 105,
+          "end_frame": 195,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Bima berhenti mengipasi, kepala menoleh ke prop_ac_indoor_evaporator_cutaway dan tangan kanan mengangkat prop_ac_remote_control, lalu jeda singkat sebelum cut.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S002",
+          "shot_id": "S002",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 105,
+          "end_frame": 195,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_105f (Kepala Bima menoleh ke unit AC lalu bertahan sejenak sebelum cut pada )",
+          "key_poses": [
+            {
+              "frame": 127,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 150,
+              "pose": "apex_interaction_Bima berhenti mengipasi, kepala menoleh ke prop_ac_indoor_evapora"
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_195f (Gerak kepala bima menoleh ke unit ac lalu bertahan sejenak sebelum cut)",
+          "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+          "ik_target": "hand_ik_contact:char_bima_penghuni",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B02: Bima berhenti mengipasi, kepala menoleh ke prop_ac_indoor_evaporator_cutaway dan tangan kanan mengangkat prop_ac_remote_control, lalu jeda singkat sebelum cut.",
+          "acceptance_criteria": [
+            "Exact frame bounds [105, 195] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    },
+    {
+      "shot_id": "S003",
+      "start_frame": 195,
+      "end_frame": 300,
+      "primary_engine": "blender",
+      "motion_curve": "mot_cinematic_ease_inout",
+      "action_events": [
+        {
+          "event_id": "ACT_S003_01",
+          "start_frame": 195,
+          "end_frame": 300,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Ibu jari kanan menekan tombol suhu 24 derajat pada prop_ac_remote_control, tombol menyala, label sinyal inframerah dengan garis dan cincin menunjuk sensor AC, cahaya bergeser dari hangat ke sejuk dan wajah Bima menjadi lega.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "planned_character_actions": [
+        {
+          "action_id": "ACT_S003",
+          "shot_id": "S003",
+          "actor_id": "char_bima_penghuni",
+          "action_type": "character_grounded_character_acting",
+          "object_target": "char_bima_penghuni",
+          "start_frame": 195,
+          "end_frame": 300,
+          "start_pose": "char_bima_penghuni_anticipation_ready_at_195f (Close-up ibu jari Bima menekan tombol 24 derajat pada remot, label sin)",
+          "key_poses": [
+            {
+              "frame": 221,
+              "pose": "anticipation_and_reach_toward_char_bima_penghuni"
+            },
+            {
+              "frame": 247,
+              "pose": "apex_interaction_Ibu jari kanan menekan tombol suhu 24 derajat pada prop_ac_remote"
+            }
+          ],
+          "end_pose": "char_bima_penghuni_settled_hold_at_300f (Gerak close-up ibu jari bima menekan tombol 24 derajat pada remot, lab)",
+          "contact_point": "planted_feet_and_hand_prop:char_bima_penghuni",
+          "ik_target": "hand_ik_contact:char_bima_penghuni",
+          "weight_transfer": "hips_lead_weight_shift_onto_support_leg_6f_anticipation",
+          "facial_expression": "expressive_engaged_articulation",
+          "motion_intent": "Convey 'character_acting' clearly for beat B03: Ibu jari kanan menekan tombol suhu 24 derajat pada prop_ac_remote_control, tombol menyala, label sinyal inframerah dengan garis dan cincin menunjuk sensor AC, cahaya bergeser dari hangat ke sejuk dan wajah Bima menjadi lega.",
+          "acceptance_criteria": [
+            "Exact frame bounds [195, 300] respected with zero foot sliding",
+            "Contact target 'char_bima_penghuni' maintained without mesh interpenetration",
+            "Zero generic idle-loop substitution"
+          ]
+        }
+      ],
+      "ik_foot_and_hand_contacts_required": true
+    }
+  ]
+}

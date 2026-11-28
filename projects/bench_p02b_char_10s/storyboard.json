@@ -1,0 +1,622 @@
+{
+  "schema_version": "3.4.0",
+  "project_id": "bench_p02b_char_10s",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "aspect_ratio": "9:16",
+  "total_frames": 300,
+  "duration_s": 10.0,
+  "style_bible_id": "xdx_stylized_3d_v4_0",
+  "story_arc": {
+    "act_1_setup": "Bima kepanasan di kamar tertutup 32 derajat lalu menekan tombol 24 derajat pada remot AC hingga kisi unit indoor terbuka.",
+    "act_2_escalation": "Penampang teknis casing AC indoor terbuka memperlihatkan kumparan evaporator dingin menyerap kalor udara kamar.",
+    "act_3_resolution": "Visualisasi aliran refrigeran membawa panas menembus dinding ke kompresor dan kondensor outdoor untuk dilepas ke udara luar."
+  },
+  "sequences": [
+    {
+      "sequence_id": "SEQ_01",
+      "act": "ACT_1",
+      "start_frame": 0,
+      "end_frame": 195,
+      "scene_ids": [
+        "SCN_01"
+      ]
+    },
+    {
+      "sequence_id": "SEQ_02",
+      "act": "ACT_3",
+      "start_frame": 195,
+      "end_frame": 300,
+      "scene_ids": [
+        "SCN_02"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "scene_id": "SCN_01",
+      "sequence_id": "SEQ_01",
+      "environment_id": "env_bedroom_tropical_sealed_3d",
+      "start_frame": 0,
+      "end_frame": 195,
+      "beat_ids": [
+        "B01",
+        "B02"
+      ]
+    },
+    {
+      "scene_id": "SCN_02",
+      "sequence_id": "SEQ_02",
+      "environment_id": "env_bedroom_tropical_sealed_3d",
+      "start_frame": 195,
+      "end_frame": 300,
+      "beat_ids": [
+        "B03"
+      ]
+    }
+  ],
+  "narrative_beats": [
+    {
+      "beat_id": "B01",
+      "scene_id": "SCN_01",
+      "beat_role": "hook_overheated_character",
+      "start_frame": 0,
+      "end_frame": 105,
+      "duration_s": 3.5,
+      "shot_ids": [
+        "S001"
+      ]
+    },
+    {
+      "beat_id": "B02",
+      "scene_id": "SCN_01",
+      "beat_role": "turn_to_ac_then_cut",
+      "start_frame": 105,
+      "end_frame": 195,
+      "duration_s": 3.0,
+      "shot_ids": [
+        "S002"
+      ]
+    },
+    {
+      "beat_id": "B03",
+      "scene_id": "SCN_02",
+      "beat_role": "macro_remote_press_relief",
+      "start_frame": 195,
+      "end_frame": 300,
+      "duration_s": 3.5,
+      "shot_ids": [
+        "S003"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "shot_id": "S001",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_01",
+      "beat_id": "B01",
+      "start_frame": 0,
+      "end_frame": 105,
+      "duration_frames": 105,
+      "start_time_s": 0.0,
+      "end_time_s": 3.5,
+      "duration_s": 3.5,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "AC tidak menciptakan dingin melainkan memindahkan panas kamarmu.",
+      "dialogue_lines": [],
+      "action_start": "Hook karakter Bima kepanasan di kamar tertutup 32 derajat di bawah unit AC indoor berada pada posisi kontak terukur bersama prop_ac_indoor_evaporator_cutaway.",
+      "action_mid": "Bima mengipasi wajah dengan kipas lipat yang bergerak mengikuti pergelangan tangan kanan, tangan kiri menyeka dahi dengan siku terangkat, bulir keringat terlihat, di kamar tertutup 32 derajat Celsius di bawah prop_ac_indoor_evaporator_cutaway.",
+      "action_end": "Gerak hook karakter bima kepanasan di kamar tertutup 32 derajat di bawah unit ac indoor mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S001_01",
+          "start_frame": 0,
+          "end_frame": 105,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Bima mengipasi wajah dengan kipas lipat yang bergerak mengikuti pergelangan tangan kanan, tangan kiri menyeka dahi dengan siku terangkat, bulir keringat terlihat, di kamar tertutup 32 derajat Celsius di bawah prop_ac_indoor_evaporator_cutaway.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_establishing_diorama_28mm",
+        "shot_size": "establishing",
+        "angle": "elevated_establishing_16deg",
+        "focal_length_mm": 24.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          2.3,
+          2.1,
+          4.7
+        ],
+        "position_end": [
+          1.9,
+          1.9,
+          4.0
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_snappy_spring_pop",
+        "dof_fstop": 5.6
+      },
+      "camera_event": {
+        "preset_id": "cam_establishing_diorama_28mm",
+        "shot_size": "establishing",
+        "angle": "elevated_establishing_16deg",
+        "focal_length_mm": 24.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          2.3,
+          2.1,
+          4.7
+        ],
+        "position_end": [
+          1.9,
+          1.9,
+          4.0
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_snappy_spring_pop",
+        "dof_fstop": 5.6
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S001_VO",
+          "kind": "vo",
+          "start_frame": 0,
+          "end_frame": 105,
+          "ref_id": "VO_B01_1",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S001_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 0,
+          "end_frame": 105,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S001_SFX",
+          "kind": "sfx",
+          "start_frame": 0,
+          "end_frame": 8,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_001",
+          "start_frame": 0,
+          "end_frame": 105,
+          "text": "AC tidak menciptakan dingin melainkan memindahkan panas kamarmu.",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S001_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 0,
+          "end_frame": 105
+        },
+        {
+          "event_id": "VFX_S001_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 0,
+          "end_frame": 105
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Bima mengipasi wajah dengan kipas lipat yang bergerak mengikuti pergelangan tangan kanan, tangan kiri menyeka dahi dengan siku terangkat, bulir keringat terlihat, di kamar tertutup 32 derajat Celsius di bawah prop_ac_indoor_evaporator_cutaway."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_bima_penghuni"
+      ],
+      "environment_id": "env_bedroom_tropical_sealed_3d",
+      "asset_ids": [
+        "char_bima_penghuni",
+        "prop_ac_indoor_evaporator_cutaway",
+        "prop_room_thermometer_digital",
+        "prop_sealed_glass_window",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_001"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "establishing_shot"
+    },
+    {
+      "shot_id": "S002",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_01",
+      "beat_id": "B02",
+      "start_frame": 105,
+      "end_frame": 195,
+      "duration_frames": 90,
+      "start_time_s": 3.5,
+      "end_time_s": 6.5,
+      "duration_s": 3.0,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "Saat tombol remot ditekan, kisi AC terbuka.",
+      "dialogue_lines": [],
+      "action_start": "Kepala Bima menoleh ke unit AC lalu bertahan sejenak sebelum cut pada aksi berada pada posisi kontak terukur bersama prop_ac_remote_control.",
+      "action_mid": "Bima berhenti mengipasi, kepala menoleh ke prop_ac_indoor_evaporator_cutaway dan tangan kanan mengangkat prop_ac_remote_control, lalu jeda singkat sebelum cut.",
+      "action_end": "Gerak kepala bima menoleh ke unit ac lalu bertahan sejenak sebelum cut pada aksi mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S002_01",
+          "start_frame": 105,
+          "end_frame": 195,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Bima berhenti mengipasi, kepala menoleh ke prop_ac_indoor_evaporator_cutaway dan tangan kanan mengangkat prop_ac_remote_control, lalu jeda singkat sebelum cut.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "medium",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "camera_event": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "medium",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S002_VO",
+          "kind": "vo",
+          "start_frame": 105,
+          "end_frame": 195,
+          "ref_id": "VO_B02_1",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S002_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 105,
+          "end_frame": 195,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S002_SFX",
+          "kind": "sfx",
+          "start_frame": 105,
+          "end_frame": 113,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_002",
+          "start_frame": 105,
+          "end_frame": 195,
+          "text": "Saat tombol remot ditekan, kisi AC terbuka.",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S002_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 105,
+          "end_frame": 195
+        },
+        {
+          "event_id": "VFX_S002_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 105,
+          "end_frame": 195
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Bima berhenti mengipasi, kepala menoleh ke prop_ac_indoor_evaporator_cutaway dan tangan kanan mengangkat prop_ac_remote_control, lalu jeda singkat sebelum cut."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_bima_penghuni"
+      ],
+      "environment_id": "env_bedroom_tropical_sealed_3d",
+      "asset_ids": [
+        "char_bima_penghuni",
+        "prop_ac_remote_control",
+        "prop_ac_indoor_evaporator_cutaway",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_002"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "character_acting"
+    },
+    {
+      "shot_id": "S003",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_02",
+      "beat_id": "B03",
+      "start_frame": 195,
+      "end_frame": 300,
+      "duration_frames": 105,
+      "start_time_s": 6.5,
+      "end_time_s": 10.0,
+      "duration_s": 3.5,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "narration_segment": "Panasnya dipindahkan keluar, kamar jadi sejuk.",
+      "dialogue_lines": [],
+      "action_start": "Close-up ibu jari Bima menekan tombol 24 derajat pada remot, label sinyal inframerah, ekspresi lega berada pada posisi kontak terukur bersama prop_ac_remote_control.",
+      "action_mid": "Ibu jari kanan menekan tombol suhu 24 derajat pada prop_ac_remote_control, tombol menyala, label sinyal inframerah dengan garis dan cincin menunjuk sensor AC, cahaya bergeser dari hangat ke sejuk dan wajah Bima menjadi lega.",
+      "action_end": "Gerak close-up ibu jari bima menekan tombol 24 derajat pada remot, label sinyal inframerah, ekspresi lega mereda stabil menjaga arah pandang ke titik fokus shot berikutnya.",
+      "action_events": [
+        {
+          "event_id": "ACT_S003_01",
+          "start_frame": 195,
+          "end_frame": 300,
+          "subject_id": "char_bima_penghuni",
+          "concrete_action": "Ibu jari kanan menekan tombol suhu 24 derajat pada prop_ac_remote_control, tombol menyala, label sinyal inframerah dengan garis dan cincin menunjuk sensor AC, cahaya bergeser dari hangat ke sejuk dan wajah Bima menjadi lega.",
+          "ik_or_contact": "ik_foot_and_prop_contact_locked"
+        }
+      ],
+      "camera": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "medium",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "camera_event": {
+        "preset_id": "cam_medium_storyteller_40mm",
+        "shot_size": "medium",
+        "angle": "conversational_eye_level",
+        "focal_length_mm": 40.0,
+        "sensor_width_mm": 36.0,
+        "position_start": [
+          0.0,
+          1.42,
+          3.5
+        ],
+        "position_end": [
+          0.14,
+          1.42,
+          3.25
+        ],
+        "target": [
+          0.0,
+          1.15,
+          0.0
+        ],
+        "motion_curve": "mot_cinematic_ease_inout",
+        "dof_fstop": 3.5
+      },
+      "audio_events": [
+        {
+          "event_id": "AUD_S003_VO",
+          "kind": "vo",
+          "start_frame": 195,
+          "end_frame": 300,
+          "ref_id": "VO_B03_1",
+          "gain_db": 0.0
+        },
+        {
+          "event_id": "AUD_S003_BGM",
+          "kind": "bgm_duck",
+          "start_frame": 195,
+          "end_frame": 300,
+          "ref_id": "aud_master_vo_indonesia_15lufs",
+          "gain_db": -11.0
+        },
+        {
+          "event_id": "AUD_S003_SFX",
+          "kind": "sfx",
+          "start_frame": 195,
+          "end_frame": 203,
+          "ref_id": "sfx_cutaway_soft_whoosh",
+          "gain_db": -12.0
+        }
+      ],
+      "caption_events": [
+        {
+          "cue_id": "CAP_003",
+          "start_frame": 195,
+          "end_frame": 300,
+          "text": "Panasnya dipindahkan keluar, kamar jadi sejuk.",
+          "preset_id": "cap_xdx_bold_stroke_9x16"
+        }
+      ],
+      "vfx_events": [
+        {
+          "event_id": "VFX_S003_GRADE",
+          "kind": "grade",
+          "preset_id": "vfx_aces_diorama_clean",
+          "start_frame": 195,
+          "end_frame": 300
+        },
+        {
+          "event_id": "VFX_S003_PART",
+          "kind": "particle",
+          "preset_id": "part_warm_dust_motes",
+          "start_frame": 195,
+          "end_frame": 300
+        }
+      ],
+      "cutaway": {
+        "is_cutaway": false,
+        "purpose": "Ibu jari kanan menekan tombol suhu 24 derajat pada prop_ac_remote_control, tombol menyala, label sinyal inframerah dengan garis dan cincin menunjuk sensor AC, cahaya bergeser dari hangat ke sejuk dan wajah Bima menjadi lega."
+      },
+      "transition_in": "trans_hard_cut_zero",
+      "transition_out": "trans_hard_cut_zero",
+      "transition_spec": {
+        "transition_in_id": "trans_hard_cut_zero",
+        "transition_out_id": "trans_hard_cut_zero",
+        "overlap_frames_in": 0,
+        "overlap_frames_out": 0,
+        "render_handle_frames_head": 0,
+        "render_handle_frames_tail": 0
+      },
+      "character_ids": [
+        "char_bima_penghuni"
+      ],
+      "environment_id": "env_bedroom_tropical_sealed_3d",
+      "asset_ids": [
+        "char_bima_penghuni",
+        "prop_ac_remote_control",
+        "prop_ac_indoor_evaporator_cutaway",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "lighting_preset_id": "light_cozy_warm_interior",
+      "material_preset_ids": [
+        "mat_diorama_matte_clay",
+        "mat_warm_teak_wood"
+      ],
+      "vfx_preset_ids": [
+        "vfx_aces_diorama_clean"
+      ],
+      "particle_preset_ids": [
+        "part_warm_dust_motes"
+      ],
+      "sfx_cues": [
+        "sfx_cutaway_soft_whoosh"
+      ],
+      "caption_cue_ids": [
+        "CAP_003"
+      ],
+      "qc_criteria": [
+        "Exact integer frame continuity [start_frame, end_frame)",
+        "Duration strictly <= 10.0s (<= 300 frames)",
+        "Concrete prop & character contact without clipping"
+      ],
+      "semantic_visual_purpose": "character_acting"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_p02b_char_10s",
+  "topic_title": "Bima dan AC: Uji Animasi Karakter Blender 10 Detik",
+  "genres": [
+    "explainer",
+    "edukasi"
+  ],
+  "epistemic_mode": "factual_verified",
+  "research_status": "VERIFIED_COMPLETE",
+  "topic_scope": "Empat tahap inti mekanisme AC split (kamar panas tertutup, pengaturan suhu remot 24C, penguapan refrigeran di evaporator, dan pelepasan kalor lewat kompresor-kondensor outdoor) dalam uji render 3D Three.js + Remotion berdurasi 15 detik.",
+  "research_questions": [
+    "Bagaimana AC mendinginkan ruangan tertutup tanpa menyedot udara dingin dari luar?",
+    "Bagaimana kumparan evaporator dan unit kondensor luar memindahkan kalor ruangan?"
+  ],
+  "verified_factual_claims": [
+    {
+      "claim_id": "CLM_01",
+      "statement": "Evaporator AC indoor menyerap kalor udara ruangan ketika refrigeran cair bertekanan rendah menguap menjadi gas di dalam kumparan pipa.",
+      "epistemic_status": "verified_fact",
+      "source_title": "U.S. Department of Energy \u2014 Energy Saver: Air Conditioning",
+      "source_url": "https://www.energy.gov/energysaver/air-conditioning",
+      "publication_date": "2024-06",
+      "evidence_excerpt": "Air conditioners transfer heat from the indoor air to the outdoors via an indoor evaporator coil filled with cold evaporating refrigerant."
+    },
+    {
+      "claim_id": "CLM_02",
+      "statement": "Kompresor menaikkan tekanan dan suhu uap refrigeran sehingga sirip kondensor outdoor dapat membuang kalor ke udara luar.",
+      "epistemic_status": "verified_fact",
+      "source_title": "Encyclopaedia Britannica \u2014 Air-conditioning: Principles of Operation",
+      "source_url": "https://www.britannica.com/technology/air-conditioning",
+      "publication_date": "2024-08",
+      "evidence_excerpt": "In vapor-compression air conditioning, the compressor raises refrigerant vapor pressure and temperature so the outdoor condenser coil rejects heat to ambient air."
+    },
+    {
+      "claim_id": "CLM_03",
+      "statement": "Termostat AC menjaga suhu ruangan nyaman stabil pada setelan target seperti 24 derajat Celsius tanpa mempercepat laju pendinginan awal saat disetel ekstrem rendah.",
+      "epistemic_status": "verified_fact",
+      "source_title": "U.S. Department of Energy \u2014 Central Air Conditioning",
+      "source_url": "https://www.energy.gov/energysaver/central-air-conditioning",
+      "publication_date": "2024-05",
+      "evidence_excerpt": "Setting the thermostat lower than comfortable target temperature does not cool the room faster; the system removes heat at a steady rate."
+    }
+  ],
+  "primary_sources": [
+    {
+      "claim_id": "CLM_01",
+      "source_title": "U.S. Department of Energy \u2014 Energy Saver: Air Conditioning",
+      "source_url": "https://www.energy.gov/energysaver/air-conditioning",
+      "publication_date": "2024-06",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "Air conditioners transfer heat from the indoor air to the outdoors via an indoor evaporator coil filled with cold evaporating refrigerant."
+    },
+    {
+      "claim_id": "CLM_02",
+      "source_title": "Encyclopaedia Britannica \u2014 Air-conditioning: Principles of Operation",
+      "source_url": "https://www.britannica.com/technology/air-conditioning",
+      "publication_date": "2024-08",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "In vapor-compression air conditioning, the compressor raises refrigerant vapor pressure and temperature so the outdoor condenser coil rejects heat to ambient air."
+    },
+    {
+      "claim_id": "CLM_03",
+      "source_title": "U.S. Department of Energy \u2014 Central Air Conditioning",
+      "source_url": "https://www.energy.gov/energysaver/central-air-conditioning",
+      "publication_date": "2024-05",
+      "is_primary_or_institutional": true,
+      "evidence_excerpt": "Setting the thermostat lower than comfortable target temperature does not cool the room faster; the system removes heat at a steady rate."
+    }
+  ],
+  "source_urls": [
+    "https://www.energy.gov/energysaver/air-conditioning",
+    "https://www.britannica.com/technology/air-conditioning",
+    "https://www.energy.gov/energysaver/central-air-conditioning"
+  ],
+  "evidence_excerpts": [
+    {
+      "claim_id": "CLM_01",
+      "excerpt": "Air conditioners transfer heat from the indoor air to the outdoors via an indoor evaporator coil filled with cold evaporating refrigerant."
+    },
+    {
+      "claim_id": "CLM_02",
+      "excerpt": "In vapor-compression air conditioning, the compressor raises refrigerant vapor pressure and temperature so the outdoor condenser coil rejects heat to ambient air."
+    },
+    {
+      "claim_id": "CLM_03",
+      "excerpt": "Setting the thermostat lower than comfortable target temperature does not cool the room faster; the system removes heat at a steady rate."
+    }
+  ],
+  "misconceptions": [
+    {
+      "misconception": "AC menyemprotkan udara dingin baru dari luar rumah.",
+      "correction": "AC mensirkulasikan ulang udara dalam kamar melewati evaporator dingin dan membuang panasnya keluar lewat pipa refrigeran tertutup.",
+      "claim_ref": "CLM_01"
+    }
+  ],
+  "uncertainties": [
+    "Laju pendinginan aktual bergantung pada beban panas matahari, insulasi dinding, dan kapasitas BTU unit AC."
+  ],
+  "fictional_vs_real_world_separation": {
+    "contains_fictional_dramatization": true,
+    "real_world_claim_ids": [
+      "CLM_01",
+      "CLM_02",
+      "CLM_03"
+    ],
+    "declared_fictional_elements": [
+      "Karakter penghuni kamar Bima bergaya stylized 3D merupakan dramatisasi visual edukatif untuk memperjelas komponen nyata AC."
+    ]
+  },
+  "fact_to_narration_mapping": {
+    "CLM_01": [
+      {
+        "beat_id": "B01",
+        "beat_role": "hook_overheated_character",
+        "narration_excerpt": "AC tidak menciptakan dingin melainkan memindahkan panas kamarmu."
+      },
+      {
+        "beat_id": "B03",
+        "beat_role": "macro_remote_press_relief",
+        "narration_excerpt": "Panasnya dipindahkan keluar, kamar jadi sejuk."
+      }
+    ],
+    "CLM_02": [
+      {
+        "beat_id": "B01",
+        "beat_role": "hook_overheated_character",
+        "narration_excerpt": "AC tidak menciptakan dingin melainkan memindahkan panas kamarmu."
+      }
+    ],
+    "CLM_03": [
+      {
+        "beat_id": "B02",
+        "beat_role": "turn_to_ac_then_cut",
+        "narration_excerpt": "Saat tombol remot ditekan, kisi AC terbuka."
+      }
+    ]
+  }
+}

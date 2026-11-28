@@ -1,0 +1,384 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "review_id": "REV-bench_p02b_char_10s-001",
+  "project_id": "bench_p02b_char_10s",
+  "verifier_agent": "preproduction_verifier",
+  "reviewed_task_id": "TASK-07-STORYBOARD",
+  "producer_agent": "storyboard_director",
+  "verdict": "PASS",
+  "invocation_receipt": {
+    "receipt_id": "RCPT-ea8f8ff2c769",
+    "request_id": "REQ-d3a68a157f15",
+    "idempotency_key": "206a2bf08217351366996528009a14ee9049d1f06243e35d9b606af4b4fefe7b",
+    "task_id": "TASK-15-VERIFY",
+    "project_id": "bench_p02b_char_10s",
+    "assigned_agent": "preproduction_verifier",
+    "runtime_name": "python_local_test",
+    "execution_mode": "sequential_fallback_honest",
+    "actually_invoked": true,
+    "conversation_id": null,
+    "known_model_routing": "local_sequential_python_callable",
+    "started_at": "2026-11-28T07:56:06.413756+00:00",
+    "completed_at": "2026-11-28T07:56:06.413762+00:00",
+    "output_artifact_hashes": {},
+    "task_definition_digest": "4cc3a894a805b1ade03c167dde761b87ed9d97808c437cabf3c33a2b8200d07d",
+    "host_invocation_evidence": {},
+    "receipt_sha256": "78d935f18e8037a97145858986bdfae2a515c13b2f655261dc6adf4d5277d9e6",
+    "invocation_id": "RCPT-ea8f8ff2c769",
+    "agent_id": "preproduction_verifier"
+  },
+  "reviewed_artifact_hashes": {
+    "projects/bench_p02b_char_10s/research.md": "e19c1b510df3d8097edc2f2eb698b0aa12fdb0d9eedaa96dfb721d095029ba02",
+    "projects/bench_p02b_char_10s/research_report.json": "04477b47be4c7cdc29280bd64b6f0bab47616dccd1b4b6102c24d73d8481a850",
+    "projects/bench_p02b_char_10s/reference_analysis.md": "fea0c7edd3381b82163da54c1fd2bfe7c35a61993068acdf1e2a27c7ff784ad1",
+    "projects/bench_p02b_char_10s/blueprint.md": "b112e6dbb207b5698266fb19470889a0b305b89c8caed411184d63ee1202c1e0",
+    "projects/bench_p02b_char_10s/creative_concept.json": "865e35d43c03ae13dc567ead5b1f5ac2d4bdf49dcfd385df7c9e7645fd2c2a84",
+    "projects/bench_p02b_char_10s/script.md": "22f4d1a673af5949813e04c77a6fdc01d46c9218979cad2182a103c870040c89",
+    "projects/bench_p02b_char_10s/authored_creative_payload.json": "57a2761615dff1936db91d10a8d7b804a09d299c0a0b6b033eee8a84c011c670",
+    "projects/bench_p02b_char_10s/character_bible.md": "c69fc7ace012fe94d639a7f05e07ce7b9c37910cf74b4314ab5e2c2c60c152e0",
+    "projects/bench_p02b_char_10s/character_bible.json": "dacec640311aaa3335ec0fa335f8ac20eb20fd51770bf713eedf8792d9268616",
+    "projects/bench_p02b_char_10s/style_bible.json": "ab6efb76a3fb366c75cca4be50f32660bcee977d949ccf0b46661b28cd47b66a",
+    "projects/bench_p02b_char_10s/storyboard.json": "45d115415cd620223ee5889ba0fb624c9cdc9467ea970d4e218aa7d1a9012697",
+    "projects/bench_p02b_char_10s/semantic_visual_plan.json": "2c2848b227438b2e7216a299db1a03b58ccb90460dd74e7e5e0b7ce302b9b8c1",
+    "projects/bench_p02b_char_10s/reference_adaptation.json": "8cb798e1e64ae4fb8800455fa2baf98f506d5abecf19c93486328a83032d29a7",
+    "projects/bench_p02b_char_10s/motion_plan.json": "2592532547e3b38884febd0f854d72ef9ee207c82e7ed85b898af6e70372d20a",
+    "projects/bench_p02b_char_10s/camera_plan.json": "2f4dd46c496312b9b9c56c5f7b4648c096c6e673db0dcd8454158bc822855504",
+    "projects/bench_p02b_char_10s/asset_manifest.json": "4098171579f61a7f2b554d07e8ebd47c429efb36372c2f9b19cb861d4686caf4",
+    "projects/bench_p02b_char_10s/narration_dialogue.json": "f94d223efe2bbac83dd0d2d7b9bb16f2a513ca35c55151d1797b7bab251d05dc",
+    "projects/bench_p02b_char_10s/caption_audio_plan.json": "11e7d1c722f5bfc338637ef814ed25c73e7d6d24d4fc423b22b53ac90216b145",
+    "projects/bench_p02b_char_10s/engine_plan.json": "8cf2e17782263ed6c496b6bba7b9962ce5c4c3c502f54641afcc4c547f204536",
+    "projects/bench_p02b_char_10s/execution_plan.md": "0e84e0d786224a7f948b73bc836d5fb9efd8ba2ed954298fa10eb949ee7af45f"
+  },
+  "required_criteria_ids": [
+    "CRIT_01_TOPIC_RELEVANCE",
+    "CRIT_02_FACTUAL_ACCURACY",
+    "CRIT_03_ORIGINALITY",
+    "CRIT_04_HOOK_STRENGTH",
+    "CRIT_05_NARRATIVE_COHERENCE",
+    "CRIT_06_NARRATION_TIMING",
+    "CRIT_07_SEMANTIC_VISUAL_COVERAGE",
+    "CRIT_08_CHARACTER_CONSISTENCY",
+    "CRIT_09_STYLE_CONSISTENCY",
+    "CRIT_10_ASSET_FEASIBILITY",
+    "CRIT_11_MOTION_FEASIBILITY",
+    "CRIT_12_CAMERA_SUITABILITY",
+    "CRIT_13_REFERENCE_ADAPTATION",
+    "CRIT_14_ENGINE_COMPATIBILITY",
+    "CRIT_15_PACKAGE_COMPLETENESS"
+  ],
+  "checked_criteria": [
+    {
+      "criterion_id": "CRIT_01_TOPIC_RELEVANCE",
+      "status": "PASS",
+      "evidence": "Topic 'Bima dan AC: Uji Animasi Karakter Blender 10 Detik' verified across premise, claims, and narration (title_overlap=1, domain_overlap=7).",
+      "inspected_artifacts": [
+        "projects/bench_p02b_char_10s/authored_creative_payload.json",
+        "projects/bench_p02b_char_10s/script.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_02_FACTUAL_ACCURACY",
+      "status": "PASS",
+      "evidence": "Verified 3 factual claim(s), 3 https:// source(s), misconceptions, uncertainties, and narration mapping.",
+      "inspected_artifacts": [
+        "projects/bench_p02b_char_10s/research_report.json",
+        "projects/bench_p02b_char_10s/research.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_03_ORIGINALITY",
+      "status": "PASS",
+      "evidence": "Zero placeholder patterns, zero recorder watermarks, and zero leaked reference subject tokens in 1897B script.",
+      "inspected_artifacts": [
+        "projects/bench_p02b_char_10s/script.md",
+        "projects/bench_p02b_char_10s/character_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_04_HOOK_STRENGTH",
+      "status": "PASS",
+      "evidence": "Concrete 0-3s visual hook (114 chars) and spoken hook (9 words) verified.",
+      "inspected_artifacts": [
+        "projects/bench_p02b_char_10s/blueprint.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_05_NARRATIVE_COHERENCE",
+      "status": "PASS",
+      "evidence": "Verified 3-act dramatic structure (['ACT_1', 'ACT_2', 'ACT_3']) and explicit payoff/callback.",
+      "inspected_artifacts": [
+        "projects/bench_p02b_char_10s/blueprint.md",
+        "projects/bench_p02b_char_10s/storyboard.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_06_NARRATION_TIMING",
+      "status": "PASS",
+      "evidence": "Narration timing marked ESTIMATED at 126.0 WPM (~9.95s) with speed_multiplier=1.0.",
+      "inspected_artifacts": [
+        "projects/bench_p02b_char_10s/narration_dialogue.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_07_SEMANTIC_VISUAL_COVERAGE",
+      "status": "PASS",
+      "evidence": "100% clause coverage (3/3 clauses) across 3 integer-frame shots (max=3.5s <= 10.0s, purposes=['character_acting', 'establishing_shot']).",
+      "inspected_artifacts": [
+        "projects/bench_p02b_char_10s/semantic_visual_plan.json",
+        "projects/bench_p02b_char_10s/storyboard.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_08_CHARACTER_CONSISTENCY",
+      "status": "PASS",
+      "evidence": "Verified 1 character(s) with all 11 mandatory attributes and cross-shot continuity locks.",
+      "inspected_artifacts": [
+        "projects/bench_p02b_char_10s/character_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_09_STYLE_CONSISTENCY",
+      "status": "PASS",
+      "evidence": "Style profile 'stylized_3d' (xdx_stylized_3d_v4_0) locks uniform detail tier 'medium_sculpted_beveled_forms' with modeling_executed=False.",
+      "inspected_artifacts": [
+        "projects/bench_p02b_char_10s/style_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_10_ASSET_FEASIBILITY",
+      "status": "PASS",
+      "evidence": "Verified 7 storyboard-derived 12-field semantic asset specs (zero premature READY claims, zero PLACEHOLDER boxes).",
+      "inspected_artifacts": [
+        "projects/bench_p02b_char_10s/asset_manifest.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_11_MOTION_FEASIBILITY",
+      "status": "PASS",
+      "evidence": "Verified 3 shot-bound 14-field character/mechanism actions with IK/contact targets.",
+      "inspected_artifacts": [
+        "projects/bench_p02b_char_10s/motion_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_12_CAMERA_SUITABILITY",
+      "status": "PASS",
+      "evidence": "Verified purpose-driven camera lenses [24.0, 40.0]mm across 3 shots (not locked to 36mm).",
+      "inspected_artifacts": [
+        "projects/bench_p02b_char_10s/camera_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_13_REFERENCE_ADAPTATION",
+      "status": "PASS",
+      "evidence": "Verified 10-dimension fusion (refs=['REF-001', 'REF-002', 'REF-003'], conflicts_resolved=10) and 3 shot-bound 14-field adaptation records.",
+      "inspected_artifacts": [
+        "projects/bench_p02b_char_10s/reference_adaptation.json",
+        "projects/bench_p02b_char_10s/reference_analysis.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_14_ENGINE_COMPATIBILITY",
+      "status": "PASS",
+      "evidence": "Engine routing (['blender', 'remotion', 'rea_video', 'ffmpeg']) and ESTIMATED caption/audio plans validated with zero live render execution.",
+      "inspected_artifacts": [
+        "projects/bench_p02b_char_10s/engine_plan.json",
+        "projects/bench_p02b_char_10s/caption_audio_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_15_PACKAGE_COMPLETENESS",
+      "status": "PASS",
+      "evidence": "All 13 mandatory items and 21 file SHA-256 digests verified; status=='WAITING_APPROVAL'.",
+      "inspected_artifacts": [
+        "projects/bench_p02b_char_10s/approval_package_manifest.json"
+      ]
+    }
+  ],
+  "defects": [],
+  "reviewer_task_id": "TASK-15-VERIFY",
+  "additional_reviewed_task_ids": [
+    "TASK-01-RESEARCH",
+    "TASK-02-REFERENCE",
+    "TASK-03-CREATIVE",
+    "TASK-04-SCRIPT",
+    "TASK-05-CHARACTER",
+    "TASK-06-STYLE",
+    "TASK-08-REF-ADAPT",
+    "TASK-09-MOTION",
+    "TASK-10-CAMERA",
+    "TASK-11-ASSET",
+    "TASK-12-AUDIO",
+    "TASK-13-CAPTION",
+    "TASK-14-ENGINE"
+  ],
+  "producer_conversation_id": null,
+  "reviewer_conversation_id": null,
+  "criteria_manifest_digest": "6a0abd3a6f52e2606d65b66d7b35389d07ec5de1ed224ea3a02a5da7345f1911",
+  "reviewed_artifact_manifest": {
+    "projects/bench_p02b_char_10s/research.md": {
+      "owner_task_id": "TASK-01-RESEARCH",
+      "owner_agent": "topic_research_agent",
+      "sha256": "e19c1b510df3d8097edc2f2eb698b0aa12fdb0d9eedaa96dfb721d095029ba02",
+      "size_bytes": 2905
+    },
+    "projects/bench_p02b_char_10s/research_report.json": {
+      "owner_task_id": "TASK-01-RESEARCH",
+      "owner_agent": "topic_research_agent",
+      "sha256": "04477b47be4c7cdc29280bd64b6f0bab47616dccd1b4b6102c24d73d8481a850",
+      "size_bytes": 6549
+    },
+    "projects/bench_p02b_char_10s/reference_analysis.md": {
+      "owner_task_id": "TASK-02-REFERENCE",
+      "owner_agent": "rea_video_reference_analyst",
+      "sha256": "fea0c7edd3381b82163da54c1fd2bfe7c35a61993068acdf1e2a27c7ff784ad1",
+      "size_bytes": 3937
+    },
+    "projects/bench_p02b_char_10s/blueprint.md": {
+      "owner_task_id": "TASK-03-CREATIVE",
+      "owner_agent": "creative_director",
+      "sha256": "b112e6dbb207b5698266fb19470889a0b305b89c8caed411184d63ee1202c1e0",
+      "size_bytes": 1794
+    },
+    "projects/bench_p02b_char_10s/creative_concept.json": {
+      "owner_task_id": "TASK-03-CREATIVE",
+      "owner_agent": "creative_director",
+      "sha256": "865e35d43c03ae13dc567ead5b1f5ac2d4bdf49dcfd385df7c9e7645fd2c2a84",
+      "size_bytes": 1635
+    },
+    "projects/bench_p02b_char_10s/script.md": {
+      "owner_task_id": "TASK-04-SCRIPT",
+      "owner_agent": "scriptwriter_agent",
+      "sha256": "22f4d1a673af5949813e04c77a6fdc01d46c9218979cad2182a103c870040c89",
+      "size_bytes": 1920
+    },
+    "projects/bench_p02b_char_10s/authored_creative_payload.json": {
+      "owner_task_id": "TASK-04-SCRIPT",
+      "owner_agent": "scriptwriter_agent",
+      "sha256": "57a2761615dff1936db91d10a8d7b804a09d299c0a0b6b033eee8a84c011c670",
+      "size_bytes": 11698
+    },
+    "projects/bench_p02b_char_10s/character_bible.md": {
+      "owner_task_id": "TASK-05-CHARACTER",
+      "owner_agent": "character_design_agent",
+      "sha256": "c69fc7ace012fe94d639a7f05e07ce7b9c37910cf74b4314ab5e2c2c60c152e0",
+      "size_bytes": 1009
+    },
+    "projects/bench_p02b_char_10s/character_bible.json": {
+      "owner_task_id": "TASK-05-CHARACTER",
+      "owner_agent": "character_design_agent",
+      "sha256": "dacec640311aaa3335ec0fa335f8ac20eb20fd51770bf713eedf8792d9268616",
+      "size_bytes": 3002
+    },
+    "projects/bench_p02b_char_10s/style_bible.json": {
+      "owner_task_id": "TASK-06-STYLE",
+      "owner_agent": "art_director",
+      "sha256": "ab6efb76a3fb366c75cca4be50f32660bcee977d949ccf0b46661b28cd47b66a",
+      "size_bytes": 1236
+    },
+    "projects/bench_p02b_char_10s/storyboard.json": {
+      "owner_task_id": "TASK-07-STORYBOARD",
+      "owner_agent": "storyboard_director",
+      "sha256": "45d115415cd620223ee5889ba0fb624c9cdc9467ea970d4e218aa7d1a9012697",
+      "size_bytes": 19191
+    },
+    "projects/bench_p02b_char_10s/semantic_visual_plan.json": {
+      "owner_task_id": "TASK-07-STORYBOARD",
+      "owner_agent": "storyboard_director",
+      "sha256": "2c2848b227438b2e7216a299db1a03b58ccb90460dd74e7e5e0b7ce302b9b8c1",
+      "size_bytes": 5449
+    },
+    "projects/bench_p02b_char_10s/reference_adaptation.json": {
+      "owner_task_id": "TASK-08-REF-ADAPT",
+      "owner_agent": "rea_video_reference_analyst",
+      "sha256": "8cb798e1e64ae4fb8800455fa2baf98f506d5abecf19c93486328a83032d29a7",
+      "size_bytes": 15237
+    },
+    "projects/bench_p02b_char_10s/motion_plan.json": {
+      "owner_task_id": "TASK-09-MOTION",
+      "owner_agent": "motion_director",
+      "sha256": "2592532547e3b38884febd0f854d72ef9ee207c82e7ed85b898af6e70372d20a",
+      "size_bytes": 12745
+    },
+    "projects/bench_p02b_char_10s/camera_plan.json": {
+      "owner_task_id": "TASK-10-CAMERA",
+      "owner_agent": "cinematographer",
+      "sha256": "2f4dd46c496312b9b9c56c5f7b4648c096c6e673db0dcd8454158bc822855504",
+      "size_bytes": 2440
+    },
+    "projects/bench_p02b_char_10s/asset_manifest.json": {
+      "owner_task_id": "TASK-11-ASSET",
+      "owner_agent": "asset_specialist",
+      "sha256": "4098171579f61a7f2b554d07e8ebd47c429efb36372c2f9b19cb861d4686caf4",
+      "size_bytes": 18021
+    },
+    "projects/bench_p02b_char_10s/narration_dialogue.json": {
+      "owner_task_id": "TASK-12-AUDIO",
+      "owner_agent": "audio_director",
+      "sha256": "f94d223efe2bbac83dd0d2d7b9bb16f2a513ca35c55151d1797b7bab251d05dc",
+      "size_bytes": 4573
+    },
+    "projects/bench_p02b_char_10s/caption_audio_plan.json": {
+      "owner_task_id": "TASK-13-CAPTION",
+      "owner_agent": "caption_specialist",
+      "sha256": "11e7d1c722f5bfc338637ef814ed25c73e7d6d24d4fc423b22b53ac90216b145",
+      "size_bytes": 4363
+    },
+    "projects/bench_p02b_char_10s/engine_plan.json": {
+      "owner_task_id": "TASK-14-ENGINE",
+      "owner_agent": "remotion_specialist",
+      "sha256": "8cf2e17782263ed6c496b6bba7b9962ce5c4c3c502f54641afcc4c547f204536",
+      "size_bytes": 3204
+    },
+    "projects/bench_p02b_char_10s/execution_plan.md": {
+      "owner_task_id": "TASK-14-ENGINE",
+      "owner_agent": "remotion_specialist",
+      "sha256": "0e84e0d786224a7f948b73bc836d5fb9efd8ba2ed954298fa10eb949ee7af45f",
+      "size_bytes": 803
+    }
+  },
+  "pre_review_hashes": {
+    "projects/bench_p02b_char_10s/research.md": "e19c1b510df3d8097edc2f2eb698b0aa12fdb0d9eedaa96dfb721d095029ba02",
+    "projects/bench_p02b_char_10s/research_report.json": "04477b47be4c7cdc29280bd64b6f0bab47616dccd1b4b6102c24d73d8481a850",
+    "projects/bench_p02b_char_10s/reference_analysis.md": "fea0c7edd3381b82163da54c1fd2bfe7c35a61993068acdf1e2a27c7ff784ad1",
+    "projects/bench_p02b_char_10s/blueprint.md": "b112e6dbb207b5698266fb19470889a0b305b89c8caed411184d63ee1202c1e0",
+    "projects/bench_p02b_char_10s/creative_concept.json": "865e35d43c03ae13dc567ead5b1f5ac2d4bdf49dcfd385df7c9e7645fd2c2a84",
+    "projects/bench_p02b_char_10s/script.md": "22f4d1a673af5949813e04c77a6fdc01d46c9218979cad2182a103c870040c89",
+    "projects/bench_p02b_char_10s/authored_creative_payload.json": "57a2761615dff1936db91d10a8d7b804a09d299c0a0b6b033eee8a84c011c670",
+    "projects/bench_p02b_char_10s/character_bible.md": "c69fc7ace012fe94d639a7f05e07ce7b9c37910cf74b4314ab5e2c2c60c152e0",
+    "projects/bench_p02b_char_10s/character_bible.json": "dacec640311aaa3335ec0fa335f8ac20eb20fd51770bf713eedf8792d9268616",
+    "projects/bench_p02b_char_10s/style_bible.json": "ab6efb76a3fb366c75cca4be50f32660bcee977d949ccf0b46661b28cd47b66a",
+    "projects/bench_p02b_char_10s/storyboard.json": "45d115415cd620223ee5889ba0fb624c9cdc9467ea970d4e218aa7d1a9012697",
+    "projects/bench_p02b_char_10s/semantic_visual_plan.json": "2c2848b227438b2e7216a299db1a03b58ccb90460dd74e7e5e0b7ce302b9b8c1",
+    "projects/bench_p02b_char_10s/reference_adaptation.json": "8cb798e1e64ae4fb8800455fa2baf98f506d5abecf19c93486328a83032d29a7",
+    "projects/bench_p02b_char_10s/motion_plan.json": "2592532547e3b38884febd0f854d72ef9ee207c82e7ed85b898af6e70372d20a",
+    "projects/bench_p02b_char_10s/camera_plan.json": "2f4dd46c496312b9b9c56c5f7b4648c096c6e673db0dcd8454158bc822855504",
+    "projects/bench_p02b_char_10s/asset_manifest.json": "4098171579f61a7f2b554d07e8ebd47c429efb36372c2f9b19cb861d4686caf4",
+    "projects/bench_p02b_char_10s/narration_dialogue.json": "f94d223efe2bbac83dd0d2d7b9bb16f2a513ca35c55151d1797b7bab251d05dc",
+    "projects/bench_p02b_char_10s/caption_audio_plan.json": "11e7d1c722f5bfc338637ef814ed25c73e7d6d24d4fc423b22b53ac90216b145",
+    "projects/bench_p02b_char_10s/engine_plan.json": "8cf2e17782263ed6c496b6bba7b9962ce5c4c3c502f54641afcc4c547f204536",
+    "projects/bench_p02b_char_10s/execution_plan.md": "0e84e0d786224a7f948b73bc836d5fb9efd8ba2ed954298fa10eb949ee7af45f"
+  },
+  "post_review_hashes": {
+    "projects/bench_p02b_char_10s/research.md": "e19c1b510df3d8097edc2f2eb698b0aa12fdb0d9eedaa96dfb721d095029ba02",
+    "projects/bench_p02b_char_10s/research_report.json": "04477b47be4c7cdc29280bd64b6f0bab47616dccd1b4b6102c24d73d8481a850",
+    "projects/bench_p02b_char_10s/reference_analysis.md": "fea0c7edd3381b82163da54c1fd2bfe7c35a61993068acdf1e2a27c7ff784ad1",
+    "projects/bench_p02b_char_10s/blueprint.md": "b112e6dbb207b5698266fb19470889a0b305b89c8caed411184d63ee1202c1e0",
+    "projects/bench_p02b_char_10s/creative_concept.json": "865e35d43c03ae13dc567ead5b1f5ac2d4bdf49dcfd385df7c9e7645fd2c2a84",
+    "projects/bench_p02b_char_10s/script.md": "22f4d1a673af5949813e04c77a6fdc01d46c9218979cad2182a103c870040c89",
+    "projects/bench_p02b_char_10s/authored_creative_payload.json": "57a2761615dff1936db91d10a8d7b804a09d299c0a0b6b033eee8a84c011c670",
+    "projects/bench_p02b_char_10s/character_bible.md": "c69fc7ace012fe94d639a7f05e07ce7b9c37910cf74b4314ab5e2c2c60c152e0",
+    "projects/bench_p02b_char_10s/character_bible.json": "dacec640311aaa3335ec0fa335f8ac20eb20fd51770bf713eedf8792d9268616",
+    "projects/bench_p02b_char_10s/style_bible.json": "ab6efb76a3fb366c75cca4be50f32660bcee977d949ccf0b46661b28cd47b66a",
+    "projects/bench_p02b_char_10s/storyboard.json": "45d115415cd620223ee5889ba0fb624c9cdc9467ea970d4e218aa7d1a9012697",
+    "projects/bench_p02b_char_10s/semantic_visual_plan.json": "2c2848b227438b2e7216a299db1a03b58ccb90460dd74e7e5e0b7ce302b9b8c1",
+    "projects/bench_p02b_char_10s/reference_adaptation.json": "8cb798e1e64ae4fb8800455fa2baf98f506d5abecf19c93486328a83032d29a7",
+    "projects/bench_p02b_char_10s/motion_plan.json": "2592532547e3b38884febd0f854d72ef9ee207c82e7ed85b898af6e70372d20a",
+    "projects/bench_p02b_char_10s/camera_plan.json": "2f4dd46c496312b9b9c56c5f7b4648c096c6e673db0dcd8454158bc822855504",
+    "projects/bench_p02b_char_10s/asset_manifest.json": "4098171579f61a7f2b554d07e8ebd47c429efb36372c2f9b19cb861d4686caf4",
+    "projects/bench_p02b_char_10s/narration_dialogue.json": "f94d223efe2bbac83dd0d2d7b9bb16f2a513ca35c55151d1797b7bab251d05dc",
+    "projects/bench_p02b_char_10s/caption_audio_plan.json": "11e7d1c722f5bfc338637ef814ed25c73e7d6d24d4fc423b22b53ac90216b145",
+    "projects/bench_p02b_char_10s/engine_plan.json": "8cf2e17782263ed6c496b6bba7b9962ce5c4c3c502f54641afcc4c547f204536",
+    "projects/bench_p02b_char_10s/execution_plan.md": "0e84e0d786224a7f948b73bc836d5fb9efd8ba2ed954298fa10eb949ee7af45f"
+  }
+}

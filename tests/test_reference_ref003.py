@@ -131,7 +131,28 @@ def test_p02b2_script_is_unexecuted_draft_and_not_wired_into_runners():
     src = script.read_text(encoding="utf-8")
     assert "UNTESTED, NOT EXECUTED" in src and "blender_scene_mutation" in src
     for p in list((ROOT / "scripts").glob("*.py")) + list((ROOT / "engines").glob("*.py")) + list((ROOT / "orchestration").glob("*.py")):
+        if p.name == "prepare_phase02b_benchmark.py":  # pins the file's hash only; must not import or run it
+            body = p.read_text(encoding="utf-8")
+            assert "import phase02b2_bima_rig" not in body and "runpy" not in body and "exec(" not in body
+            continue
         assert "phase02b2_bima_rig" not in p.read_text(encoding="utf-8"), f"{p} must not call the 02B.2 draft"
     from governance import trusted_approval as ta
 
     assert ta.PHASE02_EXECUTION_ENABLED is False
+
+
+def test_p02b_package_waits_for_approval_and_digest_matches_signing_tool():
+    import subprocess
+    import sys
+
+    pk = ROOT / "projects/bench_p02b_char_10s"
+    st = _j(pk / "project_state.json")
+    assert st["current_state"] == "WAITING_APPROVAL" and st["approval_status"]["approved"] is False
+    out = subprocess.run([sys.executable, str(ROOT / "scripts/trusted_approval.py"), "digest", "--package", str(pk)], capture_output=True, text=True, check=True)
+    assert json.loads(out.stdout)["manifest_digest"] == st["package_digest"] == _j(pk / "approval_package_manifest.json")["package_digest"]
+    sb = _j(pk / "storyboard.json")
+    assert sb["total_frames"] == 300 and len(sb["shots"]) == 3
+    scope = _j(pk / "delivery_scope.json")
+    assert scope["audio"]["deferred_to_phase"] == "04" and scope["blender"]["render_allowed"] is False and scope["blender"]["proposed_signed_scope"] == "blender_scene_mutation"
+    assert _j(pk / "reference_adaptation.json") is not None
+    assert _j(pk / ".reviews/independent_preproduction_review_v4.json")["verdict"] == "PASS"

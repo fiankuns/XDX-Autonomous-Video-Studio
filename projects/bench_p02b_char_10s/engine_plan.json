@@ -1,0 +1,97 @@
+{
+  "schema_version": "3.4.0",
+  "project_id": "bench_p02b_char_10s",
+  "master_compositor": "remotion",
+  "encoding_validator": "ffmpeg",
+  "reference_qc_engine": "rea_video",
+  "fps": 30,
+  "resolution": {
+    "width": 1080,
+    "height": 1920,
+    "pixel_format": "yuv420p"
+  },
+  "color_management": {
+    "working_space": "Linear Rec.709",
+    "view_transform": "ACESFilmic",
+    "delivery_space": "sRGB / Rec.709",
+    "alpha_interchange": "PNG RGBA 16-bit/8-bit"
+  },
+  "engines_used": [
+    "blender",
+    "remotion",
+    "rea_video",
+    "ffmpeg"
+  ],
+  "omitted_engines_rationale": {
+    "threejs": "Tidak ada shot yang membutuhkan threejs pada naskah ini."
+  },
+  "shot_routing": [
+    {
+      "shot_id": "S001",
+      "start_frame": 0,
+      "end_frame": 105,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_bima_penghuni) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202601,
+      "inputs": [
+        "char_bima_penghuni",
+        "prop_ac_indoor_evaporator_cutaway",
+        "prop_room_thermometer_digital",
+        "prop_sealed_glass_window",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 105
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S002",
+      "start_frame": 105,
+      "end_frame": 195,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_bima_penghuni) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202602,
+      "inputs": [
+        "char_bima_penghuni",
+        "prop_ac_remote_control",
+        "prop_ac_indoor_evaporator_cutaway",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 90
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    },
+    {
+      "shot_id": "S003",
+      "start_frame": 195,
+      "end_frame": 300,
+      "primary_engine": "blender",
+      "overlay_engine": "remotion",
+      "rationale": "Acting karakter diorama (char_bima_penghuni) & pencahayaan ruang via XDX Blender Studio MCP.",
+      "deterministic_seed": 202603,
+      "inputs": [
+        "char_bima_penghuni",
+        "prop_ac_remote_control",
+        "prop_ac_indoor_evaporator_cutaway",
+        "font_plus_jakarta_sans_v1"
+      ],
+      "output_contract": {
+        "format": "png_sequence",
+        "has_alpha": false,
+        "frame_count": 105
+      },
+      "style_consistency_notes": "ACESFilmic + sRGB, roughness 0.30-0.88, 36mm sensor matched.",
+      "proposed_fallback": "Requires explicit user re-approval if primary engine is blocked; no silent substitution."
+    }
+  ]
+}

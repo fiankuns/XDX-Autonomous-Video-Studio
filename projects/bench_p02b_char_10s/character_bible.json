@@ -1,0 +1,88 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_p02b_char_10s",
+  "style_bible_id": "xdx_stylized_3d_v4_0",
+  "style_profile": "stylized_3d",
+  "modeling_executed": false,
+  "characters": [
+    {
+      "character_id": "char_bima_penghuni",
+      "name": "Bima",
+      "role": "hero",
+      "identity": {
+        "name": "Bima",
+        "role": "hero",
+        "biography_disclaimer": "Karakter penghuni kamar fiksi orisinal XDX Studio; bukan individu nyata.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Siluet pemuda stylized 3D setinggi 6.3 kepala dengan rambut ikal pendek dan postur ekspresif.",
+      "proportions": "Siluet pemuda stylized 3D setinggi 6.3 kepala dengan rambut ikal pendek dan postur ekspresif.",
+      "facial_design": "Pipi bulat ekspresif, mata lebar, bulir keringat stylized di pelipis pada shot pembuka, berubah lega saat AC menyala.",
+      "clothing": "Kaus kuning mustard berkerah bundar dan celana santai krem.",
+      "wardrobe": "Kaus kuning mustard berkerah bundar dan celana santai krem.",
+      "materials": [
+        "soft_jersey_knit_fabric",
+        "matte_plastic_remote_shell",
+        "soft_subsurface_skin_aces"
+      ],
+      "color_palette": [
+        "#E0A11B",
+        "#E8DFCA",
+        "#2C3539",
+        "#FF6B4A"
+      ],
+      "palette": [
+        "#E0A11B",
+        "#E8DFCA",
+        "#2C3539",
+        "#FF6B4A"
+      ],
+      "expressions": [
+        "overheated_exhausted",
+        "focused_remote_press",
+        "relaxed_chilled"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_biped_stylized_v4_ik_fk_hands_facial_visemes",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "jaw_viseme_driver",
+          "sweat_drop_toggle",
+          "brow_furrow_relief"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_biped_stylized_v4_ik_fk_hands_facial_visemes",
+      "pose_requirements": [
+        "slumped_fanning_self",
+        "aiming_pressing_ac_remote"
+      ],
+      "action_requirements": [
+        "mengipasi wajah di kamar panas 32 derajat Celsius",
+        "menekan tombol daya dan suhu 24 derajat pada prop_ac_remote_control ke arah prop_ac_indoor_evaporator_cutaway"
+      ],
+      "biography_disclaimer": "Karakter penghuni kamar fiksi orisinal XDX Studio; bukan individu nyata.",
+      "shot_appearances": [
+        "S001",
+        "S002",
+        "S003"
+      ],
+      "continuity_lock": {
+        "palette_locked": [
+          "#E0A11B",
+          "#E8DFCA",
+          "#2C3539",
+          "#FF6B4A"
+        ],
+        "proportions_locked": "Siluet pemuda stylized 3D setinggi 6.3 kepala dengan rambut ikal pendek dan postur ekspresif.",
+        "wardrobe_locked": "Kaus kuning mustard berkerah bundar dan celana santai krem.",
+        "style_profile_locked": "stylized_3d"
+      }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "3.4.0",
+  "project_id": "bench_p02b_char_10s",
+  "project_title": "Bima dan AC: Uji Animasi Karakter Blender 10 Detik",
+  "mode": "topik",
+  "current_state": "WAITING_APPROVAL",
+  "package_version": "v1",
+  "package_digest": "bf591d6f30c143458ba616f44de4eb9ec5fb73e30de272a71f99117e1639c3b3",
+  "genres": [
+    "explainer",
+    "edukasi"
+  ],
+  "timeline_spec": {
+    "fps": 30,
+    "width": 1080,
+    "height": 1920,
+    "aspect_ratio": "9:16",
+    "total_frames": 300
+  },
+  "approval_status": {
+    "approved": false,
+    "approval_id": null,
+    "actor_role": null,
+    "approved_digest": null,
+    "approved_version": null,
+    "approved_scopes": [],
+    "explicit_user_message": null,
+    "recorded_at": null,
+    "expires_at": null,
+    "revoked": false
+  },
+  "blocked_reason": null,
+  "history": [
+    {
+      "from_state": null,
+      "to_state": "INIT",
+      "timestamp": "2026-11-28T07:56:06.735626+00:00",
+      "reason": "Project initialized"
+    },
+    {
+      "from_state": "INIT",
+      "to_state": "WAITING_APPROVAL",
+      "timestamp": "2026-11-28T07:56:06.757778+00:00",
+      "reason": "Pre-production package v1 locked (c2e46b400d5b)"
+    },
+    {
+      "from_state": "WAITING_APPROVAL",
+      "to_state": "WAITING_APPROVAL",
+      "timestamp": "2026-11-28T07:56:06.794666+00:00",
+      "reason": "Pre-production package v1 locked (bf591d6f30c1)"
+    }
+  ],
+  "updated_at": "2026-11-28T07:56:06.794666+00:00"
+}

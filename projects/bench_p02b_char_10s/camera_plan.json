@@ -1,0 +1,101 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_p02b_char_10s",
+  "locked_to_single_36mm_focal_length": false,
+  "distinct_focal_lengths_mm": [
+    24.0,
+    40.0
+  ],
+  "shots": [
+    {
+      "shot_id": "S001",
+      "beat_id": "B01",
+      "start_frame": 0,
+      "end_frame": 105,
+      "narrative_visual_purpose": "establishing_shot",
+      "shot_size": "establishing",
+      "focal_length_mm": 24.0,
+      "sensor_width_mm": 36.0,
+      "angle": "elevated_establishing_16deg",
+      "dof_fstop": 5.6,
+      "motion_curve": "mot_snappy_spring_pop",
+      "position_start": [
+        2.3,
+        2.1,
+        4.7
+      ],
+      "position_end": [
+        1.9,
+        1.9,
+        4.0
+      ],
+      "target": [
+        0.0,
+        1.15,
+        0.0
+      ],
+      "style_profile": "stylized_3d",
+      "rationale": "Selected 24.0mm (elevated_establishing_16deg, f/5.6) to serve 'establishing_shot' narrative purpose."
+    },
+    {
+      "shot_id": "S002",
+      "beat_id": "B02",
+      "start_frame": 105,
+      "end_frame": 195,
+      "narrative_visual_purpose": "character_acting",
+      "shot_size": "medium",
+      "focal_length_mm": 40.0,
+      "sensor_width_mm": 36.0,
+      "angle": "conversational_eye_level",
+      "dof_fstop": 3.5,
+      "motion_curve": "mot_cinematic_ease_inout",
+      "position_start": [
+        0.0,
+        1.42,
+        3.5
+      ],
+      "position_end": [
+        0.14,
+        1.42,
+        3.25
+      ],
+      "target": [
+        0.0,
+        1.15,
+        0.0
+      ],
+      "style_profile": "stylized_3d",
+      "rationale": "Selected 40.0mm (conversational_eye_level, f/3.5) to serve 'character_acting' narrative purpose."
+    },
+    {
+      "shot_id": "S003",
+      "beat_id": "B03",
+      "start_frame": 195,
+      "end_frame": 300,
+      "narrative_visual_purpose": "character_acting",
+      "shot_size": "medium",
+      "focal_length_mm": 40.0,
+      "sensor_width_mm": 36.0,
+      "angle": "conversational_eye_level",
+      "dof_fstop": 3.5,
+      "motion_curve": "mot_cinematic_ease_inout",
+      "position_start": [
+        0.0,
+        1.42,
+        3.5
+      ],
+      "position_end": [
+        0.14,
+        1.42,
+        3.25
+      ],
+      "target": [
+        0.0,
+        1.15,
+        0.0
+      ],
+      "style_profile": "stylized_3d",
+      "rationale": "Selected 40.0mm (conversational_eye_level, f/3.5) to serve 'character_acting' narrative purpose."
+    }
+  ]
+}
