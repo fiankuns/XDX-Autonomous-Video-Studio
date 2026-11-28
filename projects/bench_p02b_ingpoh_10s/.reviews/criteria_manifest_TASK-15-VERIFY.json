@@ -1,0 +1,161 @@
+{
+  "manifest_id": "CRITMAN-bench_p02b_ingpoh_10s-8dadb5f9",
+  "project_id": "bench_p02b_ingpoh_10s",
+  "producer_task_id": "TASK-07-STORYBOARD",
+  "reviewer_task_id": "TASK-15-VERIFY",
+  "additional_reviewed_task_ids": [
+    "TASK-01-RESEARCH",
+    "TASK-02-REFERENCE",
+    "TASK-03-CREATIVE",
+    "TASK-04-SCRIPT",
+    "TASK-05-CHARACTER",
+    "TASK-06-STYLE",
+    "TASK-08-REF-ADAPT",
+    "TASK-09-MOTION",
+    "TASK-10-CAMERA",
+    "TASK-11-ASSET",
+    "TASK-12-AUDIO",
+    "TASK-13-CAPTION",
+    "TASK-14-ENGINE"
+  ],
+  "created_by": "master_director",
+  "created_at_utc": "2026-11-28T08:30:47.750783+00:00",
+  "required_criteria": [
+    {
+      "criterion_id": "CRIT_01_TOPIC_RELEVANCE",
+      "category": "topic_relevance",
+      "description": "Topic title, research claims, blueprint premise, narration, and shot actions align semantically without unrelated fallback.",
+      "required_artifacts": [
+        "projects/bench_p02b_ingpoh_10s/authored_creative_payload.json",
+        "projects/bench_p02b_ingpoh_10s/blueprint.md",
+        "projects/bench_p02b_ingpoh_10s/script.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_02_FACTUAL_ACCURACY",
+      "category": "factual_accuracy",
+      "description": "Research dossier includes topic scope, questions, verified https:// claims, excerpts, misconceptions, uncertainties, and narration mapping.",
+      "required_artifacts": [
+        "projects/bench_p02b_ingpoh_10s/research.md",
+        "projects/bench_p02b_ingpoh_10s/research_report.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_03_ORIGINALITY",
+      "category": "originality",
+      "description": "Script, characters, and actions are 100% original with zero placeholder tokens and zero copied reference IP.",
+      "required_artifacts": [
+        "projects/bench_p02b_ingpoh_10s/authored_creative_payload.json",
+        "projects/bench_p02b_ingpoh_10s/character_bible.json",
+        "projects/bench_p02b_ingpoh_10s/script.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_04_HOOK_STRENGTH",
+      "category": "hook",
+      "description": "0-3s visual and spoken hooks are concrete, immediate, and free of meta instructions.",
+      "required_artifacts": [
+        "projects/bench_p02b_ingpoh_10s/authored_creative_payload.json",
+        "projects/bench_p02b_ingpoh_10s/blueprint.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_05_NARRATIVE_COHERENCE",
+      "category": "narrative_coherence",
+      "description": "Three-act progression (setup, escalation, resolution) and payoff/callback connect logically across beats.",
+      "required_artifacts": [
+        "projects/bench_p02b_ingpoh_10s/blueprint.md",
+        "projects/bench_p02b_ingpoh_10s/storyboard.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_06_NARRATION_TIMING",
+      "category": "narration_timing",
+      "description": "Adaptive Indonesian narration timing is ESTIMATED with playback_speed_multiplier==1.0 and comfortable pacing or explicit duration recommendation.",
+      "required_artifacts": [
+        "projects/bench_p02b_ingpoh_10s/narration_dialogue.json",
+        "projects/bench_p02b_ingpoh_10s/production_config.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_07_SEMANTIC_VISUAL_COVERAGE",
+      "category": "semantic_visual_coverage",
+      "description": "100% of substantive clauses map to purposeful shots on an integer-frame timeline with every shot <= 10.0s.",
+      "required_artifacts": [
+        "projects/bench_p02b_ingpoh_10s/semantic_visual_plan.json",
+        "projects/bench_p02b_ingpoh_10s/storyboard.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_08_CHARACTER_CONSISTENCY",
+      "category": "character_consistency",
+      "description": "Every character specifies all 11 design/rig/pose/action attributes and cross-shot continuity locks.",
+      "required_artifacts": [
+        "projects/bench_p02b_ingpoh_10s/character_bible.json",
+        "projects/bench_p02b_ingpoh_10s/character_bible.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_09_STYLE_CONSISTENCY",
+      "category": "style_consistency",
+      "description": "Global Style Bible uses a valid supported profile with unified detail tier across characters, environments, and props, and zero premature modeling.",
+      "required_artifacts": [
+        "projects/bench_p02b_ingpoh_10s/style_bible.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_10_ASSET_FEASIBILITY",
+      "category": "asset_feasibility",
+      "description": "Every storyboard asset has a 12-field semantic specification, honest non-READY status, and zero PLACEHOLDER geometry.",
+      "required_artifacts": [
+        "projects/bench_p02b_ingpoh_10s/asset_manifest.json",
+        "projects/bench_p02b_ingpoh_10s/storyboard.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_11_MOTION_FEASIBILITY",
+      "category": "motion_feasibility",
+      "description": "Every shot has a 14-field character/mechanism action plan with contact/IK targets and zero generic idle loops.",
+      "required_artifacts": [
+        "projects/bench_p02b_ingpoh_10s/motion_plan.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_12_CAMERA_SUITABILITY",
+      "category": "camera_suitability",
+      "description": "Camera plan selects focal lengths dynamically according to narrative visual purpose (never locked to 36mm across all shots).",
+      "required_artifacts": [
+        "projects/bench_p02b_ingpoh_10s/camera_plan.json",
+        "projects/bench_p02b_ingpoh_10s/storyboard.json"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_13_REFERENCE_ADAPTATION",
+      "category": "reference_adaptation",
+      "description": "10-dimension reference fusion resolves conflicts cleanly and emits 14-field shot-bound adaptation records (or clean autonomous no-ref mode).",
+      "required_artifacts": [
+        "projects/bench_p02b_ingpoh_10s/reference_adaptation.json",
+        "projects/bench_p02b_ingpoh_10s/reference_analysis.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_14_ENGINE_COMPATIBILITY",
+      "category": "engine_compatibility",
+      "description": "Hybrid engine routing and execution plan validate against engine_plan.schema.json with zero live rendering or Blender mutation.",
+      "required_artifacts": [
+        "projects/bench_p02b_ingpoh_10s/engine_plan.json",
+        "projects/bench_p02b_ingpoh_10s/execution_plan.md"
+      ]
+    },
+    {
+      "criterion_id": "CRIT_15_PACKAGE_COMPLETENESS",
+      "category": "package_completeness",
+      "description": "All 13 mandatory human approval items exist, are non-empty, match SHA-256 digests, and halt at WAITING_APPROVAL.",
+      "required_artifacts": [
+        "projects/bench_p02b_ingpoh_10s/approval_package_manifest.json",
+        "projects/bench_p02b_ingpoh_10s/production_config.json"
+      ]
+    }
+  ],
+  "manifest_sha256": "34ec83e7e72f0a527fd16242a210786eb0bc67ec7cb4279844d9b44fdd59ce7f"
+}

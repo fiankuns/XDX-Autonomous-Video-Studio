@@ -1,0 +1,41 @@
+{
+  "schema": "xdx.delivery-scope.v1",
+  "project_id": "bench_p02b_ingpoh_10s",
+  "phase": "02B",
+  "delivery_profile": "VISUAL_ONLY_BENCHMARK",
+  "audio": {
+    "in_scope": false,
+    "deferred_to_phase": "04",
+    "export_audio_track": false,
+    "missing_audio_is_qc_failure": false,
+    "planning_fields_ignored_in_02A": [
+      "audio_events",
+      "sfx_cues",
+      "audio_master_preset_id",
+      "target_lufs",
+      "music_direction",
+      "ambience"
+    ]
+  },
+  "captions_represent_narration": true,
+  "blender": {
+    "proposed_signed_scope": "blender_scene_mutation",
+    "stage": "02B.2 asset+rig only (Sebatas Ingpoh)",
+    "render_allowed": false,
+    "mobile_guard": {
+      "max_render_resolution": 640,
+      "max_render_samples": 32,
+      "anr_budget_ms": 3500,
+      "engine": "BLENDER_EEVEE"
+    }
+  },
+  "visual_qc": {
+    "technical": "intelligence/visual_qc_engine.py",
+    "independent_semantic": "intelligence/visual_semantic_qc.py via scripts/visual_review.py",
+    "reference_comparison": [
+      "REF-001",
+      "REF-002",
+      "REF-003"
+    ]
+  }
+}

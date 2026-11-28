@@ -1,0 +1,245 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_p02b_ingpoh_10s",
+  "topic_title": "Ingpoh dan AC: Uji Animasi Karakter Blender 10 Detik",
+  "style_profile": "stylized_3d",
+  "genres": [
+    "explainer",
+    "edukasi"
+  ],
+  "reference_ids": [
+    "REF-001",
+    "REF-002",
+    "REF-003"
+  ],
+  "target_duration_s": 10,
+  "topic_research": {
+    "epistemic_mode": "factual_verified",
+    "research_status": "VERIFIED_COMPLETE",
+    "summary": "AC split mendinginkan kamar tertutup dengan memindahkan kalor udara ruangan keluar melalui siklus refrigerasi kompresi uap tertutup. Refrigeran cair bertekanan rendah menguap di kumparan evaporator indoor sambil menyerap kalor udara kamar, lalu kompresor memampatkan uap panas menuju sirip kondensor outdoor untuk dilepas ke udara luar.",
+    "topic_scope": "Empat tahap inti mekanisme AC split (kamar panas tertutup, pengaturan suhu remot 24C, penguapan refrigeran di evaporator, dan pelepasan kalor lewat kompresor-kondensor outdoor) dalam uji render 3D Three.js + Remotion berdurasi 15 detik.",
+    "research_questions": [
+      "Bagaimana AC mendinginkan ruangan tertutup tanpa menyedot udara dingin dari luar?",
+      "Bagaimana kumparan evaporator dan unit kondensor luar memindahkan kalor ruangan?"
+    ],
+    "misconceptions": [
+      {
+        "misconception": "AC menyemprotkan udara dingin baru dari luar rumah.",
+        "correction": "AC mensirkulasikan ulang udara dalam kamar melewati evaporator dingin dan membuang panasnya keluar lewat pipa refrigeran tertutup.",
+        "claim_ref": "CLM_01"
+      }
+    ],
+    "uncertainties": [
+      "Laju pendinginan aktual bergantung pada beban panas matahari, insulasi dinding, dan kapasitas BTU unit AC."
+    ],
+    "fictional_elements_declared": [
+      "Karakter penghuni kamar Ingpoh bergaya stylized 3D merupakan dramatisasi visual edukatif untuk memperjelas komponen nyata AC."
+    ],
+    "claims": [
+      {
+        "claim_id": "CLM_01",
+        "statement": "Evaporator AC indoor menyerap kalor udara ruangan ketika refrigeran cair bertekanan rendah menguap menjadi gas di dalam kumparan pipa.",
+        "epistemic_status": "verified_fact",
+        "source_title": "U.S. Department of Energy — Energy Saver: Air Conditioning",
+        "source_url": "https://www.energy.gov/energysaver/air-conditioning",
+        "publication_year": 2024,
+        "publication_date": "2024-06",
+        "evidence_excerpt": "Air conditioners transfer heat from the indoor air to the outdoors via an indoor evaporator coil filled with cold evaporating refrigerant.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_02",
+        "statement": "Kompresor menaikkan tekanan dan suhu uap refrigeran sehingga sirip kondensor outdoor dapat membuang kalor ke udara luar.",
+        "epistemic_status": "verified_fact",
+        "source_title": "Encyclopaedia Britannica — Air-conditioning: Principles of Operation",
+        "source_url": "https://www.britannica.com/technology/air-conditioning",
+        "publication_year": 2024,
+        "publication_date": "2024-08",
+        "evidence_excerpt": "In vapor-compression air conditioning, the compressor raises refrigerant vapor pressure and temperature so the outdoor condenser coil rejects heat to ambient air.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_03",
+        "statement": "Termostat AC menjaga suhu ruangan nyaman stabil pada setelan target seperti 24 derajat Celsius tanpa mempercepat laju pendinginan awal saat disetel ekstrem rendah.",
+        "epistemic_status": "verified_fact",
+        "source_title": "U.S. Department of Energy — Central Air Conditioning",
+        "source_url": "https://www.energy.gov/energysaver/central-air-conditioning",
+        "publication_year": 2024,
+        "publication_date": "2024-05",
+        "evidence_excerpt": "Setting the thermostat lower than comfortable target temperature does not cool the room faster; the system removes heat at a steady rate.",
+        "is_primary_source": true
+      }
+    ]
+  },
+  "blueprint": {
+    "premise": "Uji animasi karakter 10 detik untuk Blender: Sebatas Ingpoh kepanasan, menoleh ke AC, lalu menekan remot dan merasa lega, dengan penjelasan singkat kalor dipindahkan keluar.",
+    "hook_0_3s_visual": "Ingpoh kepanasan mengipasi wajah di kamar tertutup 32 derajat Celsius tepat di bawah unit AC indoor yang masih mati.",
+    "hook_0_3s_spoken": "AC tidak menciptakan dingin, melainkan memindahkan panas kamarmu keluar.",
+    "story_arc": {
+      "act_1_setup": "Ingpoh kepanasan di kamar tertutup 32 derajat lalu menekan tombol 24 derajat pada remot AC hingga kisi unit indoor terbuka.",
+      "act_2_escalation": "Penampang teknis casing AC indoor terbuka memperlihatkan kumparan evaporator dingin menyerap kalor udara kamar.",
+      "act_3_resolution": "Visualisasi aliran refrigeran membawa panas menembus dinding ke kompresor dan kondensor outdoor untuk dilepas ke udara luar."
+    },
+    "explainer_mechanism": "Kode warna biru dingin untuk refrigeran evaporator dan oranye panas untuk gas bertekanan tinggi menuju kondensor luar.",
+    "humor_strategy": "Ekspresi lega Ingpoh saat mengarahkan remot ke AC setelah kepanasan mengipasi wajah.",
+    "historical_biography_notes": "Fokus murni pada termodinamika pendinginan ruangan modern berdasarkan dokumentasi U.S. DOE dan Britannica.",
+    "payoff_callback": "Suhu kamar turun nyaman sementara panas ruangan terlihat keluar dari kipas kondensor outdoor."
+  },
+  "characters": [
+    {
+      "character_id": "char_sebatas_ingpoh",
+      "name": "Sebatas Ingpoh",
+      "role": "hero",
+      "silhouette_and_proportions": "Siluet chibi stylized 3D sekitar 2.8 kepala tinggi dengan kepala besar, rambut lavender panjang bergelombang sampai pinggang, poni miring, dan satu ahoge melengkung di atas kepala.",
+      "facial_design": "Mata ungu besar berkilau dengan bulu mata tebal, alis tipis, pipi merona bergaris, mulut kecil; berubah dari lelah kepanasan saat pembuka menjadi lega saat AC menyala.",
+      "wardrobe": "Kaus peach lengan pendek berkerah renda krem dengan sablon 'Sebatas Ingpohh' dan garis merah di bawahnya, celana pendek peach bermotif bulan sabit krem, bertelanjang kaki.",
+      "materials": [
+        "soft_jersey_knit_fabric",
+        "matte_plastic_remote_shell",
+        "soft_subsurface_skin_aces"
+      ],
+      "palette": [
+        "#C9A7EE",
+        "#F29A84",
+        "#FFF1D6",
+        "#E04545"
+      ],
+      "expressions": [
+        "overheated_exhausted",
+        "focused_remote_press",
+        "relaxed_chilled"
+      ],
+      "rig_spec": "rig_biped_stylized_v4_ik_fk_hands_facial_visemes",
+      "facial_controls": [
+        "jaw_viseme_driver",
+        "sweat_drop_toggle",
+        "brow_furrow_relief"
+      ],
+      "pose_requirements": [
+        "slumped_fanning_self",
+        "aiming_pressing_ac_remote"
+      ],
+      "action_requirements": [
+        "mengipasi wajah di kamar panas 32 derajat Celsius",
+        "menekan tombol daya dan suhu 24 derajat pada prop_ac_remote_control ke arah prop_ac_indoor_evaporator_cutaway"
+      ],
+      "biography_disclaimer": "Karakter narator orisinal Sebatas Ingpoh milik pemilik proyek XDX; bukan individu nyata."
+    }
+  ],
+  "narrative_beats": [
+    {
+      "beat_id": "B01",
+      "act": "ACT_1",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_01",
+      "environment_id": "env_bedroom_tropical_sealed_3d",
+      "beat_role": "hook_overheated_character",
+      "target_duration_s": 3.5,
+      "narration_vo": "AC tidak menciptakan dingin melainkan memindahkan panas kamarmu.",
+      "claim_refs": [
+        "CLM_01"
+      ],
+      "humor_beat": "Ingpoh mengipasi wajah di kamar tertutup 32 derajat sambil melirik unit AC.",
+      "emotion": "overheated_curious",
+      "voice_direction": "Tegas dan hangat untuk hook 3.5 detik pertama.",
+      "dialogue_lines": [],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "establishing_shot",
+          "visual_subject": "Hook karakter Ingpoh kepanasan di kamar tertutup 32 derajat di bawah unit AC indoor",
+          "concrete_action": "Ingpoh mengipasi wajah dengan kipas lipat yang bergerak mengikuti pergelangan tangan kanan, tangan kiri menyeka dahi dengan siku terangkat, bulir keringat terlihat, di kamar tertutup 32 derajat Celsius di bawah prop_ac_indoor_evaporator_cutaway.",
+          "interaction_target_object_id": "prop_room_thermometer_digital",
+          "props": [
+            "prop_ac_indoor_evaporator_cutaway",
+            "prop_room_thermometer_digital",
+            "prop_sealed_glass_window"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "establishing",
+          "focal_length_mm": 28,
+          "is_cutaway": false,
+          "scientific_labels": [
+            "Suhu Kamar: 32°C"
+          ],
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B02",
+      "act": "ACT_2",
+      "sequence_id": "SEQ_01",
+      "scene_id": "SCN_01",
+      "environment_id": "env_bedroom_tropical_sealed_3d",
+      "beat_role": "turn_to_ac_then_cut",
+      "target_duration_s": 3.0,
+      "narration_vo": "Saat tombol remot ditekan, kisi AC terbuka.",
+      "claim_refs": [
+        "CLM_03"
+      ],
+      "humor_beat": "Ibu jari Ingpoh menekan tombol remot dengan mantap dan kisi AC membuka mulus.",
+      "emotion": "focused",
+      "voice_direction": "Jelas, sinkron dengan klik tombol remot AC.",
+      "dialogue_lines": [],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "character_acting",
+          "visual_subject": "Kepala Ingpoh menoleh ke unit AC lalu bertahan sejenak sebelum cut pada aksi",
+          "concrete_action": "Ingpoh berhenti mengipasi, kepala menoleh ke prop_ac_indoor_evaporator_cutaway dan tangan kanan mengangkat prop_ac_remote_control, lalu jeda singkat sebelum cut.",
+          "interaction_target_object_id": "prop_ac_remote_control",
+          "props": [
+            "prop_ac_remote_control",
+            "prop_ac_indoor_evaporator_cutaway"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "medium",
+          "focal_length_mm": 50,
+          "is_cutaway": false,
+          "scientific_labels": [],
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    },
+    {
+      "beat_id": "B03",
+      "act": "ACT_3",
+      "sequence_id": "SEQ_02",
+      "scene_id": "SCN_02",
+      "environment_id": "env_bedroom_tropical_sealed_3d",
+      "beat_role": "macro_remote_press_relief",
+      "target_duration_s": 3.5,
+      "narration_vo": "Panasnya dipindahkan keluar, kamar jadi sejuk.",
+      "claim_refs": [
+        "CLM_01"
+      ],
+      "humor_beat": null,
+      "emotion": "relieved",
+      "voice_direction": "Artikulatif saat menjelaskan kumparan evaporator dan penguapan refrigeran.",
+      "dialogue_lines": [],
+      "shot_blueprints": [
+        {
+          "duration_weight": 1.0,
+          "visual_purpose": "character_acting",
+          "visual_subject": "Close-up ibu jari Ingpoh menekan tombol 24 derajat pada remot, label sinyal inframerah, ekspresi lega",
+          "concrete_action": "Ibu jari kanan menekan tombol suhu 24 derajat pada prop_ac_remote_control, tombol menyala, label sinyal inframerah dengan garis dan cincin menunjuk sensor AC, cahaya bergeser dari hangat ke sejuk dan wajah Ingpoh menjadi lega.",
+          "interaction_target_object_id": "prop_ac_remote_control",
+          "props": [
+            "prop_ac_remote_control",
+            "prop_ac_indoor_evaporator_cutaway"
+          ],
+          "preferred_engine": "blender",
+          "shot_size": "medium",
+          "focal_length_mm": 85,
+          "is_cutaway": false,
+          "scientific_labels": [
+            "Sinyal inframerah",
+            "Setelan Target: 24°C"
+          ],
+          "transition_in": "trans_hard_cut_zero"
+        }
+      ]
+    }
+  ]
+}

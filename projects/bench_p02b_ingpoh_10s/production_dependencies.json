@@ -1,0 +1,101 @@
+{
+  "schema": "xdx.production-dependencies.v1",
+  "dependencies": {
+    "docs/PHASE_02B1_BLENDER_CAPABILITY_REPORT.md": {
+      "sha256": "423d6a0db8c6981b194b0e6d9a499cec583281bfa9e02ecffcb94a3235582615",
+      "bytes": 2573
+    },
+    "docs/benchmarks/bench_p02b_ingpoh_10s.json": {
+      "sha256": "906a6d031b6f1b95e5b5b936dc5ed8cf7540bd806cbce0bb667e3f7a41d302a2",
+      "bytes": 4203
+    },
+    "engines/blender_scripts/phase02b2_ingpoh_rig.py": {
+      "sha256": "ecf2d76139bdaf956b8dced306b95cb4e23973954b62f8dd6bd5d0cffa8c3c9b",
+      "bytes": 14250
+    },
+    "engines/blender_xdx_engine.py": {
+      "sha256": "b1285b96e02aeb431dba9f7b228acde252b77e5000463da260fd15a5a7a24a95",
+      "bytes": 13454
+    },
+    "engines/ffmpeg_engine.py": {
+      "sha256": "38f1c343de65339c6676da33d0c8697701f06463253303fd05e76c93be6be0e2",
+      "bytes": 4559
+    },
+    "engines/web/remotion_timeline_spec.mjs": {
+      "sha256": "db14afe7bba972ebc8652354e8092145b9a2036665134992a6ca58cb52e47e38",
+      "bytes": 2032
+    },
+    "engines/web/xdx_core/callouts.js": {
+      "sha256": "de8c9c862f4dfdd86c7a84aeda26e175ea5ab6f0f07c0a9347912dbd251ee2f5",
+      "bytes": 4051
+    },
+    "engines/web/xdx_core/rig_ik.js": {
+      "sha256": "01fedc1095e4aa2c521b3db4b50a5ad52c5519fec397c3b313287ebaeb04be2a",
+      "bytes": 5466
+    },
+    "governance/canonical_manifest.py": {
+      "sha256": "6dd8f5a77158d88ff72ce353a4f72baabfc5563c2e31201740336d6bf4761429",
+      "bytes": 8166
+    },
+    "governance/phase_scope.py": {
+      "sha256": "a836de81ebf71ad7612fb75f0633894026ae70bdd6445dc16e4175ca8f09067d",
+      "bytes": 5687
+    },
+    "governance/trusted_approval.py": {
+      "sha256": "9446c14cfafe1fdcbe51a89e58fca2fa70c7a4c8801e98b4817ca7b85d967a9a",
+      "bytes": 24472
+    },
+    "intelligence/action_choreography.py": {
+      "sha256": "00d3df2376b34199c2446647ca27182768caacf527579db63ba5147a02b667dd",
+      "bytes": 6647
+    },
+    "intelligence/shot_spec.py": {
+      "sha256": "acb3cac640436e6109d82c430b9f75209ef2e1895aceafe9d03aecb6fbef32c4",
+      "bytes": 3974
+    },
+    "intelligence/visual_qc_engine.py": {
+      "sha256": "1fe3b2438610592c90e204b75bd1c9f6344947ba24603a23eeef9028b89b145b",
+      "bytes": 11644
+    },
+    "intelligence/visual_semantic_qc.py": {
+      "sha256": "33b4e18a87e8f8acd19b770433a2963198563a0bfe723c6b08c5ef136fc06599",
+      "bytes": 15833
+    },
+    "intelligence/visual_workflow.py": {
+      "sha256": "c47a637447fca127e791717d4d703239add63e22066065dd853419d96eebd220",
+      "bytes": 24667
+    },
+    "package-lock.json": {
+      "sha256": "59ffbd8ad3070f8320540ef11e9ae7f25a84704cf718c4d0e1696ed4c3ed47fe",
+      "bytes": 9921
+    },
+    "package.json": {
+      "sha256": "20dfbf9098fd1fd69caccf38c250cfaf9e5ec135d8ac29693a7de1b53906557f",
+      "bytes": 845
+    },
+    "reference_database/profiles/reference_pattern_registry.json": {
+      "sha256": "c627e597c4f62ee4bfa3b0478cb43d2a9f3d5d4d017326a18ec38f8fe29d9a1e",
+      "bytes": 9395
+    },
+    "reference_database/profiles/reference_technique_registry.json": {
+      "sha256": "90c6eb343792cec7ee74afb53f376d3d34b028fb76b00697a5f3488b9cad7569",
+      "bytes": 20798
+    },
+    "reference_database/references/documentary/REF-003-Javan-Rhino-Krakatau/rea_analysis_v3_4.json": {
+      "sha256": "1e1e07fd2565d7dab7c3cf2c7cc030da30b6a73151b561391464db6a89e8ce79",
+      "bytes": 7936
+    },
+    "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json": {
+      "sha256": "77d5dfc35b57d3928c62e021606f64b44b947af36f9849f4b6b222bdbbe8f61b",
+      "bytes": 8376
+    },
+    "reference_database/references/social_satire/REF-001/rea_analysis_v3_4.json": {
+      "sha256": "82266ad01c5072368753a86553949207d52b69572098d0ec4dde848eae02f8cf",
+      "bytes": 8264
+    },
+    "scripts/execution_guard_hook.py": {
+      "sha256": "668d41d5a888d0d1eecb0a3e1c0223023c7da4420dc9dddf62ee2844190f37aa",
+      "bytes": 4767
+    }
+  }
+}

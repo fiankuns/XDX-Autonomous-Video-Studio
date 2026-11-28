@@ -1,0 +1,35 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_p02b_ingpoh_10s",
+  "style_profile": "stylized_3d",
+  "style_bible_id": "xdx_stylized_3d_v4_0",
+  "display_name": "Stylized 3D Narrative & Cutaway",
+  "supported_profiles_available": [
+    "2d_animation",
+    "anime_inspired",
+    "diorama",
+    "flat_cartoon",
+    "infographic",
+    "mixed_media",
+    "realistic",
+    "stylized_3d"
+  ],
+  "forced_from_ref001_or_ref002": false,
+  "reference_ids_consulted": [
+    "REF-001",
+    "REF-002",
+    "REF-003"
+  ],
+  "shading_model": "pbr_stylized_soft_subsurface_acescg",
+  "color_space": "ACEScg_rec709_view",
+  "palette_mood": "balanced_warm_cool_cinematic",
+  "cross_asset_consistency_contract": {
+    "detail_tier": "medium_sculpted_beveled_forms",
+    "character_detail_tier": "medium_sculpted_beveled_forms",
+    "environment_detail_tier": "medium_sculpted_beveled_forms",
+    "prop_detail_tier": "medium_sculpted_beveled_forms",
+    "material_cohesion_rule": "Hand-crafted tactile PBR roughness with beveled silhouettes; uniform texel density across cast and props.",
+    "anti_placeholder_rule": "Zero untextured greybox cubes or mismatched shader models permitted."
+  },
+  "modeling_executed_in_phase_01_6c": false
+}

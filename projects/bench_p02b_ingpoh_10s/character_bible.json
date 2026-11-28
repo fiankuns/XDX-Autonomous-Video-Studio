@@ -1,0 +1,88 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_p02b_ingpoh_10s",
+  "style_bible_id": "xdx_stylized_3d_v4_0",
+  "style_profile": "stylized_3d",
+  "modeling_executed": false,
+  "characters": [
+    {
+      "character_id": "char_sebatas_ingpoh",
+      "name": "Sebatas Ingpoh",
+      "role": "hero",
+      "identity": {
+        "name": "Sebatas Ingpoh",
+        "role": "hero",
+        "biography_disclaimer": "Karakter narator orisinal Sebatas Ingpoh milik pemilik proyek XDX; bukan individu nyata.",
+        "original_ip_verified": true
+      },
+      "silhouette": "Siluet chibi stylized 3D sekitar 2.8 kepala tinggi dengan kepala besar, rambut lavender panjang bergelombang sampai pinggang, poni miring, dan satu ahoge melengkung di atas kepala.",
+      "proportions": "Siluet chibi stylized 3D sekitar 2.8 kepala tinggi dengan kepala besar, rambut lavender panjang bergelombang sampai pinggang, poni miring, dan satu ahoge melengkung di atas kepala.",
+      "facial_design": "Mata ungu besar berkilau dengan bulu mata tebal, alis tipis, pipi merona bergaris, mulut kecil; berubah dari lelah kepanasan saat pembuka menjadi lega saat AC menyala.",
+      "clothing": "Kaus peach lengan pendek berkerah renda krem dengan sablon 'Sebatas Ingpohh' dan garis merah di bawahnya, celana pendek peach bermotif bulan sabit krem, bertelanjang kaki.",
+      "wardrobe": "Kaus peach lengan pendek berkerah renda krem dengan sablon 'Sebatas Ingpohh' dan garis merah di bawahnya, celana pendek peach bermotif bulan sabit krem, bertelanjang kaki.",
+      "materials": [
+        "soft_jersey_knit_fabric",
+        "matte_plastic_remote_shell",
+        "soft_subsurface_skin_aces"
+      ],
+      "color_palette": [
+        "#C9A7EE",
+        "#F29A84",
+        "#FFF1D6",
+        "#E04545"
+      ],
+      "palette": [
+        "#C9A7EE",
+        "#F29A84",
+        "#FFF1D6",
+        "#E04545"
+      ],
+      "expressions": [
+        "overheated_exhausted",
+        "focused_remote_press",
+        "relaxed_chilled"
+      ],
+      "rig_requirements": {
+        "rig_preset": "rig_biped_stylized_v4_ik_fk_hands_facial_visemes",
+        "ik_limbs": [
+          "left_foot_ik",
+          "right_foot_ik",
+          "left_hand_ik",
+          "right_hand_ik"
+        ],
+        "facial_controls": [
+          "jaw_viseme_driver",
+          "sweat_drop_toggle",
+          "brow_furrow_relief"
+        ],
+        "execution_status": "PLANNED_SPEC_ONLY_NO_MODELING_YET"
+      },
+      "rig_spec": "rig_biped_stylized_v4_ik_fk_hands_facial_visemes",
+      "pose_requirements": [
+        "slumped_fanning_self",
+        "aiming_pressing_ac_remote"
+      ],
+      "action_requirements": [
+        "mengipasi wajah di kamar panas 32 derajat Celsius",
+        "menekan tombol daya dan suhu 24 derajat pada prop_ac_remote_control ke arah prop_ac_indoor_evaporator_cutaway"
+      ],
+      "biography_disclaimer": "Karakter narator orisinal Sebatas Ingpoh milik pemilik proyek XDX; bukan individu nyata.",
+      "shot_appearances": [
+        "S001",
+        "S002",
+        "S003"
+      ],
+      "continuity_lock": {
+        "palette_locked": [
+          "#C9A7EE",
+          "#F29A84",
+          "#FFF1D6",
+          "#E04545"
+        ],
+        "proportions_locked": "Siluet chibi stylized 3D sekitar 2.8 kepala tinggi dengan kepala besar, rambut lavender panjang bergelombang sampai pinggang, poni miring, dan satu ahoge melengkung di atas kepala.",
+        "wardrobe_locked": "Kaus peach lengan pendek berkerah renda krem dengan sablon 'Sebatas Ingpohh' dan garis merah di bawahnya, celana pendek peach bermotif bulan sabit krem, bertelanjang kaki.",
+        "style_profile_locked": "stylized_3d"
+      }
+    }
+  ]
+}

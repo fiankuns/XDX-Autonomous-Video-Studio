@@ -1,0 +1,246 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_p02b_ingpoh_10s",
+  "selection_mode": "explicit_multi_reference",
+  "selected_reference_ids": [
+    "REF-001",
+    "REF-002",
+    "REF-003"
+  ],
+  "multi_reference_fusion": {
+    "fusion_mode": "multi_reference_10d_conflict_resolved",
+    "source_reference_ids": [
+      "REF-001",
+      "REF-002",
+      "REF-003"
+    ],
+    "unified_visual_style_profile": "stylized_3d",
+    "style_consistency_verified": true,
+    "conflicts_detected_count": 10,
+    "dimensions": {
+      "narrative_structure": {
+        "dimension": "narrative_structure",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [
+          "REF-001",
+          "REF-003"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "three_act_domestic_civic_escalation_with_ironic_callback",
+          "REF-002": "counterintuitive_anomaly_hook_to_causal_mechanism_and_synthesis",
+          "REF-003": "dated_event_hook_false_cause_reveal_and_map_callback"
+        },
+        "selected_strategy": "counterintuitive_anomaly_hook_to_causal_mechanism_and_synthesis",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'three_act_domestic_civic_escalation_with_ironic_callback', 'REF-002': 'counterintuitive_anomaly_hook_to_causal_mechanism_and_synthesis', 'REF-003': 'dated_event_hook_false_cause_reveal_and_map_callback'} by selecting 'REF-002' as primary for 'narrative_structure' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+      },
+      "character_acting": {
+        "dimension": "character_acting",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [
+          "REF-001",
+          "REF-003"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "expressive_ensemble_acting_deadpan_micro_reactions_and_props",
+          "REF-002": "hosted_presenter_direct_address_pointing_to_3d_cutaway_models",
+          "REF-003": "no_host_animal_idle_and_symbolic_states"
+        },
+        "selected_strategy": "hosted_presenter_direct_address_pointing_to_3d_cutaway_models",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'expressive_ensemble_acting_deadpan_micro_reactions_and_props', 'REF-002': 'hosted_presenter_direct_address_pointing_to_3d_cutaway_models', 'REF-003': 'no_host_animal_idle_and_symbolic_states'} by selecting 'REF-002' as primary for 'character_acting' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+      },
+      "visual_style": {
+        "dimension": "visual_style",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [
+          "REF-001",
+          "REF-003"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "warm_stylized_3d_diorama_grounded_everyday_textures",
+          "REF-002": "clean_stylized_3d_architectural_cutaway_with_diagrammatic_clarity",
+          "REF-003": "user_style_applied_to_cinematic_scene_and_map_techniques"
+        },
+        "selected_strategy": "clean_stylized_3d_architectural_cutaway_with_diagrammatic_clarity",
+        "adaptation_rationale": "Locked single unified visual style 'stylized_3d' anchored to primary 'REF-002' so character, prop, and cutaway shaders never clash across shots."
+      },
+      "environment": {
+        "dimension": "environment",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [
+          "REF-001",
+          "REF-003"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "lived_in_indonesian_interior_and_public_service_counter_vignettes",
+          "REF-002": "modular_cross_section_stage_and_scale_comparison_diorama",
+          "REF-003": "set_and_terrain_with_time_of_day_lighting_and_state_transformation"
+        },
+        "selected_strategy": "modular_cross_section_stage_and_scale_comparison_diorama",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'lived_in_indonesian_interior_and_public_service_counter_vignettes', 'REF-002': 'modular_cross_section_stage_and_scale_comparison_diorama', 'REF-003': 'set_and_terrain_with_time_of_day_lighting_and_state_transformation'} by selecting 'REF-002' as primary for 'environment' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+      },
+      "camera": {
+        "dimension": "camera",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [
+          "REF-001",
+          "REF-003"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "conversational_medium_two_shot_with_snap_reaction_closeups",
+          "REF-002": "smooth_orthographic_feel_cutaway_push_and_macro_mechanism_inserts",
+          "REF-003": "slow_push_and_eased_geographic_waypoint_glide"
+        },
+        "selected_strategy": "smooth_orthographic_feel_cutaway_push_and_macro_mechanism_inserts",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'conversational_medium_two_shot_with_snap_reaction_closeups', 'REF-002': 'smooth_orthographic_feel_cutaway_push_and_macro_mechanism_inserts', 'REF-003': 'slow_push_and_eased_geographic_waypoint_glide'} by selecting 'REF-002' as primary for 'camera' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+      },
+      "motion": {
+        "dimension": "motion",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [
+          "REF-001",
+          "REF-003"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "snappy_anticipation_settle_prop_hand_transfer_and_double_takes",
+          "REF-002": "causal_flow_arrows_fluid_thermal_paths_and_exploded_assembly",
+          "REF-003": "ring_expand_region_fade_dot_field_and_camera_driven_continuity"
+        },
+        "selected_strategy": "causal_flow_arrows_fluid_thermal_paths_and_exploded_assembly",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'snappy_anticipation_settle_prop_hand_transfer_and_double_takes', 'REF-002': 'causal_flow_arrows_fluid_thermal_paths_and_exploded_assembly', 'REF-003': 'ring_expand_region_fade_dot_field_and_camera_driven_continuity'} by selecting 'REF-002' as primary for 'motion' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+      },
+      "technical_visualization": {
+        "dimension": "technical_visualization",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [
+          "REF-001",
+          "REF-003"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "diegetic_paperwork_stamps_and_visual_metaphor_props",
+          "REF-002": "3d_cross_section_cutaway_exploded_view_and_annotated_scientific_labels",
+          "REF-003": "map_overlays_boundary_population_and_radial_wave_visualization"
+        },
+        "selected_strategy": "3d_cross_section_cutaway_exploded_view_and_annotated_scientific_labels",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'diegetic_paperwork_stamps_and_visual_metaphor_props', 'REF-002': '3d_cross_section_cutaway_exploded_view_and_annotated_scientific_labels', 'REF-003': 'map_overlays_boundary_population_and_radial_wave_visualization'} by selecting 'REF-002' as primary for 'technical_visualization' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+      },
+      "caption": {
+        "dimension": "caption",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [
+          "REF-001",
+          "REF-003"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third",
+          "REF-002": "high_contrast_keyword_highlighted_captions_paired_with_callouts",
+          "REF-003": "small_keyword_accent_captions_with_year_cards_and_map_callouts"
+        },
+        "selected_strategy": "high_contrast_keyword_highlighted_captions_paired_with_callouts",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'punchy_dialogue_and_vo_phrase_chunks_safe_lower_third', 'REF-002': 'high_contrast_keyword_highlighted_captions_paired_with_callouts', 'REF-003': 'small_keyword_accent_captions_with_year_cards_and_map_callouts'} by selecting 'REF-002' as primary for 'caption' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+      },
+      "audio": {
+        "dimension": "audio",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [
+          "REF-001",
+          "REF-003"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause",
+          "REF-002": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes",
+          "REF-003": "deferred_phase_04"
+        },
+        "selected_strategy": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause', 'REF-002': 'authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes', 'REF-003': 'deferred_phase_04'} by selecting 'REF-002' as primary for 'audio' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+      },
+      "editing": {
+        "dimension": "editing",
+        "primary_reference_id": "REF-002",
+        "secondary_reference_ids": [
+          "REF-001",
+          "REF-003"
+        ],
+        "conflict_detected": true,
+        "conflicting_approaches": {
+          "REF-001": "reaction_driven_hard_cuts_2_to_4_5s_with_ comedic_hold_before_cut",
+          "REF-002": "clause_locked_visual_evidence_cuts_2_5_to_5_5s_on_causal_transitions",
+          "REF-003": "camera_driven_continuity_with_short_dip_to_black_transitions"
+        },
+        "selected_strategy": "clause_locked_visual_evidence_cuts_2_5_to_5_5s_on_causal_transitions",
+        "adaptation_rationale": "Resolved conflict between {'REF-001': 'reaction_driven_hard_cuts_2_to_4_5s_with_ comedic_hold_before_cut', 'REF-002': 'clause_locked_visual_evidence_cuts_2_5_to_5_5s_on_causal_transitions', 'REF-003': 'camera_driven_continuity_with_short_dip_to_black_transitions'} by selecting 'REF-002' as primary for 'editing' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+      }
+    }
+  },
+  "adaptation_records": [
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:00.0-00:04.8",
+      "observed_technique": "immediate_domestic_threshold_hook_with_expressive_posture",
+      "narrative_purpose": "establishing_shot:B01",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'immediate_domestic_threshold_hook_with_expressive_posture' from REF-001 (00:00.0-00:04.8) into original shot S001 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S001",
+      "required_asset": "char_sebatas_ingpoh",
+      "required_motion": "char_sebatas_ingpoh:Ingpoh mengipasi wajah dengan kipas lipat yang bergerak mengikuti pergelangan ta",
+      "camera_behavior": "establishing 24.0mm (elevated_establishing_16deg) -> mot_snappy_spring_pop",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S001 duration 3.5s <= 10.0s",
+        "Asset 'char_sebatas_ingpoh' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 24.0mm matches 'establishing_shot' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:04.8-00:14.5",
+      "observed_technique": "prop_exchange_escalation_and_deadpan_reaction_cut",
+      "narrative_purpose": "character_acting:B02",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'prop_exchange_escalation_and_deadpan_reaction_cut' from REF-001 (00:04.8-00:14.5) into original shot S002 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S002",
+      "required_asset": "char_sebatas_ingpoh",
+      "required_motion": "char_sebatas_ingpoh:Ingpoh berhenti mengipasi, kepala menoleh ke prop_ac_indoor_evaporator_cutaway d",
+      "camera_behavior": "medium 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S002 duration 3.0s <= 10.0s",
+        "Asset 'char_sebatas_ingpoh' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    },
+    {
+      "reference_id": "REF-001",
+      "evidence_timestamp": "00:14.5-00:26.0",
+      "observed_technique": "visual_scale_exaggeration_and_ironic_callback_hold",
+      "narrative_purpose": "character_acting:B03",
+      "applicable_genre": "explainer",
+      "adaptation_decision": "Adapt structural grammar 'visual_scale_exaggeration_and_ironic_callback_hold' from REF-001 (00:14.5-00:26.0) into original shot S003 under unified style 'stylized_3d' with 100% original characters, dialogue, and geometry.",
+      "shot_id": "S003",
+      "required_asset": "char_sebatas_ingpoh",
+      "required_motion": "char_sebatas_ingpoh:Ibu jari kanan menekan tombol suhu 24 derajat pada prop_ac_remote_control, tombo",
+      "camera_behavior": "medium 40.0mm (conversational_eye_level) -> mot_cinematic_ease_inout",
+      "caption_behavior": "high_contrast_keyword_highlighted_captions_paired_with_callouts (cues=1, status=ESTIMATED)",
+      "audio_behavior": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes (events=3)",
+      "engine_recommendation": "blender+remotion",
+      "acceptance_criteria": [
+        "Shot S003 duration 3.5s <= 10.0s",
+        "Asset 'char_sebatas_ingpoh' planned without PLACEHOLDER cube or copied REF-001 IP",
+        "Camera focal length 40.0mm matches 'character_acting' purpose"
+      ]
+    }
+  ],
+  "production_authorized": false
+}

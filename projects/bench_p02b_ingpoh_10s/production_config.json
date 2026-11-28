@@ -1,0 +1,817 @@
+{
+  "schema_version": "4.0.0-phase01.6c",
+  "project_id": "bench_p02b_ingpoh_10s",
+  "package_version": "v1",
+  "topic": {
+    "topic": "Ingpoh dan AC: Uji Animasi Karakter Blender 10 Detik",
+    "genres": [
+      "explainer",
+      "edukasi"
+    ],
+    "epistemic_mode": "factual_verified",
+    "research_status": "VERIFIED_COMPLETE",
+    "metrics_measured": {
+      "total_claims": 3,
+      "verified_claims": 3,
+      "unique_verified_sources": 3,
+      "citation_coverage_ratio": 1.0
+    },
+    "claims": [
+      {
+        "claim_id": "CLM_01",
+        "statement": "Evaporator AC indoor menyerap kalor udara ruangan ketika refrigeran cair bertekanan rendah menguap menjadi gas di dalam kumparan pipa.",
+        "epistemic_status": "verified_fact",
+        "source_title": "U.S. Department of Energy \u2014 Energy Saver: Air Conditioning",
+        "source_url": "https://www.energy.gov/energysaver/air-conditioning",
+        "publication_year": 2024,
+        "publication_date": "2024-06",
+        "evidence_excerpt": "Air conditioners transfer heat from the indoor air to the outdoors via an indoor evaporator coil filled with cold evaporating refrigerant.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_02",
+        "statement": "Kompresor menaikkan tekanan dan suhu uap refrigeran sehingga sirip kondensor outdoor dapat membuang kalor ke udara luar.",
+        "epistemic_status": "verified_fact",
+        "source_title": "Encyclopaedia Britannica \u2014 Air-conditioning: Principles of Operation",
+        "source_url": "https://www.britannica.com/technology/air-conditioning",
+        "publication_year": 2024,
+        "publication_date": "2024-08",
+        "evidence_excerpt": "In vapor-compression air conditioning, the compressor raises refrigerant vapor pressure and temperature so the outdoor condenser coil rejects heat to ambient air.",
+        "is_primary_source": true
+      },
+      {
+        "claim_id": "CLM_03",
+        "statement": "Termostat AC menjaga suhu ruangan nyaman stabil pada setelan target seperti 24 derajat Celsius tanpa mempercepat laju pendinginan awal saat disetel ekstrem rendah.",
+        "epistemic_status": "verified_fact",
+        "source_title": "U.S. Department of Energy \u2014 Central Air Conditioning",
+        "source_url": "https://www.energy.gov/energysaver/central-air-conditioning",
+        "publication_year": 2024,
+        "publication_date": "2024-05",
+        "evidence_excerpt": "Setting the thermostat lower than comfortable target temperature does not cool the room faster; the system removes heat at a steady rate.",
+        "is_primary_source": true
+      }
+    ]
+  },
+  "style_profile": "stylized_3d",
+  "style_bible_id": "xdx_stylized_3d_v4_0",
+  "creative_validation_metrics": {
+    "spoken_word_count": 21,
+    "title_keyword_overlap_script": 1,
+    "domain_keyword_overlap_script": 7,
+    "domain_keyword_overlap_actions": 18
+  },
+  "narration_timing_summary": {
+    "timing_status": "ESTIMATED",
+    "estimated_duration_s": 9.95,
+    "implied_wpm": 126.0,
+    "duration_recommendation": {
+      "suggest_duration_change": false,
+      "recommended_target_duration_s": 10,
+      "rationale": "Estimated delivery (9.95s, 126.0 WPM) fits comfortably within 10s with natural breath pauses."
+    }
+  },
+  "reference_intelligence": {
+    "selection_mode": "explicit_multi_reference",
+    "selected_reference_ids": [
+      "REF-001",
+      "REF-002",
+      "REF-003"
+    ],
+    "related_candidate_ids": [],
+    "upload_prompt_suppressed": true,
+    "production_authorized": false,
+    "analyzer_fingerprint": "123d73e7ca6078df4df3e8dbb8c1c53abd9cfe3e2883b1f6dcb8f45bf92d251c",
+    "cache_reports": [
+      {
+        "reference_id": "REF-001",
+        "cache_status": "CACHE_HIT_VALID",
+        "invalidation_reasons": [],
+        "reanalyzed": false,
+        "cache_key": {
+          "reference_id": "REF-001",
+          "video_sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
+          "analyzer_source_fingerprint": "e9f8598cbb6648fcd2ed091fa9477d9b1bc527de5d8d01d7432b0e3b2fa6a3cd",
+          "analyzer_version": "4.0.0-phase01.6c",
+          "analyzer_config_hash": "4841894b8c58a7d4d4dd8c45c69d97ea86f7a8a2f29af736ba06d1435a01bd94",
+          "analysis_schema_version": "rea_reference_analysis.v4.0",
+          "profile_version": "1.0.0+6b3421e2fa35",
+          "analysis_method_or_model": "ffmpeg_scdet_ebur128+opencv_hsv_edge_luma_mad",
+          "cache_key_sha256": "8a3e62ffaea0274e78688506c9d9bd2ad48b900a9f43459c783a8ef854570012"
+        },
+        "preserved_versions_count": 3,
+        "epistemic_analysis": {
+          "measurements": {
+            "container_duration_s": 154.618821,
+            "video_stream_duration_s": 154.5,
+            "width": 720,
+            "height": 1280,
+            "aspect_ratio": "9:16",
+            "video_codec": "h264",
+            "fps": 30.0,
+            "decoded_frames": 4635,
+            "audio": {
+              "codec": "aac",
+              "profile": "HE-AAC",
+              "sample_rate_hz": 44100,
+              "channels": 2,
+              "channel_layout": "stereo",
+              "integrated_loudness_lufs": -14.8,
+              "loudness_range_lu": 4.2,
+              "true_peak_dbfs": -0.2,
+              "silence_intervals_gt_250ms_at_neg35db": 9,
+              "total_silence_s": 3.601
+            },
+            "signal_candidates": {
+              "ffmpeg_gt_0_30_segments": 2,
+              "ffmpeg_gt_0_08_segments": 16,
+              "ffmpeg_gt_0_08_median_s": 12.633,
+              "opencv_adaptive_abrupt_candidates": 78,
+              "opencv_adaptive_sustained_change_candidates": 51,
+              "note": "Frequent 10-15 frame cross-dissolves suppress single-frame FFmpeg scene scores; OpenCV sustained-change + abrupt candidates + visual frame inspection capture real vignette transitions."
+            }
+          },
+          "visual_observations": [
+            "[01_narrative_structure_and_hook] hook_0_5s=Protagonist wakes up stretching on a purple bed in a cozy striped bedroom (00:00s) and opens the front door (00:03s) as second-person narration ('Kamu...') immediately places the viewer inside everyday public infrastructure.",
+            "[02_shots_timestamps_and_pacing] estimated_visual_shots=48; rhythm_notes=Rapid montage of 2.5-4.0s visual gags inside each topical vignette, bridged by soft cross-dissolves between ministries/locations and punctuated by 9 brief breath pauses.",
+            "[03_characters_and_acting] protagonist=Recurring everyday citizen in teal shirt and dark trousers acting as audience surrogate (observer, commuter, voter, HRD interviewer).; ensemble_archetypes=Modular stylized cast differentiated immediately by silhouette props: yellow hard-hat inspector, glasses-and-peci ministers, white-coat doctors, caping farmer, black-robed judge, campaign candidates.",
+            "[04_body_motion_facial_expressions_and_objects] proportions=Spherical head (~0.35 body height) with slender cylindrical rubber-hose limbs.; facial_system=2D-projected expressive brow/eye/mouth states (wide-eyed shock, squinted frustration, clenched-teeth grimace, glasses specular flash).",
+            "[05_camera_and_cinematography] camera_motion=Gentle linear dolly push-ins/pull-backs and lateral slides; minimal handheld shake.",
+            "[06_environment_assets_materials_and_lighting] environments=Modular Indonesian civic & domestic dioramas (bedroom, suburban street, ministry facade, classroom, Puskesmas, rice paddy, market, courtroom, rally stage, polling booth).; materials=Clean matte/semi-matte stylized PBR surfaces (roughness ~0.45-0.85) with crisp readability and low texture noise.",
+            "[07_technical_cutaways_and_demonstrations] diegetic_data_staging=Data and statistics are built as physical in-world 3D props rather than flat 2D slides: 'RAPOR DUNIA: INDEKS PERSEPSI KORUPSI 34/100' classroom board, '1 DOKTER' surrounded by hundreds of 3D citizen pegs, 'KERUGIAN MACET 65 TRILIUN' street billboard, and 'DETIK MERAH 30' traffic timer.",
+            "[08_captions_and_typography] export_cleanliness=Direct clean 9:16 master export without social-platform UI chrome.; subtitle_style=Word-by-word / short-token dynamic captions (1-2 words per cue) centered at ~78% vertical height, bold white geometric sans-serif with thick black outline and soft drop shadow.",
+            "[09_narration_audio_and_sfx] delivery=Continuous, brisk conversational Indonesian second-person voiceover (-14.8 LUFS integrated, tight 4.2 LU dynamic range) with minimal dead air (only 3.6s silence >250ms across 154.6s).; mix_observations=Steady background music bed tucked beneath forward vocal presence, accented by subtle transitional and comedic beats.",
+            "[10_editing_transitions_and_vfx] transitions=Hybrid editing: hard cuts inside a location, 10-15 frame cross-dissolves across topical/scene shifts (visible at 06.0s, 21.0s, 36.0s, 135.0s).; vfx=Volumetric stage light cones, glasses lens-gleam highlight (01:18s), 2D comic thought-bubble ('?', 01:00s), and foreground blur rack-focus (01:45s)."
+          ],
+          "inferences": [
+            "Reusable profile 'satirical_3d_vignette_storytelling_v1' targets shot split [2.0, 4.5]s for social_satire.",
+            "Hook pattern 'everyday_domestic_threshold_second_person_hook_0_5s' inferred to sustain early viewer retention."
+          ],
+          "limitations": [
+            "Original authoring project files, proprietary prompts, and source stems are not recoverable from encoded MP4 bytes.",
+            "Signal-level FFmpeg/OpenCV cut and loudness measurements complement \u2014 and never replace \u2014 semantic human/multimodal review.",
+            "Copyrighted characters, dialogue, recorder UI elements, and music in the reference are strictly excluded from reuse."
+          ]
+        }
+      },
+      {
+        "reference_id": "REF-002",
+        "cache_status": "CACHE_HIT_VALID",
+        "invalidation_reasons": [],
+        "reanalyzed": false,
+        "cache_key": {
+          "reference_id": "REF-002",
+          "video_sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+          "analyzer_source_fingerprint": "e9f8598cbb6648fcd2ed091fa9477d9b1bc527de5d8d01d7432b0e3b2fa6a3cd",
+          "analyzer_version": "4.0.0-phase01.6c",
+          "analyzer_config_hash": "4841894b8c58a7d4d4dd8c45c69d97ea86f7a8a2f29af736ba06d1435a01bd94",
+          "analysis_schema_version": "rea_reference_analysis.v4.0",
+          "profile_version": "1.0.0+0ee9fff3875b",
+          "analysis_method_or_model": "ffmpeg_scdet_ebur128+opencv_hsv_edge_luma_mad",
+          "cache_key_sha256": "edfefb172fc2ae9521b30d75fac2f69357f3f7ad717817cb30f587f733314e09"
+        },
+        "preserved_versions_count": 3,
+        "epistemic_analysis": {
+          "measurements": {
+            "container_duration_s": 105.543,
+            "video_stream_duration_s": 105.543,
+            "width": 720,
+            "height": 1600,
+            "aspect_ratio": "9:20_screen_capture_crop_to_9:16_production",
+            "video_codec": "hevc",
+            "fps": 34.999953,
+            "decoded_frames": 3694,
+            "audio": {
+              "codec": "aac",
+              "profile": "LC",
+              "sample_rate_hz": 48000,
+              "channels": 2,
+              "channel_layout": "stereo",
+              "integrated_loudness_lufs": -20.0,
+              "loudness_range_lu": 2.9,
+              "true_peak_dbfs": -9.4,
+              "silence_intervals_gt_250ms_at_neg35db": 33,
+              "total_silence_s": 10.71
+            },
+            "signal_candidates": {
+              "ffmpeg_gt_0_18_segments": 46,
+              "ffmpeg_gt_0_18_median_s": 2.257,
+              "ffmpeg_gt_0_18_mean_s": 2.294,
+              "ffmpeg_gt_0_18_min_s": 0.6,
+              "ffmpeg_gt_0_18_max_s": 6.028,
+              "opencv_adaptive_abrupt_candidates": 47,
+              "opencv_adaptive_sustained_change_candidates": 4,
+              "note": "Predominantly crisp hard-cut editing; FFmpeg (46 segments) and OpenCV adaptive abrupt detector (47 hits) closely agree, with every candidate segment <= 6.03s."
+            }
+          },
+          "visual_observations": [
+            "[01_narrative_structure_and_hook] hook_0_6s=Concrete sensory need in 0-6s: stepping out of a desert adobe house (00:00s), top-down pouring of sweet iced tea (00:02-00:04s), and sitting under blazing sun craving cold ice without electricity (00:06s).",
+            "[02_shots_timestamps_and_pacing] candidate_segments=46; median_shot_s=2.257",
+            "[03_characters_and_acting] host_avatar=Single recurring presenter in desert robe/headscarf who physically performs every step (digging, pouring, mortaring, carrying ice) while reacting to viewer objections.; historical_cast=Supporting period-dressed figures introduced only at 01:34-01:40s to ground historical scale.",
+            "[04_body_motion_facial_expressions_and_objects] task_actions=Concrete verb-driven body mechanics: pouring pitcher, kneeling by ice trench, scratching head in puzzlement (00:18s), fanning face (00:40s), stirring mortar paddle beside 3D goat (01:00-01:02s), chipping ice blocks (01:24s), toasting glass (01:42s).; facial_readability=Clean brow/eye punctuation supporting curiosity, heat exhaustion, and satisfaction.",
+            "[05_camera_and_cinematography] camera_motion=Locked orthographic/top-down frames for technical clarity; controlled slow push-ins and vertical tilts on architectural scale.",
+            "[06_environment_assets_materials_and_lighting] environment_progression=Scene evolves causally as the host builds the engineering system step by step (bare desert -> trench -> shade wall -> deep pit -> conical dome -> windcatcher).; materials=Tactile matte clay, adobe brick, layered soil strata, translucent ice/water shader, wood.",
+            "[08_captions_and_typography] capture_artifact_warning=Source file is a 720x1600 mobile screen recording containing Android status bar, social app icons, and transient toast overlay (00:06-00:10s). XDX Studio productions NEVER reproduce capture UI chrome.; content_captions=Clean 2-3 word clause-chunks in lower-center safe zone (white sans-serif with subtle dark stroke/shadow) plus minimal diegetic labels ('YAKHCHAL - YAZD, IRAN').",
+            "[09_narration_audio_and_sfx] delivery=Clear conversational Indonesian step-by-step explanation (-20.0 LUFS in captured stream, 2.9 LU LRA) structured around 33 deliberate micro-pauses (>250ms) that let each visual physics beat land.; unverified_audio_boundaries=Original studio master stems and full verbatim ASR transcript are not claimed or copied.",
+            "[10_editing_transitions_and_vfx] transitions=Almost 100% clean hard cuts aligned to spoken clause boundaries and action completions.; vfx=Animated 3D vector arrows/ribbons for thermal/airflow physics, frost/ice surface state change, and time-of-day sky/shadow shift."
+          ],
+          "inferences": [
+            "Reusable profile 'hosted_3d_explainer_cutaway_v1' targets shot split [2, 4]s for explainer.",
+            "Hook pattern 'concrete_need_visual_question_0_3s' inferred to sustain early viewer retention."
+          ],
+          "limitations": [
+            "Original authoring project files, proprietary prompts, and source stems are not recoverable from encoded MP4 bytes.",
+            "Signal-level FFmpeg/OpenCV cut and loudness measurements complement \u2014 and never replace \u2014 semantic human/multimodal review.",
+            "Copyrighted characters, dialogue, recorder UI elements, and music in the reference are strictly excluded from reuse."
+          ]
+        }
+      },
+      {
+        "reference_id": "REF-003",
+        "cache_status": "CACHE_HIT_VALID",
+        "invalidation_reasons": [],
+        "reanalyzed": false,
+        "cache_key": {
+          "reference_id": "REF-003",
+          "video_sha256": "6763efe27a2f312acedd15cb4f1663413fff533a99a4fd77de3686838d4bec87",
+          "analyzer_source_fingerprint": "e9f8598cbb6648fcd2ed091fa9477d9b1bc527de5d8d01d7432b0e3b2fa6a3cd",
+          "analyzer_version": "4.0.0-phase01.6c",
+          "analyzer_config_hash": "4841894b8c58a7d4d4dd8c45c69d97ea86f7a8a2f29af736ba06d1435a01bd94",
+          "analysis_schema_version": "rea_reference_analysis.v4.0",
+          "profile_version": "1.0.0+3eb3bf451c30",
+          "analysis_method_or_model": "ffmpeg_scdet_ebur128+opencv_hsv_edge_luma_mad",
+          "cache_key_sha256": "634aa59dcea5a7852439488634db353bf943db8f15d4db739c2dca3622d55399"
+        },
+        "preserved_versions_count": 3,
+        "epistemic_analysis": {
+          "measurements": {
+            "container_duration_s": 64.364,
+            "video_stream_duration_s": 64.333,
+            "width": 1280,
+            "height": 720,
+            "aspect_ratio": "16:9_landscape (XDX production is 9:16: adapt framing, do not letterbox)",
+            "video_codec": "h264",
+            "fps": 30,
+            "decoded_frames": 1930,
+            "audio": {
+              "codec": "aac",
+              "mean_volume_db": -16.1,
+              "max_volume_db": 0.0,
+              "note": "Phase 04 topic; only volumedetect run"
+            },
+            "signal_candidates": {
+              "scene_gt_0_10_times_s": [
+                3.5,
+                13.567,
+                39.133,
+                39.167,
+                39.233,
+                43.4,
+                43.433,
+                43.5
+              ],
+              "scene_gt_0_25_times_s": [
+                39.167,
+                43.4,
+                43.5
+              ],
+              "black_dips_s": [
+                [
+                  0,
+                  0.133
+                ],
+                [
+                  13.8,
+                  13.933
+                ],
+                [
+                  34.867,
+                  35.0
+                ],
+                [
+                  40.933,
+                  41.1
+                ],
+                [
+                  43.533,
+                  43.833
+                ],
+                [
+                  46.6,
+                  46.733
+                ],
+                [
+                  64.167,
+                  64.3
+                ]
+              ],
+              "note": "Very few hard cuts: most transitions are camera moves, dissolves or short dips to black (0.13-0.3 s)."
+            }
+          },
+          "visual_observations": [
+            "[01_narrative_structure_and_hook] hook_0_6s=OBSERVED: year title over an erupting volcano, ash shockwave and tsunami front within 6 s; evidence=OBSERVED from frames and captions; narrative labels are INFERENCE",
+            "[02_shots_timestamps_and_pacing] observed=Roughly 8-14 s continuous beats with camera motion inside each; hard cut candidates only at 3.5, 13.6, 39.1, 43.4 s; dips to black at 0, 13.8, 34.9, 40.9, 43.5, 46.6, 64.2 s; pacing_note=Slower, longer takes than REF-001/REF-002 (2-4 s); in XDX this is a per-shot choice, not a global rule",
+            "[03_characters_and_acting] observed=No human character; one quadruped animal appears in 3 looks (lit, silhouette, hologram); grazing idle at 8-13 s; inference=Animal likely rigged with an idle loop (METHOD NOT VERIFIED)",
+            "[04_body_motion_facial_expressions_and_objects] observed=Head-down grazing motion; hologram animal stands still; horn glow flare at 38 s",
+            "[05_camera_and_cinematography] camera_motion=slow push-in/orbit on the set shots; eased glides and tilts over the map",
+            "[06_environment_assets_materials_and_lighting] observed=Fiery orange sky and glow; dark ocean with glints; olive-green relief terrain with vegetation texture; golden-hour backlight; cold blue night with rim light; trees with long shadows; inference=Terrain and animal likely 3D renders; exact tools unknown",
+            "[07_technical_cutaways_and_demonstrations] observed=No mechanical cutaways; the explanatory device is the map with highlight/point/ring overlays",
+            "[08_captions_and_typography] observed=Small sans-serif lower captions centred, key words in orange accent; serif year cards with small-caps place line; serif map labels with thin leader lines; copy_restriction=Do not reuse these fonts, colours or wording; use the style bible's caption preset",
+            "[09_narration_audio_and_sfx] deferred_to=Phase 04; observed=Audio track present (AAC); no analysis beyond level; no ASR performed",
+            "[10_editing_transitions_and_vfx] observed=Dip-to-black transitions, long camera-driven continuity, ring/outline/dot overlays, eruption and wave VFX, glow highlight, hologram look"
+          ],
+          "inferences": [
+            "Reusable profile 'cinematic_geo_documentary_v1' targets shot split [4, 10]s for dokumenter.",
+            "Hook pattern 'dated_event_visual_hook_0_6s' inferred to sustain early viewer retention."
+          ],
+          "limitations": [
+            "Original authoring project files, proprietary prompts, and source stems are not recoverable from encoded MP4 bytes.",
+            "Signal-level FFmpeg/OpenCV cut and loudness measurements complement \u2014 and never replace \u2014 semantic human/multimodal review.",
+            "Copyrighted characters, dialogue, recorder UI elements, and music in the reference are strictly excluded from reuse."
+          ]
+        }
+      }
+    ],
+    "references": [
+      {
+        "id": "REF-001",
+        "genre": "social_satire",
+        "video_relpath": "reference_database/references/social_satire/REF-001/original.mp4",
+        "video_sha256": "12f9e1d992fc6f71f56c4c1116a91def3f6ca70bf1c55aa2618281ae4a71879d",
+        "bytes": 27026130,
+        "verification_status": "VERIFIED",
+        "profile_id": "satirical_3d_vignette_storytelling_v1",
+        "prior_analysis_relpath": "reference_database/references/social_satire/REF-001/prior_analysis.md",
+        "rea_analysis_v3_4_relpath": "reference_database/references/social_satire/REF-001/rea_analysis_v3_4.json",
+        "measurements": {
+          "container_duration_s": 154.618821,
+          "video_stream_duration_s": 154.5,
+          "width": 720,
+          "height": 1280,
+          "aspect_ratio": "9:16",
+          "video_codec": "h264",
+          "fps": 30.0,
+          "decoded_frames": 4635,
+          "audio": {
+            "codec": "aac",
+            "profile": "HE-AAC",
+            "sample_rate_hz": 44100,
+            "channels": 2,
+            "channel_layout": "stereo",
+            "integrated_loudness_lufs": -14.8,
+            "loudness_range_lu": 4.2,
+            "true_peak_dbfs": -0.2,
+            "silence_intervals_gt_250ms_at_neg35db": 9,
+            "total_silence_s": 3.601
+          },
+          "signal_candidates": {
+            "ffmpeg_gt_0_30_segments": 2,
+            "ffmpeg_gt_0_08_segments": 16,
+            "ffmpeg_gt_0_08_median_s": 12.633,
+            "opencv_adaptive_abrupt_candidates": 78,
+            "opencv_adaptive_sustained_change_candidates": 51,
+            "note": "Frequent 10-15 frame cross-dissolves suppress single-frame FFmpeg scene scores; OpenCV sustained-change + abrupt candidates + visual frame inspection capture real vignette transitions."
+          }
+        },
+        "narrative_pattern": "circular_bedroom_loop_second_person_social_satire"
+      },
+      {
+        "id": "REF-002",
+        "genre": "explainer",
+        "video_relpath": "reference_database/references/explainer/REF-002-Yakhchal/original.mp4",
+        "video_sha256": "042ad39d5fc318a7491dab0f100432d02e7ad1c04806f7cc92a74fdf350f6b01",
+        "bytes": 38669358,
+        "verification_status": "VERIFIED",
+        "profile_id": "hosted_3d_explainer_cutaway_v1",
+        "prior_analysis_relpath": "reference_database/references/explainer/REF-002-Yakhchal/prior_analysis.json",
+        "rea_analysis_v3_4_relpath": "reference_database/references/explainer/REF-002-Yakhchal/rea_analysis_v3_4.json",
+        "measurements": {
+          "container_duration_s": 105.543,
+          "video_stream_duration_s": 105.543,
+          "width": 720,
+          "height": 1600,
+          "aspect_ratio": "9:20_screen_capture_crop_to_9:16_production",
+          "video_codec": "hevc",
+          "fps": 34.999953,
+          "decoded_frames": 3694,
+          "audio": {
+            "codec": "aac",
+            "profile": "LC",
+            "sample_rate_hz": 48000,
+            "channels": 2,
+            "channel_layout": "stereo",
+            "integrated_loudness_lufs": -20.0,
+            "loudness_range_lu": 2.9,
+            "true_peak_dbfs": -9.4,
+            "silence_intervals_gt_250ms_at_neg35db": 33,
+            "total_silence_s": 10.71
+          },
+          "signal_candidates": {
+            "ffmpeg_gt_0_18_segments": 46,
+            "ffmpeg_gt_0_18_median_s": 2.257,
+            "ffmpeg_gt_0_18_mean_s": 2.294,
+            "ffmpeg_gt_0_18_min_s": 0.6,
+            "ffmpeg_gt_0_18_max_s": 6.028,
+            "opencv_adaptive_abrupt_candidates": 47,
+            "opencv_adaptive_sustained_change_candidates": 4,
+            "note": "Predominantly crisp hard-cut editing; FFmpeg (46 segments) and OpenCV adaptive abrupt detector (47 hits) closely agree, with every candidate segment <= 6.03s."
+          }
+        },
+        "narrative_pattern": "need -> question -> physical_demo -> mechanism -> obstacle_loop -> historical_reveal -> callback"
+      },
+      {
+        "id": "REF-003",
+        "genre": "dokumenter",
+        "video_relpath": "reference_database/references/documentary/REF-003-Javan-Rhino-Krakatau/original.mp4",
+        "video_sha256": "6763efe27a2f312acedd15cb4f1663413fff533a99a4fd77de3686838d4bec87",
+        "bytes": 10302125,
+        "verification_status": "VERIFIED",
+        "profile_id": "cinematic_geo_documentary_v1",
+        "prior_analysis_relpath": "reference_database/references/documentary/REF-003-Javan-Rhino-Krakatau/prior_analysis.json",
+        "rea_analysis_v3_4_relpath": "reference_database/references/documentary/REF-003-Javan-Rhino-Krakatau/rea_analysis_v3_4.json",
+        "measurements": {
+          "container_duration_s": 64.364,
+          "video_stream_duration_s": 64.333,
+          "width": 1280,
+          "height": 720,
+          "aspect_ratio": "16:9_landscape (XDX production is 9:16: adapt framing, do not letterbox)",
+          "video_codec": "h264",
+          "fps": 30,
+          "decoded_frames": 1930,
+          "audio": {
+            "codec": "aac",
+            "mean_volume_db": -16.1,
+            "max_volume_db": 0.0,
+            "note": "Phase 04 topic; only volumedetect run"
+          },
+          "signal_candidates": {
+            "scene_gt_0_10_times_s": [
+              3.5,
+              13.567,
+              39.133,
+              39.167,
+              39.233,
+              43.4,
+              43.433,
+              43.5
+            ],
+            "scene_gt_0_25_times_s": [
+              39.167,
+              43.4,
+              43.5
+            ],
+            "black_dips_s": [
+              [
+                0,
+                0.133
+              ],
+              [
+                13.8,
+                13.933
+              ],
+              [
+                34.867,
+                35.0
+              ],
+              [
+                40.933,
+                41.1
+              ],
+              [
+                43.533,
+                43.833
+              ],
+              [
+                46.6,
+                46.733
+              ],
+              [
+                64.167,
+                64.3
+              ]
+            ],
+            "note": "Very few hard cuts: most transitions are camera moves, dissolves or short dips to black (0.13-0.3 s)."
+          }
+        },
+        "narrative_pattern": "dated_disaster_hook -> false_cause -> geographic_scope -> doubt -> reveal_true_cause -> time_jump_loss -> protected_remnant -> callback_map_with_human_responsibility"
+      }
+    ],
+    "fused_production_profile": {
+      "is_multi_reference_blend": true,
+      "source_reference_ids": [
+        "REF-001",
+        "REF-002",
+        "REF-003"
+      ],
+      "profile_ids": [
+        "satirical_3d_vignette_storytelling_v1",
+        "hosted_3d_explainer_cutaway_v1",
+        "cinematic_geo_documentary_v1"
+      ],
+      "requires_hero_character": true,
+      "hook_formula": "everyday_domestic_threshold_second_person_hook_0_5s",
+      "pacing_benchmark": {
+        "typical_shot_s": [
+          2.0,
+          10.0
+        ],
+        "preferred_split_s": 4.5,
+        "hard_max_shot_s": 10.0
+      },
+      "story_beats": [
+        "domestic_wake_or_threshold_hook",
+        "everyday_friction_observation",
+        "institutional_or_systemic_escalation",
+        "diegetic_3d_data_contrast",
+        "historical_or_ethical_foil",
+        "decision_dilemma_climax",
+        "circular_domestic_callback",
+        "personal_need",
+        "question",
+        "demonstration",
+        "mechanism",
+        "obstacle",
+        "solution",
+        "reveal",
+        "callback",
+        "dated_hook",
+        "false_or_expected_cause",
+        "geographic_scope",
+        "doubt",
+        "time_jump",
+        "remnant_or_present"
+      ],
+      "visual_modes": [
+        "SURROGATE_CITIZEN_ACTING",
+        "INSTITUTIONAL_VIGNETTE",
+        "DIEGETIC_3D_SCOREBOARD_OR_SCALE",
+        "CROWD_RATIO_DIORAMA",
+        "STAGE_SPOTLIGHT_METAPHOR",
+        "CIRCULAR_CALLBACK",
+        "HOST_ACTING",
+        "OBJECT_INSERT",
+        "PHYSICAL_DEMONSTRATION",
+        "TECHNICAL_CUTAWAY",
+        "CONTEXTUAL_CUTAWAY",
+        "HISTORICAL_REENACTMENT",
+        "DATA_VISUALIZATION",
+        "CALLBACK",
+        "HISTORICAL_RECONSTRUCTION",
+        "GEOGRAPHIC_MAP",
+        "MAP_CAMERA_NAVIGATION",
+        "BOUNDARY_HIGHLIGHT",
+        "POPULATION_DOTS",
+        "RADIAL_WAVE",
+        "NATURAL_PHENOMENON_VFX",
+        "ANIMAL_VISUALIZATION",
+        "OBJECT_HIGHLIGHT",
+        "ENVIRONMENT_TRANSFORMATION",
+        "SYMBOLIC_HOLOGRAM"
+      ],
+      "camera_vocabulary": [
+        "domestic_establishing_wide",
+        "citizen_eye_level_medium",
+        "high_angle_crowd_ratio",
+        "over_shoulder_choice_insert",
+        "reaction_closeup",
+        "host_medium",
+        "topdown_insert",
+        "sectional_cutaway",
+        "architecture_or_object_reveal",
+        "low_horizon_wide",
+        "ground_level_animal",
+        "oblique_map_glide",
+        "map_zoom_to_target",
+        "backlit_profile",
+        "map_pull_back"
+      ],
+      "motion_vocabulary": [
+        "stretch_wake",
+        "door_open_step",
+        "inspect_prop",
+        "ride_or_commute",
+        "head_clutch_reaction",
+        "present_scoreboard",
+        "hesitate_choice",
+        "idle_breathing",
+        "blink",
+        "look",
+        "point",
+        "present",
+        "pick_up",
+        "carry",
+        "pour",
+        "bend",
+        "walk_short",
+        "reaction",
+        "camera_waypoint_glide",
+        "ring_expand",
+        "region_fade_in",
+        "dot_twinkle",
+        "idle_graze",
+        "glow_pulse",
+        "state_swap_dissolve"
+      ],
+      "caption_preset": "cap_xdx_bold_stroke_9x16",
+      "quality_gates": [
+        "semantic_clause_to_visual_alignment",
+        "fact_or_satire_epistemic_clarity",
+        "no_placeholder_final_assets",
+        "character_continuity",
+        "frame_determinism",
+        "audio_caption_sync",
+        "actual_render_visual_review",
+        "fact_source_verified",
+        "geodata_accuracy_verified",
+        "species_anatomy_verified"
+      ],
+      "restrictions": [
+        "do not copy source character, script, political names, music, or assets",
+        "no automatic production before approval",
+        "no render claim from schema validation",
+        "do not copy source character, script, music, branding, UI or assets",
+        "no fixed desert palette or historical reveal for unrelated topics",
+        "do not copy REF-003 animal model, textures, colours, fonts, wording, map styling or assets",
+        "techniques stay REFERENCE_OBSERVED until an actual XDX render passes QC"
+      ]
+    },
+    "ten_dimension_fusion": {
+      "fusion_mode": "multi_reference_10d_conflict_resolved",
+      "source_reference_ids": [
+        "REF-001",
+        "REF-002",
+        "REF-003"
+      ],
+      "unified_visual_style_profile": "stylized_3d",
+      "style_consistency_verified": true,
+      "conflicts_detected_count": 10,
+      "dimensions": {
+        "narrative_structure": {
+          "dimension": "narrative_structure",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [
+            "REF-001",
+            "REF-003"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "three_act_domestic_civic_escalation_with_ironic_callback",
+            "REF-002": "counterintuitive_anomaly_hook_to_causal_mechanism_and_synthesis",
+            "REF-003": "dated_event_hook_false_cause_reveal_and_map_callback"
+          },
+          "selected_strategy": "counterintuitive_anomaly_hook_to_causal_mechanism_and_synthesis",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'three_act_domestic_civic_escalation_with_ironic_callback', 'REF-002': 'counterintuitive_anomaly_hook_to_causal_mechanism_and_synthesis', 'REF-003': 'dated_event_hook_false_cause_reveal_and_map_callback'} by selecting 'REF-002' as primary for 'narrative_structure' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+        },
+        "character_acting": {
+          "dimension": "character_acting",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [
+            "REF-001",
+            "REF-003"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "expressive_ensemble_acting_deadpan_micro_reactions_and_props",
+            "REF-002": "hosted_presenter_direct_address_pointing_to_3d_cutaway_models",
+            "REF-003": "no_host_animal_idle_and_symbolic_states"
+          },
+          "selected_strategy": "hosted_presenter_direct_address_pointing_to_3d_cutaway_models",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'expressive_ensemble_acting_deadpan_micro_reactions_and_props', 'REF-002': 'hosted_presenter_direct_address_pointing_to_3d_cutaway_models', 'REF-003': 'no_host_animal_idle_and_symbolic_states'} by selecting 'REF-002' as primary for 'character_acting' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+        },
+        "visual_style": {
+          "dimension": "visual_style",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [
+            "REF-001",
+            "REF-003"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "warm_stylized_3d_diorama_grounded_everyday_textures",
+            "REF-002": "clean_stylized_3d_architectural_cutaway_with_diagrammatic_clarity",
+            "REF-003": "user_style_applied_to_cinematic_scene_and_map_techniques"
+          },
+          "selected_strategy": "clean_stylized_3d_architectural_cutaway_with_diagrammatic_clarity",
+          "adaptation_rationale": "Locked single unified visual style 'stylized_3d' anchored to primary 'REF-002' so character, prop, and cutaway shaders never clash across shots."
+        },
+        "environment": {
+          "dimension": "environment",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [
+            "REF-001",
+            "REF-003"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "lived_in_indonesian_interior_and_public_service_counter_vignettes",
+            "REF-002": "modular_cross_section_stage_and_scale_comparison_diorama",
+            "REF-003": "set_and_terrain_with_time_of_day_lighting_and_state_transformation"
+          },
+          "selected_strategy": "modular_cross_section_stage_and_scale_comparison_diorama",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'lived_in_indonesian_interior_and_public_service_counter_vignettes', 'REF-002': 'modular_cross_section_stage_and_scale_comparison_diorama', 'REF-003': 'set_and_terrain_with_time_of_day_lighting_and_state_transformation'} by selecting 'REF-002' as primary for 'environment' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+        },
+        "camera": {
+          "dimension": "camera",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [
+            "REF-001",
+            "REF-003"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "conversational_medium_two_shot_with_snap_reaction_closeups",
+            "REF-002": "smooth_orthographic_feel_cutaway_push_and_macro_mechanism_inserts",
+            "REF-003": "slow_push_and_eased_geographic_waypoint_glide"
+          },
+          "selected_strategy": "smooth_orthographic_feel_cutaway_push_and_macro_mechanism_inserts",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'conversational_medium_two_shot_with_snap_reaction_closeups', 'REF-002': 'smooth_orthographic_feel_cutaway_push_and_macro_mechanism_inserts', 'REF-003': 'slow_push_and_eased_geographic_waypoint_glide'} by selecting 'REF-002' as primary for 'camera' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+        },
+        "motion": {
+          "dimension": "motion",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [
+            "REF-001",
+            "REF-003"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "snappy_anticipation_settle_prop_hand_transfer_and_double_takes",
+            "REF-002": "causal_flow_arrows_fluid_thermal_paths_and_exploded_assembly",
+            "REF-003": "ring_expand_region_fade_dot_field_and_camera_driven_continuity"
+          },
+          "selected_strategy": "causal_flow_arrows_fluid_thermal_paths_and_exploded_assembly",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'snappy_anticipation_settle_prop_hand_transfer_and_double_takes', 'REF-002': 'causal_flow_arrows_fluid_thermal_paths_and_exploded_assembly', 'REF-003': 'ring_expand_region_fade_dot_field_and_camera_driven_continuity'} by selecting 'REF-002' as primary for 'motion' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+        },
+        "technical_visualization": {
+          "dimension": "technical_visualization",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [
+            "REF-001",
+            "REF-003"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "diegetic_paperwork_stamps_and_visual_metaphor_props",
+            "REF-002": "3d_cross_section_cutaway_exploded_view_and_annotated_scientific_labels",
+            "REF-003": "map_overlays_boundary_population_and_radial_wave_visualization"
+          },
+          "selected_strategy": "3d_cross_section_cutaway_exploded_view_and_annotated_scientific_labels",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'diegetic_paperwork_stamps_and_visual_metaphor_props', 'REF-002': '3d_cross_section_cutaway_exploded_view_and_annotated_scientific_labels', 'REF-003': 'map_overlays_boundary_population_and_radial_wave_visualization'} by selecting 'REF-002' as primary for 'technical_visualization' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+        },
+        "caption": {
+          "dimension": "caption",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [
+            "REF-001",
+            "REF-003"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "punchy_dialogue_and_vo_phrase_chunks_safe_lower_third",
+            "REF-002": "high_contrast_keyword_highlighted_captions_paired_with_callouts",
+            "REF-003": "small_keyword_accent_captions_with_year_cards_and_map_callouts"
+          },
+          "selected_strategy": "high_contrast_keyword_highlighted_captions_paired_with_callouts",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'punchy_dialogue_and_vo_phrase_chunks_safe_lower_third', 'REF-002': 'high_contrast_keyword_highlighted_captions_paired_with_callouts', 'REF-003': 'small_keyword_accent_captions_with_year_cards_and_map_callouts'} by selecting 'REF-002' as primary for 'caption' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+        },
+        "audio": {
+          "dimension": "audio",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [
+            "REF-001",
+            "REF-003"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause",
+            "REF-002": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes",
+            "REF-003": "deferred_phase_04"
+          },
+          "selected_strategy": "authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'character_dialogue_interplay_crisp_foley_stamps_and_comedic_room_pause', 'REF-002': 'authoritative_warm_narrator_142wpm_ducked_bed_and_mechanism_whooshes', 'REF-003': 'deferred_phase_04'} by selecting 'REF-002' as primary for 'audio' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+        },
+        "editing": {
+          "dimension": "editing",
+          "primary_reference_id": "REF-002",
+          "secondary_reference_ids": [
+            "REF-001",
+            "REF-003"
+          ],
+          "conflict_detected": true,
+          "conflicting_approaches": {
+            "REF-001": "reaction_driven_hard_cuts_2_to_4_5s_with_ comedic_hold_before_cut",
+            "REF-002": "clause_locked_visual_evidence_cuts_2_5_to_5_5s_on_causal_transitions",
+            "REF-003": "camera_driven_continuity_with_short_dip_to_black_transitions"
+          },
+          "selected_strategy": "clause_locked_visual_evidence_cuts_2_5_to_5_5s_on_causal_transitions",
+          "adaptation_rationale": "Resolved conflict between {'REF-001': 'reaction_driven_hard_cuts_2_to_4_5s_with_ comedic_hold_before_cut', 'REF-002': 'clause_locked_visual_evidence_cuts_2_5_to_5_5s_on_causal_transitions', 'REF-003': 'camera_driven_continuity_with_short_dip_to_black_transitions'} by selecting 'REF-002' as primary for 'editing' matching active genres ['edukasi', 'explainer'], while borrowing ['REF-001', 'REF-003'] only as subordinate beat modulation."
+        }
+      }
+    },
+    "adaptation_record_count": 3
+  },
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "aspect_ratio": "9:16",
+  "total_frames": 300
+}
